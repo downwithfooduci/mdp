@@ -271,6 +271,7 @@ GameObject:
   - 4: {fileID: 758440262}
   - 114: {fileID: 758440263}
   - 114: {fileID: 758440264}
+  - 114: {fileID: 758440265}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -313,6 +314,17 @@ MonoBehaviour:
   SpawnType: {fileID: 100000, guid: 9cfaf7020d06c6341bb8e35be76edcec, type: 2}
   SpawnPoint: {x: -14, y: 0, z: 7}
   SpawnInterval: 2
+--- !u!114 &758440265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 758440261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2c7ae14c29aa46bca233795135c0463, type: 3}
+  m_Name: 
+  Gravity: {x: 0, y: 0}
 --- !u!1 &761661245
 GameObject:
   m_ObjectHideFlags: 0

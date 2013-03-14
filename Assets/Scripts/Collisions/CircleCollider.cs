@@ -2,15 +2,19 @@ using UnityEngine;
 using System.Collections;
 
 public class CircleCollider : Collider {
+
+    public MDPEntity Entity
+    {
+        get { return m_Entity; }
+    }
+    private MDPEntity m_Entity;
 	
-	private GameObject m_GameObject;
-	
-	public CircleCollider(GameObject gameObject) 
+	public CircleCollider(MDPEntity entity) 
 	{
-		m_GameObject = gameObject;
+		m_Entity = entity;
 		
-		float lengthX = m_GameObject.renderer.bounds.size.x * 0.5f;
-		float lengthZ = m_GameObject.renderer.bounds.size.z * 0.5f;
+		float lengthX = m_Entity.gameObject.renderer.bounds.size.x * 0.5f;
+		float lengthZ = m_Entity.gameObject.renderer.bounds.size.z * 0.5f;
 		
 		Properties.Radius = (lengthX > lengthZ) ? lengthX : lengthZ;
 	}
@@ -21,20 +25,8 @@ public class CircleCollider : Collider {
 		Collider o2Collider = entity.Collider;
 				
 		if (o2Collider is CircleCollider)
-			return CircleToCircleCollision(o2, o2Collider);
+			return Intersection.CircleToCircle(m_Entity, entity);
 		else
 			return false;
-	}
-	
-	// Circles collide if distance between objects is less
-	// than the sum of their radii
-	private bool CircleToCircleCollision(GameObject o2, Collider collider)
-	{
-		float radiusSum = Properties.Radius + collider.Properties.Radius;
-		
-		float distanceSquared = MDPUtility.DistanceSquared(m_GameObject, o2);
-			
-		// Square root is a slow operation so square the radii instead
-		return distanceSquared < radiusSum * radiusSum;
 	}
 }

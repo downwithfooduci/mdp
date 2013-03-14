@@ -9,15 +9,15 @@ abstract public class Collider
     [StructLayout(LayoutKind.Explicit)]
     public struct Data
     {
+        // CircleCollider
         [FieldOffset(0)]
-        public float Radius; // CircleCollider
+        public float Radius;
 
-        // As an example, if we had a SquareCollider, 
-        // its properties would go after Radius like this:
-        // [FieldOffset(0)]
-        // public float Width;
-        // [FieldOffset(4)]
-        // public float Height;
+        // RectangleCollider
+        [FieldOffset(0)]
+        public float Width;
+        [FieldOffset(4)]
+        public float Height;
     }
 
     public Data Properties;

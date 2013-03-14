@@ -10,7 +10,7 @@ public class Bullet : MDPEntity
 	
 	// Use this for initialization
 	void Start () {
-		Collider = new CircleCollider(gameObject);
+		Collider = new CircleCollider(this);
 	}
 	
 	// Update is called once per frame

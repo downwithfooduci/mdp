@@ -12,7 +12,7 @@ public static class Easing
                           acceleration < 0 ? EaseOut(linearStep, type) : 
                           (float) linearStep;
 
-        return MathHelper.Lerp(linearStep, easedStep, Math.Abs(acceleration));
+        return Microsoft.Xna.Framework.MathHelper.Lerp((float)linearStep, easedStep, Math.Abs(acceleration));
     }
 
     public static float EaseIn(double linearStep, EasingType type)

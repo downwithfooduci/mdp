@@ -14,6 +14,13 @@ public static class MDPUtility
 		return diff.x * diff.x + diff.y * diff.y + diff.z * diff.z;
 	}
 
+    public static float DistanceSquared(Vector3 o1, Vector3 o2)
+    {
+        Vector3 diff = o1 - o2;
+
+        return diff.x * diff.x + diff.y * diff.y + diff.z * diff.z;
+    }
+
     public static Vector3 MouseToWorldPosition()
     {
         Vector3 position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
