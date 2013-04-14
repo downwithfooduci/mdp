@@ -20,5 +20,8 @@ public class TestMover : MonoBehaviour {
 
         bodyComponent.PhysicsBody.LinearVelocity = velocity;
         bodyComponent.PhysicsBody.LinearDamping = 0f;
+		//bodyComponent.PhysicsBody.
+		
+		//bodyComponent.PhysicsBody.
 	}
 }
