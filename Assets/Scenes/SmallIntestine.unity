@@ -27,7 +27,7 @@ RenderSettings:
   m_SpotCookie: {fileID: 0}
   m_ObjectHideFlags: 0
 --- !u!127 &3
-LevelGameManager:
+GameManager:
   m_ObjectHideFlags: 0
 --- !u!157 &4
 LightmapSettings:
@@ -1752,8 +1752,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 1358323532}
   m_Layer: 0
-  m_Name: Walls
-  m_TagString: Untagged
+  m_Name: wall
+  m_TagString: SpawnArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

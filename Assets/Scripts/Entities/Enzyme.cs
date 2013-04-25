@@ -29,6 +29,11 @@ public class Enzyme : MDPEntity {
 		    m_Parent = gameObject.transform.parent.gameObject;
 		//m_NutrientScript = gameObject.GetComponent<NutrientScript>();
 	}
+
+    void OnDestroy()
+    {
+        DestroyImmediate(renderer.material);
+    }
 	
 	public void OnBulletCollision ()
 	{
