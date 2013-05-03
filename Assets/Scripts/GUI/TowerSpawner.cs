@@ -1,5 +1,4 @@
 using UnityEngine;
-using System.Collections.Generic;
 
 public class TowerSpawner : MonoBehaviour {
 
@@ -7,8 +6,6 @@ public class TowerSpawner : MonoBehaviour {
     public Color[] AvailableColors;
 
     public Rect Dimensions;
-
-    private List<GameObject> m_SpawnAreas;
 
     private Rect m_ButtonSize;
     private bool m_IsSpawnActive;
@@ -25,43 +22,16 @@ public class TowerSpawner : MonoBehaviour {
         m_ButtonSize.width /= AvailableColors.Length;
 
         m_Spawned = 0;
-
-        GameObject spawnAreaObject = GameObject.FindGameObjectWithTag("SpawnArea");
-        m_SpawnAreas = new List<GameObject>();
-        foreach (Transform child in spawnAreaObject.transform)
-        {
-            m_SpawnAreas.Add(child.gameObject);
-        }
     }
 
     void Update ()
     {
         if (m_IsSpawnActive)
         {
-            bool isValidSpawnArea = false;
-            foreach (GameObject area in m_SpawnAreas)
-            {
-                if (MouseCollides(area.collider))
-                {
-                    Debug.Log("Collides");
-                    isValidSpawnArea = true;
-                    break;
-                }
-            }
-
             if (Input.GetMouseButtonUp(0))
             {
                 m_IsSpawnActive = false;
-                if (isValidSpawnArea)
-                {
-                    m_SpawnedTower.GetComponent<Tower>().enabled = true;
-                    m_SpawnedTower.transform.position = MDPUtility.MouseToWorldPosition();
-                }
-                else
-                {
-                    Destroy(m_SpawnedTower);
-                    m_SpawnedTower = null;
-                }
+                m_SpawnedTower.GetComponent<Tower>().enabled = true;
             }
             else
             {
@@ -97,11 +67,5 @@ public class TowerSpawner : MonoBehaviour {
         m_IsSpawnActive = true;
 
         m_Spawned++;
-    }
-
-    // Returns true if mouse is over a collider object
-    private bool MouseCollides(UnityEngine.Collider c)
-    {
-        return c.bounds.Contains(MDPUtility.MouseToWorldPosition());
     }
 }
