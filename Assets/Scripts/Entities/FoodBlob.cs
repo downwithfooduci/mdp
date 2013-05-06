@@ -1,6 +1,6 @@
 // Container class for a food blob.
 // Blob itself has no physical form but
-// contains enzymes as children
+// contains nutrients as children
 
 using UnityEngine;
 using System.Collections;
@@ -11,8 +11,8 @@ public class FoodBlob : MonoBehaviour {
 	public float Velocity;
 	public float RotationSpeed;
 
-    public GameObject Enzyme;
-	public int NumEnzymes;
+    public GameObject Nutrient;
+	public int NumNutrients;
 	
 	private ushort m_FoodLife;	
 	private GameObject m_EndPoint;
@@ -27,49 +27,47 @@ public class FoodBlob : MonoBehaviour {
 		GenerateEnzymes();
 	}
 	
-	private void GenerateEnzymes()
+	virtual protected void GenerateEnzymes()
 	{
-        EnzymeManager manager = FindObjectOfType(typeof(EnzymeManager)) as EnzymeManager;
+        NutrientManager manager = FindObjectOfType(typeof(NutrientManager)) as NutrientManager;
+        IntestineGameManager gameManager = FindObjectOfType(typeof(IntestineGameManager)) as IntestineGameManager;
 
-		for(int i = 0; i < NumEnzymes; i++)
+		for(int i = 0; i < NumNutrients; i++)
         {
             // Place enzyme generation code here
             Vector3 position = transform.position;
             position.x += i * 0.9f;
 
             int randomIndex = MDPUtility.RandomInt(s_AvailableColors.Length);
-			Enzyme enzyme = manager.InstantiateEnzyme(s_AvailableColors[randomIndex], position);
+			Nutrient nutrient = manager.InstantiateNutrient(s_AvailableColors[randomIndex], position);
+            nutrient.Manager = gameManager;
 			
 			// Attach new enzyme as a child object
-			enzyme.transform.parent = gameObject.transform;
+			nutrient.transform.parent = gameObject.transform;
 		}
 	}
-	
-	// Update is called once per frame
-	void Update () 
-	{
-	}
-	
-    //protected override void CheckCollisions()
-    //{
-    //    if (m_EndPoint && Collider.CollidesWith(m_EndPoint))
-    //    {
-    //        OnEndPointCollision();
-    //    }
-    //}
+
+    void OnCollisionEnter(Collision collision)
+    {
+
+        Debug.Log("Hit!");
+        if (collision.gameObject.tag == "Finish")
+        {
+            Debug.Log("Finish Hit!");
+            OnEndPointCollision();
+        }
+    }
 	
 	private void OnEndPointCollision()
 	{
-        //if(m_FoodLife > 0)
-        //{
-        //    SmallIntestineGUI.health--;
-        //}
-        //if(transform.gameObject.layer == 16)
-        //    SmallIntestineGUI.health--;
-		Destroy(gameObject);
+        NutrientManager manager = FindObjectOfType(typeof(NutrientManager)) as NutrientManager;
+        foreach (Transform child in transform)
+        {
+            manager.RemoveNutrient(child.GetComponent<Nutrient>());
+        }
 	}
 	
-	public void TakeHit()
+	virtual public void TakeHit()
 	{
 		m_FoodLife--;
 	}

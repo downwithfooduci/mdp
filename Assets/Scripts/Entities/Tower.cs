@@ -1,7 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-[RequireComponent(typeof(TowerMenu))]
 public class Tower : MonoBehaviour {
 	
 	public GameObject Projectile;
@@ -21,7 +20,7 @@ public class Tower : MonoBehaviour {
     private Transform m_ActiveModel;
 
     private Color m_TargetColor;
-    private EnzymeManager m_EnzymeManager;
+    private NutrientManager m_NutrientManager;
 
 	private float m_Cooldown;
 	private float m_CurrentCooldown;
@@ -33,7 +32,7 @@ public class Tower : MonoBehaviour {
 		m_CurrentCooldown = m_Cooldown;
 		m_CanFire = true;
 
-        m_EnzymeManager = GameObject.Find("Managers").GetComponent<EnzymeManager>();
+        m_NutrientManager = GameObject.Find("Managers").GetComponent<NutrientManager>();
 		
 		m_Menu = gameObject.GetComponent<TowerMenu>();
 		
@@ -65,7 +64,8 @@ public class Tower : MonoBehaviour {
 	
 	void OnMouseUpAsButton()
 	{
-		m_Menu.IsEnabled = !m_Menu.IsEnabled;
+        if (m_Menu)
+		    m_Menu.IsEnabled = !m_Menu.IsEnabled;
 	}
 
     public void SetColor(Color color)
@@ -91,7 +91,7 @@ public class Tower : MonoBehaviour {
 	
 	private void Fire()
 	{
-        Enzyme target = AcquireTarget();
+        Nutrient target = AcquireTarget();
         if (target)
         {
             transform.LookAt(target.transform);
@@ -109,21 +109,21 @@ public class Tower : MonoBehaviour {
         }
 	}
 
-    // Returns closest enzyme of TargetColor's type 
+    // Returns closest nutrient of TargetColor's type 
     // that isn't already targetted
     // or null if there are no valid targets
-    private Enzyme AcquireTarget()
+    private Nutrient AcquireTarget()
     {
-        IList<Enzyme> enzymes = m_EnzymeManager.GetEnzymes(m_TargetColor);
-        if (enzymes == null)
+        IList<Nutrient> nutrients = m_NutrientManager.GetNutrients(m_TargetColor);
+        if (nutrients == null)
         {
             return null;
         }
 
-        Enzyme closestEnzyme = null;
+        Nutrient closestNutrient = null;
         float closestDistance = float.MaxValue;
 
-        foreach (Enzyme e in enzymes)
+        foreach (Nutrient e in nutrients)
         {
             if (!e.IsTargetted)
             {
@@ -131,13 +131,13 @@ public class Tower : MonoBehaviour {
 
                 if (distance < closestDistance)
                 {
-                    closestEnzyme = e;
+                    closestNutrient = e;
                     closestDistance = distance;
                 }
             }
         }
 
-        return closestEnzyme;
+        return closestNutrient;
     }
 	
 	public void UpgradeSpeed()

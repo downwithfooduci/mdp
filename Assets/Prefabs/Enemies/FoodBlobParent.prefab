@@ -61,8 +61,8 @@ MonoBehaviour:
   m_Name: 
   Velocity: 2
   RotationSpeed: 2
-  Enzyme: {fileID: 100000, guid: 20f993d1675d53a4e881036f4c4dce59, type: 2}
-  NumEnzymes: 4
+  Nutrient: {fileID: 100000, guid: 20f993d1675d53a4e881036f4c4dce59, type: 2}
+  NumNutrients: 4
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -51,11 +51,10 @@ public class Bullet : MDPEntity
 	{
 		if (Collider.CollidesWith(Target))
 		{
-            EnzymeManager manager = FindObjectOfType(typeof(EnzymeManager)) as EnzymeManager;
-            manager.RemoveEnzyme(Target.GetComponent(typeof(Enzyme)) as Enzyme);
 			Destroy(gameObject);
-			/*Enzyme target = Target.GetComponent<Enzyme>();
-			target.OnBulletCollision(gameObject);*/
+
+			Nutrient target = Target.GetComponent<Nutrient>();
+			target.OnBulletCollision();
 		}
 	}
 }

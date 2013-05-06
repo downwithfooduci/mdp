@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 
 [RequireComponent(typeof (AudioSource))]
-public class Enzyme : MDPEntity {
+public class Nutrient : MDPEntity {
     public Color BodyColor
     {
         get { return m_BodyColor; }
@@ -13,6 +13,8 @@ public class Enzyme : MDPEntity {
         }
     }
     private Color m_BodyColor;
+
+    public IntestineGameManager Manager;
 
     public Transform EffectParticle;
     public bool IsTargetted;
@@ -27,7 +29,6 @@ public class Enzyme : MDPEntity {
 
         if (gameObject.transform.parent)
 		    m_Parent = gameObject.transform.parent.gameObject;
-		//m_NutrientScript = gameObject.GetComponent<NutrientScript>();
 	}
 
     void OnDestroy()
@@ -38,7 +39,18 @@ public class Enzyme : MDPEntity {
 	public void OnBulletCollision ()
 	{
 		Absorb();
-		audio.Play();
+
+        NutrientManager manager = FindObjectOfType(typeof(NutrientManager)) as NutrientManager;
+        if (m_BodyColor == Color.white)
+        {
+            manager.ChangeColor(this, Color.green);
+        }
+        else
+        {
+            manager.RemoveNutrient(this);
+        }
+
+        Manager.OnNutrientHit();
 	}
 	
 	virtual protected void Absorb()
@@ -49,7 +61,7 @@ public class Enzyme : MDPEntity {
         //m_NutrientScript.SetIsDead(true);
         //m_NutrientScript.TurnToDiffuse();
         //m_NutrientScript.SetTurnBrown(true);
-		ShootOutParticles(3);
+		//ShootOutParticles(3);
 	}
 	
 	// Emits numParticles amount particles around this object upon

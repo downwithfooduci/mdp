@@ -11,7 +11,7 @@ GameObject:
   - 33: {fileID: 3300000}
   - 23: {fileID: 2300000}
   - 82: {fileID: 8200000}
-  - 114: {fileID: 11400002}
+  - 114: {fileID: 11400000}
   m_Layer: 0
   m_Name: FoodBlob
   m_TagString: Untagged
@@ -111,7 +111,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
---- !u!114 &11400002
+--- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -119,8 +119,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f620d016f7049c4a9f3683c52380272, type: 3}
+  m_Script: {fileID: 11500000, guid: 13c5ddeea3fde5d48b308fa1259cb7e2, type: 3}
   m_Name: 
+  Manager: {fileID: 0}
   EffectParticle: {fileID: 0}
   IsTargetted: 0
 --- !u!1001 &100100000

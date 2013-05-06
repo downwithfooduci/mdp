@@ -36,6 +36,7 @@ public class TowerSpawner : MonoBehaviour {
 
     void Update ()
     {
+        // Handle valid spawn locations if player is spawning a tower
         if (m_IsSpawnActive)
         {
             bool isValidSpawnArea = false;
@@ -43,7 +44,6 @@ public class TowerSpawner : MonoBehaviour {
             {
                 if (MouseCollides(area.collider))
                 {
-                    Debug.Log("Collides");
                     isValidSpawnArea = true;
                     break;
                 }
@@ -93,7 +93,6 @@ public class TowerSpawner : MonoBehaviour {
         GameObject towerType = Towers[MDPUtility.RandomInt(Towers.Length)];
         m_SpawnedTower = Instantiate(towerType, new Vector3(m_Spawned * 1.2f, 0, 0), Quaternion.identity) as GameObject;
         m_SpawnedTower.GetComponent<Tower>().SetColor(color);
-        //m_SpawnedTower.SetActive(false);
         m_IsSpawnActive = true;
 
         m_Spawned++;

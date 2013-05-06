@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class WhiteEnzyme : Enzyme {
+public class WhiteEnzyme : Nutrient {
 	
 	void Start () {
 		m_Parent = gameObject.transform.parent.gameObject;

@@ -2,6 +2,16 @@ using UnityEngine;
 
 public static class Intersection 
 {
+	/*public static bool Collides(CircleCollider o1, CircleCollider o2)
+	{
+		float radiusSum = o1.Properties.Radius + o2.Properties.Radius;
+
+        float distanceSquared = MDPUtility.DistanceSquared(o1.gameObject, o2.gameObject);
+
+        // Square root is a slow operation so square the radii instead
+        return distanceSquared < radiusSum * radiusSum;
+	}*/
+	
     public static bool CircleToCircle(MDPEntity o1, MDPEntity o2)
     {
         float radiusSum = o1.Collider.Properties.Radius + o2.Collider.Properties.Radius;
