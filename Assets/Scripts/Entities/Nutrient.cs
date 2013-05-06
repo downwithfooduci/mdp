@@ -30,11 +30,6 @@ public class Nutrient : MDPEntity {
         if (gameObject.transform.parent)
 		    m_Parent = gameObject.transform.parent.gameObject;
 	}
-
-    void OnDestroy()
-    {
-        DestroyImmediate(renderer.material);
-    }
 	
 	public void OnBulletCollision ()
 	{

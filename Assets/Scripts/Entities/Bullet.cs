@@ -12,11 +12,6 @@ public class Bullet : MDPEntity
 	void Start () {
 		Collider = new CircleCollider(this);
 	}
-
-    void OnDestroy()
-    {
-        DestroyImmediate(renderer.material);
-    }
 	
 	// Update is called once per frame
 	void Update () {
