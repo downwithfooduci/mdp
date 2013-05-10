@@ -699,7 +699,7 @@ GameObject:
   - 114: {fileID: 11400002}
   - 114: {fileID: 11400000}
   - 135: {fileID: 13500000}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: GirlTower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1872,6 +1872,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37acc117685500d46aad51d6fe557c2c, type: 3}
   m_Name: 
   Projectile: {fileID: 100000, guid: f43d3495518175d40b527494c7f2f655, type: 2}
+  FiringRange: 10
   BaseCooldown: 2
   Level1Cooldown: 1
   Level2Cooldown: .5

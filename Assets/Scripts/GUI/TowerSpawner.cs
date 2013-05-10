@@ -2,10 +2,13 @@ using UnityEngine;
 using System.Collections.Generic;
 
 public class TowerSpawner : MonoBehaviour {
-
+    // Randomly selects a tower model upon creation
     public GameObject[] Towers;
+
+    // Set available tower colors in editor
     public Color[] AvailableColors;
 
+    public GUIStyle ButtonStyle;
     public Rect Dimensions;
 
     private List<GameObject> m_SpawnAreas;
@@ -15,16 +18,15 @@ public class TowerSpawner : MonoBehaviour {
 
     private GameObject m_SpawnedTower;
 
-    private int m_Spawned;
-
     void Start ()
     {
         m_IsSpawnActive = false;
 
-        m_ButtonSize = Dimensions;
-        m_ButtonSize.width /= AvailableColors.Length;
+        float totalWidth = Dimensions.width * AvailableColors.Length;
 
-        m_Spawned = 0;
+        Dimensions.x = (GuiUtility.ORIG_SCREEN_WIDTH - totalWidth) / 2;
+        Dimensions.y = GuiUtility.ORIG_SCREEN_HEIGHT - Dimensions.height;
+        m_ButtonSize = Dimensions;
 
         GameObject spawnAreaObject = GameObject.FindGameObjectWithTag("SpawnArea");
         m_SpawnAreas = new List<GameObject>();
@@ -55,7 +57,7 @@ public class TowerSpawner : MonoBehaviour {
                 if (isValidSpawnArea)
                 {
                     m_SpawnedTower.GetComponent<Tower>().enabled = true;
-                    m_SpawnedTower.transform.position = MDPUtility.MouseToWorldPosition();
+                    m_SpawnedTower.transform.position = MDPUtility.MouseToWorldPosition() + new Vector3(0, 0.5f, 0);
                 }
                 else
                 {
@@ -72,33 +74,33 @@ public class TowerSpawner : MonoBehaviour {
 
     void OnGUI ()
     {
-        GUI.Box(Dimensions, "");
+        Matrix4x4 orig = GUI.matrix;
+        GUI.matrix = GuiUtility.CachedScaledMatrix;
 
         for (int i = 0; i < AvailableColors.Length; i++)
         {
             GUI.backgroundColor = AvailableColors[i];
             m_ButtonSize.x = Dimensions.x + i * m_ButtonSize.width;
 
-            if (GUI.RepeatButton(m_ButtonSize, "Drag") && !m_IsSpawnActive)
+            if (GUI.RepeatButton(m_ButtonSize, "Drag", ButtonStyle) && !m_IsSpawnActive)
             {
                 SpawnTower(AvailableColors[i]);
                 m_SpawnedTower.GetComponent<Tower>().enabled = false;
                 return;
             }
         }
+
+        GUI.matrix = orig;
     }
 
     private void SpawnTower(Color color)
     {
         GameObject towerType = Towers[MDPUtility.RandomInt(Towers.Length)];
-        m_SpawnedTower = Instantiate(towerType, new Vector3(m_Spawned * 1.2f, 0, 0), Quaternion.identity) as GameObject;
+        m_SpawnedTower = Instantiate(towerType, Vector3.zero, Quaternion.identity) as GameObject;
         m_SpawnedTower.GetComponent<Tower>().SetColor(color);
         m_IsSpawnActive = true;
-
-        m_Spawned++;
     }
 
-    // Returns true if mouse is over a collider object
     private bool MouseCollides(UnityEngine.Collider c)
     {
         return c.bounds.Contains(MDPUtility.MouseToWorldPosition());

@@ -11,6 +11,8 @@ public class Tower : MonoBehaviour {
 	}
 	private string m_ActiveModelName;
 	
+	public float FiringRange;
+	
 	// Firing cooldown in seconds
 	public float BaseCooldown;
 	public float Level1Cooldown;
@@ -109,8 +111,8 @@ public class Tower : MonoBehaviour {
         }
 	}
 
-    // Returns closest nutrient of TargetColor's type 
-    // that isn't already targetted
+    // Returns closest nutrient within range of TargetColor's type 
+    // that isn't already targeted and is in direct line of sight
     // or null if there are no valid targets
     private Nutrient AcquireTarget()
     {
@@ -129,7 +131,7 @@ public class Tower : MonoBehaviour {
             {
                 float distance = MDPUtility.DistanceSquared(gameObject, e.gameObject);
 
-                if (distance < closestDistance)
+                if (distance < closestDistance && distance < FiringRange * FiringRange && IsInLineOfSight(e.transform))
                 {
                     closestNutrient = e;
                     closestDistance = distance;
@@ -139,6 +141,11 @@ public class Tower : MonoBehaviour {
 
         return closestNutrient;
     }
+
+	private bool IsInLineOfSight(Transform target)
+	{
+        return !Physics.Linecast(transform.position, target.position);
+	}
 	
 	public void UpgradeSpeed()
 	{

@@ -6,6 +6,8 @@ public static class GuiUtility
     public static float ORIG_SCREEN_WIDTH = 2048f;
     public static float ORIG_SCREEN_HEIGHT = 1536f;
 
+    public static Matrix4x4 CachedScaledMatrix = ScaledMatrix();
+
     // Given percentages as input, produces
     // Rect with adjusted values
     public static Rect PercRect(float x, float y, float width = 0.1f, float height = 0.1f)

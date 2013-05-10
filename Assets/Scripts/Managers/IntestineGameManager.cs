@@ -23,7 +23,7 @@ public class IntestineGameManager : MonoBehaviour {
     void OnGUI()
     {
         Matrix4x4 orig = GUI.matrix;
-		GUI.matrix = GuiUtility.ScaledMatrix();
+		GUI.matrix = GuiUtility.CachedScaledMatrix;
 
         GUI.Label(new Rect(1500, 100, 100, 100), "Nutrients: " + PlayerScore, FontStyle);
 

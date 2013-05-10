@@ -109,12 +109,71 @@ MonoBehaviour:
   - {r: 0, g: 1, b: 0, a: 1}
   - {r: 1, g: 0, b: 0, a: 1}
   - {r: 1, g: .921568632, b: .0156862754, a: 1}
+  ButtonStyle:
+    m_Name: 
+    m_Normal:
+      m_Background: {fileID: 10300, guid: 0000000000000000e000000000000000, type: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Hover:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Active:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Focused:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnNormal:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnHover:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnActive:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnFocused:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Border:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Margin:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Padding:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Overflow:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Font: {fileID: 12800000, guid: e31de3f04e18fcd489bb4bf6c9e81ca5, type: 3}
+    m_FontSize: 72
+    m_FontStyle: 0
+    m_Alignment: 4
+    m_WordWrap: 0
+    m_RichText: 1
+    m_TextClipping: 0
+    m_ImagePosition: 0
+    m_ContentOffset: {x: 0, y: 0}
+    m_FixedWidth: 0
+    m_FixedHeight: 0
+    m_StretchWidth: 1
+    m_StretchHeight: 0
   Dimensions:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 280
-    height: 70
+    width: 200
+    height: 275
 --- !u!4 &12274676
 Transform:
   m_ObjectHideFlags: 0
@@ -424,7 +483,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 665646479}
-  - 114: {fileID: 665646477}
   - 114: {fileID: 665646476}
   - 114: {fileID: 665646475}
   - 114: {fileID: 665646478}
@@ -519,18 +577,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4ca6d2539889aa43a6f427340bf5b5c, type: 3}
   m_Name: 
   NutrientObj: {fileID: 100000, guid: 20f993d1675d53a4e881036f4c4dce59, type: 2}
---- !u!114 &665646477
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11400006, guid: dea053cdc86a6c442b0e436bb1adeda0,
-    type: 2}
-  m_PrefabInternal: {fileID: 2057063893}
-  m_GameObject: {fileID: 665646474}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e2c7ae14c29aa46bca233795135c0463, type: 3}
-  m_Name: 
-  Gravity: {x: 0, y: 0}
 --- !u!114 &665646478
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -862,6 +908,31 @@ Prefab:
       propertyPath: Towers.Array.data[1]
       value: 
       objectReference: {fileID: 100086, guid: 9cea0cc8bee7e864f8ab92f9a1537024, type: 2}
+    - target: {fileID: 11400000, guid: e550430199bfa124493bfc800c2a65b0, type: 2}
+      propertyPath: Dimensions.width
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: e550430199bfa124493bfc800c2a65b0, type: 2}
+      propertyPath: Dimensions.height
+      value: 275
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: e550430199bfa124493bfc800c2a65b0, type: 2}
+      propertyPath: ButtonStyle.m_FontSize
+      value: 72
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: e550430199bfa124493bfc800c2a65b0, type: 2}
+      propertyPath: ButtonStyle.m_Normal.m_Background
+      value: 
+      objectReference: {fileID: 10300, guid: 0000000000000000e000000000000000, type: 0}
+    - target: {fileID: 11400000, guid: e550430199bfa124493bfc800c2a65b0, type: 2}
+      propertyPath: ButtonStyle.m_Alignment
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: e550430199bfa124493bfc800c2a65b0, type: 2}
+      propertyPath: ButtonStyle.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: e31de3f04e18fcd489bb4bf6c9e81ca5,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e550430199bfa124493bfc800c2a65b0, type: 2}
   m_RootGameObject: {fileID: 12274674}
@@ -912,6 +983,7 @@ Prefab:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11400004, guid: dea053cdc86a6c442b0e436bb1adeda0, type: 2}
+    - {fileID: 0}
   m_ParentPrefab: {fileID: 100100000, guid: dea053cdc86a6c442b0e436bb1adeda0, type: 2}
   m_RootGameObject: {fileID: 665646474}
   m_IsPrefabParent: 0

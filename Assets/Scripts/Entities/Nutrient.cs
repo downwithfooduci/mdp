@@ -9,10 +9,15 @@ public class Nutrient : MDPEntity {
         set
         {
             m_BodyColor = value;
+            m_TrueColor = value;
+            m_TargetColor = value;
             renderer.materials[0].color = value;
         }
     }
     private Color m_BodyColor;
+
+    private Color m_TrueColor;
+    private Color m_TargetColor;
 
     public IntestineGameManager Manager;
 
@@ -30,6 +35,23 @@ public class Nutrient : MDPEntity {
         if (gameObject.transform.parent)
 		    m_Parent = gameObject.transform.parent.gameObject;
 	}
+
+    //void Update()
+    //{
+    //    if (!m_BodyColor.Equals(m_TargetColor))
+    //    {
+    //        BodyColor = Color.Lerp()
+    //    }
+    //    else
+    //    {
+    //        BodyColor = Color.Lerp(m_BodyColor, m_TargetColor, Time.deltaTime);
+    //    }
+
+    //    if (m_BodyColor.Equals(m_TargetColor))
+    //    {
+    //        m_TargetColor = m_TrueColor;
+    //    }
+    //}
 	
 	public void OnBulletCollision ()
 	{
@@ -42,7 +64,8 @@ public class Nutrient : MDPEntity {
         }
         else
         {
-            manager.RemoveNutrient(this);
+            m_TargetColor = new Color(89, 38, 38);
+            //manager.RemoveNutrient(this);
         }
 
         Manager.OnNutrientHit();
@@ -52,6 +75,8 @@ public class Nutrient : MDPEntity {
 	{
 		FoodBlob blob = m_Parent.GetComponent<FoodBlob>();
 		blob.TakeHit();
+
+        IsTargetted = false;
 		
         //m_NutrientScript.SetIsDead(true);
         //m_NutrientScript.TurnToDiffuse();
