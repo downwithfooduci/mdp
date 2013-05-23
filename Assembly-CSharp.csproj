@@ -173,7 +173,7 @@
      <Compile Include="Assets\Packages\FarseerComponents\FSTestComponent.cs" />
      <Compile Include="Assets\Packages\FarseerComponents\FSUserDataComponent.cs" />
      <Compile Include="Assets\Packages\FarseerComponents\FSWorldComponent.cs" />
-     <Compile Include="Assets\Packages\FarseerComponents\Tutorials\Part 4\CollisionEventsDone\TestCollisionEventsDoneCp.cs" />
+     <Compile Include="Assets\Packages\iTween\Part 4\CollisionEventsDone\TestCollisionEventsDoneCp.cs" />
      <Compile Include="Assets\Packages\iTween\Plugins\iTween.cs" />
      <Compile Include="Assets\Packages\iTween\Sample\MoveSample.cs" />
      <Compile Include="Assets\Packages\iTween\Sample\RotateSample.cs" />
@@ -198,6 +198,7 @@
      <Compile Include="Assets\Scripts\Entities\Tower.cs" />
      <Compile Include="Assets\Scripts\Entities\TowerSpawnArea.cs" />
      <Compile Include="Assets\Scripts\Entities\TutorialFoodBlob.cs" />
+     <Compile Include="Assets\Scripts\GUI\GameOver.cs" />
      <Compile Include="Assets\Scripts\GUI\TowerMenu.cs" />
      <Compile Include="Assets\Scripts\GUI\TowerSpawner.cs" />
      <Compile Include="Assets\Scripts\Managers\IntestineGameManager.cs" />
@@ -209,7 +210,10 @@
      <Compile Include="Assets\Scripts\Utility\ColorComparer.cs" />
      <Compile Include="Assets\Scripts\Utility\GuiUtility.cs" />
      <Compile Include="Assets\Scripts\Utility\MDPUtility.cs" />
+     <None Include="Assets\Packages\Projectors\Guidelines.txt" />
+     <None Include="Assets\Packages\Projectors\Sources\Shaders\Projector Multiply.shader" />
      <None Include="Assets\Packages\iTween\ReadMe!\ReadMe!.txt" />
+     <None Include="Assets\Packages\Projectors\Sources\Shaders\Projector Light.shader" />
      <None Include="Assets\Packages\FarseerComponents\Base\FarseerDebugViewUnity\FDView.shader" />
      <None Include="Assets\Packages\FarseerComponents\Tests\Shaders\Color.shader" />
      <None Include="Assets\Packages\FarseerComponents\Tests\Shaders\Transparent Vertex Colored.shader" />

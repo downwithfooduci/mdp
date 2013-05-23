@@ -21,7 +21,7 @@ public class Nutrient : MDPEntity {
 
     public IntestineGameManager Manager;
 
-    public Transform EffectParticle;
+    public GameObject EffectParticle;
     public bool IsTargetted;
 
 	protected GameObject m_Parent;
@@ -65,7 +65,7 @@ public class Nutrient : MDPEntity {
         else
         {
             m_TargetColor = new Color(89, 38, 38);
-            //manager.RemoveNutrient(this);
+            manager.RemoveNutrient(this);
         }
 
         Manager.OnNutrientHit();
@@ -86,21 +86,19 @@ public class Nutrient : MDPEntity {
 	
 	// Emits numParticles amount particles around this object upon
 	// bullet collision
-	private void ShootOutParticles(ushort numParticles)
+	private void ShootOutParticles(int numParticles)
 	{
-		Transform particle;
+		GameObject particle;
 		Vector3 delta = new Vector3(0, transform.localScale.y * 0.25f, 0);
 		Quaternion rotation = m_Parent.transform.rotation;
 		Transform effect;//To store EffectParticle
 		
 		for (int i = 0; i <= numParticles; i++)
 		{
-			particle = Instantiate(EffectParticle, transform.position + delta, rotation) as Transform;
-			particle.parent = m_Parent.transform;
+			particle = Instantiate(EffectParticle, transform.position + delta, rotation) as GameObject;
+			particle.transform.parent = m_Parent.transform;
 			particle.transform.localEulerAngles = new Vector3(0, 40 + (i * 10), 0);
-			effect = particle.transform.Find("EffectParticle");
-			
-			effect.particleSystem.startColor = BodyColor;
+			particle.particleSystem.startColor = BodyColor;
 		}
 	}
 }

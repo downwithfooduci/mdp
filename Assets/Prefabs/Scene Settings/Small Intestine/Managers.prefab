@@ -39,6 +39,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 98a16ce7fc8ee724fbef9fef8a79deed, type: 3}
   m_Name: 
+  GameOverScript: {fileID: 100000, guid: b0beb0239087d0c45a4696a46f33da65, type: 2}
   FontStyle:
     m_Name: 
     m_Normal:
@@ -98,7 +99,8 @@ MonoBehaviour:
     m_FixedHeight: 0
     m_StretchWidth: 1
     m_StretchHeight: 0
-  PlayerScore: 0
+  Health: 0
+  Nutrients: 0
   NutrientHitScore: 5
 --- !u!114 &11400002
 MonoBehaviour:

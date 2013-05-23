@@ -122,7 +122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13c5ddeea3fde5d48b308fa1259cb7e2, type: 3}
   m_Name: 
   Manager: {fileID: 0}
-  EffectParticle: {fileID: 0}
+  EffectParticle: {fileID: 100000, guid: 6392be4fa7fad0048836da3db2c62390, type: 2}
   IsTargetted: 0
 --- !u!1001 &100100000
 Prefab:

@@ -18,6 +18,9 @@ public class FoodBlob : MonoBehaviour {
 	private GameObject m_EndPoint;
 
     private static Color[] s_AvailableColors = { Color.red, Color.white, Color.yellow, Color.green };
+
+    private NutrientManager m_NutrientManager;
+    private IntestineGameManager m_GameManager;
 		
 	// Use this for initialization
 	void Start () {
@@ -29,8 +32,8 @@ public class FoodBlob : MonoBehaviour {
 	
 	virtual protected void GenerateEnzymes()
 	{
-        NutrientManager manager = FindObjectOfType(typeof(NutrientManager)) as NutrientManager;
-        IntestineGameManager gameManager = FindObjectOfType(typeof(IntestineGameManager)) as IntestineGameManager;
+        m_NutrientManager = FindObjectOfType(typeof(NutrientManager)) as NutrientManager;
+        m_GameManager = FindObjectOfType(typeof(IntestineGameManager)) as IntestineGameManager;
 
 		for(int i = 0; i < NumNutrients; i++)
         {
@@ -39,32 +42,32 @@ public class FoodBlob : MonoBehaviour {
             position.x += i * 0.9f;
 
             int randomIndex = MDPUtility.RandomInt(s_AvailableColors.Length);
-			Nutrient nutrient = manager.InstantiateNutrient(s_AvailableColors[randomIndex], position);
-            nutrient.Manager = gameManager;
+			Nutrient nutrient = m_NutrientManager.InstantiateNutrient(s_AvailableColors[randomIndex], position);
+            nutrient.Manager = m_GameManager;
 			
 			// Attach new enzyme as a child object
 			nutrient.transform.parent = gameObject.transform;
 		}
 	}
 
-    void OnCollisionEnter(Collision collision)
+    void OnTriggerEnter(UnityEngine.Collider obj)
     {
-
-        Debug.Log("Hit!");
-        if (collision.gameObject.tag == "Finish")
+        if (obj.gameObject.tag == "Finish")
         {
-            Debug.Log("Finish Hit!");
+
+            Debug.Log("End reached");
             OnEndPointCollision();
         }
     }
 	
 	private void OnEndPointCollision()
 	{
-        NutrientManager manager = FindObjectOfType(typeof(NutrientManager)) as NutrientManager;
         foreach (Transform child in transform)
         {
-            manager.RemoveNutrient(child.GetComponent<Nutrient>());
+            m_NutrientManager.RemoveNutrient(child.GetComponent<Nutrient>());
         }
+
+        m_GameManager.OnFoodBlobFinish();
 	}
 	
 	virtual public void TakeHit()

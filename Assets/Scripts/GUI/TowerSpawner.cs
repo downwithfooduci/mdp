@@ -96,7 +96,7 @@ public class TowerSpawner : MonoBehaviour {
     private void SpawnTower(Color color)
     {
         GameObject towerType = Towers[MDPUtility.RandomInt(Towers.Length)];
-        m_SpawnedTower = Instantiate(towerType, Vector3.zero, Quaternion.identity) as GameObject;
+        m_SpawnedTower = Instantiate(towerType) as GameObject;
         m_SpawnedTower.GetComponent<Tower>().SetColor(color);
         m_IsSpawnActive = true;
     }
