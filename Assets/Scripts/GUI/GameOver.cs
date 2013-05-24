@@ -16,6 +16,7 @@ public class GameOver : MonoBehaviour {
         Matrix4x4 orig = GUI.matrix;
         GUI.matrix = GuiUtility.CachedScaledMatrix;
 
+
         GUI.Label(new Rect((GuiUtility.ORIG_SCREEN_WIDTH - 500) / 2, (GuiUtility.ORIG_SCREEN_HEIGHT - 400) / 2, 500, 200), "GAME OVER", FontStyle);
 
         if (GUI.Button(new Rect((GuiUtility.ORIG_SCREEN_WIDTH - 200) / 2, (GuiUtility.ORIG_SCREEN_HEIGHT + 300) / 2, 200, 100), "Restart", ButtonStyle))
