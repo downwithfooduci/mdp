@@ -201,6 +201,7 @@
      <Compile Include="Assets\Scripts\GUI\GameOver.cs" />
      <Compile Include="Assets\Scripts\GUI\TowerMenu.cs" />
      <Compile Include="Assets\Scripts\GUI\TowerSpawner.cs" />
+     <Compile Include="Assets\Scripts\Managers\GameConfig.cs" />
      <Compile Include="Assets\Scripts\Managers\IntestineGameManager.cs" />
      <Compile Include="Assets\Scripts\Managers\NutrientManager.cs" />
      <Compile Include="Assets\Scripts\Managers\SmallIntestineTutorialManager.cs" />
