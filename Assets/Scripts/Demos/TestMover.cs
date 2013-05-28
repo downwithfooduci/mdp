@@ -3,7 +3,10 @@ using System.Collections;
 using Vector2 = Microsoft.Xna.Framework.FVector2;
 
 public class TestMover : MonoBehaviour {
-
+	
+	public static int collisionCounter = 0;
+	private float collisionTime = 0;
+	
     public float Speed;
 
 	// Use this for initialization
@@ -24,4 +27,16 @@ public class TestMover : MonoBehaviour {
 		
 		//bodyComponent.PhysicsBody.
 	}
+	
+/*	void Update(){
+	collisionTime +=  Time.deltaTime;
+		
+		if (collisionCounter == 1 && gameObject.tag == "Enz")
+		{	
+			Transform.Destroy(gameObject);
+			Buttons.EnzymesExist = false;
+			collisionCounter = 0;
+		}
+	}*/
+	
 }
