@@ -27,7 +27,7 @@ RenderSettings:
   m_SpotCookie: {fileID: 0}
   m_ObjectHideFlags: 0
 --- !u!127 &3
-LevelGameManager:
+GameManager:
   m_ObjectHideFlags: 0
 --- !u!157 &4
 LightmapSettings:
@@ -355,8 +355,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c4a7b9923ccb6a4f9e3734f954723db, type: 3}
   m_Name: 
   Towers:
-  - {fileID: 100086, guid: 6462210b6e6f1ad4484aaf504491b9e0, type: 2}
-  - {fileID: 100086, guid: 9cea0cc8bee7e864f8ab92f9a1537024, type: 2}
+  - {fileID: 100086, guid: d039cc7cf1654a7468b73acb56ee2bb9, type: 2}
+  - {fileID: 100086, guid: cadb7ddc67476b548a5d72ba8ae41784, type: 2}
   AvailableColors:
   - {r: 1, g: 1, b: 1, a: 1}
   - {r: 0, g: 1, b: 0, a: 1}
@@ -1214,7 +1214,6 @@ GameObject:
   - 114: {fileID: 758440264}
   - 114: {fileID: 758440263}
   - 114: {fileID: 758440266}
-  - 114: {fileID: 758440265}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -1259,17 +1258,6 @@ MonoBehaviour:
   SpawnType: {fileID: 100000, guid: 9cfaf7020d06c6341bb8e35be76edcec, type: 2}
   SpawnPoint: {x: -22.2215595, y: 0, z: 11.7299995}
   SpawnInterval: 2
---- !u!114 &758440265
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11400006, guid: dea053cdc86a6c442b0e436bb1adeda0,
-    type: 2}
-  m_PrefabInternal: {fileID: 1952505822}
-  m_GameObject: {fileID: 758440261}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6522ec3e3f478fb428efc7bd159516cb, type: 3}
-  m_Name: 
 --- !u!114 &758440266
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1497,6 +1485,10 @@ Prefab:
     - target: {fileID: 2000000, guid: f6a552df651ae0448be899c35e03b3d0, type: 2}
       propertyPath: m_NormalizedViewPortRect.height
       value: 768
+      objectReference: {fileID: 0}
+    - target: {fileID: 2000000, guid: f6a552df651ae0448be899c35e03b3d0, type: 2}
+      propertyPath: far clip plane
+      value: 2000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f6a552df651ae0448be899c35e03b3d0, type: 2}
@@ -2125,7 +2117,8 @@ Prefab:
       propertyPath: FontStyle.m_FontSize
       value: 30
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
   m_ParentPrefab: {fileID: 100100000, guid: dea053cdc86a6c442b0e436bb1adeda0, type: 2}
   m_RootGameObject: {fileID: 758440261}
   m_IsPrefabParent: 0

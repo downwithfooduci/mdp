@@ -38,8 +38,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c4a7b9923ccb6a4f9e3734f954723db, type: 3}
   m_Name: 
   Towers:
-  - {fileID: 100086, guid: 6462210b6e6f1ad4484aaf504491b9e0, type: 2}
-  - {fileID: 100086, guid: 9cea0cc8bee7e864f8ab92f9a1537024, type: 2}
+  - {fileID: 100086, guid: d039cc7cf1654a7468b73acb56ee2bb9, type: 2}
+  - {fileID: 100086, guid: cadb7ddc67476b548a5d72ba8ae41784, type: 2}
   AvailableColors:
   - {r: 1, g: 1, b: 1, a: 1}
   - {r: 0, g: 1, b: 0, a: 1}
