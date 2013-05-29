@@ -409,7 +409,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 12800000, guid: e31de3f04e18fcd489bb4bf6c9e81ca5, type: 3}
-    m_FontSize: 72
+    m_FontSize: 36
     m_FontStyle: 0
     m_Alignment: 4
     m_WordWrap: 0
@@ -425,8 +425,8 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 200
-    height: 275
+    width: 100
+    height: 135
 --- !u!4 &151853836
 Transform:
   m_ObjectHideFlags: 0
@@ -861,8 +861,8 @@ Camera:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 2048
-    height: 1536
+    width: 1024
+    height: 768
   near clip plane: .300000012
   far clip plane: 2000
   field of view: 61
@@ -1329,7 +1329,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 12800000, guid: e31de3f04e18fcd489bb4bf6c9e81ca5, type: 3}
-    m_FontSize: 60
+    m_FontSize: 30
     m_FontStyle: 0
     m_Alignment: 0
     m_WordWrap: 0
@@ -1342,8 +1342,9 @@ MonoBehaviour:
     m_StretchWidth: 1
     m_StretchHeight: 0
   Health: 20
-  Nutrients: 0
+  Nutrients: 20
   NutrientHitScore: 5
+  NutrientTextColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &899773687
 GameObject:
   m_ObjectHideFlags: 0
@@ -1488,6 +1489,14 @@ Prefab:
     - target: {fileID: 400000, guid: f6a552df651ae0448be899c35e03b3d0, type: 2}
       propertyPath: m_LocalRotation.w
       value: .707106829
+      objectReference: {fileID: 0}
+    - target: {fileID: 2000000, guid: f6a552df651ae0448be899c35e03b3d0, type: 2}
+      propertyPath: m_NormalizedViewPortRect.width
+      value: 1024
+      objectReference: {fileID: 0}
+    - target: {fileID: 2000000, guid: f6a552df651ae0448be899c35e03b3d0, type: 2}
+      propertyPath: m_NormalizedViewPortRect.height
+      value: 768
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f6a552df651ae0448be899c35e03b3d0, type: 2}
@@ -2108,6 +2117,14 @@ Prefab:
       propertyPath: GameOverScript
       value: 
       objectReference: {fileID: 100000, guid: b0beb0239087d0c45a4696a46f33da65, type: 2}
+    - target: {fileID: 11400000, guid: dea053cdc86a6c442b0e436bb1adeda0, type: 2}
+      propertyPath: Nutrients
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: dea053cdc86a6c442b0e436bb1adeda0, type: 2}
+      propertyPath: FontStyle.m_FontSize
+      value: 30
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: dea053cdc86a6c442b0e436bb1adeda0, type: 2}
   m_RootGameObject: {fileID: 758440261}
