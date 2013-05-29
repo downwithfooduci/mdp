@@ -88,7 +88,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 12800000, guid: e31de3f04e18fcd489bb4bf6c9e81ca5, type: 3}
-    m_FontSize: 60
+    m_FontSize: 30
     m_FontStyle: 0
     m_Alignment: 0
     m_WordWrap: 0
@@ -103,6 +103,7 @@ MonoBehaviour:
   Health: 0
   Nutrients: 0
   NutrientHitScore: 5
+  NutrientTextColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1

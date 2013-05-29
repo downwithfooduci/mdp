@@ -2,7 +2,9 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Managers\IntestineGameManager.cs">
     <Files>
-      <File FileName="Assets\Scripts\Managers\IntestineGameManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Utility\GuiUtility.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Managers\IntestineGameManager.cs" Line="23" Column="2" />
+      <File FileName="Assets\Scripts\Managers\SpawnManager.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
