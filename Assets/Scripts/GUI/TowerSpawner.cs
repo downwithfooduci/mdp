@@ -5,6 +5,8 @@ public class TowerSpawner : MonoBehaviour {
     // Randomly selects a tower model upon creation
     public GameObject[] Towers;
 
+    public GameObject SpawnIndicator;
+
     // Set available tower colors in editor
     public Color[] AvailableColors;
 
@@ -17,6 +19,7 @@ public class TowerSpawner : MonoBehaviour {
     private bool m_IsSpawnActive;
 
     private GameObject m_SpawnedTower;
+    private GameObject m_Indicator;
 
     void Start ()
     {
@@ -54,10 +57,13 @@ public class TowerSpawner : MonoBehaviour {
             if (Input.GetMouseButtonUp(0))
             {
                 m_IsSpawnActive = false;
+
+                DestroyImmediate(m_Indicator.renderer.material);
                 if (isValidSpawnArea)
                 {
                     m_SpawnedTower.GetComponent<Tower>().enabled = true;
                     m_SpawnedTower.transform.position = MDPUtility.MouseToWorldPosition() + new Vector3(0, 0.5f, 0);
+                    Destroy(m_Indicator);
                 }
                 else
                 {
@@ -68,6 +74,10 @@ public class TowerSpawner : MonoBehaviour {
             else
             {
                 m_SpawnedTower.transform.position = MDPUtility.MouseToWorldPosition();
+                m_Indicator.transform.position = MDPUtility.MouseToWorldPosition() + Vector3.up;
+                Color color = isValidSpawnArea ? Color.green : Color.red;
+                color.a = 0.5f;
+                m_Indicator.renderer.material.color = color;
             }
         }
     }
@@ -97,8 +107,17 @@ public class TowerSpawner : MonoBehaviour {
     {
         GameObject towerType = Towers[MDPUtility.RandomInt(Towers.Length)];
         m_SpawnedTower = Instantiate(towerType) as GameObject;
-        m_SpawnedTower.GetComponent<Tower>().SetColor(color);
+        Tower tower = m_SpawnedTower.GetComponent<Tower>();
+        tower.SetColor(color);
+
+        // Set up spawn indicator
+        float range = tower.FiringRange;
+        m_Indicator = Instantiate(SpawnIndicator) as GameObject;
+        m_Indicator.transform.localScale = new Vector3(range * 2, 1, range * 2);
+
         m_IsSpawnActive = true;
+
+
     }
 
     private bool MouseCollides(UnityEngine.Collider c)

@@ -208,6 +208,7 @@
      <Compile Include="Assets\Scripts\Entities\TutorialFoodBlob.cs" />
      <Compile Include="Assets\Scripts\GUI\GameOver.cs" />
      <Compile Include="Assets\Scripts\GUI\MainMenu.cs" />
+     <Compile Include="Assets\Scripts\GUI\ReturnButton.cs" />
      <Compile Include="Assets\Scripts\GUI\TowerMenu.cs" />
      <Compile Include="Assets\Scripts\GUI\TowerSpawner.cs" />
      <Compile Include="Assets\Scripts\Managers\GameConfig.cs" />

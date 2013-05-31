@@ -6,5 +6,6 @@ public class GameConfig : MonoBehaviour {
 	void Start () 
 	{
 		Screen.orientation = ScreenOrientation.LandscapeLeft;
+        GuiUtility.CachedScaledMatrix = GuiUtility.ScaledMatrix();
 	}
 }

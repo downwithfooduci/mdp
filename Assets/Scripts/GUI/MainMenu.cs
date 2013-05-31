@@ -8,12 +8,12 @@ public class MainMenu : MonoBehaviour {
         Matrix4x4 orig = GUI.matrix;
         GUI.matrix = GuiUtility.CachedScaledMatrix;
 
-        if (GUI.Button(new Rect((GuiUtility.ORIG_SCREEN_WIDTH - 300) / 2, (GuiUtility.ORIG_SCREEN_HEIGHT - 150) / 2, 300, 100), "Enzyme Game"))
+        if (GUI.Button(GuiUtility.CenteredXRect(0.4f, 0.2f, 0.1f), "Enzyme Game"))
         {
             Application.LoadLevel("BounceDemo");
         }
 
-        if (GUI.Button(new Rect((GuiUtility.ORIG_SCREEN_WIDTH - 300) / 2, (GuiUtility.ORIG_SCREEN_HEIGHT + 100) / 2, 300, 100), "Small Intestine Game"))
+        if (GUI.Button(GuiUtility.CenteredXRect(0.55f, 0.2f, 0.1f), "Small Intestine Game"))
         {
             Application.LoadLevel("SmallIntestine");
         }

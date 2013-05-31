@@ -7,9 +7,6 @@ public static class MDPUtility
 {
     private static System.Random s_Random = new System.Random();
 	
-	private const float TARGET_WIDTH = 2048f;
-	private const float TARGET_HEIGHT = 1536f;
-
 	public static float DistanceSquared(GameObject o1, GameObject o2)
 	{
         Vector3 diff = o1.transform.position - o2.transform.position;
@@ -39,11 +36,6 @@ public static class MDPUtility
 
         return position;
     }
-	
-	public static Vector2 GetScreenScale()
-	{
-		return new Vector2(Screen.width / TARGET_WIDTH, Screen.height / TARGET_HEIGHT);
-	}
 
     public static double RandomDouble()
     {

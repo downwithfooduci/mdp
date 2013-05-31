@@ -15,6 +15,8 @@ public class IntestineGameManager : MonoBehaviour {
 	private Color m_OriginalTextColor;
 	
 	private Color m_HealthTextColor;
+
+    private bool m_IsGameOver;
 	
 	void Start()
 	{
@@ -23,9 +25,13 @@ public class IntestineGameManager : MonoBehaviour {
 
     void Update()
     {
+        if (m_IsGameOver)
+            return;
+
         if (Health <= 0)
         {
             Instantiate(GameOverScript);
+            m_IsGameOver = true;
         }
 		
 		if (!NutrientTextColor.Equals(m_OriginalTextColor))

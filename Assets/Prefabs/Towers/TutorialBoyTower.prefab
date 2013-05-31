@@ -1850,7 +1850,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37acc117685500d46aad51d6fe557c2c, type: 3}
   m_Name: 
   Projectile: {fileID: 100000, guid: f43d3495518175d40b527494c7f2f655, type: 2}
-  FiringRange: 10
+  FiringRange: 5
   BaseCooldown: 2
   Level1Cooldown: 1
   Level2Cooldown: .5
