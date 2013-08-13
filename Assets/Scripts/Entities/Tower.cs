@@ -96,12 +96,14 @@ public class Tower : MonoBehaviour {
         Nutrient target = AcquireTarget();
         if (target)
         {
+			transform.Rotate(new Vector3(90,0,0), -40, Space.World);
             // Look at target but lock rotation on x axis
             float xRotation = transform.rotation.eulerAngles.x;
             transform.LookAt(target.transform);
-            Vector3 euler = transform.rotation.eulerAngles;
-            euler.x = xRotation;
-            transform.rotation = Quaternion.Euler(euler);
+			transform.Rotate(new Vector3(90,0,0), 40, Space.World);
+            //Vector3 euler = transform.rotation.eulerAngles;
+            //euler.x = xRotation;
+            //transform.rotation = Quaternion.Euler(euler);
             transform.FindChild(m_ActiveModelName).animation.Play("Default Take", PlayMode.StopAll);
 
             GameObject bulletObject = Instantiate(Projectile, transform.position, transform.rotation) as GameObject;

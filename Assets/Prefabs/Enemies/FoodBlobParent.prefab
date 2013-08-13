@@ -75,10 +75,11 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6d0391c95b36916488bc80dd273d8849, type: 3}
   m_Name: 
+  m_EditorClassIdentifier: 
   Velocity: 10
   RotationSpeed: 10
   Nutrient: {fileID: 100000, guid: 20f993d1675d53a4e881036f4c4dce59, type: 2}
-  NumNutrients: 1
+  NumNutrients: 5
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -89,6 +90,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b3552457a9f20424abb4bb872a3b0e7c, type: 3}
   m_Name: 
+  m_EditorClassIdentifier: 
   pathPosition: 0
 --- !u!1001 &100100000
 Prefab:

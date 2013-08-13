@@ -38,8 +38,17 @@ public class FoodBlob : MonoBehaviour {
 		for(int i = 0; i < NumNutrients; i++)
         {
             // Place enzyme generation code here
-            Vector3 position = transform.position;
-            position.x += i * 0.9f;
+         //   Vector3 position = transform.position;
+          //  position.x += i * 0.9f;
+			float radius = .4f;							// choose .5f as a radius to start with
+			float angle = ((2 * Mathf.PI)/NumNutrients)*i;	// divide the circle into the right number of angle chunks in rads
+			float xPos = radius * Mathf.Cos(angle);		// find the x position as radius*cos(theta)
+			float zPos = radius * Mathf.Sin (angle);	// find the y position as radius*sin(theta)
+			
+			Vector3 position = transform.position;		// 3 dimensional vector for position
+			position.x += xPos;							// set the x position of the vector
+			position.z += zPos;							// set the z position of the vector
+			position.y = .5f; 							// set the y position of the vector
 
             int randomIndex = MDPUtility.RandomInt(s_AvailableColors.Length);
 			Nutrient nutrient = m_NutrientManager.InstantiateNutrient(s_AvailableColors[randomIndex], position);
