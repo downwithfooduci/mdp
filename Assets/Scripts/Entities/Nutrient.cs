@@ -9,8 +9,8 @@ public class Nutrient : MDPEntity {
         set
         {
             m_BodyColor = value;
-            m_TrueColor = value;
-            m_TargetColor = value;
+            //m_TrueColor = value;
+            //m_TargetColor = value;
             renderer.materials[0].color = value;
         }
     }
@@ -23,12 +23,18 @@ public class Nutrient : MDPEntity {
 
     public GameObject EffectParticle;
     public bool IsTargetted;
+	
+	private bool isDead = false;
+	private float elapsedTime = 0;
 
 	protected GameObject m_Parent;
+	
+	private NutrientManager manager;
 	//protected NutrientScript m_NutrientScript;
 	
 	// Use this for initialization
 	void Start () {
+		manager = FindObjectOfType(typeof(NutrientManager)) as NutrientManager;
         Collider = new CircleCollider(this);
         IsTargetted = false;
 
@@ -53,20 +59,35 @@ public class Nutrient : MDPEntity {
     //    }
     //}
 	
+	void Update()
+	{
+		if(isDead && elapsedTime < 1)
+		{
+			Debug.Log("INSIDE!!!!!!!!!");
+			elapsedTime += Time.deltaTime / 3;
+			manager.ChangeColor(this, Color.Lerp(m_TrueColor, m_TargetColor, elapsedTime));
+		}
+	}
+	
 	public void OnBulletCollision ()
 	{
 		Absorb();
 
-        NutrientManager manager = FindObjectOfType(typeof(NutrientManager)) as NutrientManager;
+        //NutrientManager manager = FindObjectOfType(typeof(NutrientManager)) as NutrientManager;
         if (m_BodyColor == Color.white)
         {
             manager.ChangeColor(this, Color.green);
         }
         else
         {
-            m_TargetColor = new Color(89, 38, 38);
-            manager.RemoveNutrient(this);
+			isDead = true;
+            m_TargetColor = new Color(92f / 255f, 64f / 255f, 51f / 255f);
+        //    manager.RemoveNutrient(this);
+			//manager.ChangeColor(this, m_TargetColor);		// change color to brown
+			IsTargetted = true;
         }
+		
+		m_TrueColor = m_BodyColor;
 
         Manager.OnNutrientHit();
 	}
@@ -81,7 +102,7 @@ public class Nutrient : MDPEntity {
         //m_NutrientScript.SetIsDead(true);
         //m_NutrientScript.TurnToDiffuse();
         //m_NutrientScript.SetTurnBrown(true);
-		//ShootOutParticles(3);
+		ShootOutParticles(1);
 	}
 	
 	// Emits numParticles amount particles around this object upon
