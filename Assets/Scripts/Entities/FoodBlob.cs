@@ -26,12 +26,14 @@ public class FoodBlob : MonoBehaviour {
 	void Start () {
         // End-point object here
        // m_EndPoint = GameObject.Find("End");
-		
+			
 		GenerateEnzymes();
 	}
 	
 	virtual protected void GenerateEnzymes()
 	{
+		NumNutrients = Random.Range (3,8);
+		
         m_NutrientManager = FindObjectOfType(typeof(NutrientManager)) as NutrientManager;
         m_GameManager = FindObjectOfType(typeof(IntestineGameManager)) as IntestineGameManager;
 
