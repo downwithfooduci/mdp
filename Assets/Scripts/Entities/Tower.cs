@@ -64,11 +64,10 @@ public class Tower : MonoBehaviour {
 		}
 	}
 	
-	void OnMouseUpAsButton()
-	{
-        if (m_Menu)
-		    m_Menu.IsEnabled = !m_Menu.IsEnabled;
-	}
+	void OnMouseOver()
+    {
+        Debug.Log ("Mouse over");
+    }
 
     public void SetColor(Color color)
     {

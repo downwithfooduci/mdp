@@ -12,6 +12,11 @@ public class TowerSpawner : MonoBehaviour {
 
     public GUIStyle ButtonStyle;
     public Rect Dimensions;
+	
+	public bool IsMouseOverWall;		
+	// Need to poll from last frame, otherwise
+	// will return false as soon as user releases mouse
+	private bool m_IsMouseOverWallLastFrame;
 
     private List<GameObject> m_SpawnAreas;
 
@@ -44,26 +49,18 @@ public class TowerSpawner : MonoBehaviour {
         // Handle valid spawn locations if player is spawning a tower
         if (m_IsSpawnActive)
         {
-            bool isValidSpawnArea = false;
-            foreach (GameObject area in m_SpawnAreas)
-            {
-                if (MouseCollides(area.collider))
-                {
-                    isValidSpawnArea = true;
-                    break;
-                }
-            }
-
             if (Input.GetMouseButtonUp(0))
             {
                 m_IsSpawnActive = false;
 
                 DestroyImmediate(m_Indicator.renderer.material);
-                if (isValidSpawnArea)
+                Destroy(m_Indicator);
+				
+                if (m_IsMouseOverWallLastFrame)
                 {
                     m_SpawnedTower.GetComponent<Tower>().enabled = true;
                     m_SpawnedTower.transform.position = MDPUtility.MouseToWorldPosition() + new Vector3(0, 0.5f, 0);
-                    Destroy(m_Indicator);
+					m_SpawnedTower.GetComponent<TowerMenu>().Initialize();
                 }
                 else
                 {
@@ -75,11 +72,13 @@ public class TowerSpawner : MonoBehaviour {
             {
                 m_SpawnedTower.transform.position = MDPUtility.MouseToWorldPosition();
                 m_Indicator.transform.position = MDPUtility.MouseToWorldPosition() + Vector3.up;
-                Color color = isValidSpawnArea ? Color.green : Color.red;
+                Color color = m_IsMouseOverWallLastFrame ? Color.green : Color.red;
                 color.a = 0.5f;
                 m_Indicator.renderer.material.color = color;
             }
         }
+		
+		m_IsMouseOverWallLastFrame = IsMouseOverWall;
     }
 
     void OnGUI ()
@@ -116,12 +115,5 @@ public class TowerSpawner : MonoBehaviour {
         m_Indicator.transform.localScale = new Vector3(range * 2, 1, range * 2);
 
         m_IsSpawnActive = true;
-
-
-    }
-
-    private bool MouseCollides(UnityEngine.Collider c)
-    {
-        return c.bounds.Contains(MDPUtility.MouseToWorldPosition());
     }
 }

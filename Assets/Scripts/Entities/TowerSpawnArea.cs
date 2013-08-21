@@ -1,26 +1,21 @@
 using UnityEngine;
 using System.Collections;
 
-[RequireComponent(typeof(BoxCollider))]
 public class TowerSpawnArea : MonoBehaviour {
-    public bool IsMouseOver
-    {
-        get { return m_IsMouseOver; }
-    }
-    private bool m_IsMouseOver;
+	
+	private TowerSpawner m_TowerSpawner;
 
-	// Use this for initialization
 	void Start () {
-        m_IsMouseOver = false;
+		m_TowerSpawner = FindObjectOfType(typeof(TowerSpawner)) as TowerSpawner;
 	}
 
-    void OnMouseEnter()
+    void OnMouseOver()
     {
-        m_IsMouseOver = true;
+        m_TowerSpawner.IsMouseOverWall = true;
     }
 
     void OnMouseExit()
     {
-        m_IsMouseOver = false;
+        m_TowerSpawner.IsMouseOverWall = false;
     }
 }

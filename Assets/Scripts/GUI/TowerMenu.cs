@@ -15,13 +15,30 @@ public class TowerMenu : MonoBehaviour {
 	private const int BUTTON_WIDTH = 50;
 	private const int BUTTON_HEIGHT = 30;
 	
+	private bool m_MouseDownLastFrame;
+	
 	// Use this for initialization
     void Start()
     {
         m_Tower = gameObject.GetComponent<Tower>();
-        m_ScreenPosition = MDPUtility.WorldToScreenPosition(transform.position);
 
 		m_NumButtons = 0;
+	}
+	
+	public void Initialize()
+	{
+        m_ScreenPosition = MDPUtility.WorldToScreenPosition(transform.position);
+		m_ScreenPosition.x += 15;
+	}
+	
+	void Update()
+	{
+		bool mouseDown = Input.GetMouseButtonDown(0);
+		
+		if (m_MouseDownLastFrame && !mouseDown)
+			CheckMouseClick();
+		
+		m_MouseDownLastFrame = mouseDown;
 	}
 	
 	void OnGUI()
@@ -51,7 +68,30 @@ public class TowerMenu : MonoBehaviour {
 		default:
 			break;
 		}
+	}
+	
+	private void CheckMouseClick()
+	{
+		EnableRayCasts(true);
 		
+		Vector3 mousePos = MDPUtility.MouseToWorldPosition();
+		mousePos.y = 5;
+		RaycastHit hitInfo;
+			
+		if (Physics.Raycast(mousePos, Vector3.down, out hitInfo, mousePos.y)) 
+		{
+			if (hitInfo.transform == transform)
+				IsEnabled = !IsEnabled;
+		}
+		
+		EnableRayCasts(false);
+	}
+	
+	private void EnableRayCasts(bool val)
+	{
+		string layer = val ? "Default" : "Ignore Raycast";
+		
+		gameObject.layer = LayerMask.NameToLayer(layer);
 	}
 	
     // Returns a rectangle with an adjusted position for

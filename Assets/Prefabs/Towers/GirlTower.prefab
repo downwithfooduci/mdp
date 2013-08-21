@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 400000}
   - 33: {fileID: 3300000}
   - 23: {fileID: 2300000}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Sphere_009
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25,7 +25,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400002}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Lamp_003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400004}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Lamp_002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +55,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400006}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Lamp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ GameObject:
   - 4: {fileID: 400008}
   - 33: {fileID: 3300002}
   - 23: {fileID: 2300002}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Circle_003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -89,7 +89,7 @@ GameObject:
   - 4: {fileID: 400010}
   - 33: {fileID: 3300004}
   - 23: {fileID: 2300004}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Circle_001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -106,7 +106,7 @@ GameObject:
   - 4: {fileID: 400012}
   - 33: {fileID: 3300006}
   - 23: {fileID: 2300006}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -121,7 +121,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400014}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -137,7 +137,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400016}
   - 111: {fileID: 11100008}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -154,7 +154,7 @@ GameObject:
   - 4: {fileID: 400018}
   - 33: {fileID: 3300008}
   - 23: {fileID: 2300008}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Sphere_009
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -169,7 +169,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400020}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Lamp_003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -184,7 +184,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400022}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Lamp_002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -199,7 +199,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400024}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Lamp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -216,7 +216,7 @@ GameObject:
   - 4: {fileID: 400026}
   - 33: {fileID: 3300010}
   - 23: {fileID: 2300010}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Circle_002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -233,7 +233,7 @@ GameObject:
   - 4: {fileID: 400028}
   - 33: {fileID: 3300012}
   - 23: {fileID: 2300012}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -248,7 +248,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400030}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -264,7 +264,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400032}
   - 111: {fileID: 11100000}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Power1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -281,7 +281,7 @@ GameObject:
   - 4: {fileID: 400034}
   - 33: {fileID: 3300014}
   - 23: {fileID: 2300014}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Sphere_001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -298,7 +298,7 @@ GameObject:
   - 4: {fileID: 400036}
   - 33: {fileID: 3300016}
   - 23: {fileID: 2300016}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -313,7 +313,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400038}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Lamp_003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -328,7 +328,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400040}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Lamp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -345,7 +345,7 @@ GameObject:
   - 4: {fileID: 400042}
   - 33: {fileID: 3300018}
   - 23: {fileID: 2300018}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Circle_001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -362,7 +362,7 @@ GameObject:
   - 4: {fileID: 400044}
   - 33: {fileID: 3300020}
   - 23: {fileID: 2300020}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -377,7 +377,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400046}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -393,7 +393,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400048}
   - 111: {fileID: 11100002}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Power2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -410,7 +410,7 @@ GameObject:
   - 4: {fileID: 400050}
   - 33: {fileID: 3300022}
   - 23: {fileID: 2300022}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Sphere_000
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -425,7 +425,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400052}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Lamp_003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -440,7 +440,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400054}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Lamp_002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -455,7 +455,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400056}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Lamp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -472,7 +472,7 @@ GameObject:
   - 4: {fileID: 400058}
   - 33: {fileID: 3300024}
   - 23: {fileID: 2300024}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Circle_002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -489,7 +489,7 @@ GameObject:
   - 4: {fileID: 400060}
   - 33: {fileID: 3300026}
   - 23: {fileID: 2300026}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Circle_001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -506,7 +506,7 @@ GameObject:
   - 4: {fileID: 400062}
   - 33: {fileID: 3300028}
   - 23: {fileID: 2300028}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -521,7 +521,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400064}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -537,7 +537,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400066}
   - 111: {fileID: 11100006}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Speed1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -554,7 +554,7 @@ GameObject:
   - 4: {fileID: 400068}
   - 33: {fileID: 3300030}
   - 23: {fileID: 2300030}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Sphere_009
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -569,7 +569,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400070}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Lamp_003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -584,7 +584,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400072}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Lamp_002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -599,7 +599,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400074}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Lamp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -616,7 +616,7 @@ GameObject:
   - 4: {fileID: 400076}
   - 33: {fileID: 3300032}
   - 23: {fileID: 2300032}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Circle_002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -633,7 +633,7 @@ GameObject:
   - 4: {fileID: 400078}
   - 33: {fileID: 3300034}
   - 23: {fileID: 2300034}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Circle_001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -650,7 +650,7 @@ GameObject:
   - 4: {fileID: 400080}
   - 33: {fileID: 3300036}
   - 23: {fileID: 2300036}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -665,7 +665,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400082}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -681,7 +681,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400084}
   - 111: {fileID: 11100004}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Speed2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -698,7 +698,7 @@ GameObject:
   - 4: {fileID: 400086}
   - 114: {fileID: 11400002}
   - 114: {fileID: 11400000}
-  - 135: {fileID: 13500000}
+  - 65: {fileID: 6500000}
   m_Layer: 2
   m_Name: GirlTower
   m_TagString: Untagged
@@ -1437,7 +1437,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 10302, guid: 0000000000000000e000000000000000, type: 0}
+  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -1760,6 +1760,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100080}
   m_Mesh: {fileID: 4300004, guid: 89848471663d6a746bad603ab338b485, type: 3}
+--- !u!65 &6500000
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100086}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: .00999999978, y: .00999999978, z: .00999999978}
+  m_Center: {x: 0, y: .00999999978, z: 0}
 --- !u!111 &11100000
 Animation:
   m_ObjectHideFlags: 1
@@ -1860,6 +1872,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 324c99f88fa740e4c84bbdd0d2042cea, type: 3}
   m_Name: 
+  m_EditorClassIdentifier: 
   IsEnabled: 0
 --- !u!114 &11400002
 MonoBehaviour:
@@ -1871,23 +1884,12 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 37acc117685500d46aad51d6fe557c2c, type: 3}
   m_Name: 
+  m_EditorClassIdentifier: 
   Projectile: {fileID: 100000, guid: f43d3495518175d40b527494c7f2f655, type: 2}
   FiringRange: 5
   BaseCooldown: 2
   Level1Cooldown: 1
   Level2Cooldown: .5
---- !u!135 &13500000
-SphereCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100086}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: .0250000004
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

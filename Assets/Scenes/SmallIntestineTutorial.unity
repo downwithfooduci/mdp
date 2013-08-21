@@ -27,7 +27,7 @@ RenderSettings:
   m_SpotCookie: {fileID: 0}
   m_ObjectHideFlags: 0
 --- !u!127 &3
-GameManager:
+LevelGameManager:
   m_ObjectHideFlags: 0
 --- !u!157 &4
 LightmapSettings:
@@ -83,6 +83,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 12274676}
   - 114: {fileID: 12274675}
+  - 114: {fileID: 12274677}
   m_Layer: 0
   m_Name: GUI
   m_TagString: Untagged
@@ -101,9 +102,11 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9c4a7b9923ccb6a4f9e3734f954723db, type: 3}
   m_Name: 
+  m_EditorClassIdentifier: 
   Towers:
-  - {fileID: 100086, guid: 6462210b6e6f1ad4484aaf504491b9e0, type: 2}
-  - {fileID: 100086, guid: 9cea0cc8bee7e864f8ab92f9a1537024, type: 2}
+  - {fileID: 100086, guid: d039cc7cf1654a7468b73acb56ee2bb9, type: 2}
+  - {fileID: 100086, guid: cadb7ddc67476b548a5d72ba8ae41784, type: 2}
+  SpawnIndicator: {fileID: 100000, guid: 26deff9078debb04c873abf6f2d334bd, type: 2}
   AvailableColors:
   - {r: 1, g: 1, b: 1, a: 1}
   - {r: 0, g: 1, b: 0, a: 1}
@@ -112,7 +115,7 @@ MonoBehaviour:
   ButtonStyle:
     m_Name: 
     m_Normal:
-      m_Background: {fileID: 10300, guid: 0000000000000000e000000000000000, type: 0}
+      m_Background: {fileID: 10300, guid: 0000000000000000f000000000000000, type: 0}
       m_TextColor: {r: 0, g: 0, b: 0, a: 1}
     m_Hover:
       m_Background: {fileID: 0}
@@ -156,7 +159,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 12800000, guid: e31de3f04e18fcd489bb4bf6c9e81ca5, type: 3}
-    m_FontSize: 72
+    m_FontSize: 36
     m_FontStyle: 0
     m_Alignment: 4
     m_WordWrap: 0
@@ -172,8 +175,9 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 200
-    height: 275
+    width: 100
+    height: 135
+  IsMouseOverWall: 0
 --- !u!4 &12274676
 Transform:
   m_ObjectHideFlags: 0
@@ -185,6 +189,18 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
+--- !u!114 &12274677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400002, guid: e550430199bfa124493bfc800c2a65b0,
+    type: 2}
+  m_PrefabInternal: {fileID: 1757859239}
+  m_GameObject: {fileID: 12274674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10a6b694db1057b4fa0d7e8493682cd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &158861405
 Prefab:
   m_ObjectHideFlags: 0
@@ -266,6 +282,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 01bffa8aa898b437183cd5617f7b5303, type: 3}
   m_Name: 
+  m_EditorClassIdentifier: 
   pathName: Path
   pathColor: {r: 0, g: 1, b: 1, a: 1}
   nodes:
@@ -486,6 +503,7 @@ GameObject:
   - 114: {fileID: 665646476}
   - 114: {fileID: 665646475}
   - 114: {fileID: 665646478}
+  - 114: {fileID: 665646477}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -504,6 +522,8 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 98a16ce7fc8ee724fbef9fef8a79deed, type: 3}
   m_Name: 
+  m_EditorClassIdentifier: 
+  GameOverScript: {fileID: 100000, guid: b0beb0239087d0c45a4696a46f33da65, type: 2}
   FontStyle:
     m_Name: 
     m_Normal:
@@ -551,7 +571,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 12800000, guid: e31de3f04e18fcd489bb4bf6c9e81ca5, type: 3}
-    m_FontSize: 60
+    m_FontSize: 30
     m_FontStyle: 0
     m_Alignment: 0
     m_WordWrap: 0
@@ -563,9 +583,10 @@ MonoBehaviour:
     m_FixedHeight: 0
     m_StretchWidth: 1
     m_StretchHeight: 0
-  Health: 0
-  PlayerScore: 0
+  Health: 5
+  Nutrients: 0
   NutrientHitScore: 5
+  NutrientTextColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &665646476
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -577,7 +598,19 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d4ca6d2539889aa43a6f427340bf5b5c, type: 3}
   m_Name: 
+  m_EditorClassIdentifier: 
   NutrientObj: {fileID: 100000, guid: 20f993d1675d53a4e881036f4c4dce59, type: 2}
+--- !u!114 &665646477
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 665646474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13f1c3a00b8d8b94a8124b5478c61547, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &665646478
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -588,6 +621,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 60c0db4ec9509b4458a9d23b8a0ca953, type: 3}
   m_Name: 
+  m_EditorClassIdentifier: 
   FoodBlob: {fileID: 100000, guid: ccdd974463723a3468496678cf7ca1ee, type: 2}
 --- !u!4 &665646479
 Transform:
@@ -679,6 +713,7 @@ GameObject:
   - 33: {fileID: 1008763471}
   - 65: {fileID: 1008763470}
   - 23: {fileID: 1008763469}
+  - 114: {fileID: 1008763472}
   m_Layer: 0
   m_Name: Wall
   m_TagString: Untagged
@@ -709,7 +744,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 10302, guid: 0000000000000000e000000000000000, type: 0}
+  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -734,6 +769,17 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1008763467}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1008763472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1008763467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51b270ca1fd73c5429cc93b64ee839ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1423188825
 GameObject:
   m_ObjectHideFlags: 0
@@ -745,6 +791,7 @@ GameObject:
   - 33: {fileID: 1423188829}
   - 65: {fileID: 1423188828}
   - 23: {fileID: 1423188827}
+  - 114: {fileID: 1423188830}
   m_Layer: 0
   m_Name: Wall
   m_TagString: Untagged
@@ -775,7 +822,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 10302, guid: 0000000000000000e000000000000000, type: 0}
+  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -800,6 +847,17 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1423188825}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1423188830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1423188825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51b270ca1fd73c5429cc93b64ee839ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1544736004
 GameObject:
   m_ObjectHideFlags: 0
@@ -971,6 +1029,10 @@ Prefab:
     - target: {fileID: 11400004, guid: dea053cdc86a6c442b0e436bb1adeda0, type: 2}
       propertyPath: SpawnPoint.z
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: dea053cdc86a6c442b0e436bb1adeda0, type: 2}
+      propertyPath: Health
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11400004, guid: dea053cdc86a6c442b0e436bb1adeda0, type: 2}
