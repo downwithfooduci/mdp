@@ -2,6 +2,9 @@ using UnityEngine;
 using System.Collections.Generic;
 
 public class Tower : MonoBehaviour {
+	public int TOWER_BASE_COST = 20;
+	public int TOWER_UPGRADE_LEVEL_1_COST = 50;
+	public int TOWER_UPGRADE_LEVEL_2_COST = 50;
 	
 	public GameObject Projectile;
 	
@@ -23,6 +26,7 @@ public class Tower : MonoBehaviour {
 
     private Color m_TargetColor;
     private NutrientManager m_NutrientManager;
+	private IntestineGameManager m_GameManager;
 
 	private float m_Cooldown;
 	private float m_CurrentCooldown;
@@ -35,6 +39,7 @@ public class Tower : MonoBehaviour {
 		m_CanFire = true;
 
         m_NutrientManager = GameObject.Find("Managers").GetComponent<NutrientManager>();
+		m_GameManager = GameObject.Find ("Managers").GetComponent<IntestineGameManager>();
 		
 		m_Menu = gameObject.GetComponent<TowerMenu>();
 		
@@ -158,14 +163,22 @@ public class Tower : MonoBehaviour {
 		switch (m_ActiveModelName)
 		{
 		case "Base":
-			SetActiveModel("Speed1");
-			m_Cooldown = Level1Cooldown;
-			AdjustAnimationSpeed(m_Cooldown);
+			if (m_GameManager.Nutrients - TOWER_UPGRADE_LEVEL_1_COST >= 0)
+			{
+				SetActiveModel("Speed1");
+				m_Cooldown = Level1Cooldown;
+				AdjustAnimationSpeed(m_Cooldown);
+				m_GameManager.Nutrients = m_GameManager.Nutrients - TOWER_UPGRADE_LEVEL_1_COST;	// upgrade costs  nutrients (for test)
+			}
 			break;
 		case "Speed1":
-			SetActiveModel("Speed2");
-			m_Cooldown = Level2Cooldown;
-			AdjustAnimationSpeed(m_Cooldown);
+			if (m_GameManager.Nutrients - TOWER_UPGRADE_LEVEL_2_COST >= 0)
+			{
+				SetActiveModel("Speed2");
+				m_Cooldown = Level2Cooldown;
+				AdjustAnimationSpeed(m_Cooldown);
+				m_GameManager.Nutrients = m_GameManager.Nutrients - TOWER_UPGRADE_LEVEL_2_COST;		// upgrade costs  nutrients (for test)
+			}
 			break;
 		default:
 			break;
@@ -185,10 +198,18 @@ public class Tower : MonoBehaviour {
 		switch (m_ActiveModelName)
 		{
 		case "Base":
-			SetActiveModel("Power1");
+			if (m_GameManager.Nutrients - TOWER_UPGRADE_LEVEL_1_COST >= 0)
+			{
+				SetActiveModel("Power1");
+				m_GameManager.Nutrients = m_GameManager.Nutrients - TOWER_UPGRADE_LEVEL_1_COST;		// upgrade costs nutrients (for test
+			}
 			break;
 		case "Power1":
-			SetActiveModel("Power2");
+			if (m_GameManager.Nutrients - TOWER_UPGRADE_LEVEL_2_COST >= 0)
+			{
+				SetActiveModel("Power2");
+				m_GameManager.Nutrients = m_GameManager.Nutrients - TOWER_UPGRADE_LEVEL_2_COST;		// upgrade costs  nutrients (for test
+			}
 			break;
 		default:
 			break;

@@ -1,13 +1,8 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Entities\Nutrient.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Entities\FoodBlob.cs">
     <Files>
-      <File FileName="Assets\Scripts\Managers\NutrientManager.cs" Line="1" Column="35" />
-      <File FileName="Assets\Scripts\Managers\SmallIntestineTutorialManager.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Entities\FoodBlob.cs" Line="35" Column="18" />
-      <File FileName="Assets\Scripts\Entities\TowerSpawnArea.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Entities\Tower.cs" Line="118" Column="5" />
-      <File FileName="Assets\Scripts\Entities\Nutrient.cs" Line="105" Column="22" />
+      <File FileName="Assets\Scripts\Entities\FoodBlob.cs" Line="35" Column="35" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

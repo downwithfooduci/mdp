@@ -36,7 +36,8 @@ public class NutrientManager : MonoBehaviour {
 
     public void RemoveNutrient(Nutrient n)
     {
-        m_Nutrients[n.BodyColor].Remove(n);
+   		 m_Nutrients[n.BodyColor].Remove(n);
+
 
         if (n.transform.parent.childCount == 1)
             Destroy(n.transform.parent.gameObject);

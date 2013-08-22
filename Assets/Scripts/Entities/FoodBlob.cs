@@ -32,7 +32,7 @@ public class FoodBlob : MonoBehaviour {
 	
 	virtual protected void GenerateEnzymes()
 	{
-		NumNutrients = Random.Range (3,8);
+		NumNutrients = Random.Range (1,7);
 		
         m_NutrientManager = FindObjectOfType(typeof(NutrientManager)) as NutrientManager;
         m_GameManager = FindObjectOfType(typeof(IntestineGameManager)) as IntestineGameManager;
@@ -65,20 +65,34 @@ public class FoodBlob : MonoBehaviour {
     {
         if (obj.gameObject.tag == "Finish")
         {
-
-            Debug.Log("End reached");
             OnEndPointCollision();
         }
     }
 	
 	private void OnEndPointCollision()
-	{
+	{	
+		bool alive = false;
+		
         foreach (Transform child in transform)
         {
-            m_NutrientManager.RemoveNutrient(child.GetComponent<Nutrient>());
+			if (child.name.StartsWith("EffectPartle"))		// we want to destroy the effect particles so they don't interfere
+			{
+				Destroy(child.gameObject);
+			} else 
+			{
+				Nutrient n = child.GetComponent<Nutrient>();
+				if (!n.isDead)								// flag if any of the nutrients are still alive
+				{
+					alive = true;
+				}
+            	m_NutrientManager.RemoveNutrient(child.GetComponent<Nutrient>());
+			}
         }
-
-        m_GameManager.OnFoodBlobFinish();
+		
+		if (alive) 		// if any nutrients were alive we decrement the health
+		{
+			m_GameManager.OnFoodBlobFinish();  
+		}
 	}
 	
 	virtual public void TakeHit()

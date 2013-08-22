@@ -10,6 +10,8 @@ public class TowerMenu : MonoBehaviour {
 	private Vector3 m_ScreenPosition;
 	private int m_NumButtons;
 	
+	private IntestineGameManager m_GameManager;
+	
 	// Dimension and position consts
 	private const int Y_GAP = 1;
 	private const int BUTTON_WIDTH = 50;
@@ -20,6 +22,8 @@ public class TowerMenu : MonoBehaviour {
 	// Use this for initialization
     void Start()
     {
+		m_GameManager = GameObject.Find ("Managers").GetComponent<IntestineGameManager>();
+
         m_Tower = gameObject.GetComponent<Tower>();
 
 		m_NumButtons = 0;
@@ -128,6 +132,32 @@ public class TowerMenu : MonoBehaviour {
 	
 	private void Sell()
 	{
+		// refund nutrients
+		switch (m_Tower.ActiveModelName)
+		{
+		case "Base":
+			m_GameManager.Nutrients = m_GameManager.Nutrients + (int)(.6*(m_Tower.TOWER_BASE_COST));
+			break;
+		case "Speed1":
+			m_GameManager.Nutrients = m_GameManager.Nutrients + (int)(.6*(m_Tower.TOWER_BASE_COST +
+				m_Tower.TOWER_UPGRADE_LEVEL_1_COST));
+			break;
+		case "Speed2":
+			m_GameManager.Nutrients = m_GameManager.Nutrients + (int)(.6*(m_Tower.TOWER_BASE_COST +
+				m_Tower.TOWER_UPGRADE_LEVEL_1_COST + m_Tower.TOWER_UPGRADE_LEVEL_2_COST));
+			break;
+		case "Power1":
+			m_GameManager.Nutrients = m_GameManager.Nutrients + (int)(.6*(m_Tower.TOWER_BASE_COST +
+				m_Tower.TOWER_UPGRADE_LEVEL_1_COST));
+			break;
+		case "Power2":
+			m_GameManager.Nutrients = m_GameManager.Nutrients + (int)(.6*(m_Tower.TOWER_BASE_COST +
+				m_Tower.TOWER_UPGRADE_LEVEL_1_COST + m_Tower.TOWER_UPGRADE_LEVEL_2_COST));
+			break;
+		default:
+			break;
+		}
+		
 		Destroy(gameObject);
 	}
 }

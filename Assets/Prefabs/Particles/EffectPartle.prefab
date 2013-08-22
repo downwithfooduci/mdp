@@ -266,8 +266,8 @@ ParticleSystem:
   ShapeModule:
     serializedVersion: 2
     enabled: 1
-    type: 4
-    radius: .0500000007
+    type: 2
+    radius: .5
     angle: 55
     length: 5
     boxX: .100000001

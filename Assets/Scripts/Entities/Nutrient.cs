@@ -24,7 +24,7 @@ public class Nutrient : MDPEntity {
     public GameObject EffectParticle;
     public bool IsTargetted;
 	
-	private bool isDead = false;
+	public bool isDead = false;
 	private float elapsedTime = 0;
 
 	protected GameObject m_Parent;
@@ -63,7 +63,6 @@ public class Nutrient : MDPEntity {
 	{
 		if(isDead && elapsedTime < 1)
 		{
-			Debug.Log("INSIDE!!!!!!!!!");
 			elapsedTime += Time.deltaTime / 3;
 			manager.ChangeColor(this, Color.Lerp(m_TrueColor, m_TargetColor, elapsedTime));
 		}
