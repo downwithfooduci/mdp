@@ -21,7 +21,10 @@ public class TowerSpawner : MonoBehaviour
 	private GameObject m_SpawnedTower;
 	private GameObject m_Indicator;
 	private IntestineGameManager m_GameManager;
-
+	public int TOWER_BASE_COST = 20;
+	private const float timer = 2.0f;
+	private float timePassed = 0.0f;
+		
 	void Start ()
 	{
 		m_IsSpawnActive = false;
@@ -51,7 +54,7 @@ public class TowerSpawner : MonoBehaviour
 				DestroyImmediate (m_Indicator.renderer.material);
 				Destroy (m_Indicator);
 				
-				if (m_IsMouseOverWallLastFrame && m_GameManager.Nutrients - m_SpawnedTower.GetComponent<Tower> ().TOWER_BASE_COST >= 0) {
+				if (m_IsMouseOverWallLastFrame && m_GameManager.Nutrients - TOWER_BASE_COST >= 0) {
 					
 					m_SpawnedTower.GetComponent<Tower> ().enabled = true;
 					m_SpawnedTower.transform.position = MDPUtility.MouseToWorldPosition () + new Vector3 (0, 0.5f, 0);
@@ -78,15 +81,35 @@ public class TowerSpawner : MonoBehaviour
 	{
 		Matrix4x4 orig = GUI.matrix;
 		GUI.matrix = GuiUtility.CachedScaledMatrix;
-
+		
+		if (timePassed > 0)
+		{
+			timePassed -= Time.deltaTime;
+			GUIStyle style = new GUIStyle();
+			style.fontSize = 30;
+			style.alignment = TextAnchor.UpperCenter;
+			style.normal.textColor = Color.white;
+			GUI.Label(new Rect(Screen.width/2 + 50, Screen.height*.9f - 20, 200, 40), "Not enough nutrients!", style);
+		}
+		
 		for (int i = 0; i < AvailableColors.Length; i++) {
 			GUI.backgroundColor = AvailableColors [i];
 			m_ButtonSize.x = Dimensions.x + i * m_ButtonSize.width;
-
-			if (GUI.RepeatButton (m_ButtonSize, "Drag", ButtonStyle) && !m_IsSpawnActive) {
-				SpawnTower (AvailableColors [i]);
-				m_SpawnedTower.GetComponent<Tower> ().enabled = false;
-				return;
+			
+			// if the user clicks a button
+			if (GUI.RepeatButton (m_ButtonSize, "", ButtonStyle)) 
+			{
+				// check all conditions for creating a tower before creating it
+				if (!m_IsSpawnActive && m_GameManager.Nutrients - TOWER_BASE_COST >= 0) 
+				{
+					SpawnTower (AvailableColors [i]);
+					m_SpawnedTower.GetComponent<Tower> ().enabled = false;
+					return;
+				} else if (m_GameManager.Nutrients - TOWER_BASE_COST < 0) 
+				{
+					// if there was not enough nutrients to create the tower let the user know
+					timePassed = timer;		
+				}
 			}
 		}
 

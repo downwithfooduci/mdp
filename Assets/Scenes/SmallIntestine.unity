@@ -404,7 +404,7 @@ MonoBehaviour:
   ButtonStyle:
     m_Name: 
     m_Normal:
-      m_Background: {fileID: 10300, guid: 0000000000000000f000000000000000, type: 0}
+      m_Background: {fileID: 0}
       m_TextColor: {r: .513986051, g: .513986051, b: .513986051, a: 1}
     m_Hover:
       m_Background: {fileID: 0}
@@ -467,6 +467,7 @@ MonoBehaviour:
     width: 100
     height: 135
   IsMouseOverWall: 0
+  TOWER_BASE_COST: 20
 --- !u!4 &151853836
 Transform:
   m_ObjectHideFlags: 0
@@ -910,6 +911,10 @@ Prefab:
     - target: {fileID: 11400000, guid: e550430199bfa124493bfc800c2a65b0, type: 2}
       propertyPath: ButtonStyle.m_Normal.m_TextColor.b
       value: .513986051
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: e550430199bfa124493bfc800c2a65b0, type: 2}
+      propertyPath: ButtonStyle.m_Normal.m_Background
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e550430199bfa124493bfc800c2a65b0, type: 2}

@@ -1,8 +1,9 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Entities\FoodBlob.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\GUI\TowerSpawner.cs">
     <Files>
-      <File FileName="Assets\Scripts\Entities\FoodBlob.cs" Line="35" Column="35" />
+      <File FileName="Assets\Scripts\GUI\TowerSpawner.cs" Line="100" Column="41" />
+      <File FileName="Assets\Scripts\Entities\Tower.cs" Line="5" Column="34" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
