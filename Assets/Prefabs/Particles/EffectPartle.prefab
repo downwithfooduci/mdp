@@ -261,13 +261,13 @@ ParticleSystem:
         m_PostInfinity: 2
       minMaxState: 0
     gravityModifier: 0
-    inheritVelocity: 0
+    inheritVelocity: -1
     maxNumParticles: 500
   ShapeModule:
     serializedVersion: 2
     enabled: 1
-    type: 2
-    radius: .5
+    type: 1
+    radius: 1.20000005
     angle: 55
     length: 5
     boxX: .100000001
@@ -275,7 +275,7 @@ ParticleSystem:
     boxZ: .100000001
     placementMode: 2
     m_Mesh: {fileID: 4300000, guid: 0b5931ae2f552b94497d4adb7313700c, type: 3}
-    randomDirection: 1
+    randomDirection: 0
   EmissionModule:
     enabled: 1
     m_Type: 0

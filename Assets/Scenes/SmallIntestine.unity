@@ -1413,7 +1413,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SpawnType: {fileID: 100000, guid: 9cfaf7020d06c6341bb8e35be76edcec, type: 2}
   SpawnPoint: {x: -22.2215595, y: 0, z: 18.5103397}
-  SpawnInterval: 2
+  SpawnInterval: 3.5
 --- !u!114 &758440265
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2417,6 +2417,10 @@ Prefab:
     - target: {fileID: 11400000, guid: dea053cdc86a6c442b0e436bb1adeda0, type: 2}
       propertyPath: FontStyle.m_FontSize
       value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: dea053cdc86a6c442b0e436bb1adeda0, type: 2}
+      propertyPath: SpawnInterval
+      value: 3.5
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
