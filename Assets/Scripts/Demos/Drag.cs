@@ -19,17 +19,22 @@ void Update()
 		{
 			Touch finger1 = Input.touches[0];
 			Touch finger2 = Input.touches[1];
-			camera = Camera.main;
+			Camera camera = Camera.main;
 			Vector3 finger1Pos = camera.ScreenToWorldPoint(finger1.position);
 			Vector3 finger2Pos = camera.ScreenToWorldPoint(finger2.position);
 			finger1Pos = new Vector3 (finger1Pos.x, finger1Pos.y, 5);
 			finger2Pos = new Vector3 (finger2Pos.x, finger2Pos.y, 5);
+			Debug.Log("Finger 1 Position: " + finger1Pos);
+			Debug.Log("Finger 2 Position: " + finger2Pos);
+			Debug.Log("Box Position: " + transform.position);
+			Debug.Log("Distance from box F1: " + Vector3.Distance(transform.position, finger1.position));
+			Debug.Log("Distance from box F2: " + Vector3.Distance(transform.position, finger2.position));
 			
-			if(Vector3.Distance(transform.position, finger1.position) < 3 
-				&& Vector3.Distance(transform.position, finger2.position) < 3)
+			if(Vector3.Distance(transform.position, finger1.position) < 5 
+				&& Vector3.Distance(transform.position, finger2.position) < 5)
 			{
-				Vector3 low = finger1Pos.y < finger2Pos ? finger1Pos : finger2Pos;
-				Vector3 high = finger1Pos.y < finger2Pos ? finger2Pos : finger1Pos;
+				Vector3 low = finger1Pos.y < finger2Pos.y ? finger1Pos : finger2Pos;
+				Vector3 high = finger1Pos.y < finger2Pos.y ? finger2Pos : finger1Pos;
 				Vector3 differenceVector = high - low;
 				Vector3 crossVector = new Vector3(0,0,10);
 				Vector3 direction = Vector3.Cross(differenceVector, crossVector);
@@ -109,5 +114,5 @@ void Update()
 //		
 //	}
 //
-//}
+}
 
