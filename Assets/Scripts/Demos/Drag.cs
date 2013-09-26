@@ -11,10 +11,29 @@ void Start()
 	{
 		body = GetComponent <FSBodyComponent>();
 		Input.multiTouchEnabled = true;
+		
 	}
+	
+Vector3 lastPosition;
+bool left;
+ 
+
+void Awake ()
+
+{
+		left = false;
+   lastPosition = transform.position;
+
+}
 	
 void Update()
 	{
+		if(lastPosition.x - transform.position.x < -.5)
+			left = true;
+		else if(lastPosition.x - transform.position.x > .5)
+			left = false;
+		Debug.Log("DELTA: " + (lastPosition.x - transform.position.x));
+		Debug.Log("LEFT: " + left);
 		if(Input.touches.Length == 2)
 		{
 			Touch finger1 = Input.touches[0];
@@ -22,28 +41,35 @@ void Update()
 			Camera camera = Camera.main;
 			Vector3 finger1Pos = camera.ScreenToWorldPoint(finger1.position);
 			Vector3 finger2Pos = camera.ScreenToWorldPoint(finger2.position);
-			finger1Pos = new Vector3 (finger1Pos.x, finger1Pos.y, 5);
-			finger2Pos = new Vector3 (finger2Pos.x, finger2Pos.y, 5);
+			finger1Pos = new Vector3 (finger1Pos.x, finger1Pos.y, .1f);
+			finger2Pos = new Vector3 (finger2Pos.x, finger2Pos.y, .1f);
 			Debug.Log("Finger 1 Position: " + finger1Pos);
 			Debug.Log("Finger 2 Position: " + finger2Pos);
 			Debug.Log("Box Position: " + transform.position);
-			Debug.Log("Distance from box F1: " + Vector3.Distance(transform.position, finger1.position));
-			Debug.Log("Distance from box F2: " + Vector3.Distance(transform.position, finger2.position));
+			Debug.Log("Distance from box F1: " + Vector3.Distance(transform.position, finger1Pos));
+			Debug.Log("Distance from box F2: " + Vector3.Distance(transform.position, finger2Pos));
 			
-			if(Vector3.Distance(transform.position, finger1.position) < 5 
-				&& Vector3.Distance(transform.position, finger2.position) < 5)
+			if(Vector3.Distance(transform.position, finger1Pos) < 10 
+				&& Vector3.Distance(transform.position, finger2Pos) < 10)
 			{
 				Vector3 low = finger1Pos.y < finger2Pos.y ? finger1Pos : finger2Pos;
 				Vector3 high = finger1Pos.y < finger2Pos.y ? finger2Pos : finger1Pos;
 				Vector3 differenceVector = high - low;
 				Vector3 crossVector = new Vector3(0,0,10);
 				Vector3 direction = Vector3.Cross(differenceVector, crossVector);
+				if(left)
+					direction = direction * -1;
+				Debug.Log("DIRECTION: " + direction);
 				Vector3 middle = low + (differenceVector / 2);
-				transform.position = middle;
+				body.PhysicsBody.Position = new Vector2(middle.x, middle.y);
 				Vector3 lookAt = middle + direction;
-				transform.LookAt(lookAt);
+				float angle = Mathf.Rad2Deg * Mathf.Atan2(direction.y, direction.x);
+				body.PhysicsBody.Rotation = Mathf.Deg2Rad * angle;
+				transform.eulerAngles = new Vector3(0, 0, angle);
+				body.PhysicsBody.LinearVelocity = new Vector2(0,0);
 			}
 		}
+		lastPosition = transform.position;
 	}
 
 //IEnumerator OnMouseDown () {
