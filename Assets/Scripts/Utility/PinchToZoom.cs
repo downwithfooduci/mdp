@@ -3,11 +3,11 @@ using System.Collections;
 
 public class PinchToZoom : MonoBehaviour {
 
-	public int speed = 2;
+	public int speed = 1;
 	public Camera selectedCamera;
 	// public float MINSCALE = 2.0f;
 	// public float MAXSCALE = 5.0f;
-	public float minPinchSpeed = 3.0f;
+	public float minPinchSpeed = 5.0f;
 	public float varianceInDistances = 5.0f;
 	private float touchDelta = 0.0f;
 	private Vector2 prevDist = new Vector2(0, 0);
