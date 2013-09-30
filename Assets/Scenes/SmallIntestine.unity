@@ -373,6 +373,7 @@ GameObject:
   - 4: {fileID: 151853836}
   - 114: {fileID: 151853835}
   - 114: {fileID: 151853837}
+  - 114: {fileID: 151853838}
   m_Layer: 0
   m_Name: GUI
   m_TagString: Untagged
@@ -491,6 +492,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10a6b694db1057b4fa0d7e8493682cd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &151853838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 151853834}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f557e8571063d341b21bb90807d6bfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 4
+  selectedCamera: {fileID: 556960375}
+  minPinchSpeed: 5
+  varianceInDistances: 5
 --- !u!1 &158790060
 GameObject:
   m_ObjectHideFlags: 0

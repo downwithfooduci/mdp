@@ -17,6 +17,11 @@ public class MainMenu : MonoBehaviour {
         {
             Application.LoadLevel("SmallIntestine");
         }
+		
+		if (GUI.Button(GuiUtility.CenteredXRect(0.7f, 0.2f, 0.1f), "Pinch to Zoom Test"))
+        {
+            Application.LoadLevel("pinch");
+        }
 
         GUI.matrix = orig;
     }
