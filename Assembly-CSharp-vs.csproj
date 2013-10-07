@@ -221,6 +221,7 @@
      <Compile Include="Assets\Scripts\Utility\ColorComparer.cs" />
      <Compile Include="Assets\Scripts\Utility\GuiUtility.cs" />
      <Compile Include="Assets\Scripts\Utility\MDPUtility.cs" />
+     <Compile Include="Assets\Scripts\Utility\PinchToZoom.cs" />
      <None Include="Assets\Packages\Projectors\Guidelines.txt" />
      <None Include="Assets\Packages\Projectors\Sources\Shaders\Projector Multiply.shader" />
      <None Include="Assets\Packages\iTween\ReadMe!\ReadMe!.txt" />
