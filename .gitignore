@@ -15,3 +15,8 @@ Library/guidmapper
 Temp
 *.pidb
 build
+*.csproj
+*.pidb
+*.unityproj
+*.sln
+*.userprefs
