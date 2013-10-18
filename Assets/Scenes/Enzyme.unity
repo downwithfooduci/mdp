@@ -527,6 +527,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3070e889fdd3544a69d14461de48b4ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectGenerator: {fileID: 1345741927}
   ColorPrefeb: {fileID: 100000, guid: 3f9c52c01af16bd4885969668e463504, type: 2}
   style:
     m_Name: 
