@@ -4,9 +4,16 @@ using System.Collections;
 public class ParticleGenerator : MonoBehaviour
 {
 	
-	public GameObject parentCube;
-	public GameObject parentSphere;
-	public GameObject parentCapsule;
+	public GameObject parentCylCyl;
+	public GameObject parentCylCap;
+	public GameObject parentCylSphere;
+	public GameObject parentSphereSphere;
+	public GameObject parentSphereCyl;
+	public GameObject parentSphereCap;
+	public GameObject parentCapCap;
+	public GameObject parentCapCyl;
+	public GameObject parentCapSphere;
+	
 	public int numSpawn;
 	Color[] colors;
 	GameObject[] parents;
@@ -20,10 +27,16 @@ public class ParticleGenerator : MonoBehaviour
 		colors [2] = Color.yellow;
 		colors [3] = Color.green;
 		colors [4] = Color.white;
-		parents = new GameObject[3];
-		parents [0] = parentCube;
-		parents [1] = parentSphere;
-		parents [2] = parentCapsule;
+		parents = new GameObject[9];
+		parents[0] = parentCylCyl;
+		parents[1] = parentCylCap;
+		parents[2] = parentCylSphere;
+		parents[3] = parentSphereSphere;
+		parents[4] = parentSphereCyl;
+		parents[5] = parentSphereCap;
+		parents[6] = parentCapCap;
+		parents[7] = parentCapCyl;
+		parents[8] = parentCapSphere;
 		
 		for (int i = 0; i<numSpawn; i++) {
 			GameObject spawn = (GameObject)Instantiate (parents [Random.Range (0, parents.Length)], new Vector3 (Random.Range (-10f, 10f), Random.Range (-6f, 6f), 0), Quaternion.identity);

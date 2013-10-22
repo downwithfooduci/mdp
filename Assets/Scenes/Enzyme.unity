@@ -136,8 +136,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 257734102}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12, y: 0, z: 10}
-  m_LocalScale: {x: 1, y: 15, z: 1}
+  m_LocalPosition: {x: 13.3000002, y: 0, z: 10}
+  m_LocalScale: {x: 1, y: 20, z: 1}
   m_Children: []
   m_Father: {fileID: 713539890}
 --- !u!1 &713539889
@@ -232,8 +232,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 888185234}
   m_LocalRotation: {x: 0, y: 0, z: .707106829, w: .707106829}
-  m_LocalPosition: {x: 0, y: -7, z: 10}
-  m_LocalScale: {x: 1, y: 25, z: 1}
+  m_LocalPosition: {x: 0, y: -10, z: 10}
+  m_LocalScale: {x: 1, y: 28, z: 1}
   m_Children: []
   m_Father: {fileID: 713539890}
 --- !u!1 &1002179601
@@ -298,8 +298,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1002179601}
   m_LocalRotation: {x: 0, y: 0, z: .707106829, w: .707106829}
-  m_LocalPosition: {x: 0, y: 7, z: 10}
-  m_LocalScale: {x: 1, y: 25, z: 1}
+  m_LocalPosition: {x: 0, y: 10, z: 10}
+  m_LocalScale: {x: 1, y: 28, z: 1}
   m_Children: []
   m_Father: {fileID: 713539890}
 --- !u!1 &1049702518
@@ -443,8 +443,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1297601600}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12, y: 0, z: 10}
-  m_LocalScale: {x: 1, y: 15, z: 1}
+  m_LocalPosition: {x: -13.3299999, y: 0, z: 10}
+  m_LocalScale: {x: 1, y: 20, z: 1}
   m_Children: []
   m_Father: {fileID: 713539890}
 --- !u!1 &1345741927
@@ -474,9 +474,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90ce94685ba8e0d4898a7c02e8e2c7b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parentCube: {fileID: 100002, guid: 650d0981570d9754eb9dde7d6b1d0f67, type: 2}
-  parentSphere: {fileID: 100002, guid: bdf962db1823795479f97a8d9aa87c56, type: 2}
-  parentCapsule: {fileID: 100002, guid: 17b8cbf89e34cb24bbdbdc2bbefbec55, type: 2}
+  parentCylCyl: {fileID: 100004, guid: b2215b3e63e1e0e41895a00d0fa5932e, type: 2}
+  parentCylCap: {fileID: 100004, guid: 61c8e8652378de043ad4cf8bd9a00776, type: 2}
+  parentCylSphere: {fileID: 100004, guid: b86e5388655794b449aff8f2305edf37, type: 2}
+  parentSphereSphere: {fileID: 100002, guid: bdf962db1823795479f97a8d9aa87c56, type: 2}
+  parentSphereCyl: {fileID: 100004, guid: 29e5c539ba557124cbb5a7c80ae66f94, type: 2}
+  parentSphereCap: {fileID: 100004, guid: 09fee5c625b327741a3cfb16245aa9ab, type: 2}
+  parentCapCap: {fileID: 100002, guid: 17b8cbf89e34cb24bbdbdc2bbefbec55, type: 2}
+  parentCapCyl: {fileID: 100004, guid: 3b080d26566fea943b3fbc7337201ce1, type: 2}
+  parentCapSphere: {fileID: 100004, guid: 010ea95ed5095584798e987b0478ab83, type: 2}
   numSpawn: 10
 --- !u!4 &1345741929
 Transform:
