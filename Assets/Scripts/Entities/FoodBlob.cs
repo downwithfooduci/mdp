@@ -17,7 +17,7 @@ public class FoodBlob : MonoBehaviour {
 	private ushort m_FoodLife;	
 	private GameObject m_EndPoint;
 
-    private static Color[] s_AvailableColors = { Color.red, Color.white, Color.yellow, Color.green };
+    private Color[] s_AvailableColors = { Color.red, Color.white, Color.yellow, Color.green };
 
     private NutrientManager m_NutrientManager;
     private IntestineGameManager m_GameManager;

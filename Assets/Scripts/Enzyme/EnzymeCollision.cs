@@ -1,10 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+
+
 public class EnzymeCollision : MonoBehaviour {
+	
+	GameObject gui;
+	Buttons buttons;	
+	
 	// Use this for initialization
 	void Start () {
-		
+		gui = GameObject.Find("EnzymeGUI");
+		buttons = gui.GetComponent<Buttons> ();
 	}
 	
 	// Update is called once per frame
@@ -21,6 +28,49 @@ public class EnzymeCollision : MonoBehaviour {
 			MeshRenderer particleRenderer = collision.collider.gameObject.GetComponentsInChildren<MeshRenderer>()[0];
 			if(renderer.material.color == particleRenderer.material.color)
 			{
+				//split food particle
+			switch(collision.gameObject.name.Replace("Clone", ""))
+				{
+				case "Cylinder Particle Parent":
+				{
+					break;
+				}
+				case "Cylinder Capsule Particle Parent":
+				{
+					break;
+				}
+				case "Cylinder Sphere Particle Parent":
+				{
+					break;
+				}
+				case "Sphere Particle Parent":
+				{
+					break;
+				}
+				case "Sphere Cylinder Particle Parent":
+				{
+					break;
+				}
+				case "Sphere Capsule Particle Parent":
+				{
+					break;
+				}
+				case "Capsule Particle Parent":
+				{
+					break;
+				}
+				case "Capsule Cylinder Particle Parent":
+				{
+					break;
+				}
+				case "Capsule Sphere Particle Parent":
+				{
+					break;
+				}
+				default:
+					break;
+				}
+				// destroy old one
 				Destroy(collision.gameObject);
 			}
 			else
@@ -32,7 +82,7 @@ public class EnzymeCollision : MonoBehaviour {
 	
 	void OnDestroy()
 	{
-		Buttons.EnzymesExist = false;
+		buttons.killEnzyme();
 	}
 	 
 }

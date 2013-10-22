@@ -225,10 +225,10 @@
      <Compile Include="Assets\Scripts\Utility\GuiUtility.cs" />
      <Compile Include="Assets\Scripts\Utility\MDPUtility.cs" />
      <Compile Include="Assets\Scripts\Utility\PinchToZoom.cs" />
-     <None Include="Assets\Packages\Projectors\Guidelines.txt" />
-     <None Include="Assets\Packages\Projectors\Sources\Shaders\Projector Multiply.shader" />
+     <None Include="Assets\Prefabs\Enemies\Projectors\Guidelines.txt" />
+     <None Include="Assets\Prefabs\Enemies\Projectors\Sources\Shaders\Projector Multiply.shader" />
      <None Include="Assets\Packages\iTween\ReadMe!\ReadMe!.txt" />
-     <None Include="Assets\Packages\Projectors\Sources\Shaders\Projector Light.shader" />
+     <None Include="Assets\Prefabs\Enemies\Projectors\Sources\Shaders\Projector Light.shader" />
      <None Include="Assets\Packages\FarseerComponents\Base\FarseerDebugViewUnity\FDView.shader" />
      <None Include="Assets\Packages\FarseerComponents\Tests\Shaders\Color.shader" />
      <None Include="Assets\Packages\FarseerComponents\Tests\Shaders\Transparent Vertex Colored.shader" />

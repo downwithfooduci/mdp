@@ -11,7 +11,7 @@ public class Buttons : MonoBehaviour
 	// Use this for initialization
 	GameObject p;
 	public GameObject ColorPrefeb;
-	public static bool EnzymesExist = false;
+	public bool EnzymesExist = false;
 	public GUIStyle style;
 	
 	void Start ()
@@ -21,12 +21,6 @@ public class Buttons : MonoBehaviour
 
 	void OnGUI ()
 	{
-		
-		string toDisplay = (90 - Time.time) + "";
-		GUI.Label (new Rect (20, 20, 300, 300), toDisplay, style);
-		if (Time.time >= 90)
-			Time.timeScale = 0;
-		
 		if (GUI.Button (new Rect (0, 0, 100, 40), "Return")) {
 			Application.LoadLevel ("MainMenu");
 		}
@@ -75,5 +69,10 @@ public class Buttons : MonoBehaviour
 			generator.SpawnParticle();
 		}
 		
+	}
+	
+	public void killEnzyme()
+	{
+		EnzymesExist = false;
 	}
 }

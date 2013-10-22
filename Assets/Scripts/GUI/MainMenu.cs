@@ -10,7 +10,7 @@ public class MainMenu : MonoBehaviour {
 
         if (GUI.Button(GuiUtility.CenteredXRect(0.4f, 0.2f, 0.1f), "Enzyme Game"))
         {
-            Application.LoadLevel("BounceDemo");
+            Application.LoadLevel("Enzyme");
         }
 
         if (GUI.Button(GuiUtility.CenteredXRect(0.55f, 0.2f, 0.1f), "Small Intestine Game"))

@@ -7,7 +7,7 @@ public class PinchToZoom : MonoBehaviour {
 	public Camera selectedCamera;
 	// public float MINSCALE = 2.0f;
 	// public float MAXSCALE = 5.0f;
-	public float minPinchSpeed = 5.0f;
+	public float minPinchSpeed = 8.0f;
 	public float varianceInDistances = 5.0f;
 	private float touchDelta = 0.0f;
 	private Vector2 prevDist = new Vector2(0, 0);
@@ -15,7 +15,7 @@ public class PinchToZoom : MonoBehaviour {
 	private float speedTouch0 = 0.0f;
 	private float speedTouch1 = 0.0f;
 	private int maxFOV = 60;
-	private int minFOV = 5;
+	private int minFOV = 1;
 	
 	// Use this for initialization
 	void Start () {
@@ -78,7 +78,7 @@ public class PinchToZoom : MonoBehaviour {
 		// if we reach the minimum zoom, we start the game
 		if (selectedCamera.fieldOfView <= minFOV)
 		{
-			Application.LoadLevel("BounceDemo");
+			Application.LoadLevel("loading");
 		}
 	}
 }
