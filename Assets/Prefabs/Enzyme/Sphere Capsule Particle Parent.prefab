@@ -46,6 +46,7 @@ GameObject:
   - 4: {fileID: 400004}
   - 54: {fileID: 5400000}
   - 114: {fileID: 11400000}
+  - 114: {fileID: 11400002}
   m_Layer: 0
   m_Name: Sphere Capsule Particle Parent
   m_TagString: Untagged
@@ -164,6 +165,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 977abff6bd70c7f4d953507ea5266649, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &11400002
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 284203faf5fb0144b9f8df0eeafb4c8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  child1: {fileID: 100000, guid: 8ed671e7d1d1b71429e03cc9f1a94651, type: 2}
+  child2: {fileID: 100000, guid: 0ca916748be3647409a6a4f28f158cc4, type: 2}
 --- !u!135 &13500000
 SphereCollider:
   m_ObjectHideFlags: 1

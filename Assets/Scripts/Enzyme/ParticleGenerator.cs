@@ -39,23 +39,21 @@ public class ParticleGenerator : MonoBehaviour
 		parents[8] = parentCapSphere;
 		
 		for (int i = 0; i<numSpawn; i++) {
-			GameObject spawn = (GameObject)Instantiate (parents [Random.Range (0, parents.Length)], new Vector3 (Random.Range (-10f, 10f), Random.Range (-6f, 6f), 0), Quaternion.identity);
-			MeshRenderer[] renderers = spawn.GetComponentsInChildren<MeshRenderer> ();
-			Color color = colors [Random.Range (0, 5)];
-			for (int j = 0; j < renderers.Length; j++) {
-				renderers [j].material.color = color;
-			}
+			SpawnParticle();
 		}
 	}
 	
 	public void SpawnParticle ()
 	{
+		float x = Random.Range(-10.0f, 10.0f);
+		float y = Random.Range(-5.0f, 5.0f);
 		GameObject spawn = (GameObject)Instantiate (parents [Random.Range (0, parents.Length)], new Vector3 (Random.Range (-10f, 10f), Random.Range (-6f, 6f), 0), Quaternion.identity);
 		MeshRenderer[] renderers = spawn.GetComponentsInChildren<MeshRenderer> ();
 		Color color = colors [Random.Range (0, 5)];
 		for (int j = 0; j < renderers.Length; j++) {
 			renderers [j].material.color = color;
 		}
+		spawn.rigidbody.AddForce(new Vector3(x, y, 0), ForceMode.Impulse);
 	}
 	
 	// Update is called once per frame

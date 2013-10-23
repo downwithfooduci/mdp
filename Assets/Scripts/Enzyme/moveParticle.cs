@@ -5,9 +5,6 @@ public class moveParticle : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		float x = Random.Range(-10.0f, 10.0f);
-		float y = Random.Range(-5.0f, 5.0f);
-		rigidbody.AddForce(new Vector3(x, y, 0), ForceMode.Impulse);
 	}
 	
 	// Update is called once per frame

@@ -519,14 +519,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parentCylCyl: {fileID: 100004, guid: b2215b3e63e1e0e41895a00d0fa5932e, type: 2}
-  parentCylCap: {fileID: 100004, guid: 61c8e8652378de043ad4cf8bd9a00776, type: 2}
-  parentCylSphere: {fileID: 100004, guid: b86e5388655794b449aff8f2305edf37, type: 2}
+  parentCylCap: {fileID: 100004, guid: ebde1d05f83a1be4ab9c31f15763e53e, type: 2}
+  parentCylSphere: {fileID: 100004, guid: 770634d8c0f33694aadf1b6a820fc2be, type: 2}
   parentSphereSphere: {fileID: 100002, guid: bdf962db1823795479f97a8d9aa87c56, type: 2}
-  parentSphereCyl: {fileID: 100004, guid: 29e5c539ba557124cbb5a7c80ae66f94, type: 2}
-  parentSphereCap: {fileID: 100004, guid: 09fee5c625b327741a3cfb16245aa9ab, type: 2}
+  parentSphereCyl: {fileID: 100004, guid: 03056c01f8424794698401e08c1e5cf0, type: 2}
+  parentSphereCap: {fileID: 100004, guid: 8bfb19e8d3bf8ee4e864384f6d9c1094, type: 2}
   parentCapCap: {fileID: 100002, guid: 17b8cbf89e34cb24bbdbdc2bbefbec55, type: 2}
   parentCapCyl: {fileID: 100004, guid: 3b080d26566fea943b3fbc7337201ce1, type: 2}
-  parentCapSphere: {fileID: 100004, guid: 010ea95ed5095584798e987b0478ab83, type: 2}
+  parentCapSphere: {fileID: 100004, guid: 17ebd247376057f43ad281390f446eba, type: 2}
   numSpawn: 20
 --- !u!4 &1345741929
 Transform:
