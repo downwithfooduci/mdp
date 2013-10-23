@@ -25,16 +25,7 @@ public class EnzymeCollision : MonoBehaviour {
 		if(collision.gameObject.name.Contains("Particle Parent"))
 		{
 			MeshRenderer particleRenderer = collision.collider.gameObject.GetComponentsInChildren<MeshRenderer>()[0];
-			if(renderer.material.color == particleRenderer.material.color)
-			{
-				//split food particle
-				ParticleSplit split = collision.gameObject.GetComponent<ParticleSplit>();
-				Debug.Log(split);
-				split.Split();
-				// destroy old one
-				Destroy(collision.gameObject);
-			}
-			else
+			if(renderer.material.color != particleRenderer.material.color)
 			{
 				Destroy(gameObject);
 			}
