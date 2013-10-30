@@ -13,7 +13,7 @@ public class FollowITweenPath : MonoBehaviour {
 
 	void Update() {
 		Quaternion q = transform.rotation;
-	 	transform.position = Spline.MoveOnPath(iTweenPath.GetPath("Path"), transform.position, ref pathPosition, ref q, 1f,100,EasingType.Linear,false,false);
+	 	transform.position = Spline.MoveOnPath(iTweenPath.GetPath("Path"), transform.position, ref pathPosition, ref q, 2f,100,EasingType.Linear,false,false);
 		quaternion.Value = q;
 		transform.rotation = quaternion;
 	}

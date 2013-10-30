@@ -22,6 +22,7 @@ public class Buttons : MonoBehaviour
 	void OnGUI ()
 	{
 		if (GUI.Button (new Rect (0, 0, 100, 40), "Return")) {
+			Time.timeScale = 1;
 			Application.LoadLevel ("MainMenu");
 		}
 		

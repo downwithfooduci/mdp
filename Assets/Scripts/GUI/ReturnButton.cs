@@ -7,6 +7,7 @@ public class ReturnButton : MonoBehaviour {
     {
         if (GUI.Button(new Rect(0, 0, 75, 75), "Return"))
         {
+			Time.timeScale = 1;
             Application.LoadLevel("MainMenu");
         }
     }

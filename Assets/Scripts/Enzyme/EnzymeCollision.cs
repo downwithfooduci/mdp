@@ -22,7 +22,7 @@ public class EnzymeCollision : MonoBehaviour {
 	void OnCollisionEnter(Collision collision)
 	{
 		Debug.Log(collision.gameObject.name);
-		if(collision.gameObject.name.Contains("Particle Parent"))
+		if(collision.gameObject.name.Contains("Particle"))
 		{
 			MeshRenderer particleRenderer = collision.collider.gameObject.GetComponentsInChildren<MeshRenderer>()[0];
 			if(renderer.material.color != particleRenderer.material.color)
