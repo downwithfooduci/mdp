@@ -6,6 +6,8 @@ public class Tower : MonoBehaviour {
 	public int TOWER_UPGRADE_LEVEL_1_COST = 50;
 	public int TOWER_UPGRADE_LEVEL_2_COST = 50;
 	
+	DebugConfig debugConfig;
+	
 	public GameObject Projectile;
 	
 	public string ActiveModelName
@@ -34,6 +36,7 @@ public class Tower : MonoBehaviour {
 		
 	// Use this for initialization
 	void Start () {
+		debugConfig = ((GameObject)GameObject.Find("Debug Config")).GetComponent<DebugConfig>();
 		m_Cooldown = BaseCooldown;
 		m_CurrentCooldown = m_Cooldown;
 		m_CanFire = true;
@@ -54,6 +57,23 @@ public class Tower : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		switch (m_ActiveModelName)
+		{
+		case "Base":
+			m_Cooldown = debugConfig.BaseCooldown;
+			break;
+		case "Speed1":
+			m_Cooldown = debugConfig.Level1Cooldown;
+			break;
+		case "Speed2":
+			m_Cooldown = debugConfig.Level2Cooldown;
+			break;
+		default:
+			break;
+		}
+		TOWER_BASE_COST = debugConfig.TOWER_BASE_COST;
+		TOWER_UPGRADE_LEVEL_1_COST = debugConfig.TOWER_UPGRADE_LEVEL_1_COST;
+		TOWER_UPGRADE_LEVEL_2_COST = debugConfig.TOWER_UPGRADE_LEVEL_2_COST;
 		if (m_CanFire)
 		{
             Fire();

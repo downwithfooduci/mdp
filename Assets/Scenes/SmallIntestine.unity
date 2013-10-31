@@ -2323,7 +2323,6 @@ GameObject:
   - 4: {fileID: 151853836}
   - 114: {fileID: 151853835}
   - 114: {fileID: 151853837}
-  - 114: {fileID: 151853838}
   m_Layer: 0
   m_Name: GUI
   m_TagString: Untagged
@@ -2442,21 +2441,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10a6b694db1057b4fa0d7e8493682cd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &151853838
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 151853834}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f557e8571063d341b21bb90807d6bfb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 4
-  selectedCamera: {fileID: 556960375}
-  minPinchSpeed: 5
-  varianceInDistances: 5
 --- !u!1 &155681793
 GameObject:
   m_ObjectHideFlags: 0
@@ -2769,6 +2753,64 @@ Transform:
   m_LocalScale: {x: .600000024, y: .600000024, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
+--- !u!1 &180421138
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 180421139}
+  - 114: {fileID: 180421140}
+  - 114: {fileID: 180421141}
+  m_Layer: 0
+  m_Name: Debug Config
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &180421139
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 180421138}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.84216893, y: 5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+--- !u!114 &180421140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 180421138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2ab39167bb121442af487da939184cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NutrientSpeed: 2
+  NutrientSpawnInterval: 3.5
+  BaseCooldown: 2
+  Level1Cooldown: 1
+  Level2Cooldown: .5
+  TOWER_BASE_COST: 20
+  TOWER_UPGRADE_LEVEL_1_COST: 50
+  TOWER_UPGRADE_LEVEL_2_COST: 50
+--- !u!114 &180421141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 180421138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a85e2d9a70e57a647be9a92fefb23700, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &182618259
 GameObject:
   m_ObjectHideFlags: 0

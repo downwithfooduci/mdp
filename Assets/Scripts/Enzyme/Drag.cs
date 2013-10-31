@@ -48,6 +48,7 @@ public class Drag : MonoBehaviour
 				if (left)
 					direction = direction * -1;
 				Vector3 middle = low + (differenceVector / 2);
+				transform.position = middle;
 				Vector3 lookAt = middle + direction;
 				float angle = Mathf.Rad2Deg * Mathf.Atan2 (direction.y, direction.x);
 				transform.eulerAngles = new Vector3 (0, 0, angle);
