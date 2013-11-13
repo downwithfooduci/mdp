@@ -7,7 +7,7 @@ public class PinchToZoom : MonoBehaviour {
 	public Camera selectedCamera;
 	// public float MINSCALE = 2.0f;
 	// public float MAXSCALE = 5.0f;
-	public float minPinchSpeed = 8.0f;
+	public float minPinchSpeed = 5.0f;
 	public float varianceInDistances = 5.0f;
 	private float touchDelta = 0.0f;
 	private Vector2 prevDist = new Vector2(0, 0);
@@ -66,11 +66,11 @@ public class PinchToZoom : MonoBehaviour {
 			 */ 
 			
 			// for pinching; i.e. the touch points have moved closer together
-			if ((touchDelta + varianceInDistances <= 1) && (speedTouch0 > minPinchSpeed) && (speedTouch1 > minPinchSpeed)) {
+			if ((touchDelta + varianceInDistances <= .8) && (speedTouch0 > minPinchSpeed) && (speedTouch1 > minPinchSpeed)) {
 				selectedCamera.fieldOfView = Mathf.Clamp(selectedCamera.fieldOfView + (1 + selectedCamera.fieldOfView * speed * 0.01f), minFOV, maxFOV);
 			}
 			// for zooming; i.e. the touch points have moved further apart
-			if ((touchDelta + varianceInDistances > 1) && (speedTouch0 > minPinchSpeed) && (speedTouch1 > minPinchSpeed)) {
+			if ((touchDelta + varianceInDistances > 1.2) && (speedTouch0 > minPinchSpeed) && (speedTouch1 > minPinchSpeed)) {
 				selectedCamera.fieldOfView = Mathf.Clamp(selectedCamera.fieldOfView - (1 + selectedCamera.fieldOfView * speed * 0.01f), minFOV, maxFOV);
 			}
 		}	
