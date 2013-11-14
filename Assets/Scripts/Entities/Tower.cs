@@ -37,6 +37,9 @@ public class Tower : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		debugConfig = ((GameObject)GameObject.Find("Debug Config")).GetComponent<DebugConfig>();
+		TOWER_BASE_COST = debugConfig.TOWER_BASE_COST;
+		TOWER_UPGRADE_LEVEL_1_COST = debugConfig.TOWER_UPGRADE_LEVEL_1_COST;
+		TOWER_UPGRADE_LEVEL_2_COST = debugConfig.TOWER_UPGRADE_LEVEL_2_COST;
 		m_Cooldown = BaseCooldown;
 		m_CurrentCooldown = m_Cooldown;
 		m_CanFire = true;

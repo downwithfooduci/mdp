@@ -25,9 +25,9 @@ public class Drag : MonoBehaviour
 #if UNITY_EDITOR
 		GetKeyboardInput();
 #endif
-		if (lastPosition.x - transform.position.x < -.5)
+		if (lastPosition.x - transform.position.x < -.05)
 			left = true;
-		else if (lastPosition.x - transform.position.x > .5)
+		else if (lastPosition.x - transform.position.x > .05)
 			left = false;
 		if (Input.touches.Length == 2) {
 			Touch finger1 = Input.touches [0];

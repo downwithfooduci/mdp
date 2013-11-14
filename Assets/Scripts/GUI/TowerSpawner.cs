@@ -6,6 +6,7 @@ public class TowerSpawner : MonoBehaviour
 	// Randomly selects a tower model upon creation
 	public GameObject[] Towers;
 	public GameObject SpawnIndicator;
+	DebugConfig debugConfig;
 
 	// Set available tower colors in editor
 	public Color[] AvailableColors;
@@ -27,6 +28,8 @@ public class TowerSpawner : MonoBehaviour
 		
 	void Start ()
 	{
+		debugConfig = ((GameObject)GameObject.Find("Debug Config")).GetComponent<DebugConfig>();
+		TOWER_BASE_COST = debugConfig.TOWER_BASE_COST;
 		m_IsSpawnActive = false;
 
 		float totalWidth = Dimensions.width * AvailableColors.Length;
@@ -46,6 +49,7 @@ public class TowerSpawner : MonoBehaviour
 
 	void Update ()
 	{
+		TOWER_BASE_COST = debugConfig.TOWER_BASE_COST;
 		// Handle valid spawn locations if player is spawning a tower
 		if (m_IsSpawnActive) {
 			if (Input.GetMouseButtonUp (0)) {
@@ -59,7 +63,7 @@ public class TowerSpawner : MonoBehaviour
 					m_SpawnedTower.GetComponent<Tower> ().enabled = true;
 					m_SpawnedTower.transform.position = MDPUtility.MouseToWorldPosition () + new Vector3 (0, 0.5f, 0);
 					m_SpawnedTower.GetComponent<TowerMenu> ().Initialize ();
-					m_GameManager.Nutrients = m_GameManager.Nutrients - m_SpawnedTower.GetComponent<Tower> ().TOWER_BASE_COST;  // cost nutrients for testing
+					m_GameManager.Nutrients = m_GameManager.Nutrients - TOWER_BASE_COST;  // cost nutrients for testing
                 
 				} else {
 					Destroy (m_SpawnedTower);
@@ -131,3 +135,4 @@ public class TowerSpawner : MonoBehaviour
 		m_IsSpawnActive = true;
 	}
 }
+
