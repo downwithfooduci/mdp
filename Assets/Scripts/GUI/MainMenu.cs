@@ -5,24 +5,23 @@ public class MainMenu : MonoBehaviour {
 
 	void OnGUI()
     {
-        Matrix4x4 orig = GUI.matrix;
-        GUI.matrix = GuiUtility.CachedScaledMatrix;
-
-        if (GUI.Button(GuiUtility.CenteredXRect(0.4f, 0.2f, 0.1f), "Enzyme Game"))
+		Debug.Log(Screen.width);
+		if (GUI.Button(new Rect(Screen.width * 0.4f, Screen.height * 0.4f, 
+		                        Screen.width * 0.2f, Screen.height * 0.1f), "Enzyme Game"))
         {
             Application.LoadLevel("Enzyme");
         }
 
-        if (GUI.Button(GuiUtility.CenteredXRect(0.55f, 0.2f, 0.1f), "Small Intestine Game"))
+		if (GUI.Button(new Rect(Screen.width * 0.4f, Screen.height * 0.55f,
+		                        Screen.width * 0.2f, Screen.height * 0.1f), "Small Intestine Game"))
         {
             Application.LoadLevel("SmallIntestine");
         }
 		
-		if (GUI.Button(GuiUtility.CenteredXRect(0.7f, 0.2f, 0.1f), "Pinch to Zoom Test"))
+		if (GUI.Button(new Rect(Screen.width * 0.4f, Screen.height * 0.7f, 
+		                        Screen.width * 0.2f, Screen.height * 0.1f), "Pinch to Zoom Test"))
         {
             Application.LoadLevel("pinch");
         }
-
-        GUI.matrix = orig;
     }
 }
