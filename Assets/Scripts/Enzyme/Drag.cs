@@ -7,16 +7,17 @@ public class Drag : MonoBehaviour
 	void Start ()
 	{
 		Input.multiTouchEnabled = true;
-		
+		diff = 0;
+		left = true;
 	}
 	
 	Vector3 lastPosition;
+	float diff;
 	bool left;
 
 	void Awake ()
 	{
-		left = false;
-		lastPosition = transform.position;
+
 
 	}
 	
@@ -25,10 +26,6 @@ public class Drag : MonoBehaviour
 #if UNITY_EDITOR
 		GetKeyboardInput();
 #endif
-		if (lastPosition.x - transform.position.x < -.05)
-			left = true;
-		else if (lastPosition.x - transform.position.x > .05)
-			left = false;
 		if (Input.touches.Length == 2) {
 			Touch finger1 = Input.touches [0];
 			Touch finger2 = Input.touches [1];
@@ -45,16 +42,19 @@ public class Drag : MonoBehaviour
 				Vector3 differenceVector = high - low;
 				Vector3 crossVector = new Vector3 (0, 0, 10);
 				Vector3 direction = Vector3.Cross (differenceVector, crossVector);
-				if (left)
-					direction = direction * -1;
 				Vector3 middle = low + (differenceVector / 2);
+				if(middle.x - transform.position.x < -.05)
+					left = true;
+				else if(middle.x - transform.position.x > .05)
+					left = false;
+				if (!left)
+					direction = direction * -1;
 				transform.position = middle;
 				Vector3 lookAt = middle + direction;
 				float angle = Mathf.Rad2Deg * Mathf.Atan2 (direction.y, direction.x);
 				transform.eulerAngles = new Vector3 (0, 0, angle);
 			}
 		}
-		lastPosition = transform.position;
 	}
 	
 	void GetKeyboardInput ()
@@ -70,5 +70,6 @@ public class Drag : MonoBehaviour
 			transform.position += new Vector3 (0, -.05f, 0);
 		}
 	}
+
 }
 

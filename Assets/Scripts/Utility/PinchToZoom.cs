@@ -16,6 +16,7 @@ public class PinchToZoom : MonoBehaviour {
 	private float speedTouch1 = 0.0f;
 	private int maxFOV = 60;
 	private int minFOV = 1;
+	private float maxMove = 1000f;
 	
 	// Use this for initialization
 	void Start () {
@@ -55,6 +56,8 @@ public class PinchToZoom : MonoBehaviour {
 			touchDelta = curDist.magnitude - prevDist.magnitude;
 			speedTouch0 = Input.GetTouch(0).deltaPosition.magnitude / Input.GetTouch(0).deltaTime;
 			speedTouch1 = Input.GetTouch(1).deltaPosition.magnitude / Input.GetTouch(1).deltaTime;
+
+			selectedCamera.fieldOfView = Mathf.Clamp(selectedCamera.fieldOfView + (-touchDelta * (maxFOV / maxMove)), minFOV, maxFOV);
 		
 			/* for both pinch and zoom gestures, we create the desired effect by altering the camera's FOV.
 			 * we make the call to Mathf.Clamp to limit the action bounds.
@@ -64,7 +67,7 @@ public class PinchToZoom : MonoBehaviour {
 			 * this means that the zoom effect is slightly faster when the field of view is larger,
 			 * and slows down slightly as the field of view gets narrower.
 			 */ 
-			
+			/*
 			// for pinching; i.e. the touch points have moved closer together
 			if ((touchDelta + varianceInDistances <= .8) && (speedTouch0 > minPinchSpeed) && (speedTouch1 > minPinchSpeed)) {
 				selectedCamera.fieldOfView = Mathf.Clamp(selectedCamera.fieldOfView + (1 + selectedCamera.fieldOfView * speed * 0.01f), minFOV, maxFOV);
@@ -72,7 +75,7 @@ public class PinchToZoom : MonoBehaviour {
 			// for zooming; i.e. the touch points have moved further apart
 			if ((touchDelta + varianceInDistances > 1.2) && (speedTouch0 > minPinchSpeed) && (speedTouch1 > minPinchSpeed)) {
 				selectedCamera.fieldOfView = Mathf.Clamp(selectedCamera.fieldOfView - (1 + selectedCamera.fieldOfView * speed * 0.01f), minFOV, maxFOV);
-			}
+			}*/
 		}	
 		
 		// if we reach the minimum zoom, we start the game
