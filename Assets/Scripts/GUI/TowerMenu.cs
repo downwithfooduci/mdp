@@ -82,10 +82,16 @@ public class TowerMenu : MonoBehaviour {
 		mousePos.y = 5;
 		RaycastHit hitInfo;
 			
+		// check if we click on a tower
 		if (Physics.Raycast(mousePos, Vector3.down, out hitInfo, mousePos.y)) 
 		{
+			// if we click on tower, toggle whether menu is showed
 			if (hitInfo.transform == transform)
 				IsEnabled = !IsEnabled;
+		} else
+		{
+			// otherwise if we clicked in a random place cancel the menu
+			IsEnabled = false;
 		}
 		
 		EnableRayCasts(false);

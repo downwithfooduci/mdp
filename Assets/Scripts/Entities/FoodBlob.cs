@@ -17,7 +17,9 @@ public class FoodBlob : MonoBehaviour {
 	private ushort m_FoodLife;	
 	private GameObject m_EndPoint;
 
-    private Color[] s_AvailableColors = { Color.red, Color.white, Color.yellow, Color.green };
+	// available colors.  White must be listed last because we want the random number picker to skip
+	// choosing white when we need it to.
+	private Color[] s_AvailableColors = { Color.red, Color.yellow, Color.green, Color.white};
 
     private NutrientManager m_NutrientManager;
     private IntestineGameManager m_GameManager;
@@ -52,7 +54,8 @@ public class FoodBlob : MonoBehaviour {
 			position.z += zPos;							// set the z position of the vector
 			position.y = .5f; 							// set the y position of the vector
 
-            int randomIndex = MDPUtility.RandomInt(s_AvailableColors.Length);
+			// when we choose the random color index, we put -1 because we DO NOT want it to choose white
+            int randomIndex = MDPUtility.RandomInt(s_AvailableColors.Length - 1);
 			Nutrient nutrient = m_NutrientManager.InstantiateNutrient(s_AvailableColors[randomIndex], position);
             nutrient.Manager = m_GameManager;
 			

@@ -73,9 +73,9 @@ public class Nutrient : MDPEntity {
 		Absorb();
 
         //NutrientManager manager = FindObjectOfType(typeof(NutrientManager)) as NutrientManager;
-        if (m_BodyColor == Color.white)
+        if (m_BodyColor == Color.green)		// if the color of the nutrient was green we need to turn it white
         {
-            manager.ChangeColor(this, Color.green);
+            manager.ChangeColor(this, Color.white);
         }
         else
         {
