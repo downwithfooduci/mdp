@@ -13,6 +13,7 @@ public class IntestineDebugGUI : MonoBehaviour {
 	string towerBaseCD;
 	string towerLvl1CD;
 	string towerLvl2CD;
+	bool FPSActive;
 	// Use this for initialization
 	void Start () {
 		debugConfig = gameObject.GetComponent<DebugConfig>();
@@ -110,6 +111,15 @@ public class IntestineDebugGUI : MonoBehaviour {
 			if(float.TryParse(towerLvl2CD, out TowerLvl2CD))
 			{
 				debugConfig.Level2Cooldown = TowerLvl2CD;
+			}
+
+			FPSActive = GUI.Toggle(new Rect(350, 160, 100, 50), FPSActive, "Toggle FPS");
+			if (FPSActive)
+			{
+				debugConfig.FPSActive = true;
+			} else
+			{
+				debugConfig.FPSActive = false;
 			}
 		}
 	}

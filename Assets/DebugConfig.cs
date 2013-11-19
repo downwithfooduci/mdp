@@ -10,6 +10,7 @@ public class DebugConfig : MonoBehaviour {
 	public int TOWER_BASE_COST = 20;
 	public int TOWER_UPGRADE_LEVEL_1_COST = 50;
 	public int TOWER_UPGRADE_LEVEL_2_COST = 50;
+	public bool FPSActive = false;
 	// Use this for initialization
 	void Start () {
 	
