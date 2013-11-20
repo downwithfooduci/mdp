@@ -118,6 +118,7 @@ public class Nutrient : MDPEntity {
 			particle = Instantiate(EffectParticle, transform.position + delta, rotation) as GameObject;
 			particle.transform.parent = m_Parent.transform;
 			particle.transform.localEulerAngles = new Vector3(0, 40 + (i * 10), 0);
+			particle.transform.LookAt(m_Parent.transform.position + m_Parent.transform.right);
 			particle.particleSystem.startColor = BodyColor;
 		}
 	}
