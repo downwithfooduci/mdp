@@ -113,7 +113,7 @@ public class Nutrient : MDPEntity {
 		Quaternion rotation = m_Parent.transform.rotation;
 		Transform effect;//To store EffectParticle
 		
-		for (int i = 0; i <= numParticles; i++)
+		for (int i = 0; i < numParticles; i++)
 		{
 			particle = Instantiate(EffectParticle, transform.position + delta, rotation) as GameObject;
 			particle.transform.parent = m_Parent.transform;
