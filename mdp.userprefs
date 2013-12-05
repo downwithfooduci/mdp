@@ -1,25 +1,11 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-<<<<<<< HEAD
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Utility\PinchToZoom.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Entities\Nutrient.cs">
     <Files>
-      <File FileName="Assets\Scripts\Enzyme\Drag.cs" Line="33" Column="24" />
-      <File FileName="Assets\Scripts\Utility\PinchToZoom.cs" Line="59" Column="99" />
-      <File FileName="Assets\Scripts\Entities\Tower.cs" Line="40" Column="49" />
-      <File FileName="Assets\Scripts\GUI\TowerSpawner.cs" Line="52" Column="49" />
-      <File FileName="Assets\Scripts\GUI\MainMenu.cs" Line="22" Column="27" />
-      <File FileName="Assets\Scripts\Utility\GuiUtility.cs" Line="20" Column="70" />
-=======
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Prefabs\Enemies\Projectors\Guidelines.txt">
-    <Files>
-      <File FileName="Assets\MouthCollision.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Managers\NutrientManager.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Entities\Nutrient.cs" Line="1" Column="1" />
-      <File FileName="Assets\GrowAndDie.cs" Line="1" Column="1" />
-      <File FileName="Assets\createPlus.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\GUI\TowerMenu.cs" Line="1" Column="1" />
-      <File FileName="Assets\Prefabs\Enemies\Projectors\Guidelines.txt" Line="1" Column="1" />
->>>>>>> b2b8e1a9e92c48c49422f31156fd85113ff6eca4
+      <File FileName="Assets\Scripts\Managers\NutrientManager.cs" Line="16" Column="92" />
+      <File FileName="Assets\Scripts\Managers\IntestineGameManager.cs" Line="33" Column="20" />
+      <File FileName="Assets\Scripts\Managers\SpawnManager.cs" Line="9" Column="32" />
+      <File FileName="Assets\Scripts\Entities\Nutrient.cs" Line="126" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

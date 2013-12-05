@@ -61,6 +61,7 @@ public class FoodBlob : MonoBehaviour {
 			
 			// Attach new enzyme as a child object
 			nutrient.transform.parent = gameObject.transform;
+			((Behaviour)nutrient.GetComponent("Halo")).enabled = false;
 		}
 	}
 
