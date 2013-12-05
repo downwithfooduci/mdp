@@ -3,7 +3,8 @@ using System.Collections;
 
 public class TowerMenu : MonoBehaviour {
 	public bool IsEnabled;
-	//public GUIStyle Style;
+	public Font font;
+	private GUIStyle guiStyle;
 	
 	private Tower m_Tower;
 	
@@ -14,8 +15,8 @@ public class TowerMenu : MonoBehaviour {
 	
 	// Dimension and position consts
 	private const int Y_GAP = 1;
-	private const int BUTTON_WIDTH = 50;
-	private const int BUTTON_HEIGHT = 30;
+	private const int BUTTON_WIDTH = 65;
+	private const int BUTTON_HEIGHT = 40;
 	
 	private bool m_MouseDownLastFrame;
 	
@@ -47,12 +48,16 @@ public class TowerMenu : MonoBehaviour {
 	
 	void OnGUI()
 	{
+		guiStyle = new GUIStyle(GUI.skin.button);
+		guiStyle.font = font;
+		guiStyle.fontSize = 18;
+
 		if (!IsEnabled)
 			return;
 		
 		m_NumButtons = 0;
 		
-		if (GUI.Button(GetButtonRect(), "Sell"))
+		if (GUI.Button(GetButtonRect(), "Sell", guiStyle))
 		{
 			Sell();
 		}
@@ -82,10 +87,16 @@ public class TowerMenu : MonoBehaviour {
 		mousePos.y = 5;
 		RaycastHit hitInfo;
 			
+		// check if we click on a tower
 		if (Physics.Raycast(mousePos, Vector3.down, out hitInfo, mousePos.y)) 
 		{
+			// if we click on tower, toggle whether menu is showed
 			if (hitInfo.transform == transform)
 				IsEnabled = !IsEnabled;
+		} else
+		{
+			// otherwise if we clicked in a random place cancel the menu
+			IsEnabled = false;
 		}
 		
 		EnableRayCasts(false);
@@ -114,7 +125,7 @@ public class TowerMenu : MonoBehaviour {
 	
 	private void ShowSpeedUpgrade()
 	{
-		if (GUI.Button(GetButtonRect(), "Speed"))
+		if (GUI.Button(GetButtonRect(), "Speed", guiStyle))
 		{
 			m_Tower.UpgradeSpeed();
 			IsEnabled = false;
@@ -123,7 +134,7 @@ public class TowerMenu : MonoBehaviour {
 	
 	private void ShowPowerUpgrade()
 	{
-		if (GUI.Button(GetButtonRect(), "Power"))
+		if (GUI.Button(GetButtonRect(), "Power", guiStyle))
 		{
 			m_Tower.UpgradePower();
 			IsEnabled = false;

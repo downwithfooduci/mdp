@@ -73,9 +73,9 @@ public class Nutrient : MDPEntity {
 		Absorb();
 
         //NutrientManager manager = FindObjectOfType(typeof(NutrientManager)) as NutrientManager;
-        if (m_BodyColor == Color.white)
+        if (m_BodyColor == Color.green)		// if the color of the nutrient was green we need to turn it white
         {
-            manager.ChangeColor(this, Color.green);
+            manager.ChangeColor(this, Color.white);
         }
         else
         {
@@ -113,11 +113,12 @@ public class Nutrient : MDPEntity {
 		Quaternion rotation = m_Parent.transform.rotation;
 		Transform effect;//To store EffectParticle
 		
-		for (int i = 0; i <= numParticles; i++)
+		for (int i = 0; i < numParticles; i++)
 		{
 			particle = Instantiate(EffectParticle, transform.position + delta, rotation) as GameObject;
 			particle.transform.parent = m_Parent.transform;
 			particle.transform.localEulerAngles = new Vector3(0, 40 + (i * 10), 0);
+			particle.transform.LookAt(m_Parent.transform.position + m_Parent.transform.right);
 			particle.particleSystem.startColor = BodyColor;
 		}
 	}
