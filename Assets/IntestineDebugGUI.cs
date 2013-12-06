@@ -13,7 +13,10 @@ public class IntestineDebugGUI : MonoBehaviour {
 	string towerBaseCD;
 	string towerLvl1CD;
 	string towerLvl2CD;
+	string waveTimer;
+	string waveDelay;
 	bool FPSActive;
+	bool debugActive;
 	// Use this for initialization
 	void Start () {
 		debugConfig = gameObject.GetComponent<DebugConfig>();

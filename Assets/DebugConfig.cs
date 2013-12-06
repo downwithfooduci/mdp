@@ -11,6 +11,9 @@ public class DebugConfig : MonoBehaviour {
 	public int TOWER_UPGRADE_LEVEL_1_COST = 50;
 	public int TOWER_UPGRADE_LEVEL_2_COST = 50;
 	public bool FPSActive = false;
+	public bool debugActive = false;
+	public float waveTimer = 30;
+	public float waveDelay = 10;
 	// Use this for initialization
 	void Start () {
 	

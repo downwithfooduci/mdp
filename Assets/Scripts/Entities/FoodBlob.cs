@@ -29,12 +29,11 @@ public class FoodBlob : MonoBehaviour {
         // End-point object here
        // m_EndPoint = GameObject.Find("End");
 			
-		GenerateEnzymes();
 	}
 	
-	virtual protected void GenerateEnzymes()
+	public void GenerateEnzymes(int minNutrients, int maxNutrients, Color[] availableColors)
 	{
-		NumNutrients = Random.Range (1,7);
+		NumNutrients = Random.Range (minNutrients,maxNutrients + 1);
 		
         m_NutrientManager = FindObjectOfType(typeof(NutrientManager)) as NutrientManager;
         m_GameManager = FindObjectOfType(typeof(IntestineGameManager)) as IntestineGameManager;
@@ -55,8 +54,8 @@ public class FoodBlob : MonoBehaviour {
 			position.y = .5f; 							// set the y position of the vector
 
 			// when we choose the random color index, we put -1 because we DO NOT want it to choose white
-            int randomIndex = MDPUtility.RandomInt(s_AvailableColors.Length - 1);
-			Nutrient nutrient = m_NutrientManager.InstantiateNutrient(s_AvailableColors[randomIndex], position);
+            int randomIndex = MDPUtility.RandomInt(availableColors.Length);
+			Nutrient nutrient = m_NutrientManager.InstantiateNutrient(availableColors[randomIndex], position);
             nutrient.Manager = m_GameManager;
 			
 			// Attach new enzyme as a child object
