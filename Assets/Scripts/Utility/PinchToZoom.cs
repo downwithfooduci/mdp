@@ -16,7 +16,7 @@ public class PinchToZoom : MonoBehaviour {
 	private float speedTouch1 = 0.0f;
 	private int maxFOV = 60;
 	private int minFOV = 1;
-	private float maxMove = 5000f;
+	private float maxMove = 8000f;
 	
 	// Use this for initialization
 	void Start () {
