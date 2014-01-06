@@ -16,18 +16,18 @@ public class MouthCollision : MonoBehaviour
 	
 	}
 	
-	void OnCollisionEnter (Collision collision)
+	void OnTriggerEnter (UnityEngine.Collider other)
 	{
-		Debug.Log (collision.gameObject.name);
-		if (collision.gameObject.name.Contains ("Particle Parent")) {
-			MeshRenderer particleRenderer = collision.collider.gameObject.GetComponentsInChildren<MeshRenderer> () [0];
+		Debug.Log ("TRIGGER " + other.gameObject.name);
+		if (other.gameObject.transform.parent && other.gameObject.transform.parent.gameObject.name.Contains ("Particle Parent")) {
+			MeshRenderer particleRenderer = other.gameObject.transform.parent.gameObject.GetComponentsInChildren<MeshRenderer> () [0];
 			if (transform.parent.renderer.material.color == particleRenderer.material.color) {
 				//split food particle
-				ParticleSplit split = collision.gameObject.GetComponent<ParticleSplit> ();
+				ParticleSplit split = other.gameObject.transform.parent.gameObject.GetComponent<ParticleSplit> ();
 				Debug.Log (split);
 				split.Split ();
 				// destroy old one
-				Destroy (collision.gameObject);
+				Destroy (other.gameObject.transform.parent.gameObject);
 			} else {
 				Destroy (transform.parent.gameObject);
 			}
