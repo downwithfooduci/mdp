@@ -14,9 +14,14 @@ public class DebugConfig : MonoBehaviour {
 	public bool debugActive = false;
 	public float waveTimer = 30;
 	public float waveDelay = 10;
+	public int minBlobs = 1;
+	public int maxBlobs = 5;
+	public ArrayList colors = new ArrayList();
 	// Use this for initialization
 	void Start () {
-	
+		colors.Add(Color.red);
+		colors.Add(Color.yellow);
+		colors.Add(Color.green);
 	}
 	
 	// Update is called once per frame
