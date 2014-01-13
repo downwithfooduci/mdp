@@ -36,12 +36,13 @@ public class TowerMenu : MonoBehaviour {
 		m_ScreenPosition.x += 15;
 	}
 	
-	void Update()
+	void LateUpdate()
 	{
 		bool mouseDown = Input.GetMouseButtonDown(0);
 		
 		if (m_MouseDownLastFrame && !mouseDown)
-			CheckMouseClick();
+			StartCoroutine(CheckMouseClick());		// need to use startcoroutine because the function is of type ienumerator so we can delay the thread
+													// without this delay the menu DOES NOT function properly due to the execution order of functions
 		
 		m_MouseDownLastFrame = mouseDown;
 	}
@@ -79,7 +80,7 @@ public class TowerMenu : MonoBehaviour {
 		}
 	}
 	
-	private void CheckMouseClick()
+	private IEnumerator CheckMouseClick()
 	{
 		EnableRayCasts(true);
 		
@@ -96,9 +97,10 @@ public class TowerMenu : MonoBehaviour {
 		} else
 		{
 			// otherwise if we clicked in a random place cancel the menu
+			yield return new WaitForSeconds(.1f);
 			IsEnabled = false;
 		}
-		
+		yield return new WaitForSeconds(.0f);
 		EnableRayCasts(false);
 	}
 	

@@ -33,6 +33,10 @@ public class Tower : MonoBehaviour {
 	private float m_Cooldown;
 	private float m_CurrentCooldown;
 	private bool m_CanFire;
+
+	private const float timer = 2.0f;	// for displaying text messages
+	private float timePassed = 0.0f;
+	private string message = "";
 		
 	// Use this for initialization
 	void Start () {
@@ -56,6 +60,20 @@ public class Tower : MonoBehaviour {
 		}
 		
 		SetActiveModel("Base");		
+	}
+
+	// for displaying text messages
+	void OnGUI()
+	{
+		if (timePassed > 0)
+		{
+			timePassed -= Time.deltaTime;
+			GUIStyle style = new GUIStyle();
+			style.fontSize = 20;
+			style.alignment = TextAnchor.UpperCenter;
+			style.normal.textColor = Color.white;
+			GUI.Label(new Rect(Screen.width/2 - 100, Screen.height*.9f - 60, 200, 40), message, style); // sort of center the message
+		}
 	}
 	
 	// Update is called once per frame
@@ -91,11 +109,6 @@ public class Tower : MonoBehaviour {
 			}
 		}
 	}
-	
-	void OnMouseOver()
-    {
-        Debug.Log ("Mouse over");
-    }
 
     public void SetColor(Color color)
     {
@@ -186,21 +199,37 @@ public class Tower : MonoBehaviour {
 		switch (m_ActiveModelName)
 		{
 		case "Base":
-			if (m_GameManager.Nutrients - TOWER_UPGRADE_LEVEL_1_COST >= 0)
+			if (m_GameManager.Nutrients - TOWER_UPGRADE_LEVEL_1_COST >= 0)  // if you have enough nutrients to upgrade
 			{
 				SetActiveModel("Speed1");
 				m_Cooldown = Level1Cooldown;
 				AdjustAnimationSpeed(m_Cooldown);
 				m_GameManager.Nutrients = m_GameManager.Nutrients - TOWER_UPGRADE_LEVEL_1_COST;	// upgrade costs  nutrients (for test)
+				// set message and display time
+				message = "Upgraded tower to Speed Level 1";
+				timePassed = timer;
+			} else // if not enough nutrients let user know
+			{
+				// set message and display time
+				message = "Not enough nutrients to upgrade tower";
+				timePassed = timer;
 			}
 			break;
 		case "Speed1":
-			if (m_GameManager.Nutrients - TOWER_UPGRADE_LEVEL_2_COST >= 0)
+			if (m_GameManager.Nutrients - TOWER_UPGRADE_LEVEL_2_COST >= 0)  // if you have enough nutrients to upgrade
 			{
 				SetActiveModel("Speed2");
 				m_Cooldown = Level2Cooldown;
 				AdjustAnimationSpeed(m_Cooldown);
 				m_GameManager.Nutrients = m_GameManager.Nutrients - TOWER_UPGRADE_LEVEL_2_COST;		// upgrade costs  nutrients (for test)
+				// set message and display time
+				message = "Upgraded tower to Speed Level 2";
+				timePassed = timer;
+			} else  // if not enough nutrients let user know
+			{
+				// set message and display time
+				message = "Not enough nutrients to upgrade tower";
+				timePassed = timer;
 			}
 			break;
 		default:
@@ -221,17 +250,33 @@ public class Tower : MonoBehaviour {
 		switch (m_ActiveModelName)
 		{
 		case "Base":
-			if (m_GameManager.Nutrients - TOWER_UPGRADE_LEVEL_1_COST >= 0)
+			if (m_GameManager.Nutrients - TOWER_UPGRADE_LEVEL_1_COST >= 0)  // if the upgrade is successful
 			{
 				SetActiveModel("Power1");
 				m_GameManager.Nutrients = m_GameManager.Nutrients - TOWER_UPGRADE_LEVEL_1_COST;		// upgrade costs nutrients (for test
+				// set message and display time
+				message = "Upgraded tower to Power Level 1";
+				timePassed = timer;
+			} else // if not enough nutrients to upgrade notify
+			{
+				// set message and display time
+				message = "Not enough nutrients to upgrade tower";
+				timePassed = timer;
 			}
 			break;
 		case "Power1":
-			if (m_GameManager.Nutrients - TOWER_UPGRADE_LEVEL_2_COST >= 0)
+			if (m_GameManager.Nutrients - TOWER_UPGRADE_LEVEL_2_COST >= 0) // if the upgrade is successful
 			{
 				SetActiveModel("Power2");
 				m_GameManager.Nutrients = m_GameManager.Nutrients - TOWER_UPGRADE_LEVEL_2_COST;		// upgrade costs  nutrients (for test
+				// set message and display time
+				message = "Upgraded tower to Power level 2";
+				timePassed = timer;
+			} else // if not enough nutrients to upgrade notify
+			{
+				// set message and display time
+				message = "Not enough nutrients to upgrade tower";
+				timePassed = timer;
 			}
 			break;
 		default:

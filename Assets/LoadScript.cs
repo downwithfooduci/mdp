@@ -15,11 +15,9 @@ public class LoadScript : MonoBehaviour {
 
 	public Wave[] loadIntestineLevel(int level)
 	{
-		StreamReader sr = new StreamReader(Application.dataPath + "/Intestine/Levels/Level" + level + ".txt");
-		string fileContents = sr.ReadToEnd();
-		sr.Close();
+		TextAsset lev = Resources.Load ("Level" + level) as TextAsset;  // for ipad we need to load resources instead of using a file
 		
-		string[] lines = fileContents.Split("\n"[0]);
+		string[] lines = lev.text.Split("\n"[0]);
 
 		Wave[] waves = new Wave[lines.Length];
 

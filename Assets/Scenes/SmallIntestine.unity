@@ -2914,6 +2914,11 @@ MonoBehaviour:
   TOWER_UPGRADE_LEVEL_1_COST: 50
   TOWER_UPGRADE_LEVEL_2_COST: 50
   FPSActive: 0
+  debugActive: 0
+  waveTimer: 30
+  waveDelay: 10
+  minBlobs: 1
+  maxBlobs: 5
 --- !u!114 &180421141
 MonoBehaviour:
   m_ObjectHideFlags: 0
