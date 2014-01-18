@@ -16,16 +16,20 @@ public class LoadScript : MonoBehaviour {
 	public Wave[] loadIntestineLevel(int level)
 	{
 		TextAsset lev = Resources.Load ("Level" + level) as TextAsset;  // for ipad we need to load resources instead of using a file
-		
+
+		StringReader reader = new StringReader (lev.text);
+
 		string[] lines = lev.text.Split("\n"[0]);
 
 		Wave[] waves = new Wave[lines.Length];
 
-		for(int j = 0; j < lines.Length; j++)
+		string line;
+		int j = 0;
+		while((line = reader.ReadLine()) != null)
 		{
 			Wave wave = new Wave();
 
-			string[] waveInfo = lines[j].Split("/"[0]);
+			string[] waveInfo = line.Split("/"[0]);
 			wave.startDelay = float.Parse(waveInfo[0]);
 			wave.runTime = float.Parse(waveInfo[1]);
 			wave.nutrientSpeed = float.Parse(waveInfo[2]);
@@ -33,7 +37,8 @@ public class LoadScript : MonoBehaviour {
 			wave.minBlobs = int.Parse(waveInfo[4]);
 			wave.maxBlobs = int.Parse(waveInfo[5]);
 
-			Color[] colors = new Color[(waveInfo[6].Length) - 1];
+			Color[] colors = new Color[(waveInfo[6].Length)];
+
 			for(int k = 0; k < colors.Length; k++)
 			{
 				switch (waveInfo[6][k])
@@ -51,6 +56,7 @@ public class LoadScript : MonoBehaviour {
 			}
 			wave.colors = colors;
 			waves[j] = wave;
+			j++;
 		}
 		return waves;
 	}
