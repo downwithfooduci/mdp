@@ -72,7 +72,7 @@ public class Tower : MonoBehaviour {
 			style.fontSize = 20;
 			style.alignment = TextAnchor.UpperCenter;
 			style.normal.textColor = Color.white;
-			GUI.Label(new Rect(Screen.width/2 - 100, Screen.height*.9f - 60, 200, 40), message, style); // sort of center the message
+			GUI.Label(new Rect(Screen.width/2 - 100, Screen.height*.8f - 60, 200, 40), message, style); // sort of center the message
 		}
 	}
 	

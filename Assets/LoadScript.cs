@@ -19,17 +19,17 @@ public class LoadScript : MonoBehaviour {
 
 		StringReader reader = new StringReader (lev.text);
 
-		string[] lines = lev.text.Split("\n"[0]);
+		string[] lines = lev.text.Split("\n"[0]);	// split just to count number of lines to create waves array
 
 		Wave[] waves = new Wave[lines.Length];
 
-		string line;
-		int j = 0;
+		string line;	// store the content of the current line
+		int j = 0;  	// index for lines array
 		while((line = reader.ReadLine()) != null)
 		{
-			Wave wave = new Wave();
+			Wave wave = new Wave();			// object that holds all information about a given wave
 
-			string[] waveInfo = line.Split("/"[0]);
+			string[] waveInfo = line.Split("/"[0]);			// split the current wave line for easier parsing
 			wave.startDelay = float.Parse(waveInfo[0]);
 			wave.runTime = float.Parse(waveInfo[1]);
 			wave.nutrientSpeed = float.Parse(waveInfo[2]);

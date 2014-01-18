@@ -16,7 +16,6 @@ public class ParticleSplit : MonoBehaviour {
 	
 	public void Split()
 	{
-		Debug.Log("SPLITTING");
 		foreach(Transform child in transform)
 		{
 			GameObject toCreate = child.gameObject.name == child1.gameObject.name ? child1 : child2;

@@ -41,23 +41,6 @@ public class Nutrient : MDPEntity {
         if (gameObject.transform.parent)
 		    m_Parent = gameObject.transform.parent.gameObject;
 	}
-
-    //void Update()
-    //{
-    //    if (!m_BodyColor.Equals(m_TargetColor))
-    //    {
-    //        BodyColor = Color.Lerp()
-    //    }
-    //    else
-    //    {
-    //        BodyColor = Color.Lerp(m_BodyColor, m_TargetColor, Time.deltaTime);
-    //    }
-
-    //    if (m_BodyColor.Equals(m_TargetColor))
-    //    {
-    //        m_TargetColor = m_TrueColor;
-    //    }
-    //}
 	
 	void Update()
 	{

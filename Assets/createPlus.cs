@@ -1,17 +1,20 @@
-﻿using UnityEngine;
+﻿// this file is for creating the + signs that show up when a nutrient is absorbed.
+
+using UnityEngine;
 using System.Collections;
 
 public class createPlus : MonoBehaviour {
 	public GameObject plus;
 	float spawnTime = 1.2f;
 	float totalTime = 0;
+
 	// Use this for initialization
 	void Start () {
 	}
 
-	
 	// Update is called once per frame
-	void Update () {
+	void Update () 
+	{
 		totalTime += Time.deltaTime;
 		if(totalTime > spawnTime)
 		{

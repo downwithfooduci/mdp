@@ -39,12 +39,6 @@ public class TowerSpawner : MonoBehaviour
 		m_ButtonSize = Dimensions;
 
 		m_GameManager = GameObject.Find ("Managers").GetComponent<IntestineGameManager> ();
-
-	//	GameObject spawnAreaObject = GameObject.FindGameObjectWithTag ("SpawnArea");
-	//	m_SpawnAreas = new List<GameObject> ();
-	//	foreach (Transform child in spawnAreaObject.transform) {
-	//		m_SpawnAreas.Add (child.gameObject);
-	//	}
 	}
 
 	void Update ()
