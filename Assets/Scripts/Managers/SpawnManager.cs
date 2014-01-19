@@ -56,19 +56,34 @@ public class SpawnManager : MonoBehaviour {
 			}
 			else
 			{
-				currentWave++;
-				if(currentWave == waves.Length)
-					end = true;
+				if(debugConfig.debugActive)
+				{
+					waveDelay = debugConfig.waveDelay;
+					waveTime = debugConfig.waveTimer;
+					SpawnInterval = debugConfig.NutrientSpawnInterval;
+					speed = debugConfig.NutrientSpeed;
+					availableColors = new Color[debugConfig.colors.Count];
+					for(int i = 0; i < debugConfig.colors.Count; i++)
+						availableColors[i] = (Color)debugConfig.colors[i];
+					minNutrients = debugConfig.minBlobs;
+					maxNutrients = debugConfig.maxBlobs;
+					m_TimeSinceLastSpawn = 0;
+				}
 				else
 				{
-					waveDelay = waves[currentWave].startDelay;
-					waveTime = waves[currentWave].runTime;
-					SpawnInterval = waves[currentWave].nutrientSpawnInterval;
-					speed = waves[currentWave].nutrientSpeed;
-					availableColors = waves[currentWave].colors;
-					minNutrients = waves[currentWave].minBlobs;
-					maxNutrients = waves[currentWave].maxBlobs;
-					m_TimeSinceLastSpawn = 0;
+					if(currentWave == waves.Length)
+						end = true;
+					else
+					{
+						waveDelay = waves[currentWave].startDelay;
+						waveTime = waves[currentWave].runTime;
+						SpawnInterval = waves[currentWave].nutrientSpawnInterval;
+						speed = waves[currentWave].nutrientSpeed;
+						availableColors = waves[currentWave].colors;
+						minNutrients = waves[currentWave].minBlobs;
+						maxNutrients = waves[currentWave].maxBlobs;
+						m_TimeSinceLastSpawn = 0;
+					}
 				}
 			}
 		}
