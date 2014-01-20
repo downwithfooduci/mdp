@@ -93,6 +93,7 @@ public class Nutrient : MDPEntity {
 	private void ShootOutParticles(int numParticles)
 	{
 		GameObject particle;
+		GameObject particle2;
 		Vector3 delta = new Vector3(0, transform.localScale.y * 0.25f, 0);
 		Quaternion rotation = m_Parent.transform.rotation;
 		Transform effect;//To store EffectParticle
@@ -104,6 +105,12 @@ public class Nutrient : MDPEntity {
 			particle.transform.localEulerAngles = new Vector3(0, 40 + (i * 10), 0);
 			particle.transform.LookAt(m_Parent.transform.position + m_Parent.transform.right);
 			particle.particleSystem.startColor = BodyColor;
+
+			particle2 = Instantiate(EffectParticle, transform.position + delta, rotation) as GameObject;
+			particle2.transform.parent = m_Parent.transform;
+			particle2.transform.localEulerAngles = new Vector3(0, 40 + (i * 10), 0);
+			particle2.transform.LookAt(m_Parent.transform.position - m_Parent.transform.right);
+			particle2.particleSystem.startColor = BodyColor;
 		}
 	}
 }
