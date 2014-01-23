@@ -96,6 +96,7 @@ public class FoodBlob : MonoBehaviour {
 		{
 			m_GameManager.OnFoodBlobFinish();  
 		}
+		Destroy(this.gameObject);
 	}
 	
 	virtual public void TakeHit()
