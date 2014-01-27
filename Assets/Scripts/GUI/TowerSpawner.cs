@@ -53,8 +53,8 @@ public class TowerSpawner : MonoBehaviour
 		// button size
 		Dimensions.x = Screen.width * 0.0283203125f;		// x location of first button
 		Dimensions.y = Screen.height * 0.87890625f;			// y location of first button
-		Dimensions.width = Screen.width * 0.158203125f;		// width of a button
-		Dimensions.height = Screen.height * 0.100260417f;	// height of a button
+		Dimensions.width = Screen.width * 0.1591796875f;		// width of a button
+		Dimensions.height = Screen.height * 0.1015625f;	// height of a button
 		m_ButtonSize = Dimensions;
 
 		m_GameManager = GameObject.Find ("Managers").GetComponent<IntestineGameManager> ();
@@ -116,7 +116,7 @@ public class TowerSpawner : MonoBehaviour
 	void OnGUI ()
 	{
 		// draw the bottom GUI bar
-		Debug.Log ("DEPTH OF BAR " + GUI.depth);
+
 		GUI.DrawTexture (new Rect (0, Screen.height * 0.82421875f, Screen.width, Screen.height * 0.17578125f), bottomBar);
 
 //		Matrix4x4 orig = GUI.matrix;
@@ -126,7 +126,13 @@ public class TowerSpawner : MonoBehaviour
 		{
 			for (int i = 0; i < AvailableColors.Length; i++)
 			{
-				m_ButtonSize.x = (Dimensions.width + Dimensions.x)*i + Dimensions.x;
+				if (i == 0)
+				{
+					m_ButtonSize.x = (Dimensions.width + Dimensions.x)*i + Dimensions.x;
+				} else 
+				{
+					m_ButtonSize.x = Dimensions.x + i*(Screen.width * 0.0322265625f + Dimensions.width);
+				}
 				if (GUI.RepeatButton (m_ButtonSize, "", activeButtons[i])) 
 				{
 					if (!m_IsSpawnActive) 
@@ -141,7 +147,13 @@ public class TowerSpawner : MonoBehaviour
 		{
 			for (int i = 0; i < AvailableColors.Length; i++)
 			{
-				m_ButtonSize.x = (Dimensions.width + Dimensions.x)*i + Dimensions.x;
+				if (i == 0)
+				{
+					m_ButtonSize.x = (Dimensions.width + Dimensions.x)*i + Dimensions.x;
+				} else 
+				{
+					m_ButtonSize.x = Dimensions.x + i*(Screen.width*0.0322265625f + Dimensions.width);
+				}
 				GUI.RepeatButton (m_ButtonSize, "", inactiveButtons[i]);
 			}
 		}
