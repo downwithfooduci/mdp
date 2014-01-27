@@ -9,8 +9,6 @@ public class Nutrient : MDPEntity {
         set
         {
             m_BodyColor = value;
-            //m_TrueColor = value;
-            //m_TargetColor = value;
             renderer.materials[0].color = value;
         }
     }
@@ -65,8 +63,6 @@ public class Nutrient : MDPEntity {
 			((Behaviour)gameObject.GetComponent("Halo")).enabled = false;
 			isDead = true;
             m_TargetColor = new Color(92f / 255f, 64f / 255f, 51f / 255f);
-        //    manager.RemoveNutrient(this);
-			//manager.ChangeColor(this, m_TargetColor);		// change color to brown
 			IsTargetted = true;
         }
 		
@@ -81,10 +77,7 @@ public class Nutrient : MDPEntity {
 		blob.TakeHit();
 
         IsTargetted = false;
-		
-        //m_NutrientScript.SetIsDead(true);
-        //m_NutrientScript.TurnToDiffuse();
-        //m_NutrientScript.SetTurnBrown(true);
+
 		ShootOutParticles(1);
 	}
 	

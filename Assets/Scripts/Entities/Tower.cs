@@ -22,6 +22,11 @@ public class Tower : MonoBehaviour {
 	public float BaseCooldown;
 	public float Level1Cooldown;
 	public float Level2Cooldown;
+
+	// for power towers, max blobs killed at once
+	public int baseTargets = 1;
+	public int level1Targets = 3;
+	public int level2Targets = 6;
 	
 	private TowerMenu m_Menu;
     private Transform m_ActiveModel;
@@ -31,6 +36,7 @@ public class Tower : MonoBehaviour {
 	private IntestineGameManager m_GameManager;
 
 	private float m_Cooldown;
+	private int targets;
 	private float m_CurrentCooldown;
 	private bool m_CanFire;
 
@@ -82,12 +88,19 @@ public class Tower : MonoBehaviour {
 		{
 		case "Base":
 			m_Cooldown = debugConfig.BaseCooldown;
+			targets = debugConfig.baseTargets;
 			break;
 		case "Speed1":
 			m_Cooldown = debugConfig.Level1Cooldown;
 			break;
 		case "Speed2":
 			m_Cooldown = debugConfig.Level2Cooldown;
+			break;
+		case "Power1":
+			targets = debugConfig.level1Targets;
+			break;
+		case "Power2":
+			targets = debugConfig.level2Targets;
 			break;
 		default:
 			break;
@@ -151,6 +164,7 @@ public class Tower : MonoBehaviour {
 
             Bullet bullet = bulletObject.GetComponent<Bullet>();
             bullet.Target = target.gameObject;
+			bullet.targets = targets;
 
             target.IsTargetted = true;
 
@@ -253,6 +267,7 @@ public class Tower : MonoBehaviour {
 			if (m_GameManager.Nutrients - TOWER_UPGRADE_LEVEL_1_COST >= 0)  // if the upgrade is successful
 			{
 				SetActiveModel("Power1");
+				targets = level1Targets;
 				m_GameManager.Nutrients = m_GameManager.Nutrients - TOWER_UPGRADE_LEVEL_1_COST;		// upgrade costs nutrients (for test
 				// set message and display time
 				message = "Upgraded tower to Power Level 1";
@@ -268,6 +283,7 @@ public class Tower : MonoBehaviour {
 			if (m_GameManager.Nutrients - TOWER_UPGRADE_LEVEL_2_COST >= 0) // if the upgrade is successful
 			{
 				SetActiveModel("Power2");
+				targets = level2Targets;
 				m_GameManager.Nutrients = m_GameManager.Nutrients - TOWER_UPGRADE_LEVEL_2_COST;		// upgrade costs  nutrients (for test
 				// set message and display time
 				message = "Upgraded tower to Power level 2";

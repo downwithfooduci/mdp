@@ -7,6 +7,9 @@ public class DebugConfig : MonoBehaviour {
 	public float BaseCooldown = 2f;
 	public float Level1Cooldown = 1f;
 	public float Level2Cooldown = .5f;
+	public int baseTargets = 1;
+	public int level1Targets = 3;
+	public int level2Targets = 6;
 	public int TOWER_BASE_COST = 20;
 	public int TOWER_UPGRADE_LEVEL_1_COST = 50;
 	public int TOWER_UPGRADE_LEVEL_2_COST = 50;

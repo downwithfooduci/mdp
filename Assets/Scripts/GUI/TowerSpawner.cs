@@ -8,11 +8,29 @@ public class TowerSpawner : MonoBehaviour
 	public GameObject SpawnIndicator;
 	DebugConfig debugConfig;
 
+	// texture for bottom bar area
+	public Texture bottomBar;
+
 	// Set available tower colors in editor
 	public Color[] AvailableColors;
 	public GUIStyle ButtonStyle;
+
+	// make styles for the buttons for the button bar
+	public GUIStyle fatsActive;
+	public GUIStyle fatsInactive;
+	public GUIStyle fats2Active;
+	public GUIStyle fats2Inactive;
+	public GUIStyle proteinActive;
+	public GUIStyle proteinInactive;
+	public GUIStyle carbsActive;
+	public GUIStyle carbsInactive;
+
+	//arrays to hold buttons
+	public GUIStyle[] activeButtons;
+	public GUIStyle[] inactiveButtons;
+	
 	public Rect Dimensions;
-	public bool IsMouseOverWall;		
+	public bool IsMouseOverWall;	
 	// Need to poll from last frame, otherwise
 	// will return false as soon as user releases mouse
 	private bool m_IsMouseOverWallLastFrame;
@@ -32,38 +50,58 @@ public class TowerSpawner : MonoBehaviour
 		TOWER_BASE_COST = debugConfig.TOWER_BASE_COST;
 		m_IsSpawnActive = false;
 
-		float totalWidth = Dimensions.width * AvailableColors.Length;
-
-		Dimensions.x = (GuiUtility.ORIG_SCREEN_WIDTH - totalWidth) / 2;
-		Dimensions.y = GuiUtility.ORIG_SCREEN_HEIGHT - Dimensions.height;
+		// button size
+		Dimensions.x = Screen.width * 0.0283203125f;		// x location of first button
+		Dimensions.y = Screen.height * 0.87890625f;			// y location of first button
+		Dimensions.width = Screen.width * 0.158203125f;		// width of a button
+		Dimensions.height = Screen.height * 0.100260417f;	// height of a button
 		m_ButtonSize = Dimensions;
 
 		m_GameManager = GameObject.Find ("Managers").GetComponent<IntestineGameManager> ();
+
+		// initialize the arrays for holding the buttons
+		activeButtons = new GUIStyle[4];
+		inactiveButtons = new GUIStyle[4];
+
+		// fill arrays
+		activeButtons [0] = fatsActive;
+		activeButtons [1] = fats2Active;
+		activeButtons [2] = proteinActive;
+		activeButtons [3] = carbsActive;
+		inactiveButtons [0] = fatsInactive;
+		inactiveButtons [1] = fats2Inactive;
+		inactiveButtons [2] = proteinInactive;
+		inactiveButtons [3] = carbsInactive;
 	}
 
 	void Update ()
 	{
 		TOWER_BASE_COST = debugConfig.TOWER_BASE_COST;
 		// Handle valid spawn locations if player is spawning a tower
-		if (m_IsSpawnActive) {
-			if (Input.GetMouseButtonUp (0)) {
+		if (m_IsSpawnActive) 
+		{
+			if (Input.GetMouseButtonUp (0)) 
+			{
 				m_IsSpawnActive = false;
 
 				DestroyImmediate (m_Indicator.renderer.material);
 				Destroy (m_Indicator);
 				
-				if (m_IsMouseOverWallLastFrame && m_GameManager.Nutrients - TOWER_BASE_COST >= 0) {
+				if (m_IsMouseOverWallLastFrame && m_GameManager.Nutrients - TOWER_BASE_COST >= 0) 
+				{
 					
 					m_SpawnedTower.GetComponent<Tower> ().enabled = true;
 					m_SpawnedTower.transform.position = MDPUtility.MouseToWorldPosition () + new Vector3 (0, 0.5f, 0);
 					m_SpawnedTower.GetComponent<TowerMenu> ().Initialize ();
 					m_GameManager.Nutrients = m_GameManager.Nutrients - TOWER_BASE_COST;  // cost nutrients for testing
                 
-				} else {
+				} else 
+				{
 					Destroy (m_SpawnedTower);
 					m_SpawnedTower = null;
 				}
-			} else {
+			} else 
+			{
 				m_SpawnedTower.transform.position = MDPUtility.MouseToWorldPosition ();
 				m_Indicator.transform.position = MDPUtility.MouseToWorldPosition () + Vector3.up;
 				Color color = m_IsMouseOverWallLastFrame ? Color.green : Color.red;
@@ -77,20 +115,39 @@ public class TowerSpawner : MonoBehaviour
 
 	void OnGUI ()
 	{
-		Matrix4x4 orig = GUI.matrix;
-		GUI.matrix = GuiUtility.CachedScaledMatrix;
-		
-		if (timePassed > 0)
+		// draw the bottom GUI bar
+		GUI.DrawTexture (new Rect (0, Screen.height * 0.82421875f, Screen.width, Screen.height * 0.17578125f), bottomBar);
+
+//		Matrix4x4 orig = GUI.matrix;
+//		GUI.matrix = GuiUtility.CachedScaledMatrix;
+
+		if (m_GameManager.Nutrients - TOWER_BASE_COST >= 0) 
 		{
-			timePassed -= Time.deltaTime;
-			GUIStyle style = new GUIStyle();
-			style.fontSize = 30;
-			style.alignment = TextAnchor.UpperCenter;
-			style.normal.textColor = Color.white;
-			GUI.Label(new Rect(Screen.width/2 + 50, Screen.height*.9f - 20, 200, 40), "Not enough nutrients!", style);
+			for (int i = 0; i < AvailableColors.Length; i++)
+			{
+				m_ButtonSize.x = (Dimensions.width + Dimensions.x)*i + Dimensions.x;
+				if (GUI.RepeatButton (m_ButtonSize, "", activeButtons[i])) 
+				{
+					if (!m_IsSpawnActive) 
+					{
+						SpawnTower (AvailableColors [i]);
+						m_SpawnedTower.GetComponent<Tower> ().enabled = false;
+						return;
+					}
+				}
+			}
+		} else
+		{
+			for (int i = 0; i < AvailableColors.Length; i++)
+			{
+				m_ButtonSize.x = (Dimensions.width + Dimensions.x)*i + Dimensions.x;
+				GUI.RepeatButton (m_ButtonSize, "", inactiveButtons[i]);
+			}
 		}
-		
-		for (int i = 0; i < AvailableColors.Length; i++) {
+
+
+		for (int i = 0; i < AvailableColors.Length; i++) 
+		{
 			GUI.backgroundColor = AvailableColors [i];
 			m_ButtonSize.x = Dimensions.x + i * m_ButtonSize.width;
 			
@@ -111,7 +168,7 @@ public class TowerSpawner : MonoBehaviour
 			}
 		}
 
-		GUI.matrix = orig;
+//		GUI.matrix = orig;
 	}
 
 	private void SpawnTower (Color color)

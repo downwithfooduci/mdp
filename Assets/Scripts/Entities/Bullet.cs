@@ -7,9 +7,12 @@ public class Bullet : MDPEntity
 	public Color BulletColor;
 	
 	public float Velocity;
+
+	public int targets;
 	
 	// Use this for initialization
-	void Start () {
+	void Start () 
+	{
 		Collider = new CircleCollider(this);
 	}
 	
@@ -26,22 +29,6 @@ public class Bullet : MDPEntity
 			Destroy(gameObject);
 	}
 	
-    //void OnGUI()
-    //{
-    //    if (Target)
-    //    {
-    //        GL.PushMatrix();
-    //        GL.Begin(GL.LINES);
-			
-    //        GL.Color(new Color(0, 0, 0, 1));
-    //        GL.Vertex3(transform.position.x, transform.position.y, transform.position.z);
-    //        GL.Vertex3(Target.transform.position.x, Target.transform.position.y, Target.transform.position.z);
-				
-    //        GL.End();
-    //        GL.PopMatrix();
-    //    }
-    //}
-	
 	protected override void CheckCollisions ()
 	{
 		if (Collider.CollidesWith(Target))
@@ -49,7 +36,18 @@ public class Bullet : MDPEntity
 			Destroy(gameObject);
 
 			Nutrient target = Target.GetComponent<Nutrient>();
-			target.OnBulletCollision();
+			GameObject parent = Target.transform.parent.gameObject;
+
+			Nutrient[] nutrients = parent.GetComponentsInChildren<Nutrient>();
+
+			foreach (Nutrient nutrient in nutrients)
+			{
+				if (nutrient.BodyColor == target.BodyColor && targets > 0)
+				{
+					targets--;
+					nutrient.OnBulletCollision();
+				}
+			}
 		}
 	}
 }
