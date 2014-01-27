@@ -72,6 +72,7 @@ public class IntestineGameManager : MonoBehaviour
     {
 		GUI.depth--;
 
+		// draw nutrients text
 		FontStyle.normal.textColor = NutrientTextColor;
 		FontStyle.fontSize = 16;
 		GUI.Label(new Rect(Screen.width * 0.837f, Screen.height * 0.955f, 40, 40), "Nutrients: " + Nutrients, FontStyle);			

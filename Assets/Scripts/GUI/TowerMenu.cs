@@ -15,7 +15,7 @@ public class TowerMenu : MonoBehaviour {
 	
 	// Dimension and position consts
 	private const int Y_GAP = 1;
-	private const int BUTTON_WIDTH = 65;
+	private const int BUTTON_WIDTH = 115;
 	private const int BUTTON_HEIGHT = 40;
 	
 	private bool m_MouseDownLastFrame;
@@ -33,7 +33,8 @@ public class TowerMenu : MonoBehaviour {
 	public void Initialize()
 	{
         m_ScreenPosition = MDPUtility.WorldToScreenPosition(transform.position);
-		m_ScreenPosition.x += 15;
+		m_ScreenPosition.x -= 65;
+		m_ScreenPosition.y -= 30;
 	}
 	
 	void LateUpdate()
@@ -58,7 +59,7 @@ public class TowerMenu : MonoBehaviour {
 		
 		m_NumButtons = 0;
 		
-		if (GUI.Button(GetButtonRect(), "Sell", guiStyle))
+		if (GUI.Button(GetSellButtonRect(), "Sell", guiStyle))
 		{
 			Sell();
 		}
@@ -113,33 +114,74 @@ public class TowerMenu : MonoBehaviour {
 	
     // Returns a rectangle with an adjusted position for
     // the next button
-	private Rect GetButtonRect()
+	private Rect GetPowerButtonRect()
 	{
 		Rect rect = new Rect(
-            m_ScreenPosition.x, 
-            m_ScreenPosition.y - m_NumButtons * (Y_GAP + BUTTON_HEIGHT), 
+            m_ScreenPosition.x + 80, 
+            m_ScreenPosition.y, 
             BUTTON_WIDTH,
 			BUTTON_HEIGHT);
+	
+		return rect;
+	}
 
-		m_NumButtons++;
+	private Rect GetSpeedButtonRect()
+	{
+		Rect rect = new Rect(
+			m_ScreenPosition.x - 60, 
+			m_ScreenPosition.y, 
+			BUTTON_WIDTH,
+			BUTTON_HEIGHT);
+		
+		return rect;
+	}
+
+	private Rect GetSellButtonRect()
+	{
+		Rect rect = new Rect(
+			m_ScreenPosition.x, 
+			m_ScreenPosition.y+45, 
+			BUTTON_WIDTH,
+			BUTTON_HEIGHT);
+		
 		return rect;
 	}
 	
 	private void ShowSpeedUpgrade()
 	{
-		if (GUI.Button(GetButtonRect(), "Speed", guiStyle))
+		if (m_Tower.ActiveModelName == "Base")
 		{
-			m_Tower.UpgradeSpeed();
-			IsEnabled = false;
+			if (GUI.Button(GetSpeedButtonRect(), "Speed (" + m_Tower.TOWER_UPGRADE_LEVEL_1_COST + ")", guiStyle))
+			{
+				m_Tower.UpgradeSpeed();
+				IsEnabled = false;
+			}
+		} else
+		{
+			if (GUI.Button(GetSpeedButtonRect(), "Speed (" + m_Tower.TOWER_UPGRADE_LEVEL_2_COST + ")", guiStyle))
+			{
+				m_Tower.UpgradeSpeed();
+				IsEnabled = false;
+			}
 		}
 	}
 	
 	private void ShowPowerUpgrade()
 	{
-		if (GUI.Button(GetButtonRect(), "Power", guiStyle))
+		if (m_Tower.ActiveModelName == "Base")
 		{
-			m_Tower.UpgradePower();
-			IsEnabled = false;
+			if (GUI.Button(GetPowerButtonRect(), "Power (" + m_Tower.TOWER_UPGRADE_LEVEL_1_COST + ")", guiStyle))
+			{
+				m_Tower.UpgradePower();
+				IsEnabled = false;
+			}
+		} else
+		{
+			if (GUI.Button(GetPowerButtonRect(), "Power (" + m_Tower.TOWER_UPGRADE_LEVEL_2_COST + ")", guiStyle))
+			{
+				m_Tower.UpgradePower();
+				IsEnabled = false;
+			}
 		}
 	}
 	
