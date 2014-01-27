@@ -1,9 +1,17 @@
 using UnityEngine;
 using System.Collections;
 
-public class IntestineGameManager : MonoBehaviour {
+public class IntestineGameManager : MonoBehaviour 
+{
+	public int MAX_HEALTH = 20;
+
     public GameObject GameOverScript;
     public GUIStyle FontStyle;
+
+	public Texture[] faces;
+	public Texture healthBar;
+	private Rect faceRect;
+	private Rect healthRect;
 	
 	public int Health;
     public int Nutrients;
@@ -21,6 +29,9 @@ public class IntestineGameManager : MonoBehaviour {
 	void Start()
 	{
 		m_OriginalTextColor = m_HealthTextColor = NutrientTextColor = FontStyle.normal.textColor;
+
+		faceRect = new Rect (Screen.width * 0.83203125f, Screen.height * 0.8489583f, Screen.width * 0.078125f, Screen.height * 0.102864583f);
+		healthRect = new Rect (Screen.width * 0.935546875f, Screen.height * 0.85417f, Screen.width * 0.029296875f, Screen.height * 0.092447917f);
 	}
 
     void Update()
@@ -59,17 +70,34 @@ public class IntestineGameManager : MonoBehaviour {
 
     void OnGUI()
     {
-        Matrix4x4 orig = GUI.matrix;
-		GUI.matrix = GuiUtility.CachedScaledMatrix;
+		GUI.depth--;
 
-		FontStyle.normal.textColor = m_HealthTextColor;
-        GUI.Label(new Rect(750, 25, 50, 50), "Health: " + Health, FontStyle);
-		FontStyle.normal.textColor = m_OriginalTextColor;
-		
 		FontStyle.normal.textColor = NutrientTextColor;
-        GUI.Label(new Rect(750, 50, 50, 50), "Nutrients: " + Nutrients, FontStyle);			
+		FontStyle.fontSize = 16;
+		GUI.Label(new Rect(Screen.width * 0.837f, Screen.height * 0.955f, 40, 40), "Nutrients: " + Nutrients, FontStyle);			
 		FontStyle.normal.textColor = m_OriginalTextColor;
 
-        GUI.matrix = orig;
+		// choose face to draw
+		if (Health > .8 * MAX_HEALTH)
+		{
+			GUI.DrawTexture (faceRect, faces [0]);
+		} else if (Health > .6 * MAX_HEALTH)
+		{
+			GUI.DrawTexture (faceRect, faces [1]);
+		} else if (Health > .4 * MAX_HEALTH)
+		{
+			GUI.DrawTexture (faceRect, faces [2]);
+		} else if (Health > .2 * MAX_HEALTH)
+		{
+			GUI.DrawTexture (faceRect, faces [3]);
+		} else 
+		{
+			GUI.DrawTexture (faceRect, faces [4]);
+		}
+
+		// change drawing of health bar
+		GUI.DrawTexture (new Rect(healthRect.xMin, healthRect.yMin + (1-(float)Health/(float)MAX_HEALTH)*healthRect.height, 
+		                          healthRect.width, ((float)Health/(float)MAX_HEALTH)*healthRect.height), healthBar);
+
     }
 }

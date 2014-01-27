@@ -20,6 +20,7 @@ public class GameOver : MonoBehaviour {
 
         if (GUI.Button(new Rect((GuiUtility.ORIG_SCREEN_WIDTH - 100) / 2, (GuiUtility.ORIG_SCREEN_HEIGHT + 150) / 2, 100, 50), "Restart", ButtonStyle))
         {
+			Time.timeScale = 1;
             Application.LoadLevel(Application.loadedLevel);
         }
 

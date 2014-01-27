@@ -116,6 +116,7 @@ public class TowerSpawner : MonoBehaviour
 	void OnGUI ()
 	{
 		// draw the bottom GUI bar
+		Debug.Log ("DEPTH OF BAR " + GUI.depth);
 		GUI.DrawTexture (new Rect (0, Screen.height * 0.82421875f, Screen.width, Screen.height * 0.17578125f), bottomBar);
 
 //		Matrix4x4 orig = GUI.matrix;
