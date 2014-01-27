@@ -71,14 +71,16 @@ public class Tower : MonoBehaviour {
 	// for displaying text messages
 	void OnGUI()
 	{
+		GUI.depth--;
+
 		if (timePassed > 0)
 		{
 			timePassed -= Time.deltaTime;
 			GUIStyle style = new GUIStyle();
-			style.fontSize = 20;
-			style.alignment = TextAnchor.UpperCenter;
+			style.fontSize = 16;
+			style.alignment = TextAnchor.MiddleCenter;
 			style.normal.textColor = Color.white;
-			GUI.Label(new Rect(Screen.width/2 - 100, Screen.height*.8f - 60, 200, 40), message, style); // sort of center the message
+			GUI.Label(new Rect(Screen.width * 0.0185546875f, Screen.height * 0.83f, Screen.width * 0.775390625f, Screen.height * 0.02604167f), message, style); // sort of center the message
 		}
 	}
 	
