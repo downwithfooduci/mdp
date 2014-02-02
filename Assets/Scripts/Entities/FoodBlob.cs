@@ -17,19 +17,8 @@ public class FoodBlob : MonoBehaviour {
 	private ushort m_FoodLife;	
 	private GameObject m_EndPoint;
 
-	// available colors.  White must be listed last because we want the random number picker to skip
-	// choosing white when we need it to.
-	private Color[] s_AvailableColors = { Color.red, Color.yellow, Color.green, Color.white};
-
     private NutrientManager m_NutrientManager;
     private IntestineGameManager m_GameManager;
-		
-	// Use this for initialization
-	void Start () {
-        // End-point object here
-       // m_EndPoint = GameObject.Find("End");
-			
-	}
 	
 	public void GenerateEnzymes(int minNutrients, int maxNutrients, Color[] availableColors)
 	{
@@ -40,9 +29,6 @@ public class FoodBlob : MonoBehaviour {
 
 		for(int i = 0; i < NumNutrients; i++)
         {
-            // Place enzyme generation code here
-         //   Vector3 position = transform.position;
-          //  position.x += i * 0.9f;
 			float radius = .4f;							// choose .5f as a radius to start with
 			float angle = ((2 * Mathf.PI)/NumNutrients)*i;	// divide the circle into the right number of angle chunks in rads
 			float xPos = radius * Mathf.Cos(angle);		// find the x position as radius*cos(theta)

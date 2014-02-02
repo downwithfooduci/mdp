@@ -9,7 +9,9 @@ public class Tower : MonoBehaviour {
 	DebugConfig debugConfig;
 	
 	public GameObject Projectile;
-	
+
+	public GameObject wall;
+
 	public string ActiveModelName
 	{
 		get { return m_ActiveModelName; }
@@ -207,7 +209,13 @@ public class Tower : MonoBehaviour {
 
 	private bool IsInLineOfSight(Transform target)
 	{
-        return !Physics.Linecast(transform.position, target.position);
+		Vector3 direction = (target.position - wall.transform.position).normalized;
+        if (!Physics.Linecast (wall.transform.position + direction * .7f, target.position)) 
+		{
+			Debug.DrawLine(wall.transform.position + direction * .5f, target.position, Color.red, 5.0f);
+			return true;
+		}
+		return false;
 	}
 	
 	public void UpgradeSpeed()

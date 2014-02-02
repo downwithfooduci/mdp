@@ -52,7 +52,6 @@ public class Nutrient : MDPEntity {
 	public void OnBulletCollision ()
 	{
 		Absorb();
-        //NutrientManager manager = FindObjectOfType(typeof(NutrientManager)) as NutrientManager;
         if (m_BodyColor == Color.green)		// if the color of the nutrient was green we need to turn it white
         {
             manager.ChangeColor(this, Color.white);

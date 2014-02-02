@@ -12,6 +12,7 @@ public class TowerSpawnArea : MonoBehaviour {
     void OnMouseOver()
     {
         m_TowerSpawner.IsMouseOverWall = true;
+		m_TowerSpawner.wall = gameObject;
     }
 
     void OnMouseExit()

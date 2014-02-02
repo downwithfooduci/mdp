@@ -34,15 +34,17 @@ public class Bullet : MDPEntity
 		if (Collider.CollidesWith(Target))
 		{
 			Destroy(gameObject);
-
 			Nutrient target = Target.GetComponent<Nutrient>();
+			Color targetColor = target.BodyColor;
 			GameObject parent = Target.transform.parent.gameObject;
+			target.OnBulletCollision();
+			targets--;
 
 			Nutrient[] nutrients = parent.GetComponentsInChildren<Nutrient>();
 
 			foreach (Nutrient nutrient in nutrients)
 			{
-				if (nutrient.BodyColor == target.BodyColor && targets > 0)
+				if (nutrient.BodyColor == targetColor && targets > 0 && !nutrient.IsTargetted)
 				{
 					targets--;
 					nutrient.OnBulletCollision();

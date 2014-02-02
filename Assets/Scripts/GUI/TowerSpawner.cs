@@ -30,7 +30,9 @@ public class TowerSpawner : MonoBehaviour
 	public GUIStyle[] inactiveButtons;
 	
 	public Rect Dimensions;
-	public bool IsMouseOverWall;	
+	public bool IsMouseOverWall;
+	public GameObject wall;
+
 	// Need to poll from last frame, otherwise
 	// will return false as soon as user releases mouse
 	private bool m_IsMouseOverWallLastFrame;
@@ -91,7 +93,8 @@ public class TowerSpawner : MonoBehaviour
 				{
 					
 					m_SpawnedTower.GetComponent<Tower> ().enabled = true;
-					m_SpawnedTower.transform.position = MDPUtility.MouseToWorldPosition () + new Vector3 (0, 0.5f, 0);
+					m_SpawnedTower.transform.position = wall.transform.position + new Vector3 (0, 0.5f, 0);
+					m_SpawnedTower.GetComponent<Tower>().wall = wall;
 					m_SpawnedTower.GetComponent<TowerMenu> ().Initialize ();
 					m_GameManager.Nutrients = m_GameManager.Nutrients - TOWER_BASE_COST;  // cost nutrients for testing
                 
@@ -102,7 +105,8 @@ public class TowerSpawner : MonoBehaviour
 				}
 			} else 
 			{
-				m_SpawnedTower.transform.position = MDPUtility.MouseToWorldPosition ();
+				m_SpawnedTower.transform.position = MDPUtility.MouseToWorldPosition () + Vector3.up;
+
 				m_Indicator.transform.position = MDPUtility.MouseToWorldPosition () + Vector3.up;
 				Color color = m_IsMouseOverWallLastFrame ? Color.green : Color.red;
 				color.a = 0.5f;
