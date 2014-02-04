@@ -58,6 +58,7 @@ public class LoadScript : MonoBehaviour {
 			waves[j] = wave;
 			j++;
 		}
+		Debug.Log("NUMBER OF WAVES " + waves.Length);
 		return waves;
 	}
 }

@@ -71,6 +71,7 @@ public class SpawnManager : MonoBehaviour {
 				}
 				else
 				{
+					currentWave++;
 					if(currentWave == waves.Length)
 						end = true;
 					else
