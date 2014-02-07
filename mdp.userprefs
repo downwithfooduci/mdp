@@ -1,11 +1,10 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\GUI\ReturnButton.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Resources\Level0.txt">
     <Files>
-      <File FileName="Assets\Scripts\GUI\ReturnButton.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\GUI\MainMenu.cs" Line="7" Column="6" />
-      <File FileName="Assets\LoadSmallIntestine.cs" Line="10" Column="4" />
-      <File FileName="Assets\Scripts\GUI\TowerSpawner.cs" Line="145" Column="13" />
+      <File FileName="Assets\Resources\Level0.txt" Line="13" Column="16" />
+      <File FileName="Assets\LoadScript.cs" Line="76" Column="1" />
+      <File FileName="Assets\Scripts\Managers\SpawnManager.cs" Line="75" Column="10" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

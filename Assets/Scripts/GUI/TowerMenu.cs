@@ -4,7 +4,11 @@ using System.Collections;
 public class TowerMenu : MonoBehaviour {
 	public bool IsEnabled;
 	public Font font;
-	private GUIStyle guiStyle;
+	public GUIStyle powerActive;
+	public GUIStyle powerInactive;
+	public GUIStyle speedActive;
+	public GUIStyle speedInactive;
+	public GUIStyle sellActive;
 	
 	private Tower m_Tower;
 	
@@ -15,8 +19,10 @@ public class TowerMenu : MonoBehaviour {
 	
 	// Dimension and position consts
 	private const int Y_GAP = 1;
-	private const int BUTTON_WIDTH = 115;
-	private const int BUTTON_HEIGHT = 40;
+	private const int UPGRADE_BUTTON_WIDTH = 51;
+	private const int UPGRADE_BUTTON_HEIGHT = 60;
+	private const int SELL_BUTTON_WIDTH = 110;
+	private const int SELL_BUTTON_HEIGHT = 42;
 	
 	private bool m_MouseDownLastFrame;
 	
@@ -33,8 +39,7 @@ public class TowerMenu : MonoBehaviour {
 	public void Initialize()
 	{
         m_ScreenPosition = MDPUtility.WorldToScreenPosition(transform.position);
-		m_ScreenPosition.x -= 65;
-		m_ScreenPosition.y -= 30;
+		m_ScreenPosition.y -= 70;
 	}
 	
 	void LateUpdate()
@@ -50,16 +55,13 @@ public class TowerMenu : MonoBehaviour {
 	
 	void OnGUI()
 	{
-		guiStyle = new GUIStyle(GUI.skin.button);
-		guiStyle.font = font;
-		guiStyle.fontSize = 18;
 
 		if (!IsEnabled)
 			return;
 		
 		m_NumButtons = 0;
 		
-		if (GUI.Button(GetSellButtonRect(), "Sell", guiStyle))
+		if (GUI.Button(GetSellButtonRect(), "", sellActive))
 		{
 			Sell();
 		}
@@ -117,10 +119,10 @@ public class TowerMenu : MonoBehaviour {
 	private Rect GetPowerButtonRect()
 	{
 		Rect rect = new Rect(
-            m_ScreenPosition.x + 80, 
+            m_ScreenPosition.x + 15, 
             m_ScreenPosition.y, 
-            BUTTON_WIDTH,
-			BUTTON_HEIGHT);
+            UPGRADE_BUTTON_WIDTH,
+			UPGRADE_BUTTON_HEIGHT);
 	
 		return rect;
 	}
@@ -128,10 +130,10 @@ public class TowerMenu : MonoBehaviour {
 	private Rect GetSpeedButtonRect()
 	{
 		Rect rect = new Rect(
-			m_ScreenPosition.x - 60, 
+			m_ScreenPosition.x - UPGRADE_BUTTON_WIDTH - 15, 
 			m_ScreenPosition.y, 
-			BUTTON_WIDTH,
-			BUTTON_HEIGHT);
+			UPGRADE_BUTTON_WIDTH,
+			UPGRADE_BUTTON_HEIGHT);
 		
 		return rect;
 	}
@@ -139,10 +141,10 @@ public class TowerMenu : MonoBehaviour {
 	private Rect GetSellButtonRect()
 	{
 		Rect rect = new Rect(
-			m_ScreenPosition.x, 
-			m_ScreenPosition.y+45, 
-			BUTTON_WIDTH,
-			BUTTON_HEIGHT);
+			m_ScreenPosition.x - SELL_BUTTON_WIDTH / 2, 
+			m_ScreenPosition.y + UPGRADE_BUTTON_HEIGHT + 20, 
+			SELL_BUTTON_WIDTH,
+			SELL_BUTTON_HEIGHT);
 		
 		return rect;
 	}
@@ -151,14 +153,22 @@ public class TowerMenu : MonoBehaviour {
 	{
 		if (m_Tower.ActiveModelName == "Base")
 		{
-			if (GUI.Button(GetSpeedButtonRect(), "Speed (" + m_Tower.TOWER_UPGRADE_LEVEL_1_COST + ")", guiStyle))
+			if(m_GameManager.Nutrients - m_Tower.TOWER_UPGRADE_LEVEL_1_COST < 0)
+			{
+				GUI.Button(GetSpeedButtonRect(), "", speedInactive);
+			}
+			else if (GUI.Button(GetSpeedButtonRect(), "Speed (" + m_Tower.TOWER_UPGRADE_LEVEL_1_COST + ")", speedActive))
 			{
 				m_Tower.UpgradeSpeed();
 				IsEnabled = false;
 			}
 		} else
 		{
-			if (GUI.Button(GetSpeedButtonRect(), "Speed (" + m_Tower.TOWER_UPGRADE_LEVEL_2_COST + ")", guiStyle))
+			if(m_GameManager.Nutrients - m_Tower.TOWER_UPGRADE_LEVEL_2_COST < 0)
+			{
+				GUI.Button(GetSpeedButtonRect(), "", speedInactive);
+			}
+			else if (GUI.Button(GetSpeedButtonRect(), "Speed (" + m_Tower.TOWER_UPGRADE_LEVEL_2_COST + ")", speedActive))
 			{
 				m_Tower.UpgradeSpeed();
 				IsEnabled = false;
@@ -170,14 +180,22 @@ public class TowerMenu : MonoBehaviour {
 	{
 		if (m_Tower.ActiveModelName == "Base")
 		{
-			if (GUI.Button(GetPowerButtonRect(), "Power (" + m_Tower.TOWER_UPGRADE_LEVEL_1_COST + ")", guiStyle))
+			if(m_GameManager.Nutrients - m_Tower.TOWER_UPGRADE_LEVEL_1_COST < 0)
+			{
+				GUI.Button(GetPowerButtonRect(), "", powerInactive);
+			}
+			else if (GUI.Button(GetPowerButtonRect(), "Power (" + m_Tower.TOWER_UPGRADE_LEVEL_1_COST + ")", powerActive))
 			{
 				m_Tower.UpgradePower();
 				IsEnabled = false;
 			}
 		} else
 		{
-			if (GUI.Button(GetPowerButtonRect(), "Power (" + m_Tower.TOWER_UPGRADE_LEVEL_2_COST + ")", guiStyle))
+			if(m_GameManager.Nutrients - m_Tower.TOWER_UPGRADE_LEVEL_2_COST < 0)
+			{
+				GUI.Button(GetPowerButtonRect(), "", powerInactive);
+			}
+			else if (GUI.Button(GetPowerButtonRect(), "Power (" + m_Tower.TOWER_UPGRADE_LEVEL_2_COST + ")", powerActive))
 			{
 				m_Tower.UpgradePower();
 				IsEnabled = false;
