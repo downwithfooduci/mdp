@@ -9,6 +9,13 @@ public class TowerMenu : MonoBehaviour {
 	public GUIStyle speedActive;
 	public GUIStyle speedInactive;
 	public GUIStyle sellActive;
+
+	// for sell popup
+	private bool displaySellBox;	// mark whether we should draw sell box
+	private bool sellConfirm;		// mark whether user said they are sure
+	public Texture sellConfirmBox;
+	public GUIStyle confirmYes;
+	public GUIStyle confirmNo;
 	
 	private Tower m_Tower;
 	
@@ -59,6 +66,32 @@ public class TowerMenu : MonoBehaviour {
 	
 	void OnGUI()
 	{
+		if(displaySellBox)
+		{
+			GUI.DrawTexture(new Rect(Screen.width * 0.3193359375f, 
+			                         Screen.height * 0.28515625f, 
+			                         Screen.width * 0.3603515625f, 
+			                         Screen.height * 0.248697917f), sellConfirmBox);
+			
+			// draw yes button
+			if (GUI.Button(new Rect(Screen.width * 0.41015625f, 
+			                        Screen.height * 0.41927083f,
+			                        Screen.width * 0.0654296875f,
+			                        Screen.height * 0.06640625f), "", confirmYes))
+			{
+				Sell ();
+			}
+			
+			// draw no button
+			if (GUI.Button(new Rect(Screen.width * 0.53125f, 
+			                        Screen.height * 0.41927083f,
+			                        Screen.width * 0.0654296875f,
+			                        Screen.height * 0.06640625f), "", confirmNo))
+			{
+				displaySellBox = false;
+			}
+
+		}
 
 		if (!IsEnabled)
 			return;
@@ -67,7 +100,9 @@ public class TowerMenu : MonoBehaviour {
 		
 		if (GUI.Button(GetSellButtonRect(), "", sellActive))
 		{
-			Sell();
+			IsEnabled = false;
+			displaySellBox = true;
+			//Sell();
 		}
 		
 		switch (m_Tower.ActiveModelName)
@@ -233,8 +268,8 @@ public class TowerMenu : MonoBehaviour {
 			break;
 		default:
 			break;
-		}
-		
+		} 
+	
 		Destroy(gameObject);
 	}
 }

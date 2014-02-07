@@ -7,7 +7,7 @@ public class LoadSmallIntestine : MonoBehaviour
 	public GameObject counter;
 	public Texture[] backgrounds;
 	private SmallIntestineLoadLevelCounter level;
-	private const float timer = 3.0f;	// for displaying text messages
+	private const float timer = 3.0f;	// how long to hold background image
 	private float timePassed = 0.0f;
 
 	void Start()

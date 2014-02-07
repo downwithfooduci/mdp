@@ -1,10 +1,9 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Resources\Level0.txt">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Entities\Tower.cs">
     <Files>
-      <File FileName="Assets\Resources\Level0.txt" Line="13" Column="16" />
-      <File FileName="Assets\LoadScript.cs" Line="76" Column="1" />
-      <File FileName="Assets\Scripts\Managers\SpawnManager.cs" Line="75" Column="10" />
+      <File FileName="Assets\SmallIntestineLoadLevelCounter.cs" Line="4" Column="44" />
+      <File FileName="Assets\Scripts\Entities\Tower.cs" Line="78" Column="22" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
