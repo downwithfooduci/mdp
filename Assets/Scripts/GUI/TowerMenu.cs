@@ -19,16 +19,20 @@ public class TowerMenu : MonoBehaviour {
 	
 	// Dimension and position consts
 	private const int Y_GAP = 1;
-	private const int UPGRADE_BUTTON_WIDTH = 51;
-	private const int UPGRADE_BUTTON_HEIGHT = 60;
-	private const int SELL_BUTTON_WIDTH = 110;
-	private const int SELL_BUTTON_HEIGHT = 42;
+	private float UPGRADE_BUTTON_WIDTH = 51;
+	private float UPGRADE_BUTTON_HEIGHT = 60;
+	private float SELL_BUTTON_WIDTH = 110;
+	private float SELL_BUTTON_HEIGHT = 42;
 	
 	private bool m_MouseDownLastFrame;
 	
 	// Use this for initialization
     void Start()
     {
+		UPGRADE_BUTTON_WIDTH = Screen.width * (76.5f / 1024f);  // Any size you want, multiply by 1.5 and divide by 1024 or 768
+		UPGRADE_BUTTON_HEIGHT = Screen.height * (90f / 768f);
+		SELL_BUTTON_WIDTH = Screen.width * (165f / 1024f);
+		SELL_BUTTON_HEIGHT = Screen.height * (63f / 768f);
 		m_GameManager = GameObject.Find ("Managers").GetComponent<IntestineGameManager>();
 
         m_Tower = gameObject.GetComponent<Tower>();
@@ -39,7 +43,7 @@ public class TowerMenu : MonoBehaviour {
 	public void Initialize()
 	{
         m_ScreenPosition = MDPUtility.WorldToScreenPosition(transform.position);
-		m_ScreenPosition.y -= 70;
+		m_ScreenPosition.y -= Screen.height * (105f / 768f);
 	}
 	
 	void LateUpdate()
@@ -119,7 +123,7 @@ public class TowerMenu : MonoBehaviour {
 	private Rect GetPowerButtonRect()
 	{
 		Rect rect = new Rect(
-            m_ScreenPosition.x + 15, 
+            m_ScreenPosition.x + Screen.width * (22.5f / 1024f), 
             m_ScreenPosition.y, 
             UPGRADE_BUTTON_WIDTH,
 			UPGRADE_BUTTON_HEIGHT);
@@ -130,7 +134,7 @@ public class TowerMenu : MonoBehaviour {
 	private Rect GetSpeedButtonRect()
 	{
 		Rect rect = new Rect(
-			m_ScreenPosition.x - UPGRADE_BUTTON_WIDTH - 15, 
+			m_ScreenPosition.x - UPGRADE_BUTTON_WIDTH - Screen.width * (22.5f / 1024f), 
 			m_ScreenPosition.y, 
 			UPGRADE_BUTTON_WIDTH,
 			UPGRADE_BUTTON_HEIGHT);
@@ -142,7 +146,7 @@ public class TowerMenu : MonoBehaviour {
 	{
 		Rect rect = new Rect(
 			m_ScreenPosition.x - SELL_BUTTON_WIDTH / 2, 
-			m_ScreenPosition.y + UPGRADE_BUTTON_HEIGHT + 20, 
+			m_ScreenPosition.y + UPGRADE_BUTTON_HEIGHT + Screen.height * (30f / 768f), 
 			SELL_BUTTON_WIDTH,
 			SELL_BUTTON_HEIGHT);
 		
