@@ -102,7 +102,6 @@ public class TowerMenu : MonoBehaviour {
 		{
 			IsEnabled = false;
 			displaySellBox = true;
-			//Sell();
 		}
 		
 		switch (m_Tower.ActiveModelName)
