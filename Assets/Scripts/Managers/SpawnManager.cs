@@ -16,15 +16,17 @@ public class SpawnManager : MonoBehaviour {
 	float speed;
 	int minNutrients;
 	int maxNutrients;
-	bool end = false;
+	public bool end = false;
 	Color[] availableColors;
 
     private float m_TimeSinceLastSpawn;
 
 	// Use this for initialization
 	void Start () {
+		GameObject counter = GameObject.Find ("ChooseBackground");
+		SmallIntestineLoadLevelCounter level = counter.GetComponent<SmallIntestineLoadLevelCounter> ();
 		loadScript = ((GameObject)GameObject.Find("ScriptLoader")).GetComponent<LoadScript>();
-		waves = loadScript.loadIntestineLevel(0);
+		waves = loadScript.loadIntestineLevel(level.level);
 		currentWave = 0;
 		waveDelay = waves[0].startDelay;
 		waveTime = waves[0].runTime;
@@ -35,6 +37,7 @@ public class SpawnManager : MonoBehaviour {
 		maxNutrients = waves[0].maxBlobs;
         m_TimeSinceLastSpawn = 0f;
 		debugConfig = ((GameObject)GameObject.Find("Debug Config")).GetComponent<DebugConfig>();
+		Debug.Log ("" + debugConfig);
 	}
 	
 	// Update is called once per frame

@@ -15512,6 +15512,7 @@ MonoBehaviour:
   SpawnType: {fileID: 100000, guid: 9cfaf7020d06c6341bb8e35be76edcec, type: 2}
   SpawnPoint: {x: -22.2215595, y: 0, z: 18.5103397}
   SpawnInterval: 3.5
+  end: 0
 --- !u!114 &758440265
 MonoBehaviour:
   m_ObjectHideFlags: 0

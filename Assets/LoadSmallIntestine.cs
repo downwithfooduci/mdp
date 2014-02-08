@@ -13,16 +13,18 @@ public class LoadSmallIntestine : MonoBehaviour
 	void Start()
 	{
 		timePassed = timer;
-		level = counter.GetComponent<SmallIntestineLoadLevelCounter> ();
 	}
 
 	void OnGUI()
 	{
+		counter = GameObject.Find ("ChooseBackground");
+		level = counter.GetComponent<SmallIntestineLoadLevelCounter> ();
 		GUI.DrawTexture (new Rect(0, 0, Screen.width, Screen.height), backgrounds [level.level]);
 	}
 
 	void Update()
 	{
+
 		timePassed -= Time.deltaTime;
 		if (timePassed < 0) 
 		{

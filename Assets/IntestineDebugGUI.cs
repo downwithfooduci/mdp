@@ -51,7 +51,8 @@ public class IntestineDebugGUI : MonoBehaviour {
 	
 	void OnGUI()
 	{
-		if(GUI.Button(new Rect(Screen.width - 100, Screen.height - 50, 100, 50), "Debug"))
+		//TODO: Change back to -100
+		if(GUI.Button(new Rect(Screen.width + 500, Screen.height - 50, 100, 50), "Debug"))
 		{
 			showGUI = !showGUI;
 			Time.timeScale = showGUI ? 0 : 1;

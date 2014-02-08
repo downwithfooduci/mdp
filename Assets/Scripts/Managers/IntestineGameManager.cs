@@ -5,6 +5,8 @@ public class IntestineGameManager : MonoBehaviour
 {
 	public int MAX_HEALTH = 20;
 
+	private SpawnManager spawnScript;
+
     public GameObject GameOverScript;
     public GUIStyle FontStyle;
 
@@ -28,6 +30,8 @@ public class IntestineGameManager : MonoBehaviour
 	
 	void Start()
 	{
+		spawnScript = gameObject.GetComponent<SpawnManager> ();
+
 		m_OriginalTextColor = m_HealthTextColor = NutrientTextColor = FontStyle.normal.textColor;
 
 		faceRect = new Rect (Screen.width * 0.83203125f, Screen.height * 0.8489583f, Screen.width * 0.078125f, Screen.height * 0.102864583f);
@@ -54,6 +58,12 @@ public class IntestineGameManager : MonoBehaviour
 		{
 			m_HealthTextColor = Color.Lerp(m_HealthTextColor, m_OriginalTextColor, Time.deltaTime);
 		}
+		if(GameObject.FindWithTag("foodBlobParent") == null && spawnScript.end)
+		{
+			GameObject chooseBackground = GameObject.Find("ChooseBackground");
+			chooseBackground.GetComponent<SmallIntestineLoadLevelCounter>().level++;
+			Application.LoadLevel("LoadLevelSmallIntestine");
+		}
     }
 
     public void OnNutrientHit()
@@ -62,11 +72,16 @@ public class IntestineGameManager : MonoBehaviour
 		NutrientTextColor = Color.green;
     }
 
-    public void OnFoodBlobFinish()
+
+
+    public void OnFoodBlobFinish(bool isAlive)
     {
-        Health--;
-		m_HealthTextColor = Color.red;
-    }
+		if (isAlive) 
+		{
+        	Health--;
+			m_HealthTextColor = Color.red;
+		} 
+	}
 
     void OnGUI()
     {

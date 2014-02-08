@@ -12,7 +12,6 @@ public class TowerMenu : MonoBehaviour {
 
 	// for sell popup
 	private bool displaySellBox;	// mark whether we should draw sell box
-	private bool sellConfirm;		// mark whether user said they are sure
 	public Texture sellConfirmBox;
 	public GUIStyle confirmYes;
 	public GUIStyle confirmNo;
@@ -66,6 +65,7 @@ public class TowerMenu : MonoBehaviour {
 	
 	void OnGUI()
 	{
+		GUI.depth -= 2;
 		if(displaySellBox)
 		{
 			GUI.DrawTexture(new Rect(Screen.width * 0.3193359375f, 
@@ -156,9 +156,19 @@ public class TowerMenu : MonoBehaviour {
     // the next button
 	private Rect GetPowerButtonRect()
 	{
+		Vector2 spawnPosition;
+		spawnPosition.x = Mathf.Clamp(m_ScreenPosition.x, 
+		                              (UPGRADE_BUTTON_WIDTH + Screen.width * (22.5f / 1024f)),
+		                              Screen.width - (Screen.width * (22.5f / 1024f)) - UPGRADE_BUTTON_WIDTH);
+		spawnPosition.y = Mathf.Clamp(m_ScreenPosition.y, 
+		                              0, 
+		                              Screen.height - UPGRADE_BUTTON_HEIGHT 
+		                              - Screen.height * (30f / 768f) 
+		                              - SELL_BUTTON_HEIGHT);
+
 		Rect rect = new Rect(
-            m_ScreenPosition.x + Screen.width * (22.5f / 1024f), 
-            m_ScreenPosition.y, 
+			spawnPosition.x + Screen.width * (22.5f / 1024f), 
+			spawnPosition.y, 
             UPGRADE_BUTTON_WIDTH,
 			UPGRADE_BUTTON_HEIGHT);
 	
@@ -167,9 +177,20 @@ public class TowerMenu : MonoBehaviour {
 
 	private Rect GetSpeedButtonRect()
 	{
+
+		Vector2 spawnPosition;
+		spawnPosition.x = Mathf.Clamp(m_ScreenPosition.x, 
+		                              (UPGRADE_BUTTON_WIDTH + Screen.width * (22.5f / 1024f)),
+		                              Screen.width - (Screen.width * (22.5f / 1024f)) - UPGRADE_BUTTON_WIDTH);
+		spawnPosition.y = Mathf.Clamp(m_ScreenPosition.y, 
+		                              0, 
+		                              Screen.height - UPGRADE_BUTTON_HEIGHT 
+		                              - Screen.height * (30f / 768f) 
+		                              - SELL_BUTTON_HEIGHT);
+
 		Rect rect = new Rect(
-			m_ScreenPosition.x - UPGRADE_BUTTON_WIDTH - Screen.width * (22.5f / 1024f), 
-			m_ScreenPosition.y, 
+			spawnPosition.x - UPGRADE_BUTTON_WIDTH - Screen.width * (22.5f / 1024f), 
+			spawnPosition.y, 
 			UPGRADE_BUTTON_WIDTH,
 			UPGRADE_BUTTON_HEIGHT);
 		
@@ -178,9 +199,21 @@ public class TowerMenu : MonoBehaviour {
 
 	private Rect GetSellButtonRect()
 	{
+
+		Vector2 spawnPosition;
+		spawnPosition.x = Mathf.Clamp(m_ScreenPosition.x, 
+		                              (UPGRADE_BUTTON_WIDTH + Screen.width * (22.5f / 1024f)),
+		                              Screen.width - (Screen.width * (22.5f / 1024f)) - UPGRADE_BUTTON_WIDTH);
+		spawnPosition.y = Mathf.Clamp(m_ScreenPosition.y, 
+		                              0, 
+		                              Screen.height - UPGRADE_BUTTON_HEIGHT 
+		                              - Screen.height * (30f / 768f) 
+		                              - SELL_BUTTON_HEIGHT);
+		Debug.Log (spawnPosition);
+
 		Rect rect = new Rect(
-			m_ScreenPosition.x - SELL_BUTTON_WIDTH / 2, 
-			m_ScreenPosition.y + UPGRADE_BUTTON_HEIGHT + Screen.height * (30f / 768f), 
+			spawnPosition.x - SELL_BUTTON_WIDTH / 2, 
+			spawnPosition.y + UPGRADE_BUTTON_HEIGHT + Screen.height * (30f / 768f), 
 			SELL_BUTTON_WIDTH,
 			SELL_BUTTON_HEIGHT);
 		

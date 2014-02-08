@@ -77,12 +77,8 @@ public class FoodBlob : MonoBehaviour {
             	m_NutrientManager.RemoveNutrient(child.GetComponent<Nutrient>());
 			}
         }
-		
-		if (alive) 		// if any nutrients were alive we decrement the health
-		{
-			m_GameManager.OnFoodBlobFinish();  
-		}
 		Destroy(this.gameObject);
+		m_GameManager.OnFoodBlobFinish(alive);  
 	}
 	
 	virtual public void TakeHit()
