@@ -13,15 +13,18 @@ public class ReturnButton : MonoBehaviour {
 	void OnGUI()
     {
 		// this just handles the menu button in the corner
-		if (GUI.Button(new Rect(Screen.width * .89f, 
-		                        Screen.height * 0.01822916f,
-		                        Screen.width * .09f,
-		                        Screen.height * .06f), "", mainMenuStyle))
-        {
-			Time.timeScale = 0;		// pause the game
-			confirmUp = true;		// throw flag
-            //Application.LoadLevel("MainMenu");
-        }
+		if(Time.timeScale != 0)
+		{
+			if (GUI.Button(new Rect(Screen.width * .89f, 
+			                        Screen.height * 0.01822916f,
+			                        Screen.width * .09f,
+			                        Screen.height * .06f), "", mainMenuStyle))
+	        {
+				Time.timeScale = 0;		// pause the game
+				confirmUp = true;		// throw flag
+	            //Application.LoadLevel("MainMenu");
+	        }
+		}
 
 		// if the menu button has been pressed
 		if (confirmUp)
@@ -41,6 +44,9 @@ public class ReturnButton : MonoBehaviour {
 			                        Screen.height * 0.06640625f), "", confirmYes))
 			{
 				Time.timeScale = 1;
+				GameObject chooseBackground = GameObject.Find("ChooseBackground");
+				SmallIntestineLoadLevelCounter  level = chooseBackground.GetComponent<SmallIntestineLoadLevelCounter>();
+				level.level = 0;
 				Application.LoadLevel("MainMenu");
 			}
 

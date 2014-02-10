@@ -79,6 +79,7 @@ public class TowerMenu : MonoBehaviour {
 			                        Screen.width * 0.0654296875f,
 			                        Screen.height * 0.06640625f), "", confirmYes))
 			{
+				displaySellBox = false;
 				Sell ();
 			}
 			

@@ -126,7 +126,7 @@ public class TowerSpawner : MonoBehaviour
 //		Matrix4x4 orig = GUI.matrix;
 //		GUI.matrix = GuiUtility.CachedScaledMatrix;
 
-		if (m_GameManager.Nutrients - TOWER_BASE_COST >= 0) 
+		if (m_GameManager.Nutrients - TOWER_BASE_COST >= 0 && Time.timeScale != 0) 
 		{
 			for (int i = 0; i < AvailableColors.Length; i++)
 			{

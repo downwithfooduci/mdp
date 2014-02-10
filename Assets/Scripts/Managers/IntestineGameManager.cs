@@ -4,8 +4,12 @@ using System.Collections;
 public class IntestineGameManager : MonoBehaviour 
 {
 	public int MAX_HEALTH = 20;
-
+	private bool showWinScreen;
 	private SpawnManager spawnScript;
+
+	public Texture gameWinPopup;
+	public GUIStyle mainMenu;
+	public GUIStyle quit;
 
     public GameObject GameOverScript;
     public GUIStyle FontStyle;
@@ -30,6 +34,7 @@ public class IntestineGameManager : MonoBehaviour
 	
 	void Start()
 	{
+		showWinScreen = false;
 		spawnScript = gameObject.GetComponent<SpawnManager> ();
 
 		m_OriginalTextColor = m_HealthTextColor = NutrientTextColor = FontStyle.normal.textColor;
@@ -58,11 +63,20 @@ public class IntestineGameManager : MonoBehaviour
 		{
 			m_HealthTextColor = Color.Lerp(m_HealthTextColor, m_OriginalTextColor, Time.deltaTime);
 		}
-		if(GameObject.FindWithTag("foodBlobParent") == null && spawnScript.end)
+		if(GameObject.FindWithTag("foodBlobParent") == null && spawnScript.end && !showWinScreen)
 		{
 			GameObject chooseBackground = GameObject.Find("ChooseBackground");
-			chooseBackground.GetComponent<SmallIntestineLoadLevelCounter>().level++;
-			Application.LoadLevel("LoadLevelSmallIntestine");
+			SmallIntestineLoadLevelCounter  level = chooseBackground.GetComponent<SmallIntestineLoadLevelCounter>();
+			if(level.level == 1)
+			{
+				Time.timeScale = 0;
+				showWinScreen = true;
+			}
+			else
+			{
+				level.level++;
+				Application.LoadLevel("LoadLevelSmallIntestine");
+			}
 		}
     }
 
@@ -86,7 +100,36 @@ public class IntestineGameManager : MonoBehaviour
     void OnGUI()
     {
 		GUI.depth--;
-
+		if(showWinScreen)
+		{
+			GUI.DrawTexture(new Rect(Screen.width * 0.3193359375f, 
+			                         Screen.height * 0.28515625f, 
+			                         Screen.width * 0.3603515625f, 
+			                         Screen.height * 0.248697917f), gameWinPopup);
+			
+			// draw yes button
+			if (GUI.Button(new Rect(Screen.width * 0.41015625f, 
+			                        Screen.height * 0.41927083f,
+			                        Screen.width * 0.0654296875f,
+			                        Screen.height * 0.06640625f), "", mainMenu))
+			{
+				Time.timeScale = 1;
+				GameObject chooseBackground = GameObject.Find("ChooseBackground");
+				SmallIntestineLoadLevelCounter  level = chooseBackground.GetComponent<SmallIntestineLoadLevelCounter>();
+				level.level = 0;
+				Application.LoadLevel("MainMenu");
+			}
+			
+			// draw no button
+			if (GUI.Button(new Rect(Screen.width * 0.53125f, 
+			                        Screen.height * 0.41927083f,
+			                        Screen.width * 0.0654296875f,
+			                        Screen.height * 0.06640625f), "", quit))
+			{
+				Time.timeScale = 1;
+				Application.Quit();
+			}
+		}
 		// draw nutrients text
 		FontStyle.normal.textColor = NutrientTextColor;
 		FontStyle.fontSize = 16;
