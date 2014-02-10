@@ -228,7 +228,7 @@ public class TowerMenu : MonoBehaviour {
 			{
 				GUI.Button(GetSpeedButtonRect(), "", speedInactive);
 			}
-			else if (GUI.Button(GetSpeedButtonRect(), "Speed (" + m_Tower.TOWER_UPGRADE_LEVEL_1_COST + ")", speedActive))
+			else if (GUI.Button(GetSpeedButtonRect(), "Speed (" + -m_Tower.TOWER_UPGRADE_LEVEL_1_COST + ")", speedActive))
 			{
 				m_Tower.UpgradeSpeed();
 				IsEnabled = false;
@@ -239,7 +239,7 @@ public class TowerMenu : MonoBehaviour {
 			{
 				GUI.Button(GetSpeedButtonRect(), "", speedInactive);
 			}
-			else if (GUI.Button(GetSpeedButtonRect(), "Speed (" + m_Tower.TOWER_UPGRADE_LEVEL_2_COST + ")", speedActive))
+			else if (GUI.Button(GetSpeedButtonRect(), "Speed (" + -m_Tower.TOWER_UPGRADE_LEVEL_2_COST + ")", speedActive))
 			{
 				m_Tower.UpgradeSpeed();
 				IsEnabled = false;
@@ -255,7 +255,7 @@ public class TowerMenu : MonoBehaviour {
 			{
 				GUI.Button(GetPowerButtonRect(), "", powerInactive);
 			}
-			else if (GUI.Button(GetPowerButtonRect(), "Power (" + m_Tower.TOWER_UPGRADE_LEVEL_1_COST + ")", powerActive))
+			else if (GUI.Button(GetPowerButtonRect(), "Power (" + -m_Tower.TOWER_UPGRADE_LEVEL_1_COST + ")", powerActive))
 			{
 				m_Tower.UpgradePower();
 				IsEnabled = false;
@@ -266,7 +266,7 @@ public class TowerMenu : MonoBehaviour {
 			{
 				GUI.Button(GetPowerButtonRect(), "", powerInactive);
 			}
-			else if (GUI.Button(GetPowerButtonRect(), "Power (" + m_Tower.TOWER_UPGRADE_LEVEL_2_COST + ")", powerActive))
+			else if (GUI.Button(GetPowerButtonRect(), "Power (" + -m_Tower.TOWER_UPGRADE_LEVEL_2_COST + ")", powerActive))
 			{
 				m_Tower.UpgradePower();
 				IsEnabled = false;

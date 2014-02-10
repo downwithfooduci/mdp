@@ -12131,6 +12131,10 @@ Prefab:
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: dea053cdc86a6c442b0e436bb1adeda0, type: 2}
+      propertyPath: Nutrients
+      value: 40
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: dea053cdc86a6c442b0e436bb1adeda0, type: 2}
   m_RootGameObject: {fileID: 758440261}
@@ -15606,7 +15610,7 @@ MonoBehaviour:
   - {fileID: 2800000, guid: 1a17a812793f6d1409e03a17b58df92b, type: 3}
   healthBar: {fileID: 2800000, guid: 0ffe5421bb933034bbe0fa47e825442c, type: 3}
   Health: 20
-  Nutrients: 20
+  Nutrients: 40
   NutrientHitScore: 5
   NutrientTextColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &761542605
