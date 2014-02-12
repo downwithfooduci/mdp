@@ -1,6 +1,15 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Resources\Level0.txt">
+    <Files>
+      <File FileName="Assets\Scripts\GUI\TowerMenu.cs" Line="71" Column="13" />
+      <File FileName="Assets\Scripts\GUI\ReturnButton.cs" Line="47" Column="31" />
+      <File FileName="Assets\Scripts\GUI\GameOver.cs" Line="27" Column="4" />
+      <File FileName="Assets\Scripts\Managers\IntestineGameManager.cs" Line="119" Column="21" />
+      <File FileName="Assets\Resources\Level0.txt" Line="4" Column="22" />
+      <File FileName="Assets\Resources\Level1.txt" Line="2" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
