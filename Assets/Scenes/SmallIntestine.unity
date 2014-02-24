@@ -3270,13 +3270,11 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 151853834}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a67a4e5d4f90f0489bbb44fe305bbb8, type: 3}
+  m_Script: {fileID: 11500000, guid: afd74bc72e4069046b906d609d9590cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  updateInterval: .5
-  FPSActive: 0
 --- !u!1 &155681793
 GameObject:
   m_ObjectHideFlags: 0
