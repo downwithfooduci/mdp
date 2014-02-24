@@ -13,6 +13,7 @@ public class IntestineGameManager : MonoBehaviour
 
     public GameObject GameOverScript;
     public GUIStyle FontStyle;
+	public GameObject plusSign;
 
 	public Texture[] faces;
 	public Texture healthBar;
@@ -84,6 +85,7 @@ public class IntestineGameManager : MonoBehaviour
     {
         Nutrients += NutrientHitScore;
 		NutrientTextColor = Color.green;
+		Instantiate(plusSign, new Vector3(24, 1, 18), Quaternion.identity);
     }
 
 

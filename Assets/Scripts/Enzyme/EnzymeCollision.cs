@@ -29,6 +29,12 @@ public class EnzymeCollision : MonoBehaviour {
 			{
 				Destroy(gameObject);
 			}
+			else
+			{
+				Vector3 direction = collision.transform.position - transform.position;
+				direction.Normalize();
+				collision.rigidbody.velocity = direction * 10;
+			}
 		}
 	}
 	
