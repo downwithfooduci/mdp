@@ -15,5 +15,7 @@ public class MoveFood : MonoBehaviour {
 		{
 			rigidbody.velocity += new Vector3(.5f, 0, 0);
 		}
+		if (transform.position.y < -20)
+			Destroy (gameObject);
 	}
 }
