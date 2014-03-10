@@ -27,9 +27,9 @@ public class OxygenBar : MonoBehaviour {
 			gainRate = config.oxygenGain;
 		}
 		if(flap.isEpiglotisOpen())
-			percent -= gainRate * Time.deltaTime;
+			percent -= depletionRate * Time.deltaTime;
 		else
-			percent += depletionRate * Time.deltaTime;
+			percent += gainRate * Time.deltaTime;
 		percent = Mathf.Clamp(percent, 0, 1f);
 	}
 

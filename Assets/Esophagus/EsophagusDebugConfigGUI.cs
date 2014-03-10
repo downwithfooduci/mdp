@@ -56,8 +56,8 @@ public class EsophagusDebugConfigGUI : MonoBehaviour {
 			GUI.Label(new Rect(100, 110, 100, 50), "Oxygen Gain Rate");
 			oxygenGain = GUI.TextField(new Rect(200, 110, 100, 50),
 			                           oxygenGain);
-			int oxygenGainOut;
-			if(int.TryParse(oxygenGain, out oxygenGainOut))
+			float oxygenGainOut;
+			if(float.TryParse(oxygenGain, out oxygenGainOut))
 			{
 				debugConfig.oxygenGain = oxygenGainOut;
 			}
