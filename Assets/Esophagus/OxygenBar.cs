@@ -7,19 +7,29 @@ public class OxygenBar : MonoBehaviour {
 	public Texture oxygenBar;
 	private float percent;
 	openFlap flap;
+	EsophagusDebugConfig config;
 	// Use this for initialization
 	void Start () {
 		percent = 1f;
 		GameObject flaps = GameObject.Find("Flaps");
 		flap = flaps.GetComponent<openFlap>();
+		GameObject debugger = GameObject.Find("Debugger");
+		config = debugger.GetComponent<EsophagusDebugConfig>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		float depletionRate = .05f;
+		float gainRate = .05f;
+		if(config.debugActive)
+		{
+			depletionRate = config.oxygenDeplete;
+			gainRate = config.oxygenGain;
+		}
 		if(flap.isEpiglotisOpen())
-			percent -= .05f * Time.deltaTime;
+			percent -= gainRate * Time.deltaTime;
 		else
-			percent += .05f * Time.deltaTime;
+			percent += depletionRate * Time.deltaTime;
 		percent = Mathf.Clamp(percent, 0, 1f);
 	}
 

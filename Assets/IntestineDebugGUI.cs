@@ -19,7 +19,7 @@ public class IntestineDebugGUI : MonoBehaviour {
 	string maxBlobs;
 	string colors;
 	bool FPSActive;
-	bool debugActive;
+	bool debugActive = false;
 	// Use this for initialization
 	void Start () {
 		debugConfig = gameObject.GetComponent<DebugConfig>();
