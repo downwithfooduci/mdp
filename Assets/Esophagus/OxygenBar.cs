@@ -5,7 +5,7 @@ public class OxygenBar : MonoBehaviour {
 	Vector2 position;
 	Vector2 originalSize;
 	public Texture oxygenBar;
-	float percent;
+	private float percent;
 	openFlap flap;
 	// Use this for initialization
 	void Start () {
@@ -31,4 +31,10 @@ public class OxygenBar : MonoBehaviour {
 		originalSize.y = (610f / 2304f) * Screen.height * percent;
 		GUI.DrawTexture(new Rect(position.x, position.y, originalSize.x, originalSize.y), oxygenBar);
 	}
+
+	public float getPercent()
+	{
+		return percent;
+	}
+
 }
