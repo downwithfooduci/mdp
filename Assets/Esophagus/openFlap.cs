@@ -5,6 +5,7 @@ public class openFlap : MonoBehaviour {
 	GameObject bottomFlap, topFlap;
 	Vector3 originalPositionBottomFlap, originalPositionTopFlap, center;
 	float moved = 0;
+	bool isOpen;
 	// Use this for initialization
 	void Start () {
 		foreach(Transform child in transform)
@@ -65,8 +66,13 @@ public class openFlap : MonoBehaviour {
 		{
 			moved = Mathf.Clamp(moved + .3f * Time.deltaTime, 0, .22f);
 		}
-
+		isOpen = moved > .15f;
 		bottomFlap.transform.localPosition = originalPositionBottomFlap - bottomFlap.transform.up * moved;
 		topFlap.transform.localPosition = originalPositionTopFlap + topFlap.transform.up * moved;
+	}
+
+	public bool isEpiglotisOpen()
+	{
+		return isOpen;
 	}
 }
