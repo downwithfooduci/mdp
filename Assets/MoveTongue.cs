@@ -19,7 +19,7 @@ public class MoveTongue : MonoBehaviour {
 			Touch touch = Input.touches[0];
 			Vector3 touchPos = Camera.main.ScreenToWorldPoint(touch.position);
 			touchPos = new Vector3(touchPos.x, touchPos.y, transform.position.z);
-			if(Vector3.Distance(touchPos, transform.position) < 1)
+			if(Vector3.Distance(touchPos, transform.position) < 2)
 			{
 
 				moved = Mathf.Clamp(moved + 
