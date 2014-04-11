@@ -3,12 +3,13 @@ using System.Collections;
 
 public class MoveTongue : MonoBehaviour {
 	public GameObject wall;
-	float moved, originalHeight, maxMove;
+	float moved, originalHeight, maxMove, movedFrame;
 	// Use this for initialization
 	void Start () {
 		originalHeight = 3.48f;
 		maxMove = .4f;
 		moved = 0;
+		movedFrame = 0;
 	}
 	
 	// Update is called once per frame
@@ -18,10 +19,12 @@ public class MoveTongue : MonoBehaviour {
 			Touch touch = Input.touches[0];
 			Vector3 touchPos = Camera.main.ScreenToWorldPoint(touch.position);
 			touchPos = new Vector3(touchPos.x, touchPos.y, transform.position.z);
-			if(Vector3.Distance(touchPos, transform.position) < 4)
+			if(Vector3.Distance(touchPos, transform.position) < 1)
 			{
+
 				moved = Mathf.Clamp(moved + 
 				                    touch.deltaPosition.y / 20f, 0, maxMove);
+				movedFrame = touch.deltaPosition.y / 20f;
 			}
 		}
 		if(Input.GetKey(KeyCode.S))
@@ -40,6 +43,12 @@ public class MoveTongue : MonoBehaviour {
 		else
 		{
 			wall.transform.position = new Vector3(wall.transform.position.x, 3.5f, wall.transform.position.z);
+		}
+	}
+
+	void OnGUI(){
+		if(GUI.Button(new Rect(0,0,100,100), "Moved " + moved + "\nMovedFrame " + movedFrame))
+		{
 		}
 	}
 }
