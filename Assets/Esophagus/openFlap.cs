@@ -51,7 +51,7 @@ public class openFlap : MonoBehaviour {
 			diffVect /= 2;
 			Vector3 touchCenter = topTouchPos + diffVect;
 
-			if(Vector3.Distance(touchCenter, center) < 2)
+			if(Vector3.Distance(touchCenter, center) < 4)
 			{
 				moved = Mathf.Clamp(moved + 
 				                    topTouch.deltaPosition.y / 20f - 
