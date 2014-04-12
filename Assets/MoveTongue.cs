@@ -4,6 +4,7 @@ using System.Collections;
 public class MoveTongue : MonoBehaviour {
 	public GameObject wall;
 	float moved, originalHeight, maxMove, movedFrame;
+	float distance;
 	// Use this for initialization
 	void Start () {
 		originalHeight = 3.48f;
@@ -19,6 +20,7 @@ public class MoveTongue : MonoBehaviour {
 			Touch touch = Input.touches[0];
 			Vector3 touchPos = Camera.main.ScreenToWorldPoint(touch.position);
 			touchPos = new Vector3(touchPos.x, touchPos.y, transform.position.z);
+			distance = Vector3.Distance(touchPos, transform.position);
 			if(Vector3.Distance(touchPos, transform.position) < 4)
 			{
 
@@ -47,7 +49,7 @@ public class MoveTongue : MonoBehaviour {
 	}
 
 	void OnGUI(){
-		if(GUI.Button(new Rect(0,0,100,100), "Moved " + moved + "\nMovedFrame " + movedFrame))
+		if(GUI.Button(new Rect(0,0,100,100), "Moved " + moved + "\nMovedFrame " + movedFrame + "\nDistance " + distance))
 		{
 		}
 	}
