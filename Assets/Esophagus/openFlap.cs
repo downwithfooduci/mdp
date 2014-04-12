@@ -6,8 +6,10 @@ public class openFlap : MonoBehaviour {
 	Vector3 originalPositionBottomFlap, originalPositionTopFlap, center;
 	float moved = 0;
 	bool isOpen;
+	Plane plane;
 	// Use this for initialization
 	void Start () {
+		plane = new Plane( new Vector3(0, 0, -1), new Vector3(0, 0, -1));
 		foreach(Transform child in transform)
 		{
 			if(child.gameObject.name == "flap1")
@@ -42,16 +44,23 @@ public class openFlap : MonoBehaviour {
 				bottomTouch = Input.touches[0];
 			}
 
-			Vector3 topTouchPos = Camera.main.ScreenToWorldPoint(topTouch.position);
-			Vector3 bottomTouchPos = Camera.main.ScreenToWorldPoint(bottomTouch.position);
-			topTouchPos = new Vector3(topTouchPos.x, topTouchPos.y, center.z);
-			bottomTouchPos = new Vector3(bottomTouchPos.x, bottomTouchPos.y, center.z);
-
+			Ray topRay = Camera.main.ScreenPointToRay(topTouch.position);
+			Ray bottomRay = Camera.main.ScreenPointToRay(bottomTouch.position);
+			float topDist;
+			float bottomDist;
+			Vector3 topTouchPos = Vector3.zero;
+			Vector3 bottomTouchPos = Vector3.zero;
+			if (plane.Raycast(topRay, out topDist)){
+				topTouchPos = topRay.GetPoint(topDist); // get the plane point hit
+			}
+			if (plane.Raycast(bottomRay, out bottomDist)){
+				bottomTouchPos = bottomRay.GetPoint(bottomDist); // get the plane point hit
+			}
 			Vector3 diffVect = bottomTouchPos - topTouchPos;
 			diffVect /= 2;
 			Vector3 touchCenter = topTouchPos + diffVect;
 
-			if(Vector3.Distance(touchCenter, center) < 4)
+			if(Vector3.Distance(touchCenter, center) < .5)
 			{
 				moved = Mathf.Clamp(moved + 
 				                    topTouch.deltaPosition.y / 20f - 
