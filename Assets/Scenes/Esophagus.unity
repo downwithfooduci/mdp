@@ -105,7 +105,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: 95335e3c85a20cd499b48e7af8c5c66e, type: 2}
+  - {fileID: 2100000, guid: de46183c3a77b6f4dbd8e4d333ae1cdf, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -278,6 +278,7 @@ GameObject:
   - 114: {fileID: 204818105}
   - 114: {fileID: 204818104}
   - 114: {fileID: 204818107}
+  - 114: {fileID: 204818108}
   m_Layer: 0
   m_Name: EsophagusGUI
   m_TagString: Untagged
@@ -629,6 +630,18 @@ MonoBehaviour:
     m_FixedHeight: 0
     m_StretchWidth: 1
     m_StretchHeight: 0
+--- !u!114 &204818108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 204818103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac80889514f953f4c96c577d7c3f2e56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stomachBar: {fileID: 2800000, guid: dc23ee8bbe7f2c64b8a824ab1b5dca3a, type: 3}
 --- !u!1 &233666803
 GameObject:
   m_ObjectHideFlags: 0
@@ -1223,6 +1236,8 @@ MonoBehaviour:
   foodSpawnDelay: 1
   oxygenDeplete: .0500000007
   oxygenGain: .0500000007
+  stomachDeplete: .0500000007
+  stomachGain: .0500000007
   debugActive: 0
 --- !u!4 &465299930
 Transform:
@@ -1946,7 +1961,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1695200206}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 767e2eadb049bed4a9c12ef8a418b253, type: 3}
+  m_Script: {fileID: 11500000, guid: 7017587d24f814142a5e733880394b4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   wall: {fileID: 2027283564}

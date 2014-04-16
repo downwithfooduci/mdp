@@ -1,19 +1,25 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class EsophagusDebugConfigGUI : MonoBehaviour {
+public class EsophagusDebugConfigGUI : MonoBehaviour 
+{
 	EsophagusDebugConfig debugConfig;
 	string foodSpawnDelay;
 	string oxygenDeplete;
 	string oxygenGain;
+	string stomachDeplete;
+	string stomachGain;
 	bool debugActive;
 	bool showGUI = false;
+
 	// Use this for initialization
 	void Start () {
 		debugConfig = gameObject.GetComponent<EsophagusDebugConfig>();
 		foodSpawnDelay = "" + debugConfig.foodSpawnDelay;
 		oxygenDeplete = "" + debugConfig.oxygenDeplete;
 		oxygenGain = "" + debugConfig.oxygenGain;
+		stomachDeplete = "" + debugConfig.stomachDeplete;
+		stomachGain = "" + debugConfig.stomachGain;
 		debugActive = debugConfig.debugActive;
 	}
 	
@@ -62,7 +68,25 @@ public class EsophagusDebugConfigGUI : MonoBehaviour {
 				debugConfig.oxygenGain = oxygenGainOut;
 			}
 
-			debugActive = GUI.Toggle(new Rect(100, 160, 100, 20), debugActive, "Debug Active");
+			GUI.Label(new Rect(100, 160, 100, 50), "Stomach Depletion Rate");
+			stomachDeplete = GUI.TextField(new Rect(200, 160, 100, 50),
+			                           stomachDeplete);
+			float stomachDepleteOut;
+			if(float.TryParse(stomachDeplete, out stomachDepleteOut))
+			{
+				debugConfig.stomachDeplete = stomachDepleteOut;
+			}
+
+			GUI.Label(new Rect(100, 210, 100, 50), "Stomach Gain Rate");
+			stomachGain = GUI.TextField(new Rect(200, 210, 100, 50),
+			                               stomachGain);
+			float stomachGainOut;
+			if(float.TryParse(stomachGain, out stomachGainOut))
+			{
+				debugConfig.stomachGain = stomachGainOut;
+			}
+
+			debugActive = GUI.Toggle(new Rect(100, 260, 100, 20), debugActive, "Debug Active");
 			if (debugActive)
 			{
 				debugConfig.debugActive = true;
