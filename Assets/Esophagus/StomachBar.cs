@@ -8,7 +8,9 @@ public class StomachBar : MonoBehaviour
 	public Texture stomachBar;
 	private float percent;
 	EsophagusDebugConfig config;
-
+	private float depletionRate = .005f;
+	private float gainRate = .075f;
+	
 	// Use this for initialization
 	void Start () 
 	{
@@ -20,9 +22,6 @@ public class StomachBar : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-		float depletionRate = .025f;
-		float gainRate = .05f;
-
 		// get values from debugger if active
 		if(config.debugActive)
 		{
@@ -47,6 +46,11 @@ public class StomachBar : MonoBehaviour
 	public float getPercent()
 	{
 		return percent;
+	}
+
+	public void increaseStomachPercent()
+	{
+		percent += gainRate;
 	}
 
 }
