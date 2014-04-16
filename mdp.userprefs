@@ -2,10 +2,11 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Esophagus\FoodStuffFinish.cs">
     <Files>
-      <File FileName="Assets\Esophagus\StomachBar.cs" Line="12" Column="30" />
-      <File FileName="Assets\Scripts\Managers\IntestineGameManager.cs" Line="93" Column="26" />
-      <File FileName="Assets\Esophagus\FoodStuffFinish.cs" Line="27" Column="87" />
-      <File FileName="Assets\Esophagus\EsophagusDebugConfig.cs" Line="10" Column="32" />
+      <File FileName="Assets\Esophagus\StomachBar.cs" Line="30" Column="4" />
+      <File FileName="Assets\Esophagus\FoodStuffFinish.cs" Line="43" Column="42" />
+      <File FileName="Assets\Esophagus\EsophagusDebugConfig.cs" Line="11" Column="36" />
+      <File FileName="Assets\Esophagus\EsophagusDebugConfigGUI.cs" Line="91" Column="60" />
+      <File FileName="Assets\Esophagus\LostFoodCount.cs" Line="39" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

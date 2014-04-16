@@ -291,7 +291,7 @@ Renderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 198935403}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_LightmapIndex: 255
@@ -333,7 +333,7 @@ Transform:
   m_GameObject: {fileID: 198935403}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -22.6235371, y: -1.87952232, z: 1}
-  m_LocalScale: {x: 1, y: 10, z: 2}
+  m_LocalScale: {x: 1, y: 10, z: 8}
   m_Children: []
   m_Father: {fileID: 1060769814}
 --- !u!1 &204818103
@@ -1319,6 +1319,7 @@ MonoBehaviour:
   oxygenGain: .0500000007
   stomachDeplete: .00499999989
   stomachGain: .075000003
+  maxLostFoodAmount: 10
   debugActive: 0
 --- !u!4 &465299930
 Transform:
@@ -2278,7 +2279,7 @@ Renderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1910964506}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_LightmapIndex: 255
@@ -2320,7 +2321,7 @@ Transform:
   m_GameObject: {fileID: 1910964506}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -20.3037338, y: -6.42126846, z: 1}
-  m_LocalScale: {x: 4, y: 1, z: 2}
+  m_LocalScale: {x: 4, y: 1, z: 8}
   m_Children: []
   m_Father: {fileID: 1060769814}
 --- !u!1 &1912805211
