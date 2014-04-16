@@ -6,7 +6,7 @@ public class generateFood : MonoBehaviour {
 	public Vector3 position;
 	// Use this for initialization
 	void Start () {
-		position = new Vector3 (-4.691603f, 3.695416f, -.5f);
+		position = new Vector3 (-4.696645f, 3.66696f, -0.9300022f);
 	}
 	
 	// Update is called once per frame

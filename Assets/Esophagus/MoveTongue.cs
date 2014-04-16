@@ -8,7 +8,7 @@ public class MoveTongue : MonoBehaviour {
 	Plane plane;
 	// Use this for initialization
 	void Start () {
-		originalHeight = 3.48f;
+		originalHeight = 3.44f;
 		maxMove = .4f;
 		moved = 0;
 		movedFrame = 0;

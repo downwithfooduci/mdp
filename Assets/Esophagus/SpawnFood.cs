@@ -9,6 +9,7 @@ public class SpawnFood : MonoBehaviour {
 	EsophagusDebugConfig debugConfig;
 	// Use this for initialization
 	void Start () {
+		startingSpawn = new Vector3 (-4.696645f, 3.66696f, -0.9300022f);
 		GameObject debugger = GameObject.Find("Debugger");
 		debugConfig = debugger.GetComponent<EsophagusDebugConfig>();
 	}
