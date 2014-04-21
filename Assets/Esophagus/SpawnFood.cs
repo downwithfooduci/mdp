@@ -7,8 +7,11 @@ public class SpawnFood : MonoBehaviour {
 	public float spawnDelay = 1f;
 	float timer = 0;
 	EsophagusDebugConfig debugConfig;
+	openFlap flap;
 	// Use this for initialization
 	void Start () {
+		GameObject flaps = GameObject.Find("Flaps");
+		flap = flaps.GetComponent<openFlap>();
 		startingSpawn = new Vector3 (-4.696645f, 3.66696f, -0.9300022f);
 		GameObject debugger = GameObject.Find("Debugger");
 		debugConfig = debugger.GetComponent<EsophagusDebugConfig>();
@@ -16,6 +19,10 @@ public class SpawnFood : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		if(flap.isCough())
+		{
+			return;
+		}
 		if(debugConfig.debugActive)
 			spawnDelay = debugConfig.foodSpawnDelay;
 		else

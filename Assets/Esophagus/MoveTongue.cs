@@ -6,6 +6,7 @@ public class MoveTongue : MonoBehaviour {
 	float moved, originalHeight, maxMove, movedFrame;
 	float distance;
 	Plane plane;
+	openFlap flap;
 	// Use this for initialization
 	void Start () {
 		originalHeight = 3.44f;
@@ -13,10 +14,19 @@ public class MoveTongue : MonoBehaviour {
 		moved = 0;
 		movedFrame = 0;
 		plane = new Plane( new Vector3(0, 0, -1), new Vector3(0, 0, -1));
+		GameObject flaps = GameObject.Find("Flaps");
+		flap = flaps.GetComponent<openFlap>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		if(flap.isCough())
+		{
+			moved = 0;
+			wall.transform.position = new Vector3(wall.transform.position.x, 0, wall.transform.position.z);
+			transform.position = new Vector3(transform.position.x, originalHeight, transform.position.z);
+			return;
+		}
 		if(Input.touches.Length == 1)
 		{
 			Touch touch = Input.touches[0];

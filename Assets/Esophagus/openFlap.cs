@@ -7,9 +7,13 @@ public class openFlap : MonoBehaviour {
 	float moved = 0;
 	bool isOpen;
 	Plane plane;
+	bool cough = false;
+	float coughTimer, coughTime;
 	// Use this for initialization
 	void Start () {
 		plane = new Plane( new Vector3(0, 0, -1), new Vector3(0, 0, -1));
+		coughTime = 3f;
+		coughTimer = 0;
 		foreach(Transform child in transform)
 		{
 			if(child.gameObject.name == "flap1")
@@ -30,6 +34,15 @@ public class openFlap : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		if(coughTimer > 0)
+		{
+			coughTimer -= Time.deltaTime;
+			moved = .35f;
+			bottomFlap.transform.localPosition = originalPositionBottomFlap - bottomFlap.transform.up * moved;
+			topFlap.transform.localPosition = originalPositionTopFlap + topFlap.transform.up * moved;
+			return;
+		}
+		cough = false;
 		if(Input.touches.Length == 2)
 		{
 			Touch topTouch, bottomTouch;
@@ -64,16 +77,16 @@ public class openFlap : MonoBehaviour {
 			{
 				moved = Mathf.Clamp(moved + 
 				                    topTouch.deltaPosition.y / 20f - 
-				                    bottomTouch.deltaPosition.y / 20f, 0, .22f);
+				                    bottomTouch.deltaPosition.y / 20f, 0, .35f);
 			}
 		}
 		if(Input.GetKey(KeyCode.A))
 		{
-			moved = Mathf.Clamp(moved - .3f * Time.deltaTime, 0, .22f);
+			moved = Mathf.Clamp(moved - .3f * Time.deltaTime, 0, .35f);
 		}
 		else if(Input.GetKey(KeyCode.D))
 		{
-			moved = Mathf.Clamp(moved + .3f * Time.deltaTime, 0, .22f);
+			moved = Mathf.Clamp(moved + .3f * Time.deltaTime, 0, .35f);
 		}
 		isOpen = moved > .15f;
 		bottomFlap.transform.localPosition = originalPositionBottomFlap - bottomFlap.transform.up * moved;
@@ -84,4 +97,20 @@ public class openFlap : MonoBehaviour {
 	{
 		return isOpen;
 	}
+
+	public void setCough()
+	{
+		if(!audio.isPlaying)
+		{
+			audio.Play();
+		}
+		coughTimer = coughTime;
+		cough = true;
+	}
+
+	public bool isCough()
+	{
+		return cough;
+	}
+
 }
