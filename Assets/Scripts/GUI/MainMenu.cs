@@ -16,7 +16,8 @@ public class MainMenu : MonoBehaviour {
 		if (GUI.Button(new Rect(Screen.width * 0.4f, Screen.height * 0.8f,
 		                        Screen.width * 0.2f, Screen.height * 0.1f), "", startBtn))
         {
-            Application.LoadLevel("LoadLevelSmallIntestine");
+           // Application.LoadLevel("LoadLevelSmallIntestine");
+			Application.LoadLevel("SmallIntestineStoryboard");
         }
 		
 		if (GUI.Button(new Rect(Screen.width * 0.65f, Screen.height * 0.8f, 
