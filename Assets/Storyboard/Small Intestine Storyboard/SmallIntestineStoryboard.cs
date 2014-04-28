@@ -41,7 +41,7 @@ public class SmallIntestineStoryboard : MonoBehaviour
 				{
 					xEnd = touch.position.x;
 					
-					if ((xStart - xEnd) > 1) 
+					if ((xStart - xEnd) > 30) 
 					{
 						swipe = true;
 					}
@@ -60,6 +60,7 @@ public class SmallIntestineStoryboard : MonoBehaviour
 			swipe = false;
 			xStart = 0;
 			xEnd = 0;
+			hasPlayed = false;
 		}
 	}
 
