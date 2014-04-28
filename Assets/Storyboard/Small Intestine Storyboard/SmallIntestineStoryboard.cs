@@ -53,7 +53,7 @@ public class SmallIntestineStoryboard : MonoBehaviour
 		if (swipe == true)
 		{
 			currPage++;
-			if (currPage == pages.Length)
+			if ((currPage - 1) == pages.Length)
 			{
 				Application.LoadLevel("LoadLevelSmallIntestine");
 			}
