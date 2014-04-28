@@ -5,8 +5,8 @@ using System.Collections;
 
 public class createPlus : MonoBehaviour {
 	public GameObject plus;
-	float spawnTime = 1.2f;
-	float totalTime = 0;
+	float spawnTime = 2f;
+	float totalTime = 1f;
 
 	// Use this for initialization
 	void Start () {
