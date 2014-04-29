@@ -1,15 +1,16 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Entities\Tower.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\GUI\MainMenu.cs">
     <Files>
-      <File FileName="Assets\Scripts\Managers\SmallIntestineTutorialManager.cs" Line="1" Column="1" />
       <File FileName="Assets\Esophagus\StomachBar.cs" Line="1" Column="1" />
-      <File FileName="Assets\Esophagus\FoodStuffFinish.cs" Line="1" Column="1" />
-      <File FileName="Assets\Esophagus\EsophagusDebugConfig.cs" Line="1" Column="1" />
-      <File FileName="Assets\Esophagus\EsophagusDebugConfigGUI.cs" Line="1" Column="1" />
-      <File FileName="Assets\Esophagus\LostFoodCount.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\GUI\TowerMenu.cs" Line="296" Column="2" />
-      <File FileName="Assets\Scripts\Entities\Tower.cs" Line="12" Column="1" />
+      <File FileName="Assets\Storyboard\Small Intestine Storyboard\SmallIntestineStoryboard.cs" Line="78" Column="3" />
+      <File FileName="Assets\Scripts\Managers\IntestineGameManager.cs" Line="27" Column="33" />
+      <File FileName="Assets\Storyboard\Esophagus Storyboard\EsophagusStoryboard.cs" Line="78" Column="3" />
+      <File FileName="Assets\Storyboard\Intro Storyboard\IntroStoryboard.cs" Line="41" Column="4" />
+      <File FileName="Assets\Storyboard\Mouth Storyboard\MouthStoryboard.cs" Line="78" Column="3" />
+      <File FileName="Assets\Scripts\Managers\GameConfig.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\GUI\MainMenu.cs" Line="29" Column="10" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

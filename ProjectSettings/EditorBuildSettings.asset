@@ -24,6 +24,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LoadLevelSmallIntestine.unity
   - enabled: 1
-    path: Assets/Scenes/Esophagus.unity
+    path: Assets/Scenes/Mouth.unity
   - enabled: 1
     path: Assets/Scenes/SmallIntestineStoryboard.unity
+  - enabled: 1
+    path: Assets/Scenes/IntroStoryboard.unity
+  - enabled: 1
+    path: Assets/Scenes/MouthStoryboard.unity
