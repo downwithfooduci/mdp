@@ -19,8 +19,8 @@ public class IntestineGameManager : MonoBehaviour
 	private Rect faceRect;
 	private Rect healthRect;
 	
-	public int Health;
-    public int Nutrients;
+	public int health;
+    public int nutrients;
 
     // Points gained for hitting a nutrient
     public int NutrientHitScore;
@@ -48,7 +48,7 @@ public class IntestineGameManager : MonoBehaviour
         if (m_IsGameOver)
             return;
 
-        if (Health <= 0)
+        if (health <= 0)
         {
             Instantiate(GameOverScript);
             m_IsGameOver = true;
@@ -82,7 +82,7 @@ public class IntestineGameManager : MonoBehaviour
 
     public void OnNutrientHit()
     {
-        Nutrients += NutrientHitScore;
+        nutrients += NutrientHitScore;
 		NutrientTextColor = Color.green;
 	}
 
@@ -92,7 +92,7 @@ public class IntestineGameManager : MonoBehaviour
     {
 		if (isAlive) 
 		{
-        	Health--;
+        	health--;
 			m_HealthTextColor = Color.red;
 		} 
 	}
@@ -130,23 +130,24 @@ public class IntestineGameManager : MonoBehaviour
 				Application.Quit();
 			}
 		}
+
 		// draw nutrients text
 		FontStyle.normal.textColor = NutrientTextColor;
 		FontStyle.fontSize = 16;
-		GUI.Label(new Rect(Screen.width * 0.837f, Screen.height * 0.955f, 40, 40), "Nutrients: " + Nutrients, FontStyle);			
+		GUI.Label(new Rect((Screen.width / 2) - 50, 0, 40, 40), "Nutrients: " + nutrients, FontStyle);			
 		FontStyle.normal.textColor = m_OriginalTextColor;
 
 		// choose face to draw
-		if (Health > .8 * MAX_HEALTH)
+		if (health > .8 * MAX_HEALTH)
 		{
 			GUI.DrawTexture (faceRect, faces [0]);
-		} else if (Health > .6 * MAX_HEALTH)
+		} else if (health > .6 * MAX_HEALTH)
 		{
 			GUI.DrawTexture (faceRect, faces [1]);
-		} else if (Health > .4 * MAX_HEALTH)
+		} else if (health > .4 * MAX_HEALTH)
 		{
 			GUI.DrawTexture (faceRect, faces [2]);
-		} else if (Health > .2 * MAX_HEALTH)
+		} else if (health > .2 * MAX_HEALTH)
 		{
 			GUI.DrawTexture (faceRect, faces [3]);
 		} else 
@@ -155,8 +156,8 @@ public class IntestineGameManager : MonoBehaviour
 		}
 
 		// change drawing of health bar
-		GUI.DrawTexture (new Rect(healthRect.xMin, healthRect.yMin + (1-(float)Health/(float)MAX_HEALTH)*healthRect.height, 
-		                          healthRect.width, ((float)Health/(float)MAX_HEALTH)*healthRect.height), healthBar);
+		GUI.DrawTexture (new Rect(healthRect.xMin, healthRect.yMin + (1-(float)health/(float)MAX_HEALTH)*healthRect.height, 
+		                          healthRect.width, ((float)health/(float)MAX_HEALTH)*healthRect.height), healthBar);
 
     }
 }

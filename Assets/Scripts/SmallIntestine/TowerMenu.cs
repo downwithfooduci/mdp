@@ -220,12 +220,12 @@ public class TowerMenu : MonoBehaviour {
 		
 		return rect;
 	}
-	
+
 	private void ShowSpeedUpgrade()
 	{
 		if (m_Tower.ActiveModelName == "Base")
 		{
-			if(m_GameManager.Nutrients - m_Tower.TOWER_UPGRADE_LEVEL_1_COST < 0)
+			if(m_GameManager.nutrients - m_Tower.TOWER_UPGRADE_LEVEL_1_COST < 0)
 			{
 				GUI.Button(GetSpeedButtonRect(), "", speedInactive);
 			}
@@ -236,7 +236,7 @@ public class TowerMenu : MonoBehaviour {
 			}
 		} else
 		{
-			if(m_GameManager.Nutrients - m_Tower.TOWER_UPGRADE_LEVEL_2_COST < 0)
+			if(m_GameManager.nutrients - m_Tower.TOWER_UPGRADE_LEVEL_2_COST < 0)
 			{
 				GUI.Button(GetSpeedButtonRect(), "", speedInactive);
 			}
@@ -252,7 +252,7 @@ public class TowerMenu : MonoBehaviour {
 	{
 		if (m_Tower.ActiveModelName == "Base")
 		{
-			if(m_GameManager.Nutrients - m_Tower.TOWER_UPGRADE_LEVEL_1_COST < 0)
+			if(m_GameManager.nutrients - m_Tower.TOWER_UPGRADE_LEVEL_1_COST < 0)
 			{
 				GUI.Button(GetPowerButtonRect(), "", powerInactive);
 			}
@@ -263,7 +263,7 @@ public class TowerMenu : MonoBehaviour {
 			}
 		} else
 		{
-			if(m_GameManager.Nutrients - m_Tower.TOWER_UPGRADE_LEVEL_2_COST < 0)
+			if(m_GameManager.nutrients - m_Tower.TOWER_UPGRADE_LEVEL_2_COST < 0)
 			{
 				GUI.Button(GetPowerButtonRect(), "", powerInactive);
 			}
@@ -281,22 +281,22 @@ public class TowerMenu : MonoBehaviour {
 		switch (m_Tower.ActiveModelName)
 		{
 		case "Base":
-			m_GameManager.Nutrients = m_GameManager.Nutrients + (int)(.6*(m_Tower.TOWER_BASE_COST));
+			m_GameManager.nutrients = m_GameManager.nutrients + (int)(.6*(m_Tower.TOWER_BASE_COST));
 			break;
 		case "Speed1":
-			m_GameManager.Nutrients = m_GameManager.Nutrients + (int)(.6*(m_Tower.TOWER_BASE_COST +
+			m_GameManager.nutrients = m_GameManager.nutrients + (int)(.6*(m_Tower.TOWER_BASE_COST +
 				m_Tower.TOWER_UPGRADE_LEVEL_1_COST));
 			break;
 		case "Speed2":
-			m_GameManager.Nutrients = m_GameManager.Nutrients + (int)(.6*(m_Tower.TOWER_BASE_COST +
+			m_GameManager.nutrients = m_GameManager.nutrients + (int)(.6*(m_Tower.TOWER_BASE_COST +
 				m_Tower.TOWER_UPGRADE_LEVEL_1_COST + m_Tower.TOWER_UPGRADE_LEVEL_2_COST));
 			break;
 		case "Power1":
-			m_GameManager.Nutrients = m_GameManager.Nutrients + (int)(.6*(m_Tower.TOWER_BASE_COST +
+			m_GameManager.nutrients = m_GameManager.nutrients + (int)(.6*(m_Tower.TOWER_BASE_COST +
 				m_Tower.TOWER_UPGRADE_LEVEL_1_COST));
 			break;
 		case "Power2":
-			m_GameManager.Nutrients = m_GameManager.Nutrients + (int)(.6*(m_Tower.TOWER_BASE_COST +
+			m_GameManager.nutrients = m_GameManager.nutrients + (int)(.6*(m_Tower.TOWER_BASE_COST +
 				m_Tower.TOWER_UPGRADE_LEVEL_1_COST + m_Tower.TOWER_UPGRADE_LEVEL_2_COST));
 			break;
 		default:

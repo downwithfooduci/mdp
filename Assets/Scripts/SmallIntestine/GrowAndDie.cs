@@ -1,10 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class GrowAndDie : MonoBehaviour {
+/*
+ * This class programs the effects of the plus signs in the SI game.
+ * */
+public class GrowAndDie : MonoBehaviour 
+{
 	float timeAlive = 0;
 	Vector3 originalScale;
 	public Texture plus;
+
 	// Use this for initialization
 	void Start () 
 	{
@@ -12,8 +17,10 @@ public class GrowAndDie : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update () 
+	{
 		timeAlive += Time.deltaTime;
+
 		if (timeAlive < 1.0f) 
 		{
 			transform.localScale = originalScale + new Vector3(timeAlive, timeAlive, timeAlive);

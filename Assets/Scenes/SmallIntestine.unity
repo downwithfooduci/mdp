@@ -12094,74 +12094,6 @@ Transform:
   m_LocalScale: {x: .600000024, y: .600000024, z: 1}
   m_Children: []
   m_Father: {fileID: 320619422}
---- !u!1001 &604287228
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 400000, guid: dea053cdc86a6c442b0e436bb1adeda0, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 1.84329891
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: dea053cdc86a6c442b0e436bb1adeda0, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 5.9123435
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: dea053cdc86a6c442b0e436bb1adeda0, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: .000110387802
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: dea053cdc86a6c442b0e436bb1adeda0, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: dea053cdc86a6c442b0e436bb1adeda0, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: dea053cdc86a6c442b0e436bb1adeda0, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: dea053cdc86a6c442b0e436bb1adeda0, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400000, guid: dea053cdc86a6c442b0e436bb1adeda0, type: 2}
-      propertyPath: Nutrients
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400000, guid: dea053cdc86a6c442b0e436bb1adeda0, type: 2}
-      propertyPath: gameWinPopup
-      value: 
-      objectReference: {fileID: 2800000, guid: 54626149289384847a4b2012e1a9a9e1, type: 3}
-    - target: {fileID: 11400000, guid: dea053cdc86a6c442b0e436bb1adeda0, type: 2}
-      propertyPath: mainMenu.m_Normal.m_Background
-      value: 
-      objectReference: {fileID: 2800000, guid: 2504b108bbbe90a4c9674ccb6e376f6b, type: 3}
-    - target: {fileID: 11400000, guid: dea053cdc86a6c442b0e436bb1adeda0, type: 2}
-      propertyPath: mainMenu.m_Active.m_Background
-      value: 
-      objectReference: {fileID: 2800000, guid: a9a448212461dcf46b2c1d9837cbffd0, type: 3}
-    - target: {fileID: 11400000, guid: dea053cdc86a6c442b0e436bb1adeda0, type: 2}
-      propertyPath: quit.m_Normal.m_Background
-      value: 
-      objectReference: {fileID: 2800000, guid: 9ed38e1e078675e498b65907ffb4673c, type: 3}
-    - target: {fileID: 11400000, guid: dea053cdc86a6c442b0e436bb1adeda0, type: 2}
-      propertyPath: quit.m_Active.m_Background
-      value: 
-      objectReference: {fileID: 2800000, guid: 16d45f209d5625c40af85f00139ab8ea, type: 3}
-    - target: {fileID: 11400000, guid: dea053cdc86a6c442b0e436bb1adeda0, type: 2}
-      propertyPath: plusSign
-      value: 
-      objectReference: {fileID: 100000, guid: efddb0b82f67e485a89154e4ca5ef077, type: 2}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: dea053cdc86a6c442b0e436bb1adeda0, type: 2}
-  m_RootGameObject: {fileID: 758440261}
-  m_IsPrefabParent: 0
-  m_IsExploded: 1
 --- !u!1 &604993352
 GameObject:
   m_ObjectHideFlags: 0
@@ -15484,7 +15416,7 @@ Transform:
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 100000, guid: dea053cdc86a6c442b0e436bb1adeda0, type: 2}
-  m_PrefabInternal: {fileID: 604287228}
+  m_PrefabInternal: {fileID: 0}
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 758440262}
@@ -15503,7 +15435,7 @@ GameObject:
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 400000, guid: dea053cdc86a6c442b0e436bb1adeda0, type: 2}
-  m_PrefabInternal: {fileID: 604287228}
+  m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 758440261}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.84329891, y: 5.9123435, z: .000110387802}
@@ -15515,7 +15447,7 @@ MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 11400002, guid: dea053cdc86a6c442b0e436bb1adeda0,
     type: 2}
-  m_PrefabInternal: {fileID: 604287228}
+  m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 758440261}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -15528,7 +15460,7 @@ MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 11400004, guid: dea053cdc86a6c442b0e436bb1adeda0,
     type: 2}
-  m_PrefabInternal: {fileID: 604287228}
+  m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 758440261}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -15544,11 +15476,11 @@ MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 11400006, guid: dea053cdc86a6c442b0e436bb1adeda0,
     type: 2}
-  m_PrefabInternal: {fileID: 604287228}
+  m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 758440261}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13f1c3a00b8d8b94a8124b5478c61547, type: 3}
+  m_Script: {fileID: 11500000, guid: 29b81d754de3c3f4c92884ca1be28682, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &758440266
@@ -15556,7 +15488,7 @@ MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 11400000, guid: dea053cdc86a6c442b0e436bb1adeda0,
     type: 2}
-  m_PrefabInternal: {fileID: 604287228}
+  m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 758440261}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -15743,7 +15675,6 @@ MonoBehaviour:
     m_FixedHeight: 0
     m_StretchWidth: 1
     m_StretchHeight: 0
-  plusSign: {fileID: 100000, guid: efddb0b82f67e485a89154e4ca5ef077, type: 2}
   faces:
   - {fileID: 2800000, guid: ff0c6c3c3be74a443a80d561858b0f7f, type: 3}
   - {fileID: 2800000, guid: e8ff61697126bb947ae9cebb87c25c55, type: 3}
@@ -15751,8 +15682,8 @@ MonoBehaviour:
   - {fileID: 2800000, guid: c54302bbed7c4c248b28d3550f27f420, type: 3}
   - {fileID: 2800000, guid: 1a17a812793f6d1409e03a17b58df92b, type: 3}
   healthBar: {fileID: 2800000, guid: 0ffe5421bb933034bbe0fa47e825442c, type: 3}
-  Health: 20
-  Nutrients: 40
+  health: 20
+  nutrients: 40
   NutrientHitScore: 5
   NutrientTextColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &761542605

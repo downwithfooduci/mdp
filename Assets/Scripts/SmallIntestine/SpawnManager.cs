@@ -37,7 +37,6 @@ public class SpawnManager : MonoBehaviour {
 		maxNutrients = waves[0].maxBlobs;
         m_TimeSinceLastSpawn = 0f;
 		debugConfig = ((GameObject)GameObject.Find("Debug Config")).GetComponent<DebugConfig>();
-		Debug.Log ("" + debugConfig);
 	}
 	
 	// Update is called once per frame

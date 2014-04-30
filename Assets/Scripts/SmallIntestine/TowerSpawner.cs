@@ -88,15 +88,15 @@ public class TowerSpawner : MonoBehaviour
 
 				DestroyImmediate (m_Indicator.renderer.material);
 				Destroy (m_Indicator);
-				
-				if (m_IsMouseOverWallLastFrame && m_GameManager.Nutrients - TOWER_BASE_COST >= 0) 
+			
+				if (m_IsMouseOverWallLastFrame && m_GameManager.nutrients - TOWER_BASE_COST >= 0) 
 				{
 					
 					m_SpawnedTower.GetComponent<Tower> ().enabled = true;
 					m_SpawnedTower.transform.position = wall.transform.position + new Vector3 (0, 0.5f, 0);
 					m_SpawnedTower.GetComponent<Tower>().wall = wall;
 					m_SpawnedTower.GetComponent<TowerMenu> ().Initialize ();
-					m_GameManager.Nutrients = m_GameManager.Nutrients - TOWER_BASE_COST;  // cost nutrients for testing
+					m_GameManager.nutrients = m_GameManager.nutrients - TOWER_BASE_COST;  // cost nutrients for testing
                 
 				} else 
 				{
@@ -126,7 +126,7 @@ public class TowerSpawner : MonoBehaviour
 //		Matrix4x4 orig = GUI.matrix;
 //		GUI.matrix = GuiUtility.CachedScaledMatrix;
 
-		if (m_GameManager.Nutrients - TOWER_BASE_COST >= 0 && Time.timeScale != 0) 
+		if (m_GameManager.nutrients - TOWER_BASE_COST >= 0 && Time.timeScale != 0) 
 		{
 			for (int i = 0; i < AvailableColors.Length; i++)
 			{
@@ -172,12 +172,12 @@ public class TowerSpawner : MonoBehaviour
 			if (GUI.RepeatButton (m_ButtonSize, "", ButtonStyle)) 
 			{
 				// check all conditions for creating a tower before creating it
-				if (!m_IsSpawnActive && m_GameManager.Nutrients - TOWER_BASE_COST >= 0) 
+				if (!m_IsSpawnActive && m_GameManager.nutrients - TOWER_BASE_COST >= 0) 
 				{
 					SpawnTower (AvailableColors [i]);
 					m_SpawnedTower.GetComponent<Tower> ().enabled = false;
 					return;
-				} else if (m_GameManager.Nutrients - TOWER_BASE_COST < 0) 
+				} else if (m_GameManager.nutrients - TOWER_BASE_COST < 0) 
 				{
 					// if there was not enough nutrients to create the tower let the user know
 					timePassed = timer;		

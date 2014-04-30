@@ -223,12 +223,12 @@ public class Tower : MonoBehaviour {
 		switch (m_ActiveModelName)
 		{
 		case "Base":
-			if (m_GameManager.Nutrients - TOWER_UPGRADE_LEVEL_1_COST >= 0)  // if you have enough nutrients to upgrade
+			if (m_GameManager.nutrients - TOWER_UPGRADE_LEVEL_1_COST >= 0)  // if you have enough nutrients to upgrade
 			{
 				SetActiveModel("Speed1");
 				m_Cooldown = Level1Cooldown;
 				AdjustAnimationSpeed(m_Cooldown);
-				m_GameManager.Nutrients = m_GameManager.Nutrients - TOWER_UPGRADE_LEVEL_1_COST;	// upgrade costs  nutrients (for test)
+				m_GameManager.nutrients = m_GameManager.nutrients - TOWER_UPGRADE_LEVEL_1_COST;	// upgrade costs  nutrients (for test)
 				// set message and display time
 				message = "Upgraded tower to Speed Level 1";
 				timePassed = timer;
@@ -240,12 +240,12 @@ public class Tower : MonoBehaviour {
 			}
 			break;
 		case "Speed1":
-			if (m_GameManager.Nutrients - TOWER_UPGRADE_LEVEL_2_COST >= 0)  // if you have enough nutrients to upgrade
+			if (m_GameManager.nutrients - TOWER_UPGRADE_LEVEL_2_COST >= 0)  // if you have enough nutrients to upgrade
 			{
 				SetActiveModel("Speed2");
 				m_Cooldown = Level2Cooldown;
 				AdjustAnimationSpeed(m_Cooldown);
-				m_GameManager.Nutrients = m_GameManager.Nutrients - TOWER_UPGRADE_LEVEL_2_COST;		// upgrade costs  nutrients (for test)
+				m_GameManager.nutrients = m_GameManager.nutrients - TOWER_UPGRADE_LEVEL_2_COST;		// upgrade costs  nutrients (for test)
 				// set message and display time
 				message = "Upgraded tower to Speed Level 2";
 				timePassed = timer;
@@ -274,11 +274,11 @@ public class Tower : MonoBehaviour {
 		switch (m_ActiveModelName)
 		{
 		case "Base":
-			if (m_GameManager.Nutrients - TOWER_UPGRADE_LEVEL_1_COST >= 0)  // if the upgrade is successful
+			if (m_GameManager.nutrients - TOWER_UPGRADE_LEVEL_1_COST >= 0)  // if the upgrade is successful
 			{
 				SetActiveModel("Power1");
 				targets = level1Targets;
-				m_GameManager.Nutrients = m_GameManager.Nutrients - TOWER_UPGRADE_LEVEL_1_COST;		// upgrade costs nutrients (for test
+				m_GameManager.nutrients = m_GameManager.nutrients - TOWER_UPGRADE_LEVEL_1_COST;		// upgrade costs nutrients (for test
 				// set message and display time
 				message = "Upgraded tower to Power Level 1";
 				timePassed = timer;
@@ -290,11 +290,11 @@ public class Tower : MonoBehaviour {
 			}
 			break;
 		case "Power1":
-			if (m_GameManager.Nutrients - TOWER_UPGRADE_LEVEL_2_COST >= 0) // if the upgrade is successful
+			if (m_GameManager.nutrients - TOWER_UPGRADE_LEVEL_2_COST >= 0) // if the upgrade is successful
 			{
 				SetActiveModel("Power2");
 				targets = level2Targets;
-				m_GameManager.Nutrients = m_GameManager.Nutrients - TOWER_UPGRADE_LEVEL_2_COST;		// upgrade costs  nutrients (for test
+				m_GameManager.nutrients = m_GameManager.nutrients - TOWER_UPGRADE_LEVEL_2_COST;		// upgrade costs  nutrients (for test
 				// set message and display time
 				message = "Upgraded tower to Power level 2";
 				timePassed = timer;

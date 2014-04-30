@@ -1,8 +1,8 @@
 using UnityEngine;
 using System.Collections;
 
-public class GameOver : MonoBehaviour {
-
+public class GameOver : MonoBehaviour 
+{
 	public Texture gameOverPopup;
 	public GUIStyle restart;
 	public GUIStyle mainMenu;
