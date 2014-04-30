@@ -52,9 +52,9 @@ public class MainMenuDebug : MonoBehaviour
 			}
 			
 			if (GUI.Button(new Rect(150, 100, 
-			                        100, 50), "MouthStoryboard"))
+			                        100, 50), "Mouth Story"))
 			{
-				Application.LoadLevel("Mouth");
+				Application.LoadLevel("MouthStoryboard");
 			}
 			
 			if (GUI.Button(new Rect(150, 150, 

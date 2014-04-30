@@ -9,9 +9,9 @@ public class FoodStuffFinish : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
-		GameObject esophagusGUI = GameObject.Find("EsophagusGUI");
-		stomachBar = esophagusGUI.GetComponent<StomachBar>();
-		lostFoodCount = esophagusGUI.GetComponent<LostFoodCount>();
+		GameObject mouthGUI = GameObject.Find("MouthGUI");
+		stomachBar = mouthGUI.GetComponent<StomachBar>();
+		lostFoodCount = mouthGUI.GetComponent<LostFoodCount>();
 	}
 	
 	// Update is called once per frame
