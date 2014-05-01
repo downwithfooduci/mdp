@@ -8,7 +8,9 @@ public class TowerMenu : MonoBehaviour {
 	public GUIStyle powerInactive;
 	public GUIStyle speedActive;
 	public GUIStyle speedInactive;
-	public GUIStyle sellActive;
+	public GUIStyle sellActive1;
+	public GUIStyle sellActive2;
+	public GUIStyle sellActive3;
 
 	// for sell popup
 	private bool displaySellBox;	// mark whether we should draw sell box
@@ -99,25 +101,23 @@ public class TowerMenu : MonoBehaviour {
 		
 		m_NumButtons = 0;
 		
-		if (GUI.Button(GetSellButtonRect(), "", sellActive))
-		{
-			IsEnabled = false;
-			displaySellBox = true;
-		}
-		
 		switch (m_Tower.ActiveModelName)
 		{
 		case "Base":
 			ShowPowerUpgrade();
 			ShowSpeedUpgrade();
+			ShowSell(sellActive1);
 			break;
 		case "Speed1":
 			ShowSpeedUpgrade();
+			ShowSell(sellActive2);
 			break;
 		case "Power1":
 			ShowPowerUpgrade();
+			ShowSell(sellActive2);
 			break;
 		default:
+			ShowSell(sellActive3);
 			break;
 		}
 	}
@@ -272,6 +272,15 @@ public class TowerMenu : MonoBehaviour {
 				m_Tower.UpgradePower();
 				IsEnabled = false;
 			}
+		}
+	}
+
+	private void ShowSell(GUIStyle style)
+	{
+		if (GUI.Button(GetSellButtonRect(), "", style))
+		{
+			IsEnabled = false;
+			displaySellBox = true;
 		}
 	}
 	
