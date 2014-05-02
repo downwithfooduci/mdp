@@ -67,7 +67,7 @@ public class IntestineGameManager : MonoBehaviour
 		{
 			GameObject chooseBackground = GameObject.Find("ChooseBackground");
 			SmallIntestineLoadLevelCounter  level = chooseBackground.GetComponent<SmallIntestineLoadLevelCounter>();
-			if(level.level == 1)
+			if(level.level == 2)
 			{
 				Time.timeScale = 0;
 				showWinScreen = true;

@@ -19,7 +19,7 @@ public class LoadSmallIntestine : MonoBehaviour
 	{
 		counter = GameObject.Find ("ChooseBackground");
 		level = counter.GetComponent<SmallIntestineLoadLevelCounter> ();
-		GUI.DrawTexture (new Rect(0, 0, Screen.width, Screen.height), backgrounds [level.level]);
+		GUI.DrawTexture (new Rect(0, 0, Screen.width, Screen.height), backgrounds [Mathf.Clamp(level.level, 0, 1)]);
 	}
 
 	void Update()
