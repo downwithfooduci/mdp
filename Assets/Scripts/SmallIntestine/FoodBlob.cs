@@ -76,13 +76,13 @@ public class FoodBlob : MonoBehaviour {
 				if (!n.isDead)								// flag if any of the nutrients are still alive
 				{
 					alive = true;
+					Instantiate(nutrientLostSound);
 				}
             	m_NutrientManager.RemoveNutrient(child.GetComponent<Nutrient>());
 			}
         }
 		Destroy(this.gameObject);
 		m_GameManager.OnFoodBlobFinish(alive);  
-		Instantiate (nutrientLostSound);
 	}
 	
 	virtual public void TakeHit()

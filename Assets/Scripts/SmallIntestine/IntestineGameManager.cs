@@ -92,7 +92,7 @@ public class IntestineGameManager : MonoBehaviour
     {
 		if (isAlive) 
 		{
-        	health--;
+			health--;
 			m_HealthTextColor = Color.red;
 		} 
 	}
