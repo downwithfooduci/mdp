@@ -1,15 +1,15 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\SmallIntestine\AutoDestroySellSound.cs">
+  <MonoDevelop.Ide.Workspace />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Resources\Level2.txt">
     <Files>
-      <File FileName="Assets\Scripts\SmallIntestine\Tower.cs" Line="151" Column="7" />
-      <File FileName="Assets\Scripts\Mouth\FoodStuffFinish.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\SmallIntestine\Nutrient.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\SmallIntestine\IntestineGameManager.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\SmallIntestine\Tower.cs" Line="278" Column="1" />
-      <File FileName="Assets\Scripts\SmallIntestine\TowerMenu.cs" Line="10" Column="30" />
-      <File FileName="Assets\Scripts\SmallIntestine\AutoDestroySellSound.cs" Line="19" Column="1" />
-      <File FileName="Assets\Scripts\SmallIntestine\TowerSpawner.cs" Line="12" Column="27" />
+      <File FileName="Assets\Scripts\SmallIntestine\TowerMenu.cs" Line="104" Column="35" />
+      <File FileName="Assets\Scripts\SmallIntestine\Tower.cs" Line="9" Column="26" />
+      <File FileName="Assets\Scripts\SmallIntestine\IntestineDebugGUI.cs" Line="55" Column="39" />
+      <File FileName="Assets\Scripts\SmallIntestine\SmallIntestineLoadLevelCounter.cs" Line="11" Column="28" />
+      <File FileName="Assets\Scripts\SmallIntestine\IntestineGameManager.cs" Line="70" Column="23" />
+      <File FileName="Assets\Scripts\SmallIntestine\LoadSmallIntestine.cs" Line="36" Column="1" />
+      <File FileName="Assets\Resources\Level1.txt" Line="8" Column="22" />
+      <File FileName="Assets\Resources\Level2.txt" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

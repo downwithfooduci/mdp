@@ -39,8 +39,7 @@ public class TowerMenu : MonoBehaviour
 	private float SELL_BUTTON_WIDTH = 110;
 	private float SELL_BUTTON_HEIGHT = 42;
 	
-	private bool m_MouseDownLastFrame;
-	
+	private bool m_MouseDownLastFrame = false;
 	// Use this for initialization
     void Start()
     {
@@ -63,7 +62,9 @@ public class TowerMenu : MonoBehaviour
 	
 	void LateUpdate()
 	{
-		bool mouseDown = Input.GetMouseButtonDown(0);
+		if(!gameObject.GetComponent<Tower>().enabled)
+			return;
+		bool mouseDown = Input.GetMouseButton(0);
 		
 		if (m_MouseDownLastFrame && !mouseDown)
 			StartCoroutine(CheckMouseClick());		// need to use startcoroutine because the function is of type ienumerator so we can delay the thread
