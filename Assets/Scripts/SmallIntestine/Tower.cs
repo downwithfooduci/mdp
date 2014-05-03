@@ -1,11 +1,17 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-public class Tower : MonoBehaviour {
+public class Tower : MonoBehaviour 
+{
+	// for manging costs
 	public int TOWER_BASE_COST = 20;
 	public int TOWER_UPGRADE_LEVEL_1_COST = 50;
 	public int TOWER_UPGRADE_LEVEL_2_COST = 50;
-	
+
+	// for sounds
+	public AudioClip towerShootSound;
+	public AudioClip upgradeSound;
+
 	DebugConfig debugConfig;
 	
 	public GameObject Projectile;
@@ -41,13 +47,10 @@ public class Tower : MonoBehaviour {
 	private int targets;
 	private float m_CurrentCooldown;
 	private bool m_CanFire;
-
-	private const float timer = 2.0f;	// for displaying text messages
-	private float timePassed = 0.0f;
-	private string message = "";
 		
 	// Use this for initialization
-	void Start () {
+	void Start () 
+	{
 		debugConfig = ((GameObject)GameObject.Find("Debug Config")).GetComponent<DebugConfig>();
 		TOWER_BASE_COST = debugConfig.TOWER_BASE_COST;
 		TOWER_UPGRADE_LEVEL_1_COST = debugConfig.TOWER_UPGRADE_LEVEL_1_COST;
@@ -70,24 +73,9 @@ public class Tower : MonoBehaviour {
 		SetActiveModel("Base");		
 	}
 
-	// for displaying text messages
-	void OnGUI()
-	{
-		GUI.depth--;
-
-		if (timePassed > 0)
-		{
-			timePassed -= Time.deltaTime;
-			GUIStyle style = new GUIStyle();
-			style.fontSize = 16;
-			style.alignment = TextAnchor.MiddleCenter;
-			style.normal.textColor = Color.white;
-			GUI.Label(new Rect(Screen.width * 0.0185546875f, Screen.height * 0.83f, Screen.width * 0.775390625f, Screen.height * 0.02604167f), message, style); // sort of center the message
-		}
-	}
-	
 	// Update is called once per frame
-	void Update () {
+	void Update () 
+	{
 		switch (m_ActiveModelName)
 		{
 		case "Base":
@@ -153,14 +141,13 @@ public class Tower : MonoBehaviour {
         Nutrient target = AcquireTarget();
         if (target)
         {
+			audio.clip = towerShootSound;
+
 			transform.Rotate(new Vector3(90,0,0), -40, Space.World);
             // Look at target but lock rotation on x axis
             float xRotation = transform.rotation.eulerAngles.x;
             transform.LookAt(target.transform);
 			transform.Rotate(new Vector3(90,0,0), 40, Space.World);
-            //Vector3 euler = transform.rotation.eulerAngles;
-            //euler.x = xRotation;
-            //transform.rotation = Quaternion.Euler(euler);
             transform.FindChild(m_ActiveModelName).animation.Play("Default Take", PlayMode.StopAll);
 
             GameObject bulletObject = Instantiate(Projectile, transform.position, transform.rotation) as GameObject;
@@ -171,6 +158,8 @@ public class Tower : MonoBehaviour {
 			bullet.targets = targets;
 
             target.IsTargetted = true;
+
+			audio.Play ();
 
             m_CanFire = false;
         }
@@ -229,14 +218,8 @@ public class Tower : MonoBehaviour {
 				m_Cooldown = Level1Cooldown;
 				AdjustAnimationSpeed(m_Cooldown);
 				m_GameManager.nutrients = m_GameManager.nutrients - TOWER_UPGRADE_LEVEL_1_COST;	// upgrade costs  nutrients (for test)
-				// set message and display time
-				message = "Upgraded tower to Speed Level 1";
-				timePassed = timer;
-			} else // if not enough nutrients let user know
-			{
-				// set message and display time
-				message = "Not enough nutrients to upgrade tower";
-				timePassed = timer;
+				audio.clip = upgradeSound;
+				audio.Play();
 			}
 			break;
 		case "Speed1":
@@ -246,15 +229,9 @@ public class Tower : MonoBehaviour {
 				m_Cooldown = Level2Cooldown;
 				AdjustAnimationSpeed(m_Cooldown);
 				m_GameManager.nutrients = m_GameManager.nutrients - TOWER_UPGRADE_LEVEL_2_COST;		// upgrade costs  nutrients (for test)
-				// set message and display time
-				message = "Upgraded tower to Speed Level 2";
-				timePassed = timer;
-			} else  // if not enough nutrients let user know
-			{
-				// set message and display time
-				message = "Not enough nutrients to upgrade tower";
-				timePassed = timer;
-			}
+				audio.clip = upgradeSound;
+				audio.Play();
+			} 
 			break;
 		default:
 			break;
@@ -279,15 +256,9 @@ public class Tower : MonoBehaviour {
 				SetActiveModel("Power1");
 				targets = level1Targets;
 				m_GameManager.nutrients = m_GameManager.nutrients - TOWER_UPGRADE_LEVEL_1_COST;		// upgrade costs nutrients (for test
-				// set message and display time
-				message = "Upgraded tower to Power Level 1";
-				timePassed = timer;
-			} else // if not enough nutrients to upgrade notify
-			{
-				// set message and display time
-				message = "Not enough nutrients to upgrade tower";
-				timePassed = timer;
-			}
+				audio.clip = upgradeSound;
+				audio.Play();
+			} 
 			break;
 		case "Power1":
 			if (m_GameManager.nutrients - TOWER_UPGRADE_LEVEL_2_COST >= 0) // if the upgrade is successful
@@ -295,15 +266,9 @@ public class Tower : MonoBehaviour {
 				SetActiveModel("Power2");
 				targets = level2Targets;
 				m_GameManager.nutrients = m_GameManager.nutrients - TOWER_UPGRADE_LEVEL_2_COST;		// upgrade costs  nutrients (for test
-				// set message and display time
-				message = "Upgraded tower to Power level 2";
-				timePassed = timer;
-			} else // if not enough nutrients to upgrade notify
-			{
-				// set message and display time
-				message = "Not enough nutrients to upgrade tower";
-				timePassed = timer;
-			}
+				audio.clip = upgradeSound;
+				audio.Play();
+			} 
 			break;
 		default:
 			break;

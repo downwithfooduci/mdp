@@ -8,6 +8,7 @@ public class TowerMenu : MonoBehaviour
 
 	// for sounds
 	public GameObject sellSound;
+	public AudioClip upgradeSound;
 
 	// for buttons
 	public GUIStyle powerActive;
