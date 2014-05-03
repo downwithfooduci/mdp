@@ -80,6 +80,7 @@ MonoBehaviour:
   RotationSpeed: 10
   Nutrient: {fileID: 100000, guid: 20f993d1675d53a4e881036f4c4dce59, type: 2}
   NumNutrients: 5
+  nutrientLostSound: {fileID: 100000, guid: b549811cb7db43a468af4455dfb2f342, type: 2}
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1

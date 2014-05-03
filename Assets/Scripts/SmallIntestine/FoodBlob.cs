@@ -19,6 +19,9 @@ public class FoodBlob : MonoBehaviour {
 
     private NutrientManager m_NutrientManager;
     private IntestineGameManager m_GameManager;
+
+	// for sounds
+	public GameObject nutrientLostSound;
 	
 	public void GenerateEnzymes(int minNutrients, int maxNutrients, Color[] availableColors)
 	{
@@ -79,6 +82,7 @@ public class FoodBlob : MonoBehaviour {
         }
 		Destroy(this.gameObject);
 		m_GameManager.OnFoodBlobFinish(alive);  
+		Instantiate (nutrientLostSound);
 	}
 	
 	virtual public void TakeHit()
