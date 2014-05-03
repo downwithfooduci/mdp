@@ -28,6 +28,9 @@ public class TowerSpawner : MonoBehaviour
 	//arrays to hold buttons
 	public GUIStyle[] activeButtons;
 	public GUIStyle[] inactiveButtons;
+
+	// for sounds
+	public GameObject placementSound;
 	
 	public Rect Dimensions;
 	public bool IsMouseOverWall;
@@ -97,7 +100,8 @@ public class TowerSpawner : MonoBehaviour
 					m_SpawnedTower.GetComponent<Tower>().wall = wall;
 					m_SpawnedTower.GetComponent<TowerMenu> ().Initialize ();
 					m_GameManager.nutrients = m_GameManager.nutrients - TOWER_BASE_COST;  // cost nutrients for testing
-                
+					
+					Instantiate (placementSound);
 				} else 
 				{
 					Destroy (m_SpawnedTower);
