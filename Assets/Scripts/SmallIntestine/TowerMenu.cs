@@ -1,9 +1,15 @@
 using UnityEngine;
 using System.Collections;
 
-public class TowerMenu : MonoBehaviour {
+public class TowerMenu : MonoBehaviour 
+{
 	public bool IsEnabled;
 	public Font font;
+
+	// for sounds
+	public GameObject sellSound;
+
+	// for buttons
 	public GUIStyle powerActive;
 	public GUIStyle powerInactive;
 	public GUIStyle speedActive;
@@ -210,7 +216,6 @@ public class TowerMenu : MonoBehaviour {
 		                              Screen.height - UPGRADE_BUTTON_HEIGHT 
 		                              - Screen.height * (30f / 768f) 
 		                              - SELL_BUTTON_HEIGHT);
-		Debug.Log (spawnPosition);
 
 		Rect rect = new Rect(
 			spawnPosition.x - SELL_BUTTON_WIDTH / 2, 
@@ -311,7 +316,9 @@ public class TowerMenu : MonoBehaviour {
 		default:
 			break;
 		} 
-	
+
+		Instantiate (sellSound);
+
 		Destroy(gameObject);
 	}
 }

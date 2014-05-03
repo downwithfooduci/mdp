@@ -1917,6 +1917,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsEnabled: 0
   font: {fileID: 0}
+  sellSound: {fileID: 100000, guid: 92b1be3b25a26fc4e9e245dee855c562, type: 2}
   powerActive:
     m_Name: Power Active
     m_Normal:

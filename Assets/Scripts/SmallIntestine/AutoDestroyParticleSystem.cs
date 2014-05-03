@@ -1,9 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class AutoDestroy : MonoBehaviour {
+public class AutoDestroyParticleSystem : MonoBehaviour 
+{
 	ParticleSystem ps;
-	void Start () {
+
+	void Start () 
+	{
 		ps = this.particleSystem;
 	}
 	
