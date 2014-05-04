@@ -5,6 +5,7 @@ public class IntroStoryboard : MonoBehaviour {
 
 	public Texture[] pages;			// story the storyboard pages
 	public AudioClip[] sounds;		// store the storyboard narrations
+	public Texture corner;
 	private int currPage = 1;		// store the current page
 	private bool hasPlayed = false;	// remember whether the current sound has played
 	
@@ -75,5 +76,7 @@ public class IntroStoryboard : MonoBehaviour {
 	void OnGUI()
 	{
 		GUI.DrawTexture (new Rect(0, 0, Screen.width, Screen.height), pages[currPage - 1]);
+		if (!audio.isPlaying)
+			GUI.DrawTexture(new Rect(Screen.width - 100, 0, 100, 100), corner);
 	}
 }

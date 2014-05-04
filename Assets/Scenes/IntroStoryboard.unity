@@ -190,6 +190,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: f5824bda9e3b09a48a4377227c4c4785, type: 3}
   - {fileID: 8300000, guid: 9b073468734e32a49bd0908e16285e60, type: 3}
   - {fileID: 8300000, guid: fd7eba5bc2008ab4caa92dcfbd7e9370, type: 3}
+  corner: {fileID: 2800000, guid: c868b8ec354da4a4cafd8cc859755ee2, type: 3}
 --- !u!4 &1666591887
 Transform:
   m_ObjectHideFlags: 0
