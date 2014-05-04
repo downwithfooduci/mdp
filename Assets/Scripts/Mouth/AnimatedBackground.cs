@@ -55,6 +55,8 @@ public class AnimatedBackground : MonoBehaviour
 					}
 				}
 			}
+			if(Input.GetKeyDown(KeyCode.Space))
+				swipe = true;
 		}
 		
 		// set variables for next page

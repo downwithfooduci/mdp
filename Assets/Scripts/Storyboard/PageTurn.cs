@@ -17,6 +17,7 @@ public class PageTurn : MonoBehaviour
 
 	void OnGUI()
 	{
+		GUI.depth--;
 		if (!audio.isPlaying)
 			GUI.DrawTexture(new Rect(Screen.width - 100, 0, 100, 100), corner);
 	}

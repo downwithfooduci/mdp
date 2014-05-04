@@ -47,10 +47,12 @@ public class MouthStoryboard : MonoBehaviour {
 					}
 				}
 			}
+			if(Input.GetKeyDown(KeyCode.Space))
+				swipe = true;
 		}
 		
 		// set variables for next page
-		if (swipe == true)
+		if (swipe)
 		{
 			currPage++;
 			if ((currPage - 1) == pages.Length)
@@ -74,6 +76,6 @@ public class MouthStoryboard : MonoBehaviour {
 	
 	void OnGUI()
 	{
-		GUI.DrawTexture (new Rect(0, 0, Screen.width, Screen.height), pages[currPage - 1]);
+		GUI.DrawTexture (new Rect(0, 0, Screen.width, Screen.height), pages[Mathf.Clamp(currPage - 1, 0, pages.Length - 1)]);
 	}
 }
