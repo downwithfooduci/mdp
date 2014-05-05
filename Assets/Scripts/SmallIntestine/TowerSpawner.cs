@@ -56,10 +56,10 @@ public class TowerSpawner : MonoBehaviour
 		m_IsSpawnActive = false;
 
 		// button size
-		Dimensions.x = Screen.width * 0.0283203125f;		// x location of first button
-		Dimensions.y = Screen.height * 0.87890625f;			// y location of first button
-		Dimensions.width = Screen.width * 0.1591796875f;		// width of a button
-		Dimensions.height = Screen.height * 0.1015625f;	// height of a button
+		Dimensions.x = Screen.width * 0.04f;		// x location of first button
+		Dimensions.y = Screen.height * 0.882f;			// y location of first button
+		Dimensions.width = Screen.width * 0.18f;		// width of a button
+		Dimensions.height = Screen.height * 0.095f;	// height of a button
 		m_ButtonSize = Dimensions;
 
 		m_GameManager = GameObject.Find ("Managers").GetComponent<IntestineGameManager> ();
@@ -136,10 +136,10 @@ public class TowerSpawner : MonoBehaviour
 			{
 				if (i == 0)
 				{
-					m_ButtonSize.x = (Dimensions.width + Dimensions.x)*i + Dimensions.x;
+					m_ButtonSize.x = Dimensions.x;
 				} else 
 				{
-					m_ButtonSize.x = Dimensions.x + i*(Screen.width * 0.0322265625f + Dimensions.width);
+					m_ButtonSize.x = Dimensions.x + i*(Screen.width * 0.02f + Dimensions.width);
 				}
 				if (GUI.RepeatButton (m_ButtonSize, "", activeButtons[i])) 
 				{
@@ -157,10 +157,10 @@ public class TowerSpawner : MonoBehaviour
 			{
 				if (i == 0)
 				{
-					m_ButtonSize.x = (Dimensions.width + Dimensions.x)*i + Dimensions.x;
+					m_ButtonSize.x = Dimensions.x;
 				} else 
 				{
-					m_ButtonSize.x = Dimensions.x + i*(Screen.width*0.0322265625f + Dimensions.width);
+					m_ButtonSize.x = Dimensions.x + i*(Screen.width*0.02f + Dimensions.width);
 				}
 				GUI.RepeatButton (m_ButtonSize, "", inactiveButtons[i]);
 			}

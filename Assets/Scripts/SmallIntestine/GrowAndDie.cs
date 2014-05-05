@@ -33,9 +33,9 @@ public class GrowAndDie : MonoBehaviour
 
 	void OnGUI()
 	{
-		GUI.depth = -100;
-		GUI.DrawTexture(new Rect(8.15f/10f * Screen.width, 
-		                         9.55f/10f * Screen.height, 
+		GUI.depth = -1000;
+		GUI.DrawTexture(new Rect(36f/100f * Screen.width, 
+		                         83.3f/100f * Screen.height, 
 		                         (1f + timeAlive)/80f * 3f/4f * Screen.width,
 		                         (1f + timeAlive)/80f * Screen.height), plus);
 		Vector3 plusPos = Camera.main.WorldToScreenPoint(transform.position);

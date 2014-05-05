@@ -39,8 +39,8 @@ public class IntestineGameManager : MonoBehaviour
 
 		m_OriginalTextColor = m_HealthTextColor = NutrientTextColor = FontStyle.normal.textColor;
 
-		faceRect = new Rect (Screen.width * 0.83203125f, Screen.height * 0.8489583f, Screen.width * 0.078125f, Screen.height * 0.102864583f);
-		healthRect = new Rect (Screen.width * 0.935546875f, Screen.height * 0.85417f, Screen.width * 0.029296875f, Screen.height * 0.092447917f);
+		faceRect = new Rect (Screen.width * .864f, Screen.height * 0.86f, Screen.width * 0.078125f, Screen.height * 0.102864583f);
+		healthRect = new Rect (Screen.width * 0.95f, Screen.height * 0.86f, Screen.width * 0.037f, Screen.height * 0.102864583f);
 	}
 
     void Update()
@@ -130,14 +130,13 @@ public class IntestineGameManager : MonoBehaviour
 				Application.Quit();
 			}
 		}
-
 		// draw nutrients text
 		FontStyle.normal.textColor = NutrientTextColor;
 		FontStyle.fontSize = 16;
-		GUI.Label(new Rect((Screen.width / 2) - 50, 0, 40, 40), "Nutrients: " + nutrients, FontStyle);			
+		GUI.Label(new Rect(Screen.width * .38f, Screen.height * .833f, 40, 40), "NUTRIENTS: " + nutrients, FontStyle);			
 		FontStyle.normal.textColor = m_OriginalTextColor;
-
 		// choose face to draw
+
 		if (health > .8 * MAX_HEALTH)
 		{
 			GUI.DrawTexture (faceRect, faces [0]);

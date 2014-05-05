@@ -104,7 +104,7 @@ MonoBehaviour:
   - {fileID: 100086, guid: d039cc7cf1654a7468b73acb56ee2bb9, type: 2}
   - {fileID: 100086, guid: cadb7ddc67476b548a5d72ba8ae41784, type: 2}
   SpawnIndicator: {fileID: 100000, guid: 26deff9078debb04c873abf6f2d334bd, type: 2}
-  bottomBar: {fileID: 2800000, guid: fbae0605fdaed9a4da79aeffc53f7264, type: 3}
+  bottomBar: {fileID: 2800000, guid: 02d1b66c9e98204438161a7977159559, type: 3}
   AvailableColors:
   - {r: 0, g: 1, b: 0, a: 1}
   - {r: 1, g: 1, b: 1, a: 1}
