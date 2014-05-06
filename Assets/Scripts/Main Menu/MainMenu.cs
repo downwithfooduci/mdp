@@ -9,10 +9,9 @@ public class MainMenu : MonoBehaviour
     {
 		GUI.DrawTexture(new Rect(0,0,Screen.width, Screen.height), background);
 
-		if (GUI.Button(new Rect(Screen.width * 0.4f, Screen.height * 0.8f,
+		if (GUI.Button(new Rect(Screen.width * 0.8f, Screen.height * 0.9f,
 		                        Screen.width * 0.2f, Screen.height * 0.1f), "", startBtn))
         {
-           // Application.LoadLevel("LoadLevelSmallIntestine");
 			Application.LoadLevel("IntroStoryboard");
         }
     }

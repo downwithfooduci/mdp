@@ -194,7 +194,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8978921f76e865448e01528df96ea27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  background: {fileID: 2800000, guid: e5efb21034791a649b4b9641392b5cab, type: 3}
+  background: {fileID: 2800000, guid: d4c1b6e3954c22841bffa81add138353, type: 3}
   startBtn:
     m_Name: Start Btn
     m_Normal:
