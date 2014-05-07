@@ -4,9 +4,15 @@ using System.Collections;
 public class AnimatedBackground : MonoBehaviour 
 {
 	public Texture[] stills;			// story the animations stills
-	private int currPage = 1;		// store the current page
+	public AudioClip[] audioClips;
+	public int[] numSlides;
+	private int currPage = 0;		// store the current page
+	private int currGroup = 0;
 	bool allowSwitch = false;
 	public Texture corner;
+	int numInGroup;
+	float slideTimeout = 1f;
+	int currentSound;
 	
 	// for slide animation delay
 	private float timeDelay;
@@ -20,23 +26,41 @@ public class AnimatedBackground : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
+		audio.clip = audioClips[currGroup];
+		numInGroup = numSlides[currGroup];
+		numInGroup--;
+		audio.Play();
 	}
 	
 	// Update is called once per frame
 	void Update () 
 	{
-		timeDelay += Time.deltaTime;
-		if (timeDelay >= animationDelay)
+		if(slideTimeout > 0)
 		{
-			currPage++;
-			if (currPage > stills.Length)
+			slideTimeout -= Time.deltaTime;
+		} else if(!allowSwitch)
+		{
+			if(numInGroup > 0)
 			{
-				currPage = 1;
-				allowSwitch = true;
+				numInGroup--;
+				currPage++;
+				slideTimeout = 1f;
+			} else if(!audio.isPlaying)
+			{
+				currGroup++;
+				if(currGroup >= audioClips.Length)
+				{
+					currGroup--;
+					allowSwitch = true;
+				}
+				else
+				{
+					audio.clip = audioClips[currGroup];
+					audio.Play();
+					numInGroup = numSlides[currGroup];
+				}
 			}
-			timeDelay = 0;
 		}
-
 		if (allowSwitch)
 		{
 			foreach (Touch touch in Input.touches) 
@@ -68,7 +92,7 @@ public class AnimatedBackground : MonoBehaviour
 	
 	void OnGUI()
 	{
-		GUI.DrawTexture (new Rect(0, 0, Screen.width, Screen.height), stills[currPage - 1]);
+		GUI.DrawTexture (new Rect(0, 0, Screen.width, Screen.height), stills[currPage]);
 
 		if(allowSwitch)
 		{
