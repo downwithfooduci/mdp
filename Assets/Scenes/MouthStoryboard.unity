@@ -185,11 +185,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pages:
   - {fileID: 2800000, guid: ff7381215ae06074180ab62419869570, type: 3}
-  - {fileID: 2800000, guid: b3b7e85bef833c94d9290780c173e250, type: 3}
   - {fileID: 2800000, guid: 5b867731387de394bbcccff2acef5d38, type: 3}
   sounds:
   - {fileID: 8300000, guid: ca362d9d3042725428b4b2cf47729f15, type: 3}
-  - {fileID: 8300000, guid: 050ffd59cd5daef4794944dd624092d0, type: 3}
   - {fileID: 8300000, guid: df472ef34ba602b4bacbc1107d839869, type: 3}
 --- !u!4 &1666591887
 Transform:
