@@ -12,11 +12,20 @@ public class MouthStoryboard : MonoBehaviour {
 	private float xStart = 0.0f;
 	private float xEnd = 0.0f;
 	private bool swipe = false;
+
+	// check for playthrough
+	GameObject skipStory;
+	private bool canSkip = false;
 	
 	// Use this for initialization
 	void Start () 
 	{
-		
+		skipStory = GameObject.Find("SkipStoryEnabler(Clone)");
+		SkipStoryEnablerScript skipStoryScript = skipStory.GetComponent<SkipStoryEnablerScript> ();
+		if (skipStoryScript != null)
+		{
+			canSkip = skipStoryScript.getSkipStory();
+		}
 	}
 	
 	// Update is called once per frame
@@ -29,7 +38,7 @@ public class MouthStoryboard : MonoBehaviour {
 			hasPlayed = true;
 		}
 		
-		if (!audio.isPlaying)
+		if (!audio.isPlaying || canSkip)
 		{
 			foreach (Touch touch in Input.touches) 
 			{

@@ -22,10 +22,22 @@ public class AnimatedBackground : MonoBehaviour
 	private float xStart = 0.0f;
 	private float xEnd = 0.0f;
 	private bool swipe = false;
+
+	// check for playthrough
+	GameObject skipStory;
+	private bool canSkip = false;
+	SkipStoryEnablerScript skipStoryScript;
 	
 	// Use this for initialization
 	void Start () 
 	{
+		skipStory = GameObject.Find("SkipStoryEnabler(Clone)");
+		skipStoryScript = skipStory.GetComponent<SkipStoryEnablerScript> ();
+		if (skipStoryScript != null)
+		{
+			canSkip = skipStoryScript.getSkipStory();
+		}
+
 		audio.clip = audioClips[currGroup];
 		numInGroup = numSlides[currGroup];
 		numInGroup--;
@@ -61,7 +73,7 @@ public class AnimatedBackground : MonoBehaviour
 				}
 			}
 		}
-		if (allowSwitch)
+		if (allowSwitch | canSkip)
 		{
 			foreach (Touch touch in Input.touches) 
 			{
@@ -94,9 +106,9 @@ public class AnimatedBackground : MonoBehaviour
 	{
 		GUI.DrawTexture (new Rect(0, 0, Screen.width, Screen.height), stills[currPage]);
 
-		if(allowSwitch)
+		if(allowSwitch | canSkip)
 		{
-			GUI.DrawTexture(new Rect(Screen.width - 100, 0, 100, 100), corner);
+			GUI.DrawTexture(new Rect(Screen.width - 170, 0, 170, 170), corner);
 		}
 	}
 }

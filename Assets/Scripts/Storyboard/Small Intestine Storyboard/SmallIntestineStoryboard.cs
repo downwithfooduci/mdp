@@ -13,10 +13,20 @@ public class SmallIntestineStoryboard : MonoBehaviour
 	private float xEnd = 0.0f;
 	private bool swipe = false;
 
+	// check for playthrough
+	GameObject skipStory;
+	private bool canSkip = false;
+	SkipStoryEnablerScript skipStoryScript;
+
 	// Use this for initialization
 	void Start () 
 	{
-	
+		skipStory = GameObject.Find("SkipStoryEnabler(Clone)");
+		skipStoryScript = skipStory.GetComponent<SkipStoryEnablerScript> ();
+		if (skipStoryScript != null)
+		{
+			canSkip = skipStoryScript.getSkipStory();
+		}
 	}
 	
 	// Update is called once per frame
@@ -29,7 +39,7 @@ public class SmallIntestineStoryboard : MonoBehaviour
 			hasPlayed = true;
 		}
 
-		if (!audio.isPlaying)
+		if (!audio.isPlaying | canSkip)
 		{
 			foreach (Touch touch in Input.touches) 
 			{
@@ -57,6 +67,8 @@ public class SmallIntestineStoryboard : MonoBehaviour
 			currPage++;
 			if ((currPage - 1) == pages.Length)
 			{
+				//TODO: MOVE THIS IN THE FUTURE
+				skipStoryScript.setSkipStory(true);
 				Application.LoadLevel("LoadLevelSmallIntestine");
 			}
 			swipe = false;

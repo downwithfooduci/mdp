@@ -194,6 +194,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8978921f76e865448e01528df96ea27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skipStoryEnabler: {fileID: 100000, guid: e2db7ac3ad33e904b98284dab4c5df6d, type: 2}
   background: {fileID: 2800000, guid: d4c1b6e3954c22841bffa81add138353, type: 3}
   startBtn:
     m_Name: Start Btn
