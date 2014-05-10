@@ -105,7 +105,6 @@ public class AnimatedBackground : MonoBehaviour
 	void OnGUI()
 	{
 		GUI.DrawTexture (new Rect(0, 0, Screen.width, Screen.height), stills[currPage]);
-		canSkip = true;
 		if(allowSwitch | canSkip)
 		{
 			GUI.DrawTexture(new Rect(Screen.width * .84f, 0, Screen.width * .16f, Screen.width * .16f), corner);

@@ -160,7 +160,7 @@ public class TowerSpawner : MonoBehaviour
 					m_ButtonSize.x = Dimensions.x;
 				} else 
 				{
-					m_ButtonSize.x = Dimensions.x + i*(Screen.width*0.02f + Dimensions.width);
+					m_ButtonSize.x = Dimensions.x + i*(Screen.width*0.0123f + Dimensions.width);
 				}
 				GUI.RepeatButton (m_ButtonSize, "", inactiveButtons[i]);
 			}
