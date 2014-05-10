@@ -27,6 +27,6 @@ public class PageTurn : MonoBehaviour
 	{
 		GUI.depth--;
 		if (!audio.isPlaying || canSkip)
-			GUI.DrawTexture(new Rect(Screen.width * .88f, 0, Screen.width * .12f, Screen.width * .12f), corner);
+			GUI.DrawTexture(new Rect(Screen.width * .84f, 0, Screen.width * .16f, Screen.width * .16f), corner);
 	}
 }

@@ -38,7 +38,7 @@ public class IntestineGameManager : MonoBehaviour
 		m_OriginalTextColor = m_HealthTextColor = NutrientTextColor = FontStyle.normal.textColor;
 
 		faceRect = new Rect (Screen.width * .864f, Screen.height * 0.86f, Screen.width * 0.078125f, Screen.height * 0.102864583f);
-		healthRect = new Rect (Screen.width * 0.95f, Screen.height * 0.86f, Screen.width * 0.037f, Screen.height * 0.102864583f);
+		healthRect = new Rect (Screen.width * 0.952f, Screen.height * 0.8622f, Screen.width * 0.032f, Screen.height * 0.0948f);
 	}
 
     void Update()
@@ -100,7 +100,6 @@ public class IntestineGameManager : MonoBehaviour
 		GUI.depth--;
 		// draw nutrients text
 		FontStyle.normal.textColor = NutrientTextColor;
-		Debug.Log(" " + Screen.width + " " + Screen.height);
 		FontStyle.fontSize = (int)(Screen.width * .02f) + 1;
 		GUI.Label(new Rect(Screen.width * .38f, Screen.height * .833f, Screen.width * .047f, Screen.height * .063f), "NUTRIENTS: " + nutrients, FontStyle);			
 		FontStyle.normal.textColor = m_OriginalTextColor;

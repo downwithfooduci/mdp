@@ -56,10 +56,10 @@ public class TowerSpawner : MonoBehaviour
 		m_IsSpawnActive = false;
 
 		// button size
-		Dimensions.x = Screen.width * 0.04f;		// x location of first button
-		Dimensions.y = Screen.height * 0.882f;			// y location of first button
-		Dimensions.width = Screen.width * 0.18f;		// width of a button
-		Dimensions.height = Screen.height * 0.095f;	// height of a button
+		Dimensions.x = Screen.width * 0.0148f;		// x location of first button
+		Dimensions.y = Screen.height * 0.89f;			// y location of first button
+		Dimensions.width = Screen.width * 0.197f;		// width of a button
+		Dimensions.height = Screen.height * 0.091f;	// height of a button
 		m_ButtonSize = Dimensions;
 
 		m_GameManager = GameObject.Find ("Managers").GetComponent<IntestineGameManager> ();
@@ -139,7 +139,7 @@ public class TowerSpawner : MonoBehaviour
 					m_ButtonSize.x = Dimensions.x;
 				} else 
 				{
-					m_ButtonSize.x = Dimensions.x + i*(Screen.width * 0.02f + Dimensions.width);
+					m_ButtonSize.x = Dimensions.x + i*(Screen.width * 0.0123f + Dimensions.width);
 				}
 				if (GUI.RepeatButton (m_ButtonSize, "", activeButtons[i])) 
 				{
@@ -163,29 +163,6 @@ public class TowerSpawner : MonoBehaviour
 					m_ButtonSize.x = Dimensions.x + i*(Screen.width*0.02f + Dimensions.width);
 				}
 				GUI.RepeatButton (m_ButtonSize, "", inactiveButtons[i]);
-			}
-		}
-
-
-		for (int i = 0; i < AvailableColors.Length; i++) 
-		{
-			GUI.backgroundColor = AvailableColors [i];
-			m_ButtonSize.x = Dimensions.x + i * m_ButtonSize.width;
-			
-			// if the user clicks a button
-			if (GUI.RepeatButton (m_ButtonSize, "", ButtonStyle)) 
-			{
-				// check all conditions for creating a tower before creating it
-				if (!m_IsSpawnActive && m_GameManager.nutrients - TOWER_BASE_COST >= 0) 
-				{
-					SpawnTower (AvailableColors [i]);
-					m_SpawnedTower.GetComponent<Tower> ().enabled = false;
-					return;
-				} else if (m_GameManager.nutrients - TOWER_BASE_COST < 0) 
-				{
-					// if there was not enough nutrients to create the tower let the user know
-					timePassed = timer;		
-				}
 			}
 		}
 
