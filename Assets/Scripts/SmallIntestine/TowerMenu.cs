@@ -33,7 +33,6 @@ public class TowerMenu : MonoBehaviour
 	private IntestineGameManager m_GameManager;
 	
 	// Dimension and position consts
-	private const int Y_GAP = 1;
 	private float UPGRADE_BUTTON_WIDTH = 51;
 	private float UPGRADE_BUTTON_HEIGHT = 60;
 	private float SELL_BUTTON_WIDTH = 110;
@@ -234,6 +233,7 @@ public class TowerMenu : MonoBehaviour
 	{
 		if (m_Tower.ActiveModelName == "Base")
 		{
+			speedActive.fontSize = (int)Mathf.Ceil(Screen.width * .0106f);
 			if(m_GameManager.nutrients - m_Tower.TOWER_UPGRADE_LEVEL_1_COST < 0)
 			{
 				GUI.Button(GetSpeedButtonRect(), "", speedInactive);
@@ -245,6 +245,7 @@ public class TowerMenu : MonoBehaviour
 			}
 		} else
 		{
+			speedActive.fontSize = (int)Mathf.Ceil(Screen.width * .0106f);
 			if(m_GameManager.nutrients - m_Tower.TOWER_UPGRADE_LEVEL_2_COST < 0)
 			{
 				GUI.Button(GetSpeedButtonRect(), "", speedInactive);
@@ -261,6 +262,7 @@ public class TowerMenu : MonoBehaviour
 	{
 		if (m_Tower.ActiveModelName == "Base")
 		{
+			powerActive.fontSize = (int)Mathf.Ceil(Screen.width * .0106f);
 			if(m_GameManager.nutrients - m_Tower.TOWER_UPGRADE_LEVEL_1_COST < 0)
 			{
 				GUI.Button(GetPowerButtonRect(), "", powerInactive);
@@ -272,6 +274,7 @@ public class TowerMenu : MonoBehaviour
 			}
 		} else
 		{
+			powerActive.fontSize = (int)Mathf.Ceil(Screen.width * .0106f);
 			if(m_GameManager.nutrients - m_Tower.TOWER_UPGRADE_LEVEL_2_COST < 0)
 			{
 				GUI.Button(GetPowerButtonRect(), "", powerInactive);
