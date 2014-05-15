@@ -280,15 +280,15 @@ MonoBehaviour:
   - {fileID: 2800000, guid: 8bea8385ad5122c43a4f395a88a18760, type: 3}
   - {fileID: 2800000, guid: 93ea2f3f67260884781546b07dfff105, type: 3}
   audioClips:
-  - {fileID: 8300000, guid: 9210fc04d6dfff341af3ac9da2c04699, type: 3}
-  - {fileID: 8300000, guid: 1dc0bf7a58f0da14fb27f2deeb7ff0f5, type: 3}
-  - {fileID: 8300000, guid: a930a0d8209675545bafd62aaa84390e, type: 3}
-  - {fileID: 8300000, guid: 47281073caf914244b6672cb585d523f, type: 3}
-  - {fileID: 8300000, guid: ae6bd4a66ae438743928c7c1894d25ca, type: 3}
-  - {fileID: 8300000, guid: 313628291c3d5e7408665e9b51703b09, type: 3}
-  - {fileID: 8300000, guid: 68ca9e7fa6b32774a8b4c4380cfebfca, type: 3}
-  - {fileID: 8300000, guid: 88cece411adba464985e2b18f969e204, type: 3}
-  - {fileID: 8300000, guid: 4d30210a55d649e458da24fa3bc13b4a, type: 3}
+  - {fileID: 8300000, guid: 53f540c90fcc3fe40919c4e6e22ec4a8, type: 3}
+  - {fileID: 8300000, guid: 19d29d9a46e25504990ffd12da6793fb, type: 3}
+  - {fileID: 8300000, guid: 7214c0bbe796b364faecb7dd7eb620a5, type: 3}
+  - {fileID: 8300000, guid: c388a16bc0421c746853125a8f152c5f, type: 3}
+  - {fileID: 8300000, guid: adce7d2d097b99a48b5bbd9ae3c04e6b, type: 3}
+  - {fileID: 8300000, guid: d112994714f35c14599169789048f516, type: 3}
+  - {fileID: 8300000, guid: 607e65635d447d448b482b05e21d1140, type: 3}
+  - {fileID: 8300000, guid: aebf6845c2b5fe24c8858ebfb826321a, type: 3}
+  - {fileID: 8300000, guid: 35e2b870d03949e44a0d7a4cbc9f7b63, type: 3}
   numSlides: 010000000200000002000000010000000200000002000000040000000400000009000000
   corner: {fileID: 2800000, guid: 27db06826963c924e8534ec7a8f5c3a1, type: 3}
   animationDelay: .5

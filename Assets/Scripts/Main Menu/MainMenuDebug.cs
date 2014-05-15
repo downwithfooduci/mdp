@@ -20,8 +20,8 @@ public class MainMenuDebug : MonoBehaviour
 		if (GUI.Button(new Rect(0, 0, 
 		                        100, 50), "Debug"))
 		{
-		//TODO: reenable debug
-		//	debugEnabled = !debugEnabled;
+		//TODO: disable/reenable debug
+			debugEnabled = !debugEnabled;
 		}
 
 		if (debugEnabled == true)

@@ -187,8 +187,8 @@ MonoBehaviour:
   - {fileID: 2800000, guid: ff7381215ae06074180ab62419869570, type: 3}
   - {fileID: 2800000, guid: 5b867731387de394bbcccff2acef5d38, type: 3}
   sounds:
-  - {fileID: 8300000, guid: ca362d9d3042725428b4b2cf47729f15, type: 3}
-  - {fileID: 8300000, guid: df472ef34ba602b4bacbc1107d839869, type: 3}
+  - {fileID: 8300000, guid: 3116e5dc42c40af4dbb0d683081c1680, type: 3}
+  - {fileID: 8300000, guid: 9659cb426a7342741b88eca57a39c5ce, type: 3}
 --- !u!4 &1666591887
 Transform:
   m_ObjectHideFlags: 0
