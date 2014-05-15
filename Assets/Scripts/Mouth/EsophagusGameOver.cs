@@ -41,7 +41,7 @@ public class EsophagusGameOver : MonoBehaviour
 			                        Screen.height * 0.06640625f), "", restart))
 			{
 				Time.timeScale = 1;
-				Application.LoadLevel("Esophagus");
+				Application.LoadLevel("Mouth");
 			}
 			
 			// draw no button

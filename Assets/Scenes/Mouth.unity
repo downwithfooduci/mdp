@@ -409,7 +409,7 @@ GameObject:
   - 114: {fileID: 204818108}
   - 114: {fileID: 204818109}
   m_Layer: 0
-  m_Name: EsophagusGUI
+  m_Name: MouthGUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
