@@ -21,7 +21,7 @@ public class MainMenuDebug : MonoBehaviour
 		                        100, 50), "Debug"))
 		{
 		//TODO: disable/reenable debug
-		//	debugEnabled = !debugEnabled;
+			debugEnabled = !debugEnabled;
 		}
 
 		if (debugEnabled == true)
