@@ -1,21 +1,26 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class TowerUpgradeTutorial : MonoBehaviour {
+public class TowerUpgradeTutorial : MonoBehaviour 
+{
 	public Texture zyme;
 	float ratio = 1.4250681198910081743869209809264f;
 	float popUpTime = 3f;
 	private IntestineGameManager m_GameManager;
 	bool hasPoppedUp = false;
 	bool show = false;
+
 	// Use this for initialization
-	void Start () {
+	void Start () 
+	{
 		m_GameManager = GameObject.Find ("Managers").GetComponent<IntestineGameManager> ();
 		GameObject chooseBackground = GameObject.Find("ChooseBackground");
 		SmallIntestineLoadLevelCounter  level = chooseBackground.GetComponent<SmallIntestineLoadLevelCounter>();
-		if(level.level > 0)
+
+		if(level.getLevel() > 1)
+		{
 			hasPoppedUp = true;
-		Debug.Log("LEVEL " + level.level);
+		}
 	}
 	
 	// Update is called once per frame

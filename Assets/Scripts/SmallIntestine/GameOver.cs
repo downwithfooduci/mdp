@@ -38,7 +38,7 @@ public class GameOver : MonoBehaviour
 			Time.timeScale = 1;
 			GameObject chooseBackground = GameObject.Find("ChooseBackground");
 			SmallIntestineLoadLevelCounter  level = chooseBackground.GetComponent<SmallIntestineLoadLevelCounter>();
-			level.level = 0;
+			level.resetLevel();
 			Application.LoadLevel("MainMenu");
 		}
     }

@@ -65,14 +65,15 @@ public class IntestineGameManager : MonoBehaviour
 		{
 			GameObject chooseBackground = GameObject.Find("ChooseBackground");
 			SmallIntestineLoadLevelCounter  level = chooseBackground.GetComponent<SmallIntestineLoadLevelCounter>();
-			if(level.level == 1)
+
+			if(level.getLevel() == level.getMaxLevels())
 			{
-				level.level = 0;
+				level.resetLevel();
 				Application.LoadLevel("EndScreen");
 			}
 			else
 			{
-				level.level++;
+				level.nextLevel();
 				Application.LoadLevel("LoadLevelSmallIntestine");
 			}
 		}

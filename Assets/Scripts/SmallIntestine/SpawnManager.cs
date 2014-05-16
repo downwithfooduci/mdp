@@ -22,11 +22,12 @@ public class SpawnManager : MonoBehaviour {
     private float m_TimeSinceLastSpawn;
 
 	// Use this for initialization
-	void Start () {
+	void Start () 
+	{
 		GameObject counter = GameObject.Find ("ChooseBackground");
 		SmallIntestineLoadLevelCounter level = counter.GetComponent<SmallIntestineLoadLevelCounter> ();
 		loadScript = ((GameObject)GameObject.Find("ScriptLoader")).GetComponent<LoadScript>();
-		waves = loadScript.loadIntestineLevel(level.level);
+		waves = loadScript.loadIntestineLevel(level.getLevel());
 		currentWave = 0;
 		waveDelay = waves[0].startDelay;
 		waveTime = waves[0].runTime;

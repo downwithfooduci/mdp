@@ -101,7 +101,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 846d2319384b4fe45bb29cf93d0e7b1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 0
 --- !u!4 &9254056
 Transform:
   m_ObjectHideFlags: 0
@@ -225,6 +224,10 @@ MonoBehaviour:
   backgrounds:
   - {fileID: 2800000, guid: ca7f5afac95164c4eb0fee74267bbbb3, type: 3}
   - {fileID: 2800000, guid: 9bf961c16e16f3b4182bd793ab5cc3e1, type: 3}
+  - {fileID: 2800000, guid: b142bae8cbaee19469d7851acdec8aa3, type: 3}
+  - {fileID: 2800000, guid: a606129edcc434b4c8d9d05873324e88, type: 3}
+  - {fileID: 2800000, guid: f6e27937e0781b248bda887b65cfaf2a, type: 3}
+  - {fileID: 2800000, guid: 4b07afbe2f7c73045af7fffde199092a, type: 3}
 --- !u!131 &568713901
 GUITexture:
   m_ObjectHideFlags: 0
