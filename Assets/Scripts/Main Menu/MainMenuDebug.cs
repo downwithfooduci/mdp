@@ -15,10 +15,6 @@ public class MainMenuDebug : MonoBehaviour
 
 	void Start()
 	{
-		GameObject desiredSILevelObj = (GameObject)Instantiate (desiredSILevel);
-		DesiredSILevel level = desiredSILevelObj.GetComponent<DesiredSILevel>();
-		level.setDesiredLevel(1);
-
 		skipStoryEnabler = GameObject.Find ("SkipStoryEnabler(Clone)");
 		skipStoryEnablerScript = skipStoryEnabler.GetComponent<SkipStoryEnablerScript> ();
 	}
@@ -106,6 +102,8 @@ public class MainMenuDebug : MonoBehaviour
 			if (GUI.Button(new Rect(300, 50, 
 			                        100, 50), "SI Level 1"))
 			{
+				desiredSILevelObj = (GameObject)Instantiate (desiredSILevel);
+				level = desiredSILevelObj.GetComponent<DesiredSILevel>();
 				level.setDesiredLevel(1);
 				Application.LoadLevel("LoadLevelSmallIntestine");
 			}
@@ -113,6 +111,8 @@ public class MainMenuDebug : MonoBehaviour
 			if (GUI.Button(new Rect(300, 100, 
 			                        100, 50), "SI Level 2"))
 			{
+				desiredSILevelObj = (GameObject)Instantiate (desiredSILevel);
+				level = desiredSILevelObj.GetComponent<DesiredSILevel>();
 				level.setDesiredLevel(2);
 				Application.LoadLevel("LoadLevelSmallIntestine");
 			}
@@ -120,6 +120,8 @@ public class MainMenuDebug : MonoBehaviour
 			if (GUI.Button(new Rect(300, 150, 
 			                        100, 50), "SI Level 3"))
 			{
+				desiredSILevelObj = (GameObject)Instantiate (desiredSILevel);
+				level = desiredSILevelObj.GetComponent<DesiredSILevel>();
 				level.setDesiredLevel(3);
 				Application.LoadLevel("LoadLevelSmallIntestine");
 			}
@@ -127,6 +129,8 @@ public class MainMenuDebug : MonoBehaviour
 			if (GUI.Button(new Rect(300, 200, 
 			                        100, 50), "SI Level 4"))
 			{
+				desiredSILevelObj = (GameObject)Instantiate (desiredSILevel);
+				level = desiredSILevelObj.GetComponent<DesiredSILevel>();
 				level.setDesiredLevel(4);
 				Application.LoadLevel("LoadLevelSmallIntestine");
 			}
@@ -134,6 +138,8 @@ public class MainMenuDebug : MonoBehaviour
 			if (GUI.Button(new Rect(300, 250, 
 			                        100, 50), "SI Level 5"))
 			{
+				desiredSILevelObj = (GameObject)Instantiate (desiredSILevel);
+				level = desiredSILevelObj.GetComponent<DesiredSILevel>();
 				level.setDesiredLevel(5);
 				Application.LoadLevel("LoadLevelSmallIntestine");
 			}
@@ -141,6 +147,8 @@ public class MainMenuDebug : MonoBehaviour
 			if (GUI.Button(new Rect(300, 300, 
 			                        100, 50), "SI Level 6"))
 			{
+				desiredSILevelObj = (GameObject)Instantiate (desiredSILevel);
+				level = desiredSILevelObj.GetComponent<DesiredSILevel>();
 				level.setDesiredLevel(6);
 				Application.LoadLevel("LoadLevelSmallIntestine");
 			}
