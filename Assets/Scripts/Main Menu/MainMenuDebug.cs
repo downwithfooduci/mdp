@@ -4,17 +4,33 @@ using System.Collections;
 public class MainMenuDebug : MonoBehaviour 
 {
 	private bool debugEnabled = false;
+
 	public GameObject desiredSILevel;
+	private GameObject desiredSILevelObj;
+	private DesiredSILevel level;
+
+	private GameObject skipStoryEnabler;
+	private SkipStoryEnablerScript skipStoryEnablerScript;
+	private bool skipEnabled = false;
+
+	void Start()
+	{
+		GameObject desiredSILevelObj = (GameObject)Instantiate (desiredSILevel);
+		DesiredSILevel level = desiredSILevelObj.GetComponent<DesiredSILevel>();
+		level.setDesiredLevel(1);
+
+		skipStoryEnabler = GameObject.Find ("SkipStoryEnabler(Clone)");
+		skipStoryEnablerScript = skipStoryEnabler.GetComponent<SkipStoryEnablerScript> ();
+	}
 
 	// Update is called once per frame
-	void Update () {
+	void Update () 
+	{
 	
 	}
 
 	void OnGUI()
 	{
-		GUI.depth--;
-
 		if (GUI.Button(new Rect(0, 0, 
 		                        100, 50), "Debug"))
 		{
@@ -24,6 +40,7 @@ public class MainMenuDebug : MonoBehaviour
 
 		if (debugEnabled == true)
 		{
+			GUI.depth--;
 /***********************************************************
  * List all games for selection
  * ********************************************************/
@@ -44,23 +61,40 @@ public class MainMenuDebug : MonoBehaviour
 			{
 				Application.LoadLevel("LoadLevelSmallIntestine");
 			}
+/***********************************************************
+ * Change Page Turn requirements for Story
+ * ********************************************************/
+			skipEnabled = GUI.Toggle(new Rect(150, 50, 100, 50), skipEnabled, "Allow Skip B4 Audio Plays");
+			if (skipEnabled)
+			{
+				skipStoryEnablerScript.setSkipStory(true);
+			} else
+			{
+				skipStoryEnablerScript.setSkipStory(false);
+			}
 
 /***********************************************************
  * List all storybook segments for selection
  * ********************************************************/
-			if (GUI.Button(new Rect(150, 50, 
+			if (GUI.Button(new Rect(150, 100, 
 			                        100, 50), "Intro Story"))
 			{
 				Application.LoadLevel("IntroStoryboard");
 			}
 			
-			if (GUI.Button(new Rect(150, 100, 
+			if (GUI.Button(new Rect(150, 150, 
 			                        100, 50), "Mouth Story"))
 			{
 				Application.LoadLevel("MouthStoryboard");
 			}
+
+			if (GUI.Button(new Rect(150, 200, 
+			                        100, 50), "Mouth Animation"))
+			{
+				Application.LoadLevel("MouthAnimation");
+			}
 			
-			if (GUI.Button(new Rect(150, 150, 
+			if (GUI.Button(new Rect(150, 250, 
 			                        100, 50), "SI Story"))
 			{
 				Application.LoadLevel("SmallIntestineStoryboard");
@@ -72,8 +106,6 @@ public class MainMenuDebug : MonoBehaviour
 			if (GUI.Button(new Rect(300, 50, 
 			                        100, 50), "SI Level 1"))
 			{
-				GameObject desiredSILevelObj = (GameObject)Instantiate (desiredSILevel);
-				DesiredSILevel level = desiredSILevelObj.GetComponent<DesiredSILevel>();
 				level.setDesiredLevel(1);
 				Application.LoadLevel("LoadLevelSmallIntestine");
 			}
@@ -81,8 +113,6 @@ public class MainMenuDebug : MonoBehaviour
 			if (GUI.Button(new Rect(300, 100, 
 			                        100, 50), "SI Level 2"))
 			{
-				GameObject desiredSILevelObj = (GameObject)Instantiate (desiredSILevel);
-				DesiredSILevel level = desiredSILevelObj.GetComponent<DesiredSILevel>();
 				level.setDesiredLevel(2);
 				Application.LoadLevel("LoadLevelSmallIntestine");
 			}
@@ -90,8 +120,6 @@ public class MainMenuDebug : MonoBehaviour
 			if (GUI.Button(new Rect(300, 150, 
 			                        100, 50), "SI Level 3"))
 			{
-				GameObject desiredSILevelObj = (GameObject)Instantiate (desiredSILevel);
-				DesiredSILevel level = desiredSILevelObj.GetComponent<DesiredSILevel>();
 				level.setDesiredLevel(3);
 				Application.LoadLevel("LoadLevelSmallIntestine");
 			}
@@ -99,8 +127,6 @@ public class MainMenuDebug : MonoBehaviour
 			if (GUI.Button(new Rect(300, 200, 
 			                        100, 50), "SI Level 4"))
 			{
-				GameObject desiredSILevelObj = (GameObject)Instantiate (desiredSILevel);
-				DesiredSILevel level = desiredSILevelObj.GetComponent<DesiredSILevel>();
 				level.setDesiredLevel(4);
 				Application.LoadLevel("LoadLevelSmallIntestine");
 			}
@@ -108,8 +134,6 @@ public class MainMenuDebug : MonoBehaviour
 			if (GUI.Button(new Rect(300, 250, 
 			                        100, 50), "SI Level 5"))
 			{
-				GameObject desiredSILevelObj = (GameObject)Instantiate (desiredSILevel);
-				DesiredSILevel level = desiredSILevelObj.GetComponent<DesiredSILevel>();
 				level.setDesiredLevel(5);
 				Application.LoadLevel("LoadLevelSmallIntestine");
 			}
@@ -117,8 +141,6 @@ public class MainMenuDebug : MonoBehaviour
 			if (GUI.Button(new Rect(300, 300, 
 			                        100, 50), "SI Level 6"))
 			{
-				GameObject desiredSILevelObj = (GameObject)Instantiate (desiredSILevel);
-				DesiredSILevel level = desiredSILevelObj.GetComponent<DesiredSILevel>();
 				level.setDesiredLevel(6);
 				Application.LoadLevel("LoadLevelSmallIntestine");
 			}
