@@ -105,7 +105,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: de46183c3a77b6f4dbd8e4d333ae1cdf, type: 2}
+  - {fileID: 2100000, guid: 825762e6d306cca4387a40f9ff7cf03a, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -408,6 +408,9 @@ GameObject:
   - 114: {fileID: 204818107}
   - 114: {fileID: 204818108}
   - 114: {fileID: 204818109}
+  - 114: {fileID: 204818110}
+  - 114: {fileID: 204818111}
+  - 114: {fileID: 204818112}
   m_Layer: 0
   m_Name: MouthGUI
   m_TagString: Untagged
@@ -782,6 +785,52 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b905d4e6f213a8c49a07716d17a73a84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &204818110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 204818103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9105ff12ecb0b8a4697f6ea74ed4ed94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mouthOverlay: {fileID: 2800000, guid: 449e8a386ba800842afb8c330fff4b67, type: 3}
+  sideBar: {fileID: 2800000, guid: 1beded11f4636d840818dfb3b0f962f4, type: 3}
+--- !u!114 &204818111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 204818103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c6ff5f498cccc14baf7b111623ec59b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  epiglottis:
+  - {fileID: 2800000, guid: 0f7cb3d5258cef34cb0ec38f11f6775d, type: 3}
+  - {fileID: 2800000, guid: e2980d6b207a20b4c87e2bd48cd75c7a, type: 3}
+  uvula:
+  - {fileID: 2800000, guid: 96adf1835c1db0949b708cb35bcbc66f, type: 3}
+  - {fileID: 2800000, guid: e2691db1de934aa42886d3e3b6cde9ae, type: 3}
+--- !u!114 &204818112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 204818103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e0522a1b64190547a6197f13ebb0da1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tongue:
+  - {fileID: 2800000, guid: 61fcf7ba66d07a14ca90cf5c768da14b, type: 3}
+  - {fileID: 2800000, guid: f65c3fdc0f4514a46bd77eaeeed38f4b, type: 3}
+  - {fileID: 2800000, guid: e80ef0365f7ff3b4c9d7034542367f66, type: 3}
+  - {fileID: 2800000, guid: 3e645fd78597a3f4e9ddd9e3c95e2c49, type: 3}
 --- !u!1 &233666803
 GameObject:
   m_ObjectHideFlags: 0
