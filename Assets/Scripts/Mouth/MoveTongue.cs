@@ -3,16 +3,15 @@ using System.Collections;
 
 public class MoveTongue : MonoBehaviour {
 	public GameObject wall;
-	float moved, originalHeight, maxMove, movedFrame;
+	const float MAX_MOVE = .4f;
+	float moved, originalHeight;
 	float distance;
 	Plane plane;
 	openFlap flap;
 	// Use this for initialization
 	void Start () {
 		originalHeight = 3.44f;
-		maxMove = .4f;
 		moved = 0;
-		movedFrame = 0;
 		plane = new Plane( new Vector3(0, 0, -1), new Vector3(0, 0, -1));
 		GameObject flaps = GameObject.Find("Flaps");
 		flap = flaps.GetComponent<openFlap>();
@@ -38,21 +37,20 @@ public class MoveTongue : MonoBehaviour {
 				{
 
 					moved = Mathf.Clamp(moved + 
-					                    touch.deltaPosition.y / 20f, 0, maxMove);
-					movedFrame = touch.deltaPosition.y / 20f;
+					                    touch.deltaPosition.y / 20f, 0, MAX_MOVE);
 				}
 			}
 		}
 		if(Input.GetKey(KeyCode.S))
 		{
-			moved = Mathf.Clamp(moved - .4f * Time.deltaTime, 0, maxMove);
+			moved = Mathf.Clamp(moved - .4f * Time.deltaTime, 0, MAX_MOVE);
 		}
 		else if(Input.GetKey(KeyCode.W))
 		{
-			moved = Mathf.Clamp(moved + .4f * Time.deltaTime, 0, maxMove);
+			moved = Mathf.Clamp(moved + .4f * Time.deltaTime, 0, MAX_MOVE);
 		}
 		transform.position = new Vector3(transform.position.x, originalHeight + moved, transform.position.z);
-		if(moved >= maxMove - .05f)
+		if(moved >= MAX_MOVE - .05f)
 		{
 			wall.transform.position = new Vector3(wall.transform.position.x, 0, wall.transform.position.z);
 		}
@@ -63,5 +61,15 @@ public class MoveTongue : MonoBehaviour {
 	}
 
 	void OnGUI(){
+	}
+
+	public float getMoved()
+	{
+		return moved;
+	}
+
+	public float getMaxMove()
+	{
+		return MAX_MOVE;
 	}
 }
