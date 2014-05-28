@@ -25,6 +25,10 @@ public class TowerUpgradeTutorial : MonoBehaviour
 	
 	// Update is called once per frame
 	void Update () {
+		if(show && popUpTime >= 0)
+		{
+			popUpTime -= Time.deltaTime * 1000f;
+		}
 		if(!show && !hasPoppedUp && m_GameManager.nutrients >= 50)
 		{
 			GameObject girl = GameObject.Find("GirlTower(Clone)");
@@ -34,10 +38,6 @@ public class TowerUpgradeTutorial : MonoBehaviour
 				show = true;
 				Time.timeScale = 0.001f;
 			}
-		}
-		if(show && popUpTime >= 0)
-		{
-			popUpTime -= Time.deltaTime * 1000f;
 		}
 	}
 
