@@ -35,10 +35,10 @@ public class OxygenBar : MonoBehaviour {
 
 	void OnGUI()
 	{
-		position.x = (2760f / 3072f) * Screen.width;
-		position.y = (847f / 2304f) * Screen.height + (1f-percent) * (610f / 2304f) * Screen.height;
-		originalSize.x = (126f / 3072f) * Screen.width;
-		originalSize.y = (610f / 2304f) * Screen.height * percent;
+		position.x = (2779f / 3072f) * Screen.width;
+		position.y = (395f / 2304f) * Screen.height + (1f-percent) * (673f / 2304f) * Screen.height;
+		originalSize.x = (190f / 3072f) * Screen.width;
+		originalSize.y = (673f / 2304f) * Screen.height * percent;
 		GUI.DrawTexture(new Rect(position.x, position.y, originalSize.x, originalSize.y), oxygenBar);
 	}
 

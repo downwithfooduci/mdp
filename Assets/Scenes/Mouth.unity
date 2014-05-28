@@ -430,7 +430,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 993e7082e7d40034fb779cc592b6f37e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  oxygenBar: {fileID: 2800000, guid: dc23ee8bbe7f2c64b8a824ab1b5dca3a, type: 3}
+  oxygenBar: {fileID: 2800000, guid: 69855d3194854cd4eaae2cefa153c7ad, type: 3}
 --- !u!114 &204818105
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -773,7 +773,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac80889514f953f4c96c577d7c3f2e56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stomachBar: {fileID: 2800000, guid: dc23ee8bbe7f2c64b8a824ab1b5dca3a, type: 3}
+  stomachBar: {fileID: 2800000, guid: 33ac0d1f0996f374a8265ad58b490094, type: 3}
 --- !u!114 &204818109
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -831,6 +831,7 @@ MonoBehaviour:
   - {fileID: 2800000, guid: f65c3fdc0f4514a46bd77eaeeed38f4b, type: 3}
   - {fileID: 2800000, guid: e80ef0365f7ff3b4c9d7034542367f66, type: 3}
   - {fileID: 2800000, guid: 3e645fd78597a3f4e9ddd9e3c95e2c49, type: 3}
+  interval: 0
 --- !u!1 &233666803
 GameObject:
   m_ObjectHideFlags: 0
@@ -915,7 +916,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 282412820}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.884000838, y: 2.3026371, z: 17.6710281}
+  m_LocalPosition: {x: -1.98233652, y: 1.99516487, z: 17.6710281}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 914691608}
@@ -1616,7 +1617,7 @@ Transform:
   m_PrefabInternal: {fileID: 1768501364}
   m_GameObject: {fileID: 906403188}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.372917026, y: 2.73161125, z: 2.14243031}
+  m_LocalPosition: {x: -5.43281126, y: 3.08614826, z: 2.14243031}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2316,11 +2317,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: 9e4fa9bb8e99d6849b6a3fbe86151eb2, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -.372917026
+      value: -5.43281126
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 9e4fa9bb8e99d6849b6a3fbe86151eb2, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 2.73161125
+      value: 3.08614826
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 9e4fa9bb8e99d6849b6a3fbe86151eb2, type: 2}
       propertyPath: m_LocalPosition.z
@@ -2382,6 +2383,10 @@ Prefab:
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 5bf66e444940fff4a9fb914c33e60a8c, type: 2}
+      propertyPath: oxygenBar
+      value: 
+      objectReference: {fileID: 2800000, guid: 69855d3194854cd4eaae2cefa153c7ad, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5bf66e444940fff4a9fb914c33e60a8c, type: 2}
   m_RootGameObject: {fileID: 204818103}
