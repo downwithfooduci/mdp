@@ -10,6 +10,8 @@ public class IntestineDebugGUI : MonoBehaviour {
 	string towerBaseCost;
 	string towerLvl1Cost;
 	string towerLvl2Cost;
+	string towerLvl1Targets;
+	string towerLvl2Targets;
 	string towerBaseCD;
 	string towerLvl1CD;
 	string towerLvl2CD;
@@ -28,6 +30,8 @@ public class IntestineDebugGUI : MonoBehaviour {
 		towerBaseCost = "" + debugConfig.TOWER_BASE_COST;
 		towerLvl1Cost = "" + debugConfig.TOWER_UPGRADE_LEVEL_1_COST;
 		towerLvl2Cost = "" + debugConfig.TOWER_UPGRADE_LEVEL_2_COST;
+		towerLvl1Targets = "" + debugConfig.level1Targets;
+		towerLvl2Targets = "" + debugConfig.level2Targets;
 		towerBaseCD = "" + debugConfig.BaseCooldown;
 		towerLvl1CD = "" + debugConfig.Level1Cooldown;
 		towerLvl2CD = "" + debugConfig.Level2Cooldown;
@@ -206,6 +210,24 @@ public class IntestineDebugGUI : MonoBehaviour {
 			}
 
 			debugConfig.colors = colorsOut;
+
+			GUI.Label(new Rect(550, 260, 100, 50), "Level 1 Targets");
+			towerLvl1Targets = GUI.TextField(new Rect(650, 260, 100, 50),
+			                                 towerLvl1Targets);
+			int towerLvl1TargetsOut;
+			if(int.TryParse(towerLvl1Targets, out towerLvl1TargetsOut))
+			{
+				debugConfig.level1Targets = towerLvl1TargetsOut;
+			}
+
+			GUI.Label(new Rect(550, 310, 100, 50), "Level 2 Targets");
+			towerLvl2Targets = GUI.TextField(new Rect(650, 310, 100, 50),
+			                                 towerLvl2Targets);
+			int towerLvl2TargetsOut;
+			if(int.TryParse(towerLvl2Targets, out towerLvl2TargetsOut))
+			{
+				debugConfig.level2Targets = towerLvl2TargetsOut;
+			}
 		}
 	}
 }
