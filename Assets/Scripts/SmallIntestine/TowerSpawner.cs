@@ -81,6 +81,17 @@ public class TowerSpawner : MonoBehaviour
 
 	void Update ()
 	{
+		if(Time.timeScale <= 0.001f)
+		{
+			if(m_IsSpawnActive)
+			{
+				m_IsSpawnActive = false;
+				DestroyImmediate (m_Indicator.renderer.material);
+				Destroy (m_Indicator);
+				Destroy (m_SpawnedTower);
+				m_SpawnedTower = null;
+			}
+		}
 		TOWER_BASE_COST = debugConfig.TOWER_BASE_COST;
 		// Handle valid spawn locations if player is spawning a tower
 		if (m_IsSpawnActive) 

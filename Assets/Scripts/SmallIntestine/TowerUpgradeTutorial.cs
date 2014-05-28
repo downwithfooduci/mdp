@@ -5,7 +5,7 @@ public class TowerUpgradeTutorial : MonoBehaviour
 {
 	public Texture zyme;
 	float ratio = 1.4250681198910081743869209809264f;
-	float popUpTime = 3f;
+	float popUpTime = 1f;
 	private IntestineGameManager m_GameManager;
 	bool hasPoppedUp = false;
 	bool show = false;
@@ -27,18 +27,17 @@ public class TowerUpgradeTutorial : MonoBehaviour
 	void Update () {
 		if(!show && !hasPoppedUp && m_GameManager.nutrients >= 50)
 		{
-			Debug.Log("HI");
 			GameObject girl = GameObject.Find("GirlTower(Clone)");
 			GameObject boy =  GameObject.Find ("BoyTower(Clone)");
 			if(girl != null || boy != null)
 			{
 				show = true;
-				Time.timeScale = 0;
+				Time.timeScale = 0.001f;
 			}
 		}
 		if(show && popUpTime >= 0)
 		{
-			popUpTime -= .01f;
+			popUpTime -= Time.deltaTime * 1000f;
 		}
 	}
 
