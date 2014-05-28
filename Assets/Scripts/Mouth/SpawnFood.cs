@@ -12,7 +12,6 @@ public class SpawnFood : MonoBehaviour {
 	void Start () {
 		GameObject flaps = GameObject.Find("Flaps");
 		flap = flaps.GetComponent<openFlap>();
-		startingSpawn = new Vector3 (-4.696645f, 3.66696f, -0.9300022f);
 		GameObject debugger = GameObject.Find("Debugger");
 		debugConfig = debugger.GetComponent<EsophagusDebugConfig>();
 	}

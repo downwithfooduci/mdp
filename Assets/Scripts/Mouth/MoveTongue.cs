@@ -10,7 +10,7 @@ public class MoveTongue : MonoBehaviour {
 	openFlap flap;
 	// Use this for initialization
 	void Start () {
-		originalHeight = 3.44f;
+		originalHeight = transform.position.y;
 		moved = 0;
 		plane = new Plane( new Vector3(0, 0, -1), new Vector3(0, 0, -1));
 		GameObject flaps = GameObject.Find("Flaps");
@@ -50,13 +50,13 @@ public class MoveTongue : MonoBehaviour {
 			moved = Mathf.Clamp(moved + .4f * Time.deltaTime, 0, MAX_MOVE);
 		}
 		transform.position = new Vector3(transform.position.x, originalHeight + moved, transform.position.z);
-		if(moved >= MAX_MOVE - .05f)
+		if(moved >= MAX_MOVE - .18f)
 		{
 			wall.transform.position = new Vector3(wall.transform.position.x, 0, wall.transform.position.z);
 		}
 		else
 		{
-			wall.transform.position = new Vector3(wall.transform.position.x, 3.5f, wall.transform.position.z);
+			wall.transform.position = new Vector3(wall.transform.position.x, 2.65f, wall.transform.position.z);
 		}
 	}
 

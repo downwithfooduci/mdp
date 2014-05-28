@@ -13,9 +13,9 @@ public class MoveFood : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-		if (rigidbody.velocity.x < .5f)
+		if (rigidbody.velocity.x < .9f)
 		{
-			rigidbody.velocity += new Vector3(.5f, 0, 0);
+			rigidbody.velocity += new Vector3(.9f, 0, 0);
 		}
 		if(flap.isCough())
 		{
