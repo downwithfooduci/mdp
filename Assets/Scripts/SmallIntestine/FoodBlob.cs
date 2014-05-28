@@ -63,7 +63,7 @@ public class FoodBlob : MonoBehaviour {
 	
 	private void OnEndPointCollision()
 	{	
-		bool alive = false;
+		int numNutrientsAlive = 0;
 		
         foreach (Transform child in transform)
         {
@@ -75,14 +75,14 @@ public class FoodBlob : MonoBehaviour {
 				Nutrient n = child.GetComponent<Nutrient>();
 				if (!n.isDead)								// flag if any of the nutrients are still alive
 				{
-					alive = true;
+					numNutrientsAlive++;
 					Instantiate(nutrientLostSound);
 				}
             	m_NutrientManager.RemoveNutrient(child.GetComponent<Nutrient>());
 			}
         }
 		Destroy(this.gameObject);
-		m_GameManager.OnFoodBlobFinish(alive);  
+		m_GameManager.OnFoodBlobFinish(numNutrientsAlive);  
 	}
 	
 	virtual public void TakeHit()

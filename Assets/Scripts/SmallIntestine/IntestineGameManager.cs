@@ -87,11 +87,11 @@ public class IntestineGameManager : MonoBehaviour
 
 
 
-    public void OnFoodBlobFinish(bool isAlive)
+    public void OnFoodBlobFinish(int numNutrientsAlive)
     {
-		if (isAlive) 
+		if (numNutrientsAlive > 0) 
 		{
-			health--;
+			health = Mathf.Clamp(health - numNutrientsAlive, 0, MAX_HEALTH);
 			m_HealthTextColor = Color.red;
 		} 
 	}
