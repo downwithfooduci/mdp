@@ -3,7 +3,10 @@ using System.Collections;
 
 public class SIStats : MonoBehaviour 
 {
-	private int numStars = 0;
+	public Texture filledStar;
+	public Texture emptyStar;
+
+	private int numStars = 1;
 
 	// Use this for initialization
 	void Start () 
@@ -27,13 +30,76 @@ public class SIStats : MonoBehaviour
 
 	void OnGUI()
 	{
-		// Draw the number of stars
+		// Draw the number of stars text
 		GUIStyle starStyle = new GUIStyle ();
 		starStyle.font = (Font)Resources.Load ("Fonts/JandaManateeSolid");
 		starStyle.normal.textColor = Color.yellow;
 		starStyle.fontSize = (int)(34f / 597f * Screen.height);
 		GUI.Label(new Rect((290f/1024f)*Screen.width, (138f/768f)*Screen.height, (100f/1024f)*Screen.width,
 		                   (100f/768f)*Screen.height), "" + numStars, starStyle);
+
+		// draw the actual stars
+		if (numStars == 1)
+		{
+			GUI.DrawTexture(new Rect((48f/1024f)*Screen.width, (236f/768f)*Screen.height, (74f/1024f)*Screen.width,
+			                         (74f/768f)*Screen.height), filledStar);
+			GUI.DrawTexture(new Rect((142f/1024f)*Screen.width, (236f/768f)*Screen.height, (74f/1024f)*Screen.width,
+			                         (74f/768f)*Screen.height), emptyStar);
+			GUI.DrawTexture(new Rect((236f/1024f)*Screen.width, (236f/768f)*Screen.height, (74f/1024f)*Screen.width,
+			                         (74f/768f)*Screen.height), emptyStar);
+			GUI.DrawTexture(new Rect((330f/1024f)*Screen.width, (236f/768f)*Screen.height, (74f/1024f)*Screen.width,
+			                         (74f/768f)*Screen.height), emptyStar);
+			GUI.DrawTexture(new Rect((424f/1024f)*Screen.width, (236f/768f)*Screen.height, (74f/1024f)*Screen.width,
+			                         (74f/768f)*Screen.height), emptyStar);
+		} else if (numStars == 2)
+		{
+			GUI.DrawTexture(new Rect((48f/1024f)*Screen.width, (236f/768f)*Screen.height, (74f/1024f)*Screen.width,
+			                         (74f/768f)*Screen.height), filledStar);
+			GUI.DrawTexture(new Rect((142f/1024f)*Screen.width, (236f/768f)*Screen.height, (74f/1024f)*Screen.width,
+			                         (74f/768f)*Screen.height), filledStar);
+			GUI.DrawTexture(new Rect((236f/1024f)*Screen.width, (236f/768f)*Screen.height, (74f/1024f)*Screen.width,
+			                         (74f/768f)*Screen.height), emptyStar);
+			GUI.DrawTexture(new Rect((330f/1024f)*Screen.width, (236f/768f)*Screen.height, (74f/1024f)*Screen.width,
+			                         (74f/768f)*Screen.height), emptyStar);
+			GUI.DrawTexture(new Rect((424f/1024f)*Screen.width, (236f/768f)*Screen.height, (74f/1024f)*Screen.width,
+			                         (74f/768f)*Screen.height), emptyStar);
+		} else if (numStars == 3)
+		{
+			GUI.DrawTexture(new Rect((48f/1024f)*Screen.width, (236f/768f)*Screen.height, (74f/1024f)*Screen.width,
+			                         (74f/768f)*Screen.height), filledStar);
+			GUI.DrawTexture(new Rect((142f/1024f)*Screen.width, (236f/768f)*Screen.height, (74f/1024f)*Screen.width,
+			                         (74f/768f)*Screen.height), filledStar);
+			GUI.DrawTexture(new Rect((236f/1024f)*Screen.width, (236f/768f)*Screen.height, (74f/1024f)*Screen.width,
+			                         (74f/768f)*Screen.height), filledStar);
+			GUI.DrawTexture(new Rect((330f/1024f)*Screen.width, (236f/768f)*Screen.height, (74f/1024f)*Screen.width,
+			                         (74f/768f)*Screen.height), emptyStar);
+			GUI.DrawTexture(new Rect((424f/1024f)*Screen.width, (236f/768f)*Screen.height, (74f/1024f)*Screen.width,
+			                         (74f/768f)*Screen.height), emptyStar);
+		} else if (numStars == 4)
+		{
+			GUI.DrawTexture(new Rect((48f/1024f)*Screen.width, (236f/768f)*Screen.height, (74f/1024f)*Screen.width,
+			                         (74f/768f)*Screen.height), filledStar);
+			GUI.DrawTexture(new Rect((142f/1024f)*Screen.width, (236f/768f)*Screen.height, (74f/1024f)*Screen.width,
+			                         (74f/768f)*Screen.height), filledStar);
+			GUI.DrawTexture(new Rect((236f/1024f)*Screen.width, (236f/768f)*Screen.height, (74f/1024f)*Screen.width,
+			                         (74f/768f)*Screen.height), filledStar);
+			GUI.DrawTexture(new Rect((330f/1024f)*Screen.width, (236f/768f)*Screen.height, (74f/1024f)*Screen.width,
+			                         (74f/768f)*Screen.height), filledStar);
+			GUI.DrawTexture(new Rect((424f/1024f)*Screen.width, (236f/768f)*Screen.height, (74f/1024f)*Screen.width,
+			                         (74f/768f)*Screen.height), emptyStar);
+		} else if (numStars == 5)
+		{
+			GUI.DrawTexture(new Rect((48f/1024f)*Screen.width, (236f/768f)*Screen.height, (74f/1024f)*Screen.width,
+			                         (74f/768f)*Screen.height), filledStar);
+			GUI.DrawTexture(new Rect((142f/1024f)*Screen.width, (236f/768f)*Screen.height, (74f/1024f)*Screen.width,
+			                         (74f/768f)*Screen.height), filledStar);
+			GUI.DrawTexture(new Rect((236f/1024f)*Screen.width, (236f/768f)*Screen.height, (74f/1024f)*Screen.width,
+			                         (74f/768f)*Screen.height), filledStar);
+			GUI.DrawTexture(new Rect((330f/1024f)*Screen.width, (236f/768f)*Screen.height, (74f/1024f)*Screen.width,
+			                         (74f/768f)*Screen.height), filledStar);
+			GUI.DrawTexture(new Rect((424f/1024f)*Screen.width, (236f/768f)*Screen.height, (74f/1024f)*Screen.width,
+			                         (74f/768f)*Screen.height), filledStar);
+		}
 
 
 		// Draw the stats text
