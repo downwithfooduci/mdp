@@ -7,9 +7,9 @@ public class EsophagusDebugConfigGUI : MonoBehaviour
 	string foodSpawnDelay;
 	string oxygenDeplete;
 	string oxygenGain;
-	string stomachDeplete;
-	string stomachGain;
-	string maxLostFoodAmount;
+	//string stomachDeplete;	// TODO: UNUSED
+	//string stomachGain;		// TODO: UNUSED
+	//string maxLostFoodAmount;	// TODO: UNUSED
 	bool debugActive;
 	bool showGUI = false;
 
@@ -19,9 +19,9 @@ public class EsophagusDebugConfigGUI : MonoBehaviour
 		foodSpawnDelay = "" + debugConfig.foodSpawnDelay;
 		oxygenDeplete = "" + debugConfig.oxygenDeplete;
 		oxygenGain = "" + debugConfig.oxygenGain;
-		stomachDeplete = "" + debugConfig.stomachDeplete;
-		stomachGain = "" + debugConfig.stomachGain;
-		maxLostFoodAmount = "" + debugConfig.maxLostFoodAmount;
+		//stomachDeplete = "" + debugConfig.stomachDeplete;			// TODO: UNUSED
+		//stomachGain = "" + debugConfig.stomachGain;				// TODO: UNUSED
+		//maxLostFoodAmount = "" + debugConfig.maxLostFoodAmount;	// TODO: UNUSED
 		debugActive = debugConfig.debugActive;
 	}
 	
@@ -69,7 +69,8 @@ public class EsophagusDebugConfigGUI : MonoBehaviour
 			{
 				debugConfig.oxygenGain = oxygenGainOut;
 			}
-
+			/*******************
+			 * // TODO: UNUSED OBSOLETE STUFF
 			GUI.Label(new Rect(100, 160, 100, 50), "Stomach Depletion Rate");
 			stomachDeplete = GUI.TextField(new Rect(200, 160, 100, 50),
 			                           stomachDeplete);
@@ -97,6 +98,7 @@ public class EsophagusDebugConfigGUI : MonoBehaviour
 			{
 				debugConfig.maxLostFoodAmount = maxLostFoodAmountOut;
 			}
+	****************************************************/
 
 			debugActive = GUI.Toggle(new Rect(100, 310, 100, 20), debugActive, "Debug Active");
 			if (debugActive)

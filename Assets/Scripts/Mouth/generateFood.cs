@@ -2,6 +2,8 @@
 using System.Collections;
 
 public class generateFood : MonoBehaviour {
+	/*********************************
+	 * // TODO: UNUSED OBSOLETE CLASS
 	public GameObject food;
 	public Vector3 position;
 	// Use this for initialization
@@ -23,4 +25,5 @@ public class generateFood : MonoBehaviour {
 			Instantiate(food, position, Quaternion.identity);
 		}
 	}
+******************************************/
 }

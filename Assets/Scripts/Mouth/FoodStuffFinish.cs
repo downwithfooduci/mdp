@@ -4,14 +4,14 @@ using System.Collections;
 public class FoodStuffFinish : MonoBehaviour 
 {
 	private StomachBar stomachBar;
-//	private LostFoodCount lostFoodCount; //UNUSED
+	//	private LostFoodCount lostFoodCount; // TODO: UNUSED
 
 	// Use this for initialization
 	void Start () 
 	{
 		GameObject mouthGUI = GameObject.Find("MouthGUI");
 		stomachBar = mouthGUI.GetComponent<StomachBar>();
-		//lostFoodCount = mouthGUI.GetComponent<LostFoodCount>(); // UNUSED
+		//lostFoodCount = mouthGUI.GetComponent<LostFoodCount>(); // TODO: UNUSED
 	}
 	
 	// Update is called once per frame
@@ -28,7 +28,7 @@ public class FoodStuffFinish : MonoBehaviour
 			OnEndPointCollision();
 		}
 		/***********************
-		 * OBSOLETE CODE
+		 * // TODO: UNUSED OBSOLETE CODE
 		 else if (obj.gameObject.tag == "FallenOutFromMouth")	// check if the food fell out
 		{
 			OnFoodFallOut();
@@ -38,12 +38,12 @@ public class FoodStuffFinish : MonoBehaviour
 
 	void OnEndPointCollision()
 	{
-		stomachBar.increaseStomachPercent();
+		// stomachBar.increaseStomachPercent(); //TODO: UNUSED
 		Destroy(this.gameObject);
 	}
 
 	/**************
-	 * OBSOLETE METHOD
+	 * // TODO: UNUSED OBSOLETE METHOD
 	void OnFoodFallOut()
 	{
 		lostFoodCount.increaseLostFoodCount ();

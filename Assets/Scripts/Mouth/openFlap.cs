@@ -77,16 +77,16 @@ public class openFlap : MonoBehaviour {
 			{
 				moved = Mathf.Clamp(moved + 
 				                    topTouch.deltaPosition.y / 20f - 
-				                    bottomTouch.deltaPosition.y / 20f, 0, .35f);
+				                    bottomTouch.deltaPosition.y / 20f, 0, .55f);
 			}
 		}
 		if(Input.GetKey(KeyCode.A))
 		{
-			moved = Mathf.Clamp(moved - .3f * Time.deltaTime, 0, .35f);
+			moved = Mathf.Clamp(moved - .3f * Time.deltaTime, 0, .55f);
 		}
 		else if(Input.GetKey(KeyCode.D))
 		{
-			moved = Mathf.Clamp(moved + .3f * Time.deltaTime, 0, .35f);
+			moved = Mathf.Clamp(moved + .3f * Time.deltaTime, 0, .55f);
 		}
 		isOpen = moved > .15f;
 		bottomFlap.transform.localPosition = originalPositionBottomFlap - bottomFlap.transform.up * moved;

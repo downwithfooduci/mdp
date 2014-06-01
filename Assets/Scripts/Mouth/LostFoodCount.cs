@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-/*************************************
- * CURRENTLY OBSOLETE
+
 public class LostFoodCount : MonoBehaviour 
 {
+	/*************************************
+ * // TODO: UNUSED CURRENTLY OBSOLETE
 	EsophagusDebugConfig config;
 	private int lostFoodCount;
 	private int maxLostFoodAllowed = 10;
@@ -40,5 +41,5 @@ public class LostFoodCount : MonoBehaviour
 	{
 		lostFoodCount++;
 	}
+	********************************************************/
 }
-********************************************************/

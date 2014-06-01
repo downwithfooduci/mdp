@@ -3,6 +3,8 @@ using System.Collections;
 
 public class StomachBar : MonoBehaviour 
 {
+	/***************************************
+	 * //TODO: UNUSED OBSOLETE CLASS
 	Vector2 position;
 	Vector2 originalSize;
 	public Texture stomachBar;
@@ -52,5 +54,5 @@ public class StomachBar : MonoBehaviour
 	{
 		percent += gainRate;
 	}
-
+*********************************************/
 }
