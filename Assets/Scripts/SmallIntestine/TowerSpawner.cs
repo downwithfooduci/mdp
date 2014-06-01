@@ -3,6 +3,10 @@ using System.Collections.Generic;
 
 public class TowerSpawner : MonoBehaviour
 {
+	// for holding the tracker
+	private GameObject statTracker;
+	private TrackStatVariables trackStatVariables;
+
 	// Randomly selects a tower model upon creation
 	public GameObject[] Towers;
 	public GameObject SpawnIndicator;
@@ -51,6 +55,9 @@ public class TowerSpawner : MonoBehaviour
 		
 	void Start ()
 	{
+		statTracker = GameObject.Find ("SIStatTracker(Clone)");
+		trackStatVariables = statTracker.GetComponent<TrackStatVariables>();
+
 		debugConfig = ((GameObject)GameObject.Find("Debug Config")).GetComponent<DebugConfig>();
 		TOWER_BASE_COST = debugConfig.TOWER_BASE_COST;
 		m_IsSpawnActive = false;
@@ -111,8 +118,13 @@ public class TowerSpawner : MonoBehaviour
 					m_SpawnedTower.GetComponent<Tower>().wall = wall;
 					m_SpawnedTower.GetComponent<TowerMenu> ().Initialize ();
 					m_GameManager.nutrients = m_GameManager.nutrients - TOWER_BASE_COST;  // cost nutrients for testing
-					
+
+					// play placement sound
 					Instantiate (placementSound);
+
+					// track stats
+					trackStatVariables.increaseTowersPlaced();
+					trackStatVariables.increaseNutrientsSpent(TOWER_BASE_COST);
 				} else 
 				{
 					Destroy (m_SpawnedTower);

@@ -74,72 +74,6 @@ NavMeshSettings:
     widthInaccuracy: 16.666666
     heightInaccuracy: 10
   m_NavMesh: {fileID: 0}
---- !u!1 &114677306
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 100000, guid: 3dfb2a025f8773344ad8444f169e1d40, type: 2}
-  m_PrefabInternal: {fileID: 216124848}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 114677307}
-  m_Layer: 0
-  m_Name: SIStatTracker
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &114677307
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 400000, guid: 3dfb2a025f8773344ad8444f169e1d40, type: 2}
-  m_PrefabInternal: {fileID: 216124848}
-  m_GameObject: {fileID: 114677306}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.7785964, y: .882626593, z: -11.5564041}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
---- !u!1001 &216124848
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 400000, guid: 3dfb2a025f8773344ad8444f169e1d40, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -1.7785964
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 3dfb2a025f8773344ad8444f169e1d40, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: .882626593
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 3dfb2a025f8773344ad8444f169e1d40, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -11.5564041
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 3dfb2a025f8773344ad8444f169e1d40, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 3dfb2a025f8773344ad8444f169e1d40, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 3dfb2a025f8773344ad8444f169e1d40, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 3dfb2a025f8773344ad8444f169e1d40, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 3dfb2a025f8773344ad8444f169e1d40, type: 2}
-  m_RootGameObject: {fileID: 114677306}
-  m_IsPrefabParent: 0
-  m_IsExploded: 1
 --- !u!1 &1362563887
 GameObject:
   m_ObjectHideFlags: 0
@@ -171,6 +105,65 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   filledStar: {fileID: 2800000, guid: b21d8c4e824fee24293fb6364b7b0c9e, type: 3}
   emptyStar: {fileID: 2800000, guid: a93067fef86d5344ca01b01b280e9d03, type: 3}
+  nextLevelButton:
+    m_Name: 
+    m_Normal:
+      m_Background: {fileID: 2800000, guid: 82bcd1c8620ca9b4290caaa8b307da68, type: 3}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Hover:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Active:
+      m_Background: {fileID: 2800000, guid: df944a20732e76849a7cc0034775aa33, type: 3}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Focused:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnNormal:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnHover:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnActive:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnFocused:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Border:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Margin:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Padding:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Overflow:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Font: {fileID: 0}
+    m_FontSize: 0
+    m_FontStyle: 0
+    m_Alignment: 0
+    m_WordWrap: 0
+    m_RichText: 1
+    m_TextClipping: 0
+    m_ImagePosition: 0
+    m_ContentOffset: {x: 0, y: 0}
+    m_FixedWidth: 0
+    m_FixedHeight: 0
+    m_StretchWidth: 1
+    m_StretchHeight: 0
 --- !u!23 &1362563889
 Renderer:
   m_ObjectHideFlags: 0

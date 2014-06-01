@@ -6,6 +6,10 @@ public class TowerMenu : MonoBehaviour
 	public bool IsEnabled;
 	public Font font;
 
+	// for holding the tracker
+	private GameObject statTracker;
+	private TrackStatVariables trackStatVariables;
+
 	// for sounds
 	public GameObject sellSound;
 	public AudioClip upgradeSound;
@@ -42,6 +46,9 @@ public class TowerMenu : MonoBehaviour
 	// Use this for initialization
     void Start()
     {
+		statTracker = GameObject.Find ("SIStatTracker(Clone)");
+		trackStatVariables = statTracker.GetComponent<TrackStatVariables>();
+
 		UPGRADE_BUTTON_WIDTH = Screen.width * (76.5f / 1024f);  // Any size you want, multiply by 1.5 and divide by 1024 or 768
 		UPGRADE_BUTTON_HEIGHT = Screen.height * (90f / 768f);
 		SELL_BUTTON_WIDTH = Screen.width * (165f / 1024f);
@@ -324,7 +331,12 @@ public class TowerMenu : MonoBehaviour
 			break;
 		} 
 
+		// play sound
 		Instantiate (sellSound);
+
+		// track stats
+		Debug.Log ("TRACKING TOWER SOLD");
+		trackStatVariables.increaseTowersSold();
 
 		Destroy(gameObject);
 	}

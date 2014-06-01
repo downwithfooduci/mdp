@@ -3,29 +3,74 @@ using System.Collections;
 
 public class SIStats : MonoBehaviour 
 {
+	// for drawing stars
 	public Texture filledStar;
 	public Texture emptyStar;
 
+	// for drawing next level button
+	public GUIStyle nextLevelButton;
+
 	private int numStars = 1;
 
+	// for holding the tracker
+	private GameObject statTracker;
+	private TrackStatVariables trackStatVariables;
+	// variables to hold stats, should coincide with variables in TrackStatVariables.cs
+	// list desired stats for tracking here
+	private int nutrientsEarned;
+	private int nutrientsSpent;
+	private int foodLost;
+	private int towersPlaced;
+	private int towersSold;
+	private int towersUpgraded;
+	private int enzymesFired;
+	
 	// Use this for initialization
 	void Start () 
 	{
-		populateStats ();
-		calculateStars ();
+		statTracker = GameObject.Find ("SIStatTracker(Clone)");
+		trackStatVariables = statTracker.GetComponent<TrackStatVariables>();
+
+		populateStats();
+		calculateStars();
 	}
 
 	void populateStats()
 	{
+		nutrientsEarned = trackStatVariables.getNutrientsEarned();
+		nutrientsSpent = trackStatVariables.getNutrientsSpent();
+		foodLost = trackStatVariables.getFoodLost();
+		towersPlaced = trackStatVariables.getTowersPlaced();
+		towersSold = trackStatVariables.getTowersSold();
+		towersUpgraded = trackStatVariables.getTowersUpgraded();
+		enzymesFired = trackStatVariables.getEnzymesFired();
 	}
 
+	// placeholder algorithm
 	void calculateStars()
 	{
+		if (foodLost == 0)
+		{
+			numStars = 5;
+		} else if (foodLost <= 5)
+		{
+			numStars = 4;
+		} else if (foodLost <= 10)
+		{
+			numStars = 3;
+		} else if (foodLost <= 15)
+		{
+			numStars = 2;
+		} else
+		{
+			numStars = 1;
+		}
 	}
 	
 	// Update is called once per frame
-	void Update () {
-	
+	void Update () 
+	{
+
 	}
 
 	void OnGUI()
@@ -109,6 +154,23 @@ public class SIStats : MonoBehaviour
 		statsStyle.fontSize = (int)(20f / 597f * Screen.height);
 
 		GUI.Label(new Rect((600f/1024f)*Screen.width, (90f/768f)*Screen.height, (((961f-27f)-600f)/1024f)*Screen.width,
-		                   ((520f-90f)/768f)*Screen.height), "Testing", statsStyle);
+		                   ((520f-90f)/768f)*Screen.height), 
+		          "Nutrients Earned:\t"   + nutrientsEarned + "\n" +
+		          "Nutrients Spent:\t\t"  + nutrientsSpent  + "\n" +
+		          "Food Lost:\t\t\t\t\t\t"  + foodLost 	    + "\n" +
+		          "Towers Placed:\t\t\t"  + towersPlaced    + "\n" +
+		          "Towers Sold:\t\t\t\t"  + towersSold      + "\n" +
+		          "Towers Upgraded:\t"	  + towersUpgraded  + "\n" +
+		          "Enzymes Fired:\t\t\t"  + enzymesFired    + "\n",
+		          statsStyle);
+
+
+		// draw the button for next level
+		if (GUI.Button(new Rect((635f/1024f)*Screen.width, (535f/768f)*Screen.height,
+		                        ((905f-635f)/1024f)*Screen.width, ((665f-535f)/768f)*Screen.height), "", nextLevelButton))
+		{
+			trackStatVariables.reset();
+			Application.LoadLevel("LoadLevelSmallIntestine");
+		}
 	}
 }

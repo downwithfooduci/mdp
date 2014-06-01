@@ -220,7 +220,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e4b1a88c2143264d9b4adea43c437b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  counter: {fileID: 0}
+  statsTracker: {fileID: 100000, guid: 3dfb2a025f8773344ad8444f169e1d40, type: 2}
   backgrounds:
   - {fileID: 2800000, guid: ca7f5afac95164c4eb0fee74267bbbb3, type: 3}
   - {fileID: 2800000, guid: 9bf961c16e16f3b4182bd793ab5cc3e1, type: 3}

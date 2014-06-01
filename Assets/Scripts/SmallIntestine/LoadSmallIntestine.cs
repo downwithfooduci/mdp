@@ -3,8 +3,9 @@ using System.Collections;
 
 public class LoadSmallIntestine : MonoBehaviour 
 {
+	private GameObject counter;			// to keep track of levels
+	public GameObject statsTracker;	// to keep track of stats
 
-	public GameObject counter;
 	public Texture[] backgrounds;
 	private SmallIntestineLoadLevelCounter level;
 	private const float timer = 3.0f;	// how long to hold background image
@@ -13,6 +14,14 @@ public class LoadSmallIntestine : MonoBehaviour
 	void Start()
 	{
 		timePassed = timer;
+
+		// check if a stats tracker exists
+		GameObject existingStatsTracker = GameObject.Find ("SIStatsTracker(Clone)");
+		// if one doesn't create it
+		if (existingStatsTracker == null) 
+		{
+			Instantiate(statsTracker);
+		}
 	}
 
 	void OnGUI()

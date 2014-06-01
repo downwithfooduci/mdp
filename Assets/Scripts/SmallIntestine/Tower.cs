@@ -12,6 +12,10 @@ public class Tower : MonoBehaviour
 	public AudioClip towerShootSound;
 	public AudioClip upgradeSound;
 
+	// for holding the tracker
+	private GameObject statTracker;
+	private TrackStatVariables trackStatVariables;
+
 	DebugConfig debugConfig;
 	
 	public GameObject Projectile;
@@ -51,6 +55,9 @@ public class Tower : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
+		statTracker = GameObject.Find ("SIStatTracker(Clone)");
+		trackStatVariables = statTracker.GetComponent<TrackStatVariables>();
+
 		debugConfig = ((GameObject)GameObject.Find("Debug Config")).GetComponent<DebugConfig>();
 		TOWER_BASE_COST = debugConfig.TOWER_BASE_COST;
 		TOWER_UPGRADE_LEVEL_1_COST = debugConfig.TOWER_UPGRADE_LEVEL_1_COST;
@@ -141,7 +148,12 @@ public class Tower : MonoBehaviour
         Nutrient target = AcquireTarget();
         if (target)
         {
+			// play sound
 			audio.clip = towerShootSound;
+
+			// track stats
+			Debug.Log("TRACKING SHOTS FIRED");
+			trackStatVariables.increaseEnzymesFired();
 
 			transform.Rotate(new Vector3(90,0,0), -40, Space.World);
             // Look at target but lock rotation on x axis
@@ -218,8 +230,15 @@ public class Tower : MonoBehaviour
 				m_Cooldown = Level1Cooldown;
 				AdjustAnimationSpeed(m_Cooldown);
 				m_GameManager.nutrients = m_GameManager.nutrients - TOWER_UPGRADE_LEVEL_1_COST;	// upgrade costs  nutrients (for test)
+
+				// play sounds
 				audio.clip = upgradeSound;
 				audio.Play();
+
+				// track stats
+				Debug.Log("TRACKING TOWER UPGRADE");
+				trackStatVariables.increaseTowersUpgraded();
+				trackStatVariables.increaseNutrientsSpent(TOWER_UPGRADE_LEVEL_1_COST);
 			}
 			break;
 		case "Speed1":
@@ -229,8 +248,15 @@ public class Tower : MonoBehaviour
 				m_Cooldown = Level2Cooldown;
 				AdjustAnimationSpeed(m_Cooldown);
 				m_GameManager.nutrients = m_GameManager.nutrients - TOWER_UPGRADE_LEVEL_2_COST;		// upgrade costs  nutrients (for test)
+
+				// play sounds
 				audio.clip = upgradeSound;
 				audio.Play();
+
+				// track stats
+				Debug.Log("TRACKING TOWER UPGRADE");
+				trackStatVariables.increaseTowersUpgraded();
+				trackStatVariables.increaseNutrientsSpent(TOWER_UPGRADE_LEVEL_2_COST);
 			} 
 			break;
 		default:
@@ -256,8 +282,15 @@ public class Tower : MonoBehaviour
 				SetActiveModel("Power1");
 				targets = level1Targets;
 				m_GameManager.nutrients = m_GameManager.nutrients - TOWER_UPGRADE_LEVEL_1_COST;		// upgrade costs nutrients (for test
+
+				// play sounds
 				audio.clip = upgradeSound;
 				audio.Play();
+
+				// track stats
+				Debug.Log("TRACKING TOWER UPGRADE");
+				trackStatVariables.increaseTowersUpgraded();
+				trackStatVariables.increaseNutrientsSpent(TOWER_UPGRADE_LEVEL_1_COST);
 			} 
 			break;
 		case "Power1":
@@ -266,8 +299,15 @@ public class Tower : MonoBehaviour
 				SetActiveModel("Power2");
 				targets = level2Targets;
 				m_GameManager.nutrients = m_GameManager.nutrients - TOWER_UPGRADE_LEVEL_2_COST;		// upgrade costs  nutrients (for test
+
+				// play sounds
 				audio.clip = upgradeSound;
 				audio.Play();
+
+				// track stats
+				Debug.Log("TRACKING TOWER UPGRADE");
+				trackStatVariables.increaseTowersUpgraded();
+				trackStatVariables.increaseNutrientsSpent(TOWER_UPGRADE_LEVEL_2_COST);
 			} 
 			break;
 		default:
