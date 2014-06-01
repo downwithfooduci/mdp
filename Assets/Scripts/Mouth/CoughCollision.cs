@@ -15,7 +15,6 @@ public class CoughCollision : MonoBehaviour {
 
 	void OnCollisionEnter(Collision collision)
 	{
-		Debug.Log("ENTER");
 		if(collision.gameObject.name.Contains ("foodstuff"))
 		{
 			openFlap flap = transform.parent.gameObject.GetComponent<openFlap>();

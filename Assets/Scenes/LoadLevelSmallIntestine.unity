@@ -224,10 +224,10 @@ MonoBehaviour:
   backgrounds:
   - {fileID: 2800000, guid: ca7f5afac95164c4eb0fee74267bbbb3, type: 3}
   - {fileID: 2800000, guid: 9bf961c16e16f3b4182bd793ab5cc3e1, type: 3}
-  - {fileID: 2800000, guid: b142bae8cbaee19469d7851acdec8aa3, type: 3}
-  - {fileID: 2800000, guid: a606129edcc434b4c8d9d05873324e88, type: 3}
-  - {fileID: 2800000, guid: f6e27937e0781b248bda887b65cfaf2a, type: 3}
-  - {fileID: 2800000, guid: 4b07afbe2f7c73045af7fffde199092a, type: 3}
+  - {fileID: 2800000, guid: c3e4538c7293e214a8f63767e962c1fe, type: 3}
+  - {fileID: 2800000, guid: 4636ffab8e4812d4182c6aba2cef797f, type: 3}
+  - {fileID: 2800000, guid: 4942b294b83b8994b8e8959c996d2312, type: 3}
+  - {fileID: 2800000, guid: 81a3d71e237c7e54a94c8b2321cfedd8, type: 3}
 --- !u!131 &568713901
 GUITexture:
   m_ObjectHideFlags: 0
