@@ -26,7 +26,7 @@ public class OxygenBar : MonoBehaviour {
 			depletionRate = config.oxygenDeplete;
 			gainRate = config.oxygenGain;
 		}
-		if(flap.isEpiglotisOpen())
+		if(flap.isEpiglotisOpen() || flap.isCough())
 			percent -= depletionRate * Time.deltaTime;
 		else
 			percent += gainRate * Time.deltaTime;

@@ -1,9 +1,13 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\SmallIntestine\SIStats.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\SmallIntestine\LoadScript.cs">
     <Files>
-      <File FileName="Assets\Scripts\SmallIntestine\TowerUpgradeTutorial.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\SmallIntestine\SIStats.cs" Line="113" Column="3" />
+      <File FileName="Assets\Scripts\Pathing\FollowITweenPath.cs" Line="8" Column="38" />
+      <File FileName="Assets\Scripts\Mouth\MoveFood.cs" Line="38" Column="125" />
+      <File FileName="Assets\Scripts\Mouth\SpawnFood.cs" Line="16" Column="37" />
+      <File FileName="Assets\Scripts\SmallIntestine\LoadScript.cs" Line="21" Column="45" />
+      <File FileName="Assets\Scripts\SmallIntestine\SpawnManager.cs" Line="22" Column="5" />
+      <File FileName="Assets\Scripts\Mouth\openFlap.cs" Line="41" Column="27" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

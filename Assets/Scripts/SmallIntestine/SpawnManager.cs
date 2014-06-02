@@ -9,7 +9,7 @@ public class SpawnManager : MonoBehaviour {
     public float SpawnInterval;
 	DebugConfig debugConfig;
 	LoadScript loadScript;
-	Wave[] waves;
+	SIWave[] waves;
 	int currentWave;
 	float waveDelay;
 	float waveTime;
@@ -26,7 +26,7 @@ public class SpawnManager : MonoBehaviour {
 	{
 		GameObject counter = GameObject.Find ("ChooseBackground");
 		SmallIntestineLoadLevelCounter level = counter.GetComponent<SmallIntestineLoadLevelCounter> ();
-		loadScript = ((GameObject)GameObject.Find("ScriptLoader")).GetComponent<LoadScript>();
+		loadScript = new LoadScript();
 		waves = loadScript.loadIntestineLevel(level.getLevel());
 		currentWave = 0;
 		waveDelay = waves[0].startDelay;

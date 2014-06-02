@@ -4,16 +4,29 @@ using System.Collections;
 public class SpawnFood : MonoBehaviour {
 	public GameObject food;
 	public Vector3 startingSpawn;
-	public float spawnDelay = 1f;
-	float timer = 0;
-	EsophagusDebugConfig debugConfig;
+	public float SpawnInterval;
+	DebugConfig debugConfig;
+	LoadScript loadScript;
+	MouthWave[] waves;
+	int currentWave;
+	float waveDelay;
+	float waveTime;
+	float speed;
 	openFlap flap;
+	private float m_TimeSinceLastSpawn;
+	public bool end = false;
 	// Use this for initialization
 	void Start () {
 		GameObject flaps = GameObject.Find("Flaps");
 		flap = flaps.GetComponent<openFlap>();
-		GameObject debugger = GameObject.Find("Debugger");
-		debugConfig = debugger.GetComponent<EsophagusDebugConfig>();
+		loadScript = new LoadScript();
+		waves = loadScript.loadMouthLevel(0);
+		currentWave = 0;
+		waveDelay = waves[0].startDelay;
+		waveTime = waves[0].runTime;
+		SpawnInterval = waves[0].foodSpawnInterval;
+		speed = waves[0].foodSpeed;
+		m_TimeSinceLastSpawn = 0f;
 	}
 	
 	// Update is called once per frame
@@ -22,18 +35,53 @@ public class SpawnFood : MonoBehaviour {
 		{
 			return;
 		}
-		if(debugConfig.debugActive)
-			spawnDelay = debugConfig.foodSpawnDelay;
-		else
-			spawnDelay = 1f;
-		if(timer > 0)
+		if(waveDelay < 0 && !end)
 		{
-			timer -= Time.deltaTime;
+			waveTime -= Time.deltaTime;
+			if(waveTime > 0)
+			{
+//				if(debugConfig.debugActive)
+//					SpawnInterval = debugConfig.NutrientSpawnInterval;
+				m_TimeSinceLastSpawn += Time.deltaTime;
+				
+				if (m_TimeSinceLastSpawn >= SpawnInterval)
+				{
+					GameObject foodInstance = (GameObject)Instantiate(food, startingSpawn, Quaternion.identity);
+					MoveFood moveFoodScript = foodInstance.GetComponent<MoveFood>();
+					moveFoodScript.foodSpeed = speed;
+					m_TimeSinceLastSpawn = 0;
+				}
+			}
+			else
+			{
+				if(false) //debugConfig.debugActive
+				{
+//					waveDelay = debugConfig.waveDelay;
+//					waveTime = debugConfig.waveTimer;
+//					SpawnInterval = debugConfig.NutrientSpawnInterval;
+//					speed = debugConfig.NutrientSpeed;
+//					availableColors = new Color[debugConfig.colors.Count];
+//					m_TimeSinceLastSpawn = 0;
+				}
+				else
+				{
+					currentWave++;
+					if(currentWave == waves.Length)
+						end = true;
+					else
+					{
+						waveDelay = waves[currentWave].startDelay;
+						waveTime = waves[currentWave].runTime;
+						SpawnInterval = waves[currentWave].foodSpawnInterval;
+						speed = waves[currentWave].foodSpeed;
+						m_TimeSinceLastSpawn = 0;
+					}
+				}
+			}
 		}
 		else
 		{
-			timer = spawnDelay;
-			Instantiate(food, startingSpawn, Quaternion.identity);
+			waveDelay -= Time.deltaTime;
 		}
 	}
 }

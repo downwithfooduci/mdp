@@ -873,7 +873,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   food: {fileID: 100000, guid: c23798531424fba4da144ed87e878ee8, type: 2}
   startingSpawn: {x: -7.43281078, y: 4.30000019, z: -.5}
-  spawnDelay: 1
+  SpawnInterval: 0
+  end: 0
 --- !u!4 &906403190
 Transform:
   m_ObjectHideFlags: 0
@@ -932,7 +933,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 962206044}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -1120,7 +1121,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1159582897}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -1176,9 +1177,9 @@ MonoBehaviour:
   - {x: -7.43270779, y: 4.30000019, z: -.5}
   - {x: -5.43286085, y: 4.54732084, z: -.5}
   - {x: -2.25409937, y: 5.19570208, z: -.5}
-  - {x: 1.44763374, y: 3.98019648, z: -.5}
+  - {x: 1.50586557, y: 3.80939245, z: -.5}
   - {x: 2.18070054, y: -.855166435, z: -.5}
-  - {x: 2.43469715, y: -8.01514244, z: 0}
+  - {x: 2.43469715, y: -8.01514244, z: -.5}
   nodeCount: 6
   initialized: 1
   initialName: New Path 1

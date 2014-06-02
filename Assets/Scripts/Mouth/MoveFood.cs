@@ -6,7 +6,7 @@ public class MoveFood : MonoBehaviour {
 	GameObject flaps;
 	FollowITweenPath path;
 	public float pathPosition, reversePosition;
-	public float nutrientSpeed;
+	public float foodSpeed;
 	public float coughSpeed;
 	private SmoothQuaternion quaternion;
 	DebugConfig debugConfig;
@@ -24,7 +24,7 @@ public class MoveFood : MonoBehaviour {
 	void Update () 
 	{
 		if(debugConfig != null && debugConfig.debugActive)
-			nutrientSpeed = debugConfig.NutrientSpeed;
+			foodSpeed = debugConfig.NutrientSpeed;
 		Quaternion q = transform.rotation;
 		if(flap.isCough())
 		{
@@ -35,7 +35,7 @@ public class MoveFood : MonoBehaviour {
 		}
 		else
 		{
-			transform.position = Spline.MoveOnPath(iTweenPath.GetPath("Path"), transform.position, ref pathPosition, ref q, nutrientSpeed,100,EasingType.Linear,false,false);
+			transform.position = Spline.MoveOnPath(iTweenPath.GetPath("Path"), transform.position, ref pathPosition, ref q, foodSpeed,100,EasingType.Linear,false,false);
 			reversePosition = 1f - pathPosition;
 		}
 		quaternion.Value = q;

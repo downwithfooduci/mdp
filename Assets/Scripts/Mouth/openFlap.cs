@@ -35,9 +35,6 @@ public class openFlap : MonoBehaviour {
 		if(coughTimer > 0)
 		{
 			coughTimer -= Time.deltaTime;
-			moved = .35f;
-			bottomFlap.transform.localPosition = originalPositionBottomFlap - bottomFlap.transform.up * moved;
-			topFlap.transform.localPosition = originalPositionTopFlap + topFlap.transform.up * moved;
 			return;
 		}
 		cough = false;
