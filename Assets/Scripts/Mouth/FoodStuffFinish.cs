@@ -41,6 +41,7 @@ public class FoodStuffFinish : MonoBehaviour
 	void OnEndPointCollision()
 	{
 		// stomachBar.increaseStomachPercent(); //TODO: UNUSED
+		//TODO: Make Different Levels and Transition Between Them
 		GameObject[] foodstuff = GameObject.FindGameObjectsWithTag("MouthFood");
 		if(foodstuff.Length == 1 && foodSpawner.end)
 			Application.LoadLevel("EndScreen");
