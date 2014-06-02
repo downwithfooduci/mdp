@@ -16,7 +16,7 @@ GameObject:
   - 114: {fileID: 11400002}
   m_Layer: 0
   m_Name: foodstuff
-  m_TagString: Untagged
+  m_TagString: MouthFood
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -88,7 +88,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pathPosition: 0
   reversePosition: 0
-  nutrientSpeed: 2
+  foodSpeed: 0
   coughSpeed: 3
 --- !u!114 &11400002
 MonoBehaviour:

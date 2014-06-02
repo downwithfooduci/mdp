@@ -4,6 +4,7 @@ using System.Collections;
 public class FoodStuffFinish : MonoBehaviour 
 {
 	private StomachBar stomachBar;
+	SpawnFood foodSpawner;
 	//	private LostFoodCount lostFoodCount; // TODO: UNUSED
 
 	// Use this for initialization
@@ -11,6 +12,7 @@ public class FoodStuffFinish : MonoBehaviour
 	{
 		GameObject mouthGUI = GameObject.Find("MouthGUI");
 		stomachBar = mouthGUI.GetComponent<StomachBar>();
+		foodSpawner = GameObject.Find("FoodSpawner").GetComponent<SpawnFood>();
 		//lostFoodCount = mouthGUI.GetComponent<LostFoodCount>(); // TODO: UNUSED
 	}
 	
@@ -39,7 +41,11 @@ public class FoodStuffFinish : MonoBehaviour
 	void OnEndPointCollision()
 	{
 		// stomachBar.increaseStomachPercent(); //TODO: UNUSED
-		Destroy(this.gameObject);
+		GameObject[] foodstuff = GameObject.FindGameObjectsWithTag("MouthFood");
+		if(foodstuff.Length == 1 && foodSpawner.end)
+			Application.LoadLevel("EndScreen");
+		else
+			Destroy(this.gameObject);
 	}
 
 	/**************

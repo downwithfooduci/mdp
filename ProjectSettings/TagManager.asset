@@ -9,6 +9,7 @@ TagManager:
   - foodBlobParent
   - backgroundChooser
   - FallenOutFromMouth
+  - MouthFood
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX
