@@ -27,7 +27,7 @@ public class openFlap : MonoBehaviour {
 		}
 		originalPositionBottomFlap = bottomFlap.transform.localPosition;
 		originalPositionTopFlap = topFlap.transform.localPosition;
-		center = new Vector3(1.320325f, 3.226704f, -.5f);
+		center = new Vector3(1.320325f, 3.226704f, -1f);
 	}
 	
 	// Update is called once per frame
