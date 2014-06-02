@@ -15,7 +15,7 @@ public class FollowITweenPath : MonoBehaviour {
 	}
 
 	void Update() {
-		if(debugConfig.debugActive)
+		if(debugConfig != null && debugConfig.debugActive)
 			nutrientSpeed = debugConfig.NutrientSpeed;
 		Quaternion q = transform.rotation;
 	 	transform.position = Spline.MoveOnPath(iTweenPath.GetPath("Path"), transform.position, ref pathPosition, ref q, nutrientSpeed,100,EasingType.Linear,false,false);

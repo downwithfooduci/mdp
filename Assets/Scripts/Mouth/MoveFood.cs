@@ -4,24 +4,41 @@ using System.Collections;
 public class MoveFood : MonoBehaviour {
 	openFlap flap;
 	GameObject flaps;
+	FollowITweenPath path;
+	public float pathPosition, reversePosition;
+	public float nutrientSpeed;
+	public float coughSpeed;
+	private SmoothQuaternion quaternion;
+	DebugConfig debugConfig;
 	// Use this for initialization
 	void Start () {
 		GameObject flaps = GameObject.Find ("Flaps");
 		flap = flaps.GetComponent<openFlap>();
+		path = gameObject.GetComponent<FollowITweenPath>();
+		quaternion = transform.rotation;
+		quaternion.Duration = .5f;
+		//debugConfig = ((GameObject)GameObject.Find("Debug Config")).GetComponent<DebugConfig>();
 	}
 	
 	// Update is called once per frame
 	void Update () 
 	{
-		if (rigidbody.velocity.x < .9f)
-		{
-			rigidbody.velocity += new Vector3(.9f, 0, 0);
-		}
+		if(debugConfig != null && debugConfig.debugActive)
+			nutrientSpeed = debugConfig.NutrientSpeed;
+		Quaternion q = transform.rotation;
 		if(flap.isCough())
 		{
-			rigidbody.velocity = new Vector3(-3f, rigidbody.velocity.y, rigidbody.velocity.z);
+			transform.position = Spline.MoveOnPath(iTweenPath.GetPathReversed("Path"), transform.position, ref reversePosition, ref q, coughSpeed,100,EasingType.Linear,false,false);
+			pathPosition = 1f - reversePosition;
+			if(reversePosition > .99f)
+				Destroy (gameObject);
 		}
-		if (transform.position.y < -20)
-			Destroy (gameObject);
+		else
+		{
+			transform.position = Spline.MoveOnPath(iTweenPath.GetPath("Path"), transform.position, ref pathPosition, ref q, nutrientSpeed,100,EasingType.Linear,false,false);
+			reversePosition = 1f - pathPosition;
+		}
+		quaternion.Value = q;
+		transform.rotation = quaternion;
 	}
 }

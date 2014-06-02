@@ -88,7 +88,7 @@ public class openFlap : MonoBehaviour {
 		{
 			moved = Mathf.Clamp(moved + .3f * Time.deltaTime, 0, .55f);
 		}
-		isOpen = moved > .15f;
+		isOpen = moved >= .35f;
 		bottomFlap.transform.localPosition = originalPositionBottomFlap - bottomFlap.transform.up * moved;
 		topFlap.transform.localPosition = originalPositionTopFlap + topFlap.transform.up * moved;
 	}
