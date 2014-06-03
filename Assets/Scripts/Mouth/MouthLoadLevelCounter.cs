@@ -21,7 +21,7 @@ public class MouthLoadLevelCounter : MonoBehaviour
 			level = 1;
 		//}
 		
-		if (GameObject.FindGameObjectsWithTag ("backgroundChooser").Length > 1)
+		if (GameObject.FindGameObjectsWithTag ("mouthBackgroundChooser").Length > 1)
 			Destroy (gameObject);
 	}
 	

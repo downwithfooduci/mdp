@@ -84,8 +84,8 @@ GameObject:
   - 4: {fileID: 863208823}
   - 114: {fileID: 863208822}
   m_Layer: 0
-  m_Name: ChooseBackground
-  m_TagString: backgroundChooser
+  m_Name: MouthChooseBackground
+  m_TagString: mouthBackgroundChooser
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

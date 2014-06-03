@@ -7,7 +7,7 @@ public class LoadMouth : MonoBehaviour
 //	public GameObject statsTracker;	// to keep track of stats	//TODO: add for mouth game
 	
 	public Texture[] backgrounds;
-	private SmallIntestineLoadLevelCounter level;
+	private MouthLoadLevelCounter level;
 	private const float timer = 3.0f;	// how long to hold background image
 	private float timePassed = 0.0f;
 
@@ -39,7 +39,7 @@ public class LoadMouth : MonoBehaviour
 
 	void OnGUI()
 	{
-		counter = GameObject.Find ("ChooseBackground");
+		counter = GameObject.Find ("MouthChooseBackground");
 		level = counter.GetComponent<MouthLoadLevelCounter> ();
 		GUI.DrawTexture (new Rect(0, 0, Screen.width, Screen.height), backgrounds [Mathf.Clamp(level.getLevel() - 1, 0, level.getMaxLevels())]);
 	}
