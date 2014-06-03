@@ -17,6 +17,7 @@ public class LoadSmallIntestine : MonoBehaviour
 
 		// check if a stats tracker exists
 		GameObject existingStatsTracker = GameObject.Find ("SIStatsTracker(Clone)");
+
 		// if one doesn't create it
 		if (existingStatsTracker == null) 
 		{
