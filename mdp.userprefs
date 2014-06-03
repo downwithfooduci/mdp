@@ -1,11 +1,16 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\SmallIntestine\TrackStatVariables.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Resources\SIText.txt">
     <Files>
       <File FileName="Assets\Scripts\SmallIntestine\TowerUpgradeTutorial.cs" Line="8" Column="21" />
       <File FileName="Assets\Scripts\SmallIntestine\SIStats.cs" Line="152" Column="31" />
       <File FileName="Assets\Scripts\SmallIntestine\TrackStatVariables.cs" Line="101" Column="16" />
       <File FileName="Assets\Scripts\Main Menu\MainMenu.cs" Line="27" Column="10" />
+      <File FileName="Assets\Scripts\Mouth\LoadMouth.cs" Line="24" Column="28" />
+      <File FileName="Assets\Scripts\Storyboard\Intro Storyboard\TextForIntroStory.cs" Line="11" Column="2" />
+      <File FileName="Assets\Resources\IntroText.txt" Line="1" Column="1" />
+      <File FileName="Assets\Resources\MouthText.txt" Line="1" Column="1" />
+      <File FileName="Assets\Resources\SIText.txt" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
