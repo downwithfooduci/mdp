@@ -5,7 +5,7 @@ public class SpawnFood : MonoBehaviour {
 	public GameObject food;
 	public Vector3 startingSpawn;
 	public float SpawnInterval;
-	DebugConfig debugConfig;
+	EsophagusDebugConfig debugConfig;
 	LoadScript loadScript;
 	MouthWave[] waves;
 	int currentWave;
@@ -17,6 +17,7 @@ public class SpawnFood : MonoBehaviour {
 	public bool end = false;
 	// Use this for initialization
 	void Start () {
+		debugConfig = GameObject.Find("Debugger").GetComponent<EsophagusDebugConfig>();
 		GameObject flaps = GameObject.Find("Flaps");
 		flap = flaps.GetComponent<openFlap>();
 		loadScript = new LoadScript();
@@ -40,8 +41,8 @@ public class SpawnFood : MonoBehaviour {
 			waveTime -= Time.deltaTime;
 			if(waveTime > 0)
 			{
-//				if(debugConfig.debugActive)
-//					SpawnInterval = debugConfig.NutrientSpawnInterval;
+				if(debugConfig.debugActive)
+					SpawnInterval = debugConfig.foodSpawnInterval;
 				m_TimeSinceLastSpawn += Time.deltaTime;
 				
 				if (m_TimeSinceLastSpawn >= SpawnInterval)
@@ -54,14 +55,13 @@ public class SpawnFood : MonoBehaviour {
 			}
 			else
 			{
-				if(false) //debugConfig.debugActive
+				if(debugConfig.debugActive)
 				{
-//					waveDelay = debugConfig.waveDelay;
-//					waveTime = debugConfig.waveTimer;
-//					SpawnInterval = debugConfig.NutrientSpawnInterval;
-//					speed = debugConfig.NutrientSpeed;
-//					availableColors = new Color[debugConfig.colors.Count];
-//					m_TimeSinceLastSpawn = 0;
+					waveDelay = debugConfig.waveDelay;
+					waveTime = debugConfig.waveTime;
+					SpawnInterval = debugConfig.foodSpawnInterval;
+					speed = debugConfig.foodSpeed;
+					m_TimeSinceLastSpawn = 0;
 				}
 				else
 				{
