@@ -66,7 +66,7 @@ public class MouthStoryboard : MonoBehaviour {
 			currPage++;
 			if ((currPage - 1) == pages.Length)
 			{
-				Application.LoadLevel("MouthAnimation");
+				Application.LoadLevel("LoadLevelMouth");
 			}
 			swipe = false;
 			xStart = 0;

@@ -9,17 +9,17 @@ public class MouthLoadLevelCounter : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
-		//GameObject desiredSILevel = GameObject.Find ("ManualSILevelSelection(Clone)"); //TODO: add for mouth
+		GameObject desiredMouthLevel = GameObject.Find ("ManualMouthLevelSelection(Clone)");
 		
-		//if (desiredSILevel != null)
-		//{
-		//	DesiredSILevel desiredSILevelScript = desiredSILevel.GetComponent<DesiredSILevel> ();
-		//	level = desiredSILevelScript.getDesiredLevel();
-		//	Destroy (desiredSILevel);
-		//} else
-		//{
+		if (desiredMouthLevel != null)
+		{
+			DesiredMouthLevel desiredMouthLevelScript = desiredMouthLevel.GetComponent<DesiredMouthLevel> ();
+			level = desiredMouthLevelScript.getDesiredLevel();
+			Destroy (desiredMouthLevel);
+		} else
+		{
 			level = 1;
-		//}
+		}
 		
 		if (GameObject.FindGameObjectsWithTag ("mouthBackgroundChooser").Length > 1)
 			Destroy (gameObject);
@@ -37,18 +37,17 @@ public class MouthLoadLevelCounter : MonoBehaviour
 	{
 		DontDestroyOnLoad(transform.gameObject);
 	}
-
-	//TODO: add for mouth
+	
 	/*
 	 * Allow manual level changing forced by a menu rather than automatic transitions
 	 * */
-	/*public void manualSetLevel(int newLevel)
+	public void manualSetLevel(int newLevel)
 	{
 		if (newLevel > 0 && newLevel <= MAX_LEVEL)
 		{
 			level = newLevel;
 		}
-	}*/
+	}
 
 	/*
 	 * For moving on to the next level
