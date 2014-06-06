@@ -1,11 +1,12 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\SmallIntestine\LoadScript.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Storyboard\Intro Storyboard\TextForIntroStory.cs">
     <Files>
-      <File FileName="Assets\Scripts\Mouth\FoodStuffFinish.cs" Line="39" Column="3" />
-      <File FileName="Assets\Scripts\SmallIntestine\IntestineGameManager.cs" Line="67" Column="26" />
-      <File FileName="Assets\Scripts\Mouth\SpawnFood.cs" Line="24" Column="38" />
-      <File FileName="Assets\Scripts\SmallIntestine\LoadScript.cs" Line="73" Column="3" />
+      <File FileName="Assets\Scripts\Storyboard\Small Intestine Storyboard\TextForSIStory.cs" Line="15" Column="2" />
+      <File FileName="Assets\Scripts\SmallIntestine\LoadScript.cs" Line="12" Column="3" />
+      <File FileName="Assets\Scripts\Storyboard\Intro Storyboard\IntroStoryboard.cs" Line="83" Column="25" />
+      <File FileName="Assets\Scripts\Storyboard\Intro Storyboard\TextForIntroStory.cs" Line="157" Column="65" />
+      <File FileName="Assets\Resources\IntroText.txt" Line="6" Column="13" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
