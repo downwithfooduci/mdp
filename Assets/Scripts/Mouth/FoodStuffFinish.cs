@@ -5,6 +5,7 @@ public class FoodStuffFinish : MonoBehaviour
 {
 	private StomachBar stomachBar;
 	SpawnFood foodSpawner;
+	MouthScore score;
 	//	private LostFoodCount lostFoodCount; // TODO: UNUSED
 
 	// Use this for initialization
@@ -12,6 +13,7 @@ public class FoodStuffFinish : MonoBehaviour
 	{
 		GameObject mouthGUI = GameObject.Find("MouthGUI");
 		stomachBar = mouthGUI.GetComponent<StomachBar>();
+		score = mouthGUI.GetComponent<MouthScore>();
 		foodSpawner = GameObject.Find("FoodSpawner").GetComponent<SpawnFood>();
 		//lostFoodCount = mouthGUI.GetComponent<LostFoodCount>(); // TODO: UNUSED
 	}
@@ -27,6 +29,7 @@ public class FoodStuffFinish : MonoBehaviour
 		// check if we got the food through the mouth
 		if (obj.gameObject.tag == "MouthEnd")
 		{
+			score.collectFood();
 			OnEndPointCollision();
 		}
 		/***********************
