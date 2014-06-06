@@ -21,7 +21,7 @@ public class SpawnFood : MonoBehaviour {
 		GameObject flaps = GameObject.Find("Flaps");
 		flap = flaps.GetComponent<openFlap>();
 		loadScript = new LoadScript();
-		waves = loadScript.loadMouthLevel(0);
+		waves = loadScript.loadMouthLevel(1);
 		currentWave = 0;
 		waveDelay = waves[0].startDelay;
 		waveTime = waves[0].runTime;

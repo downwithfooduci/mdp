@@ -44,9 +44,27 @@ public class FoodStuffFinish : MonoBehaviour
 		//TODO: Make Different Levels and Transition Between Them
 		GameObject[] foodstuff = GameObject.FindGameObjectsWithTag("MouthFood");
 		if(foodstuff.Length == 1 && foodSpawner.end)
-			Application.LoadLevel("EndScreen");
+		{
+			// handle win condition
+			GameObject chooseBackground = GameObject.Find("MouthChooseBackground");
+			MouthLoadLevelCounter  level = chooseBackground.GetComponent<MouthLoadLevelCounter>();
+			
+			if(level.getLevel() == level.getMaxLevels())
+			{
+				level.resetLevel();
+				Application.LoadLevel("SmallIntestineStoryboard");
+			}
+			else
+			{
+				level.nextLevel();
+				//Application.LoadLevel("SmallIntestineStats");
+				Application.LoadLevel("LoadLevelMouth");
+			}
+		}
 		else
+		{
 			Destroy(this.gameObject);
+		}
 	}
 
 	/**************

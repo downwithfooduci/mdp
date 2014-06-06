@@ -7,7 +7,11 @@ public class MainMenuDebug : MonoBehaviour
 
 	public GameObject desiredSILevel;
 	private GameObject desiredSILevelObj;
-	private DesiredSILevel level;
+	private DesiredSILevel levelSI;
+
+	public GameObject desiredMouthLevel;
+	private GameObject desiredMouthLevelObj;
+	private DesiredMouthLevel levelMouth;
 
 	private GameObject skipStoryEnabler;
 	private SkipStoryEnablerScript skipStoryEnablerScript;
@@ -103,8 +107,8 @@ public class MainMenuDebug : MonoBehaviour
 			                        100, 50), "SI Level 1"))
 			{
 				desiredSILevelObj = (GameObject)Instantiate (desiredSILevel);
-				level = desiredSILevelObj.GetComponent<DesiredSILevel>();
-				level.setDesiredLevel(1);
+				levelSI = desiredSILevelObj.GetComponent<DesiredSILevel>();
+				levelSI.setDesiredLevel(1);
 				Application.LoadLevel("LoadLevelSmallIntestine");
 			}
 			
@@ -112,8 +116,8 @@ public class MainMenuDebug : MonoBehaviour
 			                        100, 50), "SI Level 2"))
 			{
 				desiredSILevelObj = (GameObject)Instantiate (desiredSILevel);
-				level = desiredSILevelObj.GetComponent<DesiredSILevel>();
-				level.setDesiredLevel(2);
+				levelSI = desiredSILevelObj.GetComponent<DesiredSILevel>();
+				levelSI.setDesiredLevel(2);
 				Application.LoadLevel("LoadLevelSmallIntestine");
 			}
 			
@@ -121,8 +125,8 @@ public class MainMenuDebug : MonoBehaviour
 			                        100, 50), "SI Level 3"))
 			{
 				desiredSILevelObj = (GameObject)Instantiate (desiredSILevel);
-				level = desiredSILevelObj.GetComponent<DesiredSILevel>();
-				level.setDesiredLevel(3);
+				levelSI = desiredSILevelObj.GetComponent<DesiredSILevel>();
+				levelSI.setDesiredLevel(3);
 				Application.LoadLevel("LoadLevelSmallIntestine");
 			}
 
@@ -130,8 +134,8 @@ public class MainMenuDebug : MonoBehaviour
 			                        100, 50), "SI Level 4"))
 			{
 				desiredSILevelObj = (GameObject)Instantiate (desiredSILevel);
-				level = desiredSILevelObj.GetComponent<DesiredSILevel>();
-				level.setDesiredLevel(4);
+				levelSI = desiredSILevelObj.GetComponent<DesiredSILevel>();
+				levelSI.setDesiredLevel(4);
 				Application.LoadLevel("LoadLevelSmallIntestine");
 			}
 
@@ -139,8 +143,8 @@ public class MainMenuDebug : MonoBehaviour
 			                        100, 50), "SI Level 5"))
 			{
 				desiredSILevelObj = (GameObject)Instantiate (desiredSILevel);
-				level = desiredSILevelObj.GetComponent<DesiredSILevel>();
-				level.setDesiredLevel(5);
+				levelSI = desiredSILevelObj.GetComponent<DesiredSILevel>();
+				levelSI.setDesiredLevel(5);
 				Application.LoadLevel("LoadLevelSmallIntestine");
 			}
 
@@ -148,9 +152,31 @@ public class MainMenuDebug : MonoBehaviour
 			                        100, 50), "SI Level 6"))
 			{
 				desiredSILevelObj = (GameObject)Instantiate (desiredSILevel);
-				level = desiredSILevelObj.GetComponent<DesiredSILevel>();
-				level.setDesiredLevel(6);
+				levelSI = desiredSILevelObj.GetComponent<DesiredSILevel>();
+				levelSI.setDesiredLevel(6);
 				Application.LoadLevel("LoadLevelSmallIntestine");
+			}
+
+
+/***********************************************************
+ * Allow jumping between different game levels for Mouth game
+ * ********************************************************/
+			if (GUI.Button(new Rect(450, 50, 
+			                        100, 50), "Mouth 1"))
+			{
+				desiredMouthLevelObj = (GameObject)Instantiate (desiredMouthLevel);
+				levelMouth = desiredMouthLevelObj.GetComponent<DesiredMouthLevel>();
+				levelMouth.setDesiredLevel(1);
+				Application.LoadLevel("LoadLevelMouth");
+			}
+			
+			if (GUI.Button(new Rect(450, 100, 
+			                        100, 50), "Mouth 2"))
+			{
+				desiredMouthLevelObj = (GameObject)Instantiate (desiredMouthLevel);
+				levelMouth = desiredMouthLevelObj.GetComponent<DesiredMouthLevel>();
+				levelMouth.setDesiredLevel(2);
+				Application.LoadLevel("LoadLevelMouth");
 			}
 		}
 	}

@@ -9,7 +9,7 @@ public class MouthLoadLevelCounter : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
-		GameObject desiredMouthLevel = GameObject.Find ("ManualMouthLevelSelection(Clone)");
+		GameObject desiredMouthLevel = GameObject.Find ("MouthManualLevelSelect(Clone)");
 		
 		if (desiredMouthLevel != null)
 		{

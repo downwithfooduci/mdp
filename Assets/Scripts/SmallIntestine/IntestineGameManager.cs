@@ -89,7 +89,6 @@ public class IntestineGameManager : MonoBehaviour
     public void OnNutrientHit()
     {
 		// track nutrients earned
-		Debug.Log ("TRACKING NUTRIENTS EARNED");
 		trackStatVariables.increaseNutrientsEarned (NutrientHitScore);
 
 		nutrients += NutrientHitScore;
@@ -103,7 +102,6 @@ public class IntestineGameManager : MonoBehaviour
 		if (numNutrientsAlive > 0) 
 		{
 			// track the food particles left at the end
-			Debug.Log("TRACKING FOOD PARTICLES LOST");
 			trackStatVariables.increaseFoodLost(numNutrientsAlive);
 
 			health = Mathf.Clamp(health - numNutrientsAlive, 0, MAX_HEALTH);
