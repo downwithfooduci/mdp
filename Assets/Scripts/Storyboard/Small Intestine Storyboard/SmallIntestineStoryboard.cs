@@ -90,4 +90,9 @@ public class SmallIntestineStoryboard : MonoBehaviour
 	{
 		GUI.DrawTexture (new Rect(0, 0, Screen.width, Screen.height), pages[Mathf.Clamp(currPage - 1, 0, pages.Length - 1)]);
 	}
+
+	public int getCurrPage()
+	{
+		return currPage;
+	}
 }
