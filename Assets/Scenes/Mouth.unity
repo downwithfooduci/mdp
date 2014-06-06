@@ -271,6 +271,7 @@ GameObject:
   - 114: {fileID: 204818110}
   - 114: {fileID: 204818111}
   - 114: {fileID: 204818112}
+  - 114: {fileID: 204818113}
   m_Layer: 0
   m_Name: MouthGUI
   m_TagString: Untagged
@@ -686,6 +687,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tongue: {fileID: 2800000, guid: fa5f3a374bb63ef469ec79e1f57878fc, type: 3}
+--- !u!114 &204818113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 204818103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1999c2b17930854da1d398b48168ba4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  score: 0
+  foodChain: 0
+  FourMultCount: 4
+  SixteenMultCount: 8
+  FourMultTexture: {fileID: 2800000, guid: 1937972f852ed5440a8049dff3d43913, type: 3}
+  SixteenMulTexture: {fileID: 2800000, guid: 0d4a355802af42742b083719080657b0, type: 3}
 --- !u!1 &233666803
 GameObject:
   m_ObjectHideFlags: 0
@@ -828,10 +846,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe0c329349729b242af848c571bcdea6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  foodSpawnDelay: 1
   oxygenDeplete: .0500000007
   oxygenGain: .0500000007
   debugActive: 0
+  foodSpawnInterval: .5
+  waveDelay: 1
+  waveTime: 5
+  foodSpeed: 3
 --- !u!4 &465299930
 Transform:
   m_ObjectHideFlags: 0
