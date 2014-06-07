@@ -31,7 +31,11 @@ public class MoveFood : MonoBehaviour {
 			transform.position = Spline.MoveOnPath(iTweenPath.GetPathReversed("Path"), transform.position, ref reversePosition, ref q, coughSpeed,100,EasingType.Linear,false,false);
 			pathPosition = 1f - reversePosition;
 			if(reversePosition > .99f)
+			{
+				TrackMouthVariables stats = GameObject.Find ("MouthStatTracker(Clone)").GetComponent<TrackMouthVariables>();
+				stats.loseFood();
 				Destroy (gameObject);
+			}
 		}
 		else
 		{

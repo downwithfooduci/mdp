@@ -51,18 +51,8 @@ public class FoodStuffFinish : MonoBehaviour
 			// handle win condition
 			GameObject chooseBackground = GameObject.Find("MouthChooseBackground");
 			MouthLoadLevelCounter  level = chooseBackground.GetComponent<MouthLoadLevelCounter>();
-			
-			if(level.getLevel() == level.getMaxLevels())
-			{
-				level.resetLevel();
-				Application.LoadLevel("SmallIntestineStoryboard");
-			}
-			else
-			{
-				level.nextLevel();
-				//Application.LoadLevel("SmallIntestineStats");
-				Application.LoadLevel("LoadLevelMouth");
-			}
+			level.nextLevel();
+			Application.LoadLevel("MouthStats");
 		}
 		else
 		{

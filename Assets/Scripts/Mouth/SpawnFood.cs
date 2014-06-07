@@ -18,10 +18,11 @@ public class SpawnFood : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		debugConfig = GameObject.Find("Debugger").GetComponent<EsophagusDebugConfig>();
+		MouthLoadLevelCounter level = GameObject.Find ("MouthChooseBackground").GetComponent<MouthLoadLevelCounter>();
 		GameObject flaps = GameObject.Find("Flaps");
 		flap = flaps.GetComponent<openFlap>();
 		loadScript = new LoadScript();
-		waves = loadScript.loadMouthLevel(1);
+		waves = loadScript.loadMouthLevel(level.getLevel());
 		currentWave = 0;
 		waveDelay = waves[0].startDelay;
 		waveTime = waves[0].runTime;

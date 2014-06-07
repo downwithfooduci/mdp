@@ -17,6 +17,8 @@ public class CoughCollision : MonoBehaviour {
 	{
 		if(other.gameObject.name.Contains ("foodstuff"))
 		{
+			TrackMouthVariables stats = GameObject.Find ("MouthStatTracker(Clone)").GetComponent<TrackMouthVariables>();
+			stats.cough();
 			openFlap flap = transform.parent.gameObject.GetComponent<openFlap>();
 			flap.setCough();
 		}

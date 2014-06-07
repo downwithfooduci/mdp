@@ -6,9 +6,11 @@ public class MouthScore : MonoBehaviour {
 	public int FourMultCount, SixteenMultCount;
 	public Texture FourMultTexture, SixteenMulTexture;
 	openFlap flapScript;
+	TrackMouthVariables stats;
 	// Use this for initialization
 	void Start () {
 		flapScript = GameObject.Find("Flaps").GetComponent<openFlap>();
+		stats = GameObject.Find ("MouthStatTracker(Clone)").GetComponent<TrackMouthVariables>();
 	}
 	
 	// Update is called once per frame
@@ -24,15 +26,18 @@ public class MouthScore : MonoBehaviour {
 		scoreToAdd *= foodChain >= SixteenMultCount ? 4 : 1;
 		score += scoreToAdd;
 		foodChain++;
+		stats.setScore(score);
+		stats.setLongestStreak(foodChain);
+		stats.swallowFood();
 	}
 
 	void OnGUI()
 	{
-		if(foodChain > SixteenMultCount)
+		if(foodChain >= SixteenMultCount)
 		{
 			GUI.DrawTexture(new Rect(Screen.width * .01f, Screen.height * .85f, Screen.height * .08f,
 			                         Screen.height * .08f), SixteenMulTexture);
-		} else if(foodChain > FourMultCount)
+		} else if(foodChain >= FourMultCount)
 		{
 			GUI.DrawTexture(new Rect(Screen.width * .01f, Screen.height * .85f, Screen.height * .08f,
 			                         Screen.height * .08f), FourMultTexture);

@@ -29,7 +29,7 @@ public class MouthLoadLevelCounter : MonoBehaviour
 	void Update () 
 	{
 		string scene = Application.loadedLevelName;
-		if (scene != "LoadLevelMouth" && scene != "Mouth")
+		if (scene != "LoadLevelMouth" && scene != "Mouth" && scene != "MouthStats")
 			Destroy (gameObject);
 	}
 

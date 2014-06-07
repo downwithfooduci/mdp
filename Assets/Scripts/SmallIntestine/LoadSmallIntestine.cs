@@ -16,7 +16,7 @@ public class LoadSmallIntestine : MonoBehaviour
 		timePassed = timer;
 
 		// check if a stats tracker exists
-		GameObject existingStatsTracker = GameObject.Find ("SIStatsTracker(Clone)");
+		GameObject existingStatsTracker = GameObject.Find ("SIStatTracker(Clone)");
 
 		// if one doesn't create it
 		if (existingStatsTracker == null) 
@@ -29,6 +29,10 @@ public class LoadSmallIntestine : MonoBehaviour
 	{
 		counter = GameObject.Find ("ChooseBackground");
 		level = counter.GetComponent<SmallIntestineLoadLevelCounter> ();
+		if(level.getLevel() > level.getMaxLevels())
+		{
+			Application.LoadLevel("EndScreen");
+		}
 		GUI.DrawTexture (new Rect(0, 0, Screen.width, Screen.height), backgrounds [Mathf.Clamp(level.getLevel() - 1, 0, level.getMaxLevels())]);
 	}
 

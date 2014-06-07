@@ -4,7 +4,7 @@ using System.Collections;
 public class LoadMouth : MonoBehaviour 
 {
 	private GameObject counter;			// to keep track of levels
-//	public GameObject statsTracker;	// to keep track of stats	//TODO: add for mouth game
+	public GameObject statsTracker;	// to keep track of stats
 	
 	public Texture[] backgrounds;
 	private MouthLoadLevelCounter level;
@@ -17,14 +17,14 @@ public class LoadMouth : MonoBehaviour
 	{
 		timePassed = timer;
 		
-		// check if a stats tracker exists 	//TODO: for mouth game
-		//GameObject existingStatsTracker = GameObject.Find ("SIStatsTracker(Clone)");
+		// check if a stats tracker exists
+		GameObject existingStatsTracker = GameObject.Find ("MouthStatTracker(Clone)");
 		
 		// if one doesn't create it
-		//if (existingStatsTracker == null) 
-		//{
-		//	Instantiate(statsTracker);
-		//}
+		if (existingStatsTracker == null) 
+		{
+			Instantiate(statsTracker);
+		}
 	}
 	
 	// Update is called once per frame
@@ -41,6 +41,10 @@ public class LoadMouth : MonoBehaviour
 	{
 		counter = GameObject.Find ("MouthChooseBackground");
 		level = counter.GetComponent<MouthLoadLevelCounter> ();
+		if(level.getLevel() > level.getMaxLevels())
+		{
+			Application.LoadLevel("SmallIntestineStoryboard");
+		}
 		GUI.DrawTexture (new Rect(0, 0, Screen.width, Screen.height), backgrounds [Mathf.Clamp(level.getLevel() - 1, 0, level.getMaxLevels())]);
 	}
 }

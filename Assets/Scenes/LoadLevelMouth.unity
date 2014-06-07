@@ -139,6 +139,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db569e5f01abe2f47ada8cf0784aeb8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  statsTracker: {fileID: 100000, guid: 473f83a958804f1468b7cdc4d5d5fc42, type: 2}
   backgrounds:
   - {fileID: 2800000, guid: 0dc0625eb87a9244f9ac6f98528bd616, type: 3}
   - {fileID: 2800000, guid: 8a47fdfb6d9644b4a840e74853af649e, type: 3}
