@@ -657,7 +657,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mouthOverlay: {fileID: 2800000, guid: 5c35ed8459b837b49a54dff26efe8b52, type: 3}
-  sideBar: {fileID: 2800000, guid: 1beded11f4636d840818dfb3b0f962f4, type: 3}
+  sideBar: {fileID: 2800000, guid: 3b21b9b780f84d8499e3133030066b5e, type: 3}
 --- !u!114 &204818111
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -39,3 +39,5 @@ EditorBuildSettings:
     path: Assets/Scenes/SmallIntestineStats.unity
   - enabled: 1
     path: Assets/Scenes/LoadLevelMouth.unity
+  - enabled: 1
+    path: Assets/Scenes/MouthStats.unity
