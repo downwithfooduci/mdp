@@ -100,7 +100,7 @@ public class openFlap : MonoBehaviour {
 		{
 			audio.Play();
 		}
-		coughTimer = coughTime;
+		coughTimer = .950f;
 		cough = true;
 	}
 

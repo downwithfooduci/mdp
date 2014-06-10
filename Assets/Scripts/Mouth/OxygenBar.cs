@@ -5,9 +5,12 @@ public class OxygenBar : MonoBehaviour {
 	Vector2 position;
 	Vector2 originalSize;
 	public Texture oxygenBar;
-	private float percent;
+	public float percent;
 	openFlap flap;
 	EsophagusDebugConfig config;
+	float depletionRate = .05f;
+	float gainRate = .05f;
+
 	// Use this for initialization
 	void Start () {
 		percent = 1f;
@@ -18,9 +21,8 @@ public class OxygenBar : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		float depletionRate = .05f;
-		float gainRate = .05f;
+	void Update () 
+	{
 		if(config.debugActive)
 		{
 			depletionRate = config.oxygenDeplete;

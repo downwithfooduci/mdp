@@ -205,7 +205,7 @@ AudioSource:
   m_GameObject: {fileID: 118777431}
   m_Enabled: 1
   serializedVersion: 3
-  m_audioClip: {fileID: 8300000, guid: d2eb92e3e4419e640889027ce7a59627, type: 3}
+  m_audioClip: {fileID: 8300000, guid: c2054c51ae2ae074c83e43212e019cff, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -272,6 +272,7 @@ GameObject:
   - 114: {fileID: 204818111}
   - 114: {fileID: 204818112}
   - 114: {fileID: 204818113}
+  - 82: {fileID: 204818114}
   m_Layer: 0
   m_Name: MouthGUI
   m_TagString: Untagged
@@ -292,6 +293,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   oxygenBar: {fileID: 2800000, guid: 69855d3194854cd4eaae2cefa153c7ad, type: 3}
+  percent: 0
 --- !u!114 &204818105
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -704,6 +706,64 @@ MonoBehaviour:
   SixteenMultCount: 8
   FourMultTexture: {fileID: 2800000, guid: 1937972f852ed5440a8049dff3d43913, type: 3}
   SixteenMulTexture: {fileID: 2800000, guid: 0d4a355802af42742b083719080657b0, type: 3}
+--- !u!82 &204818114
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 204818103}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_audioClip: {fileID: 8300000, guid: 959a2208e25298b428040864d84a6adf, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: .49000001
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!1 &233666803
 GameObject:
   m_ObjectHideFlags: 0

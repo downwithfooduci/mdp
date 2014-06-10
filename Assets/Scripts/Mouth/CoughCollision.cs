@@ -19,6 +19,8 @@ public class CoughCollision : MonoBehaviour {
 		{
 			TrackMouthVariables stats = GameObject.Find ("MouthStatTracker(Clone)").GetComponent<TrackMouthVariables>();
 			stats.cough();
+			OxygenBar oxygen = GameObject.Find("MouthGUI").GetComponent<OxygenBar>();
+			oxygen.percent -= .1f;
 			openFlap flap = transform.parent.gameObject.GetComponent<openFlap>();
 			flap.setCough();
 		}

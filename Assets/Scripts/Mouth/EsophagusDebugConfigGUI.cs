@@ -41,14 +41,14 @@ public class EsophagusDebugConfigGUI : MonoBehaviour
 		GUIStyle style = GUI.skin.label;
 		style.normal.textColor = Color.black;
 		GUI.depth -= 5;
-		if(GUI.Button(new Rect(Screen.width  - (Screen.width * .25f), 
+		/*if(GUI.Button(new Rect(Screen.width  - (Screen.width * .25f), 
 		                           Screen.height - (Screen.height * .06f),
 		                           Screen.width * .12f,
 		                           Screen.height * .06f), "Debug"))
 		{
 			showGUI = !showGUI;
 			Time.timeScale = showGUI ? 0 : 1;
-		}
+		}*/
 
 		if(showGUI)
 		{

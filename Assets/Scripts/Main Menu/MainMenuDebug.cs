@@ -53,7 +53,7 @@ public class MainMenuDebug : MonoBehaviour
 			if (GUI.Button(new Rect(0, 100, 
 			                        100, 50), "Mouth Game"))
 			{
-				Application.LoadLevel("Mouth");
+				Application.LoadLevel("LoadLevelMouth");
 			}
 
 			if (GUI.Button(new Rect(0, 150, 
