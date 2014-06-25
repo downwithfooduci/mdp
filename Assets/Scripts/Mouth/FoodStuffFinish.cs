@@ -3,7 +3,6 @@ using System.Collections;
 
 public class FoodStuffFinish : MonoBehaviour 
 {
-	private StomachBar stomachBar;
 	SpawnFood foodSpawner;
 	MouthScore score;
 	//	private LostFoodCount lostFoodCount; // TODO: UNUSED
@@ -12,7 +11,6 @@ public class FoodStuffFinish : MonoBehaviour
 	void Start () 
 	{
 		GameObject mouthGUI = GameObject.Find("MouthGUI");
-		stomachBar = mouthGUI.GetComponent<StomachBar>();
 		score = mouthGUI.GetComponent<MouthScore>();
 		foodSpawner = GameObject.Find("FoodSpawner").GetComponent<SpawnFood>();
 		//lostFoodCount = mouthGUI.GetComponent<LostFoodCount>(); // TODO: UNUSED

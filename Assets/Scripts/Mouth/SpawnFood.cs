@@ -15,6 +15,7 @@ public class SpawnFood : MonoBehaviour {
 	openFlap flap;
 	private float m_TimeSinceLastSpawn;
 	public bool end = false;
+
 	// Use this for initialization
 	void Start () {
 		debugConfig = GameObject.Find("Debugger").GetComponent<EsophagusDebugConfig>();

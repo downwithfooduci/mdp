@@ -178,6 +178,34 @@ public class MainMenuDebug : MonoBehaviour
 				levelMouth.setDesiredLevel(2);
 				Application.LoadLevel("LoadLevelMouth");
 			}
+
+/***********************************************************
+ * Reset save data
+ * ********************************************************/
+			if (GUI.Button(new Rect(600, 50, 
+			                        100, 50), "Reset all data"))
+			{
+				PlayerPrefs.DeleteAll();
+			}
+
+			if (GUI.Button(new Rect(600, 100, 
+			                        100, 50), "Reset only scores"))
+			{
+				PlayerPrefs.DeleteKey("Mouth1");
+				PlayerPrefs.DeleteKey("Mouth2");
+				PlayerPrefs.DeleteKey("SI1");
+				PlayerPrefs.DeleteKey("SI2");
+				PlayerPrefs.DeleteKey("SI3");
+				PlayerPrefs.DeleteKey("SI4");
+				PlayerPrefs.DeleteKey("SI5");
+				PlayerPrefs.DeleteKey("SI6");
+			}
+
+			if (GUI.Button(new Rect(600, 150, 
+			                        100, 50), "View High Scores"))
+			{
+				Application.LoadLevel("HighScores");
+			}
 		}
 	}
 }

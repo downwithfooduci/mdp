@@ -14,6 +14,11 @@ public class MouthStats : MonoBehaviour {
 	// for holding the tracker
 	private GameObject statTracker;
 	private TrackMouthVariables trackMouthVariables;
+
+	// for holding level
+	private GameObject counter;
+	private MouthLoadLevelCounter level;
+
 	// variables to hold stats, should coincide with variables in TrackStatVariables.cs
 	// list desired stats for tracking here
 	int longestStreak;
@@ -22,12 +27,21 @@ public class MouthStats : MonoBehaviour {
 	int foodSwallowed;
 	int highestMultiplier;
 	int score;
+
+	// for high scores
+	int prevHighScore;
 	
 	// Use this for initialization
 	void Start () 
 	{
+		// pull up the stats tracker
 		statTracker = GameObject.Find ("MouthStatTracker(Clone)");
 		trackMouthVariables = statTracker.GetComponent<TrackMouthVariables>();
+
+		// pull up the level counter
+		counter = GameObject.Find ("MouthChooseBackground");
+		level = counter.GetComponent<MouthLoadLevelCounter> ();
+
 		if(statTracker != null)
 			populateStats();
 		calculateStars();
@@ -46,21 +60,35 @@ public class MouthStats : MonoBehaviour {
 	// placeholder algorithm
 	void calculateStars()
 	{
-		if (foodLost == 0)
+		if (timesCoughed == 0)
 		{
 			numStars = 5;
-		} else if (foodLost <= 5)
+		} else if (timesCoughed == 1)
 		{
 			numStars = 4;
-		} else if (foodLost <= 10)
+		} else if (timesCoughed == 2)
 		{
 			numStars = 3;
-		} else if (foodLost <= 15)
+		} else if (timesCoughed == 3)
 		{
 			numStars = 2;
 		} else
 		{
 			numStars = 1;
+		}
+
+		saveHighScore();
+	}
+
+	void saveHighScore()
+	{
+		prevHighScore = PlayerPrefs.GetInt ("Mouth" + (level.getLevel() - 1));
+
+		// check if high score
+		if (prevHighScore < numStars)
+		{
+			// if it is the high score save it
+			PlayerPrefs.SetInt("Mouth" + (level.getLevel() - 1), numStars);
 		}
 	}
 	
@@ -157,7 +185,10 @@ public class MouthStats : MonoBehaviour {
 		          "Food Lost:\n" +
 		          "Food Swallowed:\n" +
 		          "Highest Multiplier:\n" +
-		          "Score:\n",
+		          "Score:\n" +
+		          "\n" +						//TODO: move this somewhere?
+		          "Previous\n" +				//TODO: move this somehwere?
+		          " High Score:",				//TODO: move this somewhere?
 		          statsStyle);
 		GUI.Label(new Rect((820f/1024f)*Screen.width, (90f/768f)*Screen.height, (((961f-27f)-600f)/1024f)*Screen.width,
 		                   ((520f-90f)/768f)*Screen.height), 
@@ -166,7 +197,10 @@ public class MouthStats : MonoBehaviour {
 		          "" + foodLost + "\n" +
 		          "" + foodSwallowed + "\n" +
 		          "" + highestMultiplier + "x\n" +
-		          "" + score + "\n",
+		          "" + score + "\n" +
+		          "\n" +						//TODO: move this somewhere?
+		          "\n" + 						//TODO: move this somewhere?
+		          "" + prevHighScore,			//TODO: move this somewhere?
 		          statsStyle);
 		// draw the button for next level
 		if (GUI.Button(new Rect((635f/1024f)*Screen.width, (535f/768f)*Screen.height,

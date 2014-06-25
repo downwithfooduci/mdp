@@ -15,6 +15,11 @@ public class SIStats : MonoBehaviour
 	// for holding the tracker
 	private GameObject statTracker;
 	private TrackStatVariables trackStatVariables;
+
+	// for holding level 
+	private GameObject counter;
+	private SmallIntestineLoadLevelCounter level;
+
 	// variables to hold stats, should coincide with variables in TrackStatVariables.cs
 	// list desired stats for tracking here
 	private int nutrientsEarned;
@@ -24,12 +29,21 @@ public class SIStats : MonoBehaviour
 	private int towersSold;
 	private int towersUpgraded;
 	private int enzymesFired;
+
+	// for high scores
+	int prevHighScore;
 	
 	// Use this for initialization
 	void Start () 
 	{
+		// pull up the stats tracker
 		statTracker = GameObject.Find ("SIStatTracker(Clone)");
 		trackStatVariables = statTracker.GetComponent<TrackStatVariables>();
+
+		// pull up the level
+		counter = GameObject.Find ("ChooseBackground");
+		level = counter.GetComponent<SmallIntestineLoadLevelCounter> ();
+
 		if(statTracker != null)
 			populateStats();
 		calculateStars();
@@ -64,6 +78,20 @@ public class SIStats : MonoBehaviour
 		} else
 		{
 			numStars = 1;
+		}
+	
+		saveHighScore();
+	}
+	
+	void saveHighScore()
+	{
+		prevHighScore = PlayerPrefs.GetInt ("SI" + (level.getLevel() - 1));
+		
+		// check if high score
+		if (prevHighScore < numStars)
+		{
+			// if it is the high score save it
+			PlayerPrefs.SetInt("SI" + (level.getLevel() - 1), numStars);
 		}
 	}
 	
@@ -161,7 +189,10 @@ public class SIStats : MonoBehaviour
 		          "Towers Placed:\n" +
 		          "Towers Sold:\n" +
 		          "Towers Upgraded:\n" +
-		          "Enzymes Fired:\n",
+		          "Enzymes Released:\n" +
+		          "\n" +						//TODO: move this somewhere?
+		          "Previous\n" +				//TODO: move this somehwere?
+		          " High Score:",				//TODO: move this somewhere?
 		          statsStyle);
 		GUI.Label(new Rect((820f/1024f)*Screen.width, (90f/768f)*Screen.height, (((961f-27f)-600f)/1024f)*Screen.width,
 		                   ((520f-90f)/768f)*Screen.height), 
@@ -171,7 +202,10 @@ public class SIStats : MonoBehaviour
 		          ""  + towersPlaced    + "\n" +
 		          ""  + towersSold      + "\n" +
 		          ""	  + towersUpgraded  + "\n" +
-		          ""  + enzymesFired    + "\n",
+		          ""  + enzymesFired    + "\n"+
+		          "\n" +						//TODO: move this somewhere?
+		          "\n" + 						//TODO: move this somewhere?
+		          "" + prevHighScore,			//TODO: move this somewhere?
 		          statsStyle);
 
 		// draw the button for next level
