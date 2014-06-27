@@ -1,19 +1,28 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class openFlap : MonoBehaviour {
+public class openFlap : MonoBehaviour 
+{
 	GameObject bottomFlap, topFlap;
-	Vector3 originalPositionBottomFlap, originalPositionTopFlap, center;
 	float moved = 0;
 	bool isOpen;
 	Plane plane;
 	bool cough = false;
 	float coughTimer, coughTime;
+
+	// swipe varaibles
+	private float xStart = 0.0f;
+	private float xEnd = 0.0f;
+	private float yStart = 0.0f;
+	private float yEnd = 0.0f;
+
 	// Use this for initialization
-	void Start () {
+	void Start () 
+	{
 		plane = new Plane( new Vector3(0, 0, -1), new Vector3(0, 0, -1));
 		coughTime = 3f;
 		coughTimer = 0;
+	
 		foreach(Transform child in transform)
 		{
 			if(child.gameObject.name == "flap1")
@@ -25,68 +34,53 @@ public class openFlap : MonoBehaviour {
 				topFlap = child.gameObject;
 			}
 		}
-		originalPositionBottomFlap = bottomFlap.transform.localPosition;
-		originalPositionTopFlap = topFlap.transform.localPosition;
-		center = new Vector3(1.320325f, 3.226704f, -1f);
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update () 
+	{
 		if(coughTimer > 0)
 		{
 			coughTimer -= Time.deltaTime;
 			return;
 		}
+	
 		cough = false;
-		if(Input.touches.Length == 2)
+
+		foreach (Touch touch in Input.touches) 
 		{
-			Touch topTouch, bottomTouch;
-			if(Input.touches[0].position.y > Input.touches[1].position.y)
+			if (touch.phase == TouchPhase.Began) 
 			{
-				topTouch = Input.touches[0];
-				bottomTouch = Input.touches[1];
+				xStart = touch.position.x;
+				yStart = touch.position.y;
 			}
-			else
+			if (touch.phase == TouchPhase.Moved) 
 			{
-				topTouch = Input.touches[1];
-				bottomTouch = Input.touches[0];
-			}
-
-			Ray topRay = Camera.main.ScreenPointToRay(topTouch.position);
-			Ray bottomRay = Camera.main.ScreenPointToRay(bottomTouch.position);
-			float topDist;
-			float bottomDist;
-			Vector3 topTouchPos = Vector3.zero;
-			Vector3 bottomTouchPos = Vector3.zero;
-			if (plane.Raycast(topRay, out topDist)){
-				topTouchPos = topRay.GetPoint(topDist); // get the plane point hit
-			}
-			if (plane.Raycast(bottomRay, out bottomDist)){
-				bottomTouchPos = bottomRay.GetPoint(bottomDist); // get the plane point hit
-			}
-			Vector3 diffVect = bottomTouchPos - topTouchPos;
-			diffVect /= 2;
-			Vector3 touchCenter = topTouchPos + diffVect;
-
-			if(Vector3.Distance(touchCenter, center) < 1)
-			{
-				moved = Mathf.Clamp(moved + 
-				                    topTouch.deltaPosition.y / 20f - 
-				                    bottomTouch.deltaPosition.y / 20f, 0, .55f);
+				xEnd = touch.position.x;
+				yEnd = touch.position.y;
+				
+				if (Mathf.Sqrt((xStart - xEnd)*(xStart - xEnd)+(yStart - yEnd)*(yStart - yEnd)) > 20) 
+				{
+					isOpen = !isOpen;
+					bottomFlap.GetComponent<BoxCollider>().enabled = !bottomFlap.GetComponent<BoxCollider>().enabled;
+					topFlap.GetComponent<BoxCollider>().enabled = !topFlap.GetComponent<BoxCollider>().enabled;
+				}
 			}
 		}
+
+		// for PC/MAC version
 		if(Input.GetKey(KeyCode.A))
 		{
-			moved = Mathf.Clamp(moved - .3f * Time.deltaTime, 0, .55f);
+			isOpen = false;
+			bottomFlap.GetComponent<BoxCollider>().enabled = true;
+			topFlap.GetComponent<BoxCollider>().enabled = true;
 		}
 		else if(Input.GetKey(KeyCode.D))
 		{
-			moved = Mathf.Clamp(moved + .3f * Time.deltaTime, 0, .55f);
+			isOpen = true;
+			bottomFlap.GetComponent<BoxCollider>().enabled = false;
+			topFlap.GetComponent<BoxCollider>().enabled = false;
 		}
-		isOpen = moved >= .35f;
-		float flapPosition = isOpen ? .55f : 0f;
-		bottomFlap.transform.localPosition = originalPositionBottomFlap - bottomFlap.transform.up * flapPosition;
-		topFlap.transform.localPosition = originalPositionTopFlap + topFlap.transform.up * flapPosition;
 	}
 
 	public bool isEpiglotisOpen()
@@ -108,5 +102,4 @@ public class openFlap : MonoBehaviour {
 	{
 		return cough;
 	}
-
 }
