@@ -52,8 +52,9 @@ public class openFlap : MonoBehaviour
 		{
 			if (touch.phase == TouchPhase.Began) 
 			{
-				if ((touch.position.x >= .5f*Screen.width && touch.position.x <= .9f*Screen.width) && 
-					(touch.position.y <= .3f*Screen.height && touch.position.y >= .8f*Screen.height))
+				Debug.Log("began (x,y): " + touch.position.x + "," + touch.position.y);
+				if ((touch.position.x >= .5f*Screen.width && touch.position.x <= Screen.width) && 
+					(touch.position.y <= .3f*Screen.height && touch.position.y >= .9f*Screen.height))
 				{
 					xStart = touch.position.x;
 					yStart = touch.position.y;
@@ -61,9 +62,9 @@ public class openFlap : MonoBehaviour
 			}
 			if (touch.phase == TouchPhase.Moved) 
 			{
-				Debug.Log("began (x,y): " + touch.position.x + "," + touch.position.y);
-				if ((touch.position.x >= .5f*Screen.width && touch.position.x <= .9f*Screen.width) && 
-				    (touch.position.y <= .3f*Screen.height && touch.position.y >= .8f*Screen.height))
+				Debug.Log("end (x,y): " + touch.position.x + "," + touch.position.y);
+				if ((touch.position.x >= .5f*Screen.width && touch.position.x <= Screen.width) && 
+				    (touch.position.y <= .3f*Screen.height && touch.position.y >= .9f*Screen.height))
 				{
 					xEnd = touch.position.x;
 					yEnd = touch.position.y;
