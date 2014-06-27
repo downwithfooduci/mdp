@@ -52,6 +52,7 @@ public class openFlap : MonoBehaviour
 		{
 			if (touch.phase == TouchPhase.Began) 
 			{
+				Debug.Log("began (x,y): " + touch.position.x + "," + touch.position.y);
 				if ((touch.position.x >= 0 && touch.position.x <= 6) && 
 					(touch.position.y <= 3.5 && touch.position.y >= -3.5))
 				{
@@ -61,6 +62,7 @@ public class openFlap : MonoBehaviour
 			}
 			if (touch.phase == TouchPhase.Moved) 
 			{
+				Debug.Log("began (x,y): " + touch.position.x + "," + touch.position.y);
 				if ((touch.position.x >= 0 && touch.position.x <= 6) && 
 					(touch.position.y <= 3.5 && touch.position.y >= -3.5))
 				{
