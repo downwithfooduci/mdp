@@ -58,20 +58,21 @@ public class MouthStoryboard : MonoBehaviour {
 			}
 			if(Input.GetKeyDown(KeyCode.Space))
 				swipe = true;
-		}
 		
-		// set variables for next page
-		if (swipe)
-		{
-			currPage++;
-			if ((currPage - 1) == pages.Length)
+		
+			// set variables for next page
+			if (swipe)
 			{
-				Application.LoadLevel("LoadLevelMouth");
+				currPage++;
+				if ((currPage - 1) == pages.Length)
+				{
+					Application.LoadLevel("LoadLevelMouth");
+				}
+				swipe = false;
+				xStart = 0;
+				xEnd = 0;
+				hasPlayed = false;
 			}
-			swipe = false;
-			xStart = 0;
-			xEnd = 0;
-			hasPlayed = false;
 		}
 	}
 	
@@ -86,6 +87,17 @@ public class MouthStoryboard : MonoBehaviour {
 	void OnGUI()
 	{
 		GUI.DrawTexture (new Rect(0, 0, Screen.width, Screen.height), pages[Mathf.Clamp(currPage - 1, 0, pages.Length - 1)]);
+
+		// create an invisible button by the page turn
+		if(!audio.isPlaying)
+		{
+			GUI.color = new Color() { a = 0.0f };
+			if (GUI.Button(new Rect(Screen.width * .84f, 0, Screen.width * .16f, Screen.width * .16f),""))
+			{
+				swipe = true;
+			}
+			GUI.color = new Color() { a = 1.0f };
+		}
 	}
 
 	public int getCurrPage()

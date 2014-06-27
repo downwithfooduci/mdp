@@ -41,3 +41,5 @@ EditorBuildSettings:
     path: Assets/Scenes/LoadLevelMouth.unity
   - enabled: 1
     path: Assets/Scenes/MouthStats.unity
+  - enabled: 1
+    path: Assets/Scenes/HighScores.unity
