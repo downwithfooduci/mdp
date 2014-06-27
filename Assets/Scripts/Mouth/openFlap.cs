@@ -16,6 +16,8 @@ public class openFlap : MonoBehaviour
 	private float yStart = 0.0f;
 	private float yEnd = 0.0f;
 	private bool swipe = false;
+	private bool swipeUp = false;
+	private bool swipeDown = false;
 
 	// Use this for initialization
 	void Start () 
@@ -48,11 +50,11 @@ public class openFlap : MonoBehaviour
 	
 		cough = false;
 
+		// ipad touch detection
 		foreach (Touch touch in Input.touches) 
 		{
 			if (touch.phase == TouchPhase.Began) 
 			{
-				Debug.Log("began (x,y): " + touch.position.x + "," + touch.position.y);
 				if ((touch.position.x >= .5f*Screen.width && touch.position.x <= Screen.width) && 
 					(touch.position.y <= .3f*Screen.height && touch.position.y >= .9f*Screen.height))
 				{
@@ -60,9 +62,9 @@ public class openFlap : MonoBehaviour
 					yStart = touch.position.y;
 				}
 			}
-			if (touch.phase == TouchPhase.Moved) 
+
+			if (touch.phase == TouchPhase.Ended)
 			{
-				Debug.Log("end (x,y): " + touch.position.x + "," + touch.position.y);
 				if ((touch.position.x >= .5f*Screen.width && touch.position.x <= Screen.width) && 
 				    (touch.position.y <= .3f*Screen.height && touch.position.y >= .9f*Screen.height))
 				{
@@ -73,36 +75,80 @@ public class openFlap : MonoBehaviour
 				if (Mathf.Sqrt((xStart - xEnd)*(xStart - xEnd)+(yStart - yEnd)*(yStart - yEnd)) > 20) 
 				{
 					swipe = true;
+					
+				Debug.Log ("xstart: " + xStart + " xEnd" + xEnd);
+					if (xStart < xEnd)
+					{
+					Debug.Log ("Swipe up");
+						swipeUp = true;
+					} else
+					{
+					Debug.Log ("Swipe down");
+						swipeDown = true;
+					}
 				}
 			}
 		}
 
 		// for PC/MAC version
-		if(Input.GetKey(KeyCode.A))
+		if(Input.GetMouseButtonDown(0))
 		{
-			isOpen = false;
-			bottomFlap.GetComponent<BoxCollider>().enabled = true;
-			topFlap.GetComponent<BoxCollider>().enabled = true;
+			if ((Input.mousePosition.x >= .5f*Screen.width && Input.mousePosition.x <= Screen.width) && 
+		    (Input.mousePosition.y <= .7f*Screen.height && Input.mousePosition.y >= .1f*Screen.height))
+			{
+				xStart = Input.mousePosition.x;
+				yStart = Input.mousePosition.y;
+			}
 		}
-		else if(Input.GetKey(KeyCode.D))
+		if(Input.GetMouseButtonUp(0))
 		{
-			isOpen = true;
-			bottomFlap.GetComponent<BoxCollider>().enabled = false;
-			topFlap.GetComponent<BoxCollider>().enabled = false;
+			if ((Input.mousePosition.x >= .5f*Screen.width && Input.mousePosition.x <= Screen.width) && 
+		    (Input.mousePosition.y <= .7f*Screen.height && Input.mousePosition.y >= .1f*Screen.height))
+			{
+				xEnd = Input.mousePosition.x;
+				yEnd = Input.mousePosition.y;
+			}
+			if (Mathf.Sqrt((xStart - xEnd)*(xStart - xEnd)+(yStart - yEnd)*(yStart - yEnd)) > 20) 
+			{
+				swipe = true;
+			
+				if (xStart < xEnd)
+				{
+					swipeUp = true;
+				} else
+				{
+					swipeDown = true;
+				}
+			}
 		}
-
+	
 		if (swipe)
 		{
-			isOpen = !isOpen;
-			bottomFlap.GetComponent<BoxCollider>().enabled = !bottomFlap.GetComponent<BoxCollider>().enabled;
-			topFlap.GetComponent<BoxCollider>().enabled = !topFlap.GetComponent<BoxCollider>().enabled;
+			if (swipeUp)
+			{
+				isOpen = false;
+				bottomFlap.GetComponent<BoxCollider>().enabled = true;
+				topFlap.GetComponent<BoxCollider>().enabled = true;
 
-			// reset variables
-			xStart = 0.0f;
-			xEnd = 0.0f;
-			yStart = 0.0f;
-			yEnd = 0.0f;
-			swipe = false;
+				// reset variables
+				xStart = 0.0f;
+				xEnd = 0.0f;
+				yStart = 0.0f;
+				yEnd = 0.0f;
+				swipeUp = false;
+			} else if (swipeDown)
+			{
+				isOpen = true;
+				bottomFlap.GetComponent<BoxCollider>().enabled = false;
+				topFlap.GetComponent<BoxCollider>().enabled = false;
+				
+				// reset variables
+				xStart = 0.0f;
+				xEnd = 0.0f;
+				yStart = 0.0f;
+				yEnd = 0.0f;
+				swipeDown = false;
+			}
 		}
 	}
 

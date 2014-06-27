@@ -10,10 +10,9 @@ public class PinchToZoom : MonoBehaviour {
 	public float minPinchSpeed = 5.0f;
 	public float varianceInDistances = 5.0f;
 	private float touchDelta = 0.0f;
+	private float speedTouch0, speedTouch1;
 	private Vector2 prevDist = new Vector2(0, 0);
 	private Vector2 curDist = new Vector2(0, 0);
-	private float speedTouch0 = 0.0f;
-	private float speedTouch1 = 0.0f;
 	private int maxFOV = 60;
 	private int minFOV = 1;
 	private float maxMove = 8000f;

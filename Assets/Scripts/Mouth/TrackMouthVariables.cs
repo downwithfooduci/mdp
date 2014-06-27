@@ -34,7 +34,6 @@ public class TrackMouthVariables : MonoBehaviour {
 
 	public void cough()
 	{
-		Debug.Log ("Cough Detected");
 		timesCoughed++;
 	}
 
