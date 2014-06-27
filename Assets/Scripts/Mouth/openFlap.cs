@@ -15,6 +15,7 @@ public class openFlap : MonoBehaviour
 	private float xEnd = 0.0f;
 	private float yStart = 0.0f;
 	private float yEnd = 0.0f;
+	private bool swipe = false;
 
 	// Use this for initialization
 	void Start () 
@@ -51,19 +52,25 @@ public class openFlap : MonoBehaviour
 		{
 			if (touch.phase == TouchPhase.Began) 
 			{
-				xStart = touch.position.x;
-				yStart = touch.position.y;
+				if ((touch.position.x >= 0 && touch.position.x <= 6) && 
+					(touch.position.y <= 3.5 && touch.position.y >= -3.5))
+				{
+					xStart = touch.position.x;
+					yStart = touch.position.y;
+				}
 			}
 			if (touch.phase == TouchPhase.Moved) 
 			{
-				xEnd = touch.position.x;
-				yEnd = touch.position.y;
+				if ((touch.position.x >= 0 && touch.position.x <= 6) && 
+					(touch.position.y <= 3.5 && touch.position.y >= -3.5))
+				{
+					xEnd = touch.position.x;
+					yEnd = touch.position.y;
+				}
 				
 				if (Mathf.Sqrt((xStart - xEnd)*(xStart - xEnd)+(yStart - yEnd)*(yStart - yEnd)) > 20) 
 				{
-					isOpen = !isOpen;
-					bottomFlap.GetComponent<BoxCollider>().enabled = !bottomFlap.GetComponent<BoxCollider>().enabled;
-					topFlap.GetComponent<BoxCollider>().enabled = !topFlap.GetComponent<BoxCollider>().enabled;
+					swipe = true;
 				}
 			}
 		}
@@ -80,6 +87,20 @@ public class openFlap : MonoBehaviour
 			isOpen = true;
 			bottomFlap.GetComponent<BoxCollider>().enabled = false;
 			topFlap.GetComponent<BoxCollider>().enabled = false;
+		}
+
+		if (swipe)
+		{
+			isOpen = !isOpen;
+			bottomFlap.GetComponent<BoxCollider>().enabled = !bottomFlap.GetComponent<BoxCollider>().enabled;
+			topFlap.GetComponent<BoxCollider>().enabled = !topFlap.GetComponent<BoxCollider>().enabled;
+
+			// reset variables
+			xStart = 0.0f;
+			xEnd = 0.0f;
+			yStart = 0.0f;
+			yEnd = 0.0f;
+			swipe = false;
 		}
 	}
 
