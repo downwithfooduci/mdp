@@ -187,7 +187,7 @@ public class MouthStats : MonoBehaviour {
 		          "Highest Multiplier:\n" +
 		          "Score:\n" +
 		          "\n" +						//TODO: move this somewhere?
-		          "Previous\n" +				//TODO: move this somehwere?
+		          "\n" +						//TODO: move this somehwere?
 		          " High Score:",				//TODO: move this somewhere?
 		          statsStyle);
 		GUI.Label(new Rect((820f/1024f)*Screen.width, (90f/768f)*Screen.height, (((961f-27f)-600f)/1024f)*Screen.width,

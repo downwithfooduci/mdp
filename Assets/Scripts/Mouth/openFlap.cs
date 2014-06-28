@@ -55,8 +55,8 @@ public class openFlap : MonoBehaviour
 		{
 			if (touch.phase == TouchPhase.Began) 
 			{
-				if ((touch.position.x >= .5f*Screen.width && touch.position.x <= Screen.width) && 
-					(touch.position.y <= .3f*Screen.height && touch.position.y >= .9f*Screen.height))
+				if ((Input.mousePosition.x >= .5f*Screen.width && Input.mousePosition.x <= Screen.width) && 
+				    (Input.mousePosition.y <= .7f*Screen.height && Input.mousePosition.y >= .1f*Screen.height))
 				{
 					xStart = touch.position.x;
 					yStart = touch.position.y;
@@ -65,8 +65,8 @@ public class openFlap : MonoBehaviour
 
 			if (touch.phase == TouchPhase.Ended)
 			{
-				if ((touch.position.x >= .5f*Screen.width && touch.position.x <= Screen.width) && 
-				    (touch.position.y <= .3f*Screen.height && touch.position.y >= .9f*Screen.height))
+				if ((Input.mousePosition.x >= .5f*Screen.width && Input.mousePosition.x <= Screen.width) && 
+				    (Input.mousePosition.y <= .7f*Screen.height && Input.mousePosition.y >= .1f*Screen.height))
 				{
 					xEnd = touch.position.x;
 					yEnd = touch.position.y;

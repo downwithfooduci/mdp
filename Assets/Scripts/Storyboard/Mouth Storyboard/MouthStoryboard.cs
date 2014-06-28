@@ -16,6 +16,9 @@ public class MouthStoryboard : MonoBehaviour {
 	// check for playthrough
 	GameObject skipStory;
 	private bool canSkip = false;
+
+	// trying to preload
+	private AsyncOperation loader;
 	
 	// Use this for initialization
 	void Start () 
@@ -26,6 +29,16 @@ public class MouthStoryboard : MonoBehaviour {
 		{
 			canSkip = skipStoryScript.getSkipStory();
 		}
+
+		loadNextLevel();
+	}
+
+	IEnumerator loadNextLevel() 
+	{
+		loader = Application.LoadLevelAsync("LoadLevelMouth");
+		loader.allowSceneActivation = false;
+		Debug.Log("Loading complete");
+		yield return loader;
 	}
 	
 	// Update is called once per frame
@@ -66,7 +79,8 @@ public class MouthStoryboard : MonoBehaviour {
 				currPage++;
 				if ((currPage - 1) == pages.Length)
 				{
-					Application.LoadLevel("LoadLevelMouth");
+					//Application.LoadLevel("LoadLevelMouth");
+					loader.allowSceneActivation = true;
 				}
 				swipe = false;
 				xStart = 0;
