@@ -30,7 +30,7 @@ public class MouthStoryboard : MonoBehaviour {
 			canSkip = skipStoryScript.getSkipStory();
 		}
 
-		loadNextLevel();
+		StartCoroutine(loadNextLevel());
 	}
 
 	IEnumerator loadNextLevel() 
