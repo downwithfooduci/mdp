@@ -141,8 +141,11 @@ Camera:
     m_Bits: 4294967295
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
   m_HDR: 0
   m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: .0219999999
 --- !u!4 &167848955
 Transform:
   m_ObjectHideFlags: 0
@@ -154,6 +157,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
+  m_RootOrder: 1
 --- !u!1 &559140622
 GameObject:
   m_ObjectHideFlags: 0
@@ -183,6 +187,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
+  m_RootOrder: 0
 --- !u!114 &559140624
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -194,7 +199,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8978921f76e865448e01528df96ea27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skipStoryEnabler: {fileID: 100000, guid: e2db7ac3ad33e904b98284dab4c5df6d, type: 2}
   background: {fileID: 2800000, guid: d4c1b6e3954c22841bffa81add138353, type: 3}
   startBtn:
     m_Name: Start Btn

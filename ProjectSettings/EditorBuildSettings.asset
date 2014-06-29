@@ -45,3 +45,5 @@ EditorBuildSettings:
     path: Assets/Scenes/HighScores.unity
   - enabled: 1
     path: Assets/Scenes/MouthEndStoryboard.unity
+  - enabled: 1
+    path: Assets/Scenes/LevelSelection.unity

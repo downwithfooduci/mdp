@@ -19,5 +19,11 @@ public class MainMenu : MonoBehaviour
         {
 			Application.LoadLevel("IntroStoryboard");
         }
-    }
+
+		if (GUI.Button(new Rect(0, Screen.height * 0.9f,
+		                        Screen.width * 0.2f, Screen.height * 0.1f), "Levels"))
+		{
+			Application.LoadLevel("LevelSelection");
+		}
+	}
 }

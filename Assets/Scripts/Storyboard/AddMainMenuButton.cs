@@ -7,6 +7,9 @@ public class AddMainMenuButton : MonoBehaviour {
 	public Texture confirmPopup;	// for pop up confirm box
 	public GUIStyle confirmYes;		// button for yes
 	public GUIStyle confirmNo;		// button for no
+
+	// trying to preload
+	private AsyncOperation loader;
 	
 	private bool confirmUp;
 	
@@ -49,7 +52,10 @@ public class AddMainMenuButton : MonoBehaviour {
 			                        Screen.width * 0.0654296875f,
 			                        Screen.height * 0.06640625f), "", confirmYes))
 			{
-				Application.LoadLevel("MainMenu");
+				AsyncOperation load = Application.LoadLevelAsync("MainMenu");
+				load.priority = 1;
+				load.allowSceneActivation = true;
+			//	Application.LoadLevel("MainMenu");
 			}
 			
 			// draw no button
