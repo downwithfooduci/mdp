@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class MouthStats : MonoBehaviour {
+public class MouthStats : MonoBehaviour 
+{
 	// for drawing stars
 	public Texture filledStar;
 	public Texture emptyStar;
@@ -88,6 +89,7 @@ public class MouthStats : MonoBehaviour {
 		if (prevHighScore < numStars)
 		{
 			// if it is the high score save it
+			prevHighScore = numStars;
 			PlayerPrefs.SetInt("Mouth" + (level.getLevel() - 1), numStars);
 		}
 	}

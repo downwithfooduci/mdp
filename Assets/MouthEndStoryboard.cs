@@ -1,38 +1,39 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class SmallIntestineStoryboard : MonoBehaviour 
-{
+public class MouthEndStoryboard : MonoBehaviour {
+
 	public Texture[] pages;			// story the storyboard pages
 	public AudioClip[] sounds;		// store the storyboard narrations
 	private int currPage = 1;		// store the current page
 	private bool hasPlayed = false;	// remember whether the current sound has played
-
+	
 	// for detecting a swipe
 	private float xStart = 0.0f;
 	private float xEnd = 0.0f;
 	private bool swipe = false;
-
+	
 	// check for playthrough
 	private bool canSkip = false;
-
+	
 	// trying to preload
 	private AsyncOperation loader;
-
+	
 	// Use this for initialization
 	void Start () 
 	{
 		// find out if we can skip without listening
-		canSkip = (PlayerPrefs.GetInt ("PlayedSIStory") == 1) ? true : false;
-
+		canSkip = (PlayerPrefs.GetInt ("PlayedMouthEndStory") == 1) ? true : false;
+		
 		// preload next scene
 		StartCoroutine(loadNextLevel());
 	}
 	
 	IEnumerator loadNextLevel() 
 	{
-		loader = Application.LoadLevelAsync("LoadLevelSmallIntestine");
+		loader = Application.LoadLevelAsync("SmallIntestineStoryboard");
 		loader.allowSceneActivation = false;
+		Debug.Log("Loading complete");
 		yield return loader;
 	}
 	
@@ -45,8 +46,8 @@ public class SmallIntestineStoryboard : MonoBehaviour
 			playClip();
 			hasPlayed = true;
 		}
-
-		if (!audio.isPlaying | canSkip)
+		
+		if (!audio.isPlaying || canSkip)
 		{
 			foreach (Touch touch in Input.touches) 
 			{
@@ -66,14 +67,15 @@ public class SmallIntestineStoryboard : MonoBehaviour
 			}
 			if(Input.GetKeyDown(KeyCode.Space))
 				swipe = true;
-
+			
+			
 			// set variables for next page
-			if (swipe == true)
+			if (swipe)
 			{
 				currPage++;
 				if ((currPage - 1) == pages.Length)
 				{
-					PlayerPrefs.SetInt("PlayedSIStory", 1);
+					PlayerPrefs.SetInt("PlayedMouthEndStory", 1);
 					PlayerPrefs.Save();
 					loader.allowSceneActivation = true;
 				}
@@ -84,7 +86,7 @@ public class SmallIntestineStoryboard : MonoBehaviour
 			}
 		}
 	}
-
+	
 	/*
 	 * play the audio clip
 	 * */
@@ -92,11 +94,11 @@ public class SmallIntestineStoryboard : MonoBehaviour
 	{
 		audio.Play();
 	}
-
+	
 	void OnGUI()
 	{
 		GUI.DrawTexture (new Rect(0, 0, Screen.width, Screen.height), pages[Mathf.Clamp(currPage - 1, 0, pages.Length - 1)]);
-
+		
 		// create an invisible button by the page turn
 		if(!audio.isPlaying)
 		{
@@ -108,7 +110,7 @@ public class SmallIntestineStoryboard : MonoBehaviour
 			GUI.color = new Color() { a = 1.0f };
 		}
 	}
-
+	
 	public int getCurrPage()
 	{
 		return currPage;

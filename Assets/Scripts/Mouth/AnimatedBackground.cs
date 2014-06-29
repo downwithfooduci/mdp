@@ -24,20 +24,11 @@ public class AnimatedBackground : MonoBehaviour
 	private bool swipe = false;
 
 	// check for playthrough
-	GameObject skipStory;
 	private bool canSkip = false;
-	SkipStoryEnablerScript skipStoryScript;
 	
 	// Use this for initialization
 	void Start () 
 	{
-		skipStory = GameObject.Find("SkipStoryEnabler(Clone)");
-		skipStoryScript = skipStory.GetComponent<SkipStoryEnablerScript> ();
-		if (skipStoryScript != null)
-		{
-			canSkip = skipStoryScript.getSkipStory();
-		}
-
 		audio.clip = audioClips[currGroup];
 		numInGroup = numSlides[currGroup];
 		numInGroup--;

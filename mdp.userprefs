@@ -1,14 +1,14 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Storyboard\Mouth Storyboard\MouthStoryboard.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\MouthEndStoryboard.cs">
     <Files>
-      <File FileName="Assets\Scripts\Mouth\CoughCollision.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Mouth\TrackMouthVariables.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Mouth\SpawnFood.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Mouth\openFlap.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Storyboard\Intro Storyboard\IntroStoryboard.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\SmallIntestine\SIStats.cs" Line="194" Column="24" />
-      <File FileName="Assets\Scripts\Storyboard\Mouth Storyboard\MouthStoryboard.cs" Line="33" Column="34" />
+      <File FileName="Assets\Scripts\Storyboard\Intro Storyboard\IntroStoryboard.cs" Line="25" Column="2" />
+      <File FileName="Assets\Scripts\Storyboard\Mouth Storyboard\MouthStoryboard.cs" Line="30" Column="3" />
+      <File FileName="Assets\Scripts\Storyboard\Small Intestine Storyboard\SmallIntestineStoryboard.cs" Line="26" Column="43" />
+      <File FileName="Assets\MouthEndStoryboard.cs" Line="29" Column="35" />
+      <File FileName="Assets\Scripts\Main Menu\MainMenuDebug.cs" Line="103" Column="31" />
+      <File FileName="Assets\Scripts\Storyboard\PageTurn.cs" Line="22" Column="41" />
+      <File FileName="Assets\Scripts\Main Menu\MainMenu.cs" Line="23" Column="2" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

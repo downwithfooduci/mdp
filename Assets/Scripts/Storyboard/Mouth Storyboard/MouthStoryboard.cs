@@ -14,7 +14,6 @@ public class MouthStoryboard : MonoBehaviour {
 	private bool swipe = false;
 
 	// check for playthrough
-	GameObject skipStory;
 	private bool canSkip = false;
 
 	// trying to preload
@@ -23,13 +22,10 @@ public class MouthStoryboard : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
-		skipStory = GameObject.Find("SkipStoryEnabler(Clone)");
-		SkipStoryEnablerScript skipStoryScript = skipStory.GetComponent<SkipStoryEnablerScript> ();
-		if (skipStoryScript != null)
-		{
-			canSkip = skipStoryScript.getSkipStory();
-		}
+		// find out if we can skip without listening
+		canSkip = (PlayerPrefs.GetInt ("PlayedMouthStory") == 1) ? true : false;
 
+		// preload next scene
 		StartCoroutine(loadNextLevel());
 	}
 
@@ -79,7 +75,8 @@ public class MouthStoryboard : MonoBehaviour {
 				currPage++;
 				if ((currPage - 1) == pages.Length)
 				{
-					//Application.LoadLevel("LoadLevelMouth");
+					PlayerPrefs.SetInt("PlayedMouthStory", 1);
+					PlayerPrefs.Save();
 					loader.allowSceneActivation = true;
 				}
 				swipe = false;

@@ -13,14 +13,8 @@ public class MainMenuDebug : MonoBehaviour
 	private GameObject desiredMouthLevelObj;
 	private DesiredMouthLevel levelMouth;
 
-	private GameObject skipStoryEnabler;
-	private SkipStoryEnablerScript skipStoryEnablerScript;
-	private bool skipEnabled = false;
-
 	void Start()
 	{
-		skipStoryEnabler = GameObject.Find ("SkipStoryEnabler(Clone)");
-		skipStoryEnablerScript = skipStoryEnabler.GetComponent<SkipStoryEnablerScript> ();
 	}
 
 	// Update is called once per frame
@@ -64,40 +58,51 @@ public class MainMenuDebug : MonoBehaviour
 /***********************************************************
  * Change Page Turn requirements for Story
  * ********************************************************/
-			skipEnabled = GUI.Toggle(new Rect(150, 50, 100, 50), skipEnabled, "Allow Skip B4 Audio Plays");
-			if (skipEnabled)
+			if (GUI.Button(new Rect(150, 50, 
+			                        125, 50), "Allow Skip Story"))
 			{
-				skipStoryEnablerScript.setSkipStory(true);
-			} else
+				PlayerPrefs.SetInt("PlayedIntroStory", 1);
+				PlayerPrefs.SetInt("PlayedMouthStory", 1);
+				PlayerPrefs.SetInt("PlayedMouthEndStory", 1);
+				PlayerPrefs.SetInt("PlayedSIStory", 1);
+				PlayerPrefs.Save();
+			}
+
+			if (GUI.Button(new Rect(150, 100, 
+			                        125, 50), "DO NOT Allow Skip Story"))
 			{
-				skipStoryEnablerScript.setSkipStory(false);
+				PlayerPrefs.SetInt("PlayedIntroStory", 0);
+				PlayerPrefs.SetInt("PlayedMouthStory", 0);
+				PlayerPrefs.SetInt("PlayedMouthEndStory", 0);
+				PlayerPrefs.SetInt("PlayedSIStory", 0);
+				PlayerPrefs.Save();
 			}
 
 /***********************************************************
  * List all storybook segments for selection
  * ********************************************************/
-			if (GUI.Button(new Rect(150, 100, 
-			                        100, 50), "Intro Story"))
+			if (GUI.Button(new Rect(150, 150, 
+			                        125, 50), "Intro Story"))
 			{
 				Application.LoadLevel("IntroStoryboard");
 			}
 			
-			if (GUI.Button(new Rect(150, 150, 
-			                        100, 50), "Mouth Story"))
+			if (GUI.Button(new Rect(150, 200, 
+			                        125, 50), "Mouth Story"))
 			{
 				Application.LoadLevel("MouthStoryboard");
 			}
 
-			if (GUI.Button(new Rect(150, 200, 
-			                        100, 50), "Mouth Animation"))
+			if (GUI.Button(new Rect(150, 250, 
+			                        125, 50), "Mouth Animation"))
 			{
 				Application.LoadLevel("MouthAnimation");
 			}
 			
-			if (GUI.Button(new Rect(150, 250, 
-			                        100, 50), "SI Story"))
+			if (GUI.Button(new Rect(150, 300, 
+			                        125, 50), "SI Story"))
 			{
-				Application.LoadLevel("SmallIntestineStoryboard");
+				Application.LoadLevel("MouthEndStoryboard");
 			}
 
 /***********************************************************

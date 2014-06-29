@@ -3,17 +3,11 @@ using System.Collections;
 
 public class MainMenu : MonoBehaviour 
 {
-	public GameObject skipStoryEnabler;
 	public Texture background;
 	public GUIStyle startBtn;
 
 	void Start()
 	{
-		// don't redefine if there is already one of these
-		if (GameObject.Find("SkipStoryEnabler") == null)
-		{
-			Instantiate (skipStoryEnabler);
-		}
 	}
 
 	void OnGUI()

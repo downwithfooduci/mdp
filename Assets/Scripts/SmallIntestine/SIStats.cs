@@ -91,6 +91,7 @@ public class SIStats : MonoBehaviour
 		if (prevHighScore < numStars)
 		{
 			// if it is the high score save it
+			prevHighScore = numStars;
 			PlayerPrefs.SetInt("SI" + (level.getLevel() - 1), numStars);
 		}
 	}

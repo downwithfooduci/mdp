@@ -152,7 +152,6 @@ public class Tower : MonoBehaviour
 			audio.clip = towerShootSound;
 
 			// track stats
-			Debug.Log("TRACKING SHOTS FIRED");
 			trackStatVariables.increaseEnzymesFired();
 
 			transform.Rotate(new Vector3(90,0,0), -40, Space.World);
@@ -236,7 +235,6 @@ public class Tower : MonoBehaviour
 				audio.Play();
 
 				// track stats
-				Debug.Log("TRACKING TOWER UPGRADE");
 				trackStatVariables.increaseTowersUpgraded();
 				trackStatVariables.increaseNutrientsSpent(TOWER_UPGRADE_LEVEL_1_COST);
 			}
@@ -254,7 +252,6 @@ public class Tower : MonoBehaviour
 				audio.Play();
 
 				// track stats
-				Debug.Log("TRACKING TOWER UPGRADE");
 				trackStatVariables.increaseTowersUpgraded();
 				trackStatVariables.increaseNutrientsSpent(TOWER_UPGRADE_LEVEL_2_COST);
 			} 
@@ -288,7 +285,6 @@ public class Tower : MonoBehaviour
 				audio.Play();
 
 				// track stats
-				Debug.Log("TRACKING TOWER UPGRADE");
 				trackStatVariables.increaseTowersUpgraded();
 				trackStatVariables.increaseNutrientsSpent(TOWER_UPGRADE_LEVEL_1_COST);
 			} 
@@ -305,7 +301,6 @@ public class Tower : MonoBehaviour
 				audio.Play();
 
 				// track stats
-				Debug.Log("TRACKING TOWER UPGRADE");
 				trackStatVariables.increaseTowersUpgraded();
 				trackStatVariables.increaseNutrientsSpent(TOWER_UPGRADE_LEVEL_2_COST);
 			} 
