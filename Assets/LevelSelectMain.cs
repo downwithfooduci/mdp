@@ -365,5 +365,16 @@ public class LevelSelectMain : MonoBehaviour
 				}
 			}
 		}
+
+		// add a back button to go back to main level selection
+		if (showSI || showMouth)
+		{
+			if (GUI.Button(new Rect(0, Screen.height*.9f, 
+			                        Screen.width * 0.15f, Screen.height * 0.1f), "Go Back", activeStyle))
+			{
+				showSI = false;
+				showMouth = false;
+			}
+		}
 	}
 }
