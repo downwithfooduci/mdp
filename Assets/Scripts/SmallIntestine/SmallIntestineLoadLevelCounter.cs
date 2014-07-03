@@ -29,7 +29,7 @@ public class SmallIntestineLoadLevelCounter : MonoBehaviour
 	void Update () 
 	{
 		string scene = Application.loadedLevelName;
-		if (scene != "LoadLevelSmallIntestine" && scene != "SmallIntestine" && scene != "SmallIntestineStats")
+		if (scene != "LoadLevelSmallIntestine" && scene != "SmallIntestineEven" && scene != "SmallIntestineOdd" && scene != "SmallIntestineStats")
 						Destroy (gameObject);
 	}
 

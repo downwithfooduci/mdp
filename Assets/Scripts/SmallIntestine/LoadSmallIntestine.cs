@@ -42,7 +42,13 @@ public class LoadSmallIntestine : MonoBehaviour
 		timePassed -= Time.deltaTime;
 		if (timePassed < 0) 
 		{
-			Application.LoadLevel("SmallIntestine");
+			if (level.getLevel() % 2 == 0)
+			{
+				Application.LoadLevel("SmallIntestineEven");
+			} else
+			{
+				Application.LoadLevel("SmallIntestineOdd");
+			}
 		}
 	}
 }

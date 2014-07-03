@@ -1,7 +1,8 @@
 using UnityEngine;
 using System.Collections;
 
-public class ReturnButton : MonoBehaviour {
+public class ReturnButtonSIOdd : MonoBehaviour 
+{
 	public GUIStyle mainMenuStyle;	// for main menu button
 
 	public Texture confirmPopup;	// for pop up confirm box

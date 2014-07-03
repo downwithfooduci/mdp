@@ -55,6 +55,11 @@ public class IntestineDebugGUI : MonoBehaviour {
 	
 	void OnGUI()
 	{
+		if (!showGUI)
+		{
+			GUI.depth ++;
+		}
+
 		//TODO: Change back to width-100/+100 to enable/disable debugger
 		if(GUI.Button(new Rect(Screen.width - 100, Screen.height - 50, 100, 50), "Debug"))
 		{

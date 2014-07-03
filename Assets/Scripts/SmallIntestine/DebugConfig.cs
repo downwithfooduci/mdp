@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class DebugConfig : MonoBehaviour {
+public class DebugConfig : MonoBehaviour 
+{
 	public float NutrientSpeed = 2f;
 	public float NutrientSpawnInterval = 3.5f;
 	public float BaseCooldown = 2f;
