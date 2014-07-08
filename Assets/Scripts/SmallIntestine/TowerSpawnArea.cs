@@ -1,22 +1,23 @@
 using UnityEngine;
 using System.Collections;
 
-public class TowerSpawnArea : MonoBehaviour {
-	
-	private TowerSpawner m_TowerSpawner;
+public class TowerSpawnArea : MonoBehaviour 
+{
+	private TowerSpawnerTutorial towerSpawner;
 
-	void Start () {
-		m_TowerSpawner = FindObjectOfType(typeof(TowerSpawner)) as TowerSpawner;
+	void Start () 
+	{
+		towerSpawner = FindObjectOfType(typeof(TowerSpawnerTutorial)) as TowerSpawnerTutorial;
 	}
 
     void OnMouseOver()
     {
-        m_TowerSpawner.IsMouseOverWall = true;
-		m_TowerSpawner.wall = gameObject;
+        towerSpawner.IsMouseOverWall = true;
+		towerSpawner.wall = gameObject;
     }
 
     void OnMouseExit()
     {
-        m_TowerSpawner.IsMouseOverWall = false;
+        towerSpawner.IsMouseOverWall = false;
     }
 }

@@ -13,6 +13,8 @@ public class ReturnButtonSIEven : MonoBehaviour
 	
 	void OnGUI()
 	{
+		GUI.depth = GUI.depth - 10;
+
 		// this just handles the menu button in the corner
 		if(Time.timeScale != 0)
 		{

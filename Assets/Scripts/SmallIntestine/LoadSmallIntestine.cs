@@ -33,7 +33,7 @@ public class LoadSmallIntestine : MonoBehaviour
 		{
 			Application.LoadLevel("EndScreen");
 		}
-		GUI.DrawTexture (new Rect(0, 0, Screen.width, Screen.height), backgrounds [Mathf.Clamp(level.getLevel() - 1, 0, level.getMaxLevels())]);
+		GUI.DrawTexture (new Rect(0, 0, Screen.width, Screen.height), backgrounds [Mathf.Clamp(level.getLevel(), 0, level.getMaxLevels())]);
 	}
 
 	void Update()
@@ -42,7 +42,10 @@ public class LoadSmallIntestine : MonoBehaviour
 		timePassed -= Time.deltaTime;
 		if (timePassed < 0) 
 		{
-			if (level.getLevel() % 2 == 0)
+			if (level.getLevel() == 0)
+			{
+				Application.LoadLevel("SmallIntestineTutorial");
+			} else if (level.getLevel() % 2 == 0)
 			{
 				Application.LoadLevel("SmallIntestineEven");
 			} else

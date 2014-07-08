@@ -1,44 +1,43 @@
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 
-public class Nutrient : MDPEntity 
+public class NutrientTutorial : MDPEntity 
 {
-    public Color BodyColor
-    {
-        get { return m_BodyColor; }
-        set
-        {
-            m_BodyColor = value;
-            renderer.materials[0].color = value;
-        }
-    }
-    private Color m_BodyColor;
-
-    private Color m_TrueColor;
-    private Color m_TargetColor;
-
-    public IntestineGameManager Manager;
-
-    public GameObject EffectParticle;
-    public bool IsTargetted;
+	public Color BodyColor
+	{
+		get { return m_BodyColor; }
+		set
+		{
+			m_BodyColor = value;
+			renderer.materials[0].color = value;
+		}
+	}
+	private Color m_BodyColor;
+	
+	private Color m_TrueColor;
+	private Color m_TargetColor;
+	
+	public IntestineGameManagerTutorial intestineGameManager;
+	
+	public GameObject EffectParticle;
+	public bool IsTargetted;
 	
 	public bool isDead = false;
 	private float elapsedTime = 0;
-
+	
 	protected GameObject m_Parent;
 	
-	private NutrientManager manager;
-	//protected NutrientScript m_NutrientScript;
+	private NutrientManagerTutorial nutrientManager;
 	
 	// Use this for initialization
 	void Start () 
 	{
-		manager = FindObjectOfType(typeof(NutrientManager)) as NutrientManager;
-        Collider = new CircleCollider(this);
-        IsTargetted = false;
-
-        if (gameObject.transform.parent)
-		    m_Parent = gameObject.transform.parent.gameObject;
+		nutrientManager = FindObjectOfType(typeof(NutrientManagerTutorial)) as NutrientManagerTutorial;
+		Collider = new CircleCollider(this);
+		IsTargetted = false;
+		
+		if (gameObject.transform.parent)
+			m_Parent = gameObject.transform.parent.gameObject;
 	}
 	
 	void Update()
@@ -46,38 +45,38 @@ public class Nutrient : MDPEntity
 		if(isDead && elapsedTime < 1)
 		{
 			elapsedTime += Time.deltaTime / 3;
-			manager.ChangeColor(this, Color.Lerp(m_TrueColor, m_TargetColor, elapsedTime));
+			nutrientManager.ChangeColor(this, Color.Lerp(m_TrueColor, m_TargetColor, elapsedTime));
 		}
 	}
 	
 	public void OnBulletCollision ()
 	{
 		Absorb();
-        if (m_BodyColor == Color.green)		// if the color of the nutrient was green we need to turn it white
-        {
-            manager.ChangeColor(this, Color.white);
+		if (m_BodyColor == Color.green)		// if the color of the nutrient was green we need to turn it white
+		{
+			nutrientManager.ChangeColor(this, Color.white);
 			((Behaviour)gameObject.GetComponent("Halo")).enabled = true;
-        }
-        else
-        {
+		}
+		else
+		{
 			((Behaviour)gameObject.GetComponent("Halo")).enabled = false;
 			isDead = true;
-            m_TargetColor = new Color(92f / 255f, 64f / 255f, 51f / 255f);
+			m_TargetColor = new Color(92f / 255f, 64f / 255f, 51f / 255f);
 			IsTargetted = true;
-        }
+		}
 		
 		m_TrueColor = m_BodyColor;
-
-        Manager.OnNutrientHit();
+		
+		intestineGameManager.OnNutrientHit();
 	}
 	
 	virtual protected void Absorb()
 	{
-		FoodBlob blob = m_Parent.GetComponent<FoodBlob>();
+		FoodBlobTutorial blob = m_Parent.GetComponent<FoodBlobTutorial>();
 		blob.TakeHit();
-
-        IsTargetted = false;
-
+		
+		IsTargetted = false;
+		
 		ShootOutParticles(1);
 	}
 	
@@ -98,7 +97,7 @@ public class Nutrient : MDPEntity
 			particle.transform.localEulerAngles = new Vector3(0, 40 + (i * 10), 0);
 			particle.transform.LookAt(m_Parent.transform.position + m_Parent.transform.right);
 			particle.particleSystem.startColor = BodyColor;
-
+			
 			particle2 = Instantiate(EffectParticle, transform.position + delta, rotation) as GameObject;
 			particle2.transform.parent = m_Parent.transform;
 			particle2.transform.localEulerAngles = new Vector3(0, 40 + (i * 10), 0);

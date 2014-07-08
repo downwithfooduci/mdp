@@ -1,8 +1,8 @@
 using UnityEngine;
 using System.Collections;
 
-public class SpawnManager : MonoBehaviour {
-
+public class SpawnManager : MonoBehaviour 
+{
     public GameObject SpawnType;
     public Vector3 SpawnPoint;
     // In seconds

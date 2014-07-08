@@ -6,21 +6,15 @@ public class TowerUpgradeTutorial : MonoBehaviour
 	public Texture zyme;
 	float ratio = 1.4250681198910081743869209809264f;
 	float popUpTime = 1f;
-	private IntestineGameManager m_GameManager;
+	private IntestineGameManagerTutorial gameManager;
 	bool hasPoppedUp = false;
 	bool show = false;
 
 	// Use this for initialization
 	void Start () 
 	{
-		m_GameManager = GameObject.Find ("Managers").GetComponent<IntestineGameManager> ();
+		gameManager = GameObject.Find ("managers").GetComponent<IntestineGameManagerTutorial> ();
 		GameObject chooseBackground = GameObject.Find("ChooseBackground");
-		SmallIntestineLoadLevelCounter  level = chooseBackground.GetComponent<SmallIntestineLoadLevelCounter>();
-
-		if(level.getLevel() > 1)
-		{
-			hasPoppedUp = true;
-		}
 	}
 	
 	// Update is called once per frame
@@ -29,7 +23,8 @@ public class TowerUpgradeTutorial : MonoBehaviour
 		{
 			popUpTime -= Time.deltaTime * 1000f;
 		}
-		if(!show && !hasPoppedUp && m_GameManager.nutrients >= 50)
+
+		if(!show && !hasPoppedUp && gameManager.nutrients >= 50)
 		{
 			GameObject girl = GameObject.Find("GirlTower(Clone)");
 			GameObject boy =  GameObject.Find ("BoyTower(Clone)");
@@ -41,19 +36,23 @@ public class TowerUpgradeTutorial : MonoBehaviour
 		}
 	}
 
-	void OnGUI() {
+	void OnGUI() 
+	{
 		if(show)
 			GUI.DrawTexture(new Rect(Screen.width - (.4f * Screen.height * ratio), 
 		                         (Screen.height * 0.82421875f) - (.4f * Screen.height),
 		                         (.4f * Screen.height * ratio),
 		                         (.4f * Screen.height)), zyme);
+
 		GUI.color = new Color(1.0f, 1.0f, 1.0f, .0f);
+
 		if(show && popUpTime < 0 && GUI.Button (new Rect(0, 0, Screen.width, Screen.height), ""))
 		{
 			Time.timeScale = 1;
 			hasPoppedUp = true;
 			show = false;
 		}
+
 		GUI.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
 	}
 }

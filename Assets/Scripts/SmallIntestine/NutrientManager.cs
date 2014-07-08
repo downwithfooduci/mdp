@@ -4,12 +4,14 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-public class NutrientManager : MonoBehaviour {
+public class NutrientManager : MonoBehaviour 
+{
     public GameObject NutrientObj;
 
     private Dictionary<Color, List<Nutrient>> m_Nutrients;
 
-	void Awake () {
+	void Awake () 
+	{
         m_Nutrients = new Dictionary<Color, List<Nutrient>>(new ColorComparer());
 	}
 

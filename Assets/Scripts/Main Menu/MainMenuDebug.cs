@@ -109,6 +109,14 @@ public class MainMenuDebug : MonoBehaviour
  * Allow jumping between different game levels for SI game
  * ********************************************************/
 			if (GUI.Button(new Rect(300, 50, 
+			                        100, 50), "SI Tutorial"))
+			{
+				desiredSILevelObj = (GameObject)Instantiate (desiredSILevel);
+				levelSI = desiredSILevelObj.GetComponent<DesiredSILevel>();
+				levelSI.setDesiredLevel(0);
+				Application.LoadLevel("LoadLevelSmallIntestine");
+			}
+			if (GUI.Button(new Rect(300, 100, 
 			                        100, 50), "SI Level 1"))
 			{
 				desiredSILevelObj = (GameObject)Instantiate (desiredSILevel);
@@ -117,7 +125,7 @@ public class MainMenuDebug : MonoBehaviour
 				Application.LoadLevel("LoadLevelSmallIntestine");
 			}
 			
-			if (GUI.Button(new Rect(300, 100, 
+			if (GUI.Button(new Rect(300, 150, 
 			                        100, 50), "SI Level 2"))
 			{
 				desiredSILevelObj = (GameObject)Instantiate (desiredSILevel);
@@ -126,7 +134,7 @@ public class MainMenuDebug : MonoBehaviour
 				Application.LoadLevel("LoadLevelSmallIntestine");
 			}
 			
-			if (GUI.Button(new Rect(300, 150, 
+			if (GUI.Button(new Rect(300, 200, 
 			                        100, 50), "SI Level 3"))
 			{
 				desiredSILevelObj = (GameObject)Instantiate (desiredSILevel);
@@ -135,7 +143,7 @@ public class MainMenuDebug : MonoBehaviour
 				Application.LoadLevel("LoadLevelSmallIntestine");
 			}
 
-			if (GUI.Button(new Rect(300, 200, 
+			if (GUI.Button(new Rect(300, 250, 
 			                        100, 50), "SI Level 4"))
 			{
 				desiredSILevelObj = (GameObject)Instantiate (desiredSILevel);
@@ -144,7 +152,7 @@ public class MainMenuDebug : MonoBehaviour
 				Application.LoadLevel("LoadLevelSmallIntestine");
 			}
 
-			if (GUI.Button(new Rect(300, 250, 
+			if (GUI.Button(new Rect(300, 300, 
 			                        100, 50), "SI Level 5"))
 			{
 				desiredSILevelObj = (GameObject)Instantiate (desiredSILevel);
@@ -153,7 +161,7 @@ public class MainMenuDebug : MonoBehaviour
 				Application.LoadLevel("LoadLevelSmallIntestine");
 			}
 
-			if (GUI.Button(new Rect(300, 300, 
+			if (GUI.Button(new Rect(300, 350, 
 			                        100, 50), "SI Level 6"))
 			{
 				desiredSILevelObj = (GameObject)Instantiate (desiredSILevel);

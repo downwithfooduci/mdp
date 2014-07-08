@@ -8,13 +8,18 @@ public class FollowITweenPath : MonoBehaviour {
 	private SmoothQuaternion quaternion;
 	DebugConfig debugConfig;
 	
-	void Start() {
+	void Start() 
+	{
 		quaternion = transform.rotation;
 		quaternion.Duration = .5f;
-		debugConfig = ((GameObject)GameObject.Find("Debug Config")).GetComponent<DebugConfig>();
+		if (Application.loadedLevelName != "SmallIntestineTutorial")
+		{
+			debugConfig = ((GameObject)GameObject.Find("Debug Config")).GetComponent<DebugConfig>();
+		}
 	}
 
-	void Update() {
+	void Update() 
+	{
 		if(debugConfig != null && debugConfig.debugActive)
 			nutrientSpeed = debugConfig.NutrientSpeed;
 		Quaternion q = transform.rotation;

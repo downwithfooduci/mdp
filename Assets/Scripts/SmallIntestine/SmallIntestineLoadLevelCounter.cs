@@ -29,8 +29,11 @@ public class SmallIntestineLoadLevelCounter : MonoBehaviour
 	void Update () 
 	{
 		string scene = Application.loadedLevelName;
-		if (scene != "LoadLevelSmallIntestine" && scene != "SmallIntestineEven" && scene != "SmallIntestineOdd" && scene != "SmallIntestineStats")
-						Destroy (gameObject);
+		if (scene != "LoadLevelSmallIntestine" && scene != "SmallIntestineEven" && 
+		    scene != "SmallIntestineOdd" && scene != "SmallIntestineStats" && scene != "SmallIntestineTutorial")
+		{
+			Destroy (gameObject);
+		}
 	}
 
 	void Awake() 
@@ -43,7 +46,7 @@ public class SmallIntestineLoadLevelCounter : MonoBehaviour
 	 * */
 	public void manualSetLevel(int newLevel)
 	{
-		if (newLevel > 0 && newLevel <= MAX_LEVEL)
+		if (newLevel >= 0 && newLevel <= MAX_LEVEL)
 		{
 			level = newLevel;
 		}
@@ -62,6 +65,7 @@ public class SmallIntestineLoadLevelCounter : MonoBehaviour
 	 * */
 	public void resetLevel()
 	{
+		// resetting does not go back to the tutorial
 		level = 1;
 	}
 

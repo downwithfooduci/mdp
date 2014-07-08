@@ -1,12 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class SpeedMultiplierOdd : MonoBehaviour 
+public class SpeedMultiplierTutorial : MonoBehaviour  
 {
 	bool value;
 	public GUIStyle speedButtonOff;
 	public GUIStyle speedButtonOn;
-
+	
 	// Use this for initialization
 	void Start () 
 	{
@@ -15,7 +15,7 @@ public class SpeedMultiplierOdd : MonoBehaviour
 	
 	// Update is called once per frame
 	void Update () {}
-
+	
 	void OnGUI()
 	{
 		if(value && 
@@ -28,7 +28,7 @@ public class SpeedMultiplierOdd : MonoBehaviour
 		{
 			value = true;
 		}
-
+		
 		// this changes the speed by altering the time scale
 		if (value && Time.timeScale == 1)
 			Time.timeScale = 2;
@@ -36,3 +36,4 @@ public class SpeedMultiplierOdd : MonoBehaviour
 			Time.timeScale = 1;
 	}
 }
+
