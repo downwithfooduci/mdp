@@ -214,7 +214,15 @@ public class SIStats : MonoBehaviour
 		                        ((905f-635f)/1024f)*Screen.width, ((665f-535f)/768f)*Screen.height), "", nextLevelButton))
 		{
 			trackStatVariables.reset();
-			Application.LoadLevel("LoadLevelSmallIntestine");
+
+			// make sure we don't show the load screen after it's over
+			if (level.getLevel() > 6)
+			{
+				Application.LoadLevel("EndScreen");
+			} else
+			{
+				Application.LoadLevel("LoadLevelSmallIntestine");
+			} 
 		}
 	}
 }

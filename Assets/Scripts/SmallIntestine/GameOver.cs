@@ -26,7 +26,16 @@ public class GameOver : MonoBehaviour
 		                        Screen.height * 0.06640625f), "", restart))
 		{
 			Time.timeScale = 1;
-			Application.LoadLevel("SmallIntestine");
+			GameObject chooseBackground = GameObject.Find("ChooseBackground");
+			SmallIntestineLoadLevelCounter  level = chooseBackground.GetComponent<SmallIntestineLoadLevelCounter>();
+			// restart the correct level
+			if (level.getLevel() % 2 == 0)
+			{
+				Application.LoadLevel("SmallIntestineEven");
+			} else 
+			{
+				Application.LoadLevel("SmallIntestineOdd");
+			}
 		}
 		
 		// draw no button
