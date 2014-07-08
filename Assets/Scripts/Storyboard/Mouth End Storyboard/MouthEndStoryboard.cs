@@ -100,7 +100,7 @@ public class MouthEndStoryboard : MonoBehaviour {
 		GUI.DrawTexture (new Rect(0, 0, Screen.width, Screen.height), pages[Mathf.Clamp(currPage - 1, 0, pages.Length - 1)]);
 		
 		// create an invisible button by the page turn
-		if(!audio.isPlaying)
+		if(!audio.isPlaying || canSkip)
 		{
 			GUI.color = new Color() { a = 0.0f };
 			if (GUI.Button(new Rect(Screen.width * .84f, 0, Screen.width * .16f, Screen.width * .16f),""))
