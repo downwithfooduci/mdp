@@ -335,7 +335,6 @@ public class TowerMenu : MonoBehaviour
 		Instantiate (sellSound);
 
 		// track stats
-		Debug.Log ("TRACKING TOWER SOLD");
 		trackStatVariables.increaseTowersSold();
 
 		Destroy(gameObject);

@@ -33,13 +33,13 @@ public class IntestineGameManager : MonoBehaviour
 	
 	void Start()
 	{
-		statTracker = GameObject.Find ("SIStatTracker(Clone)");
-		trackStatVariables = statTracker.GetComponent<TrackStatVariables>();
+		resetStatTracker ();
 
 		spawnScript = gameObject.GetComponent<SpawnManager> ();
 
 		m_OriginalTextColor = m_HealthTextColor = NutrientTextColor = FontStyle.normal.textColor;
 
+		// set regions for drawing the faces and rectangles to reuse later in on gui
 		faceRect = new Rect (Screen.width * .864f, Screen.height * 0.86f, Screen.width * 0.078125f, Screen.height * 0.102864583f);
 		healthRect = new Rect (Screen.width * 0.952f, Screen.height * 0.8622f, Screen.width * 0.032f, Screen.height * 0.0948f);
 	}
@@ -73,6 +73,13 @@ public class IntestineGameManager : MonoBehaviour
 			Application.LoadLevel("SmallIntestineStats");
 		}
     }
+
+	void resetStatTracker()
+	{
+		statTracker = GameObject.Find ("SIStatTracker(Clone)");
+		trackStatVariables = statTracker.GetComponent<TrackStatVariables>();
+		trackStatVariables.reset();
+	}
 
     public void OnNutrientHit()
     {

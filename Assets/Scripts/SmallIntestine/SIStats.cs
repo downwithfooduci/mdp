@@ -213,8 +213,6 @@ public class SIStats : MonoBehaviour
 		if (GUI.Button(new Rect((635f/1024f)*Screen.width, (535f/768f)*Screen.height,
 		                        ((905f-635f)/1024f)*Screen.width, ((665f-535f)/768f)*Screen.height), "", nextLevelButton))
 		{
-			trackStatVariables.reset();
-
 			// make sure we don't show the load screen after it's over
 			if (level.getLevel() > level.getMaxLevels())
 			{

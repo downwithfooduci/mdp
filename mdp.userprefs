@@ -1,18 +1,18 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\SmallIntestine\Bullet.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Mouth\MouthStats.cs">
     <Files>
-      <File FileName="Assets\Scripts\SmallIntestine\TowerSpawnerTutorial.cs" Line="13" Column="32" />
-      <File FileName="Assets\Scripts\SmallIntestine\SpawnManagerTutorial.cs" Line="85" Column="1" />
-      <File FileName="Assets\Scripts\SmallIntestine\IntestineGameManagerTutorial.cs" Line="39" Column="21" />
-      <File FileName="Assets\Scripts\SmallIntestine\FoodBlobTutorial.cs" Line="47" Column="1" />
-      <File FileName="Assets\Scripts\SmallIntestine\NutrientTutorial.cs" Line="86" Column="3" />
-      <File FileName="Assets\Scripts\SmallIntestine\Nutrient.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\SmallIntestine\TowerTutorial.cs" Line="198" Column="42" />
-      <File FileName="Assets\Scripts\SmallIntestine\TowerMenu.cs" Line="55" Column="3" />
-      <File FileName="Assets\Scripts\SmallIntestine\TowerMenuTutorial.cs" Line="70" Column="1" />
       <File FileName="Assets\Scripts\SmallIntestine\NutrientManagerTutorial.cs" Line="48" Column="3" />
-      <File FileName="Assets\Scripts\SmallIntestine\Bullet.cs" Line="37" Column="54" />
+      <File FileName="Assets\Scripts\SmallIntestine\BulletTutorial.cs" Line="40" Column="26" />
+      <File FileName="Assets\Scripts\Main Menu\MainMenuDebug.cs" Line="167" Column="49" />
+      <File FileName="Assets\Scripts\SmallIntestine\IntestineGameManager.cs" Line="37" Column="44" />
+      <File FileName="Assets\Scripts\SmallIntestine\SIStats.cs" Line="215" Column="4" />
+      <File FileName="Assets\Scripts\SmallIntestine\SpawnManager.cs" Line="82" Column="1" />
+      <File FileName="Assets\Scripts\Mouth\MouthStats.cs" Line="211" Column="1" />
+      <File FileName="Assets\Scripts\Mouth\MouthLoadLevelCounter.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Mouth\LoadMouth.cs" Line="47" Column="1" />
+      <File FileName="Assets\Scripts\SmallIntestine\LoadSmallIntestine.cs" Line="31" Column="67" />
+      <File FileName="Assets\Scripts\SmallIntestine\TrackStatVariables.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

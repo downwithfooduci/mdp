@@ -208,8 +208,6 @@ public class MouthStats : MonoBehaviour
 		if (GUI.Button(new Rect((635f/1024f)*Screen.width, (535f/768f)*Screen.height,
 		                        ((905f-635f)/1024f)*Screen.width, ((665f-535f)/768f)*Screen.height), "", nextLevelButton))
 		{
-			trackMouthVariables.reset();
-
 			// make sure to not show the load screen after we're done
 			if (level.getLevel() > level.getMaxLevels())
 			{
