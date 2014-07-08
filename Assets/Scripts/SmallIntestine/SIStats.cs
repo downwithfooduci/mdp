@@ -216,7 +216,7 @@ public class SIStats : MonoBehaviour
 			trackStatVariables.reset();
 
 			// make sure we don't show the load screen after it's over
-			if (level.getLevel() > 6)
+			if (level.getLevel() > level.getMaxLevels())
 			{
 				Application.LoadLevel("EndScreen");
 			} else

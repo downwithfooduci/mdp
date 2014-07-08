@@ -209,7 +209,15 @@ public class MouthStats : MonoBehaviour
 		                        ((905f-635f)/1024f)*Screen.width, ((665f-535f)/768f)*Screen.height), "", nextLevelButton))
 		{
 			trackMouthVariables.reset();
-			Application.LoadLevel("LoadLevelMouth");
+
+			// make sure to not show the load screen after we're done
+			if (level.getLevel() > level.getMaxLevels())
+			{
+				Application.LoadLevel("SmallIntestineStoryboard");
+			} else
+			{
+				Application.LoadLevel("LoadLevelMouth");
+			}
 		}
 	}
 }

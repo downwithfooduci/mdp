@@ -41,10 +41,6 @@ public class LoadMouth : MonoBehaviour
 	{
 		counter = GameObject.Find ("MouthChooseBackground");
 		level = counter.GetComponent<MouthLoadLevelCounter> ();
-		if(level.getLevel() > level.getMaxLevels())
-		{
-			Application.LoadLevel("SmallIntestineStoryboard");
-		}
 		GUI.DrawTexture (new Rect(0, 0, Screen.width, Screen.height), backgrounds [Mathf.Clamp(level.getLevel() - 1, 0, level.getMaxLevels())]);
 	}
 }

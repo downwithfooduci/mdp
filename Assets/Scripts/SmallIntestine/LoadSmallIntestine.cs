@@ -29,10 +29,6 @@ public class LoadSmallIntestine : MonoBehaviour
 	{
 		counter = GameObject.Find ("ChooseBackground");
 		level = counter.GetComponent<SmallIntestineLoadLevelCounter> ();
-		if(level.getLevel() > level.getMaxLevels())
-		{
-			Application.LoadLevel("EndScreen");
-		}
 		GUI.DrawTexture (new Rect(0, 0, Screen.width, Screen.height), backgrounds [Mathf.Clamp(level.getLevel(), 0, level.getMaxLevels())]);
 	}
 
