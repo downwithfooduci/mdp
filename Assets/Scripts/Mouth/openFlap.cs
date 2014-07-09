@@ -41,13 +41,14 @@ public class openFlap : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-		if(coughTimer > 0)
+		// update the coughing variable accordinly to maintain proper collision detection
+		if (coughTimer > 0)
 		{
 			coughTimer -= Time.deltaTime;
-			return;
+		} else
+		{
+			cough = false;
 		}
-	
-		cough = false;
 
 		// ipad touch detection
 		foreach (Touch touch in Input.touches) 
