@@ -4,7 +4,7 @@ using System.Collections;
 public class openFlap : MonoBehaviour 
 {
 	GameObject bottomFlap, topFlap;
-	bool isOpen;
+	private bool isOpen;
 	Plane plane;
 	bool cough = false;
 	float coughTimer, coughTime;

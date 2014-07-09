@@ -274,6 +274,7 @@ GameObject:
   - 114: {fileID: 204818112}
   - 114: {fileID: 204818113}
   - 82: {fileID: 204818114}
+  - 114: {fileID: 204818115}
   m_Layer: 0
   m_Name: MouthGUI
   m_TagString: Untagged
@@ -766,6 +767,26 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+--- !u!114 &204818115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 204818103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 846fa5febee32804cab0f957811e8825, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  breathing:
+  - {fileID: 2800000, guid: 740a6af1713bba44783f0ab3d0bf3064, type: 3}
+  - {fileID: 2800000, guid: 4c7d8f6512c06314bbced6606522d887, type: 3}
+  notBreathing:
+  - {fileID: 2800000, guid: 69d93fb327641a94e9e0ed8ab1cefd2e, type: 3}
+  - {fileID: 2800000, guid: 5da4c29728cde5b4d9cc43e08857c9c0, type: 3}
+  animationDelay1: .699999988
+  animationDelay2: 1.39999998
+  flaps: {fileID: 118777431}
 --- !u!1 &233666803
 GameObject:
   m_ObjectHideFlags: 0
