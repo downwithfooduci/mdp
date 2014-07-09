@@ -270,8 +270,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 594b1932f2b461940a3d674eca5cbac4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  desiredSILevel: {fileID: 100000, guid: f5a6a7fe13b1e9b43aa67de4de1a72f4, type: 2}
-  desiredMouthLevel: {fileID: 100000, guid: f09b8876b7dade84a8664d94c1ecbc84, type: 2}
 --- !u!114 &559140626
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -23,16 +23,6 @@ public class LevelSelectMain : MonoBehaviour
 	private bool mouthUnlocked;
 	private bool smallIntestineUnlocked;
 
-	// for selecting a specific SI level
-	public GameObject desiredSILevel;
-	private GameObject desiredSILevelObj;
-	private DesiredSILevel levelSI;
-
-	// for selecting a specific mouth level	
-	public GameObject desiredMouthLevel;
-	private GameObject desiredMouthLevelObj;
-	private DesiredMouthLevel levelMouth;
-
 	// Use this for initialization
 	void Start () 
 	{
@@ -221,9 +211,8 @@ public class LevelSelectMain : MonoBehaviour
 			if (GUI.Button(new Rect(Screen.width * .2f, Screen.height*.2f, 
 			                        Screen.width * 0.2f, Screen.height * 0.1f), "Level 1", activeStyle))
 			{
-				desiredMouthLevelObj = (GameObject)Instantiate (desiredMouthLevel);
-				levelMouth = desiredMouthLevelObj.GetComponent<DesiredMouthLevel>();
-				levelMouth.setDesiredLevel(1);
+				PlayerPrefs.SetInt("DesiredMouthLevel", 1);
+				PlayerPrefs.Save();
 				Application.LoadLevel("LoadLevelMouth");
 			}
 
@@ -233,9 +222,8 @@ public class LevelSelectMain : MonoBehaviour
 				if (GUI.Button(new Rect(Screen.width * .2f, Screen.height*.3f, 
 				                        Screen.width * 0.2f, Screen.height * 0.1f), "Level 2", activeStyle))
 				{
-					desiredMouthLevelObj = (GameObject)Instantiate (desiredMouthLevel);
-					levelMouth = desiredMouthLevelObj.GetComponent<DesiredMouthLevel>();
-					levelMouth.setDesiredLevel(2);
+					PlayerPrefs.SetInt("DesiredMouthLevel", 2);
+					PlayerPrefs.Save();
 					Application.LoadLevel("LoadLevelMouth");
 				}
 			} else
@@ -263,9 +251,8 @@ public class LevelSelectMain : MonoBehaviour
 			if (GUI.Button(new Rect(Screen.width * .2f, Screen.height*.2f, 
 			                        Screen.width * 0.2f, Screen.height * 0.1f), "Level 1", activeStyle))
 			{
-				desiredSILevelObj = (GameObject)Instantiate (desiredSILevel);
-				levelSI = desiredSILevelObj.GetComponent<DesiredSILevel>();
-				levelSI.setDesiredLevel(1);
+				PlayerPrefs.SetInt("DesiredSILevel", 1);
+				PlayerPrefs.Save();
 				Application.LoadLevel("LoadLevelSmallIntestine");
 			}
 
@@ -275,9 +262,8 @@ public class LevelSelectMain : MonoBehaviour
 				if (GUI.Button(new Rect(Screen.width * .2f, Screen.height*.3f, 
 				                        Screen.width * 0.2f, Screen.height * 0.1f), "Level 2", activeStyle))
 				{
-					desiredSILevelObj = (GameObject)Instantiate (desiredSILevel);
-					levelSI = desiredSILevelObj.GetComponent<DesiredSILevel>();
-					levelSI.setDesiredLevel(2);
+					PlayerPrefs.SetInt("DesiredSILevel", 2);
+					PlayerPrefs.Save();
 					Application.LoadLevel("LoadLevelSmallIntestine");
 				}
 			} else
@@ -294,9 +280,8 @@ public class LevelSelectMain : MonoBehaviour
 				if (GUI.Button(new Rect(Screen.width * .2f, Screen.height*.4f, 
 				                        Screen.width * 0.2f, Screen.height * 0.1f), "Level 3", activeStyle))
 				{
-					desiredSILevelObj = (GameObject)Instantiate (desiredSILevel);
-					levelSI = desiredSILevelObj.GetComponent<DesiredSILevel>();
-					levelSI.setDesiredLevel(3);
+					PlayerPrefs.SetInt("DesiredSILevel", 3);
+					PlayerPrefs.Save();
 					Application.LoadLevel("LoadLevelSmallIntestine");
 				}
 			} else
@@ -313,9 +298,8 @@ public class LevelSelectMain : MonoBehaviour
 				if (GUI.Button(new Rect(Screen.width * .2f, Screen.height*.5f, 
 				                        Screen.width * 0.2f, Screen.height * 0.1f), "Level 4", activeStyle))
 				{
-					desiredSILevelObj = (GameObject)Instantiate (desiredSILevel);
-					levelSI = desiredSILevelObj.GetComponent<DesiredSILevel>();
-					levelSI.setDesiredLevel(4);
+					PlayerPrefs.SetInt("DesiredSILevel", 4);
+					PlayerPrefs.Save();
 					Application.LoadLevel("LoadLevelSmallIntestine");
 				}
 			} else
@@ -332,9 +316,8 @@ public class LevelSelectMain : MonoBehaviour
 				if (GUI.Button(new Rect(Screen.width * .2f, Screen.height*.6f, 
 				                        Screen.width * 0.2f, Screen.height * 0.1f), "Level 5", activeStyle))
 				{
-					desiredSILevelObj = (GameObject)Instantiate (desiredSILevel);
-					levelSI = desiredSILevelObj.GetComponent<DesiredSILevel>();
-					levelSI.setDesiredLevel(5);
+					PlayerPrefs.SetInt("DesiredSILevel", 5);
+					PlayerPrefs.Save();
 					Application.LoadLevel("LoadLevelSmallIntestine");
 				}
 			} else
@@ -351,9 +334,8 @@ public class LevelSelectMain : MonoBehaviour
 				if (GUI.Button(new Rect(Screen.width * .2f, Screen.height*.7f, 
 				                        Screen.width * 0.2f, Screen.height * 0.1f), "Level 6", activeStyle))
 				{
-					desiredSILevelObj = (GameObject)Instantiate (desiredSILevel);
-					levelSI = desiredSILevelObj.GetComponent<DesiredSILevel>();
-					levelSI.setDesiredLevel(6);
+					PlayerPrefs.SetInt("DesiredSILevel", 6);
+					PlayerPrefs.Save();
 					Application.LoadLevel("LoadLevelSmallIntestine");
 				}
 			} else
