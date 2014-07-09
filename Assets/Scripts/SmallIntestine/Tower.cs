@@ -12,10 +12,6 @@ public class Tower : MonoBehaviour
 	public AudioClip towerShootSound;
 	public AudioClip upgradeSound;
 
-	// for holding the tracker
-	private GameObject statTracker;
-	private TrackStatVariables trackStatVariables;
-
 	DebugConfig debugConfig;
 	
 	public GameObject Projectile;
@@ -55,9 +51,6 @@ public class Tower : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
-		statTracker = GameObject.Find ("SIStatTracker(Clone)");
-		trackStatVariables = statTracker.GetComponent<TrackStatVariables>();
-
 		// make sure we aren't in tutorial
 		if (Application.loadedLevelName != "SmallIntestineTutorial")
 		{
@@ -183,7 +176,8 @@ public class Tower : MonoBehaviour
 			audio.clip = towerShootSound;
 
 			// track stats
-			trackStatVariables.increaseEnzymesFired();
+			PlayerPrefs.SetInt ("SIStats_enzymesFired", PlayerPrefs.GetInt("SIStats_enzymesFired") + 1);
+			PlayerPrefs.Save();
 
 			transform.Rotate(new Vector3(90,0,0), -40, Space.World);
             // Look at target but lock rotation on x axis
@@ -266,8 +260,9 @@ public class Tower : MonoBehaviour
 				audio.Play();
 
 				// track stats
-				trackStatVariables.increaseTowersUpgraded();
-				trackStatVariables.increaseNutrientsSpent(TOWER_UPGRADE_LEVEL_1_COST);
+				PlayerPrefs.SetInt ("SIStats_towersUpgraded", PlayerPrefs.GetInt("SIStats_towersUpgraded") + 1);
+				PlayerPrefs.SetInt ("SIStats_nutrientsSpent", PlayerPrefs.GetInt("SIStats_nutrientsSpent") + TOWER_UPGRADE_LEVEL_1_COST);
+				PlayerPrefs.Save();
 			}
 			break;
 		case "Speed1":
@@ -283,8 +278,9 @@ public class Tower : MonoBehaviour
 				audio.Play();
 
 				// track stats
-				trackStatVariables.increaseTowersUpgraded();
-				trackStatVariables.increaseNutrientsSpent(TOWER_UPGRADE_LEVEL_2_COST);
+				PlayerPrefs.SetInt ("SIStats_towersUpgraded", PlayerPrefs.GetInt("SIStats_towersUpgraded") + 1);
+				PlayerPrefs.SetInt ("SIStats_nutrientsSpent", PlayerPrefs.GetInt("SIStats_nutrientsSpent") + TOWER_UPGRADE_LEVEL_2_COST);
+				PlayerPrefs.Save();
 			} 
 			break;
 		default:
@@ -316,8 +312,9 @@ public class Tower : MonoBehaviour
 				audio.Play();
 
 				// track stats
-				trackStatVariables.increaseTowersUpgraded();
-				trackStatVariables.increaseNutrientsSpent(TOWER_UPGRADE_LEVEL_1_COST);
+				PlayerPrefs.SetInt ("SIStats_towersUpgraded", PlayerPrefs.GetInt("SIStats_towersUpgraded") + 1);
+				PlayerPrefs.SetInt ("SIStats_nutrientsSpent", PlayerPrefs.GetInt("SIStats_nutrientsSpent") + TOWER_UPGRADE_LEVEL_1_COST);
+				PlayerPrefs.Save();
 			} 
 			break;
 		case "Power1":
@@ -332,8 +329,9 @@ public class Tower : MonoBehaviour
 				audio.Play();
 
 				// track stats
-				trackStatVariables.increaseTowersUpgraded();
-				trackStatVariables.increaseNutrientsSpent(TOWER_UPGRADE_LEVEL_2_COST);
+				PlayerPrefs.SetInt ("SIStats_towersUpgraded", PlayerPrefs.GetInt("SIStats_towersUpgraded") + 1);
+				PlayerPrefs.SetInt ("SIStats_nutrientsSpent", PlayerPrefs.GetInt("SIStats_nutrientsSpent") + TOWER_UPGRADE_LEVEL_2_COST);
+				PlayerPrefs.Save();
 			} 
 			break;
 		default:

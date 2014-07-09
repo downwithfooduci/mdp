@@ -3,10 +3,6 @@ using System.Collections;
 
 public class IntestineGameManager : MonoBehaviour 
 {
-	// for holding the tracker
-	private GameObject statTracker;
-	private TrackStatVariables trackStatVariables;
-
 	public int MAX_HEALTH = 20;
 	
 	private SpawnManager spawnScript;
@@ -34,8 +30,6 @@ public class IntestineGameManager : MonoBehaviour
 	
 	void Start()
 	{
-		resetStatTracker ();
-
 		spawnScript = gameObject.GetComponent<SpawnManager> ();
 
 		m_OriginalTextColor = m_HealthTextColor = NutrientTextColor = FontStyle.normal.textColor;
@@ -75,17 +69,11 @@ public class IntestineGameManager : MonoBehaviour
 		}
     }
 
-	void resetStatTracker()
-	{
-		statTracker = GameObject.Find ("SIStatTracker(Clone)");
-		trackStatVariables = statTracker.GetComponent<TrackStatVariables>();
-		trackStatVariables.reset();
-	}
-
     public void OnNutrientHit()
     {
 		// track nutrients earned
-		trackStatVariables.increaseNutrientsEarned (NutrientHitScore);
+		PlayerPrefs.SetInt ("SIStats_nutrientsEarned", PlayerPrefs.GetInt("SIStats_nutrientsEarned") + 1);
+		PlayerPrefs.Save();
 
 		nutrients += NutrientHitScore;
 		NutrientTextColor = Color.green;
@@ -98,7 +86,8 @@ public class IntestineGameManager : MonoBehaviour
 		if (numNutrientsAlive > 0) 
 		{
 			// track the food particles left at the end
-			trackStatVariables.increaseFoodLost(numNutrientsAlive);
+			PlayerPrefs.SetInt("SIStats_foodLost", PlayerPrefs.GetInt("SIStats_foodLost") + numNutrientsAlive);
+			PlayerPrefs.Save();
 
 			health = Mathf.Clamp(health - numNutrientsAlive, 0, MAX_HEALTH);
 			m_HealthTextColor = Color.red;

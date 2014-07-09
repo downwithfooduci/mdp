@@ -32,8 +32,10 @@ public class MoveFood : MonoBehaviour {
 			pathPosition = 1f - reversePosition;
 			if(reversePosition > .99f)
 			{
-				TrackMouthVariables stats = GameObject.Find ("MouthStatTracker(Clone)").GetComponent<TrackMouthVariables>();
-				stats.loseFood();
+				// track stats
+				PlayerPrefs.SetInt("MouthStats_foodLost", PlayerPrefs.GetInt("MouthStats_foodLost") + 1);
+				PlayerPrefs.Save ();
+
 				Destroy (gameObject);
 			}
 		}

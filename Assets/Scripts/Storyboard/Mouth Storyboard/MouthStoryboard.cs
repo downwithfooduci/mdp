@@ -65,8 +65,21 @@ public class MouthStoryboard : MonoBehaviour {
 					}
 				}
 			}
-			if(Input.GetKeyDown(KeyCode.Space))
-				swipe = true;
+
+			// for pc/mac
+			if(Input.GetMouseButtonDown(0))
+			{
+				xStart = Input.mousePosition.x;
+			}
+			if (Input.GetMouseButtonUp(0)) 
+			{
+				xEnd = Input.mousePosition.x;
+				
+				if ((xStart - xEnd) > 30) 
+				{
+					swipe = true;
+				}
+			}
 		
 		
 			// set variables for next page

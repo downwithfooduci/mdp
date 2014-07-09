@@ -3,10 +3,6 @@ using System.Collections.Generic;
 
 public class TowerSpawner : MonoBehaviour
 {
-	// for holding the tracker
-	private GameObject statTracker;
-	private TrackStatVariables trackStatVariables;
-
 	// Randomly selects a tower model upon creation
 	public GameObject[] Towers;
 	public GameObject SpawnIndicator;
@@ -51,13 +47,9 @@ public class TowerSpawner : MonoBehaviour
 	private IntestineGameManager m_GameManager;
 	public int TOWER_BASE_COST = 20;
 	private const float timer = 2.0f;
-	private float timePassed = 0.0f;
 		
 	void Start ()
 	{
-		statTracker = GameObject.Find ("SIStatTracker(Clone)");
-		trackStatVariables = statTracker.GetComponent<TrackStatVariables>();
-
 		// make sure we aren't in tutorial
 		if (Application.loadedLevelName != "SmallIntestineTutorial")
 		{
@@ -132,8 +124,9 @@ public class TowerSpawner : MonoBehaviour
 					Instantiate (placementSound);
 
 					// track stats
-					trackStatVariables.increaseTowersPlaced();
-					trackStatVariables.increaseNutrientsSpent(TOWER_BASE_COST);
+					PlayerPrefs.SetInt ("SIStats_towersPlaced", PlayerPrefs.GetInt("SIStats_towersPlaced") + 1);
+					PlayerPrefs.SetInt ("SIStats_nutrientsSpent", PlayerPrefs.GetInt("SIStats_nutrientsSpent") + TOWER_BASE_COST);
+					PlayerPrefs.Save();
 				} else 
 				{
 					Destroy (m_SpawnedTower);
@@ -158,7 +151,7 @@ public class TowerSpawner : MonoBehaviour
 		// draw the bottom GUI bar
 		GUI.DrawTexture (new Rect (0, Screen.height * 0.82421875f, Screen.width, Screen.height * 0.17578125f), bottomBar);
 
-		if (Application.loadedLevelName == "SmallIntestineTutorial" && trackStatVariables.getTowersPlaced() == 0)
+		if (Application.loadedLevelName == "SmallIntestineTutorial" && PlayerPrefs.GetInt("SIStats_towersPlaced") == 0)
 		{
 			// grey out all buttons except red for the first tower placement
 			// button 1: fats 1

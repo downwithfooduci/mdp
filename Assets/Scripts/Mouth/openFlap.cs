@@ -4,7 +4,6 @@ using System.Collections;
 public class openFlap : MonoBehaviour 
 {
 	GameObject bottomFlap, topFlap;
-	float moved = 0;
 	bool isOpen;
 	Plane plane;
 	bool cough = false;
@@ -97,7 +96,6 @@ public class openFlap : MonoBehaviour
 			if ((Input.mousePosition.x >= .3f*Screen.width && Input.mousePosition.x <= Screen.width) && 
 			    (Input.mousePosition.y <= .8f*Screen.height && Input.mousePosition.y >= 0))
 			{
-				Debug.Log("xStart: " + Input.mousePosition.x + ", yStart: " + Input.mousePosition.y);
 				xStart = Input.mousePosition.x;
 				yStart = Input.mousePosition.y;
 			}
@@ -108,7 +106,6 @@ public class openFlap : MonoBehaviour
 			if ((Input.mousePosition.x >= .3f*Screen.width && Input.mousePosition.x <= Screen.width) && 
 			    (Input.mousePosition.y <= .8f*Screen.height && Input.mousePosition.y >= 0))
 			{
-				Debug.Log("xEnd: " + Input.mousePosition.x + ", yEnd: " + Input.mousePosition.y);
 				xEnd = Input.mousePosition.x;
 				yEnd = Input.mousePosition.y;
 			}

@@ -11,10 +11,6 @@ public class MouthStats : MonoBehaviour
 	public GUIStyle nextLevelButton;
 	
 	private int numStars = 1;
-	
-	// for holding the tracker
-	private GameObject statTracker;
-	private TrackMouthVariables trackMouthVariables;
 
 	// for holding level
 	private GameObject counter;
@@ -35,27 +31,23 @@ public class MouthStats : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
-		// pull up the stats tracker
-		statTracker = GameObject.Find ("MouthStatTracker(Clone)");
-		trackMouthVariables = statTracker.GetComponent<TrackMouthVariables>();
-
 		// pull up the level counter
 		counter = GameObject.Find ("MouthChooseBackground");
 		level = counter.GetComponent<MouthLoadLevelCounter> ();
 
-		if(statTracker != null)
-			populateStats();
+		populateStats();
 		calculateStars();
+		resetStats ();
 	}
 	
 	void populateStats()
 	{
-		longestStreak = trackMouthVariables.getLongestStreak();
-		timesCoughed = trackMouthVariables.getTimesCoughed();
-		foodLost = trackMouthVariables.getFoodLost();
-		foodSwallowed = trackMouthVariables.getFoodSwallowed();
-		highestMultiplier = trackMouthVariables.getHighestMultiplier();
-		score = trackMouthVariables.getScore();
+		longestStreak = PlayerPrefs.GetInt("MouthStats_longestStreak");
+		timesCoughed = PlayerPrefs.GetInt("MouthStats_timesCoughed");
+		foodLost = PlayerPrefs.GetInt("MouthStats_foodLost");
+		foodSwallowed = PlayerPrefs.GetInt("MouthStats_foodSwallowed");
+		highestMultiplier = PlayerPrefs.GetInt("MouthStats_highestMultiplier");
+		score = PlayerPrefs.GetInt("MouthStats_score");
 	}
 	
 	// placeholder algorithm
@@ -81,6 +73,17 @@ public class MouthStats : MonoBehaviour
 		saveHighScore();
 	}
 
+	void resetStats()
+	{
+		PlayerPrefs.DeleteKey("MouthStats_longestStreak");
+		PlayerPrefs.DeleteKey("MouthStats_timesCoughed");
+		PlayerPrefs.DeleteKey("MouthStats_foodLost");
+		PlayerPrefs.DeleteKey("MouthStats_foodSwallowed");
+		PlayerPrefs.DeleteKey("MouthStats_highestMultiplier");
+		PlayerPrefs.DeleteKey("MouthStats_score");
+		PlayerPrefs.Save();
+	}
+
 	void saveHighScore()
 	{
 		prevHighScore = PlayerPrefs.GetInt ("Mouth" + (level.getLevel() - 1));
@@ -95,10 +98,7 @@ public class MouthStats : MonoBehaviour
 	}
 	
 	// Update is called once per frame
-	void Update () 
-	{
-		
-	}
+	void Update () {}
 	
 	void OnGUI()
 	{

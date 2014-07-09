@@ -4,7 +4,6 @@ using System.Collections;
 public class LoadMouth : MonoBehaviour 
 {
 	private GameObject counter;			// to keep track of levels
-	public GameObject statsTracker;	// to keep track of stats
 	
 	public Texture[] backgrounds;
 	private MouthLoadLevelCounter level;
@@ -16,15 +15,6 @@ public class LoadMouth : MonoBehaviour
 	void Start () 
 	{
 		timePassed = timer;
-		
-		// check if a stats tracker exists
-		GameObject existingStatsTracker = GameObject.Find ("MouthStatTracker(Clone)");
-		
-		// if one doesn't create it
-		if (existingStatsTracker == null) 
-		{
-			Instantiate(statsTracker);
-		}
 	}
 	
 	// Update is called once per frame

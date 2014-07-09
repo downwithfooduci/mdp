@@ -12,10 +12,6 @@ public class SIStats : MonoBehaviour
 
 	private int numStars = 1;
 
-	// for holding the tracker
-	private GameObject statTracker;
-	private TrackStatVariables trackStatVariables;
-
 	// for holding level 
 	private GameObject counter;
 	private SmallIntestineLoadLevelCounter level;
@@ -36,28 +32,24 @@ public class SIStats : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
-		// pull up the stats tracker
-		statTracker = GameObject.Find ("SIStatTracker(Clone)");
-		trackStatVariables = statTracker.GetComponent<TrackStatVariables>();
-
 		// pull up the level
 		counter = GameObject.Find ("ChooseBackground");
 		level = counter.GetComponent<SmallIntestineLoadLevelCounter> ();
 
-		if(statTracker != null)
-			populateStats();
-		calculateStars();
+		populateStats ();	// get the stats from player prefs and store them
+		calculateStars();	// calculate the stars based on the stats
+		resetStats ();		// reset the vars in player prefs for later
 	}
 
 	void populateStats()
 	{
-		nutrientsEarned = trackStatVariables.getNutrientsEarned();
-		nutrientsSpent = trackStatVariables.getNutrientsSpent();
-		foodLost = trackStatVariables.getFoodLost();
-		towersPlaced = trackStatVariables.getTowersPlaced();
-		towersSold = trackStatVariables.getTowersSold();
-		towersUpgraded = trackStatVariables.getTowersUpgraded();
-		enzymesFired = trackStatVariables.getEnzymesFired();
+		nutrientsEarned = PlayerPrefs.GetInt("SIStats_nutrientsEarned");
+		nutrientsSpent = PlayerPrefs.GetInt("SIStats_nutrientsSpent");
+		foodLost = PlayerPrefs.GetInt("SIStats_foodLost");
+		towersPlaced = PlayerPrefs.GetInt("SIStats_towersPlaced");
+		towersSold = PlayerPrefs.GetInt("SIStats_towersSold");
+		towersUpgraded = PlayerPrefs.GetInt("SIStats_towersUpgraded");
+		enzymesFired = PlayerPrefs.GetInt("SIStats_enzymesFired");
 	}
 
 	// placeholder algorithm
@@ -82,6 +74,19 @@ public class SIStats : MonoBehaviour
 	
 		saveHighScore();
 	}
+
+	// reset player prefs vars
+	void resetStats()
+	{
+		PlayerPrefs.DeleteKey("SIStats_nutrientsEarned");
+		PlayerPrefs.DeleteKey("SIStats_nurrientsSpent");
+		PlayerPrefs.DeleteKey("SIStats_foodLost");
+		PlayerPrefs.DeleteKey("SIStats_towersPlaced");
+		PlayerPrefs.DeleteKey("SIStats_towersSold");
+		PlayerPrefs.DeleteKey("SIStats_towersUpgraded");
+		PlayerPrefs.DeleteKey("SIStats_enzymesFired");
+		PlayerPrefs.Save();
+	}
 	
 	void saveHighScore()
 	{
@@ -97,10 +102,7 @@ public class SIStats : MonoBehaviour
 	}
 	
 	// Update is called once per frame
-	void Update () 
-	{
-
-	}
+	void Update () {}
 
 	void OnGUI()
 	{

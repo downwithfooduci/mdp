@@ -89,7 +89,6 @@ public class Nutrient : MDPEntity
 		GameObject particle2;
 		Vector3 delta = new Vector3(0, transform.localScale.y * 0.25f, 0);
 		Quaternion rotation = m_Parent.transform.rotation;
-		Transform effect;//To store EffectParticle
 		
 		for (int i = 0; i < numParticles; i++)
 		{
