@@ -151,7 +151,8 @@ public class TowerSpawner : MonoBehaviour
 		// draw the bottom GUI bar
 		GUI.DrawTexture (new Rect (0, Screen.height * 0.82421875f, Screen.width, Screen.height * 0.17578125f), bottomBar);
 
-		if (Application.loadedLevelName == "SmallIntestineTutorial" && PlayerPrefs.GetInt("SIStats_towersPlaced") == 0)
+		if (Application.loadedLevelName == "SmallIntestineTutorial" && (PlayerPrefs.GetInt("SIStats_towersPlaced") == 0
+		    || PlayerPrefs.GetInt ("SIStats_towersUpgraded") == 0))
 		{
 			// grey out all buttons except red for the first tower placement
 			// button 1: fats 1

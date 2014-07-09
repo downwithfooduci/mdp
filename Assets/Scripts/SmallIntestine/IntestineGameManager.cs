@@ -30,6 +30,8 @@ public class IntestineGameManager : MonoBehaviour
 	
 	void Start()
 	{
+		resetStats ();		// reset the vars in player prefs for later
+
 		spawnScript = gameObject.GetComponent<SpawnManager> ();
 
 		m_OriginalTextColor = m_HealthTextColor = NutrientTextColor = FontStyle.normal.textColor;
@@ -37,6 +39,19 @@ public class IntestineGameManager : MonoBehaviour
 		// set regions for drawing the faces and rectangles to reuse later in on gui
 		faceRect = new Rect (Screen.width * .864f, Screen.height * 0.86f, Screen.width * 0.078125f, Screen.height * 0.102864583f);
 		healthRect = new Rect (Screen.width * 0.952f, Screen.height * 0.8622f, Screen.width * 0.032f, Screen.height * 0.0948f);
+	}
+		
+	// reset player prefs vars
+	void resetStats()
+	{
+		PlayerPrefs.DeleteKey("SIStats_nutrientsEarned");
+		PlayerPrefs.DeleteKey("SIStats_nurrientsSpent");
+		PlayerPrefs.DeleteKey("SIStats_foodLost");
+		PlayerPrefs.DeleteKey("SIStats_towersPlaced");
+		PlayerPrefs.DeleteKey("SIStats_towersSold");
+		PlayerPrefs.DeleteKey("SIStats_towersUpgraded");
+		PlayerPrefs.DeleteKey("SIStats_enzymesFired");
+		PlayerPrefs.Save();
 	}
 
     void Update()
