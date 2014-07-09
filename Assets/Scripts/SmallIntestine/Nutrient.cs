@@ -17,7 +17,7 @@ public class Nutrient : MDPEntity
     private Color m_TrueColor;
     private Color m_TargetColor;
 
-    public IntestineGameManager Manager;
+    public IntestineGameManager intestineGameManager;
 
     public GameObject EffectParticle;
     public bool IsTargetted;
@@ -27,13 +27,13 @@ public class Nutrient : MDPEntity
 
 	protected GameObject m_Parent;
 	
-	private NutrientManager manager;
+	private NutrientManager nutrientManager;
 	//protected NutrientScript m_NutrientScript;
 	
 	// Use this for initialization
 	void Start () 
 	{
-		manager = FindObjectOfType(typeof(NutrientManager)) as NutrientManager;
+		nutrientManager = FindObjectOfType(typeof(NutrientManager)) as NutrientManager;
         Collider = new CircleCollider(this);
         IsTargetted = false;
 
@@ -46,7 +46,7 @@ public class Nutrient : MDPEntity
 		if(isDead && elapsedTime < 1)
 		{
 			elapsedTime += Time.deltaTime / 3;
-			manager.ChangeColor(this, Color.Lerp(m_TrueColor, m_TargetColor, elapsedTime));
+			nutrientManager.ChangeColor(this, Color.Lerp(m_TrueColor, m_TargetColor, elapsedTime));
 		}
 	}
 	
@@ -55,7 +55,7 @@ public class Nutrient : MDPEntity
 		Absorb();
         if (m_BodyColor == Color.green)		// if the color of the nutrient was green we need to turn it white
         {
-            manager.ChangeColor(this, Color.white);
+			nutrientManager.ChangeColor(this, Color.white);
 			((Behaviour)gameObject.GetComponent("Halo")).enabled = true;
         }
         else
@@ -68,7 +68,7 @@ public class Nutrient : MDPEntity
 		
 		m_TrueColor = m_BodyColor;
 
-        Manager.OnNutrientHit();
+		intestineGameManager.OnNutrientHit();
 	}
 	
 	virtual protected void Absorb()

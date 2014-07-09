@@ -1996,7 +1996,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 100086}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd7d98f823d7f764786c2e344512cb2b, type: 3}
+  m_Script: {fileID: 11500000, guid: 324c99f88fa740e4c84bbdd0d2042cea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   IsEnabled: 0
@@ -2543,7 +2543,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 100086}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 819e2361502d87846bd7227eaedc0e0e, type: 3}
+  m_Script: {fileID: 11500000, guid: 37acc117685500d46aad51d6fe557c2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   TOWER_BASE_COST: 20
@@ -2551,7 +2551,7 @@ MonoBehaviour:
   TOWER_UPGRADE_LEVEL_2_COST: 50
   towerShootSound: {fileID: 8300000, guid: 182af5481d8183a48960766c02aee175, type: 3}
   upgradeSound: {fileID: 8300000, guid: 355c9afbe3320c141ad0a0c4ae7aae86, type: 3}
-  Projectile: {fileID: 100000, guid: 599c37006ce3a4245b420c392dcc93f4, type: 2}
+  Projectile: {fileID: 100000, guid: f43d3495518175d40b527494c7f2f655, type: 2}
   wall: {fileID: 0}
   FiringRange: 12
   BaseCooldown: 2

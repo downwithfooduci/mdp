@@ -58,10 +58,14 @@ public class Tower : MonoBehaviour
 		statTracker = GameObject.Find ("SIStatTracker(Clone)");
 		trackStatVariables = statTracker.GetComponent<TrackStatVariables>();
 
-		debugConfig = ((GameObject)GameObject.Find("Debug Config")).GetComponent<DebugConfig>();
-		TOWER_BASE_COST = debugConfig.TOWER_BASE_COST;
-		TOWER_UPGRADE_LEVEL_1_COST = debugConfig.TOWER_UPGRADE_LEVEL_1_COST;
-		TOWER_UPGRADE_LEVEL_2_COST = debugConfig.TOWER_UPGRADE_LEVEL_2_COST;
+		// make sure we aren't in tutorial
+		if (Application.loadedLevelName != "SmallIntestineTutorial")
+		{
+			debugConfig = ((GameObject)GameObject.Find("Debug Config")).GetComponent<DebugConfig>();
+			TOWER_BASE_COST = debugConfig.TOWER_BASE_COST;
+			TOWER_UPGRADE_LEVEL_1_COST = debugConfig.TOWER_UPGRADE_LEVEL_1_COST;
+			TOWER_UPGRADE_LEVEL_2_COST = debugConfig.TOWER_UPGRADE_LEVEL_2_COST;
+		}
 		m_Cooldown = BaseCooldown;
 		m_CurrentCooldown = m_Cooldown;
 		m_CanFire = true;
@@ -83,37 +87,64 @@ public class Tower : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-		switch (m_ActiveModelName)
+		if (Application.loadedLevelName != "SmallIntestineTutorial")
 		{
-		case "Base":
-			m_Cooldown = debugConfig.BaseCooldown;
-			targets = debugConfig.baseTargets;
-			break;
-		case "Speed1":
-			m_Cooldown = debugConfig.Level1Cooldown;
-			break;
-		case "Speed2":
-			m_Cooldown = debugConfig.Level2Cooldown;
-			break;
-		case "Power1":
-			targets = debugConfig.level1Targets;
-			break;
-		case "Power2":
-			targets = debugConfig.level2Targets;
-			break;
-		default:
-			break;
+			switch (m_ActiveModelName)
+			{
+				case "Base":
+					m_Cooldown = debugConfig.BaseCooldown;
+					targets = debugConfig.baseTargets;
+					break;
+				case "Speed1":
+					m_Cooldown = debugConfig.Level1Cooldown;
+					break;
+				case "Speed2":
+					m_Cooldown = debugConfig.Level2Cooldown;
+					break;
+				case "Power1":
+					targets = debugConfig.level1Targets;
+					break;
+				case "Power2":
+					targets = debugConfig.level2Targets;
+					break;
+				default:
+					break;
+			}
+			TOWER_BASE_COST = debugConfig.TOWER_BASE_COST;
+			TOWER_UPGRADE_LEVEL_1_COST = debugConfig.TOWER_UPGRADE_LEVEL_1_COST;
+			TOWER_UPGRADE_LEVEL_2_COST = debugConfig.TOWER_UPGRADE_LEVEL_2_COST;
+		} else
+		{
+			switch (m_ActiveModelName)
+			{
+				case "Base":
+					m_Cooldown = BaseCooldown;
+					targets = baseTargets;
+					break;
+				case "Speed1":
+					m_Cooldown = Level1Cooldown;
+					break;
+				case "Speed2":
+					m_Cooldown = Level2Cooldown;
+					break;
+				case "Power1":
+					targets = level1Targets;
+					break;
+				case "Power2":
+					targets = level2Targets;
+					break;
+				default:
+					break;
+			}
 		}
-		TOWER_BASE_COST = debugConfig.TOWER_BASE_COST;
-		TOWER_UPGRADE_LEVEL_1_COST = debugConfig.TOWER_UPGRADE_LEVEL_1_COST;
-		TOWER_UPGRADE_LEVEL_2_COST = debugConfig.TOWER_UPGRADE_LEVEL_2_COST;
+
 		if (m_CanFire)
 		{
             Fire();
-		}
-		else
+		} else
 		{
 			m_CurrentCooldown -= Time.deltaTime;
+
 			if (m_CurrentCooldown <= 0f)
 			{
 				m_CanFire = true;

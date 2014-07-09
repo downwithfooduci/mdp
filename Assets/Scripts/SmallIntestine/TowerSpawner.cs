@@ -58,8 +58,12 @@ public class TowerSpawner : MonoBehaviour
 		statTracker = GameObject.Find ("SIStatTracker(Clone)");
 		trackStatVariables = statTracker.GetComponent<TrackStatVariables>();
 
-		debugConfig = ((GameObject)GameObject.Find("Debug Config")).GetComponent<DebugConfig>();
-		TOWER_BASE_COST = debugConfig.TOWER_BASE_COST;
+		// make sure we aren't in tutorial
+		if (Application.loadedLevelName != "SmallIntestineTutorial")
+		{
+			debugConfig = ((GameObject)GameObject.Find("Debug Config")).GetComponent<DebugConfig>();
+			TOWER_BASE_COST = debugConfig.TOWER_BASE_COST;
+		}
 		m_IsSpawnActive = false;
 
 		// button size
@@ -99,7 +103,12 @@ public class TowerSpawner : MonoBehaviour
 				m_SpawnedTower = null;
 			}
 		}
-		TOWER_BASE_COST = debugConfig.TOWER_BASE_COST;
+
+		if (Application.loadedLevelName != "SmallIntestineTutorial")
+		{
+			TOWER_BASE_COST = debugConfig.TOWER_BASE_COST;
+		}
+
 		// Handle valid spawn locations if player is spawning a tower
 		if (m_IsSpawnActive) 
 		{
@@ -149,7 +158,34 @@ public class TowerSpawner : MonoBehaviour
 		// draw the bottom GUI bar
 		GUI.DrawTexture (new Rect (0, Screen.height * 0.82421875f, Screen.width, Screen.height * 0.17578125f), bottomBar);
 
-		if (m_GameManager.nutrients - TOWER_BASE_COST >= 0 && Time.timeScale != 0) 
+		if (Application.loadedLevelName == "SmallIntestineTutorial" && trackStatVariables.getTowersPlaced() == 0)
+		{
+			// grey out all buttons except red for the first tower placement
+			// button 1: fats 1
+			m_ButtonSize.x = Dimensions.x;
+			GUI.RepeatButton (m_ButtonSize, "", inactiveButtons[0]);
+			
+			// button 2: fats 2
+			m_ButtonSize.x = Dimensions.x + (Screen.width * 0.0123f + Dimensions.width);
+			GUI.RepeatButton (m_ButtonSize, "", inactiveButtons[1]);
+			
+			// button 3: proteins
+			m_ButtonSize.x = Dimensions.x + 2*(Screen.width * 0.0123f + Dimensions.width);
+			if (GUI.RepeatButton (m_ButtonSize, "", activeButtons[2])) 
+			{
+				if (!m_IsSpawnActive) 
+				{
+					SpawnTower (AvailableColors [2]);
+					m_SpawnedTower.GetComponent<Tower> ().enabled = false;
+					return;
+				}
+			}
+			
+			// button 4: carbs
+			m_ButtonSize.x = Dimensions.x + 3*(Screen.width * 0.0123f + Dimensions.width);
+			GUI.RepeatButton (m_ButtonSize, "", inactiveButtons[3]);
+			
+		} else if (m_GameManager.nutrients - TOWER_BASE_COST >= 0 && Time.timeScale != 0) 
 		{
 			for (int i = 0; i < AvailableColors.Length; i++)
 			{

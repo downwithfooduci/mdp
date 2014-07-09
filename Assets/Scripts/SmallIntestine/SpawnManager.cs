@@ -26,6 +26,8 @@ public class SpawnManager : MonoBehaviour
 	{
 		GameObject counter = GameObject.Find ("ChooseBackground");
 		SmallIntestineLoadLevelCounter level = counter.GetComponent<SmallIntestineLoadLevelCounter> ();
+
+		// load in the script info
 		loadScript = new LoadScript();
 		waves = loadScript.loadIntestineLevel(level.getLevel());
 		currentWave = 0;
@@ -37,7 +39,12 @@ public class SpawnManager : MonoBehaviour
 		minNutrients = waves[0].minBlobs;
 		maxNutrients = waves[0].maxBlobs;
         m_TimeSinceLastSpawn = 0f;
-		debugConfig = ((GameObject)GameObject.Find("Debug Config")).GetComponent<DebugConfig>();
+
+		// we don't use debug config in the tutorial level
+		if (Application.loadedLevelName != "SmallIntestineTutorial")
+		{
+			debugConfig = ((GameObject)GameObject.Find("Debug Config")).GetComponent<DebugConfig>();
+		}
 	}
 	
 	// Update is called once per frame
@@ -47,9 +54,15 @@ public class SpawnManager : MonoBehaviour
 			waveTime -= Time.deltaTime;
 			if(waveTime > 0)
 			{
-				if(debugConfig.debugActive)
-					SpawnInterval = debugConfig.NutrientSpawnInterval;
-		        m_TimeSinceLastSpawn += Time.deltaTime;
+				if (Application.loadedLevelName != "SmallIntestineTutorial")
+				{
+					if(debugConfig.debugActive)
+					{
+						SpawnInterval = debugConfig.NutrientSpawnInterval;
+					}
+				}
+
+				m_TimeSinceLastSpawn += Time.deltaTime;
 
 		        if (m_TimeSinceLastSpawn >= SpawnInterval)
 		        {
@@ -59,7 +72,7 @@ public class SpawnManager : MonoBehaviour
 			}
 			else
 			{
-				if(debugConfig.debugActive)
+				if(Application.loadedLevelName != "SmallIntestineTutorial" && debugConfig.debugActive)
 				{
 					waveDelay = debugConfig.waveDelay;
 					waveTime = debugConfig.waveTimer;

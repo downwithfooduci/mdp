@@ -912,7 +912,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 199109209}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42e232f7eb18a5946a85d63379e85098, type: 3}
+  m_Script: {fileID: 11500000, guid: 9c4a7b9923ccb6a4f9e3734f954723db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Towers:
@@ -3499,7 +3499,7 @@ GameObject:
   - 114: {fileID: 594913889}
   - 114: {fileID: 594913888}
   m_Layer: 0
-  m_Name: managers
+  m_Name: Managers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3525,7 +3525,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 594913884}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8b9b4ee46a825845a1c7c729cb843ea, type: 3}
+  m_Script: {fileID: 11500000, guid: 783d055dfdc6ac249ba685047f3acbc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   SpawnType: {fileID: 100000, guid: 679a1278bbd5a234699b483afed07ab0, type: 2}
@@ -3540,7 +3540,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 594913884}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d0a0a6eee458b9498567471e7c60b0b, type: 3}
+  m_Script: {fileID: 11500000, guid: 98a16ce7fc8ee724fbef9fef8a79deed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   MAX_HEALTH: 20
@@ -3623,7 +3623,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 594913884}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 273ac2f63f2656c45853df9b16cc96ab, type: 3}
+  m_Script: {fileID: 11500000, guid: d4ca6d2539889aa43a6f427340bf5b5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   NutrientObj: {fileID: 100000, guid: 7451b375ab5b4984392027b36d68692d, type: 2}

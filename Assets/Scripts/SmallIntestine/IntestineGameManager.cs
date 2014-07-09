@@ -8,6 +8,7 @@ public class IntestineGameManager : MonoBehaviour
 	private TrackStatVariables trackStatVariables;
 
 	public int MAX_HEALTH = 20;
+	
 	private SpawnManager spawnScript;
 
     public GameObject GameOverScript;

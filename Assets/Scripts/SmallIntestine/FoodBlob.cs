@@ -8,7 +8,6 @@ using System.Collections.Generic;
 
 public class FoodBlob : MonoBehaviour 
 {
-
 	public float Velocity;
 	public float RotationSpeed;
 
@@ -46,7 +45,7 @@ public class FoodBlob : MonoBehaviour
 			// when we choose the random color index, we put -1 because we DO NOT want it to choose white
             int randomIndex = MDPUtility.RandomInt(availableColors.Length);
 			Nutrient nutrient = m_NutrientManager.InstantiateNutrient(availableColors[randomIndex], position);
-            nutrient.Manager = m_GameManager;
+			nutrient.intestineGameManager = m_GameManager;
 			
 			// Attach new enzyme as a child object
 			nutrient.transform.parent = gameObject.transform;

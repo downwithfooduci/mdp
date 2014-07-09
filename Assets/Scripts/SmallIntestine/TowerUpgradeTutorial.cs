@@ -6,14 +6,14 @@ public class TowerUpgradeTutorial : MonoBehaviour
 	public Texture zyme;
 	float ratio = 1.4250681198910081743869209809264f;
 	float popUpTime = 1f;
-	private IntestineGameManagerTutorial gameManager;
+	private IntestineGameManager gameManager;
 	bool hasPoppedUp = false;
 	bool show = false;
 
 	// Use this for initialization
 	void Start () 
 	{
-		gameManager = GameObject.Find ("managers").GetComponent<IntestineGameManagerTutorial> ();
+		gameManager = GameObject.Find ("Managers").GetComponent<IntestineGameManager> ();
 		GameObject chooseBackground = GameObject.Find("ChooseBackground");
 	}
 	
