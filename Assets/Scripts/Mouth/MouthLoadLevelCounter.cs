@@ -9,15 +9,16 @@ public class MouthLoadLevelCounter : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
-		GameObject desiredMouthLevel = GameObject.Find ("MouthManualLevelSelect(Clone)");
+		level = PlayerPrefs.GetInt ("DesiredMouthLevel");
 		
-		if (desiredMouthLevel != null)
+		if (level != -1)
 		{
-			DesiredMouthLevel desiredMouthLevelScript = desiredMouthLevel.GetComponent<DesiredMouthLevel> ();
-			level = desiredMouthLevelScript.getDesiredLevel();
-			Destroy (desiredMouthLevel);
+			// reset the variable for later use
+			PlayerPrefs.SetInt("DesiredMouthLevel", -1);
+			PlayerPrefs.Save ();
 		} else
 		{
+			// if it was -1 then we are starting as normal
 			level = 1;
 		}
 		

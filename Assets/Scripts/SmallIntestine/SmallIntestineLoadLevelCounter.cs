@@ -9,18 +9,18 @@ public class SmallIntestineLoadLevelCounter : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
-		GameObject desiredSILevel = GameObject.Find ("ManualSILevelSelection(Clone)");
+		level = PlayerPrefs.GetInt ("DesiredSILevel");
 
-		if (desiredSILevel != null)
+		if (level != -1)
 		{
-			DesiredSILevel desiredSILevelScript = desiredSILevel.GetComponent<DesiredSILevel> ();
-			level = desiredSILevelScript.getDesiredLevel();
-			Destroy (desiredSILevel);
+			// reset the variable for later use
+			PlayerPrefs.SetInt("DesiredSILevel", -1);
+			PlayerPrefs.Save ();
 		} else
 		{
+			// if it was -1 then we are starting as normal
 			level = 1;
 		}
-
 		if (GameObject.FindGameObjectsWithTag ("backgroundChooser").Length > 1)
 			Destroy (gameObject);
 	}
