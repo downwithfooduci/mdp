@@ -180,13 +180,13 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 118777431}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .437178373, y: -.69993782, z: 0}
+  m_LocalPosition: {x: 2.37188649, y: -2.95494366, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 962206048}
   - {fileID: 1159582898}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 6
 --- !u!114 &118777433
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -496,7 +496,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 2
 --- !u!114 &204818107
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -660,7 +660,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9105ff12ecb0b8a4697f6ea74ed4ed94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouthOverlay: {fileID: 2800000, guid: 5c35ed8459b837b49a54dff26efe8b52, type: 3}
+  mouthOverlay: {fileID: 2800000, guid: 1b173cb569d8e6e478b7bf619de3c5aa, type: 3}
   sideBar: {fileID: 2800000, guid: 3b21b9b780f84d8499e3133030066b5e, type: 3}
 --- !u!114 &204818111
 MonoBehaviour:
@@ -674,11 +674,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   epiglottis:
-  - {fileID: 2800000, guid: 1df678a3dc16be04b989e07b587f86f8, type: 3}
-  - {fileID: 2800000, guid: 28477bc1bff09d243ac240bb1b3d8752, type: 3}
+  - {fileID: 2800000, guid: 22baf3bf95cd01047aa57128194e7f93, type: 3}
+  - {fileID: 2800000, guid: a055bd46fed594a48877b10d37a0da08, type: 3}
   uvula:
-  - {fileID: 2800000, guid: af78939da8368b74f9ad4ee400b6122a, type: 3}
-  - {fileID: 2800000, guid: 000fe067d9bbb7d42954389cbb7c03d7, type: 3}
+  - {fileID: 2800000, guid: 96ae2157351c252449c70bac4c4737db, type: 3}
+  - {fileID: 2800000, guid: 621c836b775fecc4db2efbe4a4dd4592, type: 3}
 --- !u!114 &204818112
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -690,7 +690,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e0522a1b64190547a6197f13ebb0da1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tongue: {fileID: 2800000, guid: fa5f3a374bb63ef469ec79e1f57878fc, type: 3}
+  tongue: {fileID: 2800000, guid: 45064d99cdf973944a43070427080b76, type: 3}
 --- !u!114 &204818113
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -927,7 +927,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 4
 --- !u!1 &906403188
 GameObject:
   m_ObjectHideFlags: 0
@@ -957,7 +957,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   food: {fileID: 100000, guid: c23798531424fba4da144ed87e878ee8, type: 2}
-  startingSpawn: {x: -7.43281078, y: 4.30000019, z: -.5}
+  startingSpawn: {x: -9, y: 4.30000019, z: -.5}
   SpawnInterval: 0
   end: 0
 --- !u!4 &906403190
@@ -967,7 +967,7 @@ Transform:
   m_PrefabInternal: {fileID: 1768501364}
   m_GameObject: {fileID: 906403188}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.41914606, y: 3.25598192, z: -.5}
+  m_LocalPosition: {x: -10.0820904, y: 2.02669573, z: -.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1144,7 +1144,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1060769813}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 14.7687321, y: 1.49156952, z: -2.32207012}
+  m_LocalPosition: {x: 16.098526, y: 1.49156952, z: -2.32207012}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 987063376}
@@ -1300,13 +1300,16 @@ MonoBehaviour:
   pathName: Path
   pathColor: {r: 0, g: 1, b: 1, a: 1}
   nodes:
-  - {x: -7.43270779, y: 4.30000019, z: -.5}
-  - {x: -5.43286085, y: 4.54732084, z: -.5}
-  - {x: -2.25409937, y: 5.19570208, z: -.5}
-  - {x: 1.50586557, y: 3.80939245, z: -.5}
-  - {x: 2.18070054, y: -.855166435, z: -.5}
-  - {x: 2.43469715, y: -8.01514244, z: -.5}
-  nodeCount: 6
+  - {x: -9.00268555, y: 2.08672118, z: -.5}
+  - {x: -5.74230337, y: 2.03324008, z: -.5}
+  - {x: -3.40913892, y: 2.34576511, z: -.5}
+  - {x: -1.39906776, y: 2.90479398, z: -.5}
+  - {x: .781447589, y: 2.84765911, z: -.5}
+  - {x: 2.78265572, y: 2.40605164, z: -.5}
+  - {x: 3.76999998, y: .810000002, z: -.5}
+  - {x: 4.03527737, y: -2.24061966, z: -.5}
+  - {x: 4.12489986, y: -7.18104506, z: -.5}
+  nodeCount: 9
   initialized: 1
   initialName: New Path 1
   pathVisible: 1
@@ -1415,11 +1418,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: 9e4fa9bb8e99d6849b6a3fbe86151eb2, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -7.41914606
+      value: -10.0820904
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 9e4fa9bb8e99d6849b6a3fbe86151eb2, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 3.25598192
+      value: 2.02669573
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 9e4fa9bb8e99d6849b6a3fbe86151eb2, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1443,11 +1446,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 9e4fa9bb8e99d6849b6a3fbe86151eb2, type: 2}
       propertyPath: startingSpawn.x
-      value: -7.43281078
+      value: -9
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 9e4fa9bb8e99d6849b6a3fbe86151eb2, type: 2}
       propertyPath: startingSpawn.y
       value: 4.30000019
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 9e4fa9bb8e99d6849b6a3fbe86151eb2, type: 2}
+      propertyPath: m_RootOrder
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9e4fa9bb8e99d6849b6a3fbe86151eb2, type: 2}

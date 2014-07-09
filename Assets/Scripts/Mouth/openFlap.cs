@@ -55,8 +55,8 @@ public class openFlap : MonoBehaviour
 		{
 			if (touch.phase == TouchPhase.Began) 
 			{
-				if ((Input.mousePosition.x >= .5f*Screen.width && Input.mousePosition.x <= Screen.width) && 
-				    (Input.mousePosition.y <= .7f*Screen.height && Input.mousePosition.y >= .1f*Screen.height))
+				if ((touch.position.x >= .3f*Screen.width && touch.position.x <= Screen.width) && 
+				    (touch.position.y <= .8f*Screen.height && touch.position.y >= 0))
 				{
 					xStart = touch.position.x;
 					yStart = touch.position.y;
@@ -65,26 +65,27 @@ public class openFlap : MonoBehaviour
 
 			if (touch.phase == TouchPhase.Ended)
 			{
-				if ((Input.mousePosition.x >= .5f*Screen.width && Input.mousePosition.x <= Screen.width) && 
-				    (Input.mousePosition.y <= .7f*Screen.height && Input.mousePosition.y >= .1f*Screen.height))
+				if ((touch.position.x >= .3f*Screen.width && touch.position.x <= Screen.width) && 
+				    (touch.position.y <= .8f*Screen.height && touch.position.y >= 0))
 				{
 					xEnd = touch.position.x;
 					yEnd = touch.position.y;
 				}
 				
-				if (Mathf.Sqrt((xStart - xEnd)*(xStart - xEnd)+(yStart - yEnd)*(yStart - yEnd)) > 20) 
+				if (Mathf.Sqrt((xStart - xEnd)*(xStart - xEnd)+(yStart - yEnd)*(yStart - yEnd)) > 10) 
 				{
 					swipe = true;
 					
-				Debug.Log ("xstart: " + xStart + " xEnd" + xEnd);
-					if (xStart < xEnd)
+					if (yStart < yEnd)
 					{
-					Debug.Log ("Swipe up");
 						swipeUp = true;
+					} else if (yStart > yEnd)
+					{
+						swipeDown = true;
 					} else
 					{
-					Debug.Log ("Swipe down");
-						swipeDown = true;
+						swipeDown = !swipeDown;
+						swipeUp = !swipeUp;
 					}
 				}
 			}
@@ -93,31 +94,39 @@ public class openFlap : MonoBehaviour
 		// for PC/MAC version
 		if(Input.GetMouseButtonDown(0))
 		{
-			if ((Input.mousePosition.x >= .5f*Screen.width && Input.mousePosition.x <= Screen.width) && 
-		    (Input.mousePosition.y <= .7f*Screen.height && Input.mousePosition.y >= .1f*Screen.height))
+			if ((Input.mousePosition.x >= .3f*Screen.width && Input.mousePosition.x <= Screen.width) && 
+			    (Input.mousePosition.y <= .8f*Screen.height && Input.mousePosition.y >= 0))
 			{
+				Debug.Log("xStart: " + Input.mousePosition.x + ", yStart: " + Input.mousePosition.y);
 				xStart = Input.mousePosition.x;
 				yStart = Input.mousePosition.y;
 			}
 		}
+
 		if(Input.GetMouseButtonUp(0))
 		{
-			if ((Input.mousePosition.x >= .5f*Screen.width && Input.mousePosition.x <= Screen.width) && 
-		    (Input.mousePosition.y <= .7f*Screen.height && Input.mousePosition.y >= .1f*Screen.height))
+			if ((Input.mousePosition.x >= .3f*Screen.width && Input.mousePosition.x <= Screen.width) && 
+			    (Input.mousePosition.y <= .8f*Screen.height && Input.mousePosition.y >= 0))
 			{
+				Debug.Log("xEnd: " + Input.mousePosition.x + ", yEnd: " + Input.mousePosition.y);
 				xEnd = Input.mousePosition.x;
 				yEnd = Input.mousePosition.y;
 			}
-			if (Mathf.Sqrt((xStart - xEnd)*(xStart - xEnd)+(yStart - yEnd)*(yStart - yEnd)) > 20) 
+
+			if (Mathf.Sqrt((xStart - xEnd)*(xStart - xEnd)+(yStart - yEnd)*(yStart - yEnd)) > 10) 
 			{
 				swipe = true;
 			
-				if (xStart < xEnd)
+				if (yStart < yEnd)
 				{
 					swipeUp = true;
-				} else
+				} else if (yStart > yEnd)
 				{
 					swipeDown = true;
+				} else
+				{
+					swipeDown = !swipeDown;
+					swipeUp = !swipeUp;
 				}
 			}
 		}
