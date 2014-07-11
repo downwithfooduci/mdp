@@ -1,14 +1,13 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\SmallIntestine\TowerUpgradeTutorial.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\SmallIntestine\TowerSpawner.cs">
     <Files>
-      <File FileName="Assets\Scripts\SmallIntestine\TowerSpawner.cs" Line="155" Column="9" />
-      <File FileName="Assets\Scripts\Mouth\MouthGameManager.cs" Line="21" Column="3" />
-      <File FileName="Assets\Scripts\Mouth\MouthStats.cs" Line="76" Column="1" />
-      <File FileName="Assets\Scripts\SmallIntestine\TowerUpgradeTutorial.cs" Line="40" Column="44" />
-      <File FileName="Assets\Scripts\SmallIntestine\TowerPlacementTutorial.cs" Line="34" Column="28" />
-      <File FileName="Assets\Scripts\SmallIntestine\SIStats.cs" Line="187" Column="8" />
-      <File FileName="Assets\Scripts\SmallIntestine\TowerMenu.cs" Line="243" Column="24" />
+      <File FileName="Assets\Scripts\SmallIntestine\TowerSpawner.cs" Line="121" Column="1" />
+      <File FileName="Assets\Scripts\Mouth\MouthGameManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\SmallIntestine\TowerUpgradeTutorial.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\SmallIntestine\TowerPlacementTutorial.cs" Line="1" Column="1" />
+      <File FileName="Assets\NutrientsTutorial.cs" Line="41" Column="4" />
+      <File FileName="Assets\Fats1Button.cs" Line="62" Column="42" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

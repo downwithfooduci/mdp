@@ -15,20 +15,6 @@ public class TowerSpawner : MonoBehaviour
 	public Color[] AvailableColors;
 	public GUIStyle ButtonStyle;
 
-	// make styles for the buttons for the button bar
-	public GUIStyle fatsActive;
-	public GUIStyle fatsInactive;
-	public GUIStyle fats2Active;
-	public GUIStyle fats2Inactive;
-	public GUIStyle proteinActive;
-	public GUIStyle proteinInactive;
-	public GUIStyle carbsActive;
-	public GUIStyle carbsInactive;
-
-	//arrays to hold buttons
-	private GUIStyle[] activeButtons;
-	private GUIStyle[] inactiveButtons;
-
 	// for sounds
 	public GameObject placementSound;
 	
@@ -66,20 +52,6 @@ public class TowerSpawner : MonoBehaviour
 		m_ButtonSize = Dimensions;
 
 		m_GameManager = GameObject.Find ("Managers").GetComponent<IntestineGameManager> ();
-
-		// initialize the arrays for holding the buttons
-		activeButtons = new GUIStyle[4];
-		inactiveButtons = new GUIStyle[4];
-
-		// fill arrays
-		activeButtons [0] = fatsActive;
-		activeButtons [1] = fats2Active;
-		activeButtons [2] = proteinActive;
-		activeButtons [3] = carbsActive;
-		inactiveButtons [0] = fatsInactive;
-		inactiveButtons [1] = fats2Inactive;
-		inactiveButtons [2] = proteinInactive;
-		inactiveButtons [3] = carbsInactive;
 	}
 
 	void Update ()
@@ -146,65 +118,7 @@ public class TowerSpawner : MonoBehaviour
 		m_IsMouseOverWallLastFrame = IsMouseOverWall;
 	}
 
-	void OnGUI ()
-	{
-		// draw the bottom GUI bar
-		GUI.DrawTexture (new Rect (0, Screen.height * 0.82421875f, Screen.width, Screen.height * 0.17578125f), bottomBar);
-
-		if (Application.loadedLevelName == "SmallIntestineTutorial" && (PlayerPrefs.GetInt("SIStats_towersPlaced") == 0
-		    || PlayerPrefs.GetInt ("SIStats_towersUpgraded") == 0))
-		{
-			// grey out all buttons except red for the first tower placement
-			// button 1: fats 1
-			m_ButtonSize.x = Dimensions.x;
-			GUI.RepeatButton (m_ButtonSize, "", inactiveButtons[0]);
-			
-			// button 2: fats 2
-			m_ButtonSize.x = Dimensions.x + (Screen.width * 0.0123f + Dimensions.width);
-			GUI.RepeatButton (m_ButtonSize, "", inactiveButtons[1]);
-			
-			// button 3: proteins
-			m_ButtonSize.x = Dimensions.x + 2*(Screen.width * 0.0123f + Dimensions.width);
-			if (GUI.RepeatButton (m_ButtonSize, "", activeButtons[2])) 
-			{
-				if (!m_IsSpawnActive) 
-				{
-					SpawnTower (AvailableColors [2]);
-					m_SpawnedTower.GetComponent<Tower> ().enabled = false;
-					return;
-				}
-			}
-			
-			// button 4: carbs
-			m_ButtonSize.x = Dimensions.x + 3*(Screen.width * 0.0123f + Dimensions.width);
-			GUI.RepeatButton (m_ButtonSize, "", inactiveButtons[3]);
-			
-		} else if (m_GameManager.nutrients - TOWER_BASE_COST >= 0 && Time.timeScale != 0) 
-		{
-			for (int i = 0; i < AvailableColors.Length; i++)
-			{
-				m_ButtonSize.x = Dimensions.x + i*(Screen.width * 0.0123f + Dimensions.width);
-				if (GUI.RepeatButton (m_ButtonSize, "", activeButtons[i])) 
-				{
-					if (!m_IsSpawnActive) 
-					{
-						SpawnTower (AvailableColors [i]);
-						m_SpawnedTower.GetComponent<Tower> ().enabled = false;
-						return;
-					}
-				}
-			}
-		} else
-		{
-			for (int i = 0; i < AvailableColors.Length; i++)
-			{
-				m_ButtonSize.x = Dimensions.x + i*(Screen.width*0.0123f + Dimensions.width);
-				GUI.RepeatButton (m_ButtonSize, "", inactiveButtons[i]);
-			}
-		}
-	}
-
-	private void SpawnTower (Color color)
+	public void SpawnTower (Color color)
 	{
 		GameObject towerType = Towers [MDPUtility.RandomInt (Towers.Length)];
 		m_SpawnedTower = Instantiate (towerType) as GameObject;
@@ -217,6 +131,21 @@ public class TowerSpawner : MonoBehaviour
 		m_Indicator.transform.localScale = new Vector3 (range * 2, 1, range * 2);
 
 		m_IsSpawnActive = true;
+	}
+
+	public bool getIsSpawnActive()
+	{
+		return m_IsSpawnActive;
+	}
+
+	public GameObject getSpawnedTower()
+	{
+		return m_SpawnedTower;
+	}
+
+	public IntestineGameManager getGameManager()
+	{
+		return m_GameManager;
 	}
 }
 
