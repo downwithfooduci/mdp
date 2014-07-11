@@ -1,8 +1,11 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\NutrientsTutorial.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\SmallIntestine\IntestineGameManager.cs">
     <Files>
-      <File FileName="Assets\NutrientsTutorial.cs" Line="41" Column="4" />
+      <File FileName="Assets\Scripts\SmallIntestine\TowerSpawner.cs" Line="45" Column="27" />
+      <File FileName="Assets\Scripts\SmallIntestine\IntestineGameManager.cs" Line="43" Column="3" />
+      <File FileName="Assets\Scripts\SmallIntestine\SpawnManager.cs" Line="28" Column="1" />
+      <File FileName="Assets\DrawHealthFace.cs" Line="7" Column="14" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
