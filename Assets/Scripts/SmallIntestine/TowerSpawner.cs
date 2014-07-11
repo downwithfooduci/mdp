@@ -44,13 +44,6 @@ public class TowerSpawner : MonoBehaviour
 		}
 		m_IsSpawnActive = false;
 
-		// button size
-		Dimensions.x = Screen.width * 0.0148f;		// x location of first button
-		Dimensions.y = Screen.height * 0.89f;			// y location of first button
-		Dimensions.width = Screen.width * 0.197f;		// width of a button
-		Dimensions.height = Screen.height * 0.091f;	// height of a button
-		m_ButtonSize = Dimensions;
-
 		m_GameManager = GameObject.Find ("Managers").GetComponent<IntestineGameManager> ();
 	}
 
