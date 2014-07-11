@@ -235,6 +235,15 @@ public class TowerMenu : MonoBehaviour
 		if (m_Tower.ActiveModelName == "Base")
 		{
 			speedActive.fontSize = (int)Mathf.Ceil(Screen.width * .0106f);
+
+			// if we are in the tutorial, the speed will be greyed out for the 2nd upgrade
+			if (Application.loadedLevelName == "SmallIntestineTutorial" && 
+			    PlayerPrefs.GetInt("SIStats_towersUpgraded") == 1)
+			{
+				GUI.Button(GetSpeedButtonRect(), "", speedInactive);
+				return;
+			}
+
 			if(m_GameManager.nutrients - m_Tower.TOWER_UPGRADE_LEVEL_1_COST < 0)
 			{
 				GUI.Button(GetSpeedButtonRect(), "", speedInactive);
@@ -264,6 +273,16 @@ public class TowerMenu : MonoBehaviour
 		if (m_Tower.ActiveModelName == "Base")
 		{
 			powerActive.fontSize = (int)Mathf.Ceil(Screen.width * .0106f);
+
+			// if we are in the tutorial the power will always be greyed out initially
+			if (Application.loadedLevelName == "SmallIntestineTutorial" && 
+			    PlayerPrefs.GetInt("SIStats_towersUpgraded") == 0)
+			{
+				GUI.Button(GetPowerButtonRect(), "", powerInactive);
+				return;
+			}
+
+			//normally
 			if(m_GameManager.nutrients - m_Tower.TOWER_UPGRADE_LEVEL_1_COST < 0)
 			{
 				GUI.Button(GetPowerButtonRect(), "", powerInactive);
