@@ -2543,7 +2543,7 @@ MonoBehaviour:
   upgradeSound: {fileID: 8300000, guid: 355c9afbe3320c141ad0a0c4ae7aae86, type: 3}
   Projectile: {fileID: 100000, guid: f43d3495518175d40b527494c7f2f655, type: 2}
   wall: {fileID: 0}
-  FiringRange: 12
+  FiringRange: 13
   BaseCooldown: 2
   Level1Cooldown: 1
   Level2Cooldown: .5

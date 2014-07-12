@@ -48,8 +48,13 @@ public class ReturnButtonSIOdd : MonoBehaviour
 			{
 				Time.timeScale = 1;
 				GameObject chooseBackground = GameObject.Find("ChooseBackground");
-				SmallIntestineLoadLevelCounter  level = chooseBackground.GetComponent<SmallIntestineLoadLevelCounter>();
-				level.resetLevel();
+
+				if (chooseBackground != null)
+				{
+					SmallIntestineLoadLevelCounter  level = chooseBackground.GetComponent<SmallIntestineLoadLevelCounter>();
+					level.resetLevel();
+				}
+					
 				Application.LoadLevel("MainMenu");
 			}
 
