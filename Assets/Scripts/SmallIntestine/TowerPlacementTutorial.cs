@@ -23,6 +23,11 @@ public class TowerPlacementTutorial : MonoBehaviour
 		{
 			stopForZyme = true;
 		}
+
+		if (PlayerPrefs.GetInt("SIStats_towersPlaced") == 1)
+		{
+			Time.timeScale = 1;
+		}
 	}
 
 	void OnGUI()
@@ -48,6 +53,7 @@ public class TowerPlacementTutorial : MonoBehaviour
 			GUI.Label(new Rect(.58f*Screen.width, .42f*Screen.height, .8f*Screen.width, .8f*Screen.height),
 			          "Drag a Protein Tower to \nthe wall of the small \nintestine!",
 			               style);
+			Time.timeScale = .01f;
 		}
 
 		if (stopForZyme && PlayerPrefs.GetInt("SIStats_towersPlaced") == 1)

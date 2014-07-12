@@ -77,6 +77,7 @@ public class TowerUpgradeTutorial : MonoBehaviour
 		// update elapsed time for 2nd upgrade
 		if (speedUpgraded && PlayerPrefs.GetInt("SIStats_towersUpgraded") == 1)
 		{
+			Time.timeScale = 1;
 			elapsedTime += Time.deltaTime;
 		}
 
@@ -93,6 +94,7 @@ public class TowerUpgradeTutorial : MonoBehaviour
 		// destroy the light once the tower is upgraded and count to next upgrade
 		if (PlayerPrefs.GetInt("SIStats_towersUpgraded") == 2)
 		{
+			Time.timeScale = 1;
 			powerUpgraded = true;
 			showZymePower = false;
 			
@@ -150,6 +152,7 @@ public class TowerUpgradeTutorial : MonoBehaviour
 			GUI.Label(new Rect(.58f*Screen.width, .42f*Screen.height, .8f*Screen.width, .8f*Screen.height),
 			          "Tap a tower to upgrade! \nSpeed makes a tower \nrelease enzymes faster!",
 			          style);
+			Time.timeScale = .01f;
 		}
 		
 		if(showZymePower)
@@ -161,6 +164,7 @@ public class TowerUpgradeTutorial : MonoBehaviour
 			GUI.Label(new Rect(.58f*Screen.width, .42f*Screen.height, .8f*Screen.width, .8f*Screen.height),
 			          "Tap a tower to upgrade! \nPower makes a tower \nrelease more enzymes at \na time!",
 			          style);
+			Time.timeScale = .01f;
 		}
 	}
 }

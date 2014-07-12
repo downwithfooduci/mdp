@@ -106,6 +106,7 @@ public class SpeedMultiplierTutorial : MonoBehaviour
 			GUI.Label(new Rect(.58f*Screen.width, .42f*Screen.height, .8f*Screen.width, .8f*Screen.height),
 			          "The stopwatch can be \nused to speed up or slow \ndown the flow of food!",
 			          style);
+			Time.timeScale = .01f;
 			
 			if (GUI.Button(new Rect(Screen.width - (.36f * Screen.height * ratio), 
 			                        (Screen.height * 0.82421875f) - (.15f * Screen.height),
@@ -114,6 +115,7 @@ public class SpeedMultiplierTutorial : MonoBehaviour
 			{
 				showTutorial = false;
 				tutorialOver = true;
+				Time.timeScale = 1;
 			}
 		}
 	}

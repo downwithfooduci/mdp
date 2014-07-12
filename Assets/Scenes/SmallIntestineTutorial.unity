@@ -9910,7 +9910,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   arrow: {fileID: 2800000, guid: 3988306e06c0b6645a6229bf18727020, type: 3}
   zyme: {fileID: 2800000, guid: 491cdbfe42521d14b94bda6aaef781a6, type: 3}
-  maxArrowTime: 5
+  maxArrowTime: 10
 --- !u!114 &1989311881
 MonoBehaviour:
   m_ObjectHideFlags: 0

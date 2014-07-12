@@ -88,6 +88,7 @@ public class NutrientsTutorial : MonoBehaviour
 			GUI.Label(new Rect(.58f*Screen.width, .42f*Screen.height, .8f*Screen.width, .8f*Screen.height),
 			          "Nutrients are used to \npurchase and upgrade \nenzyme towers!",
 			          style);
+			Time.timeScale = .01f;
 
 			if (GUI.Button(new Rect(Screen.width - (.36f * Screen.height * ratio), 
 			                        (Screen.height * 0.82421875f) - (.15f * Screen.height),
@@ -95,6 +96,7 @@ public class NutrientsTutorial : MonoBehaviour
 			                        (.1f * Screen.height)), "Got it!", gotIt))
 			{
 				page1Shown = true;
+				Time.timeScale = 1;
 			}
 		}
 
@@ -107,6 +109,8 @@ public class NutrientsTutorial : MonoBehaviour
 			GUI.Label(new Rect(.58f*Screen.width, .42f*Screen.height, .8f*Screen.width, .8f*Screen.height),
 			          "Nutrients are earned \nby absorbing nutrients!",
 			          style);
+			Time.timeScale = .01f;
+
 			if (GUI.Button(new Rect(Screen.width - (.36f * Screen.height * ratio), 
 			                        (Screen.height * 0.82421875f) - (.15f * Screen.height),
 			                        (.12f * Screen.width),
@@ -114,6 +118,7 @@ public class NutrientsTutorial : MonoBehaviour
 			{
 				showTutorial = false;
 				tutorialOver = true;
+				Time.timeScale = 1;
 			}
 		}
 

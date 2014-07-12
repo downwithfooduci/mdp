@@ -256,6 +256,15 @@ public class TowerMenu : MonoBehaviour
 		} else
 		{
 			speedActive.fontSize = (int)Mathf.Ceil(Screen.width * .0106f);
+
+			// block upgrading speed a second time in the first part of the tutorial level
+			if (Application.loadedLevelName == "SmallIntestineTutorial" && 
+			 PlayerPrefs.GetInt("SIStats_towersUpgraded") == 1)
+			{
+				GUI.Button(GetSpeedButtonRect(), "", speedInactive);
+				return;
+			}
+
 			if(m_GameManager.nutrients - m_Tower.TOWER_UPGRADE_LEVEL_2_COST < 0)
 			{
 				GUI.Button(GetSpeedButtonRect(), "", speedInactive);
