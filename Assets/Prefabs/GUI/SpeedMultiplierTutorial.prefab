@@ -39,7 +39,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 893c7b121a6fa6e449f089c7306cd85b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zyme: {fileID: 2800000, guid: 491cdbfe42521d14b94bda6aaef781a6, type: 3}
+  zyme: {fileID: 2800000, guid: 4c8c0abf50e3a4843ab4952530539393, type: 3}
   gotIt:
     m_Name: 
     m_Normal:
@@ -218,7 +218,7 @@ MonoBehaviour:
     m_StretchWidth: 1
     m_StretchHeight: 0
   light: {fileID: 100000, guid: 1442948a1a191554088f21358daf5d72, type: 2}
-  tutorialDelay: 1.5
+  tutorialDelay: 3
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

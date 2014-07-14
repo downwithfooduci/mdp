@@ -70,7 +70,8 @@ public class IntestineGameManager : MonoBehaviour
             m_IsGameOver = true;
         }
 
-		if(GameObject.FindWithTag("foodBlobParent") == null && spawnScript.end)
+		if(GameObject.FindWithTag("foodBlobParent") == null && spawnScript.end ||
+		   Application.loadedLevelName == "SmallIntestineTutorial" && GameObject.FindWithTag("foodBlobParentTutorial") == null && spawnScript.end)
 		{
 			GameObject chooseBackground = GameObject.Find("ChooseBackground");
 			SmallIntestineLoadLevelCounter  level = chooseBackground.GetComponent<SmallIntestineLoadLevelCounter>();
