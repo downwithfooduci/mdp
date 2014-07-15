@@ -50,7 +50,7 @@ public class IntestineGameManager : MonoBehaviour
 	void resetStats()
 	{
 		PlayerPrefs.DeleteKey("SIStats_nutrientsEarned");
-		PlayerPrefs.DeleteKey("SIStats_nurrientsSpent");
+		PlayerPrefs.DeleteKey("SIStats_nutrientsSpent");
 		PlayerPrefs.DeleteKey("SIStats_foodLost");
 		PlayerPrefs.DeleteKey("SIStats_towersPlaced");
 		PlayerPrefs.DeleteKey("SIStats_towersSold");
@@ -76,7 +76,7 @@ public class IntestineGameManager : MonoBehaviour
 		{
 			GameObject chooseBackground = GameObject.Find("ChooseBackground");
 			SmallIntestineLoadLevelCounter  level = chooseBackground.GetComponent<SmallIntestineLoadLevelCounter>();
-
+	
 			level.nextLevel();
 			Application.LoadLevel("SmallIntestineStats");
 		}

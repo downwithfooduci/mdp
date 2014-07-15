@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class IntestineDebugGUI : MonoBehaviour {
-	
+public class IntestineDebugGUI : MonoBehaviour 
+{	
 	DebugConfig debugConfig;
 	bool showGUI = false;
 	string speed;
@@ -61,11 +61,14 @@ public class IntestineDebugGUI : MonoBehaviour {
 		}
 
 		//TODO: Change back to width-100/+100 to enable/disable debugger
+		GUI.color = new Color() { a = 0.0f };
 		if(GUI.Button(new Rect(Screen.width - 100, Screen.height - 50, 100, 50), "Debug"))
 		{
 			showGUI = !showGUI;
 			Time.timeScale = showGUI ? 0 : 1;
 		}
+		GUI.color = new Color() { a = 1.0f };
+
 		if(showGUI)
 		{
 			GUI.Label(new Rect(100, 10, 100, 50), "Nutrient Speed");

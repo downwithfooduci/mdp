@@ -34,7 +34,9 @@ public class ProteinButton : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-		if (towerSpawner.getGameManager().nutrients - towerSpawner.TOWER_BASE_COST < 0)
+		if (towerSpawner.getGameManager().nutrients - towerSpawner.TOWER_BASE_COST < 0 || 
+		    Application.loadedLevelName == "SmallIntestineTutorial" && PlayerPrefs.GetInt("SIStats_towersPlaced") == 2 &&
+		    PlayerPrefs.GetInt("SIStats_towersUpgraded") < 2)
 		{
 			guiTexture.texture = inactive;
 			return;

@@ -82,7 +82,7 @@ public class FoodBlob : MonoBehaviour
 			}
         }
 		Destroy(this.gameObject);
-		m_GameManager.OnFoodBlobFinish(numNutrientsAlive);  
+		m_GameManager.OnFoodBlobFinish(numNutrientsAlive); 
 	}
 	
 	virtual public void TakeHit()
