@@ -70,8 +70,9 @@ public class IntestineGameManager : MonoBehaviour
             m_IsGameOver = true;
         }
 
-		if(GameObject.FindWithTag("foodBlobParent") == null && spawnScript.end ||
-		   Application.loadedLevelName == "SmallIntestineTutorial" && GameObject.FindWithTag("foodBlobParentTutorial") == null && spawnScript.end)
+		if((Application.loadedLevelName != "SmallIntestineTutorial" && GameObject.FindWithTag("foodBlobParent") == null && spawnScript.end) ||
+		   (Application.loadedLevelName == "SmallIntestineTutorial" && 
+		 	GameObject.FindWithTag("foodBlobParentTutorial") == null && spawnScript.end))
 		{
 			GameObject chooseBackground = GameObject.Find("ChooseBackground");
 			SmallIntestineLoadLevelCounter  level = chooseBackground.GetComponent<SmallIntestineLoadLevelCounter>();
@@ -117,9 +118,7 @@ public class IntestineGameManager : MonoBehaviour
 		nutrients += NutrientHitScore;
 		NutrientTextColor = Color.green;
 	}
-
-
-
+	
     public void OnFoodBlobFinish(int numNutrientsAlive)
     {
 		if (numNutrientsAlive > 0) 
