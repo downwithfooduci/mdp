@@ -49,21 +49,23 @@ public class MouthScore : MonoBehaviour {
 
 	void OnGUI()
 	{
+		GUI.depth--;
 		if(foodChain >= SixteenMultCount)
 		{
-			GUI.DrawTexture(new Rect(Screen.width * .01f, Screen.height * .85f, Screen.height * .08f,
+			GUI.DrawTexture(new Rect(Screen.width * .91f, Screen.height * .85f, Screen.height * .08f,
 			                         Screen.height * .08f), SixteenMulTexture);
 		} else if(foodChain >= FourMultCount)
 		{
-			GUI.DrawTexture(new Rect(Screen.width * .01f, Screen.height * .85f, Screen.height * .08f,
+			GUI.DrawTexture(new Rect(Screen.width * .91f, Screen.height * .85f, Screen.height * .08f,
 			                         Screen.height * .08f), FourMultTexture);
 		}
+
 		GUIStyle scoreStyle = GUI.skin.label;
-		scoreStyle.alignment = TextAnchor.MiddleLeft;
+		scoreStyle.alignment = TextAnchor.MiddleCenter;
 		scoreStyle.fontSize = (int)(34f / 597f * Screen.height);
 		scoreStyle.font = (Font)Resources.Load ("Fonts/JandaManateeSolid");
-		scoreStyle.normal.textColor = Color.yellow;
+		scoreStyle.normal.textColor = new Color (206f / 255f, 39f / 255f, 115f / 255f);
 
-		GUI.Label(new Rect(Screen.width * .01f,Screen.height * .93f, Screen.width * .1f, Screen.height * .07f), "" + score);
+		GUI.Label(new Rect(Screen.width * .89f,Screen.height * .93f, Screen.width * .1f, Screen.height * .07f), "" + score);
 	}
 }
