@@ -117,6 +117,7 @@ public class TowerSpawner : MonoBehaviour
 		m_SpawnedTower = Instantiate (towerType) as GameObject;
 		Tower tower = m_SpawnedTower.GetComponent<Tower> ();
 		tower.SetColor (color);
+		tower.SetActiveModel ("Base");
 
 		// Set up spawn indicator
 		float range = tower.FiringRange;

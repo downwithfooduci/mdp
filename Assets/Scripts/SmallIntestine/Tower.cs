@@ -51,6 +51,7 @@ public class Tower : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
+		Debug.Log ("");
 		// make sure we aren't in tutorial
 		if (Application.loadedLevelName != "SmallIntestineTutorial")
 		{
@@ -71,10 +72,7 @@ public class Tower : MonoBehaviour
 		foreach (Transform child in transform)
 		{
 			child.localPosition = Vector3.zero;
-			child.gameObject.SetActive(false);
 		}
-		
-		SetActiveModel("Base");		
 	}
 
 	// Update is called once per frame
@@ -157,10 +155,17 @@ public class Tower : MonoBehaviour
         }
     }
 	
-	private void SetActiveModel(string name)
+	public void SetActiveModel(string name)
 	{
 		if(m_ActiveModelName != null)
 			m_ActiveModel.gameObject.SetActive(false);
+		else
+		{
+			foreach (Transform child in transform)
+			{
+				child.gameObject.SetActive(false);
+			}
+		}
 		
 		m_ActiveModelName = name;
         m_ActiveModel = transform.FindChild(m_ActiveModelName);
