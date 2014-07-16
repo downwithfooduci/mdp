@@ -3,7 +3,8 @@
 using UnityEngine;
 using System.Collections;
 
-public class createPlus : MonoBehaviour {
+public class createPlus : MonoBehaviour 
+{
 	public GameObject plus;
 	float spawnTime = 1f;
 	float totalTime = 0f;

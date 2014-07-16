@@ -34,10 +34,12 @@ public class GrowAndDie : MonoBehaviour
 	void OnGUI()
 	{
 		GUI.depth = -1000;
-		GUI.DrawTexture(new Rect(36f/100f * Screen.width, 
+		// draw plus by nutrients
+		GUI.DrawTexture(new Rect(34.5f/100f * Screen.width, 
 		                         83.3f/100f * Screen.height, 
 		                         (1f + timeAlive)/80f * 3f/4f * Screen.width,
 		                         (1f + timeAlive)/80f * Screen.height), plus);
+		// draw other pluses
 		Vector3 plusPos = Camera.main.WorldToScreenPoint(transform.position);
 		GUI.DrawTexture(new Rect(plusPos.x, 
 		                         Screen.height - plusPos.y, 
