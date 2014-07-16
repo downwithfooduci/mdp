@@ -3,9 +3,10 @@ using System.Collections;
 
 public class TowerUpgradeTutorial : MonoBehaviour 
 {
-	// for zyme helper box
-	public Texture zyme;
-	float ratio = 1.4250681198910081743869209809264f;
+	// for zyme
+	public GameObject zyme;
+	private ZymePopupScript zymeScript;
+
 	bool showZymeSpeed = false;
 	bool showZymePower = false;
 
@@ -32,6 +33,7 @@ public class TowerUpgradeTutorial : MonoBehaviour
 	void Start () 
 	{
 		intestineGameManager = FindObjectOfType(typeof(IntestineGameManager)) as IntestineGameManager;
+		zymeScript = ((GameObject)Instantiate(zyme)).GetComponent<ZymePopupScript> ();
 	}
 	
 	// Update is called once per frame
@@ -65,6 +67,7 @@ public class TowerUpgradeTutorial : MonoBehaviour
 		{
 			speedUpgraded = true;
 			showZymeSpeed = false;
+			zymeScript.setDraw(false);
 
 			// turn off the light if it exists
 			if (spawnedLight != null)
@@ -97,6 +100,7 @@ public class TowerUpgradeTutorial : MonoBehaviour
 			Time.timeScale = 1;
 			powerUpgraded = true;
 			showZymePower = false;
+			zymeScript.setDraw(false);
 			
 			// destroy the light if it exists
 			if (light != null)
@@ -135,35 +139,18 @@ public class TowerUpgradeTutorial : MonoBehaviour
 	}
 
 	void OnGUI() 
-	{
-		// font
-		GUIStyle style = new GUIStyle ();
-		style.font = (Font)Resources.Load ("Fonts/JandaManateeSolid");
-		style.normal.textColor = new Color(248f/255f, 157f/255f, 48f/255f);
-		style.fontSize = (int)(18f / 597f * Screen.height);
-		style.wordWrap = true;
-		
+	{		
 		if(showZymeSpeed)
 		{
-			GUI.DrawTexture(new Rect(Screen.width - (.4f * Screen.height * ratio), 
-		                         (Screen.height * 0.82421875f) - (.4f * Screen.height),
-		                         (.4f * Screen.height * ratio),
-		                         (.4f * Screen.height)), zyme);
-			GUI.Label(new Rect(.58f*Screen.width, .42f*Screen.height, .8f*Screen.width, .8f*Screen.height),
-			          "Tap a tower to upgrade! \nSpeed makes a tower \nrelease enzymes faster!",
-			          style);
+			zymeScript.setDraw(true);
+			zymeScript.setText("Tap a tower to upgrade! \nSpeed makes a tower \nrelease enzymes faster!");
 			Time.timeScale = .01f;
 		}
 		
 		if(showZymePower)
 		{
-			GUI.DrawTexture(new Rect(Screen.width - (.4f * Screen.height * ratio), 
-			                         (Screen.height * 0.82421875f) - (.4f * Screen.height),
-			                         (.4f * Screen.height * ratio),
-			                         (.4f * Screen.height)), zyme);
-			GUI.Label(new Rect(.58f*Screen.width, .42f*Screen.height, .8f*Screen.width, .8f*Screen.height),
-			          "Tap a tower to upgrade! \nPower makes a tower \nrelease more enzymes at \na time!",
-			          style);
+			zymeScript.setDraw(true);
+			zymeScript.setText("Tap a tower to upgrade! \nPower makes a tower \nrelease more enzymes at \na time!");
 			Time.timeScale = .01f;
 		}
 	}

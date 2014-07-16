@@ -5,7 +5,6 @@ public class FoodStuffFinish : MonoBehaviour
 {
 	SpawnFood foodSpawner;
 	MouthScore score;
-	//	private LostFoodCount lostFoodCount; // TODO: UNUSED
 
 	// Use this for initialization
 	void Start () 
@@ -13,14 +12,10 @@ public class FoodStuffFinish : MonoBehaviour
 		GameObject mouthGUI = GameObject.Find("MouthGUI");
 		score = mouthGUI.GetComponent<MouthScore>();
 		foodSpawner = GameObject.Find("FoodSpawner").GetComponent<SpawnFood>();
-		//lostFoodCount = mouthGUI.GetComponent<LostFoodCount>(); // TODO: UNUSED
 	}
 	
 	// Update is called once per frame
-	void Update () 
-	{
-	
-	}
+	void Update () {}
 
 	void OnTriggerEnter(UnityEngine.Collider obj)
 	{
@@ -30,18 +25,10 @@ public class FoodStuffFinish : MonoBehaviour
 			score.collectFood();
 			OnEndPointCollision();
 		}
-		/***********************
-		 * // TODO: UNUSED OBSOLETE CODE
-		 else if (obj.gameObject.tag == "FallenOutFromMouth")	// check if the food fell out
-		{
-			OnFoodFallOut();
-		}
-		*************************/
 	}
 
 	void OnEndPointCollision()
 	{
-		// stomachBar.increaseStomachPercent(); //TODO: UNUSED
 		//TODO: Make Different Levels and Transition Between Them
 		GameObject[] foodstuff = GameObject.FindGameObjectsWithTag("MouthFood");
 		if(foodstuff.Length == 1 && foodSpawner.end)
@@ -57,13 +44,4 @@ public class FoodStuffFinish : MonoBehaviour
 			Destroy(this.gameObject);
 		}
 	}
-
-	/**************
-	 * // TODO: UNUSED OBSOLETE METHOD
-	void OnFoodFallOut()
-	{
-		lostFoodCount.increaseLostFoodCount ();
-		Destroy(this.gameObject);
-	}
-	* ****************/
 }

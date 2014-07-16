@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class MoveFood : MonoBehaviour {
+public class MoveFood : MonoBehaviour 
+{
 	openFlap flap;
 	GameObject flaps;
 	FollowITweenPath path;
@@ -10,8 +11,10 @@ public class MoveFood : MonoBehaviour {
 	public float coughSpeed;
 	private SmoothQuaternion quaternion;
 	DebugConfig debugConfig;
+
 	// Use this for initialization
-	void Start () {
+	void Start () 
+	{
 		GameObject flaps = GameObject.Find ("Flaps");
 		flap = flaps.GetComponent<openFlap>();
 		path = gameObject.GetComponent<FollowITweenPath>();

@@ -9929,7 +9929,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7756c650133efeb4587dd0eab40b932f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zyme: {fileID: 2800000, guid: 4c8c0abf50e3a4843ab4952530539393, type: 3}
+  zyme: {fileID: 100000, guid: 532f02dcd37dc0c4a913e5b84575fae9, type: 2}
   maxUpgradeTimeSpeed: 7
   maxUpgradeTimePower: 7
   light: {fileID: 100000, guid: 1442948a1a191554088f21358daf5d72, type: 2}
@@ -9957,7 +9957,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   arrow: {fileID: 2800000, guid: 3988306e06c0b6645a6229bf18727020, type: 3}
-  zyme: {fileID: 2800000, guid: 4c8c0abf50e3a4843ab4952530539393, type: 3}
+  zyme: {fileID: 100000, guid: 532f02dcd37dc0c4a913e5b84575fae9, type: 2}
   maxArrowTime: 10
 --- !u!114 &1989311881
 MonoBehaviour:
@@ -9970,7 +9970,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e7d8f4aeab370f46a733fa21a902b73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zyme: {fileID: 2800000, guid: 4c8c0abf50e3a4843ab4952530539393, type: 3}
+  zyme: {fileID: 100000, guid: 532f02dcd37dc0c4a913e5b84575fae9, type: 2}
   tutorialDelay: 3
   gotIt:
     m_Name: 

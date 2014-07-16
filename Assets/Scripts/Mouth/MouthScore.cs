@@ -31,7 +31,7 @@ public class MouthScore : MonoBehaviour {
 		// track stats
 		PlayerPrefs.SetInt ("MouthStats_score", score);
 		PlayerPrefs.SetInt ("MouthStats_longestStreak", foodChain);
-		PlayerPrefs.SetInt ("MouthStats_foodSwallowed", PlayerPrefs.GetInt("MouthStats_foodSwallowed", + 1));
+		PlayerPrefs.SetInt ("MouthStats_foodSwallowed", PlayerPrefs.GetInt("MouthStats_foodSwallowed") + 1);
 
 		if (foodChain >= SixteenMultCount) 
 		{

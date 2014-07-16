@@ -3,8 +3,9 @@ using System.Collections;
 
 public class NutrientsTutorial : MonoBehaviour 
 {
-	public Texture zyme;
-	float ratio = 1.4250681198910081743869209809264f;
+	// for zyme
+	public GameObject zyme;
+	private ZymePopupScript zymeScript;
 
 	public float tutorialDelay;
 	private float elapsedTime;
@@ -23,7 +24,10 @@ public class NutrientsTutorial : MonoBehaviour
 	private bool nextTutorial = false;
 
 	// Use this for initialization
-	void Start () {}
+	void Start () 
+	{
+		zymeScript = ((GameObject)Instantiate(zyme)).GetComponent<ZymePopupScript> ();
+	}
 	
 	// Update is called once per frame
 	void Update () 
@@ -68,33 +72,23 @@ public class NutrientsTutorial : MonoBehaviour
 
 	void OnGUI()
 	{
-		// font
-		GUIStyle style = new GUIStyle ();
-		style.font = (Font)Resources.Load ("Fonts/JandaManateeSolid");
-		style.normal.textColor = new Color(248f/255f, 157f/255f, 48f/255f);
-		style.fontSize = (int)(18f / 597f * Screen.height);
-		style.wordWrap = true;
-
 		gotIt.font = (Font)Resources.Load ("Fonts/JandaManateeSolid");
 		gotIt.fontSize = (int)(20f / 597f * Screen.height);
 		gotIt.alignment = TextAnchor.MiddleCenter;
 
 		if (showTutorial && !page1Shown)
 		{
-			GUI.DrawTexture(new Rect(Screen.width - (.4f * Screen.height * ratio), 
-			                         (Screen.height * 0.82421875f) - (.4f * Screen.height),
-			                         (.4f * Screen.height * ratio),
-			                         (.4f * Screen.height)), zyme);
-			GUI.Label(new Rect(.58f*Screen.width, .42f*Screen.height, .8f*Screen.width, .8f*Screen.height),
-			          "Nutrients are used to \npurchase and upgrade \nenzyme towers!",
-			          style);
+			Instantiate(zyme);
+			zymeScript.setDraw(true);
+			zymeScript.setText("Nutrients are used to \npurchase and upgrade \nenzyme towers!");
 			Time.timeScale = .01f;
 
-			if (GUI.Button(new Rect(Screen.width - (.36f * Screen.height * ratio), 
+			if (GUI.Button(new Rect(Screen.width - (.5112f * Screen.height), 
 			                        (Screen.height * 0.82421875f) - (.15f * Screen.height),
 			                        (.12f * Screen.width),
 			                        (.1f * Screen.height)), "Got it!", gotIt))
 			{
+				zymeScript.setDraw(false);
 				page1Shown = true;
 				Time.timeScale = 1;
 			}
@@ -102,21 +96,17 @@ public class NutrientsTutorial : MonoBehaviour
 
 		if (showTutorial && page1Shown)
 		{
-			GUI.DrawTexture(new Rect(Screen.width - (.4f * Screen.height * ratio), 
-			                         (Screen.height * 0.82421875f) - (.4f * Screen.height),
-			                         (.4f * Screen.height * ratio),
-			                         (.4f * Screen.height)), zyme);
-			GUI.Label(new Rect(.58f*Screen.width, .42f*Screen.height, .8f*Screen.width, .8f*Screen.height),
-			          "Nutrients are earned \nby absorbing nutrients!",
-			          style);
+			zymeScript.setDraw(true);
+			zymeScript.setText("Nutrients are earned \nby absorbing nutrients!");
 			Time.timeScale = .01f;
 
-			if (GUI.Button(new Rect(Screen.width - (.36f * Screen.height * ratio), 
+			if (GUI.Button(new Rect(Screen.width - (.5112f * Screen.height), 
 			                        (Screen.height * 0.82421875f) - (.15f * Screen.height),
 			                        (.12f * Screen.width),
 			                        (.1f * Screen.height)), "Got it!", gotIt))
 			{
 				showTutorial = false;
+				zymeScript.setDraw(false);
 				tutorialOver = true;
 				Time.timeScale = 1;
 			}
