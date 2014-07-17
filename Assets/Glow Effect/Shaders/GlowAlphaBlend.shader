@@ -37,5 +37,5 @@ Shader "Glow Effect/Glow - Alpha Blend"
     } 
 	
 	Fallback "Diffuse"
-	//CustomEditor "GlowMaterialInspector"
+	CustomEditor "GlowMaterialInspector"
 }

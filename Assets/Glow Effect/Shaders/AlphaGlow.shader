@@ -16,37 +16,18 @@ Shader "Glow Effect/Glow using Alpha"
         Pass {
         
 			CGPROGRAM
-			#pragma vertex vert
+			#pragma vertex vert_img
 			#pragma fragment frag
 			#pragma fragmentoption ARB_precision_hint_fastest
 			#include "UnityCG.cginc"
 			
 			uniform sampler2D _MainTex;
-			uniform half4 _MainTex_ST;
 			uniform sampler2D _GlowMask;
-			uniform half4 _GlowMask_ST;
 			uniform float4 _GlowColorMult;
-
-			struct v2f {
-				half4 pos : SV_POSITION;
-				half2 uv : TEXCOORD0;
-				half2 uv1 : TEXCOORD1;
-			};	
-				
-			v2f vert (appdata_img v)
-			{
-				v2f o;
-				o.pos = mul (UNITY_MATRIX_MVP, v.vertex);
-		       	
-		       	o.uv = TRANSFORM_TEX(v.texcoord, _MainTex);
-		       	o.uv1 = TRANSFORM_TEX(v.texcoord, _GlowMask);
-					
-				return o;
-			}
 			
-			half4 frag(v2f i) : COLOR
+			half4 frag(v2f_img i) : COLOR
 			{
-				return half4(tex2D(_MainTex,i.uv).rgb, tex2D(_GlowMask, i.uv1).r) * _GlowColorMult;
+				return half4(tex2D(_MainTex,i.uv).rgb, tex2D(_GlowMask, i.uv).r) * _GlowColorMult;
 			}
 			
 			ENDCG

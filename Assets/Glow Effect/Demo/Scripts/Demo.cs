@@ -150,7 +150,7 @@ public class Demo : MonoBehaviour
 
             GUILayout.Label(string.Format("{0:F2} FPS", fps));
         }
-        
+
         GUILayout.EndVertical();
         GUILayout.EndArea();
     }

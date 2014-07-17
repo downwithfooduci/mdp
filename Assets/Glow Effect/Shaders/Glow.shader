@@ -35,5 +35,5 @@ Shader "Glow Effect/Glow"
     } 
 	
 	Fallback "Diffuse"
-	//CustomEditor "GlowMaterialInspector"
+	CustomEditor "GlowMaterialInspector"
 }

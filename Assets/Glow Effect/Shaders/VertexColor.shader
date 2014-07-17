@@ -50,5 +50,5 @@ Shader "Glow Effect/Vertex Color"
 	}
 	
 	Fallback "Diffuse"
-	//CustomEditor "GlowMaterialInspector"
+	CustomEditor "GlowMaterialInspector"
 }

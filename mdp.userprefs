@@ -1,16 +1,19 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\SmallIntestine\Tower.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Glow Effect\Shaders\GlowAlphaBlend.shader">
     <Files>
-      <File FileName="Assets\Scripts\SmallIntestine\Tutorial\TowerUpgradeTutorial.cs" Line="108" Column="39" />
-      <File FileName="Assets\Scripts\SmallIntestine\Tutorial\TowerPlacementTutorial.cs" Line="19" Column="81" />
-      <File FileName="Assets\Scripts\SmallIntestine\Tutorial\SpeedMultiplierTutorial.cs" Line="83" Column="18" />
-      <File FileName="Assets\Scripts\SmallIntestine\Tutorial\NutrientsTutorial.cs" Line="110" Column="1" />
-      <File FileName="Assets\Scripts\SmallIntestine\createPlus.cs" Line="8" Column="25" />
-      <File FileName="Assets\Scripts\SmallIntestine\IntestineGameManager.cs" Line="126" Column="47" />
-      <File FileName="Assets\Scripts\SmallIntestine\GrowAndDie.cs" Line="38" Column="32" />
-      <File FileName="Assets\Scripts\SmallIntestine\TowerSpawner.cs" Line="120" Column="33" />
-      <File FileName="Assets\Scripts\SmallIntestine\Tower.cs" Line="75" Column="1" />
+      <File FileName="Assets\Glow Effect\Shaders\GlowAlphaBlend.shader" Line="1" Column="1" />
+      <File FileName="Assets\Glow Effect\Glow\GlowEffect.cs" Line="1" Column="1" />
+      <File FileName="Assets\Glow Effect\Shaders\AlphaGlowAlphaBlend.shader" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\SmallIntestine\Tutorial\TowerUpgradeTutorial.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\SmallIntestine\Tutorial\TowerPlacementTutorial.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\SmallIntestine\Tutorial\SpeedMultiplierTutorial.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\SmallIntestine\Tutorial\NutrientsTutorial.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\SmallIntestine\createPlus.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\SmallIntestine\IntestineGameManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\SmallIntestine\GrowAndDie.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\SmallIntestine\TowerSpawner.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\SmallIntestine\Tower.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
