@@ -17327,7 +17327,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 972bde602ca336f4595d387af3a09674, type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: 972bde602ca336f4595d387af3a09674, type: 2}
       propertyPath: m_Materials.Array.data[2]
@@ -32990,8 +32990,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   glowMaterial: {fileID: 2100000, guid: 384a7936c98fd0a4c8bb8f336aafe16f, type: 2}
   glowReplaceShader: {fileID: 4800000, guid: 0d7c5cc6776db14459960ae53cb4ce35, type: 3}
-  glowMode: 0
-  blendMode: 0
+  glowMode: 2
+  blendMode: 1
   downsampleSize: 128
   blurIterations: 4
   blurSpread: 1.5
