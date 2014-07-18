@@ -7,7 +7,7 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: VilliGlowBottom10
-  m_Shader: {fileID: 4800000, guid: 8de5cd804a74ff744ab7aa730f45890b, type: 3}
+  m_Shader: {fileID: 4800000, guid: 2f76b987ec62f5b44a13088e3d26cc96, type: 3}
   m_ShaderKeywords:
   - GLOWEFFECT_USE_MAINTEX_OFF
   - GLOWEFFECT_USE_GLOWTEX
@@ -22,13 +22,6 @@ Material:
         first:
           name: _MainTex
         second:
-          m_Texture: {fileID: 2800000, guid: d6d84ed580f928e4bbfeac40f43fcf02, type: 3}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
-          name: _GlowTex
-        second:
           m_Texture: {fileID: 2800000, guid: 501be6c00389bf04b953d6086f7432da, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
@@ -36,7 +29,14 @@ Material:
         first:
           name: _GlowMask
         second:
-          m_Texture: {fileID: 2800000, guid: 100929aaff39cc547a86186f5567df57, type: 3}
+          m_Texture: {fileID: 2800000, guid: 83863270f98028d45a422a8e335d8671, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _GlowTex
+        second:
+          m_Texture: {fileID: 2800000, guid: 501be6c00389bf04b953d6086f7432da, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
     m_Floats: {}
@@ -47,9 +47,9 @@ Material:
         second: {r: 1, g: 1, b: 1, a: 1}
       data:
         first:
-          name: _GlowColor
-        second: {r: 0, g: 0, b: 0, a: 1}
+          name: _GlowColorMult
+        second: {r: .721568644, g: .149019614, b: .149019614, a: 1}
       data:
         first:
-          name: _GlowColorMult
-        second: {r: 1, g: 1, b: 1, a: 1}
+          name: _GlowColor
+        second: {r: 0, g: 0, b: 0, a: 1}

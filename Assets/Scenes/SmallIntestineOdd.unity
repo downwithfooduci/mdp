@@ -89,7 +89,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!108 &4483711
 Light:
   m_ObjectHideFlags: 0
@@ -111,7 +111,7 @@ Light:
     m_Bias: .0500000007
     m_Softness: 4
     m_SoftnessFade: 1
-  m_Cookie: {fileID: 0}
+  m_Cookie: {fileID: 2800000, guid: 69680b688d11eb9d30009b3b4241aa39, type: 3}
   m_DrawHalo: 0
   m_ActuallyLightmapped: 0
   m_Flare: {fileID: 0}
@@ -2355,6 +2355,7 @@ Renderer:
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
   - {fileID: 2100000, guid: d6e9434eb25a4a94c8ecbeed5a8807be, type: 2}
+  - {fileID: 2100000, guid: 6c79ea98342180044a46273d11cec1e9, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -3476,7 +3477,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!108 &177539351
 Light:
   m_ObjectHideFlags: 0
@@ -3498,7 +3499,7 @@ Light:
     m_Bias: .0500000007
     m_Softness: 4
     m_SoftnessFade: 1
-  m_Cookie: {fileID: 0}
+  m_Cookie: {fileID: 2800000, guid: 69680b688d11eb9d30009b3b4241aa39, type: 3}
   m_DrawHalo: 0
   m_ActuallyLightmapped: 0
   m_Flare: {fileID: 0}
@@ -11023,6 +11024,7 @@ GameObject:
   - 92: {fileID: 556960377}
   - 124: {fileID: 556960378}
   - 81: {fileID: 556960376}
+  - 114: {fileID: 556960379}
   m_Layer: 0
   m_Name: Default Camera
   m_TagString: MainCamera
@@ -11052,7 +11054,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0, g: 0, b: 0, a: .0196078438}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 1}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -11099,6 +11101,29 @@ Behaviour:
   m_PrefabInternal: {fileID: 947306390}
   m_GameObject: {fileID: 556960373}
   m_Enabled: 1
+--- !u!114 &556960379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 556960373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52f78e93835bdf04eb5ad39ac500b342, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  glowMaterial: {fileID: 2100000, guid: 384a7936c98fd0a4c8bb8f336aafe16f, type: 2}
+  glowReplaceShader: {fileID: 4800000, guid: 0d7c5cc6776db14459960ae53cb4ce35, type: 3}
+  glowMode: 3
+  blendMode: 0
+  downsampleSize: 256
+  blurIterations: 4
+  blurSpread: 1
+  glowStrength: 1
+  ignoreLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  glowColorMultiplier: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &563330511
 GameObject:
   m_ObjectHideFlags: 0
@@ -12145,6 +12170,10 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 6d1c2afb225187f4e9c7fd7a267ad7b5, type: 2}
       propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 6d1c2afb225187f4e9c7fd7a267ad7b5, type: 2}
+      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -13706,7 +13735,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!108 &676302588
 Light:
   m_ObjectHideFlags: 0
@@ -13728,7 +13757,7 @@ Light:
     m_Bias: .0500000007
     m_Softness: 4
     m_SoftnessFade: 1
-  m_Cookie: {fileID: 0}
+  m_Cookie: {fileID: 2800000, guid: 69680b688d11eb9d30009b3b4241aa39, type: 3}
   m_DrawHalo: 0
   m_ActuallyLightmapped: 0
   m_Flare: {fileID: 0}
@@ -17460,7 +17489,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 2300000, guid: 972bde602ca336f4595d387af3a09674, type: 2}
       propertyPath: m_Materials.Array.size
-      value: 1
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 972bde602ca336f4595d387af3a09674, type: 2}
       propertyPath: m_LocalPosition.x
@@ -17512,7 +17541,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 972bde602ca336f4595d387af3a09674, type: 2}
       propertyPath: m_Layer
-      value: 8
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 972bde602ca336f4595d387af3a09674, type: 2}
       propertyPath: m_RootOrder
@@ -17554,6 +17583,10 @@ Prefab:
       propertyPath: m_Materials.Array.data[10]
       value: 
       objectReference: {fileID: 2100000, guid: 5d1d0e12ddcf2bd46958a0eaf995fcb0, type: 2}
+    - target: {fileID: 100000, guid: 972bde602ca336f4595d387af3a09674, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 972bde602ca336f4595d387af3a09674, type: 2}
   m_RootGameObject: {fileID: 1410724488}
@@ -18378,7 +18411,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 2300000, guid: 972bde602ca336f4595d387af3a09674, type: 2}
       propertyPath: m_Materials.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 972bde602ca336f4595d387af3a09674, type: 2}
       propertyPath: m_LocalPosition.x
@@ -18423,13 +18456,21 @@ Prefab:
     - target: {fileID: 2300000, guid: 972bde602ca336f4595d387af3a09674, type: 2}
       propertyPath: m_Materials.Array.data[1]
       value: 
-      objectReference: {fileID: 2100000, guid: 495f83ed491d65447b29e81ce9c6b46d, type: 2}
+      objectReference: {fileID: 2100000, guid: 6c79ea98342180044a46273d11cec1e9, type: 2}
     - target: {fileID: 100000, guid: 972bde602ca336f4595d387af3a09674, type: 2}
       propertyPath: m_Name
       value: Background main
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 972bde602ca336f4595d387af3a09674, type: 2}
       propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: 972bde602ca336f4595d387af3a09674, type: 2}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: 78651f7ef1683da4bb6903962bad969a, type: 2}
+    - target: {fileID: 100000, guid: 972bde602ca336f4595d387af3a09674, type: 2}
+      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -18527,6 +18568,18 @@ Prefab:
     - target: {fileID: 2000000, guid: f6a552df651ae0448be899c35e03b3d0, type: 2}
       propertyPath: m_CullingMask.m_Bits
       value: 4294967035
+      objectReference: {fileID: 0}
+    - target: {fileID: 2000000, guid: f6a552df651ae0448be899c35e03b3d0, type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9200000, guid: f6a552df651ae0448be899c35e03b3d0, type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2000000, guid: f6a552df651ae0448be899c35e03b3d0, type: 2}
+      propertyPath: m_BackGroundColor.a
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f6a552df651ae0448be899c35e03b3d0, type: 2}
@@ -27677,7 +27730,7 @@ GameObject:
   - 4: {fileID: 1410724491}
   - 33: {fileID: 1410724490}
   - 23: {fileID: 1410724489}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Background villi and walls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27698,6 +27751,16 @@ Renderer:
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
   - {fileID: 2100000, guid: 78651f7ef1683da4bb6903962bad969a, type: 2}
+  - {fileID: 2100000, guid: 87dc0100704ad6f4d90fe0ba30403ccd, type: 2}
+  - {fileID: 2100000, guid: b39946c179a220f479791373e11d4ff8, type: 2}
+  - {fileID: 2100000, guid: 33601f279191a9d40b260dae55012d2f, type: 2}
+  - {fileID: 2100000, guid: def5dfa8cb115354abce1db036b84d05, type: 2}
+  - {fileID: 2100000, guid: 7a49974337ad380488d2600a78d6d786, type: 2}
+  - {fileID: 2100000, guid: de32f79f527696f45a6300436c742962, type: 2}
+  - {fileID: 2100000, guid: 85ba5f39094fb4f48a4be6d9c269a250, type: 2}
+  - {fileID: 2100000, guid: 519d7ce18be44aa4195596f4121d929d, type: 2}
+  - {fileID: 2100000, guid: 33eb537a82c082b449ea0945a8fe1cb6, type: 2}
+  - {fileID: 2100000, guid: 5d1d0e12ddcf2bd46958a0eaf995fcb0, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -30494,7 +30557,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!108 &1544945559
 Light:
   m_ObjectHideFlags: 0
@@ -30516,7 +30579,7 @@ Light:
     m_Bias: .0500000007
     m_Softness: 4
     m_SoftnessFade: 1
-  m_Cookie: {fileID: 0}
+  m_Cookie: {fileID: 2800000, guid: 69680b688d11eb9d30009b3b4241aa39, type: 3}
   m_DrawHalo: 0
   m_ActuallyLightmapped: 0
   m_Flare: {fileID: 0}
@@ -30800,7 +30863,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!108 &1567246536
 Light:
   m_ObjectHideFlags: 0
@@ -30822,7 +30885,7 @@ Light:
     m_Bias: .0500000007
     m_Softness: 4
     m_SoftnessFade: 1
-  m_Cookie: {fileID: 0}
+  m_Cookie: {fileID: 2800000, guid: 69680b688d11eb9d30009b3b4241aa39, type: 3}
   m_DrawHalo: 0
   m_ActuallyLightmapped: 0
   m_Flare: {fileID: 0}
@@ -33216,7 +33279,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!81 &1676543011
 AudioListener:
   m_ObjectHideFlags: 0
@@ -33247,7 +33310,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 3
-  m_BackGroundColor: {r: .192156866, g: .301960796, b: .474509805, a: .0196078438}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -33295,16 +33358,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   glowMaterial: {fileID: 2100000, guid: 384a7936c98fd0a4c8bb8f336aafe16f, type: 2}
   glowReplaceShader: {fileID: 4800000, guid: 0d7c5cc6776db14459960ae53cb4ce35, type: 3}
-  glowMode: 2
-  blendMode: 1
+  glowMode: 3
+  blendMode: 0
   downsampleSize: 128
   blurIterations: 4
   blurSpread: 1.5
-  glowStrength: .5
+  glowStrength: 2
   ignoreLayers:
     serializedVersion: 2
     m_Bits: 4294967039
-  glowColorMultiplier: {r: 1, g: 1, b: 0, a: 1}
+  glowColorMultiplier: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &1679033022
 GameObject:
   m_ObjectHideFlags: 0
