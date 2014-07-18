@@ -22,6 +22,9 @@ public class IntestineDebugGUI : MonoBehaviour
 	string colors;
 	bool FPSActive;
 	bool debugActive = false;
+
+	public GUIStyle fontStyle;
+
 	// Use this for initialization
 	void Start () {
 		debugConfig = gameObject.GetComponent<DebugConfig>();
@@ -71,72 +74,72 @@ public class IntestineDebugGUI : MonoBehaviour
 
 		if(showGUI)
 		{
-			GUI.Label(new Rect(100, 10, 100, 50), "Nutrient Speed");
+			GUI.Label(new Rect(100, 10, 100, 50), "Nutrient Speed", fontStyle);
 			speed = GUI.TextField(new Rect(200, 10, 100, 50),
-				speed);
+			                      speed);
 			float nutrientSpeedOut;
 			if(float.TryParse(speed, out nutrientSpeedOut))
 			{
 				debugConfig.NutrientSpeed = nutrientSpeedOut;
 			}
 			
-			GUI.Label(new Rect(100, 60, 100, 50), "Nutrient Interval");
+			GUI.Label(new Rect(100, 60, 100, 50), "Nutrient Interval", fontStyle);
 			spawnTime = GUI.TextField(new Rect(200, 60, 100, 50),
-				spawnTime);
+			                          spawnTime);
 			float nutrientSpawnIntervalOut;
 			if(float.TryParse(spawnTime, out nutrientSpawnIntervalOut))
 			{
 				debugConfig.NutrientSpawnInterval = nutrientSpawnIntervalOut;
 			}
 			
-			GUI.Label(new Rect(100, 110, 100, 50), "Tower Base Cost");
+			GUI.Label(new Rect(100, 110, 100, 50), "Tower Base Cost", fontStyle);
 			towerBaseCost = GUI.TextField(new Rect(200, 110, 100, 50),
-				towerBaseCost);
+			                              towerBaseCost);
 			int towerBaseCostOut;
 			if(int.TryParse(towerBaseCost, out towerBaseCostOut))
 			{
 				debugConfig.TOWER_BASE_COST = towerBaseCostOut;
 			}
 			
-			GUI.Label(new Rect(100, 160, 100, 50), "Tower Lvl 1 Cost");
+			GUI.Label(new Rect(100, 160, 100, 50), "Tower Lvl 1 Cost", fontStyle);
 			towerLvl1Cost = GUI.TextField(new Rect(200, 160, 100, 50),
-				towerLvl1Cost);
+			                              towerLvl1Cost);
 			int towerLvl1CostOut;
 			if(int.TryParse(towerLvl1Cost, out towerLvl1CostOut))
 			{
 				debugConfig.TOWER_UPGRADE_LEVEL_1_COST = towerLvl1CostOut;
 			}
 			
-			GUI.Label(new Rect(100, 210, 100, 50), "Tower Lvl 2 Cost");
+			GUI.Label(new Rect(100, 210, 100, 50), "Tower Lvl 2 Cost", fontStyle);
 			towerLvl2Cost = GUI.TextField(new Rect(200, 210, 100, 50),
-				towerLvl2Cost);
+			                              towerLvl2Cost);
 			int towerLvl2CostOut;
 			if(int.TryParse(towerLvl2Cost, out towerLvl2CostOut))
 			{
 				debugConfig.TOWER_UPGRADE_LEVEL_2_COST = towerLvl2CostOut;
 			}
 			
-			GUI.Label(new Rect(350, 10, 100, 50), "Tower Base CD");
+			GUI.Label(new Rect(350, 10, 100, 50), "Tower Base CD", fontStyle);
 			towerBaseCD = GUI.TextField(new Rect(450, 10, 100, 50),
-				towerBaseCD);
+			                            towerBaseCD);
 			float towerBaseCDOut;
 			if(float.TryParse(towerBaseCD, out towerBaseCDOut))
 			{
 				debugConfig.BaseCooldown = towerBaseCDOut;
 			}
 			
-			GUI.Label(new Rect(350, 60, 100, 50), "Tower Lvl 1 CD");
+			GUI.Label(new Rect(350, 60, 100, 50), "Tower Lvl 1 CD", fontStyle);
 			towerLvl1CD = GUI.TextField(new Rect(450, 60, 100, 50),
-				towerLvl1CD);
+			                            towerLvl1CD);
 			float towerLvl1CDOut;
 			if(float.TryParse(towerLvl1CD, out towerLvl1CDOut))
 			{
 				debugConfig.Level1Cooldown = towerLvl1CDOut;
 			}
 			
-			GUI.Label(new Rect(350, 110, 100, 50), "Tower Lvl 2 CD");
+			GUI.Label(new Rect(350, 110, 100, 50), "Tower Lvl 2 CD", fontStyle);
 			towerLvl2CD = GUI.TextField(new Rect(450, 110, 100, 50),
-				towerLvl2CD);
+			                            towerLvl2CD);
 			float towerLvl2CDOut;
 			if(float.TryParse(towerLvl2CD, out towerLvl2CDOut))
 			{
@@ -161,7 +164,7 @@ public class IntestineDebugGUI : MonoBehaviour
 				debugConfig.debugActive = false;
 			}
 
-			GUI.Label(new Rect(350, 210, 100, 50), "Wave Timer");
+			GUI.Label(new Rect(350, 210, 100, 50), "Wave Timer", fontStyle);
 			waveTimer = GUI.TextField(new Rect(450, 210, 100, 50),
 			                          waveTimer);
 			float waveTimerOut;
@@ -170,7 +173,7 @@ public class IntestineDebugGUI : MonoBehaviour
 				debugConfig.waveTimer = waveTimerOut;
 			}
 
-			GUI.Label(new Rect(550, 60, 100, 50), "Wave Delay");
+			GUI.Label(new Rect(550, 60, 100, 50), "Wave Delay", fontStyle);
 			waveDelay = GUI.TextField(new Rect(650, 60, 100, 50),
 			                          waveDelay);
 			float waveDelayOut;
@@ -179,27 +182,27 @@ public class IntestineDebugGUI : MonoBehaviour
 				debugConfig.waveDelay = waveDelayOut;
 			}
 
-			GUI.Label(new Rect(550, 110, 100, 50), "Min Blobs");
+			GUI.Label(new Rect(550, 110, 100, 50), "Min Blobs", fontStyle);
 			minBlobs = GUI.TextField(new Rect(650, 110, 100, 50),
-			                          minBlobs);
+			                         minBlobs);
 			int minBlobsOut;
 			if(int.TryParse(minBlobs, out minBlobsOut))
 			{
 				debugConfig.minBlobs = minBlobsOut;
 			}
 
-			GUI.Label(new Rect(550, 160, 100, 50), "Max Blobs");
+			GUI.Label(new Rect(550, 160, 100, 50), "Max Blobs", fontStyle);
 			maxBlobs = GUI.TextField(new Rect(650, 160, 100, 50),
-			                          maxBlobs);
+			                         maxBlobs);
 			int maxBlobsOut;
 			if(int.TryParse(maxBlobs, out maxBlobsOut))
 			{
 				debugConfig.maxBlobs = maxBlobsOut;
 			}
 
-			GUI.Label(new Rect(550, 210, 100, 50), "Colors (RYG)");
+			GUI.Label(new Rect(550, 210, 100, 50), "Colors (RYG)", fontStyle);
 			colors = GUI.TextField(new Rect(650, 210, 100, 50),
-			                         colors);
+			                       colors);
 			ArrayList colorsOut = new ArrayList();
 			colors = colors.ToLower();
 			if(colors.Contains("r"))
@@ -219,7 +222,7 @@ public class IntestineDebugGUI : MonoBehaviour
 
 			debugConfig.colors = colorsOut;
 
-			GUI.Label(new Rect(550, 260, 100, 50), "Level 1 Targets");
+			GUI.Label(new Rect(550, 260, 100, 50), "Level 1 Targets", fontStyle);
 			towerLvl1Targets = GUI.TextField(new Rect(650, 260, 100, 50),
 			                                 towerLvl1Targets);
 			int towerLvl1TargetsOut;
@@ -228,7 +231,7 @@ public class IntestineDebugGUI : MonoBehaviour
 				debugConfig.level1Targets = towerLvl1TargetsOut;
 			}
 
-			GUI.Label(new Rect(550, 310, 100, 50), "Level 2 Targets");
+			GUI.Label(new Rect(550, 310, 100, 50), "Level 2 Targets", fontStyle);
 			towerLvl2Targets = GUI.TextField(new Rect(650, 310, 100, 50),
 			                                 towerLvl2Targets);
 			int towerLvl2TargetsOut;
