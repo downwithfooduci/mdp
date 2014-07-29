@@ -159,8 +159,6 @@ public class TowerMenu : MonoBehaviour
 	private void EnableRayCasts(bool val)
 	{
 		string layer = val ? "Default" : "Ignore Raycast";
-		
-		gameObject.layer = LayerMask.NameToLayer(layer);
 	}
 	
     // Returns a rectangle with an adjusted position for

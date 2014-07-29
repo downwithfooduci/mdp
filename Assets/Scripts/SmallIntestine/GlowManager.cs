@@ -11,12 +11,61 @@ public class GlowManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
+		// for on pc/mac
 		if (Input.GetButtonDown("Fire1")) 
 		{
 			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+			RaycastHit hit;
+
+			// ignore if the bottom menu is clicked on
+			if (ray.origin.z < -11.6)
+			{
+				return;
+			}
+
+			// ignore if a tower is directly clicked on
+			if (Physics.Raycast(ray, out hit, 20))
+			{
+				Debug.Log (hit.transform.gameObject.name);
+				if (hit.transform.gameObject.name.Contains("Tower"))
+				{
+					return;
+				}
+			}
+
 			GameObject closestSegment = FindClosestSegment(ray.origin);
 			GlowSegment glowScript = closestSegment.GetComponent<GlowSegment> ();
 			glowScript.onTouch ();
+		}
+
+		// for ipad
+		foreach (Touch touch in Input.touches) 
+		{
+			if (touch.phase == TouchPhase.Began)
+			{
+				Ray ray = Camera.main.ScreenPointToRay(touch.position);
+				RaycastHit hit;
+				
+				// ignore if the bottom menu is clicked on
+				if (ray.origin.z < -11.6)
+				{
+					return;
+				}
+
+				// ignore if a tower is directly clicked on
+				if (Physics.Raycast(ray, out hit, 20))
+				{
+					Debug.Log (hit.transform.gameObject.name);
+					if (hit.transform.gameObject.name.Contains("Tower"))
+					{
+						return;
+					}
+				}
+
+				GameObject closestSegment = FindClosestSegment(ray.origin);
+				GlowSegment glowScript = closestSegment.GetComponent<GlowSegment> ();
+				glowScript.onTouch ();
+			}
 		}
 	}
 
@@ -27,19 +76,14 @@ public class GlowManager : MonoBehaviour {
 		GameObject closest = null;
 		float distance = Mathf.Infinity;
 		Vector3 position = pos;
-		Debug.Log ("position of click: " + position);
 
 		foreach (GameObject seg in segment) 
 		{
-			Debug.Log ("Distance : " + distance);
 			Vector3 diff = seg.transform.position - position;
-			Debug.Log (seg.transform.position);
 			float curDistance = diff.sqrMagnitude;
-			Debug.Log("curDist: " + curDistance);
 			if (curDistance < distance) 
 			{
 				closest = seg;
-				Debug.Log("current closest: " + closest.gameObject.name);
 				distance = curDistance;
 			}
 		}

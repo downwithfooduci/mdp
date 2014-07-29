@@ -31,8 +31,10 @@ public class GlowSegment : MonoBehaviour
 
 	public void onTouch()
 	{
-		Debug.Log ("creating glow segment");
-		instantiatedCube = (GameObject)Instantiate (cube);
-		instantiatedCube.renderer.material = glowMask;
+		if (instantiatedCube == null)
+		{
+			instantiatedCube = (GameObject)Instantiate (cube);
+			instantiatedCube.renderer.material = glowMask;
+		}
 	}
 }
