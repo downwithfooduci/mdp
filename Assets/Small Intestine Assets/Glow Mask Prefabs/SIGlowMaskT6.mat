@@ -22,14 +22,14 @@ Material:
         first:
           name: _MainTex
         second:
-          m_Texture: {fileID: 2800000, guid: 06cebbec4b1f06d45a750a8003c99b1f, type: 3}
+          m_Texture: {fileID: 2800000, guid: fd81185d4d3d255498283b00f5ea12e7, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
         first:
           name: _GlowMask
         second:
-          m_Texture: {fileID: 2800000, guid: f00dd354e97401448afbdb529929cef0, type: 3}
+          m_Texture: {fileID: 2800000, guid: 93fff531a94e082449f38944de9e4637, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
