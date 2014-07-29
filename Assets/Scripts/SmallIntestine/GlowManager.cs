@@ -14,28 +14,8 @@ public class GlowManager : MonoBehaviour {
 		// for on pc/mac
 		if (Input.GetButtonDown("Fire1")) 
 		{
-			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-			RaycastHit hit;
+			checkClickArea();
 
-			// ignore if the bottom menu is clicked on
-			if (ray.origin.z < -11.6)
-			{
-				return;
-			}
-
-			// ignore if a tower is directly clicked on
-			if (Physics.Raycast(ray, out hit, 20))
-			{
-				Debug.Log (hit.transform.gameObject.name);
-				if (hit.transform.gameObject.name.Contains("Tower"))
-				{
-					return;
-				}
-			}
-
-			GameObject closestSegment = FindClosestSegment(ray.origin);
-			GlowSegment glowScript = closestSegment.GetComponent<GlowSegment> ();
-			glowScript.onTouch ();
 		}
 
 		// for ipad
@@ -43,30 +23,54 @@ public class GlowManager : MonoBehaviour {
 		{
 			if (touch.phase == TouchPhase.Began)
 			{
-				Ray ray = Camera.main.ScreenPointToRay(touch.position);
-				RaycastHit hit;
-				
-				// ignore if the bottom menu is clicked on
-				if (ray.origin.z < -11.6)
-				{
-					return;
-				}
-
-				// ignore if a tower is directly clicked on
-				if (Physics.Raycast(ray, out hit, 20))
-				{
-					Debug.Log (hit.transform.gameObject.name);
-					if (hit.transform.gameObject.name.Contains("Tower"))
-					{
-						return;
-					}
-				}
-
-				GameObject closestSegment = FindClosestSegment(ray.origin);
-				GlowSegment glowScript = closestSegment.GetComponent<GlowSegment> ();
-				glowScript.onTouch ();
+				checkClickArea();
 			}
 		}
+	}
+
+	void checkClickArea()
+	{
+		Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+		Debug.Log (ray.origin);
+		RaycastHit hit;
+		
+		// ignore if the bottom menu is clicked on
+		if (ray.origin.z < -11.6)
+		{
+			return;
+		}
+		
+		// check for menu button click
+		if (ray.origin.x > 19.7 && ray.origin.z > 16)
+		{
+			return;
+		}
+		
+		// check for 2x speed click
+		if (ray.origin.x < -22 && ray.origin.z < -8.8)
+		{
+			return;
+		}
+		
+		// if menu box is up don't light
+		if (Time.timeScale < .01f)
+		{
+			return;
+		}
+		
+		// ignore if a tower is directly clicked on
+		if (Physics.Raycast(ray, out hit, 20))
+		{
+			Debug.Log (hit.transform.gameObject.name);
+			if (hit.transform.gameObject.name.Contains("Tower"))
+			{
+				return;
+			}
+		}
+		
+		GameObject closestSegment = FindClosestSegment(ray.origin);
+		GlowSegment glowScript = closestSegment.GetComponent<GlowSegment> ();
+		glowScript.onTouch ();
 	}
 
 	GameObject FindClosestSegment(Vector3 pos) 
