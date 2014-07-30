@@ -31,7 +31,6 @@ public class GlowManager : MonoBehaviour {
 	void checkClickArea()
 	{
 		Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-		Debug.Log (ray.origin);
 		RaycastHit hit;
 		
 		// ignore if the bottom menu is clicked on
@@ -61,29 +60,79 @@ public class GlowManager : MonoBehaviour {
 		// ignore if a tower is directly clicked on
 		if (Physics.Raycast(ray, out hit, 20))
 		{
-			Debug.Log (hit.transform.gameObject.name);
 			if (hit.transform.gameObject.name.Contains("Tower"))
 			{
 				return;
 			}
 		}
 		
-		GameObject closestSegment = FindClosestSegment(ray.origin);
+		GameObject closestSegment = FindClosestSegment(ray);
 		GlowSegment glowScript = closestSegment.GetComponent<GlowSegment> ();
 		glowScript.onTouch ();
 	}
 
-	GameObject FindClosestSegment(Vector3 pos) 
+	GameObject FindClosestSegment(Ray ray) 
 	{
-		GameObject[] segment;
-		segment = GameObject.FindGameObjectsWithTag("glow");
+		GameObject[] segments = new GameObject[4];
+		GameObject segmentUp = null;
+		GameObject segmentDown = null; 
+		GameObject segmentLeft = null; 
+		GameObject segmentRight = null;
 		GameObject closest = null;
-		float distance = Mathf.Infinity;
-		Vector3 position = pos;
 
-		foreach (GameObject seg in segment) 
+		float distance = Mathf.Infinity;
+		RaycastHit hit;
+
+		// reset the y position to be at the desired height
+		ray.origin = new Vector3 (ray.origin.x, -.49f, ray.origin.z);
+		Debug.Log (ray.origin);
+
+		// look for the closest segment above the click
+		ray.direction = new Vector3 (0, 0, 1);
+		if (Physics.Raycast(ray, out hit, 20, 1 << LayerMask.NameToLayer("Glow")))
 		{
-			Vector3 diff = seg.transform.position - position;
+			Debug.Log (hit.transform.gameObject.name);
+			segmentUp = hit.transform.gameObject;
+		}
+
+		// look for the closest segment below the click
+		ray.direction = new Vector3 (0, 0, -1);
+		if (Physics.Raycast(ray, out hit, 20, 1 << LayerMask.NameToLayer("Glow")))
+		{
+			Debug.Log (hit.transform.gameObject.name);
+			segmentDown = hit.transform.gameObject;
+		}
+
+		// look for the closest segment to the left of the click
+		ray.direction = new Vector3 (-1, 0, 0);
+		if (Physics.Raycast(ray, out hit, 20, 1 << LayerMask.NameToLayer("Glow")))
+		{
+			Debug.Log (hit.transform.gameObject.name);
+			segmentLeft = hit.transform.gameObject;
+		}
+
+		// look for the closest segment to the right of the click
+		ray.direction = new Vector3 (1, 0, 0);
+		if (Physics.Raycast(ray, out hit, 20, 1 << LayerMask.NameToLayer("Glow")))
+		{
+			Debug.Log (hit.transform.gameObject.name);
+			segmentRight = hit.transform.gameObject;
+		}
+
+		// store the found segments into the arrays
+		segments [0] = segmentUp;
+		segments [1] = segmentDown;
+		segments [2] = segmentLeft;
+		segments [3] = segmentRight;
+
+		// iterate over the 4 segments to find the closest one
+		foreach (GameObject seg in segments) 
+		{
+			if (seg == null)
+			{
+				continue;
+			}
+			Vector3 diff = seg.transform.position - ray.origin;
 			float curDistance = diff.sqrMagnitude;
 			if (curDistance < distance) 
 			{
