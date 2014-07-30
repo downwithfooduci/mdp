@@ -85,13 +85,11 @@ public class GlowManager : MonoBehaviour {
 
 		// reset the y position to be at the desired height
 		ray.origin = new Vector3 (ray.origin.x, -.49f, ray.origin.z);
-		Debug.Log (ray.origin);
 
 		// look for the closest segment above the click
 		ray.direction = new Vector3 (0, 0, 1);
 		if (Physics.Raycast(ray, out hit, 20, 1 << LayerMask.NameToLayer("Glow")))
 		{
-			Debug.Log (hit.transform.gameObject.name);
 			segmentUp = hit.transform.gameObject;
 		}
 
@@ -99,7 +97,6 @@ public class GlowManager : MonoBehaviour {
 		ray.direction = new Vector3 (0, 0, -1);
 		if (Physics.Raycast(ray, out hit, 20, 1 << LayerMask.NameToLayer("Glow")))
 		{
-			Debug.Log (hit.transform.gameObject.name);
 			segmentDown = hit.transform.gameObject;
 		}
 
@@ -107,7 +104,6 @@ public class GlowManager : MonoBehaviour {
 		ray.direction = new Vector3 (-1, 0, 0);
 		if (Physics.Raycast(ray, out hit, 20, 1 << LayerMask.NameToLayer("Glow")))
 		{
-			Debug.Log (hit.transform.gameObject.name);
 			segmentLeft = hit.transform.gameObject;
 		}
 
@@ -115,7 +111,6 @@ public class GlowManager : MonoBehaviour {
 		ray.direction = new Vector3 (1, 0, 0);
 		if (Physics.Raycast(ray, out hit, 20, 1 << LayerMask.NameToLayer("Glow")))
 		{
-			Debug.Log (hit.transform.gameObject.name);
 			segmentRight = hit.transform.gameObject;
 		}
 

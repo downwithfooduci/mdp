@@ -9,7 +9,7 @@ PlayerSettings:
   targetDevice: 2
   targetGlesGraphics: 1
   targetResolution: 0
-  accelerometerFrequency: 60
+  accelerometerFrequency: 0
   companyName: MDP UCI
   productName: Down with Food
   defaultCursor: {fileID: 0}
@@ -75,14 +75,14 @@ PlayerSettings:
   aotOptions: 
   apiCompatibilityLevel: 2
   iPhoneStrippingLevel: 0
-  iPhoneScriptCallOptimization: 0
+  iPhoneScriptCallOptimization: 1
   ForceInternetPermission: 0
   ForceSDCardPermission: 0
   CreateWallpaper: 0
   APKExpansionFiles: 0
   StripUnusedMeshComponents: 0
   iPhoneSdkVersion: 988
-  iPhoneTargetOSVersion: 10
+  iPhoneTargetOSVersion: 16
   uIPrerenderedIcon: 0
   uIRequiresPersistentWiFi: 0
   uIStatusBarHidden: 1

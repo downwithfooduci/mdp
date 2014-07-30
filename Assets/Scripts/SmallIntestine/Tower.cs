@@ -51,10 +51,7 @@ public class Tower : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
-		Debug.Log ("");
-
 		gameObject.layer = LayerMask.NameToLayer("Tower");
-
 
 		// make sure we aren't in tutorial
 		if (Application.loadedLevelName != "SmallIntestineTutorial")
