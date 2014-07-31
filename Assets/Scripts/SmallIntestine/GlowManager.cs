@@ -84,7 +84,7 @@ public class GlowManager : MonoBehaviour {
 		RaycastHit hit;
 
 		// reset the y position to be at the desired height
-		ray.origin = new Vector3 (ray.origin.x, -.49f, ray.origin.z);
+		ray.origin = new Vector3 (ray.origin.x, 4.51f, ray.origin.z);
 
 		// look for the closest segment above the click
 		ray.direction = new Vector3 (0, 0, 1);
