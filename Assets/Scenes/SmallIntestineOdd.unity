@@ -84,10 +84,9 @@ GameObject:
   - 4: {fileID: 2529454}
   - 33: {fileID: 2529453}
   - 65: {fileID: 2529452}
-  - 23: {fileID: 2529451}
   - 114: {fileID: 2529450}
   m_Layer: 10
-  m_Name: GlowSegmentB3
+  m_Name: GlowSegmentB03
   m_TagString: glow
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -104,28 +103,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: be7287110a1fcbf4ab7ea69f4a3faa7a, type: 2}
+  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
   dieTime: 2
---- !u!23 &2529451
-Renderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2529449}
-  m_Enabled: 0
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_LightmapIndex: 255
-  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
-  m_Materials:
-  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 0
-  m_LightProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
 --- !u!65 &2529452
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2273,7 +2252,6 @@ GameObject:
   - 4: {fileID: 117034465}
   - 33: {fileID: 117034469}
   - 65: {fileID: 117034468}
-  - 23: {fileID: 117034467}
   - 114: {fileID: 117034466}
   m_Layer: 10
   m_Name: GlowSegmentB21
@@ -2305,28 +2283,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: ea4b08e294b256f4c8a320b1c43fa0e2, type: 2}
+  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
   dieTime: 2
---- !u!23 &117034467
-Renderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 117034464}
-  m_Enabled: 0
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_LightmapIndex: 255
-  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
-  m_Materials:
-  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 0
-  m_LightProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
 --- !u!65 &117034468
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2437,7 +2395,6 @@ GameObject:
   - 4: {fileID: 127636493}
   - 33: {fileID: 127636497}
   - 65: {fileID: 127636496}
-  - 23: {fileID: 127636495}
   - 114: {fileID: 127636494}
   m_Layer: 10
   m_Name: GlowSegmentT34
@@ -2469,28 +2426,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: 0226afa362951ad46b19de8a4fe2d335, type: 2}
+  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
   dieTime: 2
---- !u!23 &127636495
-Renderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 127636492}
-  m_Enabled: 0
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_LightmapIndex: 255
-  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
-  m_Materials:
-  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 0
-  m_LightProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
 --- !u!65 &127636496
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2833,7 +2770,6 @@ GameObject:
   - 4: {fileID: 149499499}
   - 33: {fileID: 149499503}
   - 65: {fileID: 149499502}
-  - 23: {fileID: 149499501}
   - 114: {fileID: 149499500}
   m_Layer: 10
   m_Name: GlowSegmentT31
@@ -2865,28 +2801,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: 7ee5d3fdbe50a9b488b97d5a978653bf, type: 2}
+  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
   dieTime: 2
---- !u!23 &149499501
-Renderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 149499498}
-  m_Enabled: 0
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_LightmapIndex: 255
-  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
-  m_Materials:
-  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 0
-  m_LightProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
 --- !u!65 &149499502
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4435,7 +4351,6 @@ GameObject:
   - 4: {fileID: 211800725}
   - 33: {fileID: 211800729}
   - 65: {fileID: 211800728}
-  - 23: {fileID: 211800727}
   - 114: {fileID: 211800726}
   m_Layer: 10
   m_Name: GlowSegmentB17
@@ -4467,28 +4382,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: 27fc0513ce47fde44bdc8c0d71cf90be, type: 2}
+  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
   dieTime: 2
---- !u!23 &211800727
-Renderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 211800724}
-  m_Enabled: 0
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_LightmapIndex: 255
-  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
-  m_Materials:
-  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 0
-  m_LightProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
 --- !u!65 &211800728
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4599,7 +4494,6 @@ GameObject:
   - 4: {fileID: 213890745}
   - 33: {fileID: 213890749}
   - 65: {fileID: 213890748}
-  - 23: {fileID: 213890747}
   - 114: {fileID: 213890746}
   m_Layer: 10
   m_Name: GlowSegmentT27
@@ -4631,28 +4525,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: dad48748163193940813d4936b4a83af, type: 2}
+  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
   dieTime: 2
---- !u!23 &213890747
-Renderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 213890744}
-  m_Enabled: 0
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_LightmapIndex: 255
-  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
-  m_Materials:
-  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 0
-  m_LightProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
 --- !u!65 &213890748
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5879,7 +5753,6 @@ GameObject:
   - 4: {fileID: 283674859}
   - 33: {fileID: 283674863}
   - 65: {fileID: 283674862}
-  - 23: {fileID: 283674861}
   - 114: {fileID: 283674860}
   m_Layer: 10
   m_Name: GlowSegmentB15
@@ -5911,28 +5784,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: d4fa92271db286d45baa9dcfbc6bc87f, type: 2}
+  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
   dieTime: 2
---- !u!23 &283674861
-Renderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 283674858}
-  m_Enabled: 0
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_LightmapIndex: 255
-  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
-  m_Materials:
-  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 0
-  m_LightProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
 --- !u!65 &283674862
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7443,7 +7296,6 @@ GameObject:
   - 4: {fileID: 344869377}
   - 33: {fileID: 344869381}
   - 65: {fileID: 344869380}
-  - 23: {fileID: 344869379}
   - 114: {fileID: 344869378}
   m_Layer: 10
   m_Name: GlowSegmentB25
@@ -7475,28 +7327,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: ef9c75124d9863b4e92e00569e3fb69f, type: 2}
+  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
   dieTime: 2
---- !u!23 &344869379
-Renderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 344869376}
-  m_Enabled: 0
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_LightmapIndex: 255
-  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
-  m_Materials:
-  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 0
-  m_LightProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
 --- !u!65 &344869380
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7688,10 +7520,9 @@ GameObject:
   - 4: {fileID: 360358591}
   - 33: {fileID: 360358590}
   - 65: {fileID: 360358589}
-  - 23: {fileID: 360358588}
   - 114: {fileID: 360358587}
   m_Layer: 10
-  m_Name: GlowSegmentB6
+  m_Name: GlowSegmentB06
   m_TagString: glow
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7708,28 +7539,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: 56aade4f252f015448d9f799e7c26e36, type: 2}
+  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
   dieTime: 2
---- !u!23 &360358588
-Renderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 360358586}
-  m_Enabled: 0
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_LightmapIndex: 255
-  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
-  m_Materials:
-  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 0
-  m_LightProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
 --- !u!65 &360358589
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8257,7 +8068,6 @@ GameObject:
   - 4: {fileID: 371737035}
   - 33: {fileID: 371737039}
   - 65: {fileID: 371737038}
-  - 23: {fileID: 371737037}
   - 114: {fileID: 371737036}
   m_Layer: 10
   m_Name: GlowSegmentT18
@@ -8289,28 +8099,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: 235dd0c5dc3849543aea37253894cc55, type: 2}
+  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
   dieTime: 2
---- !u!23 &371737037
-Renderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 371737034}
-  m_Enabled: 0
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_LightmapIndex: 255
-  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
-  m_Materials:
-  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 0
-  m_LightProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
 --- !u!65 &371737038
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9892,7 +9682,6 @@ GameObject:
   - 4: {fileID: 470633679}
   - 33: {fileID: 470633683}
   - 65: {fileID: 470633682}
-  - 23: {fileID: 470633681}
   - 114: {fileID: 470633680}
   m_Layer: 10
   m_Name: GlowSegmentT13
@@ -9924,28 +9713,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: ff89290b3a5b0f94e9be8fd6a8b449ba, type: 2}
+  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
   dieTime: 2
---- !u!23 &470633681
-Renderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 470633678}
-  m_Enabled: 0
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_LightmapIndex: 255
-  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
-  m_Materials:
-  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 0
-  m_LightProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
 --- !u!65 &470633682
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10137,10 +9906,9 @@ GameObject:
   - 4: {fileID: 476388484}
   - 33: {fileID: 476388488}
   - 65: {fileID: 476388487}
-  - 23: {fileID: 476388486}
   - 114: {fileID: 476388485}
   m_Layer: 10
-  m_Name: GlowSegmentB9
+  m_Name: GlowSegmentB09
   m_TagString: glow
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10169,28 +9937,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: 53a9e7c660891d14088d76d867a94cea, type: 2}
+  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
   dieTime: 2
---- !u!23 &476388486
-Renderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 476388483}
-  m_Enabled: 0
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_LightmapIndex: 255
-  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
-  m_Materials:
-  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 0
-  m_LightProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
 --- !u!65 &476388487
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10706,7 +10454,6 @@ GameObject:
   - 4: {fileID: 507461095}
   - 33: {fileID: 507461099}
   - 65: {fileID: 507461098}
-  - 23: {fileID: 507461097}
   - 114: {fileID: 507461096}
   m_Layer: 10
   m_Name: GlowSegmentB19
@@ -10738,28 +10485,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: cde13e1c9ad969548a13dad7c8a44f19, type: 2}
+  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
   dieTime: 2
---- !u!23 &507461097
-Renderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 507461094}
-  m_Enabled: 0
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_LightmapIndex: 255
-  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
-  m_Materials:
-  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 0
-  m_LightProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
 --- !u!65 &507461098
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10870,10 +10597,9 @@ GameObject:
   - 4: {fileID: 514704667}
   - 33: {fileID: 514704671}
   - 65: {fileID: 514704670}
-  - 23: {fileID: 514704669}
   - 114: {fileID: 514704668}
   m_Layer: 10
-  m_Name: GlowSegmentB8
+  m_Name: GlowSegmentB08
   m_TagString: glow
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10902,28 +10628,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: eb50df21f0fbd814ba7a56542d0011bc, type: 2}
+  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
   dieTime: 2
---- !u!23 &514704669
-Renderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 514704666}
-  m_Enabled: 0
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_LightmapIndex: 255
-  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
-  m_Materials:
-  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 0
-  m_LightProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
 --- !u!65 &514704670
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15119,7 +14825,6 @@ GameObject:
   - 4: {fileID: 707403921}
   - 33: {fileID: 707403925}
   - 65: {fileID: 707403924}
-  - 23: {fileID: 707403923}
   - 114: {fileID: 707403922}
   m_Layer: 10
   m_Name: GlowSegmentB24
@@ -15151,28 +14856,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: a8254fe534ee160418c802f6c61ab08c, type: 2}
+  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
   dieTime: 2
---- !u!23 &707403923
-Renderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 707403920}
-  m_Enabled: 0
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_LightmapIndex: 255
-  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
-  m_Materials:
-  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 0
-  m_LightProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
 --- !u!65 &707403924
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15202,7 +14887,6 @@ GameObject:
   - 4: {fileID: 708373953}
   - 33: {fileID: 708373957}
   - 65: {fileID: 708373956}
-  - 23: {fileID: 708373955}
   - 114: {fileID: 708373954}
   m_Layer: 10
   m_Name: GlowSegmentB12
@@ -15234,28 +14918,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: 5cd6a93eca1d81c4eaa69195bb584ccb, type: 2}
+  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
   dieTime: 2
---- !u!23 &708373955
-Renderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 708373952}
-  m_Enabled: 0
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_LightmapIndex: 255
-  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
-  m_Materials:
-  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 0
-  m_LightProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
 --- !u!65 &708373956
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -16338,7 +16002,6 @@ GameObject:
   - 4: {fileID: 748728186}
   - 33: {fileID: 748728190}
   - 65: {fileID: 748728189}
-  - 23: {fileID: 748728188}
   - 114: {fileID: 748728187}
   m_Layer: 10
   m_Name: GlowSegmentB23
@@ -16370,28 +16033,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: 4e636e22056aed24ca9cc05022efacb9, type: 2}
+  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
   dieTime: 2
---- !u!23 &748728188
-Renderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 748728185}
-  m_Enabled: 0
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_LightmapIndex: 255
-  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
-  m_Materials:
-  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 0
-  m_LightProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
 --- !u!65 &748728189
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -16726,10 +16369,9 @@ GameObject:
   - 4: {fileID: 757899781}
   - 33: {fileID: 757899785}
   - 65: {fileID: 757899784}
-  - 23: {fileID: 757899783}
   - 114: {fileID: 757899782}
   m_Layer: 10
-  m_Name: GlowSegmentT6
+  m_Name: GlowSegmentT06
   m_TagString: glow
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16758,28 +16400,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: 345c1fadc898d91418bc48d3637e9319, type: 2}
+  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
   dieTime: 2
---- !u!23 &757899783
-Renderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 757899780}
-  m_Enabled: 0
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_LightmapIndex: 255
-  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
-  m_Materials:
-  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 0
-  m_LightProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
 --- !u!65 &757899784
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -16809,7 +16431,6 @@ GameObject:
   - 4: {fileID: 758050627}
   - 33: {fileID: 758050631}
   - 65: {fileID: 758050630}
-  - 23: {fileID: 758050629}
   - 114: {fileID: 758050628}
   m_Layer: 10
   m_Name: GlowSegmentB11
@@ -16841,28 +16462,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: dfc2004e78cdb6647a9399f5fe13c6a1, type: 2}
+  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
   dieTime: 2
---- !u!23 &758050629
-Renderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 758050626}
-  m_Enabled: 0
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_LightmapIndex: 255
-  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
-  m_Materials:
-  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 0
-  m_LightProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
 --- !u!65 &758050630
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -17866,7 +17467,6 @@ GameObject:
   - 4: {fileID: 783865755}
   - 33: {fileID: 783865759}
   - 65: {fileID: 783865758}
-  - 23: {fileID: 783865757}
   - 114: {fileID: 783865756}
   m_Layer: 10
   m_Name: GlowSegmentB22
@@ -17898,28 +17498,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: 2a94f3433cd9fae408fbeb137734ebb4, type: 2}
+  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
   dieTime: 2
---- !u!23 &783865757
-Renderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 783865754}
-  m_Enabled: 0
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_LightmapIndex: 255
-  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
-  m_Materials:
-  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 0
-  m_LightProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
 --- !u!65 &783865758
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -18030,7 +17610,6 @@ GameObject:
   - 4: {fileID: 795051132}
   - 33: {fileID: 795051136}
   - 65: {fileID: 795051135}
-  - 23: {fileID: 795051134}
   - 114: {fileID: 795051133}
   m_Layer: 10
   m_Name: GlowSegmentB10
@@ -18062,28 +17641,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: 5373fd9b2d0e87a409400ac114e3ab21, type: 2}
+  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
   dieTime: 2
---- !u!23 &795051134
-Renderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 795051131}
-  m_Enabled: 0
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_LightmapIndex: 255
-  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
-  m_Materials:
-  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 0
-  m_LightProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
 --- !u!65 &795051135
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -18113,7 +17672,6 @@ GameObject:
   - 4: {fileID: 797457143}
   - 33: {fileID: 797457147}
   - 65: {fileID: 797457146}
-  - 23: {fileID: 797457145}
   - 114: {fileID: 797457144}
   m_Layer: 10
   m_Name: GlowSegmentT16
@@ -18145,28 +17703,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: 4d2fd1f880c28164f8b5e182462ab92f, type: 2}
+  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
   dieTime: 2
---- !u!23 &797457145
-Renderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 797457142}
-  m_Enabled: 0
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_LightmapIndex: 255
-  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
-  m_Materials:
-  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 0
-  m_LightProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
 --- !u!65 &797457146
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -18439,7 +17977,6 @@ GameObject:
   - 4: {fileID: 839846929}
   - 33: {fileID: 839846933}
   - 65: {fileID: 839846932}
-  - 23: {fileID: 839846931}
   - 114: {fileID: 839846930}
   m_Layer: 10
   m_Name: GlowSegmentB20
@@ -18471,28 +18008,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: 173a8bb4468466849b0d2a0e5479400f, type: 2}
+  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
   dieTime: 2
---- !u!23 &839846931
-Renderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 839846928}
-  m_Enabled: 0
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_LightmapIndex: 255
-  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
-  m_Materials:
-  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 0
-  m_LightProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
 --- !u!65 &839846932
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -19170,7 +18687,6 @@ GameObject:
   - 4: {fileID: 870672978}
   - 33: {fileID: 870672982}
   - 65: {fileID: 870672981}
-  - 23: {fileID: 870672980}
   - 114: {fileID: 870672979}
   m_Layer: 10
   m_Name: GlowSegmentT32
@@ -19202,28 +18718,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: 3e1286ca9d22ecc468dc7d3036dd71c6, type: 2}
+  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
   dieTime: 2
---- !u!23 &870672980
-Renderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 870672977}
-  m_Enabled: 0
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_LightmapIndex: 255
-  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
-  m_Materials:
-  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 0
-  m_LightProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
 --- !u!65 &870672981
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -19334,10 +18830,9 @@ GameObject:
   - 4: {fileID: 898560967}
   - 33: {fileID: 898560971}
   - 65: {fileID: 898560970}
-  - 23: {fileID: 898560969}
   - 114: {fileID: 898560968}
   m_Layer: 10
-  m_Name: GlowSegmentB7
+  m_Name: GlowSegmentB07
   m_TagString: glow
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19366,28 +18861,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: 7a7f912554462b24d8de81e48eff7c38, type: 2}
+  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
   dieTime: 2
---- !u!23 &898560969
-Renderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 898560966}
-  m_Enabled: 0
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_LightmapIndex: 255
-  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
-  m_Materials:
-  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 0
-  m_LightProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
 --- !u!65 &898560970
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -19498,7 +18973,6 @@ GameObject:
   - 4: {fileID: 906012722}
   - 33: {fileID: 906012726}
   - 65: {fileID: 906012725}
-  - 23: {fileID: 906012724}
   - 114: {fileID: 906012723}
   m_Layer: 10
   m_Name: GlowSegmentT28
@@ -19530,28 +19004,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: a301f824d48d35c459ec78021c143a30, type: 2}
+  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
   dieTime: 2
---- !u!23 &906012724
-Renderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 906012721}
-  m_Enabled: 0
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_LightmapIndex: 255
-  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
-  m_Materials:
-  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 0
-  m_LightProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
 --- !u!65 &906012725
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -20067,7 +19521,6 @@ GameObject:
   - 4: {fileID: 934108331}
   - 33: {fileID: 934108335}
   - 65: {fileID: 934108334}
-  - 23: {fileID: 934108333}
   - 114: {fileID: 934108332}
   m_Layer: 10
   m_Name: GlowSegmentT11
@@ -20099,28 +19552,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: c19e5d055edd1234885e50e9a898abbe, type: 2}
+  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
   dieTime: 2
---- !u!23 &934108333
-Renderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 934108330}
-  m_Enabled: 0
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_LightmapIndex: 255
-  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
-  m_Materials:
-  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 0
-  m_LightProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
 --- !u!65 &934108334
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -20820,7 +20253,6 @@ GameObject:
   - 4: {fileID: 964145516}
   - 33: {fileID: 964145520}
   - 65: {fileID: 964145519}
-  - 23: {fileID: 964145518}
   - 114: {fileID: 964145517}
   m_Layer: 10
   m_Name: GlowSegmentB16
@@ -20852,28 +20284,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: 04da47fc653340f4ca7dec8a4e5abd40, type: 2}
+  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
   dieTime: 2
---- !u!23 &964145518
-Renderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 964145515}
-  m_Enabled: 0
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_LightmapIndex: 255
-  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
-  m_Materials:
-  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 0
-  m_LightProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
 --- !u!65 &964145519
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -21632,7 +21044,6 @@ GameObject:
   - 4: {fileID: 994777375}
   - 33: {fileID: 994777379}
   - 65: {fileID: 994777378}
-  - 23: {fileID: 994777377}
   - 114: {fileID: 994777376}
   m_Layer: 10
   m_Name: GlowSegmentB28
@@ -21664,28 +21075,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: c3ff7e31f3f6b4a40bacc083dbeab6da, type: 2}
+  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
   dieTime: 2
---- !u!23 &994777377
-Renderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 994777374}
-  m_Enabled: 0
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_LightmapIndex: 255
-  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
-  m_Materials:
-  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 0
-  m_LightProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
 --- !u!65 &994777378
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -22120,7 +21511,6 @@ GameObject:
   - 4: {fileID: 1024677104}
   - 33: {fileID: 1024677108}
   - 65: {fileID: 1024677107}
-  - 23: {fileID: 1024677106}
   - 114: {fileID: 1024677105}
   m_Layer: 10
   m_Name: GlowSegmentB13
@@ -22152,28 +21542,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: 0dc84979d792b1a4a99560b1c51e5f87, type: 2}
+  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
   dieTime: 2
---- !u!23 &1024677106
-Renderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1024677103}
-  m_Enabled: 0
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_LightmapIndex: 255
-  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
-  m_Materials:
-  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 0
-  m_LightProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
 --- !u!65 &1024677107
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -22689,7 +22059,6 @@ GameObject:
   - 4: {fileID: 1033453811}
   - 33: {fileID: 1033453815}
   - 65: {fileID: 1033453814}
-  - 23: {fileID: 1033453813}
   - 114: {fileID: 1033453812}
   m_Layer: 10
   m_Name: GlowSegmentT24
@@ -22721,28 +22090,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: 6bb41e378a187234caec357fc31ab879, type: 2}
+  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
   dieTime: 2
---- !u!23 &1033453813
-Renderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1033453810}
-  m_Enabled: 0
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_LightmapIndex: 255
-  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
-  m_Materials:
-  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 0
-  m_LightProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
 --- !u!65 &1033453814
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -22909,7 +22258,6 @@ GameObject:
   - 4: {fileID: 1037031607}
   - 33: {fileID: 1037031611}
   - 65: {fileID: 1037031610}
-  - 23: {fileID: 1037031609}
   - 114: {fileID: 1037031608}
   m_Layer: 10
   m_Name: GlowSegmentB26
@@ -22941,28 +22289,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: df605b309f5fa304386695a1472e9020, type: 2}
+  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
   dieTime: 2
---- !u!23 &1037031609
-Renderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1037031606}
-  m_Enabled: 0
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_LightmapIndex: 255
-  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
-  m_Materials:
-  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 0
-  m_LightProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
 --- !u!65 &1037031610
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -24048,7 +23376,6 @@ GameObject:
   - 4: {fileID: 1073071504}
   - 33: {fileID: 1073071508}
   - 65: {fileID: 1073071507}
-  - 23: {fileID: 1073071506}
   - 114: {fileID: 1073071505}
   m_Layer: 10
   m_Name: GlowSegmentT21
@@ -24080,28 +23407,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: b1f88709ef860c94197c5ca4553d356a, type: 2}
+  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
   dieTime: 2
---- !u!23 &1073071506
-Renderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1073071503}
-  m_Enabled: 0
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_LightmapIndex: 255
-  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
-  m_Materials:
-  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 0
-  m_LightProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
 --- !u!65 &1073071507
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -24293,7 +23600,6 @@ GameObject:
   - 4: {fileID: 1091250391}
   - 33: {fileID: 1091250395}
   - 65: {fileID: 1091250394}
-  - 23: {fileID: 1091250393}
   - 114: {fileID: 1091250392}
   m_Layer: 10
   m_Name: GlowSegmentT20
@@ -24325,28 +23631,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: 701e530ee06089f469700c9f08aabcbe, type: 2}
+  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
   dieTime: 2
---- !u!23 &1091250393
-Renderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1091250390}
-  m_Enabled: 0
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_LightmapIndex: 255
-  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
-  m_Materials:
-  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 0
-  m_LightProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
 --- !u!65 &1091250394
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -25818,7 +25104,6 @@ GameObject:
   - 4: {fileID: 1168128026}
   - 33: {fileID: 1168128030}
   - 65: {fileID: 1168128029}
-  - 23: {fileID: 1168128028}
   - 114: {fileID: 1168128027}
   m_Layer: 10
   m_Name: GlowSegmentT36
@@ -25850,28 +25135,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: 9a524d3a991d2a045b87be090781b112, type: 2}
+  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
   dieTime: 2
---- !u!23 &1168128028
-Renderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1168128025}
-  m_Enabled: 0
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_LightmapIndex: 255
-  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
-  m_Materials:
-  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 0
-  m_LightProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
 --- !u!65 &1168128029
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -26063,7 +25328,6 @@ GameObject:
   - 4: {fileID: 1178030724}
   - 33: {fileID: 1178030728}
   - 65: {fileID: 1178030727}
-  - 23: {fileID: 1178030726}
   - 114: {fileID: 1178030725}
   m_Layer: 10
   m_Name: GlowSegmentT33
@@ -26095,28 +25359,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: 034ac6061996b9343bb88136173349fa, type: 2}
+  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
   dieTime: 2
---- !u!23 &1178030726
-Renderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1178030723}
-  m_Enabled: 0
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_LightmapIndex: 255
-  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
-  m_Materials:
-  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 0
-  m_LightProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
 --- !u!65 &1178030727
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -26610,10 +25854,9 @@ GameObject:
   - 4: {fileID: 1190916895}
   - 33: {fileID: 1190916899}
   - 65: {fileID: 1190916898}
-  - 23: {fileID: 1190916897}
   - 114: {fileID: 1190916896}
   m_Layer: 10
-  m_Name: GlowSegmentB5
+  m_Name: GlowSegmentB05
   m_TagString: glow
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26642,28 +25885,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: 227696e55aa46554fb554592e7868e5f, type: 2}
+  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
   dieTime: 2
---- !u!23 &1190916897
-Renderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1190916894}
-  m_Enabled: 0
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_LightmapIndex: 255
-  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
-  m_Materials:
-  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 0
-  m_LightProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
 --- !u!65 &1190916898
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -26774,10 +25997,9 @@ GameObject:
   - 4: {fileID: 1192794995}
   - 33: {fileID: 1192794999}
   - 65: {fileID: 1192794998}
-  - 23: {fileID: 1192794997}
   - 114: {fileID: 1192794996}
   m_Layer: 10
-  m_Name: GlowSegmentT3
+  m_Name: GlowSegmentT03
   m_TagString: glow
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26806,28 +26028,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: e41699f0d8be8494487fc90655d2b156, type: 2}
+  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
   dieTime: 2
---- !u!23 &1192794997
-Renderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1192794994}
-  m_Enabled: 0
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_LightmapIndex: 255
-  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
-  m_Materials:
-  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 0
-  m_LightProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
 --- !u!65 &1192794998
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -27001,10 +26203,9 @@ GameObject:
   - 4: {fileID: 1205278624}
   - 33: {fileID: 1205278628}
   - 65: {fileID: 1205278627}
-  - 23: {fileID: 1205278626}
   - 114: {fileID: 1205278625}
   m_Layer: 10
-  m_Name: GlowSegmentT2
+  m_Name: GlowSegmentT02
   m_TagString: glow
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27033,28 +26234,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: b4157bca29983e8469ebdc5e58440a20, type: 2}
+  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
   dieTime: 2
---- !u!23 &1205278626
-Renderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1205278623}
-  m_Enabled: 0
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_LightmapIndex: 255
-  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
-  m_Materials:
-  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 0
-  m_LightProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
 --- !u!65 &1205278627
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -27710,7 +26891,6 @@ GameObject:
   - 4: {fileID: 1238875654}
   - 33: {fileID: 1238875658}
   - 65: {fileID: 1238875657}
-  - 23: {fileID: 1238875656}
   - 114: {fileID: 1238875655}
   m_Layer: 10
   m_Name: GlowSegmentB35
@@ -27742,28 +26922,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: a78f4124dc7dcf74b9d6865e58c37402, type: 2}
+  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
   dieTime: 2
---- !u!23 &1238875656
-Renderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1238875653}
-  m_Enabled: 0
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_LightmapIndex: 255
-  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
-  m_Materials:
-  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 0
-  m_LightProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
 --- !u!65 &1238875657
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -28036,7 +27196,6 @@ GameObject:
   - 4: {fileID: 1251185696}
   - 33: {fileID: 1251185700}
   - 65: {fileID: 1251185699}
-  - 23: {fileID: 1251185698}
   - 114: {fileID: 1251185697}
   m_Layer: 10
   m_Name: GlowSegmentT29
@@ -28068,28 +27227,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: c4bb5dea5cfa3614baee6a20c8e45842, type: 2}
+  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
   dieTime: 2
---- !u!23 &1251185698
-Renderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1251185695}
-  m_Enabled: 0
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_LightmapIndex: 255
-  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
-  m_Materials:
-  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 0
-  m_LightProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
 --- !u!65 &1251185699
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -29298,7 +28437,6 @@ GameObject:
   - 4: {fileID: 1299453922}
   - 33: {fileID: 1299453926}
   - 65: {fileID: 1299453925}
-  - 23: {fileID: 1299453924}
   - 114: {fileID: 1299453923}
   m_Layer: 10
   m_Name: GlowSegmentB31
@@ -29330,28 +28468,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: 2ac7a49fca0b33d40a02f0147bd9f61a, type: 2}
+  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
   dieTime: 2
---- !u!23 &1299453924
-Renderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1299453921}
-  m_Enabled: 0
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_LightmapIndex: 255
-  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
-  m_Materials:
-  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 0
-  m_LightProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
 --- !u!65 &1299453925
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -29543,10 +28661,9 @@ GameObject:
   - 4: {fileID: 1319190166}
   - 33: {fileID: 1319190170}
   - 65: {fileID: 1319190169}
-  - 23: {fileID: 1319190168}
   - 114: {fileID: 1319190167}
   m_Layer: 10
-  m_Name: GlowSegmentB4
+  m_Name: GlowSegmentB04
   m_TagString: glow
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29575,28 +28692,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: 9fa839e93459b4b45a85b4eaf6475aae, type: 2}
+  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
   dieTime: 2
---- !u!23 &1319190168
-Renderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1319190165}
-  m_Enabled: 0
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_LightmapIndex: 255
-  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
-  m_Materials:
-  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 0
-  m_LightProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
 --- !u!65 &1319190169
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -29626,7 +28723,6 @@ GameObject:
   - 4: {fileID: 1319981061}
   - 33: {fileID: 1319981065}
   - 65: {fileID: 1319981064}
-  - 23: {fileID: 1319981063}
   - 114: {fileID: 1319981062}
   m_Layer: 10
   m_Name: GlowSegmentT26
@@ -29658,28 +28754,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: 5df52e117d6f4ff498d74a484469263b, type: 2}
+  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
   dieTime: 2
---- !u!23 &1319981063
-Renderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1319981060}
-  m_Enabled: 0
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_LightmapIndex: 255
-  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
-  m_Materials:
-  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 0
-  m_LightProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
 --- !u!65 &1319981064
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -30600,7 +29676,6 @@ GameObject:
   - 4: {fileID: 1362706217}
   - 33: {fileID: 1362706221}
   - 65: {fileID: 1362706220}
-  - 23: {fileID: 1362706219}
   - 114: {fileID: 1362706218}
   m_Layer: 10
   m_Name: GlowSegmentT10
@@ -30632,28 +29707,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: d54ed5d5be91bad4aac272146816c8d0, type: 2}
+  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
   dieTime: 2
---- !u!23 &1362706219
-Renderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1362706216}
-  m_Enabled: 0
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_LightmapIndex: 255
-  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
-  m_Materials:
-  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 0
-  m_LightProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
 --- !u!65 &1362706220
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -30683,7 +29738,6 @@ GameObject:
   - 4: {fileID: 1365359844}
   - 33: {fileID: 1365359848}
   - 65: {fileID: 1365359847}
-  - 23: {fileID: 1365359846}
   - 114: {fileID: 1365359845}
   m_Layer: 10
   m_Name: GlowSegmentB27
@@ -30715,28 +29769,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: 02889c35467b5bb4daa462733205c72a, type: 2}
+  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
   dieTime: 2
---- !u!23 &1365359846
-Renderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1365359843}
-  m_Enabled: 0
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_LightmapIndex: 255
-  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
-  m_Materials:
-  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 0
-  m_LightProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
 --- !u!65 &1365359847
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -31171,7 +30205,6 @@ GameObject:
   - 4: {fileID: 1388549438}
   - 33: {fileID: 1388549442}
   - 65: {fileID: 1388549441}
-  - 23: {fileID: 1388549440}
   - 114: {fileID: 1388549439}
   m_Layer: 10
   m_Name: GlowSegmentB14
@@ -31203,28 +30236,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: 03d8176f593dd244893f9e413991343d, type: 2}
+  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
   dieTime: 2
---- !u!23 &1388549440
-Renderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1388549437}
-  m_Enabled: 0
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_LightmapIndex: 255
-  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
-  m_Materials:
-  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 0
-  m_LightProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
 --- !u!65 &1388549441
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -31254,10 +30267,9 @@ GameObject:
   - 4: {fileID: 1394731308}
   - 33: {fileID: 1394731312}
   - 65: {fileID: 1394731311}
-  - 23: {fileID: 1394731310}
   - 114: {fileID: 1394731309}
   m_Layer: 10
-  m_Name: GlowSegmentT8
+  m_Name: GlowSegmentT08
   m_TagString: glow
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31286,28 +30298,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: 750cc9c17e013dc4caa2e13a17d39749, type: 2}
+  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
   dieTime: 2
---- !u!23 &1394731310
-Renderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1394731307}
-  m_Enabled: 0
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_LightmapIndex: 255
-  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
-  m_Materials:
-  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 0
-  m_LightProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
 --- !u!65 &1394731311
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -32552,10 +31544,9 @@ GameObject:
   - 4: {fileID: 1459435097}
   - 33: {fileID: 1459435101}
   - 65: {fileID: 1459435100}
-  - 23: {fileID: 1459435099}
   - 114: {fileID: 1459435098}
   m_Layer: 10
-  m_Name: GlowSegmentT5
+  m_Name: GlowSegmentT05
   m_TagString: glow
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32584,28 +31575,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: 3f58a8c1fe0ed5e498293894e9aeced6, type: 2}
+  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
   dieTime: 2
---- !u!23 &1459435099
-Renderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1459435096}
-  m_Enabled: 0
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_LightmapIndex: 255
-  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
-  m_Materials:
-  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 0
-  m_LightProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
 --- !u!65 &1459435100
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -33526,7 +32497,6 @@ GameObject:
   - 4: {fileID: 1494035569}
   - 33: {fileID: 1494035573}
   - 65: {fileID: 1494035572}
-  - 23: {fileID: 1494035571}
   - 114: {fileID: 1494035570}
   m_Layer: 10
   m_Name: GlowSegmentT17
@@ -33558,28 +32528,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: c3e1cbc9b197c134994abaa4258a4dee, type: 2}
+  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
   dieTime: 2
---- !u!23 &1494035571
-Renderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1494035568}
-  m_Enabled: 0
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_LightmapIndex: 255
-  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
-  m_Materials:
-  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 0
-  m_LightProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
 --- !u!65 &1494035572
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -33771,10 +32721,9 @@ GameObject:
   - 4: {fileID: 1504831206}
   - 33: {fileID: 1504831205}
   - 65: {fileID: 1504831204}
-  - 23: {fileID: 1504831203}
   - 114: {fileID: 1504831202}
   m_Layer: 10
-  m_Name: GlowSegmentT4
+  m_Name: GlowSegmentT04
   m_TagString: glow
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -33791,28 +32740,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: 50591020a8f02b24c91887f503ed3b87, type: 2}
+  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
   dieTime: 2
---- !u!23 &1504831203
-Renderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1504831201}
-  m_Enabled: 0
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_LightmapIndex: 255
-  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
-  m_Materials:
-  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 0
-  m_LightProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
 --- !u!65 &1504831204
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -34178,7 +33107,6 @@ GameObject:
   - 4: {fileID: 1525695696}
   - 33: {fileID: 1525695700}
   - 65: {fileID: 1525695699}
-  - 23: {fileID: 1525695698}
   - 114: {fileID: 1525695697}
   m_Layer: 10
   m_Name: GlowSegmentT14
@@ -34210,28 +33138,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: ff9667bb2b1fc20419d01bef4f6e88e7, type: 2}
+  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
   dieTime: 2
---- !u!23 &1525695698
-Renderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1525695695}
-  m_Enabled: 0
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_LightmapIndex: 255
-  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
-  m_Materials:
-  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 0
-  m_LightProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
 --- !u!65 &1525695699
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -34423,7 +33331,6 @@ GameObject:
   - 4: {fileID: 1538918515}
   - 33: {fileID: 1538918519}
   - 65: {fileID: 1538918518}
-  - 23: {fileID: 1538918517}
   - 114: {fileID: 1538918516}
   m_Layer: 10
   m_Name: GlowSegmentT15
@@ -34455,28 +33362,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: 54cdc6d3bbf814c4a84a93cee886b48b, type: 2}
+  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
   dieTime: 2
---- !u!23 &1538918517
-Renderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1538918514}
-  m_Enabled: 0
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_LightmapIndex: 255
-  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
-  m_Materials:
-  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 0
-  m_LightProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
 --- !u!65 &1538918518
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -34911,10 +33798,9 @@ GameObject:
   - 4: {fileID: 1553476533}
   - 33: {fileID: 1553476537}
   - 65: {fileID: 1553476536}
-  - 23: {fileID: 1553476535}
   - 114: {fileID: 1553476534}
   m_Layer: 10
-  m_Name: GlowSegmentT1
+  m_Name: GlowSegmentT01
   m_TagString: glow
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34943,28 +33829,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: 166b5a39b0c17694586a45f729b1613c, type: 2}
+  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
   dieTime: 2
---- !u!23 &1553476535
-Renderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1553476532}
-  m_Enabled: 0
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_LightmapIndex: 255
-  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
-  m_Materials:
-  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 0
-  m_LightProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
 --- !u!65 &1553476536
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -35075,7 +33941,6 @@ GameObject:
   - 4: {fileID: 1575443882}
   - 33: {fileID: 1575443886}
   - 65: {fileID: 1575443885}
-  - 23: {fileID: 1575443884}
   - 114: {fileID: 1575443883}
   m_Layer: 10
   m_Name: GlowSegmentB36
@@ -35107,28 +33972,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: 4c05f3312f3155b42abf60b3b9119675, type: 2}
+  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
   dieTime: 2
---- !u!23 &1575443884
-Renderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1575443881}
-  m_Enabled: 0
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_LightmapIndex: 255
-  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
-  m_Materials:
-  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 0
-  m_LightProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
 --- !u!65 &1575443885
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -35725,7 +34570,6 @@ GameObject:
   - 4: {fileID: 1596356980}
   - 33: {fileID: 1596356984}
   - 65: {fileID: 1596356983}
-  - 23: {fileID: 1596356982}
   - 114: {fileID: 1596356981}
   m_Layer: 10
   m_Name: GlowSegmentB18
@@ -35757,28 +34601,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: 48d1067721a3c154abbfad24c69dd9b1, type: 2}
+  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
   dieTime: 2
---- !u!23 &1596356982
-Renderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1596356979}
-  m_Enabled: 0
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_LightmapIndex: 255
-  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
-  m_Materials:
-  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 0
-  m_LightProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
 --- !u!65 &1596356983
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -35970,10 +34794,9 @@ GameObject:
   - 4: {fileID: 1598083488}
   - 33: {fileID: 1598083492}
   - 65: {fileID: 1598083491}
-  - 23: {fileID: 1598083490}
   - 114: {fileID: 1598083489}
   m_Layer: 10
-  m_Name: GlowSegmentB2
+  m_Name: GlowSegmentB02
   m_TagString: glow
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -36002,28 +34825,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: e7920452e55ec5d4cb7e83c0c2fe1720, type: 2}
+  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
   dieTime: 2
---- !u!23 &1598083490
-Renderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1598083487}
-  m_Enabled: 0
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_LightmapIndex: 255
-  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
-  m_Materials:
-  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 0
-  m_LightProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
 --- !u!65 &1598083491
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -36053,7 +34856,6 @@ GameObject:
   - 4: {fileID: 1599141448}
   - 33: {fileID: 1599141452}
   - 65: {fileID: 1599141451}
-  - 23: {fileID: 1599141450}
   - 114: {fileID: 1599141449}
   m_Layer: 10
   m_Name: GlowSegmentB34
@@ -36085,28 +34887,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: ee772279e817fa6438d77d844ee393a6, type: 2}
+  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
   dieTime: 2
---- !u!23 &1599141450
-Renderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1599141447}
-  m_Enabled: 0
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_LightmapIndex: 255
-  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
-  m_Materials:
-  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 0
-  m_LightProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
 --- !u!65 &1599141451
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -36541,7 +35323,6 @@ GameObject:
   - 4: {fileID: 1618633505}
   - 33: {fileID: 1618633509}
   - 65: {fileID: 1618633508}
-  - 23: {fileID: 1618633507}
   - 114: {fileID: 1618633506}
   m_Layer: 10
   m_Name: GlowSegmentB33
@@ -36573,28 +35354,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: 501ba0310f65b1146bbe826e4b784f81, type: 2}
+  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
   dieTime: 2
---- !u!23 &1618633507
-Renderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1618633504}
-  m_Enabled: 0
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_LightmapIndex: 255
-  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
-  m_Materials:
-  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 0
-  m_LightProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
 --- !u!65 &1618633508
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -36948,7 +35709,6 @@ GameObject:
   - 4: {fileID: 1639920969}
   - 33: {fileID: 1639920973}
   - 65: {fileID: 1639920972}
-  - 23: {fileID: 1639920971}
   - 114: {fileID: 1639920970}
   m_Layer: 10
   m_Name: GlowSegmentB32
@@ -36980,28 +35740,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: e7a5d89d0e42fad42a0ccdb8d6083b48, type: 2}
+  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
   dieTime: 2
---- !u!23 &1639920971
-Renderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1639920968}
-  m_Enabled: 0
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_LightmapIndex: 255
-  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
-  m_Materials:
-  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 0
-  m_LightProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
 --- !u!65 &1639920972
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -38192,7 +36932,6 @@ GameObject:
   - 4: {fileID: 1690754074}
   - 33: {fileID: 1690754078}
   - 65: {fileID: 1690754077}
-  - 23: {fileID: 1690754076}
   - 114: {fileID: 1690754075}
   m_Layer: 10
   m_Name: GlowSegmentT25
@@ -38224,28 +36963,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: 65e3bcbef4b583d438149cba7be56a2f, type: 2}
+  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
   dieTime: 2
---- !u!23 &1690754076
-Renderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1690754073}
-  m_Enabled: 0
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_LightmapIndex: 255
-  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
-  m_Materials:
-  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 0
-  m_LightProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
 --- !u!65 &1690754077
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -38275,7 +36994,6 @@ GameObject:
   - 4: {fileID: 1691308557}
   - 33: {fileID: 1691308561}
   - 65: {fileID: 1691308560}
-  - 23: {fileID: 1691308559}
   - 114: {fileID: 1691308558}
   m_Layer: 10
   m_Name: GlowSegmentT12
@@ -38307,28 +37025,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: 643d2f0adf81b5846857605cd1c4149b, type: 2}
+  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
   dieTime: 2
---- !u!23 &1691308559
-Renderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1691308556}
-  m_Enabled: 0
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_LightmapIndex: 255
-  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
-  m_Materials:
-  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 0
-  m_LightProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
 --- !u!65 &1691308560
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -38682,7 +37380,6 @@ GameObject:
   - 4: {fileID: 1708473762}
   - 33: {fileID: 1708473761}
   - 65: {fileID: 1708473760}
-  - 23: {fileID: 1708473759}
   - 114: {fileID: 1708473758}
   m_Layer: 10
   m_Name: GlowSegmentB29
@@ -38702,28 +37399,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: 1818199c970cc9c419870788a7e51115, type: 2}
+  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
   dieTime: 2
---- !u!23 &1708473759
-Renderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1708473757}
-  m_Enabled: 0
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_LightmapIndex: 255
-  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
-  m_Materials:
-  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 0
-  m_LightProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
 --- !u!65 &1708473760
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -39332,10 +38009,9 @@ GameObject:
   - 4: {fileID: 1744974256}
   - 33: {fileID: 1744974260}
   - 65: {fileID: 1744974259}
-  - 23: {fileID: 1744974258}
   - 114: {fileID: 1744974257}
   m_Layer: 10
-  m_Name: GlowSegmentT7
+  m_Name: GlowSegmentT07
   m_TagString: glow
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -39364,28 +38040,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: fa7692f07dce59e4eb6a710474dda482, type: 2}
+  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
   dieTime: 2
---- !u!23 &1744974258
-Renderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1744974255}
-  m_Enabled: 0
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_LightmapIndex: 255
-  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
-  m_Materials:
-  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 0
-  m_LightProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
 --- !u!65 &1744974259
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -39577,7 +38233,6 @@ GameObject:
   - 4: {fileID: 1762200333}
   - 33: {fileID: 1762200337}
   - 65: {fileID: 1762200336}
-  - 23: {fileID: 1762200335}
   - 114: {fileID: 1762200334}
   m_Layer: 10
   m_Name: GlowSegmentT23
@@ -39609,28 +38264,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: 54b6ba954976a4f44910486bccd2d5db, type: 2}
+  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
   dieTime: 2
---- !u!23 &1762200335
-Renderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1762200332}
-  m_Enabled: 0
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_LightmapIndex: 255
-  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
-  m_Materials:
-  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 0
-  m_LightProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
 --- !u!65 &1762200336
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -39822,7 +38457,6 @@ GameObject:
   - 4: {fileID: 1775524748}
   - 33: {fileID: 1775524752}
   - 65: {fileID: 1775524751}
-  - 23: {fileID: 1775524750}
   - 114: {fileID: 1775524749}
   m_Layer: 10
   m_Name: GlowSegmentT22
@@ -39854,28 +38488,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: a3df759e3b0b3374ab21593407c5c0c2, type: 2}
+  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
   dieTime: 2
---- !u!23 &1775524750
-Renderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1775524747}
-  m_Enabled: 0
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_LightmapIndex: 255
-  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
-  m_Materials:
-  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 0
-  m_LightProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
 --- !u!65 &1775524751
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -40067,7 +38681,6 @@ GameObject:
   - 4: {fileID: 1786488747}
   - 33: {fileID: 1786488751}
   - 65: {fileID: 1786488750}
-  - 23: {fileID: 1786488749}
   - 114: {fileID: 1786488748}
   m_Layer: 10
   m_Name: GlowSegmentT19
@@ -40099,28 +38712,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: 931894aea172ce9439798440fc6b0d2e, type: 2}
+  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
   dieTime: 2
---- !u!23 &1786488749
-Renderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1786488746}
-  m_Enabled: 0
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_LightmapIndex: 255
-  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
-  m_Materials:
-  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 0
-  m_LightProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
 --- !u!65 &1786488750
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -42661,7 +41254,6 @@ GameObject:
   - 4: {fileID: 1903207386}
   - 33: {fileID: 1903207390}
   - 65: {fileID: 1903207389}
-  - 23: {fileID: 1903207388}
   - 114: {fileID: 1903207387}
   m_Layer: 10
   m_Name: GlowSegmentT35
@@ -42693,28 +41285,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: 60e671d0ace442240ae9d0f0b447d1cd, type: 2}
+  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
   dieTime: 2
---- !u!23 &1903207388
-Renderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1903207385}
-  m_Enabled: 0
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_LightmapIndex: 255
-  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
-  m_Materials:
-  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 0
-  m_LightProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
 --- !u!65 &1903207389
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -43959,7 +42531,6 @@ GameObject:
   - 4: {fileID: 1956192661}
   - 33: {fileID: 1956192665}
   - 65: {fileID: 1956192664}
-  - 23: {fileID: 1956192663}
   - 114: {fileID: 1956192662}
   m_Layer: 10
   m_Name: GlowSegmentT30
@@ -43991,28 +42562,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: 8c7815bf7d2ff2440969687110de8c3e, type: 2}
+  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
   dieTime: 2
---- !u!23 &1956192663
-Renderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1956192660}
-  m_Enabled: 0
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_LightmapIndex: 255
-  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
-  m_Materials:
-  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 0
-  m_LightProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
 --- !u!65 &1956192664
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -46084,7 +44635,6 @@ GameObject:
   - 4: {fileID: 2040871526}
   - 33: {fileID: 2040871530}
   - 65: {fileID: 2040871529}
-  - 23: {fileID: 2040871528}
   - 114: {fileID: 2040871527}
   m_Layer: 10
   m_Name: GlowSegmentB30
@@ -46116,28 +44666,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: 1986b57361f66ec4eb1b87baca247306, type: 2}
+  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
   dieTime: 2
---- !u!23 &2040871528
-Renderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2040871525}
-  m_Enabled: 0
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_LightmapIndex: 255
-  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
-  m_Materials:
-  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 0
-  m_LightProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
 --- !u!65 &2040871529
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -46329,10 +44859,9 @@ GameObject:
   - 4: {fileID: 2062266285}
   - 33: {fileID: 2062266289}
   - 65: {fileID: 2062266288}
-  - 23: {fileID: 2062266287}
   - 114: {fileID: 2062266286}
   m_Layer: 10
-  m_Name: GlowSegmentT9
+  m_Name: GlowSegmentT09
   m_TagString: glow
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46361,28 +44890,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: 8141ee7c6e614ea48a70f25bdbfabcac, type: 2}
+  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
   dieTime: 2
---- !u!23 &2062266287
-Renderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2062266284}
-  m_Enabled: 0
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_LightmapIndex: 255
-  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
-  m_Materials:
-  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 0
-  m_LightProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
 --- !u!65 &2062266288
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -47172,35 +45681,14 @@ GameObject:
   - 4: {fileID: 2102405137}
   - 33: {fileID: 2102405136}
   - 65: {fileID: 2102405135}
-  - 23: {fileID: 2102405134}
   - 114: {fileID: 2102405138}
   m_Layer: 10
-  m_Name: GlowSegmentB1
+  m_Name: GlowSegmentB01
   m_TagString: glow
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!23 &2102405134
-Renderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2102405133}
-  m_Enabled: 0
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_LightmapIndex: 255
-  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
-  m_Materials:
-  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 0
-  m_LightProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
 --- !u!65 &2102405135
 BoxCollider:
   m_ObjectHideFlags: 0
