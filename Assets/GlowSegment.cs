@@ -4,7 +4,6 @@ using System.Collections;
 public class GlowSegment : MonoBehaviour 
 {
 	public GameObject cube;
-	public Material glowMask;
 	private GameObject instantiatedCube;
 
 	public float dieTime;
@@ -34,7 +33,6 @@ public class GlowSegment : MonoBehaviour
 		if (instantiatedCube == null)
 		{
 			instantiatedCube = (GameObject)Instantiate (cube);
-			instantiatedCube.renderer.material = glowMask;
 		}
 	}
 }

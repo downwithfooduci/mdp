@@ -104,9 +104,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
-  glowMask: {fileID: 2100000, guid: 9cae72775d1551a43a7a4ed51bdae455, type: 2}
-  dieTime: 3
+  cube: {fileID: 100000, guid: be7287110a1fcbf4ab7ea69f4a3faa7a, type: 2}
+  dieTime: 2
 --- !u!23 &2529451
 Renderer:
   m_ObjectHideFlags: 0
@@ -2306,9 +2305,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
-  glowMask: {fileID: 2100000, guid: 76e9d03e2576e53439e72e16d7a804a6, type: 2}
-  dieTime: 3
+  cube: {fileID: 100000, guid: ea4b08e294b256f4c8a320b1c43fa0e2, type: 2}
+  dieTime: 2
 --- !u!23 &117034467
 Renderer:
   m_ObjectHideFlags: 0
@@ -2471,9 +2469,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
-  glowMask: {fileID: 2100000, guid: 3f72399779ad7514badb23406f446af1, type: 2}
-  dieTime: 3
+  cube: {fileID: 100000, guid: 0226afa362951ad46b19de8a4fe2d335, type: 2}
+  dieTime: 2
 --- !u!23 &127636495
 Renderer:
   m_ObjectHideFlags: 0
@@ -2868,9 +2865,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
-  glowMask: {fileID: 2100000, guid: 435c2a7db6aa9634ca793b6817978b3a, type: 2}
-  dieTime: 3
+  cube: {fileID: 100000, guid: 7ee5d3fdbe50a9b488b97d5a978653bf, type: 2}
+  dieTime: 2
 --- !u!23 &149499501
 Renderer:
   m_ObjectHideFlags: 0
@@ -4471,9 +4467,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
-  glowMask: {fileID: 2100000, guid: 4e1244f21bf30b2439684ce168af8e0a, type: 2}
-  dieTime: 3
+  cube: {fileID: 100000, guid: 27fc0513ce47fde44bdc8c0d71cf90be, type: 2}
+  dieTime: 2
 --- !u!23 &211800727
 Renderer:
   m_ObjectHideFlags: 0
@@ -4636,9 +4631,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
-  glowMask: {fileID: 2100000, guid: f1bd415fa2d79bb45a9b13d49fb5eb1c, type: 2}
-  dieTime: 3
+  cube: {fileID: 100000, guid: dad48748163193940813d4936b4a83af, type: 2}
+  dieTime: 2
 --- !u!23 &213890747
 Renderer:
   m_ObjectHideFlags: 0
@@ -5917,9 +5911,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
-  glowMask: {fileID: 2100000, guid: 0949ca2835426a04f9e33bd7214d279e, type: 2}
-  dieTime: 3
+  cube: {fileID: 100000, guid: d4fa92271db286d45baa9dcfbc6bc87f, type: 2}
+  dieTime: 2
 --- !u!23 &283674861
 Renderer:
   m_ObjectHideFlags: 0
@@ -7482,9 +7475,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
-  glowMask: {fileID: 2100000, guid: afb55214a2b2ec4479a26850481eb938, type: 2}
-  dieTime: 3
+  cube: {fileID: 100000, guid: ef9c75124d9863b4e92e00569e3fb69f, type: 2}
+  dieTime: 2
 --- !u!23 &344869379
 Renderer:
   m_ObjectHideFlags: 0
@@ -7716,9 +7708,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
-  glowMask: {fileID: 2100000, guid: 8e20bf71a7920c047b3e5e98f45698cf, type: 2}
-  dieTime: 3
+  cube: {fileID: 100000, guid: 56aade4f252f015448d9f799e7c26e36, type: 2}
+  dieTime: 2
 --- !u!23 &360358588
 Renderer:
   m_ObjectHideFlags: 0
@@ -8298,9 +8289,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
-  glowMask: {fileID: 2100000, guid: 5ee59edb5cdd27240b6bd2c84b021ee5, type: 2}
-  dieTime: 3
+  cube: {fileID: 100000, guid: 235dd0c5dc3849543aea37253894cc55, type: 2}
+  dieTime: 2
 --- !u!23 &371737037
 Renderer:
   m_ObjectHideFlags: 0
@@ -9934,9 +9924,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
-  glowMask: {fileID: 2100000, guid: 3bf4a9013b9f4874c9f47cfb0a9dece1, type: 2}
-  dieTime: 3
+  cube: {fileID: 100000, guid: ff89290b3a5b0f94e9be8fd6a8b449ba, type: 2}
+  dieTime: 2
 --- !u!23 &470633681
 Renderer:
   m_ObjectHideFlags: 0
@@ -10180,9 +10169,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
-  glowMask: {fileID: 2100000, guid: 1b8da0e5c53f2f44aaa61d1fe96e2000, type: 2}
-  dieTime: 3
+  cube: {fileID: 100000, guid: 53a9e7c660891d14088d76d867a94cea, type: 2}
+  dieTime: 2
 --- !u!23 &476388486
 Renderer:
   m_ObjectHideFlags: 0
@@ -10750,9 +10738,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
-  glowMask: {fileID: 2100000, guid: 799c3d432c86eb4488f9db1a3faad926, type: 2}
-  dieTime: 3
+  cube: {fileID: 100000, guid: cde13e1c9ad969548a13dad7c8a44f19, type: 2}
+  dieTime: 2
 --- !u!23 &507461097
 Renderer:
   m_ObjectHideFlags: 0
@@ -10915,9 +10902,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
-  glowMask: {fileID: 2100000, guid: 887fcd5157f5d9b40817393fd8634553, type: 2}
-  dieTime: 3
+  cube: {fileID: 100000, guid: eb50df21f0fbd814ba7a56542d0011bc, type: 2}
+  dieTime: 2
 --- !u!23 &514704669
 Renderer:
   m_ObjectHideFlags: 0
@@ -15165,9 +15151,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
-  glowMask: {fileID: 2100000, guid: 3305197ec53ebec4a8ba780d44be969a, type: 2}
-  dieTime: 3
+  cube: {fileID: 100000, guid: a8254fe534ee160418c802f6c61ab08c, type: 2}
+  dieTime: 2
 --- !u!23 &707403923
 Renderer:
   m_ObjectHideFlags: 0
@@ -15249,9 +15234,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
-  glowMask: {fileID: 2100000, guid: 5aa344373b85c7f418792c7e87d042fd, type: 2}
-  dieTime: 3
+  cube: {fileID: 100000, guid: 5cd6a93eca1d81c4eaa69195bb584ccb, type: 2}
+  dieTime: 2
 --- !u!23 &708373955
 Renderer:
   m_ObjectHideFlags: 0
@@ -16386,9 +16370,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
-  glowMask: {fileID: 2100000, guid: 58cb24f5509abfd46b18dd8d4e51bb9f, type: 2}
-  dieTime: 3
+  cube: {fileID: 100000, guid: 4e636e22056aed24ca9cc05022efacb9, type: 2}
+  dieTime: 2
 --- !u!23 &748728188
 Renderer:
   m_ObjectHideFlags: 0
@@ -16775,9 +16758,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
-  glowMask: {fileID: 2100000, guid: e9e546d15074d9d48af847d220d8dc59, type: 2}
-  dieTime: 3
+  cube: {fileID: 100000, guid: 345c1fadc898d91418bc48d3637e9319, type: 2}
+  dieTime: 2
 --- !u!23 &757899783
 Renderer:
   m_ObjectHideFlags: 0
@@ -16859,9 +16841,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
-  glowMask: {fileID: 2100000, guid: aabb57727f696d74f80c253d6a0e1d17, type: 2}
-  dieTime: 3
+  cube: {fileID: 100000, guid: dfc2004e78cdb6647a9399f5fe13c6a1, type: 2}
+  dieTime: 2
 --- !u!23 &758050629
 Renderer:
   m_ObjectHideFlags: 0
@@ -17917,9 +17898,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
-  glowMask: {fileID: 2100000, guid: 534adbedd67c93b4ca1996e629f745fc, type: 2}
-  dieTime: 3
+  cube: {fileID: 100000, guid: 2a94f3433cd9fae408fbeb137734ebb4, type: 2}
+  dieTime: 2
 --- !u!23 &783865757
 Renderer:
   m_ObjectHideFlags: 0
@@ -18082,9 +18062,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
-  glowMask: {fileID: 2100000, guid: 27b696e6dd958b2418b875a31a877b13, type: 2}
-  dieTime: 3
+  cube: {fileID: 100000, guid: 5373fd9b2d0e87a409400ac114e3ab21, type: 2}
+  dieTime: 2
 --- !u!23 &795051134
 Renderer:
   m_ObjectHideFlags: 0
@@ -18166,9 +18145,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
-  glowMask: {fileID: 2100000, guid: 4fbf219f7b4f945489bab6457b65850c, type: 2}
-  dieTime: 3
+  cube: {fileID: 100000, guid: 4d2fd1f880c28164f8b5e182462ab92f, type: 2}
+  dieTime: 2
 --- !u!23 &797457145
 Renderer:
   m_ObjectHideFlags: 0
@@ -18493,9 +18471,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
-  glowMask: {fileID: 2100000, guid: c0b730761a642d34f84a1de5c734726d, type: 2}
-  dieTime: 3
+  cube: {fileID: 100000, guid: 173a8bb4468466849b0d2a0e5479400f, type: 2}
+  dieTime: 2
 --- !u!23 &839846931
 Renderer:
   m_ObjectHideFlags: 0
@@ -19225,9 +19202,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
-  glowMask: {fileID: 2100000, guid: 0785544c365c40d4ba61e64e9bb77e50, type: 2}
-  dieTime: 3
+  cube: {fileID: 100000, guid: 3e1286ca9d22ecc468dc7d3036dd71c6, type: 2}
+  dieTime: 2
 --- !u!23 &870672980
 Renderer:
   m_ObjectHideFlags: 0
@@ -19390,9 +19366,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
-  glowMask: {fileID: 2100000, guid: 483f076c43917c146b95044d76c93399, type: 2}
-  dieTime: 3
+  cube: {fileID: 100000, guid: 7a7f912554462b24d8de81e48eff7c38, type: 2}
+  dieTime: 2
 --- !u!23 &898560969
 Renderer:
   m_ObjectHideFlags: 0
@@ -19555,9 +19530,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
-  glowMask: {fileID: 2100000, guid: bc9b41ec1fae1974488c91390040b1dd, type: 2}
-  dieTime: 3
+  cube: {fileID: 100000, guid: a301f824d48d35c459ec78021c143a30, type: 2}
+  dieTime: 2
 --- !u!23 &906012724
 Renderer:
   m_ObjectHideFlags: 0
@@ -20125,9 +20099,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
-  glowMask: {fileID: 2100000, guid: 1dc5c85ed0e4ec54c8d511935e621e7a, type: 2}
-  dieTime: 3
+  cube: {fileID: 100000, guid: c19e5d055edd1234885e50e9a898abbe, type: 2}
+  dieTime: 2
 --- !u!23 &934108333
 Renderer:
   m_ObjectHideFlags: 0
@@ -20879,9 +20852,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
-  glowMask: {fileID: 2100000, guid: 58725af30e36ee442acedd4139bea39b, type: 2}
-  dieTime: 3
+  cube: {fileID: 100000, guid: 04da47fc653340f4ca7dec8a4e5abd40, type: 2}
+  dieTime: 2
 --- !u!23 &964145518
 Renderer:
   m_ObjectHideFlags: 0
@@ -21692,9 +21664,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
-  glowMask: {fileID: 2100000, guid: fc18a2c9ee7af174a93284269f6625a7, type: 2}
-  dieTime: 3
+  cube: {fileID: 100000, guid: c3ff7e31f3f6b4a40bacc083dbeab6da, type: 2}
+  dieTime: 2
 --- !u!23 &994777377
 Renderer:
   m_ObjectHideFlags: 0
@@ -22181,9 +22152,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
-  glowMask: {fileID: 2100000, guid: 02ae5bd821061e940a942ba59c94a12a, type: 2}
-  dieTime: 3
+  cube: {fileID: 100000, guid: 0dc84979d792b1a4a99560b1c51e5f87, type: 2}
+  dieTime: 2
 --- !u!23 &1024677106
 Renderer:
   m_ObjectHideFlags: 0
@@ -22751,9 +22721,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
-  glowMask: {fileID: 2100000, guid: da0f88323bff85047bc62843e6e83deb, type: 2}
-  dieTime: 3
+  cube: {fileID: 100000, guid: 6bb41e378a187234caec357fc31ab879, type: 2}
+  dieTime: 2
 --- !u!23 &1033453813
 Renderer:
   m_ObjectHideFlags: 0
@@ -22972,9 +22941,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
-  glowMask: {fileID: 2100000, guid: 9097f1fd8423ccb4faaa3b412bc1c876, type: 2}
-  dieTime: 3
+  cube: {fileID: 100000, guid: df605b309f5fa304386695a1472e9020, type: 2}
+  dieTime: 2
 --- !u!23 &1037031609
 Renderer:
   m_ObjectHideFlags: 0
@@ -24112,9 +24080,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
-  glowMask: {fileID: 2100000, guid: 4efe1f043b374094ea6b12425164aa6f, type: 2}
-  dieTime: 3
+  cube: {fileID: 100000, guid: b1f88709ef860c94197c5ca4553d356a, type: 2}
+  dieTime: 2
 --- !u!23 &1073071506
 Renderer:
   m_ObjectHideFlags: 0
@@ -24358,9 +24325,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
-  glowMask: {fileID: 2100000, guid: 2f80d9de4ec701349a9233421cf5b9ab, type: 2}
-  dieTime: 3
+  cube: {fileID: 100000, guid: 701e530ee06089f469700c9f08aabcbe, type: 2}
+  dieTime: 2
 --- !u!23 &1091250393
 Renderer:
   m_ObjectHideFlags: 0
@@ -25884,9 +25850,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
-  glowMask: {fileID: 2100000, guid: e2d82a9ba2db6cd4f8acb3a7c912baab, type: 2}
-  dieTime: 3
+  cube: {fileID: 100000, guid: 9a524d3a991d2a045b87be090781b112, type: 2}
+  dieTime: 2
 --- !u!23 &1168128028
 Renderer:
   m_ObjectHideFlags: 0
@@ -26130,9 +26095,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
-  glowMask: {fileID: 2100000, guid: 361d3f02ef057e040bdf516b1f704950, type: 2}
-  dieTime: 3
+  cube: {fileID: 100000, guid: 034ac6061996b9343bb88136173349fa, type: 2}
+  dieTime: 2
 --- !u!23 &1178030726
 Renderer:
   m_ObjectHideFlags: 0
@@ -26678,9 +26642,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
-  glowMask: {fileID: 2100000, guid: 105b1e75bb2dcb5459e54e86b30bc2b9, type: 2}
-  dieTime: 3
+  cube: {fileID: 100000, guid: 227696e55aa46554fb554592e7868e5f, type: 2}
+  dieTime: 2
 --- !u!23 &1190916897
 Renderer:
   m_ObjectHideFlags: 0
@@ -26843,9 +26806,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
-  glowMask: {fileID: 2100000, guid: cb0c73a6695799142a9e30a6dc1646df, type: 2}
-  dieTime: 3
+  cube: {fileID: 100000, guid: e41699f0d8be8494487fc90655d2b156, type: 2}
+  dieTime: 2
 --- !u!23 &1192794997
 Renderer:
   m_ObjectHideFlags: 0
@@ -27071,9 +27033,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
-  glowMask: {fileID: 2100000, guid: b3ed9896432e7334b9e8607b298a9790, type: 2}
-  dieTime: 3
+  cube: {fileID: 100000, guid: b4157bca29983e8469ebdc5e58440a20, type: 2}
+  dieTime: 2
 --- !u!23 &1205278626
 Renderer:
   m_ObjectHideFlags: 0
@@ -27781,9 +27742,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
-  glowMask: {fileID: 2100000, guid: 9f20d99ded7046544a4ff5af43ab062b, type: 2}
-  dieTime: 3
+  cube: {fileID: 100000, guid: a78f4124dc7dcf74b9d6865e58c37402, type: 2}
+  dieTime: 2
 --- !u!23 &1238875656
 Renderer:
   m_ObjectHideFlags: 0
@@ -28108,9 +28068,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
-  glowMask: {fileID: 2100000, guid: 80ebdc6747a900c489ae23fb913938e6, type: 2}
-  dieTime: 3
+  cube: {fileID: 100000, guid: c4bb5dea5cfa3614baee6a20c8e45842, type: 2}
+  dieTime: 2
 --- !u!23 &1251185698
 Renderer:
   m_ObjectHideFlags: 0
@@ -29371,9 +29330,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
-  glowMask: {fileID: 2100000, guid: 90e853e150603594ab7774831a38aba5, type: 2}
-  dieTime: 3
+  cube: {fileID: 100000, guid: 2ac7a49fca0b33d40a02f0147bd9f61a, type: 2}
+  dieTime: 2
 --- !u!23 &1299453924
 Renderer:
   m_ObjectHideFlags: 0
@@ -29617,9 +29575,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
-  glowMask: {fileID: 2100000, guid: 73204a6c749e0fb47b735d956aa21501, type: 2}
-  dieTime: 3
+  cube: {fileID: 100000, guid: 9fa839e93459b4b45a85b4eaf6475aae, type: 2}
+  dieTime: 2
 --- !u!23 &1319190168
 Renderer:
   m_ObjectHideFlags: 0
@@ -29701,9 +29658,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
-  glowMask: {fileID: 2100000, guid: ae00304c224bd23428834e255018fdce, type: 2}
-  dieTime: 3
+  cube: {fileID: 100000, guid: 5df52e117d6f4ff498d74a484469263b, type: 2}
+  dieTime: 2
 --- !u!23 &1319981063
 Renderer:
   m_ObjectHideFlags: 0
@@ -30676,9 +30632,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
-  glowMask: {fileID: 2100000, guid: fc3aa175b0ea0ee4996800b8819b2367, type: 2}
-  dieTime: 3
+  cube: {fileID: 100000, guid: d54ed5d5be91bad4aac272146816c8d0, type: 2}
+  dieTime: 2
 --- !u!23 &1362706219
 Renderer:
   m_ObjectHideFlags: 0
@@ -30760,9 +30715,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
-  glowMask: {fileID: 2100000, guid: 72b0e4fcd3a63d24fbe52636ef866cda, type: 2}
-  dieTime: 3
+  cube: {fileID: 100000, guid: 02889c35467b5bb4daa462733205c72a, type: 2}
+  dieTime: 2
 --- !u!23 &1365359846
 Renderer:
   m_ObjectHideFlags: 0
@@ -31249,9 +31203,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
-  glowMask: {fileID: 2100000, guid: d69a7d03247a0c240b5d23781f1cfa26, type: 2}
-  dieTime: 3
+  cube: {fileID: 100000, guid: 03d8176f593dd244893f9e413991343d, type: 2}
+  dieTime: 2
 --- !u!23 &1388549440
 Renderer:
   m_ObjectHideFlags: 0
@@ -31333,9 +31286,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
-  glowMask: {fileID: 2100000, guid: 00bbdd53aa49c7d4d8c9d47bac40cd4b, type: 2}
-  dieTime: 3
+  cube: {fileID: 100000, guid: 750cc9c17e013dc4caa2e13a17d39749, type: 2}
+  dieTime: 2
 --- !u!23 &1394731310
 Renderer:
   m_ObjectHideFlags: 0
@@ -32632,9 +32584,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
-  glowMask: {fileID: 2100000, guid: 7a4b20678bdb4c14aa71d8357230a5fa, type: 2}
-  dieTime: 3
+  cube: {fileID: 100000, guid: 3f58a8c1fe0ed5e498293894e9aeced6, type: 2}
+  dieTime: 2
 --- !u!23 &1459435099
 Renderer:
   m_ObjectHideFlags: 0
@@ -33607,9 +33558,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
-  glowMask: {fileID: 2100000, guid: 29f96b3bf9dcdec45a06066f8b2f95c6, type: 2}
-  dieTime: 3
+  cube: {fileID: 100000, guid: c3e1cbc9b197c134994abaa4258a4dee, type: 2}
+  dieTime: 2
 --- !u!23 &1494035571
 Renderer:
   m_ObjectHideFlags: 0
@@ -33841,9 +33791,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
-  glowMask: {fileID: 2100000, guid: 09c42bafc6c6307409a9a218b8f47c36, type: 2}
-  dieTime: 3
+  cube: {fileID: 100000, guid: 50591020a8f02b24c91887f503ed3b87, type: 2}
+  dieTime: 2
 --- !u!23 &1504831203
 Renderer:
   m_ObjectHideFlags: 0
@@ -34261,9 +34210,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
-  glowMask: {fileID: 2100000, guid: 9146553b4ed4755438ce03996c5ea408, type: 2}
-  dieTime: 3
+  cube: {fileID: 100000, guid: ff9667bb2b1fc20419d01bef4f6e88e7, type: 2}
+  dieTime: 2
 --- !u!23 &1525695698
 Renderer:
   m_ObjectHideFlags: 0
@@ -34507,9 +34455,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
-  glowMask: {fileID: 2100000, guid: 89a84c65a8169e641bb51d38b9c5d17f, type: 2}
-  dieTime: 3
+  cube: {fileID: 100000, guid: 54cdc6d3bbf814c4a84a93cee886b48b, type: 2}
+  dieTime: 2
 --- !u!23 &1538918517
 Renderer:
   m_ObjectHideFlags: 0
@@ -34996,9 +34943,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
-  glowMask: {fileID: 2100000, guid: 40f10605adfe83840b14c4666407a6be, type: 2}
-  dieTime: 3
+  cube: {fileID: 100000, guid: 166b5a39b0c17694586a45f729b1613c, type: 2}
+  dieTime: 2
 --- !u!23 &1553476535
 Renderer:
   m_ObjectHideFlags: 0
@@ -35161,9 +35107,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
-  glowMask: {fileID: 2100000, guid: 9f20d99ded7046544a4ff5af43ab062b, type: 2}
-  dieTime: 3
+  cube: {fileID: 100000, guid: 4c05f3312f3155b42abf60b3b9119675, type: 2}
+  dieTime: 2
 --- !u!23 &1575443884
 Renderer:
   m_ObjectHideFlags: 0
@@ -35812,9 +35757,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
-  glowMask: {fileID: 2100000, guid: 5ea750aacaab0764ba58c7a3e512597f, type: 2}
-  dieTime: 3
+  cube: {fileID: 100000, guid: 48d1067721a3c154abbfad24c69dd9b1, type: 2}
+  dieTime: 2
 --- !u!23 &1596356982
 Renderer:
   m_ObjectHideFlags: 0
@@ -36058,9 +36002,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
-  glowMask: {fileID: 2100000, guid: 8a5ce6bd6bfcb424c87c1228f073bade, type: 2}
-  dieTime: 3
+  cube: {fileID: 100000, guid: e7920452e55ec5d4cb7e83c0c2fe1720, type: 2}
+  dieTime: 2
 --- !u!23 &1598083490
 Renderer:
   m_ObjectHideFlags: 0
@@ -36142,9 +36085,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
-  glowMask: {fileID: 2100000, guid: 6ca115c8b395cbe43849eec634655215, type: 2}
-  dieTime: 3
+  cube: {fileID: 100000, guid: ee772279e817fa6438d77d844ee393a6, type: 2}
+  dieTime: 2
 --- !u!23 &1599141450
 Renderer:
   m_ObjectHideFlags: 0
@@ -36631,9 +36573,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
-  glowMask: {fileID: 2100000, guid: d6888f7d0ccbfb3459790dc1c4b1d53e, type: 2}
-  dieTime: 3
+  cube: {fileID: 100000, guid: 501ba0310f65b1146bbe826e4b784f81, type: 2}
+  dieTime: 2
 --- !u!23 &1618633507
 Renderer:
   m_ObjectHideFlags: 0
@@ -37039,9 +36980,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
-  glowMask: {fileID: 2100000, guid: 5a58de2857653434b9758f155bd9a238, type: 2}
-  dieTime: 3
+  cube: {fileID: 100000, guid: e7a5d89d0e42fad42a0ccdb8d6083b48, type: 2}
+  dieTime: 2
 --- !u!23 &1639920971
 Renderer:
   m_ObjectHideFlags: 0
@@ -38284,9 +38224,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
-  glowMask: {fileID: 2100000, guid: f698887646f09524c9f26233745fd805, type: 2}
-  dieTime: 3
+  cube: {fileID: 100000, guid: 65e3bcbef4b583d438149cba7be56a2f, type: 2}
+  dieTime: 2
 --- !u!23 &1690754076
 Renderer:
   m_ObjectHideFlags: 0
@@ -38368,9 +38307,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
-  glowMask: {fileID: 2100000, guid: d62e510087561584b82f49b3355dfa4c, type: 2}
-  dieTime: 3
+  cube: {fileID: 100000, guid: 643d2f0adf81b5846857605cd1c4149b, type: 2}
+  dieTime: 2
 --- !u!23 &1691308559
 Renderer:
   m_ObjectHideFlags: 0
@@ -38764,9 +38702,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
-  glowMask: {fileID: 2100000, guid: 9662e93e8907dd0448623e9d6865ea9f, type: 2}
-  dieTime: 3
+  cube: {fileID: 100000, guid: 1818199c970cc9c419870788a7e51115, type: 2}
+  dieTime: 2
 --- !u!23 &1708473759
 Renderer:
   m_ObjectHideFlags: 0
@@ -39427,9 +39364,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
-  glowMask: {fileID: 2100000, guid: 643bff97d3ce4bc4f9d39f25f7feb4b2, type: 2}
-  dieTime: 3
+  cube: {fileID: 100000, guid: fa7692f07dce59e4eb6a710474dda482, type: 2}
+  dieTime: 2
 --- !u!23 &1744974258
 Renderer:
   m_ObjectHideFlags: 0
@@ -39673,9 +39609,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
-  glowMask: {fileID: 2100000, guid: 594e5fc381a266643bf07c05a527c132, type: 2}
-  dieTime: 3
+  cube: {fileID: 100000, guid: 54b6ba954976a4f44910486bccd2d5db, type: 2}
+  dieTime: 2
 --- !u!23 &1762200335
 Renderer:
   m_ObjectHideFlags: 0
@@ -39919,9 +39854,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
-  glowMask: {fileID: 2100000, guid: 73d45fa6c23e74c4fa91243afdca2645, type: 2}
-  dieTime: 3
+  cube: {fileID: 100000, guid: a3df759e3b0b3374ab21593407c5c0c2, type: 2}
+  dieTime: 2
 --- !u!23 &1775524750
 Renderer:
   m_ObjectHideFlags: 0
@@ -40165,9 +40099,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
-  glowMask: {fileID: 2100000, guid: 5113df809a74807489cd1b69b9efc7b8, type: 2}
-  dieTime: 3
+  cube: {fileID: 100000, guid: 931894aea172ce9439798440fc6b0d2e, type: 2}
+  dieTime: 2
 --- !u!23 &1786488749
 Renderer:
   m_ObjectHideFlags: 0
@@ -42760,9 +42693,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
-  glowMask: {fileID: 2100000, guid: 37dda7f0344dc5243b64507a57d3c61a, type: 2}
-  dieTime: 3
+  cube: {fileID: 100000, guid: 60e671d0ace442240ae9d0f0b447d1cd, type: 2}
+  dieTime: 2
 --- !u!23 &1903207388
 Renderer:
   m_ObjectHideFlags: 0
@@ -44059,9 +43991,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
-  glowMask: {fileID: 2100000, guid: 0e91f835d4723394ebe24c12ac99bf4e, type: 2}
-  dieTime: 3
+  cube: {fileID: 100000, guid: 8c7815bf7d2ff2440969687110de8c3e, type: 2}
+  dieTime: 2
 --- !u!23 &1956192663
 Renderer:
   m_ObjectHideFlags: 0
@@ -46185,9 +46116,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
-  glowMask: {fileID: 2100000, guid: b7923a663598937469c11eaca25608eb, type: 2}
-  dieTime: 3
+  cube: {fileID: 100000, guid: 1986b57361f66ec4eb1b87baca247306, type: 2}
+  dieTime: 2
 --- !u!23 &2040871528
 Renderer:
   m_ObjectHideFlags: 0
@@ -46431,9 +46361,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa21bdcbbcfd3740bffd1e411e5caec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
-  glowMask: {fileID: 2100000, guid: c9e2d5079e571d340881ded185bc03dc, type: 2}
-  dieTime: 3
+  cube: {fileID: 100000, guid: 8141ee7c6e614ea48a70f25bdbfabcac, type: 2}
+  dieTime: 2
 --- !u!23 &2062266287
 Renderer:
   m_ObjectHideFlags: 0
@@ -47315,8 +47244,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cube: {fileID: 100000, guid: eeb51404442240444acd7b13938b4664, type: 2}
-  glowMask: {fileID: 2100000, guid: 78651f7ef1683da4bb6903962bad969a, type: 2}
-  dieTime: 3
+  dieTime: 2
 --- !u!1 &2105859798
 GameObject:
   m_ObjectHideFlags: 0
