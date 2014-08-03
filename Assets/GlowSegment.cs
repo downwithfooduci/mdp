@@ -40,7 +40,7 @@ public class GlowSegment : MonoBehaviour
 		{
 			instantiatedCube = (GameObject)Instantiate (cube);
 
-			Material glowMaterial = (Material)Resources.Load ("glow/SIGlowMask" + segmentCode, typeof(Material));
+			Material glowMaterial = (Material)Resources.Load ("Glow/Odd/OddSIGlowMask" + segmentCode, typeof(Material));
 			yield return glowMaterial;
 
 			instantiatedCube.renderer.material = glowMaterial;
