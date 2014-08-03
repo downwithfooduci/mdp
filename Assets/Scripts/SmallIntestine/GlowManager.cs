@@ -68,7 +68,7 @@ public class GlowManager : MonoBehaviour {
 		
 		GameObject closestSegment = FindClosestSegment(ray);
 		GlowSegment glowScript = closestSegment.GetComponent<GlowSegment> ();
-		glowScript.onTouch ();
+		StartCoroutine(glowScript.onTouch ());
 	}
 
 	GameObject FindClosestSegment(Ray ray) 

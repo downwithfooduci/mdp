@@ -34,12 +34,16 @@ public class GlowSegment : MonoBehaviour
 		}
 	}
 
-	public void onTouch()
+	public IEnumerator onTouch()
 	{
 		if (instantiatedCube == null)
 		{
 			instantiatedCube = (GameObject)Instantiate (cube);
-			instantiatedCube.renderer.material = (Material)Resources.Load ("glow/SIGlowMask" + segmentCode, typeof(Material));
+
+			Material glowMaterial = (Material)Resources.Load ("glow/SIGlowMask" + segmentCode, typeof(Material));
+			yield return glowMaterial;
+
+			instantiatedCube.renderer.material = glowMaterial;
 		}
 	}
 }
