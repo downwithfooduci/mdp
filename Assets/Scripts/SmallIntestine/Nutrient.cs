@@ -18,8 +18,7 @@ public class Nutrient : MDPEntity
     private Color m_TargetColor;
 
     public IntestineGameManager intestineGameManager;
-
-    public GameObject EffectParticle;
+	
     public bool IsTargetted;
 	
 	public bool isDead = false;
@@ -77,32 +76,5 @@ public class Nutrient : MDPEntity
 		blob.TakeHit();
 
         IsTargetted = false;
-
-		ShootOutParticles(1);
-	}
-	
-	// Emits numParticles amount particles around this object upon
-	// bullet collision
-	private void ShootOutParticles(int numParticles)
-	{
-		GameObject particle;
-		GameObject particle2;
-		Vector3 delta = new Vector3(0, transform.localScale.y * 0.25f, 0);
-		Quaternion rotation = m_Parent.transform.rotation;
-		
-		for (int i = 0; i < numParticles; i++)
-		{
-			particle = Instantiate(EffectParticle, transform.position + delta, rotation) as GameObject;
-			particle.transform.parent = m_Parent.transform;
-			particle.transform.localEulerAngles = new Vector3(0, 40 + (i * 10), 0);
-			particle.transform.LookAt(m_Parent.transform.position + m_Parent.transform.right);
-			particle.particleSystem.startColor = BodyColor;
-
-			particle2 = Instantiate(EffectParticle, transform.position + delta, rotation) as GameObject;
-			particle2.transform.parent = m_Parent.transform;
-			particle2.transform.localEulerAngles = new Vector3(0, 40 + (i * 10), 0);
-			particle2.transform.LookAt(m_Parent.transform.position - m_Parent.transform.right);
-			particle2.particleSystem.startColor = BodyColor;
-		}
 	}
 }
