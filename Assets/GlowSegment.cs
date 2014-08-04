@@ -16,6 +16,7 @@ public class GlowSegment : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
+		Debug.Log (gameObject.transform.position);
 		segmentName = transform.gameObject.name;
 		segmentCode = segmentName.Substring (segmentName.Length - 3, 3);
 	}
@@ -36,12 +37,21 @@ public class GlowSegment : MonoBehaviour
 
 	public IEnumerator onTouch()
 	{
+		Material glowMaterial = null;
+
 		if (instantiatedCube == null)
 		{
 			instantiatedCube = (GameObject)Instantiate (cube);
 
-			Material glowMaterial = (Material)Resources.Load ("Glow/Odd/OddSIGlowMask" + segmentCode, typeof(Material));
-			yield return glowMaterial;
+			if (Application.loadedLevelName.Contains("Odd"))
+			{
+				glowMaterial = (Material)Resources.Load ("Glow/Odd/OddSIGlowMask" + segmentCode, typeof(Material));
+				yield return glowMaterial;
+			} else if (Application.loadedLevelName.Contains("Even"))
+			{
+				glowMaterial = (Material)Resources.Load ("Glow/Even/EvenSIGlowMask" + segmentCode, typeof(Material));
+				yield return glowMaterial;
+			}
 
 			instantiatedCube.renderer.material = glowMaterial;
 		}
