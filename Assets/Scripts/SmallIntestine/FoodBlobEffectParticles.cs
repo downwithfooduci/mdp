@@ -28,6 +28,15 @@ public class FoodBlobEffectParticles : MonoBehaviour
 		{
 			instantiatedEffectParticles[i] = (GameObject)Instantiate(effectParticle);
 			instantiatedEffectParticles[i].renderer.material.color = particleColor;
+			instantiatedEffectParticles[i].transform.parent = gameObject.transform;
+			instantiatedEffectParticles[i].transform.position += 
+				new Vector3(Random.Range(-2f, 2f), 0f, Random.Range (-2f, 2f));
 		}
+	}
+
+	public void setPathPosition(float position)
+	{
+		FollowITweenPath path = gameObject.GetComponent<FollowITweenPath> ();
+		path.pathPosition = position;
 	}
 }

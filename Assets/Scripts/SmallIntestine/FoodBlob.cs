@@ -42,7 +42,6 @@ public class FoodBlob : MonoBehaviour
 			position.z += zPos;							// set the z position of the vector
 			position.y = .5f; 							// set the y position of the vector
 
-			// when we choose the random color index, we put -1 because we DO NOT want it to choose white
             int randomIndex = MDPUtility.RandomInt(availableColors.Length);
 			Nutrient nutrient = m_NutrientManager.InstantiateNutrient(availableColors[randomIndex], position);
 			nutrient.intestineGameManager = m_GameManager;

@@ -72,8 +72,12 @@ public class Nutrient : MDPEntity
 		intestineGameManager.OnNutrientHit();
 
 		foodBlobEffectParticles = (FoodBlobEffectParticles)Instantiate (effectParticleParent);
+		FollowITweenPath path = this.transform.parent.gameObject.GetComponent<FollowITweenPath> ();
+		float pathPos = path.pathPosition;
+		foodBlobEffectParticles.setPathPosition (pathPos);
 		foodBlobEffectParticles.createParticles(m_BodyColor);
-		foodBlobEffectParticles.transform.position = gameObject.transform.position;
+		foodBlobEffectParticles.transform.position = gameObject.transform.parent.position;
+		foodBlobEffectParticles.transform.rotation = gameObject.transform.parent.rotation;
 	}
 	
 	virtual protected void Absorb()
