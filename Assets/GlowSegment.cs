@@ -16,7 +16,6 @@ public class GlowSegment : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
-		Debug.Log (gameObject.transform.position);
 		segmentName = transform.gameObject.name;
 		segmentCode = segmentName.Substring (segmentName.Length - 3, 3);
 	}

@@ -129,9 +129,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   intestineGameManager: {fileID: 0}
-  EffectParticle: {fileID: 100000, guid: 6392be4fa7fad0048836da3db2c62390, type: 2}
   IsTargetted: 0
   isDead: 0
+  effectParticleParent: {fileID: 11400002, guid: 7f7e776f3de1d4a4a9aa887e6ed4e8f9,
+    type: 2}
 --- !u!122 &12200000
 Halo:
   m_ObjectHideFlags: 1

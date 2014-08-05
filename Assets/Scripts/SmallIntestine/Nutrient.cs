@@ -27,8 +27,10 @@ public class Nutrient : MDPEntity
 	protected GameObject m_Parent;
 	
 	private NutrientManager nutrientManager;
-	//protected NutrientScript m_NutrientScript;
-	
+
+	public FoodBlobEffectParticles effectParticleParent;
+	private FoodBlobEffectParticles foodBlobEffectParticles;
+
 	// Use this for initialization
 	void Start () 
 	{
@@ -68,6 +70,10 @@ public class Nutrient : MDPEntity
 		m_TrueColor = m_BodyColor;
 
 		intestineGameManager.OnNutrientHit();
+
+		foodBlobEffectParticles = (FoodBlobEffectParticles)Instantiate (effectParticleParent);
+		foodBlobEffectParticles.createParticles(m_BodyColor);
+		foodBlobEffectParticles.transform.position = gameObject.transform.position;
 	}
 	
 	virtual protected void Absorb()

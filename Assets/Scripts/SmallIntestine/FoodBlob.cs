@@ -67,19 +67,13 @@ public class FoodBlob : MonoBehaviour
 		
         foreach (Transform child in transform)
         {
-			if (child.name.StartsWith("EffectPartle"))		// we want to destroy the effect particles so they don't interfere
+			Nutrient n = child.GetComponent<Nutrient>();
+			if (!n.isDead)								// flag if any of the nutrients are still alive
 			{
-				Destroy(child.gameObject);
-			} else 
-			{
-				Nutrient n = child.GetComponent<Nutrient>();
-				if (!n.isDead)								// flag if any of the nutrients are still alive
-				{
-					numNutrientsAlive++;
-					Instantiate(nutrientLostSound);
-				}
-            	m_NutrientManager.RemoveNutrient(child.GetComponent<Nutrient>());
+				numNutrientsAlive++;
+				Instantiate(nutrientLostSound);
 			}
+    		m_NutrientManager.RemoveNutrient(child.GetComponent<Nutrient>());
         }
 		Destroy(this.gameObject);
 		m_GameManager.OnFoodBlobFinish(numNutrientsAlive); 
