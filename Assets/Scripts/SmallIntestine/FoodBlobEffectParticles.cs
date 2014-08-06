@@ -48,4 +48,13 @@ public class FoodBlobEffectParticles : MonoBehaviour
 		FollowITweenPath path = gameObject.GetComponent<FollowITweenPath> ();
 		path.pathPosition = position;
 	}
+
+	// destroy when the end of the path is reached
+	void OnTriggerEnter(UnityEngine.Collider obj)
+	{
+		if (obj.gameObject.tag == "Finish")
+		{
+			Destroy(this.gameObject);
+		}
+	}
 }
