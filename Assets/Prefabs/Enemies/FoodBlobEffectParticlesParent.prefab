@@ -41,7 +41,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pathPosition: 0
-  nutrientSpeed: .800000012
+  nutrientSpeed: 0
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
