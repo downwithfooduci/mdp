@@ -29,8 +29,17 @@ public class FoodBlobEffectParticles : MonoBehaviour
 			instantiatedEffectParticles[i] = (GameObject)Instantiate(effectParticle);
 			instantiatedEffectParticles[i].renderer.material.color = particleColor;
 			instantiatedEffectParticles[i].transform.parent = gameObject.transform;
-			instantiatedEffectParticles[i].transform.position += 
-				new Vector3(Random.Range(-2.5f, 2.5f), 0f, Random.Range (-2f, 2f));
+			if (Random.Range (0,2) == 1)
+			{
+				instantiatedEffectParticles[i].GetComponent<EffectParticle>().setDesiredLocation
+					(instantiatedEffectParticles[i].transform.position + 
+						new Vector3(Random.Range(-2.5f, -1.5f), 0f, Random.Range (-2f, 2f)));
+			} else
+			{
+				instantiatedEffectParticles[i].GetComponent<EffectParticle>().setDesiredLocation
+					(instantiatedEffectParticles[i].transform.position + 
+					 new Vector3(Random.Range(2.5f, 1.5f), 0f, Random.Range (-2f, 2f)));
+			}
 		}
 	}
 
