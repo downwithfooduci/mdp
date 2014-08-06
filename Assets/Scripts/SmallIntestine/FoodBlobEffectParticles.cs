@@ -30,7 +30,7 @@ public class FoodBlobEffectParticles : MonoBehaviour
 			instantiatedEffectParticles[i].renderer.material.color = particleColor;
 			instantiatedEffectParticles[i].transform.parent = gameObject.transform;
 			instantiatedEffectParticles[i].transform.position += 
-				new Vector3(Random.Range(-2f, 2f), 0f, Random.Range (-2f, 2f));
+				new Vector3(Random.Range(-2.5f, 2.5f), 0f, Random.Range (-2f, 2f));
 		}
 	}
 
