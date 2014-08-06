@@ -54,6 +54,16 @@ public class Nutrient : MDPEntity
 	public void OnBulletCollision ()
 	{
 		Absorb();
+
+		// emit effect particles
+		foodBlobEffectParticles = (FoodBlobEffectParticles)Instantiate (effectParticleParent);
+		FollowITweenPath path = this.transform.parent.gameObject.GetComponent<FollowITweenPath> ();
+		float pathPos = path.pathPosition;
+		foodBlobEffectParticles.setPathPosition (pathPos);
+		foodBlobEffectParticles.createParticles(m_BodyColor);
+		foodBlobEffectParticles.transform.position = gameObject.transform.parent.position;
+		foodBlobEffectParticles.transform.rotation = gameObject.transform.parent.rotation;
+		
         if (m_BodyColor == Color.green)		// if the color of the nutrient was green we need to turn it white
         {
 			nutrientManager.ChangeColor(this, Color.white);
@@ -70,14 +80,6 @@ public class Nutrient : MDPEntity
 		m_TrueColor = m_BodyColor;
 
 		intestineGameManager.OnNutrientHit();
-
-		foodBlobEffectParticles = (FoodBlobEffectParticles)Instantiate (effectParticleParent);
-		FollowITweenPath path = this.transform.parent.gameObject.GetComponent<FollowITweenPath> ();
-		float pathPos = path.pathPosition;
-		foodBlobEffectParticles.setPathPosition (pathPos);
-		foodBlobEffectParticles.createParticles(m_BodyColor);
-		foodBlobEffectParticles.transform.position = gameObject.transform.parent.position;
-		foodBlobEffectParticles.transform.rotation = gameObject.transform.parent.rotation;
 	}
 	
 	virtual protected void Absorb()
