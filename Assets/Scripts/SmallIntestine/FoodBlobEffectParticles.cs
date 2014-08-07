@@ -12,10 +12,7 @@ public class FoodBlobEffectParticles : MonoBehaviour
 	void Start () {}
 	
 	// Update is called once per frame
-	void Update () 
-	{
-	
-	}
+	void Update () {}
 
 	public void createParticles(Color color)
 	{

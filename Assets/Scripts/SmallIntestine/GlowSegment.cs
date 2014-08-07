@@ -34,6 +34,7 @@ public class GlowSegment : MonoBehaviour
 		}
 	}
 
+	// this function reads the texture from the hard drive asynchronously to avoid lag
 	public IEnumerator onTouch()
 	{
 		Material glowMaterial = null;

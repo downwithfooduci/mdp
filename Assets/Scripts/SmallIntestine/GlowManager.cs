@@ -171,7 +171,7 @@ public class GlowManager : MonoBehaviour
 			if (nutrientHits[i].gameObject.name.Equals("EffectParticle(Clone)"))
 			{
 				intestineGameManager.OnNutrientHit();
-				Destroy(nutrientHits[i].gameObject);
+				nutrientHits[i].GetComponent<EffectParticle>().killParticle(center);
 			}
 		}
 	}
