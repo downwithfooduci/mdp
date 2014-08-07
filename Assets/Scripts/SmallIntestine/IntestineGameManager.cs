@@ -21,6 +21,13 @@ public class IntestineGameManager : MonoBehaviour
 
     private bool m_IsGameOver;
 
+	// remember if the tower menu/sell menu is up to manage glow effects
+	private bool isTowerMenuUp;
+	private bool isSellBoxUp;
+	private bool setTowerMenuIsUpFalse;
+	private float elapsedTime;
+	private float maxElapsedTime = .1f;
+
 	public GameObject nutrientsCounter;
 	private NutrientsText nutrientsText;
 
@@ -81,6 +88,18 @@ public class IntestineGameManager : MonoBehaviour
 			Application.LoadLevel("SmallIntestineStats");
 		}
 
+		// delay for setting sell to false to allow for race conditions
+		if (setTowerMenuIsUpFalse)
+		{
+			elapsedTime += Time.deltaTime;
+			if (elapsedTime > maxElapsedTime)
+			{
+				isTowerMenuUp = false;
+				setTowerMenuIsUpFalse = false;
+				elapsedTime = 0f;
+			}
+		}
+
 
 		// draw nutrients text
 		FontStyle.normal.textColor = NutrientTextColor;
@@ -129,5 +148,32 @@ public class IntestineGameManager : MonoBehaviour
 
 			health = Mathf.Clamp(health - numNutrientsAlive, 0, MAX_HEALTH);
 		} 
+	}
+
+	public void setTowerMenuUp(bool isUp)
+	{
+		Debug.Log ("set tower menu up" + isUp);
+		if(isUp == false)
+		{
+			setTowerMenuIsUpFalse = true;
+		} else
+		{
+			isTowerMenuUp = true;
+		}
+	}
+
+	public bool getTowerMenuUp()
+	{
+		return isTowerMenuUp;
+	}
+
+	public void setSellBoxUp(bool isUp)
+	{
+		isSellBoxUp = isUp;
+	}
+
+	public bool getSellBoxUp()
+	{
+		return isSellBoxUp;
 	}
 }

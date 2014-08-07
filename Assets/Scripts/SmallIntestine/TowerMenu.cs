@@ -89,8 +89,9 @@ public class TowerMenu : MonoBehaviour
 			                        Screen.width * 0.0654296875f,
 			                        Screen.height * 0.06640625f), "", confirmYes))
 			{
-				displaySellBox = false;
 				Sell ();
+				displaySellBox = false;
+				m_GameManager.setSellBoxUp(false);
 			}
 			
 			// draw no button
@@ -100,6 +101,7 @@ public class TowerMenu : MonoBehaviour
 			                        Screen.height * 0.06640625f), "", confirmNo))
 			{
 				displaySellBox = false;
+				m_GameManager.setSellBoxUp(false);
 			}
 
 		}
@@ -143,14 +145,27 @@ public class TowerMenu : MonoBehaviour
 		{
 			// if we click on tower, toggle whether menu is showed
 			if (hitInfo.transform.position == transform.position)
+			{
 				IsEnabled = !IsEnabled;
+				m_GameManager.setTowerMenuUp(IsEnabled);
+			}
 			else
-				IsEnabled = false;
+			{
+				if (IsEnabled)
+				{
+					IsEnabled = false;
+					m_GameManager.setTowerMenuUp(false);
+				}
+			}
 		} else
 		{
 			// otherwise if we clicked in a random place cancel the menu
 			yield return new WaitForSeconds(.1f);
-			IsEnabled = false;
+			if (IsEnabled)
+			{
+				IsEnabled = false;
+				m_GameManager.setTowerMenuUp(false);
+			}
 		}
 		yield return new WaitForSeconds(.0f);
 		EnableRayCasts(false);
@@ -250,6 +265,7 @@ public class TowerMenu : MonoBehaviour
 			{
 				m_Tower.UpgradeSpeed();
 				IsEnabled = false;
+				m_GameManager.setTowerMenuUp(false);
 			}
 		} else
 		{
@@ -271,6 +287,7 @@ public class TowerMenu : MonoBehaviour
 			{
 				m_Tower.UpgradeSpeed();
 				IsEnabled = false;
+				m_GameManager.setTowerMenuUp(false);
 			}
 		}
 	}
@@ -298,6 +315,7 @@ public class TowerMenu : MonoBehaviour
 			{
 				m_Tower.UpgradePower();
 				IsEnabled = false;
+				m_GameManager.setTowerMenuUp(false);
 			}
 		} else
 		{
@@ -310,6 +328,7 @@ public class TowerMenu : MonoBehaviour
 			{
 				m_Tower.UpgradePower();
 				IsEnabled = false;
+				m_GameManager.setTowerMenuUp(false);
 			}
 		}
 	}
@@ -319,7 +338,9 @@ public class TowerMenu : MonoBehaviour
 		if (GUI.Button(GetSellButtonRect(), "", style))
 		{
 			IsEnabled = false;
+			m_GameManager.setTowerMenuUp(false);
 			displaySellBox = true;
+			m_GameManager.setSellBoxUp(true);
 		}
 	}
 	

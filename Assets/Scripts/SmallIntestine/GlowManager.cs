@@ -1,11 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class GlowManager : MonoBehaviour {
+public class GlowManager : MonoBehaviour 
+{
+	private IntestineGameManager intestineGameManager;
 
 	// Use this for initialization
-	void Start () {
-	
+	void Start () 
+	{
+		intestineGameManager = GameObject.Find ("Managers").GetComponent<IntestineGameManager>();
 	}
 	
 	// Update is called once per frame
@@ -54,6 +57,13 @@ public class GlowManager : MonoBehaviour {
 		// if menu box is up don't light
 		if (Time.timeScale < .01f)
 		{
+			return;
+		}
+
+		// if tower menu or sell box is up don't light
+		if (intestineGameManager.getSellBoxUp() == true || intestineGameManager.getTowerMenuUp() == true)
+		{
+			Debug.Log ("sell: " + intestineGameManager.getSellBoxUp() +  "  tower menu: " + intestineGameManager.getTowerMenuUp());
 			return;
 		}
 		
