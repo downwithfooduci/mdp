@@ -63,7 +63,6 @@ public class GlowManager : MonoBehaviour
 		// if tower menu or sell box is up don't light
 		if (intestineGameManager.getSellBoxUp() == true || intestineGameManager.getTowerMenuUp() == true)
 		{
-			Debug.Log ("sell: " + intestineGameManager.getSellBoxUp() +  "  tower menu: " + intestineGameManager.getTowerMenuUp());
 			return;
 		}
 		
@@ -78,7 +77,12 @@ public class GlowManager : MonoBehaviour
 		
 		GameObject closestSegment = FindClosestSegment(ray);
 		GlowSegment glowScript = closestSegment.GetComponent<GlowSegment> ();
+
+		// make the segment glow
 		StartCoroutine(glowScript.onTouch ());
+
+		// check for any nearby nutrients
+		absorbNutrients (closestSegment.transform.position, closestSegment.transform.localScale.z);
 	}
 
 	GameObject FindClosestSegment(Ray ray) 
@@ -147,5 +151,27 @@ public class GlowManager : MonoBehaviour
 		}
 
 		return closest;
+	}
+
+	private void absorbNutrients(Vector3 center, float radius)
+	{
+		// set a minimum radius
+		if (radius < 3.5f)
+		{
+			radius = 3.5f;
+		}
+		//move the center to the same height as the particles we want to check for collisions with
+		center = new Vector3 (center.x, .5f, center.z);
+
+		// gather all collisions
+		UnityEngine.Collider[] nutrientHits = Physics.OverlapSphere (center, radius*.75f, 1 << LayerMask.NameToLayer("Ignore Raycast"));
+
+		for (int i = 0; i < nutrientHits.Length; i++)
+		{
+			if (nutrientHits[i].gameObject.name.Contains("Effect"))
+			{
+				Destroy(nutrientHits[i].gameObject);
+			}
+		}
 	}
 }

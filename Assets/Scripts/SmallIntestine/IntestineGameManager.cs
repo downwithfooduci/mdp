@@ -152,7 +152,6 @@ public class IntestineGameManager : MonoBehaviour
 
 	public void setTowerMenuUp(bool isUp)
 	{
-		Debug.Log ("set tower menu up" + isUp);
 		if(isUp == false)
 		{
 			setTowerMenuIsUpFalse = true;
