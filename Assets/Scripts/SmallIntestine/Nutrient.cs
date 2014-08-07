@@ -78,8 +78,6 @@ public class Nutrient : MDPEntity
         }
 		
 		m_TrueColor = m_BodyColor;
-
-		intestineGameManager.OnNutrientHit();
 	}
 	
 	virtual protected void Absorb()
