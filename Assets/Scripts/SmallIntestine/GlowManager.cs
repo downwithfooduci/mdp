@@ -168,7 +168,7 @@ public class GlowManager : MonoBehaviour
 
 		for (int i = 0; i < nutrientHits.Length; i++)
 		{
-			if (nutrientHits[i].gameObject.name.Contains("Effect"))
+			if (nutrientHits[i].gameObject.name.Equals("EffectParticle(Clone)"))
 			{
 				Destroy(nutrientHits[i].gameObject);
 			}
