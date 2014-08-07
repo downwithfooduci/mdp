@@ -16635,6 +16635,7 @@ MonoBehaviour:
   nutrientsCounter: {fileID: 1204862231}
   healthFace: {fileID: 455563809}
   healthBar: {fileID: 1188380643}
+  createPlus: {fileID: 100000, guid: efddb0b82f67e485a89154e4ca5ef077, type: 2}
 --- !u!114 &758440267
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -36,6 +36,9 @@ public class IntestineGameManager : MonoBehaviour
 
 	public GameObject healthBar;
 	private DrawHealthBar drawHealthBar;
+
+	public GameObject createPlus;
+	private GameObject instantiatedPlus;
 	
 	void Start()
 	{
@@ -136,6 +139,14 @@ public class IntestineGameManager : MonoBehaviour
 
 		nutrients += NutrientHitScore;
 		NutrientTextColor = Color.green;
+		if (instantiatedPlus == null)
+		{
+			instantiatedPlus = (GameObject)Instantiate (createPlus);
+		} else
+		{
+			Destroy(instantiatedPlus.gameObject);
+			instantiatedPlus = (GameObject)Instantiate(createPlus);
+		}
 	}
 	
     public void OnFoodBlobFinish(int numNutrientsAlive)
