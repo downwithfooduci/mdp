@@ -39,7 +39,7 @@ public class LoadFileWWW : MonoBehaviour
 
 		if (loaded == true)
 		{
-			GUI.Label(new Rect(Screen.width/2-100, Screen.height/2+125, 200, 50), w.audioClip.length + " " + audioSource.clip.length);
+			GUI.Label(new Rect(Screen.width/2-100, Screen.height/2+125, 200, 50), w.error);
 		}
 	}
 }
