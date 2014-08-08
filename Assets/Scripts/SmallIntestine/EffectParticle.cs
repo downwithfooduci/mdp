@@ -49,11 +49,14 @@ public class EffectParticle : MonoBehaviour
 
 	public void killParticle(Vector3 desiredLocation)
 	{
-		transform.parent = null;
-		this.desiredLocation = desiredLocation;
-		direction = this.desiredLocation - gameObject.transform.position;
-		distance = Vector3.Magnitude(this.desiredLocation - gameObject.transform.position); 
-		direction = direction.normalized;
-		moveAndDie = true;
+		if (!moveAndDie)
+		{
+			transform.parent = null;
+			this.desiredLocation = desiredLocation;
+			direction = this.desiredLocation - gameObject.transform.position;
+			distance = Vector3.Magnitude(this.desiredLocation - gameObject.transform.position); 
+			direction = direction.normalized;
+			moveAndDie = true;
+		}
 	}
 }
