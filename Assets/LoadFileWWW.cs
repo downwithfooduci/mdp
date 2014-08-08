@@ -23,7 +23,6 @@ public class LoadFileWWW : MonoBehaviour
 	{
 		if (!loaded && w != null && w.isDone)
 		{
-			Debug.Log ("w.isDone");
 			loaded = true;
 			audioSource.clip = w.audioClip;
 			audioSource.Play ();
@@ -36,6 +35,11 @@ public class LoadFileWWW : MonoBehaviour
 		{
 			w = new WWW("file:///" + Path.Combine(Application.persistentDataPath, fileName));
 			loaded = false;
+		}
+
+		if (loaded == true)
+		{
+			GUI.Label(new Rect(Screen.width/2-100, Screen.height/2+125, 200, 50), "Recording in progress...");
 		}
 	}
 }
