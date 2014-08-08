@@ -7,7 +7,9 @@ public class EffectParticle : MonoBehaviour
 	private Vector3 direction;
 	private bool move = true;
 	private bool moveAndDie = false;
-	float speed = Random.Range(1.0f, 2.5f);
+	private float speed = Random.Range(1.0f, 2.5f);
+	private float distance;
+	private float distanceTravelled;
 
 	// Use this for initialization
 	void Start () {}
@@ -18,16 +20,19 @@ public class EffectParticle : MonoBehaviour
 		if (move)
 		{
 			transform.localPosition += direction * Time.deltaTime * speed;
-			if (Vector3.Magnitude(transform.localPosition - desiredLocation) <= .05)
+			distanceTravelled += Time.deltaTime * speed;
+			if (distanceTravelled >= distance)
 			{
 				move = false;
+				distanceTravelled = 0f;
 			}
 		}
 
 		if (moveAndDie)
 		{
 			transform.position += direction * Time.deltaTime * 2.0f;
-			if (Vector3.Magnitude(transform.position - desiredLocation) <= .25)
+			distanceTravelled += Time.deltaTime * 2.0f;
+			if (distanceTravelled >= distance)
 			{
 				Destroy(this.gameObject);
 			}
@@ -38,6 +43,7 @@ public class EffectParticle : MonoBehaviour
 	{
 		this.desiredLocation = desiredLocation;
 		direction = this.desiredLocation - gameObject.transform.localPosition;
+		distance = Vector3.Magnitude(this.desiredLocation - gameObject.transform.localPosition); 
 		direction = direction.normalized;
 	}
 
@@ -46,6 +52,7 @@ public class EffectParticle : MonoBehaviour
 		transform.parent = null;
 		this.desiredLocation = desiredLocation;
 		direction = this.desiredLocation - gameObject.transform.position;
+		distance = Vector3.Magnitude(this.desiredLocation - gameObject.transform.position); 
 		direction = direction.normalized;
 		moveAndDie = true;
 	}
