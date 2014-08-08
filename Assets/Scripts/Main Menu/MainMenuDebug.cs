@@ -5,15 +5,10 @@ public class MainMenuDebug : MonoBehaviour
 {
 	private bool debugEnabled = false;
 
-	void Start()
-	{
-	}
+	void Start(){}
 
 	// Update is called once per frame
-	void Update () 
-	{
-	
-	}
+	void Update () {}
 
 	void OnGUI()
 	{
@@ -46,6 +41,12 @@ public class MainMenuDebug : MonoBehaviour
 			                        100, 50), "SI Game"))
 			{
 				Application.LoadLevel("LoadLevelSmallIntestine");
+			}
+
+			if (GUI.Button(new Rect(0, 200,
+			                        100, 50), "Record Audio Test"))
+		    {
+				Application.LoadLevel("RecordandPlaybackAudioSample");
 			}
 /***********************************************************
  * Change Page Turn requirements for Story
