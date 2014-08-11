@@ -5,7 +5,6 @@ public class MoveFood : MonoBehaviour
 {
 	openFlap flap;
 	GameObject flaps;
-	FollowITweenPath path;
 	public float pathPosition, reversePosition;
 	public float foodSpeed;
 	public float coughSpeed;
@@ -17,7 +16,7 @@ public class MoveFood : MonoBehaviour
 	{
 		GameObject flaps = GameObject.Find ("Flaps");
 		flap = flaps.GetComponent<openFlap>();
-		path = gameObject.GetComponent<FollowITweenPath>();
+
 		quaternion = transform.rotation;
 		quaternion.Duration = .5f;
 		//debugConfig = ((GameObject)GameObject.Find("Debug Config")).GetComponent<DebugConfig>();

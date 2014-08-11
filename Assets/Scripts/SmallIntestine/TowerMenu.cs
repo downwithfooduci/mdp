@@ -133,9 +133,7 @@ public class TowerMenu : MonoBehaviour
 	}
 	
 	private IEnumerator CheckMouseClick()
-	{
-		EnableRayCasts(true);
-		
+	{	
 		Vector3 mousePos = MDPUtility.MouseToWorldPosition();
 		mousePos.y = 5;
 		RaycastHit hitInfo;
@@ -168,12 +166,6 @@ public class TowerMenu : MonoBehaviour
 			}
 		}
 		yield return new WaitForSeconds(.0f);
-		EnableRayCasts(false);
-	}
-	
-	private void EnableRayCasts(bool val)
-	{
-		string layer = val ? "Default" : "Ignore Raycast";
 	}
 	
     // Returns a rectangle with an adjusted position for

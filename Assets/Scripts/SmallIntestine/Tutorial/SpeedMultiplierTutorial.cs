@@ -13,7 +13,7 @@ public class SpeedMultiplierTutorial : MonoBehaviour
 	private bool page1Shown;
 	private bool tutorialOver;
 
-	public GameObject light;
+	public GameObject spotLight;
 	private GameObject spawnedLight;
 	private bool lightOn;
 	private bool lightSpawned;
@@ -59,7 +59,7 @@ public class SpeedMultiplierTutorial : MonoBehaviour
 
 		Vector3 newLightLoc = new Vector3 (-23f, 5f, -11.5f);
 		
-		spawnedLight = (GameObject)Instantiate(light);
+		spawnedLight = (GameObject)Instantiate(spotLight);
 		spawnedLight.transform.position = newLightLoc;
 		
 		lightOn = true;

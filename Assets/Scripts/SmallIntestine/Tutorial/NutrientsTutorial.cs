@@ -16,7 +16,7 @@ public class NutrientsTutorial : MonoBehaviour
 
 	public GUIStyle gotIt;
 
-	public GameObject light;
+	public GameObject spotLight;
 	private GameObject spawnedLight;
 	private bool lightOn = false;
 	
@@ -64,7 +64,7 @@ public class NutrientsTutorial : MonoBehaviour
 		// set the light location to be on the tower
 		Vector3 newLightLoc = new Vector3 (-2.46f, 5f, -14.22f);
 		
-		spawnedLight = (GameObject)Instantiate(light);
+		spawnedLight = (GameObject)Instantiate(spotLight);
 		spawnedLight.transform.position = newLightLoc;
 		
 		lightOn = true;

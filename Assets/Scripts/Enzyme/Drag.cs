@@ -2,24 +2,18 @@ using UnityEngine;
 using System.Collections;
 
 public class Drag : MonoBehaviour
-{
-	
+{	
 	void Start ()
 	{
 		Input.multiTouchEnabled = true;
-		diff = 0;
 		left = true;
 	}
 	
 	Vector3 lastPosition;
-	float diff;
 	bool left;
 
 	void Awake ()
-	{
-
-
-	}
+	{}
 	
 	void Update ()
 	{

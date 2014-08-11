@@ -187,7 +187,6 @@ public class Tower : MonoBehaviour
 
 			transform.Rotate(new Vector3(90,0,0), -40, Space.World);
             // Look at target but lock rotation on x axis
-            float xRotation = transform.rotation.eulerAngles.x;
             transform.LookAt(target.transform);
 			transform.Rotate(new Vector3(90,0,0), 40, Space.World);
             transform.FindChild(m_ActiveModelName).animation.Play("Default Take", PlayMode.StopAll);
