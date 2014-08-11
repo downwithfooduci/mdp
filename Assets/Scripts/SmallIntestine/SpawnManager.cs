@@ -24,7 +24,7 @@ public class SpawnManager : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
-		SmallIntestineLoadLevelCounter level;
+		SmallIntestineLoadLevelCounter level = null;
 
 		GameObject counter = GameObject.Find ("ChooseBackground");
 	
@@ -34,32 +34,40 @@ public class SpawnManager : MonoBehaviour
 			level = counter.GetComponent<SmallIntestineLoadLevelCounter> ();
 		} else // if we start the level from the game itself just start at level 0, 1, or 2 appropriately
 		{ 
-			// if the counter wasn't there we have to attach the script to use it properly
-			level = gameObject.AddComponent("SmallIntestineLoadLevelCounter") as SmallIntestineLoadLevelCounter;
+			// if the counter wasn't there reload properly
 			if (Application.loadedLevelName == "SmallIntestineTutorial")
 			{
-				level.manualSetLevel(0);
+				PlayerPrefs.SetInt("DesiredSILevel", 0);
+				PlayerPrefs.Save();
+				Application.LoadLevel("LoadLevelSmallIntestine");
 			} else if (Application.loadedLevelName == "SmallIntestineOdd")
 			{
-				level.manualSetLevel(1);
+				PlayerPrefs.SetInt("DesiredSILevel", 1);
+				PlayerPrefs.Save();
+				Application.LoadLevel("LoadLevelSmallIntestine");
 			} else if (Application.loadedLevelName == "SmallIntestineEven")
 			{
-				level.manualSetLevel(2);
+				PlayerPrefs.SetInt("DesiredSILevel", 2);
+				PlayerPrefs.Save();
+				Application.LoadLevel("LoadLevelSmallIntestine");;
 			}
 		}
 
 		// load in the script info
-		loadScript = new LoadScript();
-		waves = loadScript.loadIntestineLevel(level.getLevel());
-		currentWave = 0;
-		waveDelay = waves[0].startDelay;
-		waveTime = waves[0].runTime;
-		SpawnInterval = waves[0].nutrientSpawnInterval;
-		speed = waves[0].nutrientSpeed;
-		availableColors = waves[0].colors;
-		minNutrients = waves[0].minBlobs;
-		maxNutrients = waves[0].maxBlobs;
-        m_TimeSinceLastSpawn = 0f;
+		if (counter != null)	// guard check
+		{
+			loadScript = new LoadScript();
+			waves = loadScript.loadIntestineLevel(level.getLevel());
+			currentWave = 0;
+			waveDelay = waves[0].startDelay;
+			waveTime = waves[0].runTime;
+			SpawnInterval = waves[0].nutrientSpawnInterval;
+			speed = waves[0].nutrientSpeed;
+			availableColors = waves[0].colors;
+			minNutrients = waves[0].minBlobs;
+			maxNutrients = waves[0].maxBlobs;
+	        m_TimeSinceLastSpawn = 0f;
+		}
 
 		// we don't use debug config in the tutorial level
 		if (Application.loadedLevelName != "SmallIntestineTutorial")

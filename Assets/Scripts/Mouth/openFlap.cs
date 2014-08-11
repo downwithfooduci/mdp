@@ -5,7 +5,6 @@ public class openFlap : MonoBehaviour
 {
 	GameObject bottomFlap, topFlap;
 	private bool isOpen;
-	private Plane plane;
 	bool cough = false;
 	float coughTimer, coughTime;
 
@@ -21,7 +20,6 @@ public class openFlap : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
-		plane = new Plane( new Vector3(0, 0, -1), new Vector3(0, 0, -1));
 		coughTime = 3f;
 		coughTimer = 0;
 	

@@ -17,19 +17,43 @@ public class SpawnFood : MonoBehaviour {
 	public bool end = false;
 
 	// Use this for initialization
-	void Start () {
+	void Start () 
+	{
+		MouthLoadLevelCounter level = null;
+
 		debugConfig = GameObject.Find("Debugger").GetComponent<EsophagusDebugConfig>();
-		MouthLoadLevelCounter level = GameObject.Find ("MouthChooseBackground").GetComponent<MouthLoadLevelCounter>();
+		if (debugConfig == null)	// if we are starting the game directly we need to add debugger
+		{
+			debugConfig = gameObject.AddComponent("EsophagusDebugConfig") as EsophagusDebugConfig;
+		}
+
+		GameObject chooseBackground = GameObject.Find ("MouthChooseBackground");
+		if (chooseBackground != null)
+		{
+			level = chooseBackground.GetComponent<MouthLoadLevelCounter>();
+		} else // in this case we started the game load game properly
+		{
+			PlayerPrefs.SetInt("DesiredMouthLevel", 1);
+			PlayerPrefs.Save();
+			Application.LoadLevel("LoadLevelMouth");
+		}
+
+		// we also need to find the references to the flaps
 		GameObject flaps = GameObject.Find("Flaps");
 		flap = flaps.GetComponent<openFlap>();
-		loadScript = new LoadScript();
-		waves = loadScript.loadMouthLevel(level.getLevel());
-		currentWave = 0;
-		waveDelay = waves[0].startDelay;
-		waveTime = waves[0].runTime;
-		SpawnInterval = waves[0].foodSpawnInterval;
-		speed = waves[0].foodSpeed;
-		m_TimeSinceLastSpawn = 0f;
+
+		if (level != null)	// guard for if level was null since this will still execute before the load
+		{
+			// finally load the script
+			loadScript = new LoadScript();
+			waves = loadScript.loadMouthLevel(level.getLevel());
+			currentWave = 0;
+			waveDelay = waves[0].startDelay;
+			waveTime = waves[0].runTime;
+			SpawnInterval = waves[0].foodSpawnInterval;
+			speed = waves[0].foodSpeed;
+			m_TimeSinceLastSpawn = 0f;
+		}
 	}
 	
 	// Update is called once per frame

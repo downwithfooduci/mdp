@@ -9,7 +9,7 @@ public class MoveFood : MonoBehaviour
 	public float foodSpeed;
 	public float coughSpeed;
 	private SmoothQuaternion quaternion;
-	DebugConfig debugConfig;
+	EsophagusDebugConfig debugConfig;
 
 	// Use this for initialization
 	void Start () 
@@ -19,14 +19,14 @@ public class MoveFood : MonoBehaviour
 
 		quaternion = transform.rotation;
 		quaternion.Duration = .5f;
-		//debugConfig = ((GameObject)GameObject.Find("Debug Config")).GetComponent<DebugConfig>();
+		debugConfig = GameObject.Find("Debugger").GetComponent<EsophagusDebugConfig>();
 	}
 	
 	// Update is called once per frame
 	void Update () 
 	{
 		if(debugConfig != null && debugConfig.debugActive)
-			foodSpeed = debugConfig.NutrientSpeed;
+			foodSpeed = debugConfig.foodSpeed;
 		Quaternion q = transform.rotation;
 		if(flap.isCough())
 		{

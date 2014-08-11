@@ -33,10 +33,10 @@ public class TowerMenu : MonoBehaviour
 	private IntestineGameManager m_GameManager;
 	
 	// Dimension and position consts
-	private float UPGRADE_BUTTON_WIDTH = 51;
-	private float UPGRADE_BUTTON_HEIGHT = 60;
-	private float SELL_BUTTON_WIDTH = 110;
-	private float SELL_BUTTON_HEIGHT = 42;
+	private float UPGRADE_BUTTON_WIDTH;
+	private float UPGRADE_BUTTON_HEIGHT;
+	private float SELL_BUTTON_WIDTH;
+	private float SELL_BUTTON_HEIGHT;
 	
 	private bool m_MouseDownLastFrame = false;
 	// Use this for initialization
