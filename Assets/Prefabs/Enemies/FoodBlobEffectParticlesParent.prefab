@@ -83,7 +83,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   effectParticle: {fileID: 100000, guid: 1e58a89af2749714784cd116e15e2ba1, type: 2}
-  numParticles: 5
+  numParticlesMin: 2
+  numParticlesMax: 3
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

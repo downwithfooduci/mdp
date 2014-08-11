@@ -4,7 +4,8 @@ using System.Collections;
 public class FoodBlobEffectParticles : MonoBehaviour 
 {
 	public GameObject effectParticle;
-	public int numParticles;
+	public int numParticlesMin;
+	public int numParticlesMax;
 	private Color particleColor;
 	private GameObject[] instantiatedEffectParticles;
 
@@ -16,12 +17,18 @@ public class FoodBlobEffectParticles : MonoBehaviour
 
 	public void createParticles(Color color)
 	{
-		instantiatedEffectParticles = new GameObject[numParticles];
+		if (Random.value > .5f)
+		{
+			instantiatedEffectParticles = new GameObject[numParticlesMin];
+		} else
+		{
+			instantiatedEffectParticles = new GameObject[numParticlesMax];
+		}
 
 		particleColor = color;
 
 		// spawn 5 particles in a "cloud"
-		for (int i = 0; i < numParticles; i++)
+		for (int i = 0; i < instantiatedEffectParticles.Length; i++)
 		{
 			instantiatedEffectParticles[i] = (GameObject)Instantiate(effectParticle);
 			instantiatedEffectParticles[i].renderer.material.color = particleColor;

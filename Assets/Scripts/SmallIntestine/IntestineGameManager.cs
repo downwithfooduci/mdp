@@ -134,7 +134,7 @@ public class IntestineGameManager : MonoBehaviour
     public void OnNutrientHit()
     {
 		// track nutrients earned
-		PlayerPrefs.SetInt ("SIStats_nutrientsEarned", PlayerPrefs.GetInt("SIStats_nutrientsEarned") + 1);
+		PlayerPrefs.SetInt ("SIStats_nutrientsEarned", PlayerPrefs.GetInt("SIStats_nutrientsEarned") + NutrientHitScore);
 		PlayerPrefs.Save();
 
 		nutrients += NutrientHitScore;

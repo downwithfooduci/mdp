@@ -16634,7 +16634,7 @@ MonoBehaviour:
     m_StretchHeight: 0
   health: 20
   nutrients: 40
-  NutrientHitScore: 1
+  NutrientHitScore: 2
   NutrientTextColor: {r: 0, g: 0, b: 0, a: 0}
   nutrientsCounter: {fileID: 1204862231}
   healthFace: {fileID: 455563809}
