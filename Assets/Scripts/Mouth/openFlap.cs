@@ -6,7 +6,7 @@ public class openFlap : MonoBehaviour
 	GameObject bottomFlap, topFlap;
 	private bool isOpen;
 	bool cough = false;
-	float coughTimer, coughTime;
+	float coughTimer;
 
 	// swipe varaibles
 	private float xStart = 0.0f;
@@ -20,11 +20,11 @@ public class openFlap : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
-		coughTime = 3f;
 		coughTimer = 0;
 	
 		foreach(Transform child in transform)
 		{
+			// properly assign the right flap to top and bottom
 			if(child.gameObject.name == "flap1")
 			{
 				bottomFlap = child.gameObject;

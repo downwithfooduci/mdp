@@ -16,7 +16,6 @@ public class SpeedMultiplierTutorial : MonoBehaviour
 	public GameObject spotLight;
 	private GameObject spawnedLight;
 	private bool lightOn;
-	private bool lightSpawned;
 
 	public float tutorialDelay;
 	private float elapsedTime;
@@ -52,11 +51,6 @@ public class SpeedMultiplierTutorial : MonoBehaviour
 
 	void spawnLightOnSpeed()
 	{
-		if (lightSpawned)
-		{
-			return;
-		}
-
 		Vector3 newLightLoc = new Vector3 (-23f, 5f, -11.5f);
 		
 		spawnedLight = (GameObject)Instantiate(spotLight);

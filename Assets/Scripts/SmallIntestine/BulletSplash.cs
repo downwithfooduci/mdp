@@ -1,10 +1,8 @@
 using UnityEngine;
 using System.Collections;
 
-public class BulletSplash : MonoBehaviour {
-
-    public float Radius;
-
+public class BulletSplash : MonoBehaviour 
+{
 	// Use this for initialization
 	void Start () {
 	

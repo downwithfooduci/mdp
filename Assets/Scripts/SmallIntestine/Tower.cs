@@ -36,7 +36,6 @@ public class Tower : MonoBehaviour
 	public int level1Targets = 3;
 	public int level2Targets = 6;
 	
-	private TowerMenu m_Menu;
     private Transform m_ActiveModel;
 
     private Color m_TargetColor;
@@ -51,7 +50,7 @@ public class Tower : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
-		gameObject.layer = LayerMask.NameToLayer("Tower");
+		gameObject.layer = LayerMask.NameToLayer("Tower");	// move the tower to the tower layer once placed
 
 		// make sure we aren't in tutorial
 		if (Application.loadedLevelName != "SmallIntestineTutorial")
@@ -67,8 +66,6 @@ public class Tower : MonoBehaviour
 
         m_NutrientManager = GameObject.Find("Managers").GetComponent<NutrientManager>();
 		m_GameManager = GameObject.Find ("Managers").GetComponent<IntestineGameManager>();
-		
-		m_Menu = gameObject.GetComponent<TowerMenu>();
 		
 		foreach (Transform child in transform)
 		{

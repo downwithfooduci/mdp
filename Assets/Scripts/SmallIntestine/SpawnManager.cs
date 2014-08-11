@@ -5,8 +5,8 @@ public class SpawnManager : MonoBehaviour
 {
     public GameObject SpawnType;
     public Vector3 SpawnPoint;
-    // In seconds
-    public float SpawnInterval;
+    
+	public float SpawnInterval; // In seconds
 	DebugConfig debugConfig;
 	LoadScript loadScript;
 	SIWave[] waves;

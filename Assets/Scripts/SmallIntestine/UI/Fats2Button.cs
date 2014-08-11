@@ -1,8 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-// Scripts for all buttons except protein are the same but separated
-// to allow for easily adding unique behaviors to different buttons if needed in the future
+// Scripts for all buttons except protein are similar but have slight differences
 public class Fats2Button : MonoBehaviour 
 {
 	public Texture activeTexture;

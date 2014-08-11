@@ -28,7 +28,6 @@ public class TowerMenu : MonoBehaviour
 	private Tower m_Tower;
 	
 	private Vector3 m_ScreenPosition;
-	private int m_NumButtons;
 	
 	private IntestineGameManager m_GameManager;
 	
@@ -39,6 +38,7 @@ public class TowerMenu : MonoBehaviour
 	private float SELL_BUTTON_HEIGHT;
 	
 	private bool m_MouseDownLastFrame = false;
+
 	// Use this for initialization
     void Start()
     {
@@ -50,8 +50,6 @@ public class TowerMenu : MonoBehaviour
 		m_GameManager = GameObject.Find ("Managers").GetComponent<IntestineGameManager>();
 
         m_Tower = gameObject.GetComponent<Tower>();
-
-		m_NumButtons = 0;
 	}
 	
 	public void Initialize()
@@ -108,8 +106,6 @@ public class TowerMenu : MonoBehaviour
 
 		if (!IsEnabled)
 			return;
-		
-		m_NumButtons = 0;
 		
 		switch (m_Tower.ActiveModelName)
 		{

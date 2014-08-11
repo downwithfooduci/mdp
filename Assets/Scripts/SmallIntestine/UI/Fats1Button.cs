@@ -1,8 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-// Scripts for all buttons except protein are the same but separated
-// to allow for easily adding unique behaviors to different buttons if needed in the future
+// Scripts for all buttons except protein are similar but have slight differences
 public class Fats1Button : MonoBehaviour 
 {
 	public Texture activeTexture;
@@ -13,7 +12,6 @@ public class Fats1Button : MonoBehaviour
 	private float buttonLeft;
 	private float buttonWidth;		// width of a button
 	private float buttonHeight;
-	private float buttonSpacing;
 
 	private const int buttonColorCode = 0;	// this is from old legacy code to maintain the proper tower color
 
@@ -26,7 +24,6 @@ public class Fats1Button : MonoBehaviour
 		buttonWidth = Screen.width * 0.197f;
 		buttonHeight = Screen.height * 0.091f;
 		buttonTop =  (Screen.height * 0.11f) - buttonHeight;
-		buttonSpacing = Screen.width * 0.0123f;
 
 		guiTexture.pixelInset = new Rect(buttonLeft, buttonTop, buttonWidth, buttonHeight);
 
