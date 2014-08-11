@@ -15,11 +15,12 @@ public class GlowManager : MonoBehaviour
 	void Update () 
 	{
 		// for on pc/mac
+#if UNITY_EDITOR || UNITY_STANDALONE_OSX || UNITY_STANDALONE_WIN
 		if (Input.GetButtonDown("Fire1")) 
 		{
 			checkClickArea();
-
 		}
+#endif
 
 		// for ipad
 		foreach (Touch touch in Input.touches) 
@@ -79,7 +80,7 @@ public class GlowManager : MonoBehaviour
 		GlowSegment glowScript = closestSegment.GetComponent<GlowSegment> ();
 
 		// make the segment glow
-		StartCoroutine(glowScript.onTouch ());
+		StartCoroutine(glowScript.onTouch());
 
 		// check for any nearby nutrients
 		absorbNutrients (closestSegment.transform.position, closestSegment.transform.localScale.z);
@@ -170,8 +171,11 @@ public class GlowManager : MonoBehaviour
 		{
 			if (nutrientHits[i].gameObject.name.Equals("EffectParticle(Clone)"))
 			{
-				intestineGameManager.OnNutrientHit();
-				StartCoroutine(nutrientHits[i].GetComponent<EffectParticle>().killParticle(center));
+				if (!nutrientHits[i].GetComponent<EffectParticle>().getMoveAndDie())
+				{
+					intestineGameManager.OnNutrientHit();
+					StartCoroutine(nutrientHits[i].GetComponent<EffectParticle>().killParticle(center));
+				}
 			}
 		}
 	}

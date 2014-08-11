@@ -68,4 +68,9 @@ public class EffectParticle : MonoBehaviour
 			moveAndDie = true;
 		}
 	}
+
+	public bool getMoveAndDie()
+	{
+		return moveAndDie;
+	}
 }
