@@ -51,7 +51,7 @@ public class EffectParticle : MonoBehaviour
 	}
 
 	// this is for movingg the effect particles on absorbtion
-	public void killParticle(Vector3 desiredLocation)
+	public IEnumerator killParticle(Vector3 desiredLocation)
 	{
 		if (!moveAndDie)	// only let the particles die once to avoid bouncing around
 		{
@@ -63,6 +63,7 @@ public class EffectParticle : MonoBehaviour
 			direction = direction.normalized;
 
 			distance = Vector3.SqrMagnitude(this.desiredLocation - gameObject.transform.position);
+			yield return distance;
 
 			moveAndDie = true;
 		}
