@@ -82,7 +82,7 @@ public class GlowManager : MonoBehaviour
 		StartCoroutine(glowScript.onTouch ());
 
 		// check for any nearby nutrients
-		StartCoroutine(absorbNutrients (closestSegment.transform.position, closestSegment.transform.localScale.z));
+		absorbNutrients (closestSegment.transform.position, closestSegment.transform.localScale.z);
 	}
 
 	GameObject FindClosestSegment(Ray ray) 
@@ -153,7 +153,7 @@ public class GlowManager : MonoBehaviour
 		return closest;
 	}
 
-	private IEnumerator absorbNutrients(Vector3 center, float radius)
+	private void absorbNutrients(Vector3 center, float radius)
 	{
 		// set a minimum radius to make sure it's large enough to absorb some nutrients
 		if (radius < 3.5f)
@@ -165,8 +165,6 @@ public class GlowManager : MonoBehaviour
 
 		// gather all collisions asynchronously to have less effect on performance
 		UnityEngine.Collider[] nutrientHits = Physics.OverlapSphere (center, radius*.75f, 1 << LayerMask.NameToLayer("Ignore Raycast"));
-
-		yield return nutrientHits;
 
 		for (int i = 0; i < nutrientHits.Length; i++)
 		{
