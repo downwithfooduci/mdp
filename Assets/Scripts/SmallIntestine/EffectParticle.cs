@@ -17,45 +17,53 @@ public class EffectParticle : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-		if (move)
+		if (move)	// what to do when moving on initial spawn
 		{
 			transform.localPosition += direction * Time.deltaTime * speed;
-			distanceTravelled += Time.deltaTime * speed;
-			if (distanceTravelled >= distance)
+			distanceTravelled += Time.deltaTime * speed; 
+			if (distanceTravelled * distanceTravelled >= distance)
 			{
 				move = false;
 				distanceTravelled = 0f;
 			}
 		}
 
-		if (moveAndDie)
+		if (moveAndDie)	// what to do if moving on death
 		{
 			transform.position += direction * Time.deltaTime * 2.0f;
 			distanceTravelled += Time.deltaTime * 2.0f;
-			if (distanceTravelled >= distance)
+			if (distanceTravelled * distanceTravelled >= distance)
 			{
 				Destroy(this.gameObject);
 			}
 		}
 	}
 
+	// this is for moving the particles the first time, when they are spawned
 	public void setDesiredLocation(Vector3 desiredLocation)
 	{
 		this.desiredLocation = desiredLocation;
+
 		direction = this.desiredLocation - gameObject.transform.localPosition;
-		distance = Vector3.Magnitude(this.desiredLocation - gameObject.transform.localPosition); 
 		direction = direction.normalized;
+
+		distance = Vector3.SqrMagnitude(this.desiredLocation - gameObject.transform.localPosition); 
 	}
 
+	// this is for movingg the effect particles on absorbtion
 	public void killParticle(Vector3 desiredLocation)
 	{
-		if (!moveAndDie)
+		if (!moveAndDie)	// only let the particles die once to avoid bouncing around
 		{
-			transform.parent = null;
+			transform.parent = null;	// remove the particle from the parent
+		
 			this.desiredLocation = desiredLocation;
-			direction = this.desiredLocation - gameObject.transform.position;
-			distance = Vector3.Magnitude(this.desiredLocation - gameObject.transform.position); 
+
+			direction = this.desiredLocation - gameObject.transform.position; 
 			direction = direction.normalized;
+
+			distance = Vector3.SqrMagnitude(this.desiredLocation - gameObject.transform.position);
+
 			moveAndDie = true;
 		}
 	}

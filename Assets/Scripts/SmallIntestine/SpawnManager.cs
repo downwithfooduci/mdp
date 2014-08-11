@@ -24,8 +24,29 @@ public class SpawnManager : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
+		SmallIntestineLoadLevelCounter level;
+
 		GameObject counter = GameObject.Find ("ChooseBackground");
-		SmallIntestineLoadLevelCounter level = counter.GetComponent<SmallIntestineLoadLevelCounter> ();
+	
+		if (counter != null)
+		{
+			// if the counter was there we can just get the level
+			level = counter.GetComponent<SmallIntestineLoadLevelCounter> ();
+		} else // if we start the level from the game itself just start at level 0, 1, or 2 appropriately
+		{ 
+			// if the counter wasn't there we have to attach the script to use it properly
+			level = gameObject.AddComponent("SmallIntestineLoadLevelCounter") as SmallIntestineLoadLevelCounter;
+			if (Application.loadedLevelName == "SmallIntestineTutorial")
+			{
+				level.manualSetLevel(0);
+			} else if (Application.loadedLevelName == "SmallIntestineOdd")
+			{
+				level.manualSetLevel(1);
+			} else if (Application.loadedLevelName == "SmallIntestineEven")
+			{
+				level.manualSetLevel(2);
+			}
+		}
 
 		// load in the script info
 		loadScript = new LoadScript();

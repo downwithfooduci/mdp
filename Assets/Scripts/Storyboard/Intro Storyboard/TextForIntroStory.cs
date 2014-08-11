@@ -15,7 +15,6 @@ public class TextForIntroStory : MonoBehaviour
 		introStoryboard = this.gameObject.GetComponent<IntroStoryboard> ();
 
 		TextAsset introText = Resources.Load ("IntroText") as TextAsset;
-		StringReader reader = new StringReader (introText.text);
 		text = introText.text.Split("\n"[0]);	
 
 		timer = 0;

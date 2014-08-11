@@ -69,10 +69,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13c5ddeea3fde5d48b308fa1259cb7e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Manager: {fileID: 0}
-  EffectParticle: {fileID: 100000, guid: 6392be4fa7fad0048836da3db2c62390, type: 2}
+  intestineGameManager: {fileID: 0}
   IsTargetted: 0
   isDead: 0
+  effectParticleParent: {fileID: 11400002, guid: 7f7e776f3de1d4a4a9aa887e6ed4e8f9,
+    type: 2}
 --- !u!122 &12200000
 Halo:
   m_ObjectHideFlags: 1

@@ -14,7 +14,6 @@ public class MouthEndStoryboardText : MonoBehaviour
 		mouthStoryboard = this.gameObject.GetComponent<MouthEndStoryboard> ();
 		
 		TextAsset mouthText = Resources.Load ("MouthEndText") as TextAsset;
-		StringReader reader = new StringReader (mouthText.text);
 		text = mouthText.text.Split("\n"[0]);	
 		
 		timer = 0;

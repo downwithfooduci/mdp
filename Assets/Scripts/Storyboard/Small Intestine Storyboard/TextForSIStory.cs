@@ -15,7 +15,6 @@ public class TextForSIStory : MonoBehaviour
 		SIStoryboard = this.gameObject.GetComponent<SmallIntestineStoryboard> ();
 		
 		TextAsset introText = Resources.Load ("SIText") as TextAsset;
-		StringReader reader = new StringReader (introText.text);
 		text = introText.text.Split("\n"[0]);	
 		
 		timer = 0;

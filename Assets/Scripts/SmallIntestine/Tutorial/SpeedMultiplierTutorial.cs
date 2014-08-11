@@ -9,14 +9,14 @@ public class SpeedMultiplierTutorial : MonoBehaviour
 	
 	public GUIStyle gotIt;
 
-	private bool showTutorial = false;
-	private bool page1Shown = false;
-	private bool tutorialOver = false;
+	private bool showTutorial;
+	private bool page1Shown;
+	private bool tutorialOver;
 
 	public GameObject light;
 	private GameObject spawnedLight;
-	private bool lightOn = false;
-	private bool lightSpawned = false;
+	private bool lightOn;
+	private bool lightSpawned;
 
 	public float tutorialDelay;
 	private float elapsedTime;

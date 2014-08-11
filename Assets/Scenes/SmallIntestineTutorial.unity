@@ -18,7 +18,7 @@ RenderSettings:
   m_FogDensity: .00999999978
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientLight: {r: .200000003, g: .200000003, b: .200000003, a: 1}
+  m_AmbientLight: {r: .411764711, g: .411764711, b: .411764711, a: 1}
   m_SkyboxMaterial: {fileID: 0}
   m_HaloStrength: .5
   m_FlareStrength: 1
@@ -716,9 +716,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 363b47c5b0bfc294abf3b3248b65a41b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  active: {fileID: 2800000, guid: 9559724d8182ba84580fd29d6ffcb64f, type: 3}
-  pressed: {fileID: 2800000, guid: df101430dd96ca646825bb6066f3cf7f, type: 3}
-  inactive: {fileID: 2800000, guid: fff8e211337d2b7429b0eccf27eaf007, type: 3}
+  activeTexture: {fileID: 2800000, guid: 9559724d8182ba84580fd29d6ffcb64f, type: 3}
+  pressedTexture: {fileID: 2800000, guid: df101430dd96ca646825bb6066f3cf7f, type: 3}
+  inactiveTexture: {fileID: 2800000, guid: fff8e211337d2b7429b0eccf27eaf007, type: 3}
 --- !u!131 &150005812
 GUITexture:
   m_ObjectHideFlags: 0
@@ -2036,9 +2036,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e0b6ff400bf6824db0f19bc98bb5553, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  active: {fileID: 2800000, guid: 8c53d17ab79021d4e829853156497d91, type: 3}
-  pressed: {fileID: 2800000, guid: f7b4573b357c501408aa6ecf37da4850, type: 3}
-  inactive: {fileID: 2800000, guid: cfd2978d9a698b4488400cc432024637, type: 3}
+  activeTexture: {fileID: 2800000, guid: 8c53d17ab79021d4e829853156497d91, type: 3}
+  pressedTexture: {fileID: 2800000, guid: f7b4573b357c501408aa6ecf37da4850, type: 3}
+  inactiveTexture: {fileID: 2800000, guid: cfd2978d9a698b4488400cc432024637, type: 3}
 --- !u!131 &495623127
 GUITexture:
   m_ObjectHideFlags: 0
@@ -3155,6 +3155,7 @@ MonoBehaviour:
   nutrientsCounter: {fileID: 1032441580}
   healthFace: {fileID: 829384698}
   healthBar: {fileID: 1367744431}
+  createPlus: {fileID: 100000, guid: efddb0b82f67e485a89154e4ca5ef077, type: 2}
 --- !u!114 &594913888
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5448,9 +5449,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 619e1d496152c894fb7dc7fc17e9d22f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  active: {fileID: 2800000, guid: f9419355e0b35b04b91431abc86fe27f, type: 3}
-  pressed: {fileID: 2800000, guid: 8cc250becff248b4995a94b3fdeb95d9, type: 3}
-  inactive: {fileID: 2800000, guid: 10bf6aa8173622f448b2e60cae57aad7, type: 3}
+  activeTexture: {fileID: 2800000, guid: f9419355e0b35b04b91431abc86fe27f, type: 3}
+  pressedTexture: {fileID: 2800000, guid: 8cc250becff248b4995a94b3fdeb95d9, type: 3}
+  inactiveTexture: {fileID: 2800000, guid: 10bf6aa8173622f448b2e60cae57aad7, type: 3}
 --- !u!131 &1003870046
 GUITexture:
   m_ObjectHideFlags: 0
@@ -8289,9 +8290,9 @@ Light:
   m_GameObject: {fileID: 1543549830}
   m_Enabled: 1
   serializedVersion: 3
-  m_Type: 2
+  m_Type: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: .800000012
+  m_Intensity: .25
   m_Range: 200
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -8787,9 +8788,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89ce022999db29b4283d34082964f541, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  active: {fileID: 2800000, guid: b9031dc02d76b1045896e5e18348d0a9, type: 3}
-  pressed: {fileID: 2800000, guid: 61e7d264d0718be48a9faf7d8849fbb5, type: 3}
-  inactive: {fileID: 2800000, guid: cd6cf7142b2621f41b96b485dcfc38f5, type: 3}
+  activeTexture: {fileID: 2800000, guid: b9031dc02d76b1045896e5e18348d0a9, type: 3}
+  pressedTexture: {fileID: 2800000, guid: 61e7d264d0718be48a9faf7d8849fbb5, type: 3}
+  inactiveTexture: {fileID: 2800000, guid: cd6cf7142b2621f41b96b485dcfc38f5, type: 3}
 --- !u!131 &1644120394
 GUITexture:
   m_ObjectHideFlags: 0
@@ -9932,7 +9933,7 @@ MonoBehaviour:
   zyme: {fileID: 100000, guid: 532f02dcd37dc0c4a913e5b84575fae9, type: 2}
   maxUpgradeTimeSpeed: 7
   maxUpgradeTimePower: 7
-  light: {fileID: 100000, guid: 1442948a1a191554088f21358daf5d72, type: 2}
+  spotLight: {fileID: 0}
 --- !u!4 &1989311879
 Transform:
   m_ObjectHideFlags: 0

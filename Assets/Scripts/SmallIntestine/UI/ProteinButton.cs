@@ -3,9 +3,9 @@ using System.Collections;
 
 public class ProteinButton : MonoBehaviour 
 {
-	public Texture active;
-	public Texture pressed;
-	public Texture inactive;
+	public Texture activeTexture;
+	public Texture pressedTexture;
+	public Texture inactiveTexture;
 
 	private float buttonTop;
 	private float buttonLeft;
@@ -38,7 +38,7 @@ public class ProteinButton : MonoBehaviour
 		    Application.loadedLevelName == "SmallIntestineTutorial" && PlayerPrefs.GetInt("SIStats_towersPlaced") == 2 &&
 		    PlayerPrefs.GetInt("SIStats_towersUpgraded") < 2)
 		{
-			guiTexture.texture = inactive;
+			guiTexture.texture = inactiveTexture;
 			return;
 		} else if (guiTexture.HitTest(Input.mousePosition) == true || 
 		           Input.touches.Length > 0 && guiTexture.HitTest(Input.touches[0].position) == true)
@@ -47,7 +47,7 @@ public class ProteinButton : MonoBehaviour
 			{
 				if (touch.phase == TouchPhase.Began) 
 				{
-					guiTexture.texture = pressed;
+					guiTexture.texture = pressedTexture;
 					
 					// code to spawn towers
 					if (!towerSpawner.getIsSpawnActive())
@@ -59,13 +59,13 @@ public class ProteinButton : MonoBehaviour
 				}
 				if (touch.phase == TouchPhase.Ended) 
 				{
-					guiTexture.texture = active;
+					guiTexture.texture = activeTexture;
 				}
 			}
 			
 			if(Input.GetMouseButtonDown(0))
 			{
-				guiTexture.texture = pressed;
+				guiTexture.texture = pressedTexture;
 				
 				// code to spawn towers
 				if (!towerSpawner.getIsSpawnActive())
@@ -76,14 +76,14 @@ public class ProteinButton : MonoBehaviour
 				}
 			} else if (Input.GetMouseButtonUp(0)) 
 			{
-				guiTexture.texture = active;
+				guiTexture.texture = activeTexture;
 			} else
 			{
-				guiTexture.texture = active;
+				guiTexture.texture = activeTexture;
 			}
 		} else
 		{
-			guiTexture.texture = active;
+			guiTexture.texture = activeTexture;
 		}
 	}
 }

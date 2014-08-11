@@ -5,7 +5,7 @@ public class openFlap : MonoBehaviour
 {
 	GameObject bottomFlap, topFlap;
 	private bool isOpen;
-	Plane plane;
+	private Plane plane;
 	bool cough = false;
 	float coughTimer, coughTime;
 

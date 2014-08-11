@@ -7,20 +7,20 @@ public class TowerUpgradeTutorial : MonoBehaviour
 	public GameObject zyme;
 	private ZymePopupScript zymeScript;
 
-	bool showZymeSpeed = false;
-	bool showZymePower = false;
+	bool showZymeSpeed;
+	bool showZymePower;
 
 	// a timer for how long to wait before showing the upgrade tutorial
 	public float maxUpgradeTimeSpeed;
 	public float maxUpgradeTimePower;
 	private float elapsedTime;
-	private bool speedUpgraded = false;
-	private bool powerUpgraded = false;
+	private bool speedUpgraded;
+	private bool powerUpgraded;
 
 	// for spawning a spotlight
-	public GameObject light;
+	public GameObject spotLight;
 	private GameObject spawnedLight;
-	private bool lightOn = false;
+	private bool lightOn;
 
 	// for finding the first two towers
 	private GameObject[] towers;
@@ -103,7 +103,7 @@ public class TowerUpgradeTutorial : MonoBehaviour
 			zymeScript.setDraw(false);
 			
 			// destroy the light if it exists
-			if (light != null)
+			if (spotLight != null)
 			{
 				Destroy (spawnedLight.gameObject);
 			}
@@ -125,13 +125,13 @@ public class TowerUpgradeTutorial : MonoBehaviour
 		}
 
 		float towerPositionX = towers[currentTower].transform.position.x;
-		float towerPositionY = light.transform.position.y;
+		float towerPositionY = spotLight.transform.position.y;
 		float towerPositionZ = towers[currentTower].transform.position.z;
 
 		// set the light location to be on the tower
 		Vector3 newLightLoc = new Vector3 (towerPositionX, towerPositionY, towerPositionZ);
 
-		spawnedLight = (GameObject)Instantiate(light);
+		spawnedLight = (GameObject)Instantiate(spotLight);
 		spawnedLight.transform.position = newLightLoc;
 
 		lightOn = true;
