@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PinchToZoom : MonoBehaviour {
-
+public class PinchToZoom : MonoBehaviour 
+{
 	public int speed = 1;
 	public Camera selectedCamera;
 	public float minPinchSpeed = 5.0f;
