@@ -3,6 +3,8 @@ using System.IO;
 using UnityEngine;
 using System.Collections;
 
+// sample loading an audio file using WWW
+// this can be adapted to be used as needed in the story
 public class LoadFileWWW : MonoBehaviour 
 {
 	public string fileName;
@@ -10,8 +12,6 @@ public class LoadFileWWW : MonoBehaviour
 	private WWW w;
 	private AudioSource audioSource;
 	private bool loaded = false;
-
-	private string labelText;
 
 	// Use this for initialization
 	void Start () 
@@ -26,7 +26,7 @@ public class LoadFileWWW : MonoBehaviour
 		if (!loaded && w != null && w.isDone)
 		{
 			loaded = true;
-			AudioClip audioTrack = w.GetAudioClip(false, true);
+			AudioClip audioTrack = w.GetAudioClip(false, true);	// must use this line for it to work on ipad
 			audioSource.clip = audioTrack;
 			audioSource.Play ();
 		}
@@ -34,22 +34,12 @@ public class LoadFileWWW : MonoBehaviour
 
 	void OnGUI()
 	{
+		// when the replay button is clicked we try to load up the audio clip
 		if(GUI.Button(new Rect(Screen.width/2-100, Screen.height/2+75, 200, 50), "Replay"))
 		{
 			string fileURL = Path.Combine(Application.persistentDataPath, fileName);
-			if (File.Exists(fileURL))
-			{
-				labelText = fileURL;
-				Debug.Log (fileURL);
-				w = new WWW("file:///" + fileURL);
-				loaded = false;
-			} else
-			{
-				Debug.Log ("invalid path");
-				labelText = "invalidPath";
-			}
+			w = new WWW("file:///" + fileURL);
+			loaded = false;
 		}
-
-		GUI.Label(new Rect(Screen.width/2-100, Screen.height/2+125, 200, 50), labelText);
 	}
 }

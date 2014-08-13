@@ -6,6 +6,7 @@ public class FoodBlobEffectParticles : MonoBehaviour
 	public GameObject effectParticle;
 	public int numParticlesMin;
 	public int numParticlesMax;
+	private int numAliveChildren;
 	private Color particleColor;
 	private GameObject[] instantiatedEffectParticles;
 
@@ -20,9 +21,11 @@ public class FoodBlobEffectParticles : MonoBehaviour
 		if (Random.value > .5f)
 		{
 			instantiatedEffectParticles = new GameObject[numParticlesMin];
+			numAliveChildren = numParticlesMin;
 		} else
 		{
 			instantiatedEffectParticles = new GameObject[numParticlesMax];
+			numAliveChildren = numParticlesMax;
 		}
 
 		particleColor = color;
@@ -57,6 +60,15 @@ public class FoodBlobEffectParticles : MonoBehaviour
 	void OnTriggerEnter(UnityEngine.Collider obj)
 	{
 		if (obj.gameObject.tag == "Finish")
+		{
+			Destroy(this.gameObject);
+		}
+	}
+
+	public void decreaseAliveChildren()
+	{
+		numAliveChildren--;
+		if (numAliveChildren == 0)
 		{
 			Destroy(this.gameObject);
 		}
