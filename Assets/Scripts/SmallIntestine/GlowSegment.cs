@@ -51,6 +51,10 @@ public class GlowSegment : MonoBehaviour
 			{
 				glowMaterial = (Material)Resources.Load ("Glow/Even/EvenSIGlowMask" + segmentCode, typeof(Material));
 				yield return glowMaterial;
+			} else if (Application.loadedLevelName.Contains("Tutorial"))
+			{
+				glowMaterial = (Material)Resources.Load ("Glow/Tutorial/TutorialSIGlowMask" + segmentCode, typeof(Material));
+				yield return glowMaterial;
 			}
 
 			instantiatedCube.renderer.material = glowMaterial;
