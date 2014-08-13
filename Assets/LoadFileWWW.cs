@@ -11,6 +11,8 @@ public class LoadFileWWW : MonoBehaviour
 	private AudioSource audioSource;
 	private bool loaded = false;
 
+	private string labelText;
+
 	// Use this for initialization
 	void Start () 
 	{
@@ -33,13 +35,20 @@ public class LoadFileWWW : MonoBehaviour
 	{
 		if(GUI.Button(new Rect(Screen.width/2-100, Screen.height/2+75, 200, 50), "Replay"))
 		{
-			w = new WWW("file:///" + Path.Combine(Application.persistentDataPath, fileName));
-			loaded = false;
+			string fileURL = Path.Combine(Application.persistentDataPath, fileName);
+			if (File.Exists(fileURL))
+			{
+				labelText = fileURL;
+				Debug.Log (fileURL);
+				w = new WWW("file:///" + fileURL);
+				loaded = false;
+			} else
+			{
+				Debug.Log ("invalid path");
+				labelText = "invalidPath";
+			}
 		}
 
-		if (loaded == true)
-		{
-			GUI.Label(new Rect(Screen.width/2-100, Screen.height/2+125, 200, 50), w.error);
-		}
+		GUI.Label(new Rect(Screen.width/2-100, Screen.height/2+125, 200, 50), labelText);
 	}
 }
