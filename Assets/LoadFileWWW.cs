@@ -26,7 +26,8 @@ public class LoadFileWWW : MonoBehaviour
 		if (!loaded && w != null && w.isDone)
 		{
 			loaded = true;
-			audioSource.clip = w.audioClip;
+			AudioClip audioTrack = w.GetAudioClip(false, true);
+			audioSource.clip = audioTrack;
 			audioSource.Play ();
 		}
 	}
