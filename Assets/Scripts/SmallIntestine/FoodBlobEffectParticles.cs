@@ -30,7 +30,7 @@ public class FoodBlobEffectParticles : MonoBehaviour
 
 		particleColor = color;
 
-		// spawn 5 particles in a "cloud"
+		// spawn particles in a "cloud"
 		for (int i = 0; i < instantiatedEffectParticles.Length; i++)
 		{
 			instantiatedEffectParticles[i] = (GameObject)Instantiate(effectParticle);
@@ -38,14 +38,30 @@ public class FoodBlobEffectParticles : MonoBehaviour
 			instantiatedEffectParticles[i].transform.parent = gameObject.transform;
 			if (Random.Range (0,2) == 1)
 			{
-				instantiatedEffectParticles[i].GetComponent<EffectParticle>().setDesiredLocation
-					(instantiatedEffectParticles[i].transform.position + 
-						new Vector3(Random.Range(-2.5f, -1.5f), 0f, Random.Range (-2f, 2f)));
+				if (!Application.loadedLevelName.Contains ("Tutorial"))
+				{
+					instantiatedEffectParticles[i].GetComponent<EffectParticle>().setDesiredLocation
+						(instantiatedEffectParticles[i].transform.position + 
+							new Vector3(Random.Range(-2.5f, -1.5f), 0f, Random.Range (-2f, 2f)));
+				} else
+				{
+					instantiatedEffectParticles[i].GetComponent<EffectParticle>().setDesiredLocation
+						(instantiatedEffectParticles[i].transform.position + 
+							new Vector3(Random.Range(-6.0f, -4.5f), 0f, Random.Range (-3f, 3f)));
+				}
 			} else
 			{
-				instantiatedEffectParticles[i].GetComponent<EffectParticle>().setDesiredLocation
-					(instantiatedEffectParticles[i].transform.position + 
-					 new Vector3(Random.Range(2.5f, 1.5f), 0f, Random.Range (-2f, 2f)));
+				if (!Application.loadedLevelName.Contains("Tutorial"))
+				{
+					instantiatedEffectParticles[i].GetComponent<EffectParticle>().setDesiredLocation
+						(instantiatedEffectParticles[i].transform.position + 
+						 new Vector3(Random.Range(2.5f, 1.5f), 0f, Random.Range (-2f, 2f)));
+				} else
+				{
+					instantiatedEffectParticles[i].GetComponent<EffectParticle>().setDesiredLocation
+						(instantiatedEffectParticles[i].transform.position + 
+						 new Vector3(Random.Range(6.0f, 4.5f), 0f, Random.Range (-3f, 3f)));
+				}
 			}
 		}
 	}

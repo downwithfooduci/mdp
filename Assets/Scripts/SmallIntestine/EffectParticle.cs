@@ -55,7 +55,12 @@ public class EffectParticle : MonoBehaviour
 	{
 		if (!moveAndDie)	// only let the particles die once to avoid bouncing around
 		{
-			transform.parent = null;	// remove the particle from the parent
+			if (transform.parent != null)
+			{
+				Transform parent = transform.parent;
+				transform.parent = null;	// remove the particle from the parent
+				parent.GetComponent<FoodBlobEffectParticles>().decreaseAliveChildren();	// to determine when to destroy parent
+			}
 		
 			this.desiredLocation = desiredLocation;
 

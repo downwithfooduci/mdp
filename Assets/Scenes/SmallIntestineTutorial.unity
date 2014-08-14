@@ -432,7 +432,7 @@ Transform:
   - {fileID: 829384699}
   - {fileID: 1367744432}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
 --- !u!1 &117103104
 GameObject:
   m_ObjectHideFlags: 0
@@ -1100,7 +1100,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
 --- !u!114 &199109213
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1845,7 +1845,7 @@ GameObject:
   - 33: {fileID: 397791286}
   - 65: {fileID: 397791285}
   - 114: {fileID: 397791283}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: GlowSegmentB04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1860,7 +1860,7 @@ Transform:
   m_GameObject: {fileID: 397791281}
   m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
   m_LocalPosition: {x: 4.23410988, y: -.489999771, z: -4.55129242}
-  m_LocalScale: {x: 8, y: .600000024, z: 1}
+  m_LocalScale: {x: 8, y: .600000024, z: .00999999978}
   m_Children: []
   m_Father: {fileID: 1651056793}
   m_RootOrder: 3
@@ -1988,7 +1988,7 @@ GameObject:
   - 33: {fileID: 467644740}
   - 65: {fileID: 467644739}
   - 114: {fileID: 467644737}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: GlowSegmentT05
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2003,7 +2003,7 @@ Transform:
   m_GameObject: {fileID: 467644735}
   m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
   m_LocalPosition: {x: 13.5998077, y: -.49000001, z: 13.0119534}
-  m_LocalScale: {x: 9, y: .600000024, z: 1}
+  m_LocalScale: {x: 9, y: .600000024, z: .00999999978}
   m_Children: []
   m_Father: {fileID: 2011628966}
   m_RootOrder: 4
@@ -2050,7 +2050,7 @@ GameObject:
   - 33: {fileID: 493698668}
   - 65: {fileID: 493698667}
   - 114: {fileID: 493698665}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: GlowSegmentT03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2065,7 +2065,7 @@ Transform:
   m_GameObject: {fileID: 493698663}
   m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
   m_LocalPosition: {x: -5.57261705, y: -.49000001, z: 13.0119534}
-  m_LocalScale: {x: 9, y: .600000024, z: 1}
+  m_LocalScale: {x: 9, y: .600000024, z: .00999999978}
   m_Children: []
   m_Father: {fileID: 2011628966}
   m_RootOrder: 2
@@ -2984,7 +2984,7 @@ GameObject:
   - 33: {fileID: 575786030}
   - 65: {fileID: 575786029}
   - 114: {fileID: 575786027}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: GlowSegmentT04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2999,7 +2999,7 @@ Transform:
   m_GameObject: {fileID: 575786025}
   m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
   m_LocalPosition: {x: 3.96939611, y: -.49000001, z: 13.0119534}
-  m_LocalScale: {x: 10, y: .600000024, z: 1}
+  m_LocalScale: {x: 10, y: .600000024, z: .00999999978}
   m_Children: []
   m_Father: {fileID: 2011628966}
   m_RootOrder: 3
@@ -3290,6 +3290,7 @@ GameObject:
   - 114: {fileID: 594913887}
   - 114: {fileID: 594913889}
   - 114: {fileID: 594913888}
+  - 114: {fileID: 594913890}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -3308,7 +3309,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
 --- !u!114 &594913886
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3425,6 +3426,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 29b81d754de3c3f4c92884ca1be28682, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &594913890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 594913884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fb7e0c0ae52e9648887fc9ce60caa40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &652652469
@@ -5179,7 +5191,7 @@ GameObject:
   - 33: {fileID: 897902002}
   - 65: {fileID: 897902001}
   - 114: {fileID: 897901999}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: GlowSegmentB03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5194,7 +5206,7 @@ Transform:
   m_GameObject: {fileID: 897901997}
   m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
   m_LocalPosition: {x: -5.03559542, y: -.489999771, z: -4.55129242}
-  m_LocalScale: {x: 11, y: .600000024, z: 1}
+  m_LocalScale: {x: 11, y: .600000024, z: .00999999978}
   m_Children: []
   m_Father: {fileID: 1651056793}
   m_RootOrder: 2
@@ -5670,7 +5682,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 934755072}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Villi and objects
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7042,7 +7054,7 @@ GameObject:
   - 33: {fileID: 1126795365}
   - 65: {fileID: 1126795364}
   - 114: {fileID: 1126795362}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: GlowSegmentT01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7057,7 +7069,7 @@ Transform:
   m_GameObject: {fileID: 1126795360}
   m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
   m_LocalPosition: {x: -21.5514793, y: -.49000001, z: 13.0119534}
-  m_LocalScale: {x: 8, y: .600000024, z: 1}
+  m_LocalScale: {x: 8, y: .600000024, z: .00999999978}
   m_Children: []
   m_Father: {fileID: 2011628966}
   m_RootOrder: 0
@@ -7428,7 +7440,7 @@ GameObject:
   - 33: {fileID: 1257843784}
   - 65: {fileID: 1257843783}
   - 114: {fileID: 1257843781}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: GlowSegmentB06
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7443,7 +7455,7 @@ Transform:
   m_GameObject: {fileID: 1257843779}
   m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
   m_LocalPosition: {x: 20.2730961, y: -.489999771, z: -4.55129242}
-  m_LocalScale: {x: 8, y: .600000024, z: 1}
+  m_LocalScale: {x: 8, y: .600000024, z: .00999999978}
   m_Children: []
   m_Father: {fileID: 1651056793}
   m_RootOrder: 5
@@ -8521,7 +8533,7 @@ GameObject:
   - 33: {fileID: 1489113984}
   - 65: {fileID: 1489113983}
   - 114: {fileID: 1489113981}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: GlowSegmentB01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8536,7 +8548,7 @@ Transform:
   m_GameObject: {fileID: 1489113979}
   m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
   m_LocalPosition: {x: -22.8298626, y: -.489999771, z: -4.55129242}
-  m_LocalScale: {x: 8, y: .600000024, z: 1}
+  m_LocalScale: {x: 8, y: .600000024, z: .00999999978}
   m_Children: []
   m_Father: {fileID: 1651056793}
   m_RootOrder: 0
@@ -9308,7 +9320,7 @@ Transform:
   - {fileID: 2083680149}
   - {fileID: 573118627}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 7
 --- !u!1 &1644120392
 GameObject:
   m_ObjectHideFlags: 0
@@ -9379,7 +9391,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1651056793}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Bottom wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9613,7 +9625,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 20}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 6
 --- !u!1 &1720112778
 GameObject:
   m_ObjectHideFlags: 0
@@ -10140,7 +10152,7 @@ GameObject:
   - 33: {fileID: 1874142381}
   - 65: {fileID: 1874142380}
   - 114: {fileID: 1874142378}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: GlowSegmentT02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10155,7 +10167,7 @@ Transform:
   m_GameObject: {fileID: 1874142376}
   m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
   m_LocalPosition: {x: -13.8777952, y: -.49000001, z: 13.0119534}
-  m_LocalScale: {x: 8, y: .600000024, z: 1}
+  m_LocalScale: {x: 8, y: .600000024, z: .00999999978}
   m_Children: []
   m_Father: {fileID: 2011628966}
   m_RootOrder: 1
@@ -10342,7 +10354,7 @@ GameObject:
   - 33: {fileID: 1933626661}
   - 65: {fileID: 1933626660}
   - 114: {fileID: 1933626658}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: GlowSegmentB02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10389,7 +10401,7 @@ Transform:
   m_GameObject: {fileID: 1933626657}
   m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
   m_LocalPosition: {x: -14.7930946, y: -.489999771, z: -4.55129242}
-  m_LocalScale: {x: 9, y: .600000024, z: 1}
+  m_LocalScale: {x: 9, y: .600000024, z: .00999999978}
   m_Children: []
   m_Father: {fileID: 1651056793}
   m_RootOrder: 1
@@ -10647,7 +10659,7 @@ GameObject:
   - 33: {fileID: 1964342175}
   - 65: {fileID: 1964342174}
   - 114: {fileID: 1964342172}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: GlowSegmentT06
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10662,7 +10674,7 @@ Transform:
   m_GameObject: {fileID: 1964342170}
   m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
   m_LocalPosition: {x: 21.5514793, y: -.49000001, z: 13.0119534}
-  m_LocalScale: {x: 8, y: .600000024, z: 1}
+  m_LocalScale: {x: 8, y: .600000024, z: .00999999978}
   m_Children: []
   m_Father: {fileID: 2011628966}
   m_RootOrder: 5
@@ -10742,7 +10754,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
 --- !u!114 &1989311880
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10840,7 +10852,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 2011628966}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Top wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11443,7 +11455,7 @@ GameObject:
   - 33: {fileID: 2100711882}
   - 65: {fileID: 2100711881}
   - 114: {fileID: 2100711879}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: GlowSegmentB05
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11458,7 +11470,7 @@ Transform:
   m_GameObject: {fileID: 2100711877}
   m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
   m_LocalPosition: {x: 12.3214254, y: -.489999771, z: -4.55129242}
-  m_LocalScale: {x: 8, y: .600000024, z: 1}
+  m_LocalScale: {x: 8, y: .600000024, z: .00999999978}
   m_Children: []
   m_Father: {fileID: 1651056793}
   m_RootOrder: 4

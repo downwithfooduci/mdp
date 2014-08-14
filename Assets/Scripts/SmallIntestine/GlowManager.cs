@@ -83,7 +83,13 @@ public class GlowManager : MonoBehaviour
 		StartCoroutine(glowScript.onTouch());
 
 		// check for any nearby nutrients
-		absorbNutrients (closestSegment.transform.position, closestSegment.transform.localScale.z);
+		if (!Application.loadedLevelName.Contains("Tutorial"))
+		{
+			absorbNutrients (closestSegment.transform.position, closestSegment.transform.localScale.z);
+		} else
+		{
+			absorbNutrients (closestSegment.transform.position, closestSegment.transform.localScale.x);
+		}
 	}
 
 	GameObject FindClosestSegment(Ray ray) 
