@@ -100,7 +100,7 @@ MonoBehaviour:
     m_FixedHeight: 0
     m_StretchWidth: 1
     m_StretchHeight: 0
-  light: {fileID: 100000, guid: 1442948a1a191554088f21358daf5d72, type: 2}
+  spotLight: {fileID: 100000, guid: ab67f90896ded2a48949301386774b71, type: 2}
   tutorialDelay: 3
 --- !u!114 &11400002
 MonoBehaviour:

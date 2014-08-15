@@ -19,6 +19,8 @@ public class NutrientsTutorial : MonoBehaviour
 	public GameObject spotLight;
 	private GameObject spawnedLight;
 	private bool lightOn = false;
+
+	public Texture finger;
 	
 	public GameObject speedMultiplierTutorial;
 	private bool nextTutorial = false;
@@ -97,7 +99,7 @@ public class NutrientsTutorial : MonoBehaviour
 		if (showTutorial && page1Shown)
 		{
 			zymeScript.setDraw(true);
-			zymeScript.setText("Nutrients are earned \nby absorbing nutrients!");
+			zymeScript.setText("Tap the villi to absorb \nand earn nutrients!");
 			Time.timeScale = .01f;
 
 			if (GUI.Button(new Rect(Screen.width - (.5112f * Screen.height), 
