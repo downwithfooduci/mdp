@@ -6,8 +6,6 @@ public class SpeedMultiplierTutorial : MonoBehaviour
 	// for zyme
 	public GameObject zyme;
 	private ZymePopupScript zymeScript;
-	
-	public GUIStyle gotIt;
 
 	private bool showTutorial;
 	private bool page1Shown;
@@ -50,6 +48,17 @@ public class SpeedMultiplierTutorial : MonoBehaviour
 					}
 				}
 			}
+
+			if (zymeScript.getButtonPressed() && showTutorial)
+			{
+				showTutorial = false;
+				zymeScript.setDraw(false);
+				tutorialOver = true;
+				PlayerPrefs.SetInt("SISpeedTutorial", 0);
+				PlayerPrefs.SetInt("SIFatsTutorial", 1);
+				PlayerPrefs.Save();
+				Time.timeScale = 1;
+			}
 			
 			if (tutorialOver)
 			{
@@ -70,32 +79,15 @@ public class SpeedMultiplierTutorial : MonoBehaviour
 
 	void OnGUI()
 	{
-		gotIt.font = (Font)Resources.Load ("Fonts/JandaManateeSolid");
-		gotIt.fontSize = (int)(20f / 597f * Screen.height);
-		gotIt.alignment = TextAnchor.MiddleCenter;
-
 		if (tutorialReady)
 		{
 			if (showTutorial)
 			{
 				Instantiate(zyme);
 				zymeScript.setDraw(true);
+				zymeScript.setShowButton(true);
 				zymeScript.setText("The stopwatch can be \nused to speed up or slow \ndown the flow of food!");
 				Time.timeScale = .01f;
-				
-				if (GUI.Button(new Rect(Screen.width - (.5112f * Screen.height), 
-				                        (Screen.height * 0.82421875f) - (.15f * Screen.height),
-				                        (.12f * Screen.width),
-				                        (.1f * Screen.height)), "Got it!", gotIt))
-				{
-					showTutorial = false;
-					zymeScript.setDraw(false);
-					tutorialOver = true;
-					PlayerPrefs.SetInt("SISpeedTutorial", 0);
-					PlayerPrefs.SetInt("SIFatsTutorial", 1);
-					PlayerPrefs.Save();
-					Time.timeScale = 1;
-				}
 			}
 		}
 	}

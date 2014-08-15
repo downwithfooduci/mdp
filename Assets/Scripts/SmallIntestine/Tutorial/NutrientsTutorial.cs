@@ -11,17 +11,12 @@ public class NutrientsTutorial : MonoBehaviour
 	private float elapsedTime;
 
 	private bool showTutorial = false;
-	private bool page1Shown = false;
 	private bool tutorialOver = false;
-
-	public GUIStyle gotIt;
 
 	public Texture circle;
 	private bool circleDone;
 	private bool showCircle;
 	public Texture finger;
-
-	private bool nextTutorial = false;
 
 	// Use this for initialization
 	void Start () 
@@ -32,11 +27,6 @@ public class NutrientsTutorial : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-		if (nextTutorial)
-		{
-			return;
-		}
-
 		if (!tutorialOver && PlayerPrefs.GetInt("SIStats_towersUpgraded") > 1)
 		{ 
 			elapsedTime += Time.deltaTime;
@@ -45,6 +35,14 @@ public class NutrientsTutorial : MonoBehaviour
 			{
 				showTutorial = true;
 			}
+		}
+
+		if (zymeScript.getButtonPressed() && showTutorial)
+		{
+			showTutorial = false;
+			zymeScript.setDraw(false);
+			tutorialOver = true;
+			Time.timeScale = 1;
 		}
 
 		if (tutorialOver)
@@ -56,53 +54,18 @@ public class NutrientsTutorial : MonoBehaviour
 
 	void OnGUI()
 	{
-		gotIt.font = (Font)Resources.Load ("Fonts/JandaManateeSolid");
-		gotIt.fontSize = (int)(20f / 597f * Screen.height);
-		gotIt.alignment = TextAnchor.MiddleCenter;
-
-		if (showTutorial && !page1Shown)
+		if (showTutorial)
 		{
 			Instantiate(zyme);
 			zymeScript.setDraw(true);
-			zymeScript.setText("Nutrients are used to \npurchase and upgrade \nenzyme towers!");
+			zymeScript.setShowButton(true);
+			zymeScript.setText("Use nutrients to \npurchase enzyme towers!\n" +
+			                   "Tap the villi to absorb \nnutrients!");
 			Time.timeScale = .01f;
-
-			// show zyme popup
-			if (GUI.Button(new Rect(Screen.width - (.5112f * Screen.height), 
-			                        (Screen.height * 0.82421875f) - (.15f * Screen.height),
-			                        (.12f * Screen.width),
-			                        (.1f * Screen.height)), "Got it!", gotIt))
-			{
-				zymeScript.setDraw(false);
-				page1Shown = true;
-				Time.timeScale = 1;
-			}
 
 			// circle nutrients text
 			GUI.DrawTexture(new Rect(.32f*Screen.width, .8f*Screen.height, .2f*Screen.width, .1f*Screen.height), circle);
+			GUI.DrawTexture(new Rect(.2f*Screen.width, .2f*Screen.height, .25f*Screen.width, .415f*Screen.height), finger);
 		}
-
-		if (showTutorial && page1Shown)
-		{
-			zymeScript.setDraw(true);
-			zymeScript.setText("Tap the villi to absorb \nand earn nutrients!");
-			Time.timeScale = .01f;
-
-			// zyme popup
-			if (GUI.Button(new Rect(Screen.width - (.5112f * Screen.height), 
-			                        (Screen.height * 0.82421875f) - (.15f * Screen.height),
-			                        (.12f * Screen.width),
-			                        (.1f * Screen.height)), "Got it!", gotIt))
-			{
-				showTutorial = false;
-				zymeScript.setDraw(false);
-				tutorialOver = true;
-				Time.timeScale = 1;
-			}
-
-			// circle nutrients text
-			GUI.DrawTexture(new Rect(.2f*Screen.width, .2f*Screen.height, .3f*Screen.width, .5f*Screen.height), finger);
-		}
-
 	}
 }
