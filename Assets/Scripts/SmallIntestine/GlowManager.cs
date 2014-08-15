@@ -56,7 +56,7 @@ public class GlowManager : MonoBehaviour
 		}
 		
 		// if menu box is up don't light
-		if (Time.timeScale < .01f)
+		if (Time.timeScale < .1f)
 		{
 			return;
 		}

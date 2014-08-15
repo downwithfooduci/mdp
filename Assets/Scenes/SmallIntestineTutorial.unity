@@ -3399,7 +3399,7 @@ MonoBehaviour:
     m_StretchHeight: 0
   health: 20
   nutrients: 40
-  NutrientHitScore: 5
+  NutrientHitScore: 2
   NutrientTextColor: {r: 0, g: 0, b: 0, a: 0}
   nutrientsCounter: {fileID: 1032441580}
   healthFace: {fileID: 829384698}

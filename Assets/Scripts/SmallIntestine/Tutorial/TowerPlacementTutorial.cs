@@ -12,6 +12,7 @@ public class TowerPlacementTutorial : MonoBehaviour
 	public float maxArrowTime = 5.0f;
 	private float actualArrowTime = 0f; // find how long the arrow has been up
 	private bool stopForZyme = false;
+	private bool startSecondTimer = false;
 
 	// Use this for initialization
 	void Start () 
@@ -24,12 +25,13 @@ public class TowerPlacementTutorial : MonoBehaviour
 	{
 		actualArrowTime += Time.deltaTime;
 
-		if (actualArrowTime > maxArrowTime && PlayerPrefs.GetInt("SIStats_towersPlaced") == 0)
+		if ((actualArrowTime > maxArrowTime && PlayerPrefs.GetInt("SIStats_towersPlaced") == 0) ||
+		    (actualArrowTime > maxArrowTime && PlayerPrefs.GetInt("SIStats_towersPlaced") == 1))
 		{
 			stopForZyme = true;
 		}
 
-		if (PlayerPrefs.GetInt("SIStats_towersPlaced") == 1)
+		if (PlayerPrefs.GetInt("SIStats_towersPlaced") == 1 || PlayerPrefs.GetInt("SIStats_towersPlaced") == 2)
 		{
 			Time.timeScale = 1;
 		}
@@ -49,15 +51,30 @@ public class TowerPlacementTutorial : MonoBehaviour
 			Time.timeScale = .01f;
 		}
 
-		if (stopForZyme && PlayerPrefs.GetInt("SIStats_towersPlaced") == 1)
+		if (stopForZyme && !startSecondTimer && PlayerPrefs.GetInt("SIStats_towersPlaced") == 1)
 		{
 			stopForZyme = false;
+			actualArrowTime = 0f;
+			startSecondTimer = true;
 			zymeScript.setDraw(false);
 		}
 
-		if (!stopForZyme && PlayerPrefs.GetInt("SIStats_towersPlaced") == 1)
+		if (PlayerPrefs.GetInt("SIStats_towersPlaced") == 1)
 		{
 			GUI.DrawTexture(new Rect(.3f*Screen.width, .62f*Screen.height, .25f*Screen.width, .35f*Screen.height), arrow);
+		}
+
+		if (stopForZyme && startSecondTimer && actualArrowTime > maxArrowTime)
+		{
+			zymeScript.setDraw(true);
+			zymeScript.setText("Place a second Protein \ntower!");
+			Time.timeScale = .01f;
+		}
+
+		if (stopForZyme && PlayerPrefs.GetInt("SIStats_towersPlaced") == 2)
+		{
+			stopForZyme = false;
+			zymeScript.setDraw(false);
 		}
 	}
 }
