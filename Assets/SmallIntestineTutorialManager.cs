@@ -7,6 +7,7 @@ public class SmallIntestineTutorialManager : MonoBehaviour
 	void Start () 
 	{
 		PlayerPrefs.SetInt("SISpeedTutorial", 0);
+		PlayerPrefs.SetInt("SIFatsTutorial", 0);
 		PlayerPrefs.Save();
 	}
 	
