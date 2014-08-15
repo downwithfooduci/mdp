@@ -10841,7 +10841,8 @@ MonoBehaviour:
     m_FixedHeight: 0
     m_StretchWidth: 1
     m_StretchHeight: 0
-  spotLight: {fileID: 100000, guid: ab67f90896ded2a48949301386774b71, type: 2}
+  circle: {fileID: 2800000, guid: be651d5cc54c4b941bb6c6ff19dce74f, type: 3}
+  finger: {fileID: 2800000, guid: da8defddfb929ac47a85de692353bbd9, type: 3}
   speedMultiplierTutorial: {fileID: 100000, guid: e55b95499af4a5d47b98028a39ee4080,
     type: 2}
 --- !u!1 &2011628965

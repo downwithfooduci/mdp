@@ -16,10 +16,9 @@ public class NutrientsTutorial : MonoBehaviour
 
 	public GUIStyle gotIt;
 
-	public GameObject spotLight;
-	private GameObject spawnedLight;
-	private bool lightOn = false;
-
+	public Texture circle;
+	private bool circleDone;
+	private bool showCircle;
 	public Texture finger;
 	
 	public GameObject speedMultiplierTutorial;
@@ -46,30 +45,14 @@ public class NutrientsTutorial : MonoBehaviour
 			if (elapsedTime > tutorialDelay)
 			{
 				showTutorial = true;
-				if (!lightOn)
-				{
-					spawnLightOnNutrients ();
-				}
 			}
 		}
 
 		if (tutorialOver)
 		{
-			Destroy(spawnedLight.gameObject);
 			Instantiate(speedMultiplierTutorial);
 			nextTutorial = true;
 		}
-	}
-
-	void spawnLightOnNutrients()
-	{
-		// set the light location to be on the tower
-		Vector3 newLightLoc = new Vector3 (-2.46f, 5f, -14.22f);
-		
-		spawnedLight = (GameObject)Instantiate(spotLight);
-		spawnedLight.transform.position = newLightLoc;
-		
-		lightOn = true;
 	}
 
 	void OnGUI()
@@ -85,6 +68,7 @@ public class NutrientsTutorial : MonoBehaviour
 			zymeScript.setText("Nutrients are used to \npurchase and upgrade \nenzyme towers!");
 			Time.timeScale = .01f;
 
+			// show zyme popup
 			if (GUI.Button(new Rect(Screen.width - (.5112f * Screen.height), 
 			                        (Screen.height * 0.82421875f) - (.15f * Screen.height),
 			                        (.12f * Screen.width),
@@ -94,6 +78,9 @@ public class NutrientsTutorial : MonoBehaviour
 				page1Shown = true;
 				Time.timeScale = 1;
 			}
+
+			// circle nutrients text
+			GUI.DrawTexture(new Rect(.32f*Screen.width, .8f*Screen.height, .2f*Screen.width, .1f*Screen.height), circle);
 		}
 
 		if (showTutorial && page1Shown)
@@ -102,6 +89,7 @@ public class NutrientsTutorial : MonoBehaviour
 			zymeScript.setText("Tap the villi to absorb \nand earn nutrients!");
 			Time.timeScale = .01f;
 
+			// zyme popup
 			if (GUI.Button(new Rect(Screen.width - (.5112f * Screen.height), 
 			                        (Screen.height * 0.82421875f) - (.15f * Screen.height),
 			                        (.12f * Screen.width),
@@ -112,6 +100,9 @@ public class NutrientsTutorial : MonoBehaviour
 				tutorialOver = true;
 				Time.timeScale = 1;
 			}
+
+			// circle nutrients text
+			GUI.DrawTexture(new Rect(.2f*Screen.width, .2f*Screen.height, .3f*Screen.width, .5f*Screen.height), finger);
 		}
 
 	}
