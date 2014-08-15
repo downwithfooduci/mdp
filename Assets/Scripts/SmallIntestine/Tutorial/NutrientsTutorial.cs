@@ -20,8 +20,7 @@ public class NutrientsTutorial : MonoBehaviour
 	private bool circleDone;
 	private bool showCircle;
 	public Texture finger;
-	
-	public GameObject speedMultiplierTutorial;
+
 	private bool nextTutorial = false;
 
 	// Use this for initialization
@@ -50,8 +49,8 @@ public class NutrientsTutorial : MonoBehaviour
 
 		if (tutorialOver)
 		{
-			Instantiate(speedMultiplierTutorial);
-			nextTutorial = true;
+			PlayerPrefs.SetInt("SISpeedTutorial", 1);
+			PlayerPrefs.Save();
 		}
 	}
 

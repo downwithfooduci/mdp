@@ -12,6 +12,7 @@ public class SpeedMultiplierTutorial : MonoBehaviour
 	private bool showTutorial;
 	private bool page1Shown;
 	private bool tutorialOver;
+	private bool tutorialReady;
 
 	public GameObject spotLight;
 	private GameObject spawnedLight;
@@ -29,23 +30,31 @@ public class SpeedMultiplierTutorial : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-		if (!tutorialOver)
-		{ 
-			elapsedTime += Time.deltaTime;
-			
-			if (elapsedTime > tutorialDelay)
-			{
-				showTutorial = true;
-				if (!lightOn)
+		if (PlayerPrefs.GetInt("SISpeedTutorial") == 1)
+		{
+			tutorialReady = true;
+		}
+
+		if (tutorialReady)
+		{
+			if (!tutorialOver)
+			{ 
+				elapsedTime += Time.deltaTime;
+				
+				if (elapsedTime > tutorialDelay)
 				{
-					spawnLightOnSpeed ();
+					showTutorial = true;
+					if (!lightOn)
+					{
+						spawnLightOnSpeed ();
+					}
 				}
 			}
-		}
-		
-		if (tutorialOver)
-		{
-			Destroy(spawnedLight.gameObject);
+			
+			if (tutorialOver)
+			{
+				Destroy(spawnedLight.gameObject);
+			}
 		}
 	}
 
@@ -65,22 +74,27 @@ public class SpeedMultiplierTutorial : MonoBehaviour
 		gotIt.fontSize = (int)(20f / 597f * Screen.height);
 		gotIt.alignment = TextAnchor.MiddleCenter;
 
-		if (showTutorial)
+		if (tutorialReady)
 		{
-			Instantiate(zyme);
-			zymeScript.setDraw(true);
-			zymeScript.setText("The stopwatch can be \nused to speed up or slow \ndown the flow of food!");
-			Time.timeScale = .01f;
-			
-			if (GUI.Button(new Rect(Screen.width - (.5112f * Screen.height), 
-			                        (Screen.height * 0.82421875f) - (.15f * Screen.height),
-			                        (.12f * Screen.width),
-			                        (.1f * Screen.height)), "Got it!", gotIt))
+			if (showTutorial)
 			{
-				showTutorial = false;
-				zymeScript.setDraw(false);
-				tutorialOver = true;
-				Time.timeScale = 1;
+				Instantiate(zyme);
+				zymeScript.setDraw(true);
+				zymeScript.setText("The stopwatch can be \nused to speed up or slow \ndown the flow of food!");
+				Time.timeScale = .01f;
+				
+				if (GUI.Button(new Rect(Screen.width - (.5112f * Screen.height), 
+				                        (Screen.height * 0.82421875f) - (.15f * Screen.height),
+				                        (.12f * Screen.width),
+				                        (.1f * Screen.height)), "Got it!", gotIt))
+				{
+					showTutorial = false;
+					zymeScript.setDraw(false);
+					tutorialOver = true;
+					PlayerPrefs.SetInt("SISpeedTutorial", 0);
+					PlayerPrefs.Save();
+					Time.timeScale = 1;
+				}
 			}
 		}
 	}
