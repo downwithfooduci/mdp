@@ -1,7 +1,8 @@
 using UnityEngine;
 
-public class GameConfig : MonoBehaviour {
-
+// some initialization for the overall game
+public class GameConfig : MonoBehaviour 
+{
 	// Use this for initialization
 	void Start () 
 	{

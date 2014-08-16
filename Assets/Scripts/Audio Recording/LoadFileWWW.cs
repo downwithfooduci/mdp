@@ -23,12 +23,14 @@ public class LoadFileWWW : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
+		// if the replay button was clicked and there was a file that was loaded off the
+		// harddrive it will be played
 		if (!loaded && w != null && w.isDone)
 		{
-			loaded = true;
+			loaded = true;										// set loaded to true so we don't go in this file again
 			AudioClip audioTrack = w.GetAudioClip(false, true);	// must use this line for it to work on ipad
-			audioSource.clip = audioTrack;
-			audioSource.Play ();
+			audioSource.clip = audioTrack;						// set the loaded file to the audioSource
+			audioSource.Play ();								// play the audio clip
 		}
 	}
 
@@ -38,7 +40,7 @@ public class LoadFileWWW : MonoBehaviour
 		if(GUI.Button(new Rect(Screen.width/2-100, Screen.height/2+75, 200, 50), "Replay"))
 		{
 			string fileURL = Path.Combine(Application.persistentDataPath, fileName);
-			w = new WWW("file:///" + fileURL);
+			w = new WWW("file:///" + fileURL);		// when loading a file we need to append "file:///" to the path
 			loaded = false;
 		}
 	}

@@ -1,10 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+// debug features for the main menu
+// access to these features should be removed for any release versions
 public class MainMenuDebug : MonoBehaviour 
 {
+	// boolean to enable or disable the debug menu
 	private bool debugEnabled = false;
 
+	// use for initialization
 	void Start(){}
 
 	// Update is called once per frame
@@ -12,16 +16,20 @@ public class MainMenuDebug : MonoBehaviour
 
 	void OnGUI()
 	{
+		// draw the debug button in the upper left corner
+		// TODO: this is the part that should be removed in release versions
+		// do this by commenting out drawing the button
 		if (GUI.Button(new Rect(0, 0, 
 		                        100, 50), "Debug"))
 		{
-		//TODO: disable/reenable debug
+		//disable/reenable debug
 			debugEnabled = !debugEnabled;
 		}
 
+		// if the debug menu button is clicked, it enables showing the below options:
 		if (debugEnabled == true)
 		{
-			GUI.depth--;
+			GUI.depth--;	// this ensures the debug menu is visible above the main menu background texture
 /***********************************************************
  * List all games for selection
  * ********************************************************/

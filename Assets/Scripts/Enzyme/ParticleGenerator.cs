@@ -2,8 +2,7 @@
 using System.Collections;
 
 public class ParticleGenerator : MonoBehaviour
-{
-	
+{	
 	public GameObject parentCylCyl;
 	public GameObject parentCylCap;
 	public GameObject parentCylSphere;
