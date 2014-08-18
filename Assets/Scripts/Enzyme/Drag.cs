@@ -10,7 +10,7 @@ public class Drag : MonoBehaviour
 	void Start ()
 	{
 		Input.multiTouchEnabled = true;	// need to enable multitouch since we are using two fingers to drag
-		left = true;					
+		left = true;					// direction the enzyme guy is facing (IPAD ONLY)			
 	}
 
 	void Awake () {}
@@ -48,6 +48,7 @@ public class Drag : MonoBehaviour
 				Vector3 direction = Vector3.Cross (differenceVector, crossVector);
 				Vector3 middle = low + (differenceVector / 2);
 
+				// set the direction the enzyme guy is facing (IPAD ONLY)
 				if(middle.x - transform.position.x < -.05)
 				{
 					left = true;
