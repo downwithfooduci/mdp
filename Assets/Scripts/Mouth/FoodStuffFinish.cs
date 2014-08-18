@@ -1,48 +1,55 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+// script to determine what happens when the "foodstuff" reaches the end point of the track
 public class FoodStuffFinish : MonoBehaviour 
 {
-	SpawnFood foodSpawner;
-	MouthScore score;
+	private SpawnFood foodSpawner;	// to hold a reference to the foodSpawner
+	private MouthScore score;		// to hold a reference to the mouthScore
 
 	// Use this for initialization
 	void Start () 
 	{
-		GameObject mouthGUI = GameObject.Find("MouthGUI");
-		score = mouthGUI.GetComponent<MouthScore>();
-		foodSpawner = GameObject.Find("FoodSpawner").GetComponent<SpawnFood>();
+		GameObject mouthGUI = GameObject.Find("MouthGUI");						// find the mouth GUI
+		score = mouthGUI.GetComponent<MouthScore>();							// get the score off the gui
+		foodSpawner = GameObject.Find("FoodSpawner").GetComponent<SpawnFood>();	// find the foodSpawner
 	}
 	
 	// Update is called once per frame
 	void Update () {}
 
+	// on trigger enter is called when the object enters into a collision with another object with a collider
 	void OnTriggerEnter(UnityEngine.Collider obj)
 	{
-		// check if we got the food through the mouth
+		// check if we got the food through the mouth by seeing if we collided with the end point
 		if (obj.gameObject.tag == "MouthEnd")
 		{
-			score.collectFood();
-			OnEndPointCollision();
+			score.collectFood();		// increase the score if we successfully swallowed the food
+			OnEndPointCollision();		// handle cleaning up unused assets
 		}
 	}
 
 	void OnEndPointCollision()
 	{
-		//TODO: Make Different Levels and Transition Between Them
-		GameObject[] foodstuff = GameObject.FindGameObjectsWithTag("MouthFood");
-		if(foodstuff.Length == 1 && foodSpawner.end)
+		GameObject[] foodstuff = GameObject.FindGameObjectsWithTag("MouthFood"); // find all foodstuff on the game
+	
+		// check if there are any foodstuff left
+		if(foodstuff.Length == 1 && foodSpawner.end)	// if this is the last foodstuff, then we won
 		{
 			// handle win condition
-			GameObject chooseBackground = GameObject.Find("MouthChooseBackground");
-			if (chooseBackground != null)
+			GameObject chooseBackground = GameObject.Find("MouthChooseBackground");	// find the background chooser for
+														// the level selection texture
+
+			if (chooseBackground != null)				// if we found the background chooser get the level
 			{
 				MouthLoadLevelCounter  level = chooseBackground.GetComponent<MouthLoadLevelCounter>();
-				level.nextLevel();
-			} 
-			Application.LoadLevel("MouthStats");
+				level.nextLevel();						// increase the level counter to correctly load the next 
+														// level (if there is one)
+			}
+
+			Application.LoadLevel("MouthStats");		// load the stats screen for the completed level
 		}
-		else
+		else 	// otherwise if there are more food stuff just destroy the current one that hit the end point
 		{
 			Destroy(this.gameObject);
 		}

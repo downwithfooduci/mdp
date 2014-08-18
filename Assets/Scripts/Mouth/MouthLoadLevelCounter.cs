@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+// script class that helps with loading and keeping track of the proper mouth level
 public class MouthLoadLevelCounter : MonoBehaviour 
 {
-	private int level;
-	private int MAX_LEVEL = 2; // for bounds checking
+	private int level;			// variable to hold the level
+	public int MAX_LEVEL = 2; 	// for bounds checking
 
 	// Use this for initialization
 	void Start () 

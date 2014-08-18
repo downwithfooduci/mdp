@@ -85,7 +85,6 @@ GameObject:
   - 33: {fileID: 40803248}
   - 64: {fileID: 40803247}
   - 23: {fileID: 40803246}
-  - 114: {fileID: 40803251}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Untagged
@@ -145,17 +144,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 8
---- !u!114 &40803251
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 40803245}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 191d33b4b4bc5e84892c914e6926d891, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &118777431
 GameObject:
   m_ObjectHideFlags: 0
@@ -991,7 +979,6 @@ GameObject:
   - 4: {fileID: 962206048}
   - 33: {fileID: 962206047}
   - 65: {fileID: 962206046}
-  - 23: {fileID: 962206045}
   - 114: {fileID: 962206049}
   m_Layer: 0
   m_Name: flap1
@@ -1000,26 +987,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!23 &962206045
-Renderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 962206044}
-  m_Enabled: 0
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_LightmapIndex: 255
-  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
-  m_Materials:
-  - {fileID: 2100000, guid: 855558b1ed93842ec94220cda0ed0c72, type: 2}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 0
-  m_LightProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
 --- !u!65 &962206046
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1072,7 +1039,6 @@ GameObject:
   - 4: {fileID: 987063376}
   - 33: {fileID: 987063375}
   - 65: {fileID: 987063374}
-  - 23: {fileID: 987063373}
   m_Layer: 0
   m_Name: MouthEnd
   m_TagString: MouthEnd
@@ -1080,26 +1046,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!23 &987063373
-Renderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 987063372}
-  m_Enabled: 0
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_LightmapIndex: 255
-  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
-  m_Materials:
-  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 0
-  m_LightProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
 --- !u!65 &987063374
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1169,7 +1115,6 @@ GameObject:
   - 4: {fileID: 1159582898}
   - 33: {fileID: 1159582901}
   - 65: {fileID: 1159582900}
-  - 23: {fileID: 1159582899}
   - 114: {fileID: 1159582902}
   m_Layer: 0
   m_Name: flap2
@@ -1190,26 +1135,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 118777432}
   m_RootOrder: 1
---- !u!23 &1159582899
-Renderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1159582897}
-  m_Enabled: 0
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_LightmapIndex: 255
-  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
-  m_Materials:
-  - {fileID: 2100000, guid: 855558b1ed93842ec94220cda0ed0c72, type: 2}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 0
-  m_LightProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
 --- !u!65 &1159582900
 BoxCollider:
   m_ObjectHideFlags: 0
