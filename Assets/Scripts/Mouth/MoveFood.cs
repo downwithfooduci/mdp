@@ -1,48 +1,62 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+// script that handles moving the food down the "track"
 public class MoveFood : MonoBehaviour 
 {
-	openFlap flap;
-	GameObject flaps;
-	public float pathPosition, reversePosition;
-	public float foodSpeed;
-	public float coughSpeed;
+	private GameObject flaps;			// to hold a reference to the flaps in the game
+	private openFlap flap;				// to hold a reference to the openFlap script attached to the flaps
+
+	public float pathPosition, reversePosition;	// for ITween path position and the reverse position
+	public float foodSpeed;						// for the speed the food moves along the path
+	public float coughSpeed;					// for the speed the food moves in reverse down the path (for cough)
+
 	private SmoothQuaternion quaternion;
-	EsophagusDebugConfig debugConfig;
+
+	EsophagusDebugConfig debugConfig;	// to hold a reference to the mouth debug config
 
 	// Use this for initialization
 	void Start () 
 	{
-		GameObject flaps = GameObject.Find ("Flaps");
-		flap = flaps.GetComponent<openFlap>();
+		GameObject flaps = GameObject.Find ("Flaps");									// find the reference to the flaps
+		flap = flaps.GetComponent<openFlap>();											// find the script on the flaps
 
 		quaternion = transform.rotation;
 		quaternion.Duration = .5f;
-		debugConfig = GameObject.Find("Debugger").GetComponent<EsophagusDebugConfig>();
+
+		debugConfig = GameObject.Find("Debugger").GetComponent<EsophagusDebugConfig>();	// find the reference to the debugger
 	}
 	
 	// Update is called once per frame
 	void Update () 
 	{
+		// check if we are using the debugger for values, and if we are the food speed is taken from the debugger
+		// rather than from the script
 		if(debugConfig != null && debugConfig.debugActive)
-			foodSpeed = debugConfig.foodSpeed;
-		Quaternion q = transform.rotation;
-		if(flap.isCough())
 		{
+			foodSpeed = debugConfig.foodSpeed;
+		}
+
+		Quaternion q = transform.rotation;
+		if(flap.isCough())						// if a cough is currently occuring
+		{
+			// reverse the path and set the "corrected" forward path position based on this reversed path
 			transform.position = Spline.MoveOnPath(iTweenPath.GetPathReversed("Path"), transform.position, ref reversePosition, ref q, coughSpeed,100,EasingType.Linear,false,false);
 			pathPosition = 1f - reversePosition;
-			if(reversePosition > .99f)
+
+			if(reversePosition > .99f)			// check if food near the mouth opening "fell out" of the mouth
+												// if it did then we destroy this food and don't allow it to come back
 			{
 				// track stats
 				PlayerPrefs.SetInt("MouthStats_foodLost", PlayerPrefs.GetInt("MouthStats_foodLost") + 1);
-				PlayerPrefs.Save ();
+				PlayerPrefs.Save ();			// needs to be called to write playerprefs data to disk
 
-				Destroy (gameObject);
+				Destroy (gameObject);			// destroy the food that fell out
 			}
 		}
-		else
+		else 									// if a cough is not occuring
 		{
+			// move the food down the normal path and set the "corrected" reverse path position based  on this 
 			transform.position = Spline.MoveOnPath(iTweenPath.GetPath("Path"), transform.position, ref pathPosition, ref q, foodSpeed,100,EasingType.Linear,false,false);
 			reversePosition = 1f - pathPosition;
 		}

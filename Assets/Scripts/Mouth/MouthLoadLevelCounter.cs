@@ -10,33 +10,42 @@ public class MouthLoadLevelCounter : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
-		level = PlayerPrefs.GetInt ("DesiredMouthLevel");
+		level = PlayerPrefs.GetInt ("DesiredMouthLevel");		// pull the desired mouth level from playerprefs
 		
-		if (level != -1)
+		if (level != -1)										// check if the level is -1
+																// -1 means that we are starting the game fresh
 		{
 			// reset the variable for later use
-			PlayerPrefs.SetInt("DesiredMouthLevel", -1);
+			PlayerPrefs.SetInt("DesiredMouthLevel", -1);		// after we read rewrite the default value to stats
 			PlayerPrefs.Save ();
 		} else
 		{
-			// if it was -1 then we are starting as normal
+			// if it was -1 then we are starting as normal which means the current level is 1
 			level = 1;
 		}
-		
+
+		// find if there is more than one background chooser alive, if there is destroy this one
 		if (GameObject.FindGameObjectsWithTag ("mouthBackgroundChooser").Length > 1)
+		{
 			Destroy (gameObject);
+		}
 	}
 	
 	// Update is called once per frame
 	void Update () 
 	{
-		string scene = Application.loadedLevelName;
+		string scene = Application.loadedLevelName;	// get the name of the current scene to verify we should use this
+
+		// if we are not in a valid scene for using the mouth load level counter, destroy this
 		if (scene != "LoadLevelMouth" && scene != "Mouth" && scene != "MouthStats")
+		{
 			Destroy (gameObject);
+		}
 	}
 
 	void Awake() 
 	{
+		// this prevents this gameobject from being destroyed when we switch scenes
 		DontDestroyOnLoad(transform.gameObject);
 	}
 	
@@ -45,6 +54,7 @@ public class MouthLoadLevelCounter : MonoBehaviour
 	 * */
 	public void manualSetLevel(int newLevel)
 	{
+		// check if the desired level is valid, and if it is allow the change
 		if (newLevel > 0 && newLevel <= MAX_LEVEL)
 		{
 			level = newLevel;
@@ -56,24 +66,24 @@ public class MouthLoadLevelCounter : MonoBehaviour
 	 * */
 	public void nextLevel()
 	{
-		level++;
+		level++;	// just increase the level count by 1
 	}
 	
 	/*
-	 * For reseeting game
+	 * For reseting game
 	 * */
 	public void resetLevel()
 	{
-		level = 1;
+		level = 1;	// resetting means we should be back on level 1
 	}
 	
 	public int getLevel()
 	{
-		return level;
+		return level;	// just return the value of the level variable
 	}
 	
 	public int getMaxLevels()
 	{
-		return MAX_LEVEL;
+		return MAX_LEVEL;	// just return the value of the MAX_LEVEL bounds checker
 	}
 }

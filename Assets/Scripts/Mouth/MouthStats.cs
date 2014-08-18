@@ -1,29 +1,30 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+// script to control the mouth stats tracker
 public class MouthStats : MonoBehaviour 
 {
 	// for drawing stars
-	public Texture filledStar;
-	public Texture emptyStar;
+	public Texture filledStar;				// texture of the filled star for mouth stats
+	public Texture emptyStar;				// texture of the empty star for mouth stats
 	
 	// for drawing next level button
-	public GUIStyle nextLevelButton;
+	public GUIStyle nextLevelButton;		// hold the style for the next level button
 	
-	private int numStars = 1;
+	private int numStars = 1;				// the default number of stars is 1
 
 	// for holding level
-	private GameObject counter;
-	private MouthLoadLevelCounter level;
+	private GameObject counter;				// to hold a refernece to the counter
+	private MouthLoadLevelCounter level;	// to hold a reference to the mouthloadlevelcounter script
 
-	// variables to hold stats, should coincide with variables in TrackStatVariables.cs
+	// variables to hold stats
 	// list desired stats for tracking here
-	int longestStreak;
-	int timesCoughed;
-	int foodLost;
-	int foodSwallowed;
-	int highestMultiplier;
-	int score;
+	private int longestStreak;
+	private int timesCoughed;
+	private int foodLost;
+	private int foodSwallowed;
+	private int highestMultiplier;
+	private int score;
 
 	// for high scores
 	int prevHighScore;
@@ -32,16 +33,17 @@ public class MouthStats : MonoBehaviour
 	void Start () 
 	{
 		// pull up the level counter
-		counter = GameObject.Find ("MouthChooseBackground");
-		level = counter.GetComponent<MouthLoadLevelCounter> ();
+		counter = GameObject.Find ("MouthChooseBackground");		// find the reference to the MouthChooseBackground
+		level = counter.GetComponent<MouthLoadLevelCounter> ();		// get the MouthLoadLevelScript on the background chooser
 
-		populateStats();
-		calculateStars();
-		resetStats ();
+		populateStats();		// look up the stats we are tracking from the data saved on disk
+		calculateStars();		// calculate the # of stars earned based on the stats pulled up
 	}
 	
 	void populateStats()
 	{
+		// populate the stats by pulling them from the saved data on disk with playerprefs and storing them in
+		// temporary variables
 		longestStreak = PlayerPrefs.GetInt("MouthStats_longestStreak");
 		timesCoughed = PlayerPrefs.GetInt("MouthStats_timesCoughed");
 		foodLost = PlayerPrefs.GetInt("MouthStats_foodLost");
@@ -51,49 +53,41 @@ public class MouthStats : MonoBehaviour
 	}
 	
 	// placeholder algorithm
+	// currently stars are calculated only from the number of times coughed
 	void calculateStars()
 	{
-		if (timesCoughed == 0)
+		if (timesCoughed == 0)			// if there were 0 coughs recorded the score is 5 stars
 		{
 			numStars = 5;
-		} else if (timesCoughed == 1)
+		} else if (timesCoughed == 1)	// if there was 1 cough recorded the score is 4 stars
 		{
 			numStars = 4;
-		} else if (timesCoughed == 2)
+		} else if (timesCoughed == 2)	// if there were 2 coughs recorded the score is 3 stars
 		{
 			numStars = 3;
-		} else if (timesCoughed == 3)
+		} else if (timesCoughed == 3)	// if there were 3 coughs recorded the score is 2 stars
 		{
 			numStars = 2;
-		} else
+		} else 							// any other number of coughs is 1 star
 		{
 			numStars = 1;
 		}
 
-		saveHighScore();
+		saveHighScore();				// save this score if it's the highest to have an overall high score data
 	}
 
-	void resetStats()
-	{
-		PlayerPrefs.DeleteKey("MouthStats_longestStreak");
-		PlayerPrefs.DeleteKey("MouthStats_timesCoughed");
-		PlayerPrefs.DeleteKey("MouthStats_foodLost");
-		PlayerPrefs.DeleteKey("MouthStats_foodSwallowed");
-		PlayerPrefs.DeleteKey("MouthStats_highestMultiplier");
-		PlayerPrefs.DeleteKey("MouthStats_score");
-		PlayerPrefs.Save();
-	}
-
+	// this function checks if the score earned on this level this time is the highest score EVER
 	void saveHighScore()
 	{
-		prevHighScore = PlayerPrefs.GetInt ("Mouth" + (level.getLevel() - 1));
+		prevHighScore = PlayerPrefs.GetInt ("Mouth" + (level.getLevel() - 1));	// get the old saved high score
 
 		// check if high score
 		if (prevHighScore < numStars)
 		{
 			// if it is the high score save it
 			prevHighScore = numStars;
-			PlayerPrefs.SetInt("Mouth" + (level.getLevel() - 1), numStars);
+			PlayerPrefs.SetInt("Mouth" + (level.getLevel() - 1), numStars);		// save the score
+			PlayerPrefs.Save();				// needs to be called to write the data to disk
 		}
 	}
 	
@@ -103,10 +97,11 @@ public class MouthStats : MonoBehaviour
 	void OnGUI()
 	{
 		// Draw the number of stars text
-		GUIStyle starStyle = new GUIStyle ();
-		starStyle.font = (Font)Resources.Load ("Fonts/JandaManateeSolid");
-		starStyle.normal.textColor = Color.yellow;
-		starStyle.fontSize = (int)(34f / 597f * Screen.height);
+		GUIStyle starStyle = new GUIStyle ();									// create new style
+		starStyle.font = (Font)Resources.Load ("Fonts/JandaManateeSolid");		// set font style
+		starStyle.normal.textColor = Color.yellow;								// set font color
+		starStyle.fontSize = (int)(34f / 597f * Screen.height);					// set a relative font size
+		// draw the text indicating the number of stars in the specified area
 		GUI.Label(new Rect((290f/1024f)*Screen.width, (138f/768f)*Screen.height, (100f/1024f)*Screen.width,
 		                   (100f/768f)*Screen.height), "" + numStars, starStyle);
 		
@@ -175,11 +170,12 @@ public class MouthStats : MonoBehaviour
 		
 		
 		// Draw the stats text
-		GUIStyle statsStyle = new GUIStyle ();
-		statsStyle.font = (Font)Resources.Load ("Fonts/JandaManateeSolid");
-		statsStyle.normal.textColor = Color.yellow;
-		statsStyle.fontSize = (int)(20f / 597f * Screen.height);
-		
+		GUIStyle statsStyle = new GUIStyle ();									// create a new style
+		statsStyle.font = (Font)Resources.Load ("Fonts/JandaManateeSolid");		// set the font
+		statsStyle.normal.textColor = Color.yellow;								// set the font color
+		statsStyle.fontSize = (int)(20f / 597f * Screen.height);				// set the font relative size
+
+		// create 2 labels to display the stats in text
 		GUI.Label(new Rect((600f/1024f)*Screen.width, (90f/768f)*Screen.height, (((961f-27f)-600f)/1024f)*Screen.width,
 		                   ((520f-90f)/768f)*Screen.height), 
 		          "Longest Streak:\n" +
@@ -192,6 +188,7 @@ public class MouthStats : MonoBehaviour
 		          "\n" +						//TODO: move this somehwere?
 		          " High Score:",				//TODO: move this somewhere?
 		          statsStyle);
+		// this second label is needed to line up everything since we aren't using a fixed size font
 		GUI.Label(new Rect((820f/1024f)*Screen.width, (90f/768f)*Screen.height, (((961f-27f)-600f)/1024f)*Screen.width,
 		                   ((520f-90f)/768f)*Screen.height), 
 		          "" + longestStreak + "\n" +
@@ -204,17 +201,19 @@ public class MouthStats : MonoBehaviour
 		          "\n" + 						//TODO: move this somewhere?
 		          "" + prevHighScore,			//TODO: move this somewhere?
 		          statsStyle);
-		// draw the button for next level
+
+		// draw the button for next level in the specified area of the screen
 		if (GUI.Button(new Rect((635f/1024f)*Screen.width, (535f/768f)*Screen.height,
 		                        ((905f-635f)/1024f)*Screen.width, ((665f-535f)/768f)*Screen.height), "", nextLevelButton))
 		{
 			// make sure to not show the load screen after we're done
 			if (level.getLevel() > level.getMaxLevels())
 			{
-				Application.LoadLevel("SmallIntestineStoryboard");
+				Application.LoadLevel("SmallIntestineStoryboard");	// if the mouth game is done then we load the small
+																	// intestine story
 			} else
 			{
-				Application.LoadLevel("LoadLevelMouth");
+				Application.LoadLevel("LoadLevelMouth");			// if there are more mouth levels than load the next one
 			}
 		}
 	}
