@@ -1,8 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+
+// script to hold debug config variables for the mouth game
 public class EsophagusDebugConfig : MonoBehaviour 
 {
+	// list of all debug config values with default values
 	public float oxygenDeplete = .05f;
 	public float oxygenGain = .05f;
 	public bool debugActive = false;
