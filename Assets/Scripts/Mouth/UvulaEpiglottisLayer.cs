@@ -1,23 +1,31 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class UvulaEpiglottisLayer : MonoBehaviour {
-	public Texture[] epiglottis, uvula;
-	openFlap epiglottisObject;
+// script to handle drawing the uvula and epiglottis textures
+public class UvulaEpiglottisLayer : MonoBehaviour 
+{
+	public Texture[] epiglottis, uvula;			// to hold the textures for the epiglottis and uvula
+	private openFlap epiglottisObject;			// to hold the reference to the openFlap script on the flaps
+
 	// Use this for initialization
-	void Start () {
+	void Start () 
+	{
+		// find the reference to the flaps and get the script reference from it
 		epiglottisObject = GameObject.Find("Flaps").GetComponent<openFlap>();
 	}
 	
 	// Update is called once per frame
-	void Update () {
-	
-	}
+	void Update () {}
 
-	void OnGUI(){
-		GUI.depth++;
+	void OnGUI()
+	{
+		GUI.depth++;		// change the gui depth to draw at for proper layering of gui elements
+	
+		// draw the proper epiglottis texture, the size of the screen, based on whether the flaps are open or closed
 		GUI.DrawTexture(new Rect(0,0,Screen.width, Screen.height),
 		                epiglottis[epiglottisObject.isEpiglotisOpen() ? 1 : 0]);
+
+		// draw the proper uvula texture in the size of the screen, based on whether the flaps are open or closed
 		GUI.DrawTexture(new Rect(0,0,Screen.width, Screen.height),
 		                uvula[epiglottisObject.isEpiglotisOpen() ? 1 : 0]);
 	}

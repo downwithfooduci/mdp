@@ -1,27 +1,31 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+// script that handles opening and closing the uvula and epiglottis flaps in the mouth game
 public class openFlap : MonoBehaviour 
 {
-	GameObject bottomFlap, topFlap;
-	private bool isOpen;
-	bool cough = false;
-	float coughTimer;
+	private GameObject bottomFlap, topFlap;		// to hold references to the top and bottom flaps
+	private bool isOpen;						// flag to signify whether the flaps are "open" or "closed"
+
+	private bool cough = false;					// flag to signify whether a cough action is currently occuring
+	private float coughTimer;					// a timer for how long the food should move in a reversed direction 
+												// during a cough
 
 	// swipe varaibles
-	private float xStart = 0.0f;
-	private float xEnd = 0.0f;
-	private float yStart = 0.0f;
-	private float yEnd = 0.0f;
-	private bool swipe = false;
-	private bool swipeUp = false;
-	private bool swipeDown = false;
+	private float xStart = 0.0f;				// will hold where a touch starts in the x direction
+	private float xEnd = 0.0f;					// will hold where a touch ends in the x direction
+	private float yStart = 0.0f;				// will hold where a touch starts in the y direction
+	private float yEnd = 0.0f;					// will hold where a touch ends in the y direction
+	private bool swipe = false;					// flag to hold whether there was any type of swipe
+	private bool swipeUp = false;				// flag to hold whether there was an upward swipe direction
+	private bool swipeDown = false;				// flag to hold whether there was a downward swipe direction
 
 	// Use this for initialization
 	void Start () 
 	{
-		coughTimer = 0;
+		coughTimer = 0f;						// make sure the initial cough timer value is 0
 	
+		// find flaps and properly determine which one is the uvula (top flap) or epiglottis (bottom flap)
 		foreach(Transform child in transform)
 		{
 			// properly assign the right flap to top and bottom
@@ -39,18 +43,22 @@ public class openFlap : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-		// update the coughing variable accordinly to maintain proper collision detection
-		if (coughTimer > 0)
+		// update the coughing variable accordingly to maintain proper collision detection
+		if (coughTimer > 0)					// if there is time left in the cough
 		{
-			coughTimer -= Time.deltaTime;
-		} else
+			coughTimer -= Time.deltaTime;	// decrement the cough timer by the time passed between update
+		} else 								// if the coughTimer is 0 or less, end the cough by switching the cough flag
 		{
 			cough = false;
 		}
 
 		// ipad touch detection
+		// the touch is only valid in a certain range on the screen
+		// this is so that the player has to make the swipe motion somewhere near the flaps for it to count
 		foreach (Touch touch in Input.touches) 
 		{
+			// when a touch begins, check whether the toucch was in the valid range
+			// if it was assign the x and y start positions
 			if (touch.phase == TouchPhase.Began) 
 			{
 				if ((touch.position.x >= .3f*Screen.width && touch.position.x <= Screen.width) && 
@@ -61,6 +69,8 @@ public class openFlap : MonoBehaviour
 				}
 			}
 
+			// when a touch ends, check whether the touch ended in a valid range
+			// if it was then assign the x and y end positions
 			if (touch.phase == TouchPhase.Ended)
 			{
 				if ((touch.position.x >= .3f*Screen.width && touch.position.x <= Screen.width) && 
@@ -69,18 +79,20 @@ public class openFlap : MonoBehaviour
 					xEnd = touch.position.x;
 					yEnd = touch.position.y;
 				}
-				
+
+				// find the size of the swipe and check if it was larger than a certain size (in this case 10)
 				if (Mathf.Sqrt((xStart - xEnd)*(xStart - xEnd)+(yStart - yEnd)*(yStart - yEnd)) > 10) 
 				{
-					swipe = true;
+					swipe = true;						// if the swipe size was large enough, mark that a swipe happened
 					
-					if (yStart < yEnd)
+					if (yStart < yEnd)					// if the yStart is lower than the yEnd, the swipe was up
 					{
-						swipeUp = true;
-					} else if (yStart > yEnd)
+						swipeUp = true;					// throw the swipe up flag
+					} else if (yStart > yEnd)			// otherwise if the yStart is more than the yEnd, the swipe was down
 					{
-						swipeDown = true;
-					} else
+						swipeDown = true;				// throw the swipe down flag
+					} else 								// otherwise the swipe was horizontal so just reverse the flags
+														// and assume the user knew what they were doing
 					{
 						swipeDown = !swipeDown;
 						swipeUp = !swipeUp;
@@ -89,7 +101,9 @@ public class openFlap : MonoBehaviour
 			}
 		}
 
+#if UNITY_EDITOR || UNITY_STANDALONE_OSX || UNITY_STANDALONE_WIN
 		// for PC/MAC version
+		// this does the same thing as the ipad version except that you can use the mouse to replace the touch
 		if(Input.GetMouseButtonDown(0))
 		{
 			if ((Input.mousePosition.x >= .3f*Screen.width && Input.mousePosition.x <= Screen.width) && 
@@ -126,14 +140,16 @@ public class openFlap : MonoBehaviour
 				}
 			}
 		}
+#endif
 	
+		// if a swipe was detected then handle the type of swipe accordingly
 		if (swipe)
 		{
-			if (swipeUp)
+			if (swipeUp)													// if the swipe was upwards
 			{
-				isOpen = false;
-				bottomFlap.GetComponent<BoxCollider>().enabled = true;
-				topFlap.GetComponent<BoxCollider>().enabled = true;
+				isOpen = false;												// close the flaps
+				bottomFlap.GetComponent<BoxCollider>().enabled = true;		// enable the collider for coughing on bottomFlap
+				topFlap.GetComponent<BoxCollider>().enabled = true;			// endable the collider for coughing on topFlap
 
 				// reset variables
 				xStart = 0.0f;
@@ -141,11 +157,11 @@ public class openFlap : MonoBehaviour
 				yStart = 0.0f;
 				yEnd = 0.0f;
 				swipeUp = false;
-			} else if (swipeDown)
+			} else if (swipeDown)											// if the swipe was downwards
 			{
-				isOpen = true;
-				bottomFlap.GetComponent<BoxCollider>().enabled = false;
-				topFlap.GetComponent<BoxCollider>().enabled = false;
+				isOpen = true;												// open the flaps
+				bottomFlap.GetComponent<BoxCollider>().enabled = false;		// remove the collider for coughing on bottomFlap
+				topFlap.GetComponent<BoxCollider>().enabled = false;		// remove the collider for coughing on topFlap
 				
 				// reset variables
 				xStart = 0.0f;
@@ -157,21 +173,24 @@ public class openFlap : MonoBehaviour
 		}
 	}
 
+	// function that can be called to return whether the flaps are currently open
 	public bool isEpiglotisOpen()
 	{
 		return isOpen;
 	}
 
+	// function that can be called to indicate that a cough is happening
 	public void setCough()
 	{
-		if(!audio.isPlaying)
+		if(!audio.isPlaying)		// start playing the couugh audio if it's not already playing
 		{
 			audio.Play();
 		}
-		coughTimer = .950f;
-		cough = true;
+		coughTimer = .950f;			// set the cough timer to the length of the cough
+		cough = true;				// throw the flag to indicate a cough is happening
 	}
 
+	// function that can be called to return whether there is currently a cough happening
 	public bool isCough()
 	{
 		return cough;

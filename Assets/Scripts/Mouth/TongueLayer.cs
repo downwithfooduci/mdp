@@ -1,27 +1,22 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class TongueLayer : MonoBehaviour {
-	public Texture tongue;
-	//MoveTongue tongueObject; // UNUSED
-	//public float interval; // UNUSED
+// script that handles drawing the tongue layer on the gui
+public class TongueLayer : MonoBehaviour 
+{
+	public Texture tongue;			// to hold the tongue texture
 
 	// Use this for initialization
-	void Start () 
-	{
-		//tongueObject = GameObject.Find("Wedge").GetComponent<MoveTongue>();  // UNUSED 
-		//interval = tongueObject.getMaxMove() / tongue.Length;					// UNUSED
-	}
+	void Start () {}
 	
 	// Update is called once per frame
-	void Update () {
-	
-	}
+	void Update () {}
 
-	void OnGUI(){
-		GUI.depth++;
-		//Subtract .0001f just so we don't get the last index and get overflow
-		//int index = (int)(tongueObject.getMoved() / interval - .0001f); // UNUSED
+	void OnGUI()
+	{
+		GUI.depth++;				// change the GUI depth for proper layering of gui elements
+
+		// draw the texture the same size as the screen
 		GUI.DrawTexture(new Rect(0,0,Screen.width, Screen.height), tongue);
 	}
 }
