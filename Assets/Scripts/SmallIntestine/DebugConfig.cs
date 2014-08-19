@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+// script to store the variables for the small intestine debugger
 public class DebugConfig : MonoBehaviour 
 {
 	// debug variables for the small intestine game along with their default values

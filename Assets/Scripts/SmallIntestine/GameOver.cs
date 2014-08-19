@@ -1,34 +1,38 @@
 using UnityEngine;
 using System.Collections;
 
+// script to handle game over stuff for the si game
 public class GameOver : MonoBehaviour 
 {
-	public Texture gameOverPopup;
-	public GUIStyle restart;
-	public GUIStyle mainMenu;
+	public Texture gameOverPopup;	// to store the texture for the gameOverPopup
+	public GUIStyle restart;		// to store the textures for the restart button
+	public GUIStyle mainMenu;		// to store the textures for the mainMenu button
 
     void Start()
     {
-        Time.timeScale = 0;
+        Time.timeScale = 0;			// when the game is over we pause the game
     }
 
     void OnGUI()
     {
+		// draw the game over popup box in the middle of the screen
 		GUI.DrawTexture(new Rect(Screen.width * 0.3193359375f, 
 		                         Screen.height * 0.28515625f, 
 		                         Screen.width * 0.3603515625f, 
 		                         Screen.height * 0.248697917f), gameOverPopup);
 		
-		// draw yes button
+		// draw restart button
 		if (GUI.Button(new Rect(Screen.width * 0.41015625f, 
 		                        Screen.height * 0.41927083f,
 		                        Screen.width * 0.0654296875f,
 		                        Screen.height * 0.06640625f), "", restart))
 		{
-			Time.timeScale = 1;
-			GameObject chooseBackground = GameObject.Find("ChooseBackground");
+			// if restart is pressed
+			Time.timeScale = 1;													// unpause the game
+			GameObject chooseBackground = GameObject.Find("ChooseBackground");	// find the background chooser
 			SmallIntestineLoadLevelCounter  level = chooseBackground.GetComponent<SmallIntestineLoadLevelCounter>();
-			// restart the correct level
+
+			// restart from the correct level
 			if (level.getLevel() % 2 == 0)
 			{
 				Application.LoadLevel("SmallIntestineEven");
@@ -38,17 +42,18 @@ public class GameOver : MonoBehaviour
 			}
 		}
 		
-		// draw no button
+		// draw main menu button
 		if (GUI.Button(new Rect(Screen.width * 0.53125f, 
 		                        Screen.height * 0.41927083f,
 		                        Screen.width * 0.0654296875f,
 		                        Screen.height * 0.06640625f), "", mainMenu))
 		{
-			Time.timeScale = 1;
-			GameObject chooseBackground = GameObject.Find("ChooseBackground");
+			// if main menu is selected
+			Time.timeScale = 1;													// unpause the game
+			GameObject chooseBackground = GameObject.Find("ChooseBackground");	// find the background chooser
 			SmallIntestineLoadLevelCounter  level = chooseBackground.GetComponent<SmallIntestineLoadLevelCounter>();
-			level.resetLevel();
-			Application.LoadLevel("MainMenu");
+			level.resetLevel();			// reset the small intestine current level to 1 for next time
+			Application.LoadLevel("MainMenu");	// load the main menu
 		}
     }
 }
