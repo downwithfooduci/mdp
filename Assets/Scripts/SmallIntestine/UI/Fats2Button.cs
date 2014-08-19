@@ -4,65 +4,77 @@ using System.Collections;
 // Scripts for all buttons except protein are similar but have slight differences
 public class Fats2Button : MonoBehaviour 
 {
-	public Texture activeTexture;
-	public Texture pressedTexture;
-	public Texture inactiveTexture;
-
-	private float buttonTop;
-	private float buttonLeft;
+	public Texture activeTexture;	// hold the testure for the button's "active" mode
+	public Texture pressedTexture;	// hold the texture for the button's "pressed" mode
+	public Texture inactiveTexture;	// hold the texture for the button's "inactive" mode
+	
+	private float buttonTop;		// button top y coordinate
+	private float buttonLeft;		// button left x coordinate
 	private float buttonWidth;		// width of a button
-	private float buttonHeight;
-	private float buttonSpacing;
+	private float buttonHeight;		// height of a button
+	private float buttonSpacing;	// the spacing between buttons
 	
 	private const int buttonColorCode = 1;	// this is from old legacy code to maintain the proper tower color
 	
-	private TowerSpawner towerSpawner;
+	private TowerSpawner towerSpawner;	// hold a reference to the TowerSpawner script
 	
 	// Use this for initialization
 	void Start () 
 	{
-		buttonWidth = Screen.width * 0.197f;
-		buttonHeight = Screen.height * 0.091f;
-		buttonTop =  (Screen.height * 0.11f) - buttonHeight;
-		buttonSpacing = Screen.width * 0.0123f;
-		buttonLeft = Screen.width * 0.0148f + 1*(buttonWidth + buttonSpacing);
-		
+		// set the values for the fats2 button
+		// the fats2 button is the second button from the left
+		buttonWidth = Screen.width * 0.197f;					// set the button width to a value relative to screen size
+		buttonHeight = Screen.height * 0.091f;					// set the button height relative to screen size
+		buttonTop =  (Screen.height * 0.11f) - buttonHeight;	// set the top coordinate of the button relative to screen size
+		buttonSpacing = Screen.width * 0.0123f;					// set the button spacing relative to screen size
+		buttonLeft = Screen.width * 0.0148f + 1*(buttonWidth + buttonSpacing);	// set the button left coordinate relative to screen size
+
+		// pass the calculated button location into the pixelinset, which is where it is drawn
 		guiTexture.pixelInset = new Rect(buttonLeft, buttonTop, buttonWidth, buttonHeight);
-		
+
+		// find the reference to the towerSpawner
 		towerSpawner = GameObject.Find ("GUI").GetComponent<TowerSpawner> ();
 	}
 	
 	// Update is called once per frame
 	void Update () 
 	{
+		// first we check which texture to draw
+		// if there are not enough nutrients we draw the inactive texture
+		// if there are enough nutrients we draw the normal texture
+		// however if we are in the tutorial we have to make sure two protein towers are placed before we allow
+		// any fats2 towers to be placed
 		if (towerSpawner.getGameManager().nutrients - towerSpawner.TOWER_BASE_COST < 0
 		    || Application.loadedLevelName == "SmallIntestineTutorial" && PlayerPrefs.GetInt("SIStats_towersUpgraded") < 2)
 		{
-			guiTexture.texture = inactiveTexture;
+			guiTexture.texture = inactiveTexture;	// when the button is inactive show the "inactive" texture
 			return;
 		} else if (guiTexture.HitTest(Input.mousePosition) == true || 
-		           Input.touches.Length > 0 && guiTexture.HitTest(Input.touches[0].position) == true)
+		           Input.touches.Length > 0 && guiTexture.HitTest(Input.touches[0].position) == true)	// checks if we clicked on button
 		{	
 			foreach (Touch touch in Input.touches) 
 			{
 				if (touch.phase == TouchPhase.Began) 
 				{
-					guiTexture.texture = pressedTexture;
+					guiTexture.texture = pressedTexture;	// if the button is being pressed draw the pressed textur
 					
 					// code to spawn towers
 					if (!towerSpawner.getIsSpawnActive())
 					{
-						towerSpawner.SpawnTower(towerSpawner.AvailableColors[buttonColorCode]);
-						towerSpawner.getSpawnedTower().GetComponent<Tower> ().enabled = false;
+						towerSpawner.SpawnTower(towerSpawner.AvailableColors[buttonColorCode]);	// spawn a tower of the specified color
+						towerSpawner.getSpawnedTower().GetComponent<Tower> ().enabled = false;	// by default disable the tower until
+																								// it's sucessfully placed
 						return;
 					}
 				}
 				if (touch.phase == TouchPhase.Ended) 
 				{
-					guiTexture.texture = activeTexture;
+					guiTexture.texture = activeTexture;	// when we aren't pressing a button then draw the "active" texture
 				}
 			}
-			
+
+			// for pc/mac
+#if UNITY_EDITOR || UNITY_STANDALONE_OSX || UNITY_STANDALONE_WIN
 			if(Input.GetMouseButtonDown(0))
 			{
 				guiTexture.texture = pressedTexture;
@@ -85,5 +97,6 @@ public class Fats2Button : MonoBehaviour
 		{
 			guiTexture.texture = activeTexture;
 		}
+#endif
 	}
 }
