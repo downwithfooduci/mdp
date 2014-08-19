@@ -3,6 +3,7 @@ using System.Collections;
 
 public class DebugConfig : MonoBehaviour 
 {
+	// debug variables for the small intestine game along with their default values
 	public float NutrientSpeed = 2f;
 	public float NutrientSpawnInterval = 3.5f;
 	public float BaseCooldown = 2f;
@@ -20,9 +21,13 @@ public class DebugConfig : MonoBehaviour
 	public float waveDelay = 10;
 	public int minBlobs = 1;
 	public int maxBlobs = 5;
-	public ArrayList colors = new ArrayList();
+
+	public ArrayList colors = new ArrayList();			// create a new arraylist to store the colors
+
 	// Use this for initialization
-	void Start () {
+	void Start () 
+	{
+		// add the possible starting nutrient colors to the arraylist
 		colors.Add(Color.red);
 		colors.Add(Color.yellow);
 		colors.Add(Color.green);
