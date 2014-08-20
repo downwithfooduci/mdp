@@ -82,8 +82,6 @@ public class Nutrient : MDPEntity
 	
 	virtual protected void Absorb()
 	{
-		FoodBlob blob = m_Parent.GetComponent<FoodBlob>();
-
         IsTargetted = false;
 	}
 }
