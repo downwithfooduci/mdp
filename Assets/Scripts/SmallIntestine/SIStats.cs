@@ -79,11 +79,13 @@ public class SIStats : MonoBehaviour
 		saveHighScore();
 	}	
 
+	// for checking if the new score earned is the highest ever and if it is save it
 	void saveHighScore()
 	{
+		// load the previously saved highest score
 		prevHighScore = PlayerPrefs.GetInt ("SI" + (level.getLevel() - 1));
 		
-		// check if high score
+		// check if the new score is higher than the previous high score
 		if (prevHighScore < numStars)
 		{
 			// if it is the high score save it
@@ -98,10 +100,12 @@ public class SIStats : MonoBehaviour
 	void OnGUI()
 	{
 		// Draw the number of stars text
-		GUIStyle starStyle = new GUIStyle ();
-		starStyle.font = (Font)Resources.Load ("Fonts/JandaManateeSolid");
-		starStyle.normal.textColor = Color.yellow;
-		starStyle.fontSize = (int)(34f / 597f * Screen.height);
+		GUIStyle starStyle = new GUIStyle ();								// create style for the text to draw # stars
+		starStyle.font = (Font)Resources.Load ("Fonts/JandaManateeSolid");	// set font type
+		starStyle.normal.textColor = Color.yellow;							// set font color
+		starStyle.fontSize = (int)(34f / 597f * Screen.height);				// set the size relative to screen size
+
+		// draw the text representation of the number of stars earned in the specified location
 		GUI.Label(new Rect((290f/1024f)*Screen.width, (138f/768f)*Screen.height, (100f/1024f)*Screen.width,
 		                   (100f/768f)*Screen.height), "" + numStars, starStyle);
 
@@ -170,11 +174,12 @@ public class SIStats : MonoBehaviour
 
 
 		// Draw the stats text
-		GUIStyle statsStyle = new GUIStyle ();
-		statsStyle.font = (Font)Resources.Load ("Fonts/JandaManateeSolid");
-		statsStyle.normal.textColor = Color.yellow;
-		statsStyle.fontSize = (int)(20f / 597f * Screen.height);
+		GUIStyle statsStyle = new GUIStyle ();								// create a style for the text
+		statsStyle.font = (Font)Resources.Load ("Fonts/JandaManateeSolid");	// set the font face
+		statsStyle.normal.textColor = Color.yellow;							// set the font color
+		statsStyle.fontSize = (int)(20f / 597f * Screen.height);			// set the font size relative to screen size
 
+		// create a label to display the row headers for each stat type
 		GUI.Label(new Rect((600f/1024f)*Screen.width, (90f/768f)*Screen.height, (((961f-27f)-600f)/1024f)*Screen.width,
 		                   ((520f-90f)/768f)*Screen.height), 
 		          "Nutrients Earned:\n" +
@@ -188,6 +193,8 @@ public class SIStats : MonoBehaviour
 		          "\n" +						//TODO: move this somehwere?
 		          " High Score:",				//TODO: move this somewhere?
 		          statsStyle);
+		// create another label beside it to print out the actual stat numbers
+		// because we are not using a fixed width font we use two labels so the columns will be perfectly lined up
 		GUI.Label(new Rect((820f/1024f)*Screen.width, (90f/768f)*Screen.height, (((961f-27f)-600f)/1024f)*Screen.width,
 		                   ((520f-90f)/768f)*Screen.height), 
 		          ""   + nutrientsEarned + "\n" +
@@ -207,12 +214,12 @@ public class SIStats : MonoBehaviour
 		                        ((905f-635f)/1024f)*Screen.width, ((665f-535f)/768f)*Screen.height), "", nextLevelButton))
 		{
 			// make sure we don't show the load screen after it's over
-			if (level.getLevel() > level.getMaxLevels())
+			if (level.getLevel() > level.getMaxLevels())			// check if we've played all the levels
 			{
-				Application.LoadLevel("EndScreen");
+				Application.LoadLevel("EndScreen");					// if we have load the end screen
 			} else
 			{
-				Application.LoadLevel("LoadLevelSmallIntestine");
+				Application.LoadLevel("LoadLevelSmallIntestine");	// otherwise load the next level
 			} 
 		}
 	}

@@ -36,7 +36,9 @@ public class MouthLoadLevelCounter : MonoBehaviour
 	{
 		string scene = Application.loadedLevelName;	// get the name of the current scene to verify we should use this
 
-		// if we are not in a valid scene for using the mouth load level counter, destroy this
+		// check if we are in a scene where it is appropriate to be using this script
+		// since this script does not destroy when we change scenes, we have to check to make sure we are still
+		// in a valid mouth game related scene to determine if we should manually destroy this instance of the script
 		if (scene != "LoadLevelMouth" && scene != "Mouth" && scene != "MouthStats")
 		{
 			Destroy (gameObject);
