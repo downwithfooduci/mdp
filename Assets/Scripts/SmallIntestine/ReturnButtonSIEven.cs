@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+// this just draws the return button on the upper left corner
 public class ReturnButtonSIEven : MonoBehaviour 
 {
 	public GUIStyle mainMenuStyle;	// for main menu button
@@ -9,7 +10,7 @@ public class ReturnButtonSIEven : MonoBehaviour
 	public GUIStyle confirmYes;		// button for yes
 	public GUIStyle confirmNo;		// button for no
 	
-	private bool confirmUp;
+	private bool confirmUp;			// flag whether or not the confirm box should be shown
 	
 	void OnGUI()
 	{
@@ -25,7 +26,6 @@ public class ReturnButtonSIEven : MonoBehaviour
 			{
 				Time.timeScale = 0;		// pause the game
 				confirmUp = true;		// throw flag
-
 			}
 		}
 		
@@ -46,15 +46,18 @@ public class ReturnButtonSIEven : MonoBehaviour
 			                        Screen.width * 0.0654296875f,
 			                        Screen.height * 0.06640625f), "", confirmYes))
 			{
-				Time.timeScale = 1;
+				// if the "yes" button is pressed
+				Time.timeScale = 1;				// unpause the game
 				GameObject chooseBackground = GameObject.Find("ChooseBackground");
-				
+
+				// reset the level we are on for next time we start the si game
 				if (chooseBackground != null)
 				{
 					SmallIntestineLoadLevelCounter  level = chooseBackground.GetComponent<SmallIntestineLoadLevelCounter>();
 					level.resetLevel();
 				}
 
+				// load the main menu
 				Application.LoadLevel("MainMenu");
 			}
 			
@@ -64,8 +67,9 @@ public class ReturnButtonSIEven : MonoBehaviour
 			                        Screen.width * 0.0654296875f,
 			                        Screen.height * 0.06640625f), "", confirmNo))
 			{
-				Time.timeScale = 1;
-				confirmUp = false;
+				// if "no" was pressed
+				Time.timeScale = 1;		// unpause the game
+				confirmUp = false;		// indicate we no longer want to show the confirm box
 			}
 			
 		}

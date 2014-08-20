@@ -45,4 +45,3 @@ public class LoadSmallIntestine : MonoBehaviour
 		}
 	}
 }
-

@@ -1,30 +1,30 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+// script to handle the SI stats
 public class SIStats : MonoBehaviour 
 {
 	// for drawing stars
-	public Texture filledStar;
-	public Texture emptyStar;
+	public Texture filledStar;						// to store the texture for the filled star
+	public Texture emptyStar;						// to store the texture for the empty star
 
 	// for drawing next level button
-	public GUIStyle nextLevelButton;
+	public GUIStyle nextLevelButton;				// to show the textures for the next level button
 
-	private int numStars = 1;
+	private int numStars = 1;						// the default number of stars is 1
 
 	// for holding level 
-	private GameObject counter;
-	private SmallIntestineLoadLevelCounter level;
-
-	// variables to hold stats, should coincide with variables in TrackStatVariables.cs
+	private GameObject counter;						// to hold a reference to the background chooser
+	private SmallIntestineLoadLevelCounter level;	// to hold a reference to the script on the background choose
+	
 	// list desired stats for tracking here
-	private int nutrientsEarned;
-	private int nutrientsSpent;
-	private int foodLost;
-	private int towersPlaced;
-	private int towersSold;
-	private int towersUpgraded;
-	private int enzymesFired;
+	private int nutrientsEarned;					// will hold the value of nutrientsEarned loaded from PlayerPrefs
+	private int nutrientsSpent;						// will hold the value of nutrientsSpent loaded from PlayerPrefs
+	private int foodLost;							// will hold the value of foodLost loaded from PlayerPrefs
+	private int towersPlaced;						// will hold the value of towersPlaced loaded from PlayerPrefs
+	private int towersSold;							// will hold the value of towersSold loaded from PlayerPrefs
+	private int towersUpgraded;						// will hold the value of towersUpgraded loaded from PlayerPrefs
+	private int enzymesFired;						// will hold the value of enzymesFired loaded from PlayerPrefs
 
 	// for high scores
 	int prevHighScore;
@@ -33,16 +33,16 @@ public class SIStats : MonoBehaviour
 	void Start () 
 	{
 		// pull up the level
-		counter = GameObject.Find ("ChooseBackground");
-		level = counter.GetComponent<SmallIntestineLoadLevelCounter> ();
+		counter = GameObject.Find ("ChooseBackground");						// get the reference to the background chooser
+		level = counter.GetComponent<SmallIntestineLoadLevelCounter> ();	// get the script on the background chooser
 
 		populateStats ();	// get the stats from player prefs and store them
 		calculateStars();	// calculate the stars based on the stats
-		resetStats ();		// reset the vars in player prefs for later
 	}
 
 	void populateStats()
 	{
+		// load each saved stat from PlayerPrefs into their corresponding variables
 		nutrientsEarned = PlayerPrefs.GetInt("SIStats_nutrientsEarned");
 		nutrientsSpent = PlayerPrefs.GetInt("SIStats_nutrientsSpent");
 		foodLost = PlayerPrefs.GetInt("SIStats_foodLost");
@@ -53,41 +53,32 @@ public class SIStats : MonoBehaviour
 	}
 
 	// placeholder algorithm
+	// right now the stats are only calculated based on nutrients lost
 	void calculateStars()
 	{
-		if (foodLost == 0)
+		if (foodLost == 0)			// if no nutrients are lost, then you get 5 stars
 		{
 			numStars = 5;
-		} else if (foodLost <= 5)
+		} else if (foodLost <= 5)	// if 1-5 nutrients are lost, then you get 4 stars
 		{
 			numStars = 4;
-		} else if (foodLost <= 10)
+		} else if (foodLost <= 10)	// if 6-10 nutrients are lost, then you get 3 stars
 		{
 			numStars = 3;
-		} else if (foodLost <= 15)
+		} else if (foodLost <= 15)	// if 11-15 nutrients are lost, then you get 2 stars
 		{
 			numStars = 2;
-		} else
+		} else 						// any more than 15 nutrients lost means 1 star
 		{
 			numStars = 1;
 		}
 	
+		// in order to keep a record of highest scores for each game we call this function
+		// that will check if the new score is the highest score ever and if it is save it
+		// to the high score area in playerPrefs
 		saveHighScore();
-	}
+	}	
 
-	// reset player prefs vars
-	void resetStats()
-	{
-		PlayerPrefs.DeleteKey("SIStats_nutrientsEarned");
-		PlayerPrefs.DeleteKey("SIStats_nutrientsSpent");
-		PlayerPrefs.DeleteKey("SIStats_foodLost");
-		PlayerPrefs.DeleteKey("SIStats_towersPlaced");
-		PlayerPrefs.DeleteKey("SIStats_towersSold");
-		PlayerPrefs.DeleteKey("SIStats_towersUpgraded");
-		PlayerPrefs.DeleteKey("SIStats_enzymesFired");
-		PlayerPrefs.Save();
-	}
-	
 	void saveHighScore()
 	{
 		prevHighScore = PlayerPrefs.GetInt ("SI" + (level.getLevel() - 1));

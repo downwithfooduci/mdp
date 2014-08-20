@@ -33,40 +33,52 @@ public class NutrientManager : MonoBehaviour
         return Nutrient;	// returns the newly created nutrient
     }
 
+	// alternative way to instantiate nutrients
     public Nutrient InstantiateNutrient(Color color, Vector3 position)
     {
         return InstantiateNutrient(color, position, Quaternion.identity);
     }
 
+	// function to remove a nutrient from a food blob
     public void RemoveNutrient(Nutrient n)
     {
-   		 m_Nutrients[n.BodyColor].Remove(n);
+   		 m_Nutrients[n.BodyColor].Remove(n);			// remove the nutrient from the dictionary list
 
-
-        if (n.transform.parent.childCount == 1)
-            Destroy(n.transform.parent.gameObject);
+        if (n.transform.parent.childCount == 1)			// if this was the only nutrient on the parent
+		{
+            Destroy(n.transform.parent.gameObject);		// destroy the parent
+		}
         else
-            Destroy(n.gameObject);
+		{
+            Destroy(n.gameObject);						// otherwise just destroy the nutrient
+		}
     }
 
+	// function to get a list of nutrients of a specified color
     public IList<Nutrient> GetNutrients(Color color)
     {
-        if (m_Nutrients.ContainsKey(color))
-            return m_Nutrients[color].AsReadOnly();
+        if (m_Nutrients.ContainsKey(color))			// check if there is an entry in the dictionary for nutrients of the 
+													// specified color
+		{
+            return m_Nutrients[color].AsReadOnly();	// if there is return the list 
+		}
         else
-            return null;
+		{
+            return null;							// otherwise return null
+		}
     }
 
+	// function to change the color of a nutrient
     public void ChangeColor(Nutrient n, Color c)
     {
-        m_Nutrients[n.BodyColor].Remove(n);
-        n.BodyColor = c;
+        m_Nutrients[n.BodyColor].Remove(n);		// remove the original nutrient from the original color list
+        n.BodyColor = c;						// change the color of the nutrient
 
-        if (!m_Nutrients.ContainsKey(c))
+        if (!m_Nutrients.ContainsKey(c))		// make sure there is an entry in the dictionary for the new color, if not add one
         {
             m_Nutrients.Add(c, new List<Nutrient>());
         }
 
-        m_Nutrients[c].Add(n);
+        m_Nutrients[c].Add(n);					// add the nutrient to the list corresponding to its new color
     }
 }
