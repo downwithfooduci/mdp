@@ -5,7 +5,7 @@ using System.Collections;
 public class SpawnFood : MonoBehaviour 
 {
 	private EsophagusDebugConfig debugConfig;	// to hold a reference to the mouth debugger script
-	private LoadScript loadScript;				// to hold a reference to the mouth script loader
+	private LoadScriptMouth loadScript;				// to hold a reference to the mouth script loader
 	private MouthWave[] waves;					// to keep track of mouthwaves
 		
 	public GameObject food;						// to hold a reference to the gameobject we will spawn as foodstuff
@@ -56,7 +56,7 @@ public class SpawnFood : MonoBehaviour
 		if (level != null)	// guard for if level was null since this will still execute before the reloading from level 1
 		{
 			// finally load the script
-			loadScript = new LoadScript();							// create a new script loader
+			loadScript = new LoadScriptMouth();							// create a new script loader
 			waves = loadScript.loadMouthLevel(level.getLevel());	// load the proper script to the level and store data
 
 			// begin parsing the data
