@@ -1,32 +1,37 @@
 using UnityEngine;
 using System.Collections;
 
+// script to handle loading the correct levels in the small intestine game
 public class LoadSmallIntestine : MonoBehaviour 
 {
-	private GameObject counter;			// to keep track of levels
-	public Texture[] backgrounds;
-	private SmallIntestineLoadLevelCounter level;
-	private const float timer = 3.0f;	// how long to hold background image
-	private float timePassed = 0.0f;
+	private GameObject counter;							// to hold a reference to the background chooser for the small intestine
+	public Texture[] backgrounds;						// to hold the different loading screen images
+	private SmallIntestineLoadLevelCounter level;		// to hold a reference to the script for the si load level counter
+	private const float timer = 3.0f;					// how long to hold background image on the loading screen
+	private float timePassed = 0.0f;					// to keep track of how long has passed
 
 	void Start()
 	{
-		timePassed = timer;
+		timePassed = timer;								// set the time passed to the timer value, we will decrement the
+														// value of time passed until it reaches 0
 	}
 
 	void OnGUI()
 	{
-		counter = GameObject.Find ("ChooseBackground");
-		level = counter.GetComponent<SmallIntestineLoadLevelCounter> ();
+		counter = GameObject.Find ("ChooseBackground");						// find a reference to the background chooser
+		level = counter.GetComponent<SmallIntestineLoadLevelCounter> ();	// to get a reference to the script on the background chooser
+
+		// draw the loading screen texture across the entire screen
 		GUI.DrawTexture (new Rect(0, 0, Screen.width, Screen.height), backgrounds [Mathf.Clamp(level.getLevel(), 0, level.getMaxLevels())]);
 	}
 
 	void Update()
 	{
-
-		timePassed -= Time.deltaTime;
-		if (timePassed < 0) 
+		timePassed -= Time.deltaTime;		// decrement the time passed variable by how much time since the last update call
+	
+		if (timePassed < 0) 				// check if the maximum time has passed 
 		{
+			// if it has load the correct si level
 			if (level.getLevel() == 0)
 			{
 				Application.LoadLevel("SmallIntestineTutorial");
