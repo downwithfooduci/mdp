@@ -26,6 +26,8 @@ public class DisplayHighScores : MonoBehaviour {
 		// draw scores
 		scoreStyle.fontSize = (int)(32f / 597f * Screen.height);
 		scoreStyle.alignment = TextAnchor.UpperLeft;
+
+		// just pulls up the saved high scores for all the levels and displays them
 		GUI.Label(new Rect(0, (100f/768f)*Screen.height, Screen.width,
 		                   (700f/768f)*Screen.height), 
 		          "Mouth Level 1: " + PlayerPrefs.GetInt("Mouth1") + "\n" +

@@ -91,11 +91,11 @@ public class TowerSpawner : MonoBehaviour
 				if (m_IsMouseOverWallLastFrame && m_GameManager.nutrients - TOWER_BASE_COST >= 0) 
 				{
 					// if they do have enough nutrients
-					m_SpawnedTower.GetComponent<Tower> ().enabled = true;
-					m_SpawnedTower.transform.position = wall.transform.position + new Vector3 (0, 0.5f, 0);
-					m_SpawnedTower.GetComponent<Tower>().wall = wall;
-					m_SpawnedTower.GetComponent<TowerMenu> ().Initialize ();
-					m_GameManager.nutrients = m_GameManager.nutrients - TOWER_BASE_COST;  // cost nutrients for testing
+					m_SpawnedTower.GetComponent<Tower> ().enabled = true;		// enable the tower
+					m_SpawnedTower.transform.position = wall.transform.position + new Vector3 (0, 0.5f, 0);	// set it's location on the wall
+					m_SpawnedTower.GetComponent<Tower>().wall = wall;			// set the reference to the wall the tower is on
+					m_SpawnedTower.GetComponent<TowerMenu> ().Initialize ();	// initialize the tower menu
+					m_GameManager.nutrients = m_GameManager.nutrients - TOWER_BASE_COST;  // deduct cost
 
 					// play placement sound
 					Instantiate (placementSound);
@@ -106,13 +106,17 @@ public class TowerSpawner : MonoBehaviour
 					PlayerPrefs.Save();
 				} else 
 				{
+					// if they didn't have enough nutrients to place the tower then destroy it
 					Destroy (m_SpawnedTower);
 					m_SpawnedTower = null;
 				}
 			} else 
 			{
+				// if they haven't tried to place the tower by clicking/tapping keep letting them drag the tower
 				m_SpawnedTower.transform.position = MDPUtility.MouseToWorldPosition () + Vector3.up;
 
+				// check if the tower is over a wall or not and color the indicator red or green accordingly
+				// also adjust the indicator position so it is still centered over the tower
 				m_Indicator.transform.position = MDPUtility.MouseToWorldPosition () + Vector3.up;
 				Color color = m_IsMouseOverWallLastFrame ? Color.green : Color.red;
 				color.a = 0.5f;
@@ -120,23 +124,24 @@ public class TowerSpawner : MonoBehaviour
 			}
 		}
 		
-		m_IsMouseOverWallLastFrame = IsMouseOverWall;
+		m_IsMouseOverWallLastFrame = IsMouseOverWall;	// set the "last frame" variable to the value from this frame 
 	}
 
+	// function that spawns towers
 	public void SpawnTower (Color color)
 	{
-		GameObject towerType = Towers [MDPUtility.RandomInt (Towers.Length)];
-		m_SpawnedTower = Instantiate (towerType) as GameObject;
-		Tower tower = m_SpawnedTower.GetComponent<Tower> ();
-		tower.SetColor (color);
-		tower.SetActiveModel ("Base");
+		GameObject towerType = Towers [MDPUtility.RandomInt (Towers.Length)];		// randomly choose a type of tower
+		m_SpawnedTower = Instantiate (towerType) as GameObject;						// instantiate the chosen tower
+		Tower tower = m_SpawnedTower.GetComponent<Tower> ();						// get the script on the new tower
+		tower.SetColor (color);														// set the color of the tower
+		tower.SetActiveModel ("Base");												// set the model name of the tower
 
 		// Set up spawn indicator
-		float range = tower.FiringRange;
-		m_Indicator = Instantiate (SpawnIndicator) as GameObject;
-		m_Indicator.transform.localScale = new Vector3 (range * 2, 1, range * 2);
+		float range = tower.FiringRange;											// calculate the firing range for the tower
+		m_Indicator = Instantiate (SpawnIndicator) as GameObject;					// instantiate a spawn indicator
+		m_Indicator.transform.localScale = new Vector3 (range * 2, 1, range * 2);	// adjust the size of the indicator based on the firing range
 
-		m_IsSpawnActive = true;
+		m_IsSpawnActive = true;						// set the isspawnactive to true since there is now an active tower spawned
 	}
 
 	// function that can be called to determine if the spawn is currently active or not

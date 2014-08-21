@@ -31,9 +31,8 @@ public class IntroStoryboard : MonoBehaviour
 	
 	IEnumerator loadNextLevel() 
 	{
-		loader = Application.LoadLevelAsync("MouthStoryboard");
-		loader.allowSceneActivation = false;
-		Debug.Log("Loading complete");
+		loader = Application.LoadLevelAsync("MouthStoryboard");		// this preloads the next level so there is no delay after story
+		loader.allowSceneActivation = false;					// set this to mean we don't want the scene to load until we say
 		yield return loader;
 	}
 	

@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+// script that can display the fps
+// script was taken from online
+// minor edits done by UCI Down with Food team
 public class HUDFPS : MonoBehaviour
 {
 	
@@ -24,13 +27,14 @@ public class HUDFPS : MonoBehaviour
 	
 	void Start ()
 	{
-		debugConfig = ((GameObject)GameObject.Find ("Debug Config")).GetComponent<DebugConfig> ();
+		debugConfig = ((GameObject)GameObject.Find ("Debug Config")).GetComponent<DebugConfig> ();	// find the debugger since
+									// we enable frame rate display with that
 		timeleft = updateInterval;  
 	}
 	
 	void Update ()
 	{
-		FPSActive = debugConfig.FPSActive;
+		FPSActive = debugConfig.FPSActive;			// get the value for fps active from the debugger
 		timeleft -= Time.deltaTime;
 		accum += Time.timeScale / Time.deltaTime;
 		++frames;

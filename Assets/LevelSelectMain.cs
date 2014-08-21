@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+// just a random script where i tested a way that could potentially be used in the 
+// future for marking levels as locked/unlocked and creating a selection screen
+// where unlocked levels can be freely moved between
 public class LevelSelectMain : MonoBehaviour 
 {
 	private bool showSI, showMouth;
@@ -33,6 +36,8 @@ public class LevelSelectMain : MonoBehaviour
 	// get the unlocked games
 	void getUnlockedGames()
 	{
+		// these were variables that were saved as "1" when a story was played through, 0 otherwise
+		// this is just an example of how a marker can be saved using PlayerPrefs to remember a gameplay event
 		mouthUnlocked = (PlayerPrefs.GetInt ("PlayedMouthStory") == 1) ? true : false;
 		smallIntestineUnlocked = (PlayerPrefs.GetInt ("PlayedSIStory") == 1) ? true : false;
 	}
@@ -50,6 +55,8 @@ public class LevelSelectMain : MonoBehaviour
 		smallIntestineLevel6HS = PlayerPrefs.GetInt("SI6");
 	}
 
+	// created this method to draw the "high score" beside each unlocked level
+	// motivation to play to improve score maybe?
 	void drawStars(float y, int highScore)
 	{
 		// draw the actual stars
@@ -129,10 +136,7 @@ public class LevelSelectMain : MonoBehaviour
 	}
 
 	// Update is called once per frame
-	void Update () 
-	{
-		
-	}
+	void Update () {}
 
 	void OnGUI()
 	{
@@ -198,6 +202,9 @@ public class LevelSelectMain : MonoBehaviour
 		}
 
 		// allow selection between mouth game levels
+		// right now i just marked a level as unlocked if it has a high score or the level immediately before it has
+		// a high score
+		// users can only select these levels. "unlocked" levels are greyed out
 		if (showMouth)
 		{
 			GUI.Label(new Rect(0, 0, Screen.width,

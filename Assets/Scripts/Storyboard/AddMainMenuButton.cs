@@ -1,7 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class AddMainMenuButton : MonoBehaviour {
+// script for adding a main menu button to the storyboook
+// this currently doesn't work because of preloading the levels
+// couldn't figure out how to make it load back a different scene than the one preloaded
+public class AddMainMenuButton : MonoBehaviour 
+{
 	public GUIStyle mainMenuStyle;	// for main menu button
 	
 	public Texture confirmPopup;	// for pop up confirm box
