@@ -1,51 +1,52 @@
 using UnityEngine;
 using System.Collections.Generic;
 
+// script that handles basic tower behaviors
 public class Tower : MonoBehaviour 
 {
 	// for manging costs
-	public int TOWER_BASE_COST = 20;
-	public int TOWER_UPGRADE_LEVEL_1_COST = 50;
-	public int TOWER_UPGRADE_LEVEL_2_COST = 50;
+	public int TOWER_BASE_COST = 20;				// to set the base cost of placing towers
+	public int TOWER_UPGRADE_LEVEL_1_COST = 50;		// to set the cost of upgrading a tower from base->lvl1
+	public int TOWER_UPGRADE_LEVEL_2_COST = 50;		// to set the cost of upgrading a tower from lvl1->lvl2
 
 	// for sounds
-	public AudioClip towerShootSound;
-	public AudioClip upgradeSound;
+	public AudioClip towerShootSound;				// to hold the sound that will play when a tower shoots
+	public AudioClip upgradeSound;					// to hold the sound that will play when a tower is upgraded
 
-	DebugConfig debugConfig;
+	private DebugConfig debugConfig;				// to hold a reference to the script on the debugger
 	
-	public GameObject Projectile;
+	public GameObject Projectile;					// to hold a reference to the gameobject to spawn as a bullet
 
-	public GameObject wall;
+	public GameObject wall;							// for holding the walls, towers can only be placed on walls
 
-	public string ActiveModelName
+	public string ActiveModelName					// the name of the tower model
 	{
 		get { return m_ActiveModelName; }
 	}
 	private string m_ActiveModelName;
 	
-	public float FiringRange;
+	public float FiringRange;						// to store the range that a tower can fire at a target
 	
 	// Firing cooldown in seconds
-	public float BaseCooldown;
-	public float Level1Cooldown;
-	public float Level2Cooldown;
+	public float BaseCooldown;						// the cooldown for firing for a base tower model
+	public float Level1Cooldown;					// the cooldown for firing for a level 1 speed tower
+	public float Level2Cooldown;					// the cooldown for firing for a level 2 speed tower
 
 	// for power towers, max blobs killed at once
-	public int baseTargets = 1;
-	public int level1Targets = 3;
-	public int level2Targets = 6;
+	public int baseTargets = 1;						// the number of blobs a base tower model can hit
+	public int level1Targets = 3;					// the number of blobs a level 1 power tower can hit
+	public int level2Targets = 6;					// the number of blobs a level 2 power tower can hit
 	
     private Transform m_ActiveModel;
 
-    private Color m_TargetColor;
-    private NutrientManager m_NutrientManager;
-	private IntestineGameManager m_GameManager;
+    private Color m_TargetColor;					// the color of the tower
+    private NutrientManager m_NutrientManager;		// to hold a reference to the game's nutrient manager
+	private IntestineGameManager m_GameManager;		// to hold a reference to the game's game manager
 
-	private float m_Cooldown;
-	private int targets;
-	private float m_CurrentCooldown;
-	private bool m_CanFire;
+	private float m_Cooldown;						// to hold what is the tower's current cooldown
+	private int targets;							// to hold what is the tower's current # targets
+	private float m_CurrentCooldown;				// to help count down the time to see if a tower can shoot again
+	private bool m_CanFire;							// a flag that says whether a tower can currently fire
 		
 	// Use this for initialization
 	void Start () 
@@ -55,29 +56,30 @@ public class Tower : MonoBehaviour
 		// make sure we aren't in tutorial
 		if (Application.loadedLevelName != "SmallIntestineTutorial")
 		{
+			// if we aren't in the tutorial get the debugger
 			debugConfig = ((GameObject)GameObject.Find("Debug Config")).GetComponent<DebugConfig>();
-			TOWER_BASE_COST = debugConfig.TOWER_BASE_COST;
-			TOWER_UPGRADE_LEVEL_1_COST = debugConfig.TOWER_UPGRADE_LEVEL_1_COST;
-			TOWER_UPGRADE_LEVEL_2_COST = debugConfig.TOWER_UPGRADE_LEVEL_2_COST;
+			if (debugConfig.debugActive)		// if we're using the debugger get the costs from there
+			{
+				TOWER_BASE_COST = debugConfig.TOWER_BASE_COST;
+				TOWER_UPGRADE_LEVEL_1_COST = debugConfig.TOWER_UPGRADE_LEVEL_1_COST;
+				TOWER_UPGRADE_LEVEL_2_COST = debugConfig.TOWER_UPGRADE_LEVEL_2_COST;
+			}
 		}
-		m_Cooldown = BaseCooldown;
-		m_CurrentCooldown = m_Cooldown;
-		m_CanFire = true;
+		m_Cooldown = BaseCooldown;		// set the base cooldown
+		m_CurrentCooldown = m_Cooldown;	// initialize the cooldown timer
+		m_CanFire = true;				// set that the tower can fire
 
-        m_NutrientManager = GameObject.Find("Managers").GetComponent<NutrientManager>();
-		m_GameManager = GameObject.Find ("Managers").GetComponent<IntestineGameManager>();
-		
-		foreach (Transform child in transform)
-		{
-			child.localPosition = Vector3.zero;
-		}
+        m_NutrientManager = GameObject.Find("Managers").GetComponent<NutrientManager>();	// find the nutrient manager
+		m_GameManager = GameObject.Find ("Managers").GetComponent<IntestineGameManager>();	// find the game manager
 	}
 
 	// Update is called once per frame
 	void Update () 
 	{
-		if (Application.loadedLevelName != "SmallIntestineTutorial")
+		// if we aren't in the tutorial check for new values from the debugger if we're using it
+		if (Application.loadedLevelName != "SmallIntestineTutorial" && debugConfig.debugActive)
 		{
+			// if we are using the debugger load in the values from the debug menu
 			switch (m_ActiveModelName)
 			{
 				case "Base":
@@ -102,7 +104,7 @@ public class Tower : MonoBehaviour
 			TOWER_BASE_COST = debugConfig.TOWER_BASE_COST;
 			TOWER_UPGRADE_LEVEL_1_COST = debugConfig.TOWER_UPGRADE_LEVEL_1_COST;
 			TOWER_UPGRADE_LEVEL_2_COST = debugConfig.TOWER_UPGRADE_LEVEL_2_COST;
-		} else
+		} else 						// otherwise use the regular game values
 		{
 			switch (m_ActiveModelName)
 			{
@@ -127,55 +129,67 @@ public class Tower : MonoBehaviour
 			}
 		}
 
-		if (m_CanFire)
+		// check if the tower can file
+		if (m_CanFire)	// if the tower can fire
 		{
-            Fire();
-		} else
+            Fire();		// call the fire() function to check for targets
+		} else 			// otherwise if the tower can't currently file
 		{
-			m_CurrentCooldown -= Time.deltaTime;
+			m_CurrentCooldown -= Time.deltaTime;	// decrement the fire cooldown timer
 
-			if (m_CurrentCooldown <= 0f)
-			{
-				m_CanFire = true;
-				m_CurrentCooldown = m_Cooldown;
+			if (m_CurrentCooldown <= 0f)			// check if the cooldown is now over
+			{										// if it is
+				m_CanFire = true;					// change the canFire variable to true
+				m_CurrentCooldown = m_Cooldown;		// reset the cooldown timer
 			}
 		}
 	}
 
+	// set the color of the tower
     public void SetColor(Color color)
     {
-        m_TargetColor = color;
+        m_TargetColor = color;										// set the color to the one passed in the function
 
+		// assign the color properly to the tower and all the possible upgrade towers from the parent
         foreach (Transform child in transform)
         {
             Transform circle = child.FindChild("Circle");
             circle.renderer.materials[0].color = m_TargetColor;
         }
     }
-	
+
+	// to set the active tower model
 	public void SetActiveModel(string name)
 	{
-		if(m_ActiveModelName != null)
-			m_ActiveModel.gameObject.SetActive(false);
-		else
+		// causes the towers to render properly
+		// if these settings are different it can cause models to be visible that are not intended
+		if(m_ActiveModelName != null)						// check if the active model name is set
 		{
-			foreach (Transform child in transform)
+			m_ActiveModel.gameObject.SetActive(false);		// if it is disable the model (so it's not rendered)
+		}
+		else 												// if the active model name is not set
+		{
+			foreach (Transform child in transform)			// then set the default model plus all possible upgrades to false
 			{
-				child.gameObject.SetActive(false);
+				child.gameObject.SetActive(false);			// make everything not render
 			}
 		}
-		
-		m_ActiveModelName = name;
-        m_ActiveModel = transform.FindChild(m_ActiveModelName);
-		m_ActiveModel.gameObject.SetActive(true);
+
+		// now we set it so only the proper model will render
+		m_ActiveModelName = name;								// set the model name to that passed in
+        m_ActiveModel = transform.FindChild(m_ActiveModelName);	// find this specific model in the tower group
+		m_ActiveModel.gameObject.SetActive(true);				// set this model to be the one visible on the screen
 	}
-	
+
+	// controls firing
+	// this is called for a tower whenever the cooldown is up
 	private void Fire()
 	{
-        Nutrient target = AcquireTarget();
-        if (target)
+        Nutrient target = AcquireTarget();		// first check if there are any valid targets for this tower
+
+        if (target)								// if a valid target was found
         {
-			// play sound
+			// set the audio clip to the shooting sound which will be played after the bullet is shot
 			audio.clip = towerShootSound;
 
 			// track stats
@@ -186,20 +200,22 @@ public class Tower : MonoBehaviour
             // Look at target but lock rotation on x axis
             transform.LookAt(target.transform);
 			transform.Rotate(new Vector3(90,0,0), 40, Space.World);
+			// play the shooting animation
             transform.FindChild(m_ActiveModelName).animation.Play("Default Take", PlayMode.StopAll);
 
+			// create the bullet that will seek out the target
             GameObject bulletObject = Instantiate(Projectile, transform.position, transform.rotation) as GameObject;
-            bulletObject.renderer.material.color = m_TargetColor;
+            bulletObject.renderer.material.color = m_TargetColor;			// set the bullet color to the correct one
 
-            Bullet bullet = bulletObject.GetComponent<Bullet>();
-            bullet.Target = target.gameObject;
-			bullet.targets = targets;
+            Bullet bullet = bulletObject.GetComponent<Bullet>();			// get the script on the bullet
+            bullet.Target = target.gameObject;								// set the target reference in the bullet script
+			bullet.targets = targets;										// set the number of targets one bullet can hit
 
-            target.IsTargetted = true;
+            target.IsTargetted = true;			// mark the current target as targetted so that it can't be shot more than once
 
-			audio.Play ();
+			audio.Play ();						// play the sound
 
-            m_CanFire = false;
+            m_CanFire = false;					// reset the canFire flag to false until the next cooldown is up
         }
 	}
 
@@ -208,35 +224,46 @@ public class Tower : MonoBehaviour
     // or null if there are no valid targets
     private Nutrient AcquireTarget()
     {
+		// get all the nutrients of the target color from the nutrient manager
         IList<Nutrient> nutrients = m_NutrientManager.GetNutrients(m_TargetColor);
-        if (nutrients == null)
+        if (nutrients == null)	// if there are no nutrients of that color then there are no targets
         {
-            return null;
+            return null;		// return null to indicate there are no targets
         }
 
-        Nutrient closestNutrient = null;
-        float closestDistance = float.MaxValue;
+		// now we need to find the closest, untargeted nutrient as that is what we will shoot at
+        Nutrient closestNutrient = null;			// initially set the closest nutrient to null
+        float closestDistance = float.MaxValue;		// set the closest distance to infinity
 
+		// now iterate through the nutrients to find the closest one
         foreach (Nutrient e in nutrients)
         {
-            if (!e.IsTargetted)
+            if (!e.IsTargetted)		// first check that the nutrient being examined is not already targetted
             {
+				// now find the distance to that target
                 float distance = MDPUtility.DistanceSquared(gameObject, e.gameObject);
 
+				// check if this distance is less than the next known closest distance, and that the target is in LOS
                 if (distance < closestDistance && distance < FiringRange * FiringRange && IsInLineOfSight(e.transform))
                 {
-                    closestNutrient = e;
-                    closestDistance = distance;
-                }
+					// if it passed the check
+                    closestNutrient = e;			// assign this nutrient to be the closest one
+                    closestDistance = distance;		// assign this nutrient's distance to be the closest distance
+                }	
             }
         }
 
+		// after we are done iterating through the nutrients then return what we found was the closest one as the target
         return closestNutrient;
     }
 
+	// function that will check if a target is in LOS with a tower
+	// this will use a linecast to see if a wall gets in the way. this prevents towers from shooting through a wall
 	private bool IsInLineOfSight(Transform target)
 	{
-		Vector3 direction = (target.position - wall.transform.position).normalized;
+		Vector3 direction = (target.position - wall.transform.position).normalized;				// find the shooting direction
+
+		// draw the line and see if it hits a wall, if it can be drawn return true, otherwise return false
         if (!Physics.Linecast (wall.transform.position + direction * .7f, target.position)) 
 		{
 			Debug.DrawLine(wall.transform.position + direction * .5f, target.position, Color.red, 5.0f);
@@ -244,17 +271,18 @@ public class Tower : MonoBehaviour
 		}
 		return false;
 	}
-	
+
+	// function to handle upgrading a tower to a speed tower, either from base or from a level 1 speed tower
 	public void UpgradeSpeed()
 	{
-		switch (m_ActiveModelName)
+		switch (m_ActiveModelName)		// check the model name and then switch based on the name
 		{
-		case "Base":
+		case "Base":					// if the model name is "base" we upgrade to a level1 speed if possible
 			if (m_GameManager.nutrients - TOWER_UPGRADE_LEVEL_1_COST >= 0)  // if you have enough nutrients to upgrade
 			{
-				SetActiveModel("Speed1");
-				m_Cooldown = Level1Cooldown;
-				AdjustAnimationSpeed(m_Cooldown);
+				SetActiveModel("Speed1");				// change the model name to the new name
+				m_Cooldown = Level1Cooldown;			// set the cooldown to the new cooldown
+				AdjustAnimationSpeed(m_Cooldown);		// call the function to correct the animation speed
 				m_GameManager.nutrients = m_GameManager.nutrients - TOWER_UPGRADE_LEVEL_1_COST;	// upgrade costs  nutrients (for test)
 
 				// play sounds
@@ -267,12 +295,12 @@ public class Tower : MonoBehaviour
 				PlayerPrefs.Save();
 			}
 			break;
-		case "Speed1":
+		case "Speed1":			// if the model name is "speed1" we upgrade to a level2 speed if possible
 			if (m_GameManager.nutrients - TOWER_UPGRADE_LEVEL_2_COST >= 0)  // if you have enough nutrients to upgrade
 			{
-				SetActiveModel("Speed2");
-				m_Cooldown = Level2Cooldown;
-				AdjustAnimationSpeed(m_Cooldown);
+				SetActiveModel("Speed2");				// set the name to that of the new model
+				m_Cooldown = Level2Cooldown;			// update the tower cooldown time
+				AdjustAnimationSpeed(m_Cooldown);		// call the function to correct the tower animation cooldown
 				m_GameManager.nutrients = m_GameManager.nutrients - TOWER_UPGRADE_LEVEL_2_COST;		// upgrade costs  nutrients (for test)
 
 				// play sounds
@@ -285,11 +313,13 @@ public class Tower : MonoBehaviour
 				PlayerPrefs.Save();
 			} 
 			break;
-		default:
+		default:				// there are no other valid ways to upgrade speed so all others fall to default case
 			break;
 		}
 	}
-	
+
+	// function that is called to correct the visual animation speed of a speed tower to go along with the 
+	// updated speed
 	private void AdjustAnimationSpeed(float newCooldown)
 	{
         foreach (AnimationState state in transform.FindChild(m_ActiveModelName).animation)
@@ -297,16 +327,17 @@ public class Tower : MonoBehaviour
             state.speed = BaseCooldown / newCooldown;
         }
 	}
-	
+
+	// function that is called to upgrade the power level of a tower
 	public void UpgradePower()
 	{
-		switch (m_ActiveModelName)
+		switch (m_ActiveModelName)		// switch to the right case based on the current name of the active tower model
 		{
-		case "Base":
+		case "Base":					// if the active name is "base" we upgrade to power level 1
 			if (m_GameManager.nutrients - TOWER_UPGRADE_LEVEL_1_COST >= 0)  // if the upgrade is successful
 			{
-				SetActiveModel("Power1");
-				targets = level1Targets;
+				SetActiveModel("Power1");	// update the tower model name
+				targets = level1Targets;	// update the number of targets one bullet can hit
 				m_GameManager.nutrients = m_GameManager.nutrients - TOWER_UPGRADE_LEVEL_1_COST;		// upgrade costs nutrients (for test
 
 				// play sounds
@@ -319,11 +350,11 @@ public class Tower : MonoBehaviour
 				PlayerPrefs.Save();
 			} 
 			break;
-		case "Power1":
+		case "Power1":					// if the active name is "power1" then we upgrade to power level 2
 			if (m_GameManager.nutrients - TOWER_UPGRADE_LEVEL_2_COST >= 0) // if the upgrade is successful
 			{
-				SetActiveModel("Power2");
-				targets = level2Targets;
+				SetActiveModel("Power2");	// update the tower model name
+				targets = level2Targets;	// update the number of targets one bullet can hit
 				m_GameManager.nutrients = m_GameManager.nutrients - TOWER_UPGRADE_LEVEL_2_COST;		// upgrade costs  nutrients (for test
 
 				// play sounds
@@ -336,7 +367,7 @@ public class Tower : MonoBehaviour
 				PlayerPrefs.Save();
 			} 
 			break;
-		default:
+		default:			// there is no other valid way to upgrade to a different power level so all others fall to the base case
 			break;
 		}
 	}
