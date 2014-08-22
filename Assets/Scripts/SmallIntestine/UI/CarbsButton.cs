@@ -94,10 +94,10 @@ public class CarbsButton : MonoBehaviour
 			{
 				guiTexture.texture = activeTexture;
 			}
+#endif
 		} else
 		{
 			guiTexture.texture = activeTexture;
 		}
-#endif
 	}
 }

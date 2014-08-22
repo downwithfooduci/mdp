@@ -95,10 +95,10 @@ public class ProteinButton : MonoBehaviour
 			{
 				guiTexture.texture = activeTexture;
 			}
+#endif
 		} else
 		{
 			guiTexture.texture = activeTexture;
 		}
-#endif
 	}
 }

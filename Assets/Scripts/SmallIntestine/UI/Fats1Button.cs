@@ -92,10 +92,10 @@ public class Fats1Button : MonoBehaviour
 			{
 				guiTexture.texture = activeTexture;
 			}
+#endif
 		} else
 		{
 			guiTexture.texture = activeTexture;
 		}
-#endif
 	}
 }
