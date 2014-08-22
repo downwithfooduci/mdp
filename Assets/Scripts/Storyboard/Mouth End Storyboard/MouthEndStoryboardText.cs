@@ -2,6 +2,9 @@
 using System.Collections;
 using System.IO;
 
+
+// all the text classes are really hacked together because they were done late at night at the last minute
+// they have the text show up with the audio on the screen.
 public class MouthEndStoryboardText : MonoBehaviour 
 {
 	MouthEndStoryboard mouthStoryboard;

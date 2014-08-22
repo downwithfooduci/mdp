@@ -1,9 +1,10 @@
 using UnityEngine;
 using System.Collections;
 
+// script that handles the basic behavior of the nutrients on the food blobs
 public class Nutrient : MDPEntity 
 {
-    public Color BodyColor
+    public Color BodyColor							// for the color of the body
     {
         get { return m_BodyColor; }
         set
@@ -12,72 +13,83 @@ public class Nutrient : MDPEntity
             renderer.materials[0].color = value;
         }
     }
-    private Color m_BodyColor;
 
-    private Color m_TrueColor;
-    private Color m_TargetColor;
+    private Color m_BodyColor;							// member variable that holds the body color value
 
-    public IntestineGameManager intestineGameManager;
+    private Color m_TrueColor;							// used to help with color fading when nutrient is shot with bullet
+    private Color m_TargetColor;						// used to help turn the nutrient brown when it is hit with bullet
+
+    public IntestineGameManager intestineGameManager;	// to hold a reference to the intestinegamemanager
 	
-    public bool IsTargetted;
+    public bool IsTargetted;							// flag to remember whether a nutrient is targetted by a tower
 	
-	public bool isDead = false;
-	private float elapsedTime = 0;
+	public bool isDead = false;							// flag to indicate if a nutrient is alive or dead
+	private float elapsedTime = 0;						// to count elapsed time
 
-	protected GameObject m_Parent;
+	protected GameObject m_Parent;						// to hold areference to the nutrient's parent foodblob
 	
-	private NutrientManager nutrientManager;
+	private NutrientManager nutrientManager;			// to hold a reference to the nutrient manager
 
+	// for the effect particles that are spawned
 	public FoodBlobEffectParticles effectParticleParent;
 	private FoodBlobEffectParticles foodBlobEffectParticles;
 
 	// Use this for initialization
 	void Start () 
 	{
-		nutrientManager = FindObjectOfType(typeof(NutrientManager)) as NutrientManager;
-        Collider = new CircleCollider(this);
-        IsTargetted = false;
+		nutrientManager = FindObjectOfType(typeof(NutrientManager)) as NutrientManager;	// find the nutrient manager
+        Collider = new CircleCollider(this);										// add a circle collider to the nutrient
+        IsTargetted = false;														// the nutrient starts off not tragetted
 
+		// assign the parent reference if the nutrient has one (which it should)
         if (gameObject.transform.parent)
+		{
 		    m_Parent = gameObject.transform.parent.gameObject;
+		}
 	}
 	
 	void Update()
 	{
+		// this manages fading the color of the nutrient form the original color to brown
 		if(isDead && elapsedTime < 1)
 		{
+			// to count time accumulation
 			elapsedTime += Time.deltaTime / 3;
+			// fades the nutrient color from the body color to brown over time
 			nutrientManager.ChangeColor(this, Color.Lerp(m_TrueColor, m_TargetColor, elapsedTime));
 		}
 	}
 	
 	public void OnBulletCollision ()
 	{
-		Absorb();
+		Absorb();			// call the absorb function
 
-		// emit effect particles
-		foodBlobEffectParticles = (FoodBlobEffectParticles)Instantiate (effectParticleParent);
-		FollowITweenPath path = this.transform.parent.gameObject.GetComponent<FollowITweenPath> ();
-		float pathPos = path.pathPosition;
-		foodBlobEffectParticles.setPathPosition (pathPos);
-		foodBlobEffectParticles.createParticles(m_BodyColor);
-		foodBlobEffectParticles.transform.position = gameObject.transform.parent.position;
-		foodBlobEffectParticles.transform.rotation = gameObject.transform.parent.rotation;
+		// emit effect particles unless the nutrient was green
+		if (m_BodyColor != Color.green)
+		{
+			foodBlobEffectParticles = (FoodBlobEffectParticles)Instantiate (effectParticleParent);		// create the particles
+			FollowITweenPath path = this.transform.parent.gameObject.GetComponent<FollowITweenPath> ();	// add particles to the path
+			float pathPos = path.pathPosition;						// set the position the particles are on the path
+			foodBlobEffectParticles.setPathPosition (pathPos);
+			foodBlobEffectParticles.createParticles(m_BodyColor);	// set the color of the emitted particles
+			foodBlobEffectParticles.transform.position = gameObject.transform.parent.position;
+			foodBlobEffectParticles.transform.rotation = gameObject.transform.parent.rotation;
+		}
 		
         if (m_BodyColor == Color.green)		// if the color of the nutrient was green we need to turn it white
         {
-			nutrientManager.ChangeColor(this, Color.white);
-			((Behaviour)gameObject.GetComponent("Halo")).enabled = true;
+			nutrientManager.ChangeColor(this, Color.white);					// changes the color
+			((Behaviour)gameObject.GetComponent("Halo")).enabled = true;	// adds a slight glow effect to the nutrient
         }
-        else
+        else 	// if the nutrient was not green we handle getting ready to destroy the nutrient
         {
-			((Behaviour)gameObject.GetComponent("Halo")).enabled = false;
-			isDead = true;
-            m_TargetColor = new Color(92f / 255f, 64f / 255f, 51f / 255f);
-			IsTargetted = true;
+			((Behaviour)gameObject.GetComponent("Halo")).enabled = false;	// make sure the halo is not enabled
+			isDead = true;													// set the flag to indicate the nutrient is dead
+            m_TargetColor = new Color(92f / 255f, 64f / 255f, 51f / 255f);	// set the new target color for fading
+			IsTargetted = true;												// set the isTargetted flag so a tower doesn't try to shoot at this nutrient again
         }
 		
-		m_TrueColor = m_BodyColor;
+		m_TrueColor = m_BodyColor;	// set this to help with fading
 	}
 	
 	virtual protected void Absorb()
