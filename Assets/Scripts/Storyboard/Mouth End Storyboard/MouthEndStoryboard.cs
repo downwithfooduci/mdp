@@ -8,10 +8,8 @@ public class MouthEndStoryboard : MonoBehaviour {
 	private int currPage = 1;		// store the current page
 	private bool hasPlayed = false;	// remember whether the current sound has played
 	
-	// for detecting a swipe
-	private float xStart = 0.0f;
-	private float xEnd = 0.0f;
-	private bool swipe = false;
+	// for swipe detection
+	DetectStraightSwipe swipeDetection;
 	
 	// check for playthrough
 	private bool canSkip = false;
@@ -22,6 +20,9 @@ public class MouthEndStoryboard : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
+		// find the script for detecting touch
+		swipeDetection = gameObject.GetComponent<DetectStraightSwipe> ();
+
 		// find out if we can skip without listening
 		canSkip = (PlayerPrefs.GetInt ("PlayedMouthEndStory") == 1) ? true : false;
 		
@@ -46,57 +47,36 @@ public class MouthEndStoryboard : MonoBehaviour {
 			playClip();
 			hasPlayed = true;
 		}
-		
+
 		if (!audio.isPlaying || canSkip)
 		{
-			foreach (Touch touch in Input.touches) 
+			if (swipeDetection.getSwipeLeft() == true)				// attempt to detect a swipe to the right
 			{
-				if (touch.phase == TouchPhase.Began) 
-				{
-					xStart = touch.position.x;
-				}
-				if (touch.phase == TouchPhase.Moved) 
-				{
-					xEnd = touch.position.x;
-					
-					if ((xStart - xEnd) > 30) 
-					{
-						swipe = true;
-					}
-				}
-			}
-
-			// for pc/mac
-			if(Input.GetMouseButtonDown(0))
-			{
-				xStart = Input.mousePosition.x;
-			}
-			if (Input.GetMouseButtonUp(0)) 
-			{
-				xEnd = Input.mousePosition.x;
+				swipeDetection.resetSwipe();						// reset the variables to prevent multiple page turns
+				currPage++;											// increment the page since we are going forward
 				
-				if ((xStart - xEnd) > 30) 
-				{
-					swipe = true;
-				}
-			}
-			
-			
-			// set variables for next page
-			if (swipe)
-			{
-				currPage++;
-				if ((currPage - 1) == pages.Length)
+				if ((currPage - 1) == pages.Length)					// perform bounds checking to see if we should load the next scene
 				{
 					PlayerPrefs.SetInt("PlayedMouthEndStory", 1);
 					PlayerPrefs.Save();
 					loader.allowSceneActivation = true;
 				}
-				swipe = false;
-				xStart = 0;
-				xEnd = 0;
+				
 				hasPlayed = false;
+			} 
+			else if (swipeDetection.getSwipeRight() == true)			// attempt to detect a swipe to the left
+			{
+				swipeDetection.resetSwipe();						// reset the varaibel to prevent multiple page turns
+				
+				if (currPage - 1 > 0)								// perform bounds checking to make sure we don't go back too far
+				{
+					currPage--;
+					hasPlayed = false;
+				}
 			}
+		} else if (audio.isPlaying)
+		{
+			swipeDetection.resetSwipe();							// if we can't change the page yet forget the swipe
 		}
 	}
 	
@@ -118,7 +98,8 @@ public class MouthEndStoryboard : MonoBehaviour {
 			GUI.color = new Color() { a = 0.0f };
 			if (GUI.Button(new Rect(Screen.width * .84f, 0, Screen.width * .16f, Screen.width * .16f),""))
 			{
-				swipe = true;
+				currPage++;
+				hasPlayed = false;
 			}
 			GUI.color = new Color() { a = 1.0f };
 		}
