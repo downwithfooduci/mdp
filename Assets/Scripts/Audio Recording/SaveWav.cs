@@ -55,7 +55,8 @@ public static class SaveWav {
 		return true; // TODO: return false if there's a failure saving the file
 	}
 	
-	public static AudioClip TrimSilence(AudioClip clip, float min) {
+	public static AudioClip TrimSilence(AudioClip clip, float min) 
+	{
 		var samples = new float[clip.samples];
 		
 		clip.GetData(samples, 0);

@@ -21,10 +21,6 @@ public class AudioRecorder : MonoBehaviour
 	//Use this for initialization
 	void Start() 
 	{
-		for (int i = 0; i < Microphone.devices.Length; i++)
-		{
-			Debug.Log (Microphone.devices[i]);
-		}
 		//Check if there is at least one microphone connected
 		if(Microphone.devices.Length <= 0)
 		{
@@ -72,7 +68,7 @@ public class AudioRecorder : MonoBehaviour
 				if(GUI.Button(new Rect(Screen.width/2-100, Screen.height/2-25, 200, 50), "Stop"))
 				{
 					Microphone.End(null); //Stop the audio recording
-					AudioClip trimmedClip = SaveWav.TrimSilence(goAudioSource.clip, 0.1f);
+					AudioClip trimmedClip = SaveWav.TrimSilence(goAudioSource.clip, 0f);
 					SaveWav.Save(fileName, trimmedClip);
 				}
 				
