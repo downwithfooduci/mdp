@@ -1,6 +1,13 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Stomach\PhBar.cs">
+    <Files>
+      <File FileName="Assets\Scripts\Stomach\PhBar.cs" Line="99" Column="22" />
+      <File FileName="Assets\Scripts\Stomach\AddAcidButton.cs" Line="34" Column="20" />
+      <File FileName="Assets\Scripts\Stomach\AddBaseButton.cs" Line="34" Column="20" />
+      <File FileName="Assets\Scripts\Stomach\StomachGameManager.cs" Line="5" Column="2" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

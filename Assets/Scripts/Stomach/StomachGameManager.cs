@@ -1,15 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class StomachGameManager : MonoBehaviour {
-
+public class StomachGameManager : MonoBehaviour 
+{
 	// Use this for initialization
-	void Start () {
-	
+	void Start () 
+	{
 	}
 	
 	// Update is called once per frame
 	void Update () {
 	
 	}
+
+
 }
