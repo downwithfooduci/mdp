@@ -93,7 +93,7 @@ public static class SaveWav {
 		}
 
 		// add back a few samples to avoid clipping off end of recorded data
-		i = i + 5;
+		i = i + 10;
 		if (i > samples.Count - 1)
 		{
 			i = samples.Count - 1;
