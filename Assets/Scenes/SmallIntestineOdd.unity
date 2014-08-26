@@ -2856,78 +2856,12 @@ MonoBehaviour:
   - {fileID: 100086, guid: d039cc7cf1654a7468b73acb56ee2bb9, type: 2}
   - {fileID: 100086, guid: cadb7ddc67476b548a5d72ba8ae41784, type: 2}
   SpawnIndicator: {fileID: 100000, guid: 26deff9078debb04c873abf6f2d334bd, type: 2}
-  bottomBar: {fileID: 2800000, guid: 81b92605c0455c2458638c734dde23d8, type: 3}
   AvailableColors:
   - {r: 0, g: 1, b: 0, a: 1}
   - {r: 1, g: 1, b: 1, a: 1}
-  - {r: 1, g: 0, b: 0, a: 1}
+  - {r: 1, g: 0, b: 1, a: 1}
   - {r: 1, g: .921568632, b: .0156862754, a: 1}
-  ButtonStyle:
-    m_Name: 
-    m_Normal:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: .513986051, g: .513986051, b: .513986051, a: 1}
-    m_Hover:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_Active:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_Focused:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_OnNormal:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_OnHover:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_OnActive:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_OnFocused:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_Border:
-      m_Left: 0
-      m_Right: 0
-      m_Top: 0
-      m_Bottom: 0
-    m_Margin:
-      m_Left: 0
-      m_Right: 0
-      m_Top: 0
-      m_Bottom: 0
-    m_Padding:
-      m_Left: 0
-      m_Right: 0
-      m_Top: 0
-      m_Bottom: 0
-    m_Overflow:
-      m_Left: 0
-      m_Right: 0
-      m_Top: 0
-      m_Bottom: 0
-    m_Font: {fileID: 12800000, guid: e31de3f04e18fcd489bb4bf6c9e81ca5, type: 3}
-    m_FontSize: 36
-    m_FontStyle: 0
-    m_Alignment: 4
-    m_WordWrap: 0
-    m_RichText: 1
-    m_TextClipping: 0
-    m_ImagePosition: 0
-    m_ContentOffset: {x: 0, y: 0}
-    m_FixedWidth: 0
-    m_FixedHeight: 0
-    m_StretchWidth: 1
-    m_StretchHeight: 0
   placementSound: {fileID: 100000, guid: 49ec0950471884a4b86cbf637330b8d7, type: 2}
-  Dimensions:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 100
-    height: 135
   IsMouseOverWall: 0
   wall: {fileID: 0}
   TOWER_BASE_COST: 20
@@ -12739,6 +12673,14 @@ Prefab:
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: e550430199bfa124493bfc800c2a65b0, type: 2}
+      propertyPath: AvailableColors.Array.data[2].r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: e550430199bfa124493bfc800c2a65b0, type: 2}
+      propertyPath: AvailableColors.Array.data[2].b
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11400004, guid: e550430199bfa124493bfc800c2a65b0, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: e550430199bfa124493bfc800c2a65b0, type: 2}
@@ -16512,7 +16454,7 @@ Transform:
   m_PrefabParentObject: {fileID: 400000, guid: dea053cdc86a6c442b0e436bb1adeda0, type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 758440261}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: .0381262004, z: 0, w: .999272943}
   m_LocalPosition: {x: 1.84329891, y: 5.9123435, z: .000110387802}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -45487,8 +45429,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e0b6ff400bf6824db0f19bc98bb5553, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activeTexture: {fileID: 2800000, guid: 8c53d17ab79021d4e829853156497d91, type: 3}
-  pressedTexture: {fileID: 2800000, guid: f7b4573b357c501408aa6ecf37da4850, type: 3}
+  activeTexture: {fileID: 2800000, guid: fec9b4df6c89fad448945650d09de253, type: 3}
+  pressedTexture: {fileID: 2800000, guid: f5d805a7383b66f46aafa4d93cfb83a8, type: 3}
   inactiveTexture: {fileID: 2800000, guid: cfd2978d9a698b4488400cc432024637, type: 3}
 --- !u!131 &2093508072
 GUITexture:
@@ -45497,7 +45439,7 @@ GUITexture:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2093508070}
   m_Enabled: 1
-  m_Texture: {fileID: 2800000, guid: 8c53d17ab79021d4e829853156497d91, type: 3}
+  m_Texture: {fileID: 2800000, guid: fec9b4df6c89fad448945650d09de253, type: 3}
   m_Color: {r: .5, g: .5, b: .5, a: .5}
   m_PixelInset:
     serializedVersion: 2

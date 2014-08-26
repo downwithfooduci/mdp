@@ -10528,7 +10528,7 @@ GUITexture:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 435345473}
   m_Enabled: 1
-  m_Texture: {fileID: 2800000, guid: 8c53d17ab79021d4e829853156497d91, type: 3}
+  m_Texture: {fileID: 2800000, guid: fec9b4df6c89fad448945650d09de253, type: 3}
   m_Color: {r: .5, g: .5, b: .5, a: .5}
   m_PixelInset:
     serializedVersion: 2
@@ -10551,8 +10551,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e0b6ff400bf6824db0f19bc98bb5553, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activeTexture: {fileID: 2800000, guid: 8c53d17ab79021d4e829853156497d91, type: 3}
-  pressedTexture: {fileID: 2800000, guid: f7b4573b357c501408aa6ecf37da4850, type: 3}
+  activeTexture: {fileID: 2800000, guid: fec9b4df6c89fad448945650d09de253, type: 3}
+  pressedTexture: {fileID: 2800000, guid: f5d805a7383b66f46aafa4d93cfb83a8, type: 3}
   inactiveTexture: {fileID: 2800000, guid: cfd2978d9a698b4488400cc432024637, type: 3}
 --- !u!1 &435882553
 GameObject:
@@ -19446,7 +19446,7 @@ MonoBehaviour:
   AvailableColors:
   - {r: 0, g: 1, b: 0, a: 1}
   - {r: 1, g: 1, b: 1, a: 1}
-  - {r: 1, g: 0, b: 0, a: 1}
+  - {r: 1, g: 0, b: 1, a: 1}
   - {r: 1, g: .921568632, b: .0156862754, a: 1}
   placementSound: {fileID: 100000, guid: 49ec0950471884a4b86cbf637330b8d7, type: 2}
   IsMouseOverWall: 0
