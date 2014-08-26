@@ -76,6 +76,13 @@ public static class SaveWav {
 				break;
 			}
 		}
+
+		// add back a few samples to avoid clipping off beginning of record data
+		i = i - 5;
+		if (i < 0)
+		{
+			i = 0;
+		}
 		
 		samples.RemoveRange(0, i);
 		
@@ -83,6 +90,13 @@ public static class SaveWav {
 			if (Mathf.Abs(samples[i]) > min) {
 				break;
 			}
+		}
+
+		// add back a few samples to avoid clipping off end of recorded data
+		i = i + 5;
+		if (i > samples.Count - 1)
+		{
+			i = samples.Count - 1;
 		}
 		
 		samples.RemoveRange(i, samples.Count - i);
