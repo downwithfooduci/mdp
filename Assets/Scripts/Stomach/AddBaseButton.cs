@@ -21,15 +21,12 @@ public class AddBaseButton : MonoBehaviour
 	}
 	
 	// Update is called once per frame
-	void Update () 
-	{
-	
-	}
+	void Update () {}
 
 	void OnGUI()
 	{
 		// draw the base button
-		if (GUI.Button(baseButtonRect, "", baseButton))
+		if (GUI.RepeatButton(baseButtonRect, "", baseButton))
 		{
 			phbar.addBase();		// when the button is pressed call the addBase function from the phBar script
 		}

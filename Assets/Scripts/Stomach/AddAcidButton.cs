@@ -21,15 +21,12 @@ public class AddAcidButton : MonoBehaviour
 	}
 	
 	// Update is called once per frame
-	void Update () 
-	{
-	
-	}
+	void Update () {}
 
 	void OnGUI()
 	{
 		// draw the acid button
-		if (GUI.Button (acidButtonRect, "", acidButton))
+		if (GUI.RepeatButton (acidButtonRect, "", acidButton))
 		{
 			phbar.addAcid();		// when the button is pressed call the addAcid function from phBar script
 		}
