@@ -51,7 +51,13 @@ public class MainMenuDebug : MonoBehaviour
 				Application.LoadLevel("LoadLevelSmallIntestine");
 			}
 
-			if (GUI.Button(new Rect(0, 200,
+			if (GUI.Button(new Rect(0, 200, 
+			                        100, 50), "Stomach"))
+			{
+				Application.LoadLevel("Stomach");
+			}
+
+			if (GUI.Button(new Rect(0, 250,
 			                        100, 50), "Record Audio Test"))
 		    {
 				Application.LoadLevel("RecordandPlaybackAudioSample");

@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 400000}
   - 114: {fileID: 11400000}
   m_Layer: 0
-  m_Name: StomachCell
+  m_Name: StomachEnzyme
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -39,6 +39,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 813015aa45fb02844811878cd264c772, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  activatedTexture: {fileID: 2800000, guid: 7a3dbb7c95d106b45a846324e408fa54, type: 3}
+  deactivatedTexture: {fileID: 2800000, guid: 9351fa456b40e644bb83e73985ac682d, type: 3}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
