@@ -195,7 +195,8 @@ public class GlowManager : MonoBehaviour
 																						// if of the correct type (effect 
 																						// particles only)
 			{
-				if (!nutrientHits[i].GetComponent<EffectParticle>().getMoveAndDie())	// make sure the particle isn't already in the killing process
+				if (!nutrientHits[i].GetComponent<EffectParticle>().getMoveAndDie() &&
+				    !nutrientHits[i].GetComponent<EffectParticle>().getFinalMove())	// make sure the particle isn't already in the killing process
 				{
 					// start the absorbing of the particle asynchronously. this helps reduce performance impact
 					StartCoroutine(nutrientHits[i].GetComponent<EffectParticle>().killParticle(center));	

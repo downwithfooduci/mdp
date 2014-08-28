@@ -66,7 +66,7 @@ public class EffectParticle : MonoBehaviour
 
 		if (finalMove)
 		{
-			transform.position += direction * Time.deltaTime * 3f;	// move the particle in the desired direction
+			transform.position += direction * Time.deltaTime * 1f;	// move the particle in the desired direction
 			direction = this.desiredLocation - gameObject.transform.localPosition;	// calculate the direction to move
 
 			if (Mathf.Abs(transform.position.x - desiredLocation.x) < .07f &&
@@ -119,5 +119,11 @@ public class EffectParticle : MonoBehaviour
 	public bool getMoveAndDie()
 	{
 		return moveAndDie;
+	}
+
+	// function that can be used to see if we are currently trying to kill the given effect particle
+	public bool getFinalMove()
+	{
+		return finalMove;
 	}
 }
