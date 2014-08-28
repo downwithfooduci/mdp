@@ -4,6 +4,8 @@ using System.Collections;
 // script that handles behavior for the effect particles in the small intestine game
 public class EffectParticle : MonoBehaviour 
 {
+	private IntestineGameManager intestineGameManager;	// to hold a reference to the intestineGameManager
+
 	private Vector3 desiredLocation;					// to store the desired location to move an effect particle to
 	private Vector3 direction;							// to store the direction to move the effect particle
 
@@ -12,8 +14,8 @@ public class EffectParticle : MonoBehaviour
 														// created we want it to move to the desired location immediately.
 														// once it gets to the desired location "move" will be set to false
 
-	private bool moveAndDie = false;					// variable to move the particle to the desired "death" location and
-														// then destroy the particle
+	private bool moveAndDie = false;					// variable to move the particle in the absorbtion phase
+	private bool finalMove = false;						// for the final move and absorbtion into the nutrients text
 
 	private float speed = Random.Range(1.0f, 2.5f);		// a random speed to assign to the particle on initial spawn
 
@@ -23,7 +25,11 @@ public class EffectParticle : MonoBehaviour
 	private float distanceTravelled;					// to store the distance travelled by the particle
 
 	// Use this for initialization
-	void Start () {}
+	void Start () 
+	{
+		// get a reference to the intestine game manager currently being used
+		intestineGameManager = GameObject.Find ("Managers").GetComponent<IntestineGameManager>();
+	}
 	
 	// Update is called once per frame
 	void Update () 
@@ -45,7 +51,29 @@ public class EffectParticle : MonoBehaviour
 			distanceTravelled += Time.deltaTime * 2.0f;					// increment the distance travelled counter
 			if (distanceTravelled * distanceTravelled >= distance)		// check if the distance travelled is the desired distance
 			{
-				Destroy(this.gameObject);	// if it was then destroy the effect particle
+				moveAndDie = false;										// unflag the moveanddie so we don't go in that code again
+				finalMove = true;										// throw the flag that we're ready for the next block of code
+				transform.position = new Vector3(-26f, 0, -13 + Random.Range(-.3f, .4f));
+				desiredLocation = new Vector3(-7f, 0, transform.position.z);
+
+				direction = desiredLocation - gameObject.transform.position;	// calculate the direction to move
+				direction = direction.normalized;									// normalize the direction vector
+				
+				// find the distance between the particle's location and the desired location
+				distance = Vector3.SqrMagnitude(this.desiredLocation - gameObject.transform.position);
+				distanceTravelled = 0f;
+			}
+		}
+
+		if (finalMove)
+		{
+			transform.position += direction * Time.deltaTime * 4.0f;	// move the particle in the desired direction
+			distanceTravelled += Time.deltaTime * 4.0f; 					// increment the distance travelled counter
+			if (distanceTravelled * distanceTravelled >= distance)			// check if the distance travelled is the desired distance
+			{
+				finalMove = false;				// if it has travelled the specified distance, stop moving it
+				intestineGameManager.OnNutrientHit();		// add the score to the nutrients
+				Destroy(this.gameObject);			// destroy the particle
 			}
 		}
 	}

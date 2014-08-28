@@ -197,7 +197,6 @@ public class GlowManager : MonoBehaviour
 			{
 				if (!nutrientHits[i].GetComponent<EffectParticle>().getMoveAndDie())	// make sure the particle isn't already in the killing process
 				{
-					intestineGameManager.OnNutrientHit();		// add the score to the nutrients
 					// start the absorbing of the particle asynchronously. this helps reduce performance impact
 					StartCoroutine(nutrientHits[i].GetComponent<EffectParticle>().killParticle(center));	
 				}
