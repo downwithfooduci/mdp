@@ -17,7 +17,7 @@ public class EffectParticle : MonoBehaviour
 	private bool moveAndDie = false;					// variable to move the particle in the absorbtion phase
 	private bool finalMove = false;						// for the final move and absorbtion into the nutrients text
 
-	private float speed = Random.Range(1.0f, 2.5f);		// a random speed to assign to the particle on initial spawn
+	private float speed = Random.Range(.7f, 1f);		// speed multiplier
 
 	private float distance;								// to store the total distance between an effect particle's 
 														// starting location and where its desired location is
@@ -37,43 +37,45 @@ public class EffectParticle : MonoBehaviour
 		if (move)	// what to do when moving on initial spawn
 		{
 			transform.localPosition += direction * Time.deltaTime * speed;	// move the particle in the desired direction
-			distanceTravelled += Time.deltaTime * speed; 					// increment the distance travelled counter
-			if (distanceTravelled * distanceTravelled >= distance)			// check if the distance travelled is the desired distance
+			direction = this.desiredLocation - gameObject.transform.localPosition;	// calculate the direction to move
+
+			if (Mathf.Abs(transform.localPosition.x - desiredLocation.x) < .05f &&
+			    Mathf.Abs(transform.localPosition.z - desiredLocation.z) < .05f)			// check if the distance travelled is the desired distance
 			{
 				move = false;				// if it has travelled the specified distance, stop moving it
-				distanceTravelled = 0f;		// reset the distance travelled variable so we can reuse it killing the particle
 			}
 		}
 
 		if (moveAndDie)	// what to do if moving on death
 		{
-			transform.position += direction * Time.deltaTime * 2.0f;	// move the particle in the desired direction
-			distanceTravelled += Time.deltaTime * 2.0f;					// increment the distance travelled counter
-			if (distanceTravelled * distanceTravelled >= distance)		// check if the distance travelled is the desired distance
+			transform.position += direction * Time.deltaTime * 2f;	// move the particle in the desired direction
+			direction = this.desiredLocation - gameObject.transform.localPosition;	// calculate the direction to move
+
+			if (Mathf.Abs(transform.position.x - desiredLocation.x) < .07f &&
+			    Mathf.Abs(transform.position.z - desiredLocation.z) < .07f)		// check if the distance travelled is the desired distance
 			{
 				moveAndDie = false;										// unflag the moveanddie so we don't go in that code again
 				finalMove = true;										// throw the flag that we're ready for the next block of code
-				transform.position = new Vector3(-26f, 0, -13 + Random.Range(-.3f, .4f));
-				desiredLocation = new Vector3(-7f, 0, transform.position.z);
-
-				direction = desiredLocation - gameObject.transform.position;	// calculate the direction to move
-				direction = direction.normalized;									// normalize the direction vector
-				
-				// find the distance between the particle's location and the desired location
-				distance = Vector3.SqrMagnitude(this.desiredLocation - gameObject.transform.position);
-				distanceTravelled = 0f;
+			//v1	transform.position = new Vector3(-26f, 0, -13 + Random.Range(-.3f, .4f));
+			//V2	transform.position = new Vector3(-15f, 0, -13 + Random.Range(-.3f, .4f));
+			//	desiredLocation = new Vector3(-7f, 0, transform.position.z);
+				desiredLocation = new Vector3(-7f, 0, -13f);
+				direction = this.desiredLocation - gameObject.transform.position;	// calculate the direction to move
 			}
 		}
 
 		if (finalMove)
 		{
-			transform.position += direction * Time.deltaTime * 4.0f;	// move the particle in the desired direction
-			distanceTravelled += Time.deltaTime * 4.0f; 					// increment the distance travelled counter
-			if (distanceTravelled * distanceTravelled >= distance)			// check if the distance travelled is the desired distance
+			transform.position += direction * Time.deltaTime * 3f;	// move the particle in the desired direction
+			direction = this.desiredLocation - gameObject.transform.localPosition;	// calculate the direction to move
+
+			if (Mathf.Abs(transform.position.x - desiredLocation.x) < .07f &&
+			    Mathf.Abs(transform.position.z - desiredLocation.z) < .07f)			// check if the distance travelled is the desired distance
 			{
-				finalMove = false;				// if it has travelled the specified distance, stop moving it
+				finalMove = false;							// if it has travelled the specified distance, stop moving it
 				intestineGameManager.OnNutrientHit();		// add the score to the nutrients
-				Destroy(this.gameObject);			// destroy the particle
+				renderer.enabled = false;					// make the particle invisible incase there is a delay on garbage collection
+				Destroy(this.gameObject);					// destroy the particle
 			}
 		}
 	}
@@ -84,7 +86,6 @@ public class EffectParticle : MonoBehaviour
 		this.desiredLocation = desiredLocation;		// set the desiredLocation to the value passed in
 
 		direction = this.desiredLocation - gameObject.transform.localPosition;	// calculate the direction to move
-		direction = direction.normalized;										// normalize the direction vector
 
 		// find the distance between the particle's location and the desired location
 		distance = Vector3.SqrMagnitude(this.desiredLocation - gameObject.transform.localPosition); 
@@ -105,7 +106,6 @@ public class EffectParticle : MonoBehaviour
 			this.desiredLocation = desiredLocation;	// set the desiredLocation to the value passed in
 
 			direction = this.desiredLocation - gameObject.transform.position;	// calculate the direction to move
-			direction = direction.normalized;									// normalize the direction vector
 
 			// find the distance between the particle's location and the desired location
 			distance = Vector3.SqrMagnitude(this.desiredLocation - gameObject.transform.position);
