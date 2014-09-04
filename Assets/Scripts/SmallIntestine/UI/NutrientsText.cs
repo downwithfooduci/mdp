@@ -4,11 +4,13 @@ using System.Collections;
 // script that handles drawing the nutrients text and score in the si game
 public class NutrientsText : MonoBehaviour 
 {
-	private int nutrients;			// to hold the score
-	private Color color;			// for the font color
+	private int nutrients;				// to hold the score
+	private int oldNutrientsVal = 0;	// to hold the old score value each time it changes
+	private bool setColorGreen;			// flag that says whether we should change the nutrients text to green
 
 	// for green fading
-	private Color originalColor;	// for the original font color
+	public Color nutrientGainColor;			// color of the nutrient text when a nutrient is gained
+	public Color originalColor;		// color of the nutrient text when no nutrients are being gained
 
 	// Use this for initialization
 	void Start () 
@@ -16,32 +18,39 @@ public class NutrientsText : MonoBehaviour
 		// set the font size relative to the screen size
 		guiText.fontSize = (int)(Screen.width * .02f) + 1;	
 		// set the pixel offset relative to the screen size
-		guiText.pixelOffset = new Vector2 (.487f * Screen.height, .128f * Screen.width);	
+		guiText.pixelOffset = new Vector2 (.487f * Screen.height, .128f * Screen.width);
 	}
 	
 	// Update is called once per frame
 	void Update () 
 	{
-		guiText.color = color;					// set the text color to the desired color
-
-		if (!color.Equals(originalColor))		// check if the desired color is the original color and if it's not...
+		if (setColorGreen)		// check if we gained nutrients and should change the text color green. 
 		{
-			color = Color.Lerp(color, originalColor, Time.deltaTime);	// fade the color from this color to the original color
+			guiText.color = Color.Lerp(nutrientGainColor, originalColor, Time.deltaTime);	// fade the color from this color to the original color
+		} else if (!setColorGreen && guiText.color.Equals(nutrientGainColor))					// otherwise we didn't gain nutrients and should change the text color white
+		{
+			guiText.color = Color.Lerp(originalColor, nutrientGainColor, Time.deltaTime);	// fade the color from green to white
+		}
+
+		// check if the color was green so we can mark to change it back to white
+		if (guiText.color.Equals(Color.green))
+		{
+			setColorGreen = false;
 		}
 
 		guiText.text = "NUTRIENTS: " + nutrients;	// what we want printed to the screen
 	}
 
 	// function that can be called to sett the desired score text and and desired font color
-	public void updateText(int nutrients, Color color)
+	public void updateText(int nutrients)
 	{
-		this.nutrients = nutrients;
-		this.color = color;
-	}
+		this.nutrients = nutrients;			// store the new nutrients value
 
-	// function that can be called to change the original color so we can change the look of the color fading
-	public void setOriginalColor(Color color)
-	{
-		originalColor = color;
+		if (oldNutrientsVal < nutrients)	// check if the old value was less than the new one (thus nutrients were GAINED)
+		{
+			setColorGreen = true;			// if it was we should change the text color to green
+		}
+
+		oldNutrientsVal = nutrients;		// store the value of nutrients this call to save for comparison later
 	}
 }

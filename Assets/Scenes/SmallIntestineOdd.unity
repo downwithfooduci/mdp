@@ -16577,7 +16577,6 @@ MonoBehaviour:
   health: 20
   nutrients: 40
   NutrientHitScore: 2
-  NutrientTextColor: {r: 0, g: 0, b: 0, a: 0}
   nutrientsCounter: {fileID: 1204862231}
   healthFace: {fileID: 455563809}
   healthBar: {fileID: 1188380643}
@@ -26120,6 +26119,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3ec6085a42b807409cfac200ef94aa6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nutrientGainColor: {r: 0, g: 1, b: 0, a: 1}
+  originalColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!132 &1204862234
 GUIText:
   m_ObjectHideFlags: 0

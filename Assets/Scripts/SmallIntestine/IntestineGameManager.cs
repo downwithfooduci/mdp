@@ -17,9 +17,6 @@ public class IntestineGameManager : MonoBehaviour
     public int nutrients;					// variable to keep track of the nutrient currency
 
 	public int NutrientHitScore;			// Points gained for hitting a nutrient
-	
-	public Color NutrientTextColor;			// color of the nutrient text when a nutrient is gained
-	private Color m_OriginalTextColor;		// color of the nutrient text when no nutrients are being gained
 
     private bool m_IsGameOver;				// a flag to mark whether or not the game is over
 
@@ -50,13 +47,14 @@ public class IntestineGameManager : MonoBehaviour
 
 		spawnScript = gameObject.GetComponent<SpawnManager> ();	// find the referrence to the spawn script
 
-		m_OriginalTextColor = NutrientTextColor = FontStyle.normal.textColor;	// get the text color that was set in editor
 		nutrientsText = nutrientsCounter.GetComponent<NutrientsText> ();	// set the nutrients text script
-		nutrientsText.setOriginalColor (m_OriginalTextColor);				// set the color to the color we have in the editor
 
 		drawHealthFace = healthFace.GetComponent<DrawHealthFace> ();	// get the script on the healthFace object
 
 		drawHealthBar = healthBar.GetComponent<DrawHealthBar> ();	// get the script on the healthBar object
+
+		// draw the initial nutrients text
+		nutrientsText.updateText (nutrients);
 	}
 		
 	// reset player prefs vars
@@ -117,12 +115,9 @@ public class IntestineGameManager : MonoBehaviour
 				elapsedTime = 0f;				// reset the timer for next time
 			}
 		}
-
-
+			
 		// draw nutrients text
-		FontStyle.normal.textColor = NutrientTextColor;
-		nutrientsText.updateText (nutrients, NutrientTextColor);
-		FontStyle.normal.textColor = m_OriginalTextColor;
+		nutrientsText.updateText (nutrients);
 
 		// choose face to draw	
 		if (health > .8 * MAX_HEALTH)
@@ -155,7 +150,7 @@ public class IntestineGameManager : MonoBehaviour
 
 		// add the score to the total and update the score being displayed on the screen
 		nutrients += NutrientHitScore;				// add the difference to update the score
-		NutrientTextColor = Color.green;			// change the color to green temporarily
+
 		// if there is no plus sign currently showing, display one to help bring attention to the nutrients score
 		if (instantiatedPlus == null)
 		{

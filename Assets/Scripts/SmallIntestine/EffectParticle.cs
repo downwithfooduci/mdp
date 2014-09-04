@@ -56,10 +56,10 @@ public class EffectParticle : MonoBehaviour
 			{
 				moveAndDie = false;										// unflag the moveanddie so we don't go in that code again
 				finalMove = true;										// throw the flag that we're ready for the next block of code
-			//v1	transform.position = new Vector3(-26f, 0, -13 + Random.Range(-.3f, .4f));
-			//V2	transform.position = new Vector3(-15f, 0, -13 + Random.Range(-.3f, .4f));
-			//	desiredLocation = new Vector3(-7f, 0, transform.position.z);
-				desiredLocation = new Vector3(-7f, 0, -13f);
+			//V1	transform.position = new Vector3(-26f, 0, -13 + Random.Range(-.3f, .4f));
+				transform.position = new Vector3(-15f, 0, -13 + Random.Range(-.3f, .4f));
+					desiredLocation = new Vector3(-7f, 0, transform.position.z);
+			//V3	desiredLocation = new Vector3(-7f, 0, -13f);
 				direction = this.desiredLocation - gameObject.transform.position;	// calculate the direction to move
 			}
 		}
