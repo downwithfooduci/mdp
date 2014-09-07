@@ -1,24 +1,31 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-// script for the "game over" behavior of the mouth game
+/**
+ * script for the "game over" behavior of the mouth game
+ */
 public class EsophagusGameOver : MonoBehaviour 
 {
-	private bool isGameOver = false;	// flag to hold whether or not the game is over
+	private bool isGameOver = false;	//!< flag to hold whether or not the game is over
 
-	public Texture gameOverPopup;		// to hold the texture of the game over popup box
-	public GUIStyle restart;			// to hold the textures for the restart button
-	public GUIStyle mainMenu;			// to hold the textures for the mainMenu button
+	public Texture gameOverPopup;		//!< to hold the texture of the game over popup box
+	public GUIStyle restart;			//!< to hold the textures for the restart button
+	public GUIStyle mainMenu;			//!< to hold the textures for the mainMenu button
 
-	OxygenBar oxygenBar;				// to hold a reference to the oxygen bar
+	OxygenBar oxygenBar;				//!< to hold a reference to the oxygen bar
 	
-	// Use this for initialization
+	/**
+	 * Use this for initialization
+	 */
 	void Start () 
 	{
 		oxygenBar = gameObject.GetComponent<OxygenBar> ();	// find the reference to the oxygen bar
 	}
 	
-	// Update is called once per frame
+	/**
+	 * Update is called once per frame
+	 * Checks whether the game is over and if it is handles the case.
+	 */
 	void Update () 
 	{
 		// check if we should throw the game over flag because the oxygen bar runs out
@@ -29,6 +36,9 @@ public class EsophagusGameOver : MonoBehaviour
 		}
 	}
 
+	/**
+	 * Draws the GUI overlay for Game Over if the game is over.
+	 */
 	void OnGUI()
 	{
 		if (isGameOver)		// determine if we should draw the game over popup box

@@ -1,22 +1,27 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-// script to create the debug config gui for the mouth game
+/**
+ * script to create the debug config gui for the mouth game
+ */
 public class EsophagusDebugConfigGUI : MonoBehaviour 
 {
-	EsophagusDebugConfig debugConfig;	// to hold a reference to the esophagus debug config
+	EsophagusDebugConfig debugConfig;	//!< to hold a reference to the esophagus debug config
 
-	private string foodSpawnInterval;	// to hold string represenation of foodSpawnInterval variable
-	private string waveDelay;			// to hold string representation of waveDelay variable
-	private string waveTime;			// to hold string representation of waveTime variable
-	private string foodSpeed;			// to hold string representation of foodSpeed variable
-	private string oxygenDeplete;		// to hold string representation of oxygenDeplete variable
-	private string oxygenGain;			// to hold string representation of the oxygenGain variable
+	private string foodSpawnInterval;	//!< to hold string represenation of foodSpawnInterval variable
+	private string waveDelay;			//!< to hold string representation of waveDelay variable
+	private string waveTime;			//!< to hold string representation of waveTime variable
+	private string foodSpeed;			//!< to hold string representation of foodSpeed variable
+	private string oxygenDeplete;		//!< to hold string representation of oxygenDeplete variable
+	private string oxygenGain;			//!< to hold string representation of the oxygenGain variable
 
-	bool debugActive;					// to hold flag over whether we are using values from the debug settings or script
-	bool showGUI = false;				// flag to hold whether or not to show the gui above the game
+	bool debugActive;					//!< to hold flag over whether we are using values from the debug settings or script
+	bool showGUI = false;				//!< flag to hold whether or not to show the gui above the game
 
-	// Use this for initialization
+	/**
+	 * Use this for initialization.
+	 * For this script the string representations of variable values are populated.
+	 */
 	void Start () 
 	{
 		debugConfig = gameObject.GetComponent<EsophagusDebugConfig>();	// find the reference to the debug config
@@ -29,10 +34,10 @@ public class EsophagusDebugConfigGUI : MonoBehaviour
 		oxygenGain = "" + debugConfig.oxygenGain;					// create the string for the oxygenGain variable
 		debugActive = debugConfig.debugActive;						// create the string for the debugActive variable
 	}
-	
-	// Update is called once per frame
-	void Update () {}
 
+	/**
+	 * Handles drawing the debug config gui on top of the game if it's enabled.
+	 */
 	void OnGUI()
 	{
 		GUIStyle style = GUI.skin.label;			// set the guistyle we will use to be of default type label

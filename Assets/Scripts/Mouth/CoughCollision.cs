@@ -1,16 +1,31 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-// script to handle cough collisions in the mouth game
+/**
+ * script to handle cough collisions in the mouth game
+ */
 public class CoughCollision : MonoBehaviour 
 {
-	// Use this for initialization
-	void Start () {}
-	
-	// Update is called once per frame
-	void Update () {}
+	private OxygenBar oxygen;		//!< to hold a reference to the oxygen bar so we can modify values
+	private openFlap flap;			//!< to hold a reference to the flap script on the flaps
 
-	// on trigger enter is called when the object enters a collision
+	/**
+	 * Use this for initialization
+	 */ 
+	void Start () 
+	{
+		// find the oxygen bar
+		oxygen = GameObject.Find("MouthGUI").GetComponent<OxygenBar>();
+
+		// get the script "openFlap" on the flaps
+		flap = transform.parent.gameObject.GetComponent<openFlap>();
+	}
+
+	/**
+	 * On trigger enter is called when the object enters a collision.
+	 * In this script this function causes select statistics for the game to update, and performs
+	 * updates to the oxygen bar and flaps based on a cough happening.
+	 */
 	void OnTriggerEnter(UnityEngine.Collider other)
 	{
 		if(other.gameObject.name.Contains ("foodstuff"))	// check to see if the flaps collided with something
@@ -20,12 +35,8 @@ public class CoughCollision : MonoBehaviour
 			PlayerPrefs.SetInt("MouthStats_timesCoughed", PlayerPrefs.GetInt("MouthStats_timesCoughed") + 1);
 			PlayerPrefs.Save ();
 
-			// find the oxygen bar to update it
-			OxygenBar oxygen = GameObject.Find("MouthGUI").GetComponent<OxygenBar>();
 			oxygen.percent -= .07f;			// on cough we decrease oxygen by a chunk amount as a penalty
 
-			// get the script "openFlap" on the flaps
-			openFlap flap = transform.parent.gameObject.GetComponent<openFlap>();	
 			flap.setCough();				// set the cough indicate variable on the script
 		}
 	}

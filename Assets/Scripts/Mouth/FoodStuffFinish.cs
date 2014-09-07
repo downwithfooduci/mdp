@@ -1,24 +1,28 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-// script to determine what happens when the "foodstuff" reaches the end point of the track
+/**
+ * script to determine what happens when the "foodstuff" reaches the end point of the track
+ */
 public class FoodStuffFinish : MonoBehaviour 
 {
-	private SpawnFood foodSpawner;	// to hold a reference to the foodSpawner
-	private MouthScore score;		// to hold a reference to the mouthScore
+	private SpawnFood foodSpawner;	//!< to hold a reference to the foodSpawner
+	private MouthScore score;		//!< to hold a reference to the mouthScore
 
-	// Use this for initialization
+	/**
+	 * Use this for initialization
+	 */
 	void Start () 
 	{
 		GameObject mouthGUI = GameObject.Find("MouthGUI");						// find the mouth GUI
 		score = mouthGUI.GetComponent<MouthScore>();							// get the score off the gui
 		foodSpawner = GameObject.Find("FoodSpawner").GetComponent<SpawnFood>();	// find the foodSpawner
 	}
-	
-	// Update is called once per frame
-	void Update () {}
 
-	// on trigger enter is called when the object enters into a collision with another object with a collider
+	/**
+	 * on trigger enter is called when the object enters into a collision with another object with a collider.
+	 * This checks if the food stuff hits the end of the track and if so adds a score and destroys it.
+	 */
 	void OnTriggerEnter(UnityEngine.Collider obj)
 	{
 		// check if we got the food through the mouth by seeing if we collided with the end point
@@ -29,6 +33,9 @@ public class FoodStuffFinish : MonoBehaviour
 		}
 	}
 
+	/**
+	 * Function that cleans up destroying the food stuff and checks if the game is over.
+	 */
 	void OnEndPointCollision()
 	{
 		GameObject[] foodstuff = GameObject.FindGameObjectsWithTag("MouthFood"); // find all foodstuff on the game

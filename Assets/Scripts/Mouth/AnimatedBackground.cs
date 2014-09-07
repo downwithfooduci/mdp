@@ -1,41 +1,42 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-// sample code to animate a background
-// this was used for the animated mouth game example for GLS build
+/**
+ * sample code to animate a background
+ * this was used for the animated mouth game example for GLS build
+ */
 public class AnimatedBackground : MonoBehaviour 
 {
-	public Texture[] stills;			// store the animations stills
-	public AudioClip[] audioClips;		// store the audio clips to go with animation frames (if necessary)
+	public Texture[] stills;			//!< store the animations stills
+	public AudioClip[] audioClips;		//!< store the audio clips to go with animation frames (if necessary)
 	public int[] numSlides;
 
-	private int currPage = 0;			// store the current page
+	private int currPage = 0;			//!< store the current page
 	private int currGroup = 0;
 
-	private bool allowSwitch = false;	// to indicate whether or not the user can switch past the page
-										// because the animation is over
+	private bool allowSwitch = false;	//!< to indicate whether or not the user can switch past the page
+										//!< because the animation is over
 
-	public Texture corner;				// the texture for the page turn corner
+	public Texture corner;				//!< the texture for the page turn corner
 
-	private int numInGroup;				// to store the number in the image group (slides per audio clip)
-	private float slideTimeout = 1f;	// time to keep a specific frame up
-	private int currentSound;			// index for the current sound
-	
-	// for slide animation delay
-	private float timeDelay;
-	public float animationDelay;
+	private int numInGroup;				//!< to store the number in the image group (slides per audio clip)
+	private float slideTimeout = 1f;	//!< time to keep a specific frame up
+	private int currentSound;			//!< index for the current sound
+
+	public float animationDelay;		//!< the amount of delay between slides in seconds
 
 	// for detecting a swipe
-	private float xStart = 0.0f;
-	private float xEnd = 0.0f;
-	private bool swipe = false;
+	private float xStart = 0.0f;		//!< will store the starting x coordinate of a swipe gesture
+	private float xEnd = 0.0f;			//!< will store the ending x coordinate of a swipe gesture
+	private bool swipe = false;			//!< flag to indicate if a swipe happened
 
 	// check for playthrough
-	private bool canSkip = false;		// indicate whether or not the user can switch past the animation
-										// before it is finished playing because they have already watched
-										// it
+	private bool canSkip = false;		//!< indicate whether or not the user can switch past the animation
+										//!< before it is finished playing because they have already watched it
 	
-	// Use this for initialization
+	/**
+	 * Use this for initialization
+	 */
 	void Start () 
 	{
 		audio.clip = audioClips[currGroup];	// set the audio clip to the inital clip
@@ -44,7 +45,11 @@ public class AnimatedBackground : MonoBehaviour
 		audio.Play();						// start playing the audio
 	}
 	
-	// Update is called once per frame
+	/**
+	 * Update is called once per frame.
+	 * Update in this script handles changing the slide animation with the audio as necessary.
+	 * Also checks for swipe gestures.
+	 */
 	void Update () 
 	{
 		if(slideTimeout > 0)				// check if the current slide time is up
@@ -108,7 +113,10 @@ public class AnimatedBackground : MonoBehaviour
 			Application.LoadLevel("SmallIntestineStoryboard");
 		}
 	}
-	
+
+	/**
+	 * Draws the background textures and draws an image of a page turn in the corner if necessary
+	 */
 	void OnGUI()
 	{
 		// draw the background image the size of the entire screen

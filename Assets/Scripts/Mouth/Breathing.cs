@@ -1,33 +1,42 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-// script that is used to display the breathing animation in the mouth game
+/**
+ * script that is used to display the breathing animation in the mouth game
+ */
 public class Breathing : MonoBehaviour 
 {
 	// hold the images
-	public Texture[] breathing;				// array to hold the textures for "breathing phase" of animation
-	public Texture[] notBreathing;			// array to hold the textures for the "not breathing phase" of animation
+	public Texture[] breathing;				//!< array to hold the textures for "breathing phase" of animation
+	public Texture[] notBreathing;			//!< array to hold the textures for the "not breathing phase" of animation
 
 	// animation delay
-	public float animationDelay1 = .5f;		// time to show first animation frame
-	public float animationDelay2 = 1.0f;	// time to show second animation frame
-	private float timePassed = 0f;			// float to hold time passed to use to decide which frame to show
+	public float animationDelay1 = .5f;		//!< time to show first animation frame
+	public float animationDelay2 = 1.0f;	//!< time to show second animation frame
+	private float timePassed = 0f;			//!< float to hold time passed to use to decide which frame to show
 
-	public GameObject flaps;				// to hold reference to the flaps
-	private openFlap flapScript;			// to hold a reference to the script on the flaps
+	public GameObject flaps;				//!< to hold reference to the flaps
+	private openFlap flapScript;			//!< to hold a reference to the script on the flaps
 
-	// Use this for initialization
+	/**
+	 * Use this for initialization
+	 */
 	void Start () 
 	{
 		flapScript = (openFlap)flaps.GetComponent(typeof(openFlap));	// find the script on the flaps
 	}
 	
-	// Update is called once per frame
+	/**
+	 * Update is called once per frame
+	 */
 	void Update () 
 	{
 		timePassed += Time.deltaTime;		// increment the time passed since the last update call
 	}
 
+	/**
+	 * Draws the proper animated image to match whether we are breathing or not.
+	 */
 	void OnGUI()
 	{
 		if (flapScript.isEpiglotisOpen() == true)	// if the epiglottis is open, we're not breathing

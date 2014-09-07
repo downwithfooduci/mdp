@@ -1,17 +1,22 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-// script for the return button for the mouth game
+/**
+ * script for the return button for the mouth game
+ */
 public class EsophagusReturnButton : MonoBehaviour 
 {
-	public GUIStyle mainMenuStyle;	// for main menu button
+	public GUIStyle mainMenuStyle;	//!< for main menu button
 	
-	public Texture confirmPopup;	// for pop up confirm box
-	public GUIStyle confirmYes;		// button for yes
-	public GUIStyle confirmNo;		// button for no
+	public Texture confirmPopup;	//!< for pop up confirm box
+	public GUIStyle confirmYes;		//!< button for yes
+	public GUIStyle confirmNo;		//!< button for no
 	
-	private bool confirmUp;			// flag to determine whether the confirm box is up
-	
+	private bool confirmUp;			//!< flag to determine whether the confirm box is up
+
+	/**
+	 * Draws the return button and handles drawing the Quit game pop up if necessary
+	 */
 	void OnGUI()
 	{
 		// this just handles the menu button in the corner
