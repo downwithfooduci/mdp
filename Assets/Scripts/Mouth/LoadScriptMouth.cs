@@ -2,12 +2,19 @@
 using System.Collections;
 using System.IO;
 
-// class that handles loading scripts for the mouth game
+/**
+ * class that handles loading scripts for the mouth game
+ */
 public class LoadScriptMouth 
 {
-	public LoadScriptMouth() {}		// constructor
+	/**
+	 * Constructor
+	 */
+	public LoadScriptMouth() {}
 
-	// function that handles the majority of script loading
+	/**
+	 * function that handles the majority of script loading for mouth game
+	 */
 	public MouthWave[] loadMouthLevel(int level)
 	{
 		TextAsset lev = Resources.Load ("MouthLevel" + level) as TextAsset;  // for ipad we need to load resources instead of using a file
@@ -40,7 +47,9 @@ public class LoadScriptMouth
 	}
 }
 
-// class that defines a mouth wave
+/**
+ * class that defines a mouth wave
+ */
 public class MouthWave
 {
 	public float startDelay;

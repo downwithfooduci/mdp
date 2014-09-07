@@ -1,26 +1,32 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-// script that manages calculating and tracking the score in the mouth game
+/**
+ * script that manages calculating and tracking the score in the mouth game
+ */
 public class MouthScore : MonoBehaviour 
 {
-	public int score;								// variable to hold the score
-	public int foodChain;							// variable to hold the current "chain" length, or "streak" length
-	public int FourMultCount, SixteenMultCount;		// variables to count how many food pieces to enter each multiplier
+	public int score;								//!< variable to hold the score
+	public int foodChain;							//!< variable to hold the current "chain" length, or "streak" length
+	public int FourMultCount, SixteenMultCount;		//!< variables to count how many food pieces to enter each multiplier
 
-	public Texture FourMultTexture, SixteenMulTexture;	// textures for the 4x and 16x icons that show above the score
-														// in the gui
+	public Texture FourMultTexture, SixteenMulTexture;	//!< textures for the 4x and 16x icons that show above the score in the gui
 
-	private openFlap flapScript;					// variable to hold a reference to the script on the flaps
+	private openFlap flapScript;					//!< variable to hold a reference to the script on the flaps
 
-	// Use this for initialization
+	/**
+	 * Use this for initialization
+	 */
 	void Start () 
 	{
 		// find the flaps and get the script reference from them
 		flapScript = GameObject.Find("Flaps").GetComponent<openFlap>();
 	}
 	
-	// Update is called once per frame
+	/**
+	 * Update is called once per frame
+	 * Checks if a cough is happening.
+	 */
 	void Update () 
 	{
 		if(flapScript.isCough())	// check if there is currently a cough happening
@@ -29,7 +35,9 @@ public class MouthScore : MonoBehaviour
 		}
 	}
 
-	// called when food is swallowed to determine the score
+	/**
+	 * called when food is swallowed to determine the score
+	 */
 	public void collectFood()
 	{
 		int scoreToAdd = 1;										// default score is 1
@@ -74,6 +82,9 @@ public class MouthScore : MonoBehaviour
 		PlayerPrefs.Save();				// needs to be called to save the changes to disk
 	}
 
+	/**
+	 * Handles drawing the mouth game score and the appropriate multiplier image
+	 */
 	void OnGUI()
 	{
 		GUI.depth--;						// decrease the gui depth so that the multiplier textures actually show up

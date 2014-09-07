@@ -1,17 +1,21 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-// script to handle spawning food
+/**
+ * script to handle spawning food
+ */
 public class SpawnFood : MonoBehaviour 
 {
-	private EsophagusDebugConfig debugConfig;	// to hold a reference to the mouth debugger script
-	private LoadScriptMouth loadScript;				// to hold a reference to the mouth script loader
-	private MouthWave[] waves;					// to keep track of mouthwaves
-		
-	public GameObject food;						// to hold a reference to the gameobject we will spawn as foodstuff
-	public Vector3 startingSpawn;				// to hold the spawn starting location
+	private EsophagusDebugConfig debugConfig;	//!< to hold a reference to the mouth debugger script
+	private LoadScriptMouth loadScript;			//!< to hold a reference to the mouth script loader
+	private MouthWave[] waves;					//!< to keep track of mouthwaves
 
-	private openFlap flap;						// to hold a reference to the scipt on the flaps					
+	private MouthLoadLevelCounter level;		//!< to hold a reference to the load level counter
+		
+	public GameObject food;						//!< to hold a reference to the gameobject we will spawn as foodstuff
+	public Vector3 startingSpawn;				//!< to hold the spawn starting location
+
+	private openFlap flap;						//!< to hold a reference to the scipt on the flaps					
 
 	// list of variables that are in the debugger and in the script that we will populate
 	public float SpawnInterval;
@@ -20,14 +24,18 @@ public class SpawnFood : MonoBehaviour
 	private float waveTime;
 	private float speed;
 
-	private float m_TimeSinceLastSpawn;			// to keep track of the time since the last foodstuff was spawned
+	private float m_TimeSinceLastSpawn;			//!< to keep track of the time since the last foodstuff was spawned
 
-	public bool end = false;					// flag to indicate whether we are at the end of the script
+	public bool end = false;					//!< flag to indicate whether we are at the end of the script
 
-	// Use this for initialization
+	/**
+	 * Use this for initialization
+	 * Verifies the level was loaded correctly and if not reloads it.
+	 * Starts loading from script/debugger.
+	 */
 	void Start () 
 	{
-		MouthLoadLevelCounter level = null;		// set the MouthLoadLevelCounter to null to begin with
+		level = null;		// set the MouthLoadLevelCounter to null to begin with
 
 		// find the reference to the mouth debugger
 		debugConfig = GameObject.Find("Debugger").GetComponent<EsophagusDebugConfig>();
@@ -69,7 +77,10 @@ public class SpawnFood : MonoBehaviour
 		}
 	}
 	
-	// Update is called once per frame
+	/**
+	 * Update is called once per frame
+	 * Checks for updated wave values from the debugger and handles the spawning of food based on parsed wave data
+	 */
 	void Update () 
 	{
 		if(flap.isCough())		// if we are currently coughing, don't do any other updates for this script

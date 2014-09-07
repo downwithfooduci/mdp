@@ -1,21 +1,26 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-// script that handles moving the food down the "track"
+/**
+ * script that handles moving the food down the "track"
+ */
 public class MoveFood : MonoBehaviour 
 {
-	private GameObject flaps;			// to hold a reference to the flaps in the game
-	private openFlap flap;				// to hold a reference to the openFlap script attached to the flaps
+	private GameObject flaps;			//!< to hold a reference to the flaps in the game
+	private openFlap flap;				//!< to hold a reference to the openFlap script attached to the flaps
 
-	public float pathPosition, reversePosition;	// for ITween path position and the reverse position
-	public float foodSpeed;						// for the speed the food moves along the path
-	public float coughSpeed;					// for the speed the food moves in reverse down the path (for cough)
+	public float pathPosition, reversePosition;	//!< for ITween path position and the reverse position
+	public float foodSpeed;						//!< for the speed the food moves along the path
+	public float coughSpeed;					//!< for the speed the food moves in reverse down the path (for cough)
 
 	private SmoothQuaternion quaternion;
 
-	EsophagusDebugConfig debugConfig;	// to hold a reference to the mouth debug config
+	EsophagusDebugConfig debugConfig;	//!< to hold a reference to the mouth debug config
 
-	// Use this for initialization
+	/**
+	 * Use this for initialization
+	 * Finds references and initializes values.
+	 */
 	void Start () 
 	{
 		GameObject flaps = GameObject.Find ("Flaps");									// find the reference to the flaps
@@ -27,7 +32,10 @@ public class MoveFood : MonoBehaviour
 		debugConfig = GameObject.Find("Debugger").GetComponent<EsophagusDebugConfig>();	// find the reference to the debugger
 	}
 	
-	// Update is called once per frame
+	/**
+	 * Update is called once per frame
+	 * Checks for updated values from the debugger. Checks for coughs and coordinates food movement with cough actions.
+	 */
 	void Update () 
 	{
 		// check if we are using the debugger for values, and if we are the food speed is taken from the debugger

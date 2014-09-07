@@ -1,17 +1,16 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-// script that handles drawing the tongue layer on the gui
+/**
+ * script that handles drawing the tongue layer on the gui
+ */
 public class TongueLayer : MonoBehaviour 
 {
-	public Texture tongue;			// to hold the tongue texture
+	public Texture tongue;			//!< to hold the tongue texture
 
-	// Use this for initialization
-	void Start () {}
-	
-	// Update is called once per frame
-	void Update () {}
-
+	/**
+	 * Handles drawing of the tongue inthe mouth game
+	 */
 	void OnGUI()
 	{
 		GUI.depth++;				// change the GUI depth for proper layering of gui elements

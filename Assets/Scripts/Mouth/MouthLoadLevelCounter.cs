@@ -1,13 +1,18 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-// script class that helps with loading and keeping track of the proper mouth level
+/**
+ * script class that helps with loading and keeping track of the proper mouth level
+ */
 public class MouthLoadLevelCounter : MonoBehaviour 
 {
-	private int level;			// variable to hold the level
-	public int MAX_LEVEL = 2; 	// for bounds checking
+	private int level;			//!< variable to hold the level
+	public int MAX_LEVEL = 2; 	//!< for bounds checking
 
-	// Use this for initialization
+	/**
+	 * Use this for initialization.
+	 * Checks how the game is starting and makes sure the correct level is loaded.
+	 */
 	void Start () 
 	{
 		level = PlayerPrefs.GetInt ("DesiredMouthLevel");		// pull the desired mouth level from playerprefs
@@ -31,7 +36,10 @@ public class MouthLoadLevelCounter : MonoBehaviour
 		}
 	}
 	
-	// Update is called once per frame
+	/**
+	 * Update is called once per frame
+	 * Makes sure we are in the correct scene to be using this script, otherwise destroys it since it's not needed.
+	 */
 	void Update () 
 	{
 		string scene = Application.loadedLevelName;	// get the name of the current scene to verify we should use this
@@ -45,15 +53,18 @@ public class MouthLoadLevelCounter : MonoBehaviour
 		}
 	}
 
+	/**
+	 * Called when scenes are switched
+	 */
 	void Awake() 
 	{
 		// this prevents this gameobject from being destroyed when we switch scenes
 		DontDestroyOnLoad(transform.gameObject);
 	}
 	
-	/*
+	/**
 	 * Allow manual level changing forced by a menu rather than automatic transitions
-	 * */
+	 */
 	public void manualSetLevel(int newLevel)
 	{
 		// check if the desired level is valid, and if it is allow the change
@@ -63,27 +74,33 @@ public class MouthLoadLevelCounter : MonoBehaviour
 		}
 	}
 
-	/*
+	/**
 	 * For moving on to the next level
-	 * */
+	 */
 	public void nextLevel()
 	{
 		level++;	// just increase the level count by 1
 	}
 	
-	/*
+	/**
 	 * For reseting game
-	 * */
+	 */
 	public void resetLevel()
 	{
 		level = 1;	// resetting means we should be back on level 1
 	}
-	
+
+	/**
+	 * For returning the current value stored in level
+	 */
 	public int getLevel()
 	{
-		return level;	// just return the value of the level variable
+		return level;	
 	}
-	
+
+	/**
+	 * For returning the current value stored in max_level
+	 */
 	public int getMaxLevels()
 	{
 		return MAX_LEVEL;	// just return the value of the MAX_LEVEL bounds checker

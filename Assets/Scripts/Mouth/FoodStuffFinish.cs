@@ -7,7 +7,8 @@ using System.Collections;
 public class FoodStuffFinish : MonoBehaviour 
 {
 	private SpawnFood foodSpawner;	//!< to hold a reference to the foodSpawner
-	private MouthScore score;		//!< to hold a reference to the mouthScore
+	private MouthScore score;		//!< to hold a reference to the mouthScore to modify score
+	private MouthLoadLevelCounter  level; //!< to hold a reference to the load level counter for switching levels
 
 	/**
 	 * Use this for initialization
@@ -49,7 +50,7 @@ public class FoodStuffFinish : MonoBehaviour
 
 			if (chooseBackground != null)				// if we found the background chooser get the level
 			{
-				MouthLoadLevelCounter  level = chooseBackground.GetComponent<MouthLoadLevelCounter>();
+				level = chooseBackground.GetComponent<MouthLoadLevelCounter>();
 				level.nextLevel();						// increase the level counter to correctly load the next 
 														// level (if there is one)
 			}

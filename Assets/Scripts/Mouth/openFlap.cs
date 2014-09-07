@@ -1,26 +1,30 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-// script that handles opening and closing the uvula and epiglottis flaps in the mouth game
+/**
+ * script that handles opening and closing the uvula and epiglottis flaps in the mouth game
+ */
 public class openFlap : MonoBehaviour 
 {
-	private GameObject bottomFlap, topFlap;		// to hold references to the top and bottom flaps
-	private bool isOpen;						// flag to signify whether the flaps are "open" or "closed"
+	private GameObject bottomFlap, topFlap;		//!< to hold references to the top and bottom flaps
+	private bool isOpen;						//!< flag to signify whether the flaps are "open" or "closed"
 
-	private bool cough = false;					// flag to signify whether a cough action is currently occuring
-	private float coughTimer;					// a timer for how long the food should move in a reversed direction 
-												// during a cough
+	private bool cough = false;					//!< flag to signify whether a cough action is currently occuring
+	private float coughTimer;					//!< a timer for how long the food should move in a reversed direction during a cough
 
 	// swipe varaibles
-	private float xStart = 0.0f;				// will hold where a touch starts in the x direction
-	private float xEnd = 0.0f;					// will hold where a touch ends in the x direction
-	private float yStart = 0.0f;				// will hold where a touch starts in the y direction
-	private float yEnd = 0.0f;					// will hold where a touch ends in the y direction
-	private bool swipe = false;					// flag to hold whether there was any type of swipe
-	private bool swipeUp = false;				// flag to hold whether there was an upward swipe direction
-	private bool swipeDown = false;				// flag to hold whether there was a downward swipe direction
+	private float xStart = 0.0f;				//!< will hold where a touch starts in the x direction
+	private float xEnd = 0.0f;					//!< will hold where a touch ends in the x direction
+	private float yStart = 0.0f;				//!< will hold where a touch starts in the y direction
+	private float yEnd = 0.0f;					//!< will hold where a touch ends in the y direction
+	private bool swipe = false;					//!< flag to hold whether there was any type of swipe
+	private bool swipeUp = false;				//!< flag to hold whether there was an upward swipe direction
+	private bool swipeDown = false;				//!< flag to hold whether there was a downward swipe direction
 
-	// Use this for initialization
+	/**
+	 * Use this for initialization
+	 * Finds references to the flaps and orders them correctly
+	 */
 	void Start () 
 	{
 		coughTimer = 0f;						// make sure the initial cough timer value is 0
@@ -40,7 +44,10 @@ public class openFlap : MonoBehaviour
 		}
 	}
 	
-	// Update is called once per frame
+	/**
+	 * Update is called once per frame
+	 * Checks for touch inputs and opens/closes the flaps accordingly.
+	 */
 	void Update () 
 	{
 		// update the coughing variable accordingly to maintain proper collision detection
@@ -173,13 +180,17 @@ public class openFlap : MonoBehaviour
 		}
 	}
 
-	// function that can be called to return whether the flaps are currently open
+	/**
+	 * function that can be called to return whether the flaps are currently open
+	 */
 	public bool isEpiglotisOpen()
 	{
 		return isOpen;
 	}
 
-	// function that can be called to indicate that a cough is happening
+	/**
+	 * function that can be called to indicate that a cough is happening
+	 */
 	public void setCough()
 	{
 		if(!audio.isPlaying)		// start playing the couugh audio if it's not already playing
@@ -190,7 +201,9 @@ public class openFlap : MonoBehaviour
 		cough = true;				// throw the flag to indicate a cough is happening
 	}
 
-	// function that can be called to return whether there is currently a cough happening
+	/**
+	 * function that can be called to return whether there is currently a cough happening
+	 */
 	public bool isCough()
 	{
 		return cough;

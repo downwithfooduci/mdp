@@ -1,16 +1,23 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-// script to handle general mouth game things
+/**
+ * script to handle general mouth game things
+ */
 public class MouthGameManager : MonoBehaviour 
 {
-
-	// Use this for initialization
+	/*
+	 * Use this for initialization.
+	 * Initializes the stats tracker.
+	 */
 	void Start () 
 	{
 		resetStats ();		// reset the stats for each time a game level is loaded
 	}
 
+	/*
+	 * Function that resets the mouth game stats in player prefs
+	 */
 	void resetStats()
 	{
 		// resets the stats relevant to the mouth game and saves changes
@@ -23,7 +30,4 @@ public class MouthGameManager : MonoBehaviour
 		PlayerPrefs.DeleteKey("MouthStats_score");
 		PlayerPrefs.Save();
 	}
-
-	// Update is called once per frame
-	void Update () {}
 }
