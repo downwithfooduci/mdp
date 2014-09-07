@@ -8,6 +8,9 @@ public class EffectParticle : MonoBehaviour
 
 	private Vector3 desiredLocation;					// to store the desired location to move an effect particle to
 	private Vector3 direction;							// to store the direction to move the effect particle
+	private Vector3 startingPosition;
+
+	private float percentageMoved;
 
 	private bool move = true;							// variable to move the particle on creation
 														// the value starts off as move because when an effect particle is
@@ -56,15 +59,46 @@ public class EffectParticle : MonoBehaviour
 			{
 				moveAndDie = false;										// unflag the moveanddie so we don't go in that code again
 				finalMove = true;										// throw the flag that we're ready for the next block of code
+
+				//v1	transform.position = new Vector3(-26f, 0, -13 + Random.Range(-.3f, .4f)); // v1
+				//v2	transform.position = new Vector3(-15f, 0, -13 + Random.Range(-.3f, .4f));		// v2
+				
+				startingPosition = transform.position;		// store the starting location before we begin the final move
+				percentageMoved = 0f;
+
+				desiredLocation = new Vector3(-7f, 0, -13f); //v3
+				//v1,v2 desiredLocation = new Vector3(-7f, 0, transform.position.z); //v1, v2
+				
+				direction = this.desiredLocation - transform.position;	// calculate the direction to move
+
+
+			/*	moveAndDie = false;										// unflag the moveanddie so we don't go in that code again
+				finalMove = true;										// throw the flag that we're ready for the next block of code
 			//V1	transform.position = new Vector3(-26f, 0, -13 + Random.Range(-.3f, .4f));
-				transform.position = new Vector3(-15f, 0, -13 + Random.Range(-.3f, .4f));
+			//V2	transform.position = new Vector3(-15f, 0, -13 + Random.Range(-.3f, .4f));
 					desiredLocation = new Vector3(-7f, 0, transform.position.z);
-			//V3	desiredLocation = new Vector3(-7f, 0, -13f);
+				desiredLocation = new Vector3(-7f, 0, -13f); //v3
 				direction = this.desiredLocation - gameObject.transform.position;	// calculate the direction to move
+				*/
 			}
 		}
 
 		if (finalMove)
+		{
+			//v1 percentageMoved =  Mathf.Clamp(percentageMoved + Time.deltaTime * .6f, 0f, 1f); //v1
+			//v2 percentageMoved =  Mathf.Clamp(percentageMoved + Time.deltaTime * 1f, 0f, 1f); //v2
+			percentageMoved =  Mathf.Clamp(percentageMoved + Time.deltaTime * .8f, 0f, 1f); //v3
+			transform.position = startingPosition + percentageMoved * direction;	// move the particle in the desired direction
+			if (percentageMoved >= 1.0f)			// check if the distance travelled is the desired distance
+			{
+				finalMove = false;							// if it has travelled the specified distance, stop moving it
+				intestineGameManager.OnNutrientHit();		// add the score to the nutrients
+				renderer.enabled = false;					// make the particle invisible incase there is a delay on garbage collection
+				Destroy(this.gameObject);					// destroy the particle
+			}
+		}
+
+	/*	if (finalMove)
 		{
 			transform.position += direction * Time.deltaTime * 1f;	// move the particle in the desired direction
 			direction = this.desiredLocation - gameObject.transform.localPosition;	// calculate the direction to move
@@ -77,7 +111,7 @@ public class EffectParticle : MonoBehaviour
 				renderer.enabled = false;					// make the particle invisible incase there is a delay on garbage collection
 				Destroy(this.gameObject);					// destroy the particle
 			}
-		}
+		}*/
 	}
 
 	// this is for moving the particles the first time, when they are spawned
@@ -96,6 +130,7 @@ public class EffectParticle : MonoBehaviour
 	{
 		if (!moveAndDie)	// only let the particles die once to avoid bouncing around
 		{
+			move = false;
 			if (transform.parent != null)
 			{
 				Transform parent = transform.parent;	// find a reference to the particle's parent

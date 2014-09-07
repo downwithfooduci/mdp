@@ -9,7 +9,7 @@ public class Buttons : MonoBehaviour
 
 	GameObject p;
 	public GameObject ColorPrefeb;
-	public bool EnzymesExist = false;	// used to tell whether we already have an enzyme spawned.
+	public bool EnzymesExist = false;	//!< used to tell whether we already have an enzyme spawned.
 										// can only have one enzyme active at once
 										// currently you have to kill the current enzyme to spawn a new one
 	public GUIStyle style;
