@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/**
+ * Tutorial stuff for speed multiplier
+ */
 public class SpeedMultiplierTutorial : MonoBehaviour  
 {
 	// for zyme

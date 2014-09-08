@@ -1,18 +1,22 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-// script that handles drawing the nutrients text and score in the si game
+/**
+ * script that handles drawing the nutrients text and score in the si game
+ */
 public class NutrientsText : MonoBehaviour 
 {
-	private int nutrients;				// to hold the score
-	private int oldNutrientsVal = 0;	// to hold the old score value each time it changes
-	private bool setColorGreen;			// flag that says whether we should change the nutrients text to green
+	private int nutrients;				//!< to hold the score
+	private int oldNutrientsVal = 0;	//!< to hold the old score value each time it changes
+	private bool setColorGreen;			//!< flag that says whether we should change the nutrients text to green
 
 	// for green fading
-	public Color nutrientGainColor;			// color of the nutrient text when a nutrient is gained
-	public Color originalColor;		// color of the nutrient text when no nutrients are being gained
+	public Color nutrientGainColor;			//!< color of the nutrient text when a nutrient is gained
+	public Color originalColor;				//!< color of the nutrient text when no nutrients are being gained
 
-	// Use this for initialization
+	/**
+	 * Use this for initialization
+	 */
 	void Start () 
 	{
 		// set the font size relative to the screen size
@@ -21,7 +25,10 @@ public class NutrientsText : MonoBehaviour
 		guiText.pixelOffset = new Vector2 (.487f * Screen.height, .128f * Screen.width);
 	}
 	
-	// Update is called once per frame
+	/**
+	 * Update is called once per frame
+	 * Updates the font color and what is printed to screen
+	 */
 	void Update () 
 	{
 		if (setColorGreen)		// check if we gained nutrients and should change the text color green. 
@@ -41,7 +48,9 @@ public class NutrientsText : MonoBehaviour
 		guiText.text = "NUTRIENTS: " + nutrients;	// what we want printed to the screen
 	}
 
-	// function that can be called to sett the desired score text and and desired font color
+	/**
+	 * function that can be called to sett the desired score text and and desired font color
+	 */
 	public void updateText(int nutrients)
 	{
 		this.nutrients = nutrients;			// store the new nutrients value

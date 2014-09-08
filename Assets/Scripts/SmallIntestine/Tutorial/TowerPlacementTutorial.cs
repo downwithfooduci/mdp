@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/**
+ * Tutorial for tower placement stuff
+ */
 public class TowerPlacementTutorial : MonoBehaviour 
 {
 	public Texture arrow;

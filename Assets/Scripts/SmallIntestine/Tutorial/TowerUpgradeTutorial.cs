@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/**
+ * Tutorial stuff for upgrading towers
+ */
 public class TowerUpgradeTutorial : MonoBehaviour 
 {
 	// for zyme

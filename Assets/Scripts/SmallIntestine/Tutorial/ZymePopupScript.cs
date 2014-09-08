@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/**
+ * Draws a zyme that popups in the corner with a message
+ */
 public class ZymePopupScript : MonoBehaviour 
 {
 	// texture and value for drawing zyme properly

@@ -1,24 +1,29 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-// Scripts for all buttons except protein are similar but have slight differences
+/**
+ * Scripts for all buttons except protein are similar but have slight differences
+ */
 public class CarbsButton : MonoBehaviour 
 {
-	public Texture activeTexture;	// hold the testure for the button's "active" mode
-	public Texture pressedTexture;	// hold the texture for the button's "pressed" mode
-	public Texture inactiveTexture;	// hold the texture for the button's "inactive" mode
+	public Texture activeTexture;	//!< hold the testure for the button's "active" mode
+	public Texture pressedTexture;	//!< hold the texture for the button's "pressed" mode
+	public Texture inactiveTexture;	//!< hold the texture for the button's "inactive" mode
 
-	private float buttonTop;		// button top y coordinate
-	private float buttonLeft;		// button left x coordinate
-	private float buttonWidth;		// width of a button
-	private float buttonHeight;		// height of a button
-	private float buttonSpacing;	// the spacing between buttons
+	private float buttonTop;		//!< button top y coordinate
+	private float buttonLeft;		//!< button left x coordinate
+	private float buttonWidth;		//!< width of a button
+	private float buttonHeight;		//!< height of a button
+	private float buttonSpacing;	//!< the spacing between buttons
 	
-	private const int buttonColorCode = 3;	// this is from old legacy code to maintain the proper tower color
+	private const int buttonColorCode = 3;	//!< this is from old legacy code to maintain the proper tower color
 	
-	private TowerSpawner towerSpawner;	// hold a reference to the TowerSpawner script
+	private TowerSpawner towerSpawner;	//!< hold a reference to the TowerSpawner script
 	
-	// Use this for initialization
+	/**
+	 * Use this for initialization
+	 * Sets up conditions to draw the carbs button properly
+	 */
 	void Start () 
 	{
 		// set the values for the carbs button
@@ -36,7 +41,11 @@ public class CarbsButton : MonoBehaviour
 		towerSpawner = GameObject.Find ("GUI").GetComponent<TowerSpawner> ();
 	}
 	
-	// Update is called once per frame
+	/**
+	 * Update is called once per frame
+	 * Checks for which version of the carbs button to draw and draws it.
+	 * Spawns a tower when the button is clicked
+	 */
 	void Update () 
 	{
 		// first we check which texture to draw

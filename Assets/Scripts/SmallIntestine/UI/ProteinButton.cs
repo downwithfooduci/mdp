@@ -1,24 +1,29 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-// Scripts for all buttons except protein are similar but have slight differences
+/**
+ * Controls behavior for the protein button
+ */
 public class ProteinButton : MonoBehaviour 
 {
-	public Texture activeTexture;	// hold the testure for the button's "active" mode
-	public Texture pressedTexture;	// hold the texture for the button's "pressed" mode
-	public Texture inactiveTexture;	// hold the texture for the button's "inactive" mode
+	public Texture activeTexture;	//!< hold the testure for the button's "active" mode
+	public Texture pressedTexture;	//!< hold the texture for the button's "pressed" mode
+	public Texture inactiveTexture;	//!< hold the texture for the button's "inactive" mode
 	
-	private float buttonTop;		// button top y coordinate
-	private float buttonLeft;		// button left x coordinate
-	private float buttonWidth;		// width of a button
-	private float buttonHeight;		// height of a button
-	private float buttonSpacing;	// the spacing between buttons
+	private float buttonTop;		//!< button top y coordinate
+	private float buttonLeft;		//!< button left x coordinate
+	private float buttonWidth;		//!< width of a button
+	private float buttonHeight;		//!< height of a button
+	private float buttonSpacing;	//!< the spacing between buttons
 	
-	private const int buttonColorCode = 2;	// this is from old legacy code to maintain the proper tower color
+	private const int buttonColorCode = 2;	//!< this is from old legacy code to maintain the proper tower color
 	
-	private TowerSpawner towerSpawner;	// hold a reference to the TowerSpawner script
+	private TowerSpawner towerSpawner;	//!< hold a reference to the TowerSpawner script
 	
-	// Use this for initialization
+	/**
+	 * Use this for initialization
+	 * Sets the size and location for drawing the protein button
+	 */
 	void Start () 
 	{
 		// set the values for the protein button
@@ -36,7 +41,10 @@ public class ProteinButton : MonoBehaviour
 		towerSpawner = GameObject.Find ("GUI").GetComponent<TowerSpawner> ();
 	}
 	
-	// Update is called once per frame
+	/**
+	 * Update is called once per frame
+	 * Handles drawing the proper button texture and spawning a tower when button is pressed
+	 */
 	void Update () 
 	{
 		// first we check which texture to draw

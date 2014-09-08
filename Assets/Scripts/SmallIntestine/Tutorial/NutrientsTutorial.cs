@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/**
+ * Tutorial stuff for nutrients
+ */
 public class NutrientsTutorial : MonoBehaviour 
 {
 	// for zyme
