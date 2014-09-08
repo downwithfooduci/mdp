@@ -1,35 +1,40 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-// script to control the mouth stats tracker
+/**
+ * script to control the mouth stats tracker
+ */
 public class MouthStats : MonoBehaviour 
 {
 	// for drawing stars
-	public Texture filledStar;				// texture of the filled star for mouth stats
-	public Texture emptyStar;				// texture of the empty star for mouth stats
+	public Texture filledStar;				//!< texture of the filled star for mouth stats
+	public Texture emptyStar;				//!< texture of the empty star for mouth stats
 	
 	// for drawing next level button
-	public GUIStyle nextLevelButton;		// hold the style for the next level button
+	public GUIStyle nextLevelButton;		//!< hold the style for the next level button
 	
-	private int numStars = 1;				// the default number of stars is 1
+	private int numStars = 1;				//!< the default number of stars is 1
 
 	// for holding level
-	private GameObject counter;				// to hold a refernece to the counter
-	private MouthLoadLevelCounter level;	// to hold a reference to the mouthloadlevelcounter script
+	private GameObject counter;				//!< to hold a refernece to the counter
+	private MouthLoadLevelCounter level;	//!< to hold a reference to the mouthloadlevelcounter script
 
 	// variables to hold stats
 	// list desired stats for tracking here
-	private int longestStreak;
-	private int timesCoughed;
-	private int foodLost;
-	private int foodSwallowed;
-	private int highestMultiplier;
-	private int score;
+	private int longestStreak;				//!< will hold the value of longestStreak loaded from PlayerPrefs
+	private int timesCoughed;				//!< will hold the value of timesCoughed loaded from PlayerPrefs
+	private int foodLost;					//!< will hold the value of foodLost loaded from PlayerPrefs
+	private int foodSwallowed;				//!< will hold the value of foodSwallowed loaded from PlayerPrefs
+	private int highestMultiplier;			//!< will hold the value of highestMultiplier loaded from PlayerPrefs
 
-	// for high scores
-	int prevHighScore;
+	private int score;						//!< will hold the score calculated based off of stats
+
+	int prevHighScore;						//!< for high scores
 	
-	// Use this for initialization
+	/**
+	 * Use this for initialization
+	 * Load level information and start calculating stats data
+	 */
 	void Start () 
 	{
 		// pull up the level counter
@@ -39,7 +44,10 @@ public class MouthStats : MonoBehaviour
 		populateStats();		// look up the stats we are tracking from the data saved on disk
 		calculateStars();		// calculate the # of stars earned based on the stats pulled up
 	}
-	
+
+	/**
+	 * Load up stats data from PlayerPrefs
+	 */
 	void populateStats()
 	{
 		// populate the stats by pulling them from the saved data on disk with playerprefs and storing them in
@@ -52,8 +60,10 @@ public class MouthStats : MonoBehaviour
 		score = PlayerPrefs.GetInt("MouthStats_score");
 	}
 	
-	// placeholder algorithm
-	// currently stars are calculated only from the number of times coughed
+	/**
+	 * placeholder algorithm
+	 * currently stars are calculated only from the number of times coughed
+	 */
 	void calculateStars()
 	{
 		if (timesCoughed == 0)			// if there were 0 coughs recorded the score is 5 stars
@@ -76,7 +86,9 @@ public class MouthStats : MonoBehaviour
 		saveHighScore();				// save this score if it's the highest to have an overall high score data
 	}
 
-	// this function checks if the score earned on this level this time is the highest score EVER
+	/**
+	 * this function checks if the score earned on this level this time is the highest score EVER
+	 */
 	void saveHighScore()
 	{
 		prevHighScore = PlayerPrefs.GetInt ("Mouth" + (level.getLevel() - 1));	// get the old saved high score
@@ -90,10 +102,10 @@ public class MouthStats : MonoBehaviour
 			PlayerPrefs.Save();				// needs to be called to write the data to disk
 		}
 	}
-	
-	// Update is called once per frame
-	void Update () {}
-	
+
+	/**
+	 * Handles drawing of stats information and all related graphics
+	 */
 	void OnGUI()
 	{
 		// Draw the number of stars text

@@ -1,45 +1,50 @@
 using UnityEngine;
 using System.Collections;
 
-// script that handles basic tower menu creation and functionality for the small intestine game
+/**
+ * script that handles basic tower menu creation and functionality for the small intestine game
+ */
 public class TowerMenu : MonoBehaviour 
 {
-	public bool IsEnabled;					// flag that holds whether the tower menu is currently up
-	public Font font;						// for the font displaying the prices of towers on the tower menu
+	public bool IsEnabled;					//!< flag that holds whether the tower menu is currently up
+	public Font font;						//!< for the font displaying the prices of towers on the tower menu
 
 	// for sounds
-	public GameObject sellSound;			// to store the sound to play when a tower is sold
+	public GameObject sellSound;			//!< to store the sound to play when a tower is sold
 
 	// for buttons
-	public GUIStyle powerActive;			// to hold the style for the power uprade active button
-	public GUIStyle powerInactive;			// to hold the style for the power upgrade inactive button
-	public GUIStyle speedActive;			// to hold the style for the speed upgrade active button
-	public GUIStyle speedInactive;			// to hold the style for the speed upgrade inactive button
-	public GUIStyle sellActive1;			// sell button for the base model
-	public GUIStyle sellActive2;			// sell button for level1 towers
-	public GUIStyle sellActive3;			// sell button for level2 towers
+	public GUIStyle powerActive;			//!< to hold the style for the power uprade active button
+	public GUIStyle powerInactive;			//!< to hold the style for the power upgrade inactive button
+	public GUIStyle speedActive;			//!< to hold the style for the speed upgrade active button
+	public GUIStyle speedInactive;			//!< to hold the style for the speed upgrade inactive button
+	public GUIStyle sellActive1;			//!< sell button for the base model
+	public GUIStyle sellActive2;			//!< sell button for level1 towers
+	public GUIStyle sellActive3;			//!< sell button for level2 towers
 
 	// for sell popup
-	private bool displaySellBox;		// mark whether we should draw sell box
-	public Texture sellConfirmBox;		// mark whether we should be displaying the sell confirm box
-	public GUIStyle confirmYes;			// to hold the confirm sell button textures
-	public GUIStyle confirmNo;			// to hold the cancel sell button textures
+	private bool displaySellBox;		//!< mark whether we should draw sell box
+	public Texture sellConfirmBox;		//!< mark whether we should be displaying the sell confirm box
+	public GUIStyle confirmYes;			//!< to hold the confirm sell button textures
+	public GUIStyle confirmNo;			//!< to hold the cancel sell button textures
 	
-	private Tower m_Tower;					// to hold a reference to a tower script
+	private Tower m_Tower;					//!< to hold a reference to a tower script
 	
-	private Vector3 m_ScreenPosition;		// for the position where the user clicks/taps
+	private Vector3 m_ScreenPosition;		//!< for the position where the user clicks/taps
 	
-	private IntestineGameManager m_GameManager;	// to hold a reference to the intestine game manager
+	private IntestineGameManager m_GameManager;	//!< to hold a reference to the intestine game manager
 	
 	// Dimension and position consts
-	private float UPGRADE_BUTTON_WIDTH;		// for the width of the upgrade buttons
-	private float UPGRADE_BUTTON_HEIGHT;	// for the height of the upgrade buttons
-	private float SELL_BUTTON_WIDTH;		// for the width of the sell buttons
-	private float SELL_BUTTON_HEIGHT;		// for the height of the sell buttons
+	private float UPGRADE_BUTTON_WIDTH;		//!< for the width of the upgrade buttons
+	private float UPGRADE_BUTTON_HEIGHT;	//!< for the height of the upgrade buttons
+	private float SELL_BUTTON_WIDTH;		//!< for the width of the sell buttons
+	private float SELL_BUTTON_HEIGHT;		//!< for the height of the sell buttons
 	
-	private bool m_MouseDownLastFrame = false;	// helper for detecting clicks/taps
+	private bool m_MouseDownLastFrame = false;	//!< helper for detecting clicks/taps
 
-	// Use this for initialization
+	/**
+	 * Use this for initialization
+	 * Gets the tower the menu is on and initializes values for drawing it when brought up
+	 */
     void Start()
     {
 		// set all the sizes relative to screen size
@@ -55,17 +60,21 @@ public class TowerMenu : MonoBehaviour
         m_Tower = gameObject.GetComponent<Tower>();
 	}
 
-	// function that helps tower menu initialization
-	// this is called by the tower spawner when a tower is spawned and helps the tower menu show up
-	// in the correct location when brought up for a tower
+	/**
+	 * function that helps tower menu initialization
+	 * this is called by the tower spawner when a tower is spawned and helps the tower menu show up
+	 * in the correct location when brought up for a tower
+	 */
 	public void Initialize()
 	{
         m_ScreenPosition = MDPUtility.WorldToScreenPosition(transform.position);
 		m_ScreenPosition.y -= Screen.height * (105f / 768f);
 	}
 
-	// a function that is called after update
-	// things are here to help control order of execution
+	/**
+	 * a function that is called after update
+	 * things are here to help control order of execution
+	 */
 	void LateUpdate()
 	{
 		if(!gameObject.GetComponent<Tower>().enabled)	// first check if the tower itself is enabled
@@ -86,7 +95,11 @@ public class TowerMenu : MonoBehaviour
 		
 		m_MouseDownLastFrame = mouseDown;	// assign mouse down to mousedownlastframe for the next time lateupdate is called
 	}
-	
+
+	/**
+	 * Handles drawing of the appropriate tower menu
+	 * The look of the menu will changed based on what the current tower model is
+	 */
 	void OnGUI()
 	{
 		GUI.depth -= 2;				// change the gui depth so that the tower menu shows up on top of game elements
@@ -155,7 +168,9 @@ public class TowerMenu : MonoBehaviour
 		}
 	}
 
-	// asynchronous function that checks mouse clicks to see if it brings up the tower menu or closes a tower menu
+	/**
+	 * asynchronous function that checks mouse clicks to see if it brings up the tower menu or closes a tower menu
+	 */
 	private IEnumerator CheckMouseClick()
 	{	
 		Vector3 mousePos = MDPUtility.MouseToWorldPosition();	// get the mouse click position
@@ -192,8 +207,10 @@ public class TowerMenu : MonoBehaviour
 		yield return new WaitForSeconds(.0f);
 	}
 	
-    // Returns a rectangle with an adjusted position for
-    // the next button
+    /**
+     * Returns a rectangle with an adjusted position for
+     * the next button
+     */
 	private Rect GetPowerButtonRect()
 	{
 		Vector2 spawnPosition;		// for storing the power button location
@@ -220,8 +237,10 @@ public class TowerMenu : MonoBehaviour
 		return rect;	// return the location for the power button
 	}
 
-	// Returns a rectangle with an adjusted position for
-	// the next button
+	/**
+	 * Returns a rectangle with an adjusted position for
+	 * the next button
+	 */
 	private Rect GetSpeedButtonRect()
 	{
 		Vector2 spawnPosition;		// for storing the speed button location
@@ -248,8 +267,10 @@ public class TowerMenu : MonoBehaviour
 		return rect;		// return the location for the speed button
 	}
 
-	// Returns a rectangle with an adjusted position for
-	// the next button
+	/**
+	 * Returns a rectangle with an adjusted position for
+	 * the next button
+	 */
 	private Rect GetSellButtonRect()
 	{
 		Vector2 spawnPosition;			// for storing the speed button location
@@ -276,7 +297,9 @@ public class TowerMenu : MonoBehaviour
 		return rect;			// return the location for the sell button
 	}
 
-	// controls showing the speed upgrade button
+	/**
+	 * controls showing the speed upgrade button
+	 */
 	private void ShowSpeedUpgrade()
 	{
 		if (m_Tower.ActiveModelName == "Base")									// if the current model is the base model
@@ -334,7 +357,9 @@ public class TowerMenu : MonoBehaviour
 		}
 	}
 
-	// controls showing the power upgrade button
+	/**
+	 * controls showing the power upgrade button
+	 */
 	private void ShowPowerUpgrade()
 	{
 		if (m_Tower.ActiveModelName == "Base")								// if the current model is the base model
@@ -383,7 +408,9 @@ public class TowerMenu : MonoBehaviour
 		}
 	}
 
-	// handles showing the sell button
+	/**
+	 * handles showing the sell button
+	 */
 	private void ShowSell(GUIStyle style)
 	{
 		if (GUI.Button(GetSellButtonRect(), "", style))
@@ -396,9 +423,11 @@ public class TowerMenu : MonoBehaviour
 		}
 	}
 
-	// function that handles selling
-	// if the sell button is clicked on it is sold and 60% of the nutrients spent to get the current
-	// active tower menu is reimbursed
+	/**
+	 * function that handles selling
+	 * if the sell button is clicked on it is sold and 60% of the nutrients spent to get the current
+	 * active tower menu is reimbursed
+	 */
 	private void Sell()
 	{
 		// refund nutrients

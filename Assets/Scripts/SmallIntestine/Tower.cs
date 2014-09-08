@@ -1,54 +1,61 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-// script that handles basic tower behaviors
+/**
+ * script that handles basic tower behaviors
+ */
 public class Tower : MonoBehaviour 
 {
 	// for manging costs
-	public int TOWER_BASE_COST = 20;				// to set the base cost of placing towers
-	public int TOWER_UPGRADE_LEVEL_1_COST = 50;		// to set the cost of upgrading a tower from base->lvl1
-	public int TOWER_UPGRADE_LEVEL_2_COST = 50;		// to set the cost of upgrading a tower from lvl1->lvl2
+	public int TOWER_BASE_COST = 20;				//!< to set the base cost of placing towers
+	public int TOWER_UPGRADE_LEVEL_1_COST = 50;		//!< to set the cost of upgrading a tower from base->lvl1
+	public int TOWER_UPGRADE_LEVEL_2_COST = 50;		//!< to set the cost of upgrading a tower from lvl1->lvl2
 
 	// for sounds
-	public AudioClip towerShootSound;				// to hold the sound that will play when a tower shoots
-	public AudioClip upgradeSound;					// to hold the sound that will play when a tower is upgraded
+	public AudioClip towerShootSound;				//!< to hold the sound that will play when a tower shoots
+	public AudioClip upgradeSound;					//!< to hold the sound that will play when a tower is upgraded
 
-	private DebugConfig debugConfig;				// to hold a reference to the script on the debugger
+	private DebugConfig debugConfig;				//!< to hold a reference to the script on the debugger
 	
-	public GameObject Projectile;					// to hold a reference to the gameobject to spawn as a bullet
+	public GameObject Projectile;					//!< to hold a reference to the gameobject to spawn as a bullet
 
-	public GameObject wall;							// for holding the walls, towers can only be placed on walls
+	public GameObject wall;							//!< for holding the walls, towers can only be placed on walls
 
-	public string ActiveModelName					// the name of the tower model
+	public string ActiveModelName					//!< the name of the tower model
 	{
 		get { return m_ActiveModelName; }
 	}
 	private string m_ActiveModelName;
 	
-	public float FiringRange;						// to store the range that a tower can fire at a target
+	public float FiringRange;						//!< to store the range that a tower can fire at a target
 	
 	// Firing cooldown in seconds
-	public float BaseCooldown;						// the cooldown for firing for a base tower model
-	public float Level1Cooldown;					// the cooldown for firing for a level 1 speed tower
-	public float Level2Cooldown;					// the cooldown for firing for a level 2 speed tower
+	public float BaseCooldown;						//!< the cooldown for firing for a base tower model
+	public float Level1Cooldown;					//!< the cooldown for firing for a level 1 speed tower
+	public float Level2Cooldown;					//!< the cooldown for firing for a level 2 speed tower
 
 	// for power towers, max blobs killed at once
-	public int baseTargets = 1;						// the number of blobs a base tower model can hit
-	public int level1Targets = 3;					// the number of blobs a level 1 power tower can hit
-	public int level2Targets = 6;					// the number of blobs a level 2 power tower can hit
+	public int baseTargets = 1;						//!< the number of blobs a base tower model can hit
+	public int level1Targets = 3;					//!< the number of blobs a level 1 power tower can hit
+	public int level2Targets = 6;					//!< the number of blobs a level 2 power tower can hit
 	
     private Transform m_ActiveModel;
 
-    private Color m_TargetColor;					// the color of the tower
-    private NutrientManager m_NutrientManager;		// to hold a reference to the game's nutrient manager
-	private IntestineGameManager m_GameManager;		// to hold a reference to the game's game manager
+	private Color m_TargetColor;					//!< the color of the tower
+	private NutrientManager m_NutrientManager;		//!< to hold a reference to the game's nutrient manager
+	private IntestineGameManager m_GameManager;		//!< to hold a reference to the game's game manager
 
-	private float m_Cooldown;						// to hold what is the tower's current cooldown
-	private int targets;							// to hold what is the tower's current # targets
-	private float m_CurrentCooldown;				// to help count down the time to see if a tower can shoot again
-	private bool m_CanFire;							// a flag that says whether a tower can currently fire
+	private Nutrient target;						//!< holds the current target the tower is trying to shoot at
+
+	private float m_Cooldown;						//!< to hold what is the tower's current cooldown
+	private int targets;							//!< to hold what is the tower's current # targets
+	private float m_CurrentCooldown;				//!< to help count down the time to see if a tower can shoot again
+	private bool m_CanFire;							//!< a flag that says whether a tower can currently fire
 		
-	// Use this for initialization
+	/**
+	 * Use this for initialization
+	 * INitializes tower values on spawn
+	 */
 	void Start () 
 	{
 		gameObject.layer = LayerMask.NameToLayer("Tower");	// move the tower to the tower layer once placed
@@ -73,7 +80,11 @@ public class Tower : MonoBehaviour
 		m_GameManager = GameObject.Find ("Managers").GetComponent<IntestineGameManager>();	// find the game manager
 	}
 
-	// Update is called once per frame
+	/**
+	 * Update is called once per frame
+	 * Checks for updated values for towers from the debugger.
+	 * check if the tower can try to fire
+	 */
 	void Update () 
 	{
 		// if we aren't in the tutorial check for new values from the debugger if we're using it
@@ -145,7 +156,9 @@ public class Tower : MonoBehaviour
 		}
 	}
 
-	// set the color of the tower
+	/**
+	 * set the color of the tower
+	 */
     public void SetColor(Color color)
     {
         m_TargetColor = color;										// set the color to the one passed in the function
@@ -158,7 +171,9 @@ public class Tower : MonoBehaviour
         }
     }
 
-	// to set the active tower model
+	/**
+	 * to set the active tower model
+	 */
 	public void SetActiveModel(string name)
 	{
 		// causes the towers to render properly
@@ -181,11 +196,13 @@ public class Tower : MonoBehaviour
 		m_ActiveModel.gameObject.SetActive(true);				// set this model to be the one visible on the screen
 	}
 
-	// controls firing
-	// this is called for a tower whenever the cooldown is up
+	/**
+	 * controls firing
+	 * this is called for a tower whenever the cooldown is up
+	 */
 	private void Fire()
 	{
-        Nutrient target = AcquireTarget();		// first check if there are any valid targets for this tower
+       target = AcquireTarget();		// first check if there are any valid targets for this tower
 
         if (target)								// if a valid target was found
         {
@@ -219,9 +236,11 @@ public class Tower : MonoBehaviour
         }
 	}
 
-    // Returns closest nutrient within range of TargetColor's type 
-    // that isn't already targeted and is in direct line of sight
-    // or null if there are no valid targets
+    /**
+     * Returns closest nutrient within range of TargetColor's type 
+     * that isn't already targeted and is in direct line of sight
+     * or null if there are no valid targets
+     */
     private Nutrient AcquireTarget()
     {
 		// get all the nutrients of the target color from the nutrient manager
@@ -257,8 +276,10 @@ public class Tower : MonoBehaviour
         return closestNutrient;
     }
 
-	// function that will check if a target is in LOS with a tower
-	// this will use a linecast to see if a wall gets in the way. this prevents towers from shooting through a wall
+	/**
+	 * function that will check if a target is in LOS with a tower
+	 * this will use a linecast to see if a wall gets in the way. this prevents towers from shooting through a wall
+	 */
 	private bool IsInLineOfSight(Transform target)
 	{
 		Vector3 direction = (target.position - wall.transform.position).normalized;				// find the shooting direction
@@ -272,7 +293,9 @@ public class Tower : MonoBehaviour
 		return false;
 	}
 
-	// function to handle upgrading a tower to a speed tower, either from base or from a level 1 speed tower
+	/**
+	 * function to handle upgrading a tower to a speed tower, either from base or from a level 1 speed tower
+	 */
 	public void UpgradeSpeed()
 	{
 		switch (m_ActiveModelName)		// check the model name and then switch based on the name
@@ -318,8 +341,10 @@ public class Tower : MonoBehaviour
 		}
 	}
 
-	// function that is called to correct the visual animation speed of a speed tower to go along with the 
-	// updated speed
+	/**
+	 * function that is called to correct the visual animation speed of a speed tower to go along with the 
+	 * updated speed
+	 */
 	private void AdjustAnimationSpeed(float newCooldown)
 	{
         foreach (AnimationState state in transform.FindChild(m_ActiveModelName).animation)
@@ -328,7 +353,9 @@ public class Tower : MonoBehaviour
         }
 	}
 
-	// function that is called to upgrade the power level of a tower
+	/**
+	 * function that is called to upgrade the power level of a tower
+	 */
 	public void UpgradePower()
 	{
 		switch (m_ActiveModelName)		// switch to the right case based on the current name of the active tower model

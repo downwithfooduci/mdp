@@ -1,33 +1,44 @@
 using UnityEngine;
 using System.Collections;
 
-// manager class to handle spawning waves in the si game
+/**
+ * manager class to handle spawning waves in the si game
+ */
 public class SpawnManager : MonoBehaviour 
 {
-    public GameObject SpawnType;				// to hold a reference to the thing that will be spawning (foodblobparent)
-    public Vector3 SpawnPoint;					// a vector to hold the initial spawn location
+	public GameObject SpawnType;				//!< to hold a reference to the thing that will be spawning (foodblobparent)
+	public Vector3 SpawnPoint;					//!< a vector to hold the initial spawn location
     
-	private DebugConfig debugConfig;			// to hold a reference to the debug config script (for values from debugger)
-	private LoadScript loadScript;				// to hold a reference to the script loader (for values from script)
-	private SIWave[] waves;						// an array to hold parsed wave data
+	private DebugConfig debugConfig;			//!< to hold a reference to the debug config script (for values from debugger)
+	private LoadScript loadScript;				//!< to hold a reference to the script loader (for values from script)
+	private SIWave[] waves;						//!< an array to hold parsed wave data
 
-	public float SpawnInterval; 				// to hold the value set for the spawn interval
-	private int currentWave;					// remember what wave we are on
-	private float waveDelay;					// to hold the value set for the wave delay
-	private float waveTime;						// to hold the value set for the wave time
-	private float speed;						// to hold the value set for the speed
-	private int minNutrients;					// to hold the value set for the minNutrients (minBlobs)
-	private int maxNutrients;					// to hold the value set for the maxNutrients (maxBlobs)
-	Color[] availableColors;					// to hold the colors we can choose to spawn from
+	private SmallIntestineLoadLevelCounter level; //!< for holding the level counter to determine level info
 
-	private float m_TimeSinceLastSpawn;			// to remember the time elapsed since the last spawn (for use with spawnInterval)
+	private FoodBlob blobScript;				//!< holds a newly spawned food blob
+	private FollowITweenPath path;				//!< holds a reference to the path in the SI game so the food can follow it
 
-	public bool end = false;					// to remember if we are done reading new waves from a script
+	public float SpawnInterval; 				//!< to hold the value set for the spawn interval
+	private int currentWave;					//!< remember what wave we are on
+	private float waveDelay;					//!< to hold the value set for the wave delay
+	private float waveTime;						//!< to hold the value set for the wave time
+	private float speed;						//!< to hold the value set for the speed
+	private int minNutrients;					//!< to hold the value set for the minNutrients (minBlobs)
+	private int maxNutrients;					//!< to hold the value set for the maxNutrients (maxBlobs)
+	Color[] availableColors;					//!< to hold the colors we can choose to spawn from
 
-	// Use this for initialization
+	private float m_TimeSinceLastSpawn;			//!< to remember the time elapsed since the last spawn (for use with spawnInterval)
+
+	public bool end = false;					//!< to remember if we are done reading new waves from a script
+
+	/**
+	 * Use this for initialization
+	 * Check if game was loaded properly. If not reload.
+	 * Start spawning waves.
+	 */
 	void Start () 
 	{
-		SmallIntestineLoadLevelCounter level = null;				// initially set the reference to null
+		level = null;				// initially set the reference to null
 
 		GameObject counter = GameObject.Find ("ChooseBackground");	// try to find an instance of the background chooser
 	
@@ -89,7 +100,10 @@ public class SpawnManager : MonoBehaviour
 		}
 	}
 	
-	// Update is called once per frame
+	/**
+	 * Update is called once per frame
+	 * Go through parsed wave data and perform the actions dictated
+	 */
 	void Update () 
 	{
 		if(waveDelay < 0 && !end)			// check if we're not waiting for a delay or the script is not over
@@ -165,17 +179,19 @@ public class SpawnManager : MonoBehaviour
 		}
 	}
 
-	// function that handles spawning the food blob
+	/**
+	 * function that handles spawning the food blob
+	 */
     private void SpawnBlob()
     {
 		// instantiate a blob
         GameObject blob = (GameObject)Instantiate(SpawnType, SpawnPoint, Quaternion.identity);
 		// add an itween path to the blob
 
-		FollowITweenPath path = blob.GetComponent<FollowITweenPath>();
+		path = blob.GetComponent<FollowITweenPath>();
 		path.nutrientSpeed = speed;									// set the food blob's speed on the path
 
-		FoodBlob blobScript = blob.GetComponent<FoodBlob>();		// get the script on the foodblob
+		blobScript = blob.GetComponent<FoodBlob>();		// get the script on the foodblob
 		// call the function to generateenzymes on the blob
 		blobScript.GenerateEnzymes(minNutrients, maxNutrients, availableColors);	
     }

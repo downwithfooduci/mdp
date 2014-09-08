@@ -1,25 +1,33 @@
-// Handles Nutrient instantiation/destruction
-// Makes accessors available for tower targeting
+/**
+ * Handles Nutrient instantiation/destruction
+ * Makes accessors available for tower targeting
+ */
 
 using UnityEngine;
 using System.Collections.Generic;
 
 public class NutrientManager : MonoBehaviour 
 {
-    public GameObject NutrientObj;								// hold a nutrient gameobject
+    public GameObject NutrientObj;								//!< hold a nutrient gameobject
 
-    private Dictionary<Color, List<Nutrient>> m_Nutrients;		// creates dictionary with list of all nutrients of each color
+    private Dictionary<Color, List<Nutrient>> m_Nutrients;		//!< creates dictionary with list of all nutrients of each color
+	private Nutrient Nutrient;									//!< for holding a reference to a nutrient script to alter values
 
+	/**
+	 * Makes a new dictionary for the nutrients
+	 */
 	void Awake () 
 	{
         m_Nutrients = new Dictionary<Color, List<Nutrient>>(new ColorComparer());	// create the dictionary
 	}
 
-	// function that instantiates new nutrients
+	/**
+	 * function that instantiates new nutrients
+	 */
     public Nutrient InstantiateNutrient(Color color, Vector3 position, Quaternion rotation)
     {
         GameObject NutrientObject = Instantiate(NutrientObj, position, rotation) as GameObject;	// instantiate a nutrient
-        Nutrient Nutrient = NutrientObject.GetComponent<Nutrient>();	// get the nutrient script from the newly instantiated nutrient
+        Nutrient = NutrientObject.GetComponent<Nutrient>();	// get the nutrient script from the newly instantiated nutrient
         Nutrient.BodyColor = color;										// set the color correctly
 
 		// keep track of this nutrient in the dictionary
@@ -33,13 +41,17 @@ public class NutrientManager : MonoBehaviour
         return Nutrient;	// returns the newly created nutrient
     }
 
-	// alternative way to instantiate nutrients
+	/**
+	 * alternative way to instantiate nutrients
+	 */
     public Nutrient InstantiateNutrient(Color color, Vector3 position)
     {
         return InstantiateNutrient(color, position, Quaternion.identity);
     }
 
-	// function to remove a nutrient from a food blob
+	/**
+	 * function to remove a nutrient from a food blob
+	 */
     public void RemoveNutrient(Nutrient n)
     {
    		 m_Nutrients[n.BodyColor].Remove(n);			// remove the nutrient from the dictionary list
@@ -54,7 +66,9 @@ public class NutrientManager : MonoBehaviour
 		}
     }
 
-	// function to get a list of nutrients of a specified color
+	/**
+	 * function to get a list of nutrients of a specified color
+	 */
     public IList<Nutrient> GetNutrients(Color color)
     {
         if (m_Nutrients.ContainsKey(color))			// check if there is an entry in the dictionary for nutrients of the 
@@ -68,7 +82,9 @@ public class NutrientManager : MonoBehaviour
 		}
     }
 
-	// function to change the color of a nutrient
+	/**
+	 * function to change the color of a nutrient
+	 */
     public void ChangeColor(Nutrient n, Color c)
     {
         m_Nutrients[n.BodyColor].Remove(n);		// remove the original nutrient from the original color list

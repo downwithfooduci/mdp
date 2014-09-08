@@ -1,35 +1,41 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-// script that handles most of the basic functionality of the tower spawner
+/**
+ * script that handles most of the basic functionality of the tower spawner
+ */
 public class TowerSpawner : MonoBehaviour
 {
 	// Randomly selects a tower model upon creation
-	public GameObject[] Towers;				// an array to store towers
-	public GameObject SpawnIndicator;		// creates the spawn indicator (the red or green circle around the tower)
-	DebugConfig debugConfig;				// to hold a reference to the debugconfig script
+	public GameObject[] Towers;				//!< an array to store towers
+	public GameObject SpawnIndicator;		//!< creates the spawn indicator (the red or green circle around the tower)
+	DebugConfig debugConfig;				//!< to hold a reference to the debugconfig script
 
 	// Set available tower colors in editor
-	public Color[] AvailableColors;			// an array that holds a list of possible tower colors
+	public Color[] AvailableColors;			//!< an array that holds a list of possible tower colors
 
 	// for sounds
-	public GameObject placementSound;		// to hold the sound that will be played when a tower is placed
+	public GameObject placementSound;		//!< to hold the sound that will be played when a tower is placed
 
-	public bool IsMouseOverWall;			// a flag that is set to indicate the tower is currently over a wall
-	public GameObject wall;					// a reference to the wall that the tower is hovering over
+	public bool IsMouseOverWall;			//!< a flag that is set to indicate the tower is currently over a wall
+	public GameObject wall;					//!< a reference to the wall that the tower is hovering over
 
 	// Need to poll from last frame, otherwise
 	// will return false as soon as user releases mouse
-	private bool m_IsMouseOverWallLastFrame;		// to hold a flag to indicate if the mouse was over a wall in the last update
-	private bool m_IsSpawnActive;					// to flag whether or not the spawn is active
+	private bool m_IsMouseOverWallLastFrame;		//!< to hold a flag to indicate if the mouse was over a wall in the last update
+	private bool m_IsSpawnActive;					//!< to flag whether or not the spawn is active
 
-	private GameObject m_SpawnedTower;				// a reference to the current spawned tower
-	private GameObject m_Indicator;					// the gameobject that creates the spawn indicator (red or green circle)
-	private IntestineGameManager m_GameManager;		// holds a reference to the game manager
+	private GameObject m_SpawnedTower;				//!< a reference to the current spawned tower
+	private GameObject m_Indicator;					//!< the gameobject that creates the spawn indicator (red or green circle)
+	private IntestineGameManager m_GameManager;		//!< holds a reference to the game manager
 
-	public int TOWER_BASE_COST = 20;				// the tower base placement cost
-	private const float timer = 2.0f;				// a timer
-		
+	public int TOWER_BASE_COST = 20;				//!< the tower base placement cost
+	private const float timer = 2.0f;				//!< a timer
+
+	/**
+	 * Use for initialization
+	 * Finds debugger and checks if we are using it's values
+	 */
 	void Start ()
 	{
 		// make sure we aren't in tutorial
@@ -51,6 +57,11 @@ public class TowerSpawner : MonoBehaviour
 		m_GameManager = GameObject.Find ("Managers").GetComponent<IntestineGameManager> ();
 	}
 
+	/**
+	 * Called ever frame
+	 * Helps with spawning tower and showing spawn indicator
+	 * Checks for any updates to tower cost from debugger
+	 */
 	void Update ()
 	{
 		// check if the game is paused we destroy any spawned tower that isn't currently placed
@@ -127,7 +138,9 @@ public class TowerSpawner : MonoBehaviour
 		m_IsMouseOverWallLastFrame = IsMouseOverWall;	// set the "last frame" variable to the value from this frame 
 	}
 
-	// function that spawns towers
+	/**
+	 * function that spawns towers
+	 */
 	public void SpawnTower (Color color)
 	{
 		GameObject towerType = Towers [MDPUtility.RandomInt (Towers.Length)];		// randomly choose a type of tower
@@ -144,19 +157,25 @@ public class TowerSpawner : MonoBehaviour
 		m_IsSpawnActive = true;						// set the isspawnactive to true since there is now an active tower spawned
 	}
 
-	// function that can be called to determine if the spawn is currently active or not
+	/**
+	 * function that can be called to determine if the spawn is currently active or not
+	 */
 	public bool getIsSpawnActive()
 	{
 		return m_IsSpawnActive;
 	}
 
-	// function that can be called that will return a reference to the currently spawned tower
+	/**
+	 * function that can be called that will return a reference to the currently spawned tower
+	 */
 	public GameObject getSpawnedTower()
 	{
 		return m_SpawnedTower;
 	}
 
-	// function that can be called to return the gamemanager instance stored in this script
+	/**
+	 * function that can be called to return the gamemanager instance stored in this script
+	 */
 	public IntestineGameManager getGameManager()
 	{
 		return m_GameManager;

@@ -1,22 +1,26 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-// script that handles the 2x multiplier UI element but draws it on the lower right side of the screen in the si game
+/**
+ * script that handles the 2x multiplier UI element but draws it on the lower right side of the screen in the si game
+ */
 public class SpeedMultiplierEven : MonoBehaviour 
 {
-	private bool value;					// flag to indicate whether we are using 1x or 2x
-	public GUIStyle speedButtonOff;		// to hold the texture to draw when 2x speed is disabled
-	public GUIStyle speedButtonOn;		// to hold the texture to draw when 2x speed is enabled
+	private bool value;					//!< flag to indicate whether we are using 1x or 2x
+	public GUIStyle speedButtonOff;		//!< to hold the texture to draw when 2x speed is disabled
+	public GUIStyle speedButtonOn;		//!< to hold the texture to draw when 2x speed is enabled
 
-	// Use this for initialization
+	/**
+	 * Use this for initialization
+	 */
 	void Start () 
 	{
 		value = false;					// initialize the value of "value" to false
 	}
-	
-	// Update is called once per frame
-	void Update () {}
-	
+
+	/** 
+	 * Handles drawing the correct multiplier graphic
+	 */
 	void OnGUI()
 	{
 		// when the 2x speed button is on

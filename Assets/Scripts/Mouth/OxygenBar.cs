@@ -1,22 +1,27 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-// script that handles the behavior of the oxygen bar
+/**
+ * script that handles the behavior of the oxygen bar
+ */
 public class OxygenBar : MonoBehaviour 
 {
-	private Vector2 position;					// variable to hold the position of the oxygenBar
-	private Vector2 originalSize;				// variable to hold the size of the oxygenBar
+	private Vector2 position;					//!< variable to hold the position of the oxygenBar
+	private Vector2 originalSize;				//!< variable to hold the size of the oxygenBar
 
-	public Texture oxygenBar;					// to hold the texture of the oxygen bar
-	public float percent;						// the current percentage the oxygen bar is filled (between 0 and 1)
+	public Texture oxygenBar;					//!< to hold the texture of the oxygen bar
+	public float percent;						//!< the current percentage the oxygen bar is filled (between 0 and 1)
 
-	openFlap flap;								// to hold a reference to the script on the flaps
-	EsophagusDebugConfig config;				// to hold a reference to the debug config in the mouth game
+	openFlap flap;								//!< to hold a reference to the script on the flaps
+	EsophagusDebugConfig config;				//!< to hold a reference to the debug config in the mouth game
 
-	float depletionRate = .05f;					// to hold the oxygen depletion rate
-	float gainRate = .05f;						// to hold the oxygen gain rate
+	float depletionRate = .05f;					//!< to hold the oxygen depletion rate
+	float gainRate = .05f;						//!< to hold the oxygen gain rate
 
-	// Use this for initialization
+	/**
+	 * Use this for initialization
+	 * Find references, initialize variables
+	 */
 	void Start () 
 	{
 		percent = 1f;												// the oxygen bar should start off at 100%
@@ -28,7 +33,10 @@ public class OxygenBar : MonoBehaviour
 		config = debugger.GetComponent<EsophagusDebugConfig>();		// get the script from the debug config
 	}
 	
-	// Update is called once per frame
+	/**
+	 * Update is called once per frame
+	 * Finds out if flap is open or not and updates oxygen percentage accordingly
+	 */
 	void Update () 
 	{
 		if(config.debugActive)						// check if we are using debugger values or reading from the script
@@ -49,6 +57,9 @@ public class OxygenBar : MonoBehaviour
 		percent = Mathf.Clamp(percent, 0, 1f);		// clamp the value between 0 and 1 so the bar doesn't over or under flow
 	}
 
+	/**
+	 * Handles drawing of the oxygen bar properly
+	 */
 	void OnGUI()
 	{
 		// set the x and y position of the oxygen bar relative to screen size
@@ -64,7 +75,9 @@ public class OxygenBar : MonoBehaviour
 		GUI.DrawTexture(new Rect(position.x, position.y, originalSize.x, originalSize.y), oxygenBar);
 	}
 
-	// function that will allow checking what percent the oxygen bar is at
+	/**
+	 * function that will allow checking what percent the oxygen bar is at
+	 */
 	public float getPercent()
 	{
 		return percent;

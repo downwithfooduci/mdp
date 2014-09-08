@@ -1,10 +1,12 @@
 using UnityEngine;
 using System.Collections;
 
-// script that handles the basic behavior of the nutrients on the food blobs
+/**
+ * script that handles the basic behavior of the nutrients on the food blobs
+ */
 public class Nutrient : MDPEntity 
 {
-    public Color BodyColor							// for the color of the body
+    public Color BodyColor							//!< for the color of the body of the nutrient (ex red)
     {
         get { return m_BodyColor; }
         set
@@ -14,27 +16,32 @@ public class Nutrient : MDPEntity
         }
     }
 
-    private Color m_BodyColor;							// member variable that holds the body color value
+	private Color m_BodyColor;							//!< member variable that holds the body color value
 
-    private Color m_TrueColor;							// used to help with color fading when nutrient is shot with bullet
-    private Color m_TargetColor;						// used to help turn the nutrient brown when it is hit with bullet
+	private Color m_TrueColor;							//!< used to help with color fading when nutrient is shot with bullet
+	private Color m_TargetColor;						//!< used to help turn the nutrient brown when it is hit with bullet
 
-    public IntestineGameManager intestineGameManager;	// to hold a reference to the intestinegamemanager
+	public IntestineGameManager intestineGameManager;	//!< to hold a reference to the intestinegamemanager
 	
-    public bool IsTargetted;							// flag to remember whether a nutrient is targetted by a tower
+	public bool IsTargetted;							//!< flag to remember whether a nutrient is targetted by a tower
 	
-	public bool isDead = false;							// flag to indicate if a nutrient is alive or dead
-	private float elapsedTime = 0;						// to count elapsed time
+	public bool isDead = false;							//!< flag to indicate if a nutrient is alive or dead
+	private float elapsedTime = 0;						//!< to count elapsed time
 
-	protected GameObject m_Parent;						// to hold areference to the nutrient's parent foodblob
+	protected GameObject m_Parent;						//!< to hold areference to the nutrient's parent foodblob
 	
-	private NutrientManager nutrientManager;			// to hold a reference to the nutrient manager
+	private NutrientManager nutrientManager;			//!< to hold a reference to the nutrient manager
 
 	// for the effect particles that are spawned
-	public FoodBlobEffectParticles effectParticleParent;
-	private FoodBlobEffectParticles foodBlobEffectParticles;
+	public FoodBlobEffectParticles effectParticleParent;		//!< hold the template of effectParticleParents
+	private FoodBlobEffectParticles foodBlobEffectParticles;	//!< hold a newly spawned effectParticle parent
 
-	// Use this for initialization
+	private FollowITweenPath path;						//!< to hold a reference to the path that the nutrients are following
+
+	/**
+	 * Use this for initialization
+	 * Find manager, set variables, set parent.
+	 */
 	void Start () 
 	{
 		nutrientManager = FindObjectOfType(typeof(NutrientManager)) as NutrientManager;	// find the nutrient manager
@@ -47,7 +54,10 @@ public class Nutrient : MDPEntity
 		    m_Parent = gameObject.transform.parent.gameObject;
 		}
 	}
-	
+
+	/**
+	 * Counts time passed to control the fading of a nutrient to brown over time
+	 */
 	void Update()
 	{
 		// this manages fading the color of the nutrient form the original color to brown
@@ -59,7 +69,10 @@ public class Nutrient : MDPEntity
 			nutrientManager.ChangeColor(this, Color.Lerp(m_TrueColor, m_TargetColor, elapsedTime));
 		}
 	}
-	
+
+	/**
+	 * Called when a tower bullet strikes a nutrient
+	 */
 	public void OnBulletCollision ()
 	{
 		Absorb();			// call the absorb function
@@ -68,7 +81,7 @@ public class Nutrient : MDPEntity
 		if (m_BodyColor != Color.green)
 		{
 			foodBlobEffectParticles = (FoodBlobEffectParticles)Instantiate (effectParticleParent);		// create the particles
-			FollowITweenPath path = this.transform.parent.gameObject.GetComponent<FollowITweenPath> ();	// add particles to the path
+			path = this.transform.parent.gameObject.GetComponent<FollowITweenPath> ();	// add particles to the path
 			float pathPos = path.pathPosition;						// set the position the particles are on the path
 			foodBlobEffectParticles.setPathPosition (pathPos);
 			foodBlobEffectParticles.createParticles(m_BodyColor);	// set the color of the emitted particles
@@ -91,7 +104,10 @@ public class Nutrient : MDPEntity
 		
 		m_TrueColor = m_BodyColor;	// set this to help with fading
 	}
-	
+
+	/**
+	 * Called when a nutrient absorbs a collision with a bullet
+	 */
 	virtual protected void Absorb()
 	{
         IsTargetted = false;

@@ -1,35 +1,39 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-// script to handle the SI stats
+/**
+ * script to handle the SI stats
+ */
 public class SIStats : MonoBehaviour 
 {
 	// for drawing stars
-	public Texture filledStar;						// to store the texture for the filled star
-	public Texture emptyStar;						// to store the texture for the empty star
+	public Texture filledStar;						//!< to store the texture for the filled star
+	public Texture emptyStar;						//!< to store the texture for the empty star
 
 	// for drawing next level button
-	public GUIStyle nextLevelButton;				// to show the textures for the next level button
+	public GUIStyle nextLevelButton;				//!< to show the textures for the next level button
 
-	private int numStars = 1;						// the default number of stars is 1
+	private int numStars = 1;						//!< the default number of stars is 1
 
 	// for holding level 
-	private GameObject counter;						// to hold a reference to the background chooser
-	private SmallIntestineLoadLevelCounter level;	// to hold a reference to the script on the background choose
+	private GameObject counter;						//!< to hold a reference to the background chooser
+	private SmallIntestineLoadLevelCounter level;	//!< to hold a reference to the script on the background choose
 	
 	// list desired stats for tracking here
-	private int nutrientsEarned;					// will hold the value of nutrientsEarned loaded from PlayerPrefs
-	private int nutrientsSpent;						// will hold the value of nutrientsSpent loaded from PlayerPrefs
-	private int foodLost;							// will hold the value of foodLost loaded from PlayerPrefs
-	private int towersPlaced;						// will hold the value of towersPlaced loaded from PlayerPrefs
-	private int towersSold;							// will hold the value of towersSold loaded from PlayerPrefs
-	private int towersUpgraded;						// will hold the value of towersUpgraded loaded from PlayerPrefs
-	private int enzymesFired;						// will hold the value of enzymesFired loaded from PlayerPrefs
+	private int nutrientsEarned;					//!< will hold the value of nutrientsEarned loaded from PlayerPrefs
+	private int nutrientsSpent;						//!< will hold the value of nutrientsSpent loaded from PlayerPrefs
+	private int foodLost;							//!< will hold the value of foodLost loaded from PlayerPrefs
+	private int towersPlaced;						//!< will hold the value of towersPlaced loaded from PlayerPrefs
+	private int towersSold;							//!< will hold the value of towersSold loaded from PlayerPrefs
+	private int towersUpgraded;						//!< will hold the value of towersUpgraded loaded from PlayerPrefs
+	private int enzymesFired;						//!< will hold the value of enzymesFired loaded from PlayerPrefs
 
-	// for high scores
-	int prevHighScore;
-	
-	// Use this for initialization
+	int prevHighScore;								//!< for high scores
+		
+	/**
+	 * Use this for initialization
+	 * Find the correct level and start calculating stats
+	 */
 	void Start () 
 	{
 		// pull up the level
@@ -40,6 +44,9 @@ public class SIStats : MonoBehaviour
 		calculateStars();	// calculate the stars based on the stats
 	}
 
+	/**
+	 * Pulls up all saved stat values from player prefs
+	 */
 	void populateStats()
 	{
 		// load each saved stat from PlayerPrefs into their corresponding variables
@@ -52,8 +59,10 @@ public class SIStats : MonoBehaviour
 		enzymesFired = PlayerPrefs.GetInt("SIStats_enzymesFired");
 	}
 
-	// placeholder algorithm
-	// right now the stats are only calculated based on nutrients lost
+	/**
+	 * placeholder algorithm
+	 * right now the stats are only calculated based on nutrients lost
+	 */
 	void calculateStars()
 	{
 		if (foodLost == 0)			// if no nutrients are lost, then you get 5 stars
@@ -79,7 +88,9 @@ public class SIStats : MonoBehaviour
 		saveHighScore();
 	}	
 
-	// for checking if the new score earned is the highest ever and if it is save it
+	/**
+	 * for checking if the new score earned is the highest ever and if it is save it
+	 */
 	void saveHighScore()
 	{
 		// load the previously saved highest score
@@ -93,10 +104,10 @@ public class SIStats : MonoBehaviour
 			PlayerPrefs.SetInt("SI" + (level.getLevel() - 1), numStars);
 		}
 	}
-	
-	// Update is called once per frame
-	void Update () {}
 
+	/**
+	 * Handles drawing of the stats onto the stats screen plus all associated images
+	 */
 	void OnGUI()
 	{
 		// Draw the number of stars text

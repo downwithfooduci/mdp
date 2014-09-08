@@ -1,17 +1,22 @@
 using UnityEngine;
 using System.Collections;
 
-// just draws the return button on the upper right corner
+/**
+ * just draws the return button on the upper right corner
+ */
 public class ReturnButtonSIOdd : MonoBehaviour 
 {
-	public GUIStyle mainMenuStyle;	// for main menu button
+	public GUIStyle mainMenuStyle;	//!< for main menu button
 
-	public Texture confirmPopup;	// for pop up confirm box
-	public GUIStyle confirmYes;		// button for yes
-	public GUIStyle confirmNo;		// button for no
+	public Texture confirmPopup;	//!< for pop up confirm box
+	public GUIStyle confirmYes;		//!< button for yes
+	public GUIStyle confirmNo;		//!< button for no
 
-	private bool confirmUp;			// flag whether or not the confirm box should be shown
+	private bool confirmUp;			//!< flag whether or not the confirm box should be shown
 
+	/**
+	 * Draws the return button plus the associated pop up box
+	 */
 	void OnGUI()
 	{
 		GUI.depth = GUI.depth - 10;
