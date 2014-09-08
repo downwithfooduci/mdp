@@ -6,7 +6,7 @@ using System.IO;
 // they have the text show up with the audio on the screen.
 public class TextForIntroStory : MonoBehaviour 
 {
-	IntroStoryboard introStoryboard;
+	StoryboardHandler introStoryboard;
 	private string[] text;
 	private float timer;
 	private bool resetTimerPage4, resetTimerPage5, resetTimerPage8;
@@ -14,7 +14,7 @@ public class TextForIntroStory : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
-		introStoryboard = this.gameObject.GetComponent<IntroStoryboard> ();
+		introStoryboard = this.gameObject.GetComponent<StoryboardHandler> ();
 
 		TextAsset introText = Resources.Load ("IntroText") as TextAsset;
 		text = introText.text.Split("\n"[0]);	

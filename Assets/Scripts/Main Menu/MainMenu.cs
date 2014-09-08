@@ -1,14 +1,17 @@
 using UnityEngine;
 using System.Collections;
 
-// class for the main menu screen for the game
+/**
+ * class for the main menu screen for the game
+ */
 public class MainMenu : MonoBehaviour 
 {
-	public Texture background;	// for the background image on the main screen
-	public GUIStyle startBtn;	// for the start button
+	public Texture background;	//!< for the background image on the main screen
+	public GUIStyle startBtn;	//!< for the start button
 
-	void Start() {}
-
+	/**
+	 * Handles drawing all elements on the main title screen
+	 */
 	void OnGUI()
     {
 		// draw the texture for the background that takes up the entire screen

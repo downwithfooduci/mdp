@@ -7,14 +7,14 @@ using System.IO;
 // they have the text show up with the audio on the screen.
 public class MouthEndStoryboardText : MonoBehaviour 
 {
-	MouthEndStoryboard mouthStoryboard;
+	StoryboardHandler mouthStoryboard;
 	private string[] text;
 	private float timer;
 	
 	// Use this for initialization
 	void Start () 
 	{
-		mouthStoryboard = this.gameObject.GetComponent<MouthEndStoryboard> ();
+		mouthStoryboard = this.gameObject.GetComponent<StoryboardHandler> ();
 		
 		TextAsset mouthText = Resources.Load ("MouthEndText") as TextAsset;
 		text = mouthText.text.Split("\n"[0]);	

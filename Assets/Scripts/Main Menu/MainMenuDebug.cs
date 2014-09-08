@@ -1,19 +1,18 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-// debug features for the main menu
-// access to these features should be removed for any release versions
+/**
+ * debug features for the main menu
+ * access to these features should be removed for any release versions
+ */
 public class MainMenuDebug : MonoBehaviour 
 {
-	// boolean to enable or disable the debug menu
-	private bool debugEnabled = false;
+	private bool debugEnabled = false;		//!< boolean to enable or disable the debug menu
 
-	// use for initialization
-	void Start(){}
-
-	// Update is called once per frame
-	void Update () {}
-
+	/**
+	 * Function to handle drawing the main menu debug elements on the screen when 
+	 * enabled
+	 */
 	void OnGUI()
 	{
 		// draw the debug button in the upper left corner

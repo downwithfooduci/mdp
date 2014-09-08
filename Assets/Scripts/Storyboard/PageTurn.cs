@@ -1,14 +1,19 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-// script that adds a page turn icon to the corner of the storybookonce the audio for a page is done playing
+/**
+ * script that adds a page turn icon to the corner of the storybookonce the audio for a page is done playing
+ */
 public class PageTurn : MonoBehaviour 
 {
-	public Texture corner;			// texture to hold the page corner
-	private bool canSkip = false;	// the variable to indicate that the user can skip to the next page before audio is up
-									// for example, if the story has been listned to at least once before
+	public Texture corner;			//!< texture to hold the page corner
+	private bool canSkip = false;	//!< the variable to indicate that the user can skip to the next page before audio is up
+									//!< for example, if the story has been listned to at least once before
 
-	// Use this for initialization
+	/**
+	 * Use this for initialization
+	 * Figures out if we can skip the story
+	 */
 	void Start () 
 	{
 		// figure out if we can skip by looking at which stories we have already played through at least once
@@ -26,10 +31,10 @@ public class PageTurn : MonoBehaviour
 			canSkip = (PlayerPrefs.GetInt("PlayedSIStory") == 1) ? true : false;
 		}
 	}
-	
-	// Update is called once per frame
-	void Update () {}
 
+	/**
+	 * Handles actually drawing hte page corner
+	 */
 	void OnGUI()
 	{
 		GUI.depth--;		// change the gui depth so the page corner draws on top of the background texture

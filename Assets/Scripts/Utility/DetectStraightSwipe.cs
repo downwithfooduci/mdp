@@ -1,25 +1,27 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-// this script detects a swipe and what the direction of the swipe is anywhere on the screen
+/**
+ * this script detects a swipe and what the direction of the swipe is anywhere on the screen
+ */
 public class DetectStraightSwipe : MonoBehaviour 
 {
 	// to remember the direction of a swipe gesture
-	private bool swipeUp;						// will be true if the swipe was upwards
-	private bool swipeDown;						// will be true if the swipe was downwards
-	private bool swipeRight;					// will be true if the swipe was right
-	private bool swipeLeft;						// will be true if the swipe was left
+	private bool swipeUp;						//!< will be true if the swipe was upwards
+	private bool swipeDown;						//!< will be true if the swipe was downwards
+	private bool swipeRight;					//!< will be true if the swipe was right
+	private bool swipeLeft;						//!< will be true if the swipe was left
 
 	// for detecting a swipe
-	private float xStart = 0.0f;				// will store the starting x coordinate of a touch
-	private float xEnd = 0.0f;					// will store the ending x coordinate of a touch
-	private float yStart = 0.0f;				// will store the starting y coordinate of a touch
-	private float yEnd = 0.0f;					// will store the ending y coordinate of a touch
-
-	// Use this for initialization
-	void Start () {}
+	private float xStart = 0.0f;				//!< will store the starting x coordinate of a touch
+	private float xEnd = 0.0f;					//!< will store the ending x coordinate of a touch
+	private float yStart = 0.0f;				//!< will store the starting y coordinate of a touch
+	private float yEnd = 0.0f;					//!< will store the ending y coordinate of a touch
 	
-	// Update is called once per frame
+	/**
+	 * Update is called once per frame
+	 * Looking for touch updates and determines swipe direction
+	 */
 	void Update () 
 	{
 		foreach (Touch touch in Input.touches) 				// go through the touches detected
@@ -93,31 +95,41 @@ public class DetectStraightSwipe : MonoBehaviour
 #endif
 	}
 
-	// function that can be called to check if there was an upwards swipe
+	/**
+	 * function that can be called to check if there was an upwards swipe
+	 */
 	public bool getSwipeUp()
 	{
 		return swipeUp;
 	}
 
-	// function that can be called to check if there was a downwards swipe
+	/**
+	 * function that can be called to check if there was a downwards swipe
+	 */
 	public bool getSwipeDown()
 	{
 		return swipeDown;
 	}
 
-	// function that can be called to check if there was a right swipe
+	/**
+	 * function that can be called to check if there was a right swipe
+	 */
 	public bool getSwipeRight()
 	{
 		return swipeRight;
 	}
 
-	// function that can be called to check if there was a left swipe
+	/**
+	 * function that can be called to check if there was a left swipe
+	 */
 	public bool getSwipeLeft()
 	{
 		return swipeLeft;
 	}
 
-	// function to reset the variables after they were read so that next time they can be reassigned correctly
+	/**
+	 * function to reset the variables after they were read so that next time they can be reassigned correctly
+	 */
 	public void resetSwipe()
 	{
 		swipeUp = false;

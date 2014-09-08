@@ -1,17 +1,11 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Audio Recording\SaveWav.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Storyboard\AddMainMenuButton.cs">
     <Files>
-      <File FileName="Assets\Scripts\Enzyme\Buttons.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Enzyme\Drag.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Enzyme\EnzymeCollision.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Enzyme\MouthCollision.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Enzyme\moveParticle.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Enzyme\ParticleGenerator.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Enzyme\ParticleSplit.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Audio Recording\AudioRecorder.cs" Line="47" Column="4" />
-      <File FileName="Assets\Scripts\Audio Recording\SaveWav.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Audio Recording\LoadFileWWW.cs" Line="12" Column="12" />
+      <File FileName="Assets\Scripts\Utility\DetectStraightSwipe.cs" Line="132" Column="5" />
+      <File FileName="Assets\Scripts\Storyboard\StoryboardHandler.cs" Line="137" Column="3" />
+      <File FileName="Assets\Scripts\Storyboard\PageTurn.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Storyboard\AddMainMenuButton.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
