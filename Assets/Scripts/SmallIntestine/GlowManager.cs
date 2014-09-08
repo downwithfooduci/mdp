@@ -1,19 +1,28 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-// manager to handle and coordinate glow behavior for the si game
+/**
+ * manager to handle and coordinate glow behavior for the si game
+ */
 public class GlowManager : MonoBehaviour 
 {
 	private IntestineGameManager intestineGameManager;	// to hold a reference to the intestineGameManager
+	private GlowSegment glowScript;						//!< to hold a reference to a glow script we are currently working with
+	private EffectParticle effectParticle;				//!< to hold a reference to a particle effect particle to modify it's actions
 
-	// Use this for initialization
+	/**
+	 * Use this for initialization
+	 */
 	void Start () 
 	{
 		// get a reference to the intestine game manager currently being used
 		intestineGameManager = GameObject.Find ("Managers").GetComponent<IntestineGameManager>();
 	}
 	
-	// Update is called once per frame
+	/**
+	 * Update is called once per frame
+	 * Checks for a touch or mouseclick and finds the closest glow segment
+	 */
 	void Update () 
 	{
 		// for on pc/mac
@@ -34,8 +43,10 @@ public class GlowManager : MonoBehaviour
 		}
 	}
 
-	// function that handles analyzing where the user clicked/touched to activate the glow segment that is closest
-	// to the touch under appropriate conditions
+	/**
+	 * function that handles analyzing where the user clicked/touched to activate the glow segment that is closest
+	 * to the touch under appropriate conditions
+	 */
 	void checkClickArea()
 	{
 		Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);	// create a ray at the current location
@@ -81,7 +92,7 @@ public class GlowManager : MonoBehaviour
 		}
 		
 		GameObject closestSegment = FindClosestSegment(ray);					// find the closest segment to the ray that was cast
-		GlowSegment glowScript = closestSegment.GetComponent<GlowSegment> ();	// get the script from the closest segment
+		glowScript = closestSegment.GetComponent<GlowSegment> ();	// get the script from the closest segment
 
 		// make the segment glow
 		StartCoroutine(glowScript.onTouch());			// asynchronously make the segment glow to save time
@@ -100,8 +111,10 @@ public class GlowManager : MonoBehaviour
 		}
 	}
 
-	// function to find the closest segment to the ray
-	GameObject FindClosestSegment(Ray ray) 
+	/**
+	 * function to find the closest segment to the ray
+	 */
+	private GameObject FindClosestSegment(Ray ray) 
 	{
 		GameObject[] segments = new GameObject[4];		// array to store all candidates for closest segment
 		GameObject segmentUp = null;					// to store a reference to the closest segment above the touch
@@ -172,7 +185,9 @@ public class GlowManager : MonoBehaviour
 		return closest;		// finally at the end, return which segment is stored in closest
 	}
 
-	// function that handles absorbing the nutrients (aka the effect particles) in a certain range of the glow segment
+	/**
+	 * function that handles absorbing the nutrients (aka the effect particles) in a certain range of the glow segment
+	 */
 	private void absorbNutrients(Vector3 center, float radius)
 	{
 		// set a minimum radius to make sure it's large enough to absorb some nutrients
@@ -195,11 +210,11 @@ public class GlowManager : MonoBehaviour
 																						// if of the correct type (effect 
 																						// particles only)
 			{
-				if (!nutrientHits[i].GetComponent<EffectParticle>().getMoveAndDie() &&
-				    !nutrientHits[i].GetComponent<EffectParticle>().getFinalMove())	// make sure the particle isn't already in the killing process
+				effectParticle = nutrientHits[i].GetComponent<EffectParticle>();
+				if (!effectParticle.getMoveAndDie() && !effectParticle.getFinalMove())	// make sure the particle isn't already in the killing process
 				{
 					// start the absorbing of the particle asynchronously. this helps reduce performance impact
-					StartCoroutine(nutrientHits[i].GetComponent<EffectParticle>().killParticle(center));	
+					StartCoroutine(effectParticle.killParticle(center));	
 				}
 			}
 		}

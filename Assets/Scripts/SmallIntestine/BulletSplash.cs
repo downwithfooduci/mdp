@@ -1,13 +1,15 @@
 using UnityEngine;
 using System.Collections;
 
-// class that just handles cleanup of the bullet splash
+/**
+ * class that just handles cleanup of the bullet splash
+ */
 public class BulletSplash : MonoBehaviour 
 {
-	// Use this for initialization
-	void Start () {}
-	
-	// Update is called once per frame
+	/**
+	 * Update is called once per frame
+	 * Destroy the splash effect
+	 */
 	void Update () 
 	{
         Destroy(gameObject);

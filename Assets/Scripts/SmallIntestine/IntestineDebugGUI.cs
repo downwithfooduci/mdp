@@ -1,35 +1,40 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-// script that creates the debug gui for the small intestine game
+/**
+ * script that creates the debug gui for the small intestine game
+ */
 public class IntestineDebugGUI : MonoBehaviour 
 {	
-	private DebugConfig debugConfig;				// to hold a reference to the debugconfig script
+	private DebugConfig debugConfig;				//!< to hold a reference to the debugconfig script
 
-	private bool showGUI = false;					// flag that holds whether the gui should be displayed or hidden
+	private bool showGUI = false;					//!< flag that holds whether the gui should be displayed or hidden
 
-	private string speed;							// to store the string representation of the speed variable
-	private string spawnTime;						// to store the string representation of the spawnTime variable
-	private string towerBaseCost;					// to store the string representation of the towerBaseCost variable
-	private string towerLvl1Cost;					// to store the string representation of the towerLvl1Cost variable
-	private string towerLvl2Cost;					// to store the string representation of the towerLvl2Cost variable
-	private string towerLvl1Targets;				// to store the string representation of the towerLvl1Targets variable
-	private string towerLvl2Targets;				// to store the string representation of the towerLvl2Targets variable
-	private string towerBaseCD;						// to store the string representation of the towerBaseCD variable
-	private string towerLvl1CD;						// to store the string representation of the towerLvl1CD variable
-	private string towerLvl2CD;						// to store the string representation of the towerLvl2CD variable
-	private string waveTimer;						// to store the string representation of the waveTimer variable
-	private string waveDelay;						// to store the string representation of the waveDelay variable
-	private string minBlobs;						// to store the string representation of the minBlobs variable
-	private string maxBlobs;						// to store the string representation of the maxBlobs variable
-	private string colors;							// to store the string representation of the colors code
-	private bool FPSActive;							// to store the flag of whether we should show the fps or not
+	private string speed;							//!< to store the string representation of the speed variable
+	private string spawnTime;						//!< to store the string representation of the spawnTime variable
+	private string towerBaseCost;					//!< to store the string representation of the towerBaseCost variable
+	private string towerLvl1Cost;					//!< to store the string representation of the towerLvl1Cost variable
+	private string towerLvl2Cost;					//!< to store the string representation of the towerLvl2Cost variable
+	private string towerLvl1Targets;				//!< to store the string representation of the towerLvl1Targets variable
+	private string towerLvl2Targets;				//!< to store the string representation of the towerLvl2Targets variable
+	private string towerBaseCD;						//!< to store the string representation of the towerBaseCD variable
+	private string towerLvl1CD;						//!< to store the string representation of the towerLvl1CD variable
+	private string towerLvl2CD;						//!< to store the string representation of the towerLvl2CD variable
+	private string waveTimer;						//!< to store the string representation of the waveTimer variable
+	private string waveDelay;						//!< to store the string representation of the waveDelay variable
+	private string minBlobs;						//!< to store the string representation of the minBlobs variable
+	private string maxBlobs;						//!< to store the string representation of the maxBlobs variable
+	private string colors;							//!< to store the string representation of the colors code
+	private bool FPSActive;							//!< to store the flag of whether we should show the fps or not
 
-	private bool debugActive = false;				// to store the flag of whether we should use debugger values
+	private bool debugActive = false;				//!< to store the flag of whether we should use debugger values
 
-	public GUIStyle fontStyle;						// for the font
+	public GUIStyle fontStyle;						//!< for the font
 
-	// Use this for initialization
+	/**
+	 * Use this for initialization
+	 * Finds the debugger and populates all the text representations of values
+	 */
 	void Start () 
 	{
 		debugConfig = gameObject.GetComponent<DebugConfig>();			// find a reference to the script on the debugger
@@ -58,10 +63,10 @@ public class IntestineDebugGUI : MonoBehaviour
 		if(debugConfig.colors.Contains(Color.green))
 			colors += "G";
 	}
-	
-	// Update is called once per frame
-	void Update () {}
-	
+
+	/**
+	 * Handles drawing of the debug GUI on top of the SI game when it is enabled
+	 */
 	void OnGUI()
 	{
 		// check if we're NOT showing the gui

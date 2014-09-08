@@ -1,6 +1,8 @@
-// Container class for a food blob.
-// Blob itself has no physical form but
-// contains nutrients as children
+/**
+ * Container class for a food blob.
+ * Blob itself has no physical form but
+ * contains nutrients as children
+ */
 
 using UnityEngine;
 using System.Collections;
@@ -8,18 +10,22 @@ using System.Collections.Generic;
 
 public class FoodBlob : MonoBehaviour 
 {
-	public float Velocity;							// store the food blob's velocity
-	public float RotationSpeed;						// store the food blob's rotation speed
+	public float Velocity;							//!< store the food blob's velocity
+	public float RotationSpeed;						//!< store the food blob's rotation speed
 
-    public GameObject Nutrient;						// store a reference to a nutrient object
-	public int NumNutrients;						// counter for the number of nutrients on the food blob
+	public GameObject Nutrient;						//!< store a reference to a nutrient object
+	public int NumNutrients;						//!< counter for the number of nutrients on the food blob
 
-    private NutrientManager m_NutrientManager;		// to hold a reference to the nutrient manager
-    private IntestineGameManager m_GameManager;		// to hold a reference to the game manager
+	private NutrientManager m_NutrientManager;		//!< to hold a reference to the nutrient manager
+	private IntestineGameManager m_GameManager;		//!< to hold a reference to the game manager
+
+	private Nutrient n;								//!< to hold a reference to nutrients on a foodblob during food blob cleanup
 	
-	public GameObject nutrientLostSound;			// for holding a reference to the nutrient lost sound
+	public GameObject nutrientLostSound;			//!< for holding a reference to the nutrient lost sound
 
-	// the function to generate what nutrients are on the food blob
+	/**
+	 * the function to generate what nutrients are on the food blob
+	 */
 	public void GenerateEnzymes(int minNutrients, int maxNutrients, Color[] availableColors)
 	{
 		NumNutrients = Random.Range (minNutrients,maxNutrients + 1);		// randomly choose the number of nutrients on the blob
@@ -53,7 +59,10 @@ public class FoodBlob : MonoBehaviour
 		}
 	}
 
-	// called when nutrient enters a collision
+	/**
+	 * called when nutrient enters a collision
+	 * Checks if the blob hit the end of the path and calls clean up function if so
+	 */
     void OnTriggerEnter(UnityEngine.Collider obj)
     {
         if (obj.gameObject.tag == "Finish")	// check if the food blob collided with the end point, if it did handle it
@@ -62,14 +71,17 @@ public class FoodBlob : MonoBehaviour
         }
     }
 
-	// function to handle the end point collision for a food blob
+	/**
+	 * function to handle the end point collision for a food blob
+	 * mostly clean up behavior
+	 */
 	private void OnEndPointCollision()
 	{	
 		int numNutrientsAlive = 0;					// create a variable to count the live nutrients still on the blob
 		
         foreach (Transform child in transform)				// check all children on the blob
         {
-			Nutrient n = child.GetComponent<Nutrient>();	// get the reference to the nutrient script on the child
+			n = child.GetComponent<Nutrient>();	// get the reference to the nutrient script on the child
 		
 			if (!n.isDead)									// flag if any of the nutrients are still alive
 			{

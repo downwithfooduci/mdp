@@ -1,18 +1,27 @@
 using UnityEngine;
 using System.Collections;
 
-// script to handle game over stuff for the si game
+/**
+ * script to handle game over stuff for the si game
+ */
 public class GameOver : MonoBehaviour 
 {
-	public Texture gameOverPopup;	// to store the texture for the gameOverPopup
-	public GUIStyle restart;		// to store the textures for the restart button
-	public GUIStyle mainMenu;		// to store the textures for the mainMenu button
+	public Texture gameOverPopup;	//!< to store the texture for the gameOverPopup
+	public GUIStyle restart;		//!< to store the textures for the restart button
+	public GUIStyle mainMenu;		//!< to store the textures for the mainMenu button
 
+	/**
+	 * Initialization
+	 * Pauses game.
+	 */
     void Start()
     {
         Time.timeScale = 0;			// when the game is over we pause the game
     }
 
+	/**
+	 * Handles drawing of game over popup menu
+	 */
     void OnGUI()
     {
 		// draw the game over popup box in the middle of the screen

@@ -1,46 +1,51 @@
 using UnityEngine;
 using System.Collections;
 
-// script that handles various things for the intestine game
+/**
+ * script that handles various things for the intestine game
+ */
 public class IntestineGameManager : MonoBehaviour 
 {
-	public int MAX_HEALTH = 20;				// the max health value is the number of nuttrients that can escape before losing
+	public int MAX_HEALTH = 20;				//!< the max health value is the number of nuttrients that can escape before losing
 	
-	private SpawnManager spawnScript;		// to hold a reference to the spawnManager script
+	private SpawnManager spawnScript;		//!< to hold a reference to the spawnManager script
 
-    public GameObject GameOverScript;		// to hold a reference to the gameOver script which will be instantiated when
-											// the game is over
+	public GameObject GameOverScript;		//!< to hold a reference to the gameOver script which will be instantiated when
+											//!< the game is over
 
-    public GUIStyle FontStyle;				// to hold a font style
+	public GUIStyle FontStyle;				//!< to hold a font style
 	
-	public int health;						// variable to keep track of the remaining health
-    public int nutrients;					// variable to keep track of the nutrient currency
+	public int health;						//!< variable to keep track of the remaining health
+	public int nutrients;					//!< variable to keep track of the nutrient currency
 
-	public int NutrientHitScore;			// Points gained for hitting a nutrient
+	public int NutrientHitScore;			//!< Points gained for hitting a nutrient
 
-    private bool m_IsGameOver;				// a flag to mark whether or not the game is over
+	private bool m_IsGameOver;				//!< a flag to mark whether or not the game is over
 
 	// remember if the tower menu/sell menu is up to manage glow effects
-	private bool isTowerMenuUp;				// a flag to indicate if a tower menu is currently up
-	private bool isSellBoxUp;				// a flag to remember if a tower sell box is up
+	private bool isTowerMenuUp;				//!< a flag to indicate if a tower menu is currently up
+	private bool isSellBoxUp;				//!< a flag to remember if a tower sell box is up
 	// the following three variables help make the tower menu up check work properly
-	private bool setTowerMenuIsUpFalse;		// a flag to indicate that the "isTowerMenuUp" variable needs to be set to false
-	private float elapsedTime;				// a counter to keep track of elapsed time
-	private float maxElapsedTime = .1f;		// the maximum elapsed time we will allow
+	private bool setTowerMenuIsUpFalse;		//!< a flag to indicate that the "isTowerMenuUp" variable needs to be set to false
+	private float elapsedTime;				//!< a counter to keep track of elapsed time
+	private float maxElapsedTime = .1f;		//!< the maximum elapsed time we will allow
 
-	public GameObject nutrientsCounter;		// hold a reference to the "nutrients" ui element object
-	private NutrientsText nutrientsText;	// to hold a reference to the script on the nutrientsCounter object
+	public GameObject nutrientsCounter;		//!< hold a reference to the "nutrients" ui element object
+	private NutrientsText nutrientsText;	//!< to hold a reference to the script on the nutrientsCounter object
 
-	public GameObject healthFace;			// to hold a reference to the "health face" ui element object
-	private DrawHealthFace drawHealthFace;	// to hold a reference to the script on the healthFace object
+	public GameObject healthFace;			//!< to hold a reference to the "health face" ui element object
+	private DrawHealthFace drawHealthFace;	//!< to hold a reference to the script on the healthFace object
 
-	public GameObject healthBar;			// to hold a reference to the "health bar" ui element object
-	private DrawHealthBar drawHealthBar;	// to hold a reference to the script on the healthBar object
+	public GameObject healthBar;			//!< to hold a reference to the "health bar" ui element object
+	private DrawHealthBar drawHealthBar;	//!< to hold a reference to the script on the healthBar object
 
-	public GameObject createPlus;			// to hold a reference to the "createPlus" object
-	private GameObject instantiatedPlus;	// to hold a referenece to an instance of an instantiated createPlus object
+	public GameObject createPlus;			//!< to hold a reference to the "createPlus" object
+	private GameObject instantiatedPlus;	//!< to hold a referenece to an instance of an instantiated createPlus object
 
-	// called for initialization	
+	/**
+	 * called for initialization
+	 * gets all references and resets stats
+	 */
 	void Start()
 	{
 		resetStats ();		// reset the vars in player prefs for later
@@ -57,7 +62,9 @@ public class IntestineGameManager : MonoBehaviour
 		nutrientsText.updateText (nutrients);
 	}
 		
-	// reset player prefs vars
+	/**
+	 * reset player prefs vars for the si game
+	 */
 	void resetStats()
 	{
 		// this needs to be called to make sure all the stats are reset on game start 
@@ -72,6 +79,10 @@ public class IntestineGameManager : MonoBehaviour
 		PlayerPrefs.Save();		// need to call this to save the changes
 	}
 
+	/**
+	 * Handles updating all aspects of the game managed here every frame.
+	 * Sends updated information to the various UI element scripts.
+	 */
     void Update()
     {
 		// check if the game is over
@@ -141,7 +152,9 @@ public class IntestineGameManager : MonoBehaviour
 		drawHealthBar.setPercent(((float)health / (float)MAX_HEALTH));
     }
 
-	// function that handles tracking score when a nutrient is absorbed
+	/**
+	 * function that handles tracking score when a nutrient is absorbed
+	 */
     public void OnNutrientHit()
     {
 		// track nutrients earned
@@ -164,7 +177,9 @@ public class IntestineGameManager : MonoBehaviour
 		}
 	}
 
-	// function that handles when a food blob reaches the end of the small intestine path
+	/**
+	 * function that handles when a food blob reaches the end of the small intestine path
+	 */
     public void OnFoodBlobFinish(int numNutrientsAlive)
     {
 		if (numNutrientsAlive > 0) 		// check if any nutrients were on the food blob
@@ -178,8 +193,10 @@ public class IntestineGameManager : MonoBehaviour
 		} 
 	}
 
-	// function that is called to indicate that a tower menu is either being brought up or closed
-	// this will mostly be called by the TowerMenu.cs script
+	/**
+	 * function that is called to indicate that a tower menu is either being brought up or closed
+	 * this will mostly be called by the TowerMenu.cs script
+	 */
 	public void setTowerMenuUp(bool isUp)
 	{
 		if(isUp == false)
@@ -195,22 +212,28 @@ public class IntestineGameManager : MonoBehaviour
 		}
 	}
 
-	// function that can be called to get the current status of the isTowerMenuUp variable
-	// this will mostly be called by the TowerMenu.cs and Glow related scripts
+	/**
+	 * function that can be called to get the current status of the isTowerMenuUp variable
+	 * this will mostly be called by the TowerMenu.cs and Glow related scripts
+	 */
 	public bool getTowerMenuUp()
 	{
 		return isTowerMenuUp;
 	}
 
-	// function that can be called to tell the manager that a sell box is up
-	// this will mostly be called by the TowerMenu.cs script
+	/**
+	 * function that can be called to tell the manager that a sell box is up
+	 * this will mostly be called by the TowerMenu.cs script
+	 */
 	public void setSellBoxUp(bool isUp)
 	{
 		isSellBoxUp = isUp;
 	}
 
-	// function that can be called to get the current status of the variable isSellBoxUp
-	// this will mostly be called by the TowerMenu.cs and Glow related scripts
+	/**
+	 * function that can be called to get the current status of the variable isSellBoxUp
+	 * this will mostly be called by the TowerMenu.cs and Glow related scripts
+	 */
 	public bool getSellBoxUp()
 	{
 		return isSellBoxUp;

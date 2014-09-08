@@ -1,40 +1,47 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-// script that handles behavior for the effect particles in the small intestine game
+/**
+ * script that handles behavior for the effect particles in the small intestine game
+ */
 public class EffectParticle : MonoBehaviour 
 {
-	private IntestineGameManager intestineGameManager;	// to hold a reference to the intestineGameManager
+	private IntestineGameManager intestineGameManager;	//!< to hold a reference to the intestineGameManager
 
-	private Vector3 desiredLocation;					// to store the desired location to move an effect particle to
-	private Vector3 direction;							// to store the direction to move the effect particle
-	private Vector3 startingPosition;
+	private Vector3 desiredLocation;					//!< to store the desired location to move an effect particle to
+	private Vector3 direction;							//!< to store the direction to move the effect particle
 
-	private float percentageMoved;
+	private Vector3 startingPosition;					//!< stores the coordinate of the starting position of a particle before final move
+	private float percentageMoved;						//!< used to help make the particle appear to have a constant speed
 
-	private bool move = true;							// variable to move the particle on creation
-														// the value starts off as move because when an effect particle is
-														// created we want it to move to the desired location immediately.
-														// once it gets to the desired location "move" will be set to false
+	private bool move = true;							//!< variable to move the particle on creation
+														//!< the value starts off as move because when an effect particle is
+														//!< created we want it to move to the desired location immediately.
+														//!< once it gets to the desired location "move" will be set to false
 
-	private bool moveAndDie = false;					// variable to move the particle in the absorbtion phase
-	private bool finalMove = false;						// for the final move and absorbtion into the nutrients text
+	private bool moveAndDie = false;					//!< variable to move the particle in the absorbtion phase
+	private bool finalMove = false;						//!< for the final move and absorbtion into the nutrients text
 
-	private float speed = Random.Range(.7f, 1f);		// speed multiplier
+	private float speed = Random.Range(.7f, 1f);		//!< speed multiplier
 
-	private float distance;								// to store the total distance between an effect particle's 
-														// starting location and where its desired location is
+	private float distance;								//!< to store the total distance between an effect particle's 
+														//!< starting location and where its desired location is
 
-	private float distanceTravelled;					// to store the distance travelled by the particle
+	private float distanceTravelled;					//!< to store the distance travelled by the particle
 
-	// Use this for initialization
+	/**
+	 * Use this for initialization
+	 */
 	void Start () 
 	{
 		// get a reference to the intestine game manager currently being used
 		intestineGameManager = GameObject.Find ("Managers").GetComponent<IntestineGameManager>();
 	}
 	
-	// Update is called once per frame
+	/**
+	 * Update is called once per frame
+	 * Handles all the different movements for the particle
+	 */
 	void Update () 
 	{
 		if (move)	// what to do when moving on initial spawn
@@ -114,7 +121,10 @@ public class EffectParticle : MonoBehaviour
 		}*/
 	}
 
-	// this is for moving the particles the first time, when they are spawned
+	/**
+	 * this is for moving the particles the first time, when they are spawned
+	 * sets the variables appropriatly
+	 */
 	public void setDesiredLocation(Vector3 desiredLocation)
 	{
 		this.desiredLocation = desiredLocation;		// set the desiredLocation to the value passed in
@@ -125,7 +135,10 @@ public class EffectParticle : MonoBehaviour
 		distance = Vector3.SqrMagnitude(this.desiredLocation - gameObject.transform.localPosition); 
 	}
 
-	// this is for movingg the effect particles on absorbtion
+	/**
+	 * this is for movingg the effect particles on absorbtion
+	 * sets the variables appropriately
+	 */
 	public IEnumerator killParticle(Vector3 desiredLocation)
 	{
 		if (!moveAndDie)	// only let the particles die once to avoid bouncing around
@@ -150,13 +163,17 @@ public class EffectParticle : MonoBehaviour
 		}
 	}
 
-	// function that can be used to see if we are currently trying to kill the given effect particle
+	/**
+	 * function that can be used to see if we are currently trying to kill the given effect particle
+	 */
 	public bool getMoveAndDie()
 	{
 		return moveAndDie;
 	}
 
-	// function that can be used to see if we are currently trying to kill the given effect particle
+	/**
+	 * function that can be used to see if we are currently trying to kill the given effect particle
+	 */
 	public bool getFinalMove()
 	{
 		return finalMove;

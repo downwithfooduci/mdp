@@ -52,17 +52,24 @@
 </div><!--header-->
 <div class="contents">
 
+<p>script that controls the bullets shot out by the towers in the si game  
+ <a href="class_bullet.html#details">More...</a></p>
+
 <p>Inherits <a class="el" href="class_m_d_p_entity.html">MDPEntity</a>.</p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a7aac4c2af0ffd673515e0915afa4843f"><td class="memItemLeft" align="right" valign="top">GameObject&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bullet.html#a7aac4c2af0ffd673515e0915afa4843f">Target</a></td></tr>
+<tr class="memdesc:a7aac4c2af0ffd673515e0915afa4843f"><td class="mdescLeft">&#160;</td><td class="mdescRight">to store a reference to the bullet's target  <a href="#a7aac4c2af0ffd673515e0915afa4843f">More...</a><br /></td></tr>
 <tr class="separator:a7aac4c2af0ffd673515e0915afa4843f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0ef9c38e5759a15ac772da8a2f5441a7"><td class="memItemLeft" align="right" valign="top">Color&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bullet.html#a0ef9c38e5759a15ac772da8a2f5441a7">BulletColor</a></td></tr>
+<tr class="memdesc:a0ef9c38e5759a15ac772da8a2f5441a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">to store the desired color of the bullet (same color as tower)  <a href="#a0ef9c38e5759a15ac772da8a2f5441a7">More...</a><br /></td></tr>
 <tr class="separator:a0ef9c38e5759a15ac772da8a2f5441a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a35f52c090284c6869545f68068014257"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bullet.html#a35f52c090284c6869545f68068014257">Velocity</a></td></tr>
+<tr class="memdesc:a35f52c090284c6869545f68068014257"><td class="mdescLeft">&#160;</td><td class="mdescRight">the velocity of the bullet  <a href="#a35f52c090284c6869545f68068014257">More...</a><br /></td></tr>
 <tr class="separator:a35f52c090284c6869545f68068014257"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab35036a9342b842374e028f866c07bec"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bullet.html#ab35036a9342b842374e028f866c07bec">targets</a></td></tr>
+<tr class="memdesc:ab35036a9342b842374e028f866c07bec"><td class="mdescLeft">&#160;</td><td class="mdescRight">the number of objects one bullet can destroy (varies based on tower type)  <a href="#ab35036a9342b842374e028f866c07bec">More...</a><br /></td></tr>
 <tr class="separator:ab35036a9342b842374e028f866c07bec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_attribs_class_m_d_p_entity"><td colspan="2" onclick="javascript:toggleInherit('pub_attribs_class_m_d_p_entity')"><img src="closed.png" alt="-"/>&#160;Public Attributes inherited from <a class="el" href="class_m_d_p_entity.html">MDPEntity</a></td></tr>
 <tr class="memitem:a44e6df8e24e7d93cec68b09c9f707bc7 inherit pub_attribs_class_m_d_p_entity"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_collider.html">Collider</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_d_p_entity.html#a44e6df8e24e7d93cec68b09c9f707bc7">Collider</a></td></tr>
@@ -71,9 +78,12 @@ Public Attributes</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
 <tr class="memitem:a8623a9e7de74fe47f82ec72ec70d025d"><td class="memItemLeft" align="right" valign="top">override void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bullet.html#a8623a9e7de74fe47f82ec72ec70d025d">CheckCollisions</a> ()</td></tr>
+<tr class="memdesc:a8623a9e7de74fe47f82ec72ec70d025d"><td class="mdescLeft">&#160;</td><td class="mdescRight">function to check for the collisions with the bullet  <a href="#a8623a9e7de74fe47f82ec72ec70d025d">More...</a><br /></td></tr>
 <tr class="separator:a8623a9e7de74fe47f82ec72ec70d025d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>script that controls the bullets shot out by the towers in the si game </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="a8623a9e7de74fe47f82ec72ec70d025d"></a>
 <div class="memitem">
 <div class="memproto">
@@ -95,6 +105,8 @@ Protected Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>function to check for the collisions with the bullet </p>
+
 <p>Reimplemented from <a class="el" href="class_m_d_p_entity.html#aa7f00a5a67d638e5aa9427617475367b">MDPEntity</a>.</p>
 
 </div>
@@ -110,6 +122,8 @@ Protected Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>to store the desired color of the bullet (same color as tower) </p>
+
 </div>
 </div>
 <a class="anchor" id="a7aac4c2af0ffd673515e0915afa4843f"></a>
@@ -121,6 +135,8 @@ Protected Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>to store a reference to the bullet's target </p>
 
 </div>
 </div>
@@ -134,6 +150,8 @@ Protected Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>the number of objects one bullet can destroy (varies based on tower type) </p>
+
 </div>
 </div>
 <a class="anchor" id="a35f52c090284c6869545f68068014257"></a>
@@ -146,6 +164,8 @@ Protected Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>the velocity of the bullet </p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
@@ -154,7 +174,7 @@ Protected Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Sep 7 2014 21:19:31 for Down with Food by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Sep 8 2014 11:49:10 for Down with Food by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

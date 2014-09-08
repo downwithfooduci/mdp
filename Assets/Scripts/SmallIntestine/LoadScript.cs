@@ -2,11 +2,19 @@
 using System.Collections;
 using System.IO;
 
-// controls script loading for the small intestine game
+/**
+ * controls script loading for the small intestine game
+ */
 public class LoadScript
 {
-	public LoadScript() {}		// constructor
+	/**
+	 * Constructor
+	 */
+	public LoadScript() {}		
 
+	/**
+	 * Handles parsing of raw wave data files
+	 */
 	public SIWave[] loadIntestineLevel(int level)
 	{
 		TextAsset lev = Resources.Load ("SILevel" + level) as TextAsset;  // for ipad we need to load resources instead of using a file
@@ -59,7 +67,9 @@ public class LoadScript
 	}
 }
 
-// class that represents the format of an si wave
+/**
+ * class that represents the format of an si wave
+ */
 public class SIWave
 {
 	public float startDelay;

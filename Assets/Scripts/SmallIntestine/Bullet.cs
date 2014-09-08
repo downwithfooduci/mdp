@@ -1,23 +1,30 @@
 using UnityEngine;
 using System.Collections;
 
-// script that controls the bullets shot out by the towers in the si game
+/**
+ * script that controls the bullets shot out by the towers in the si game
+ */
 public class Bullet : MDPEntity
 {
-    public GameObject Target;		// to store a reference to the bullet's target
-	public Color BulletColor;		// to store the desired color of the bullet (same color as tower)
+    public GameObject Target;		//!< to store a reference to the bullet's target
+	public Color BulletColor;		//!< to store the desired color of the bullet (same color as tower)
 	
-	public float Velocity;			// the velocity of the bullet
+	public float Velocity;			//!< the velocity of the bullet
 
-	public int targets;				// the number of objects one bullet can destroy (varies based on tower type)
+	public int targets;				//!< the number of objects one bullet can destroy (varies based on tower type)
 	
-	// Use this for initialization
+	/**
+	 * Use this for initialization
+	 */
 	void Start () 
 	{
 		Collider = new CircleCollider(this);	// create a circle collider for the bullet
 	}
 	
-	// Update is called once per frame
+	/**
+	 * Update is called once per frame
+	 * Checks if there is a target and handles accordingly
+	 */
 	void Update () 
 	{
 		if (Target)			// if there is a target then move towards it and check for collisions
@@ -32,7 +39,9 @@ public class Bullet : MDPEntity
 			Destroy(gameObject);
 	}
 
-	// function to check for the collisions with the bullet
+	/**
+	 * function to check for the collisions with the bullet
+	 */
 	protected override void CheckCollisions ()
 	{
 		if (Collider.CollidesWith(Target))							// if the bullet collides with a target

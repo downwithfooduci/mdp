@@ -1,22 +1,27 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-/*
+/**
  * This class programs the effects of the plus signs in the SI game.
- * */
+ */
 public class GrowAndDie : MonoBehaviour 
 {
-	private float timeAlive = 0;		// the time it takes for the plus sign to "grow and die"
-	private Vector3 originalScale;		// vector to store the original size of the plus
-	public Texture plus;				// the texture for the plus sign
+	private float timeAlive = 0;		//!< the time it takes for the plus sign to "grow and die"
+	private Vector3 originalScale;		//!< vector to store the original size of the plus
+	public Texture plus;				//!< the texture for the plus sign
 
-	// Use this for initialization
+	/**
+	 * Use this for initialization
+	 */
 	void Start () 
 	{
 		originalScale = transform.localScale;
 	}
 	
-	// Update is called once per frame
+	/**
+	 * Update is called once per frame
+	 * Makes sure the plus sign is only shown for the desired time
+	 */
 	void Update () 
 	{
 		timeAlive += Time.deltaTime;			// increament the counter of the time the plus has been alive
@@ -31,6 +36,9 @@ public class GrowAndDie : MonoBehaviour
 		}
 	}
 
+	/**
+	 * Handles drawing the plus sign at the correct location
+	 */
 	void OnGUI()
 	{
 		GUI.depth = -1000;		// change the gui layering to make sure the plus draws on top of all gui elements

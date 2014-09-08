@@ -1,28 +1,36 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-// script that is attached to glow segments that makes them appear to glow
+/**
+ * script that is attached to glow segments that makes them appear to glow
+ */
 public class GlowSegment : MonoBehaviour 
 {
-	public GameObject cube;					// holds a cube object to attach a texture to
-	private GameObject instantiatedCube;	// temporarily holds the cube when instantiated with a texture on it
+	public GameObject cube;					//!< holds a cube object to attach a texture to
+	private GameObject instantiatedCube;	//!< temporarily holds the cube when instantiated with a texture on it
 
 	// use to get the name of the current segment to find the correct material
 	// segments are named using a formula that is predictable and can therefore be easily parsed by the code
-	private string segmentName;
-	private string segmentCode;
+	private string segmentName;				//!< segment name code for loading texture
+	private string segmentCode;				//!< segment number code for loading texture
 
-	public float dieTime;			// the amount of time a segment should glow
-	private float elapsedTime;		// to keep track of how long has passed
+	public float dieTime;			//!< the amount of time a segment should glow
+	private float elapsedTime;		//!< to keep track of how long has passed
 
-	// Use this for initialization
+	/**
+	 * Use this for initialization
+	 * Populates the segment name and code
+	 */
 	void Start () 
 	{
 		segmentName = transform.gameObject.name;							// get the entire name of the glow segment
 		segmentCode = segmentName.Substring (segmentName.Length - 3, 3);	// the code is the last 3 characters
 	}
 	
-	// Update is called once per frame
+	/**
+	 * Update is called once per frame
+	 * Keeps the segment glowing for only the desired time
+	 */
 	void Update () 
 	{
 		if (instantiatedCube != null)					// if there is a cube instantiated
@@ -36,7 +44,10 @@ public class GlowSegment : MonoBehaviour
 		}
 	}
 
-	// this function reads the texture from the hard drive asynchronously to avoid lag
+	/**
+	 * this function reads the texture from the hard drive asynchronously to avoid lag and
+	 * puts it on the glow segment spawned cube once loaded
+	 */
 	public IEnumerator onTouch()
 	{
 		Material glowMaterial = null;			// initialize the glow material to null
