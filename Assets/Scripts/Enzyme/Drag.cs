@@ -1,20 +1,28 @@
 using UnityEngine;
 using System.Collections;
 
-// class to draw the enzyme dude for the enzyme game
+/**
+ * class to draw the enzyme dude for the enzyme game
+ */
 public class Drag : MonoBehaviour
 {		
-	Vector3 lastPosition;
-	bool left;
-	
+	Vector3 lastPosition;				//!< to hold the (x,y,z) coordinate of the last position
+	bool left;							//!< mark whether the guy should be facing left or right
+
+	/**
+	 * Initialization.
+	 * Start multitouch.
+	 */
 	void Start ()
 	{
 		Input.multiTouchEnabled = true;	// need to enable multitouch since we are using two fingers to drag
 		left = true;					// direction the enzyme guy is facing (IPAD ONLY)			
 	}
 
-	void Awake () {}
-	
+	/**
+	 * Called once per frame.
+	 * Handles moving the enzyme guy
+	 */
 	void Update ()
 	{
 		// go to keyboard input function if we are in the editor
@@ -69,7 +77,9 @@ public class Drag : MonoBehaviour
 		}
 	}
 
-	// function to move guy with keyboard input in the unity editor
+	/**
+	 * function to move guy with keyboard input in the unity editor
+	 */
 	void GetKeyboardInput ()
 	{
 		if (Input.GetKey (KeyCode.A)) 

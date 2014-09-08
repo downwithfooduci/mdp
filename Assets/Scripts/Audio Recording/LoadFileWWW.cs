@@ -3,8 +3,10 @@ using System.IO;
 using UnityEngine;
 using System.Collections;
 
-// sample loading an audio file using WWW
-// this can be adapted to be used as needed in the story
+/**
+ * sample loading an audio file using WWW
+ * this can be adapted to be used as needed in the story
+ */
 public class LoadFileWWW : MonoBehaviour 
 {
 	public string fileName;

@@ -1,16 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-// for the collision with the enzyme guy's mouth (to split particle if needed)
+/**
+ * for the collision with the enzyme guy's mouth (to split particle if needed)
+ */
 public class MouthCollision : MonoBehaviour
 {
-	// Use this for initialization
-	void Start () {}
-	
-	// Update is called once per frame
-	void Update () {}
-
-	// on trigger enter is triggered when a collision occurs
+	/**
+	 * on trigger enter is triggered when a collision occurs
+	 * handles main behavior of a hit with the enzyme guy's mouth
+	 */
 	void OnTriggerEnter (UnityEngine.Collider other)
 	{
 		// check if the object in the collision has a parent

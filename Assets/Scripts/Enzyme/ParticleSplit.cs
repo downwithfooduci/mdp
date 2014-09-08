@@ -1,24 +1,29 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/**
+ * Handles splitting a particle made up of two pieces (for example, two sphere) into two individual
+ * particles floating around the game independently
+ */
 public class ParticleSplit : MonoBehaviour 
 {
 	// variables for the children of a parent and to monitor if it is split
-	public GameObject child1;
-	public GameObject child2;
-	private bool isSplit;
+	public GameObject child1;			//!< to hold a reference to one of the particles on the parent after splitting
+	public GameObject child2;			//!< to hold a reference to one of the particles on the parent after splitting
+	private bool isSplit;				//!< flag to indicate if the particles were sucessfully split
 
-	// Use this for initialization
+	/**
+	 * Use this for initialization
+	 */
 	void Start () 
 	{
 		isSplit = false;	// when we begin the particle will not be split
 							// it will need to be split with an appropriate collision
 	}
-	
-	// Update is called once per frame
-	void Update () {}
 
-	// function to split a particle
+	/**
+	 * function to split a particle into it's two constituent particles
+	 */
 	public void Split()
 	{
 		if(!isSplit)	// first make sure it's not already split

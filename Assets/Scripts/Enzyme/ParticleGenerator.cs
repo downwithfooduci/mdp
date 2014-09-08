@@ -1,25 +1,31 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-// script used to generate particles in the enzyme game
+/**
+ * script used to generate particles in the enzyme game
+ */
 public class ParticleGenerator : MonoBehaviour
 {	
 	// variables to hold all the different types of particles that can spawn
-	public GameObject parentCylCyl;
-	public GameObject parentCylCap;
-	public GameObject parentCylSphere;
-	public GameObject parentSphereSphere;
-	public GameObject parentSphereCyl;
-	public GameObject parentSphereCap;
-	public GameObject parentCapCap;
-	public GameObject parentCapCyl;
-	public GameObject parentCapSphere;
+	public GameObject parentCylCyl;			//!< this represents two cylinders stuck together
+	public GameObject parentCylCap;			//!< this represents a cylinder and capsule stuck together
+	public GameObject parentCylSphere;		//!< this represents a cylinder and a sphere stuck together
+	public GameObject parentSphereSphere;	//!< this represents two spheres stuck together
+	public GameObject parentSphereCyl;		//!< this represents a sphere and a cylinder stuck together
+	public GameObject parentSphereCap;		//!< this represents a sphere and a capsule stuck together
+	public GameObject parentCapCap;			//!< this represents two capsules stuck together
+	public GameObject parentCapCyl;			//!< this represents a capsule and a cylinder stuck together
+	public GameObject parentCapSphere;		//!< this represents a capsule and a sphere stuck together
 	
-	public int numSpawn;
-	Color[] colors;
-	GameObject[] parents;
+	public int numSpawn;					//!< the number of particles to initially spawn when game starts
+	Color[] colors;							//!< array to hold the valid colors that a particle can spawn as
+	GameObject[] parents;					//!< array to hold the valid particle types that a particle can spawn as
 
-	// Use this for initialization
+	/**
+	 * Use this for initialization.
+	 * Sets valid particle colors and particle types in arrays.
+	 * Spawns any initial particles
+	 */
 	void Start ()
 	{
 		// populate the color array with the possible choices
@@ -52,7 +58,9 @@ public class ParticleGenerator : MonoBehaviour
 		}
 	}
 
-	// function to spawn a new particle
+	/**
+	 * function to spawn a new particle
+	 */
 	public void SpawnParticle ()
 	{
 		// choose a random x and y location to spawn the particle
@@ -75,7 +83,4 @@ public class ParticleGenerator : MonoBehaviour
 		// give the particle an initial impulse
 		spawn.rigidbody.AddForce(new Vector3(x, y, 0), ForceMode.Impulse);
 	}
-	
-	// Update is called once per frame
-	void Update () {}
 }

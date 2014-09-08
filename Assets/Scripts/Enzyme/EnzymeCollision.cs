@@ -1,22 +1,26 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/**
+ * Handles the enzyme collisions with the enzyme guy and particles
+ */
 public class EnzymeCollision : MonoBehaviour 
 {	
-	GameObject gui;		// to hold the gui
-	Buttons buttons;	// for the buttons
+	GameObject gui;		//!< to hold the gui
+	Buttons buttons;	//!< for the buttons
 	
-	// Use this for initialization
+	/**
+	 * Use this for initialization
+	 */
 	void Start () 
 	{
 		gui = GameObject.Find("EnzymeGUI");			// find the gui to store the reference
 		buttons = gui.GetComponent<Buttons> ();		// store the reference to the buttons
 	}
-	
-	// Update is called once per frame
-	void Update () {}
 
-	// find out if there was a collision between the enzyme dude and the particle
+	/**
+	 * find out if there was a collision between the enzyme dude and the particle
+	 */
 	void OnCollisionEnter(Collision collision)
 	{
 		if(collision.gameObject.name.Contains("Particle"))
@@ -38,7 +42,9 @@ public class EnzymeCollision : MonoBehaviour
 		}
 	}
 
-	// called when the enzyme guy is killed
+	/**
+	 * called when the enzyme guy is killed
+	 */
 	void OnDestroy()
 	{
 		buttons.killEnzyme();

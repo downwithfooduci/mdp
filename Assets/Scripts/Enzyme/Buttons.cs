@@ -1,6 +1,9 @@
 using UnityEngine;
 using System.Collections;
 
+/**
+ * Controls buttons in the enzyme game
+ */
 public class Buttons : MonoBehaviour
 {
 	//Invulnerability Related Code	
@@ -10,16 +13,20 @@ public class Buttons : MonoBehaviour
 	GameObject p;
 	public GameObject ColorPrefeb;
 	public bool EnzymesExist = false;	//!< used to tell whether we already have an enzyme spawned.
-										// can only have one enzyme active at once
-										// currently you have to kill the current enzyme to spawn a new one
-	public GUIStyle style;
+										//!< can only have one enzyme active at once
+										//!< currently you have to kill the current enzyme to spawn a new one
 
-	// Use this for initialization
+	/**
+	 * Use this for initialization
+	 */
 	void Start ()
 	{
 		generator = objectGenerator.GetComponent<ParticleGenerator> ();	// find the particle generator we're using
 	}
 
+	/**
+	 * Draws the buttons and handles behavior when they are pressed.
+	 */
 	void OnGUI ()
 	{
 		// add a button to return to the main menu
@@ -92,7 +99,9 @@ public class Buttons : MonoBehaviour
 		
 	}
 
-	// when an enzyme dies, just set the variable to mark that there is not one currently active
+	/**
+	 * when an enzyme dies, just set the variable to mark that there is not one currently active
+	 */
 	public void killEnzyme()
 	{
 		EnzymesExist = false;
