@@ -1,15 +1,16 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-// just a random class mostly to use for debugging right now
-public class DisplayHighScores : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {}
-	
-	// Update is called once per frame
-	void Update () {}
-
+/**
+ * just a random class mostly to use for debugging right now
+ * This could possibly be adapted in the future if there is a desire to 
+ * show high score screens for multiple levels :)
+ */
+public class DisplayHighScores : MonoBehaviour 
+{
+	/**
+	 * Pulls up high scores from player prefs and draws them
+	 */
 	void OnGUI()
 	{
 		GUIStyle scoreStyle = new GUIStyle ();

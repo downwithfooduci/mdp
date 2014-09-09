@@ -173,8 +173,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   filledStar: {fileID: 2800000, guid: b21d8c4e824fee24293fb6364b7b0c9e, type: 3}
   emptyStar: {fileID: 2800000, guid: a93067fef86d5344ca01b01b280e9d03, type: 3}
-  desiredSILevel: {fileID: 100000, guid: f5a6a7fe13b1e9b43aa67de4de1a72f4, type: 2}
-  desiredMouthLevel: {fileID: 100000, guid: f09b8876b7dade84a8664d94c1ecbc84, type: 2}
 --- !u!114 &920527975
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -183,7 +181,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 920527968}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 572c3d7c11a2b4948a9696de5071d632, type: 3}
+  m_Script: {fileID: 11500000, guid: 10a6b694db1057b4fa0d7e8493682cd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   mainMenuStyle:

@@ -1,11 +1,14 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Storyboard\AddMainMenuButton.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\LevelSelectMain.cs">
     <Files>
-      <File FileName="Assets\Scripts\Utility\DetectStraightSwipe.cs" Line="132" Column="5" />
-      <File FileName="Assets\Scripts\Storyboard\StoryboardHandler.cs" Line="137" Column="3" />
-      <File FileName="Assets\Scripts\Storyboard\PageTurn.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Storyboard\AddMainMenuButton.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Main Menu\MainMenu.cs" Line="37" Column="1" />
+      <File FileName="Assets\Scripts\Main Menu\MainMenuDebug.cs" Line="222" Column="1" />
+      <File FileName="Assets\Scripts\Main Menu\GameConfig.cs" Line="10" Column="5" />
+      <File FileName="Assets\LevelSelectMain.cs" Line="371" Column="3" />
+      <File FileName="Assets\DisplayHighScores.cs" Line="22" Column="12" />
+      <File FileName="Assets\Scripts\SmallIntestine\ReturnButtonSIEven.cs" Line="22" Column="30" />
+      <File FileName="Assets\Scripts\SmallIntestine\ReturnButtonSIOdd.cs" Line="22" Column="30" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

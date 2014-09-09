@@ -1,39 +1,48 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-// just a random script where i tested a way that could potentially be used in the 
-// future for marking levels as locked/unlocked and creating a selection screen
-// where unlocked levels can be freely moved between
+/**
+ * just a random script where i tested a way that could potentially be used in the 
+ * future for marking levels as locked/unlocked and creating a selection screen
+ * where unlocked levels can be freely moved between.
+ * It would probably need quite a few changes, especially a more thought out structural 
+ * setup. I originally created this to just mock up something quick to see how hard it would
+ * be to do.
+ */
 public class LevelSelectMain : MonoBehaviour 
 {
-	private bool showSI, showMouth;
+	private bool showSI, showMouth;			//!< Marks whether we should show the Si level select or mouth level select
 
 	// for drawing stars
-	public Texture filledStar;
-	public Texture emptyStar;
+	public Texture filledStar;				//!< Holds texture for filled star graphic
+	public Texture emptyStar;				//!< Holds texture for the empty star graphic
 
 	// for high scores
-	private int mouthLevel1HS;
-	private int mouthLevel2HS;
-	private int smallIntestineLevel1HS;
-	private int smallIntestineLevel2HS;
-	private int smallIntestineLevel3HS;
-	private int smallIntestineLevel4HS;
-	private int smallIntestineLevel5HS;
-	private int smallIntestineLevel6HS;
+	private int mouthLevel1HS;				//!< will hold the high score for the mouth game level 1
+	private int mouthLevel2HS;				//!< will hold the high score for the mouth game level 2
+	private int smallIntestineLevel1HS;		//!< will hold the high score for the si game level	1
+	private int smallIntestineLevel2HS;		//!< will hold the high score for the si game level 2
+	private int smallIntestineLevel3HS;		//!< will hold the high score for the si game level 3
+	private int smallIntestineLevel4HS;		//!< will hold the high score for the si game level 4
+	private int smallIntestineLevel5HS;		//!< will hold the high score for the si game level 5
+	private int smallIntestineLevel6HS;		//!< will hold the high score for the si game level 6
 
 	// for unlocked games
-	private bool mouthUnlocked;
-	private bool smallIntestineUnlocked;
+	private bool mouthUnlocked;				//!< will be set to indicate whether the mouth game has been reached yet
+	private bool smallIntestineUnlocked;	//!< will be set to indicate whether the si game has been reached yet
 
-	// Use this for initialization
+	/**
+	 * Use this for initialization
+	 */
 	void Start () 
 	{
 		getUnlockedGames ();
 		populateHighScores ();
 	}
 
-	// get the unlocked games
+	/**
+	 * determine which games are unlocked by looking at high scores saved and other flags in player prefs
+	 */
 	void getUnlockedGames()
 	{
 		// these were variables that were saved as "1" when a story was played through, 0 otherwise
@@ -42,7 +51,9 @@ public class LevelSelectMain : MonoBehaviour
 		smallIntestineUnlocked = (PlayerPrefs.GetInt ("PlayedSIStory") == 1) ? true : false;
 	}
 
-	// get all the high scores
+	/**
+	 * get all the high scores from player prefs and store them accordingly
+	 */
 	void populateHighScores()
 	{
 		mouthLevel1HS = PlayerPrefs.GetInt("Mouth1");
@@ -55,8 +66,10 @@ public class LevelSelectMain : MonoBehaviour
 		smallIntestineLevel6HS = PlayerPrefs.GetInt("SI6");
 	}
 
-	// created this method to draw the "high score" beside each unlocked level
-	// motivation to play to improve score maybe?
+	/**
+	 * created this method to draw the "high score" beside each unlocked level
+	 * motivation to play to improve score maybe?
+	 */
 	void drawStars(float y, int highScore)
 	{
 		// draw the actual stars
@@ -135,9 +148,10 @@ public class LevelSelectMain : MonoBehaviour
 		}
 	}
 
-	// Update is called once per frame
-	void Update () {}
-
+	/**
+	 * Controls drawing what is seen on the level select screen based on user selection and 
+	 * what is unlocked
+	 */
 	void OnGUI()
 	{
 		// text style for regular text

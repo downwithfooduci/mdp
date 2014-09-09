@@ -10,7 +10,6 @@ public class SpeedMultiplierOdd : MonoBehaviour
 	public GUIStyle speedButtonOff;		//!< to hold the texture to draw when 2x speed is disabled
 	public GUIStyle speedButtonOn;		//!< to hold the texture to draw when 2x speed is enabled
 
-
 	/**
 	 * Use this for initialization
 	 */
