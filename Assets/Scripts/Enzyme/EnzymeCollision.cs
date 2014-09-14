@@ -6,8 +6,8 @@ using System.Collections;
  */
 public class EnzymeCollision : MonoBehaviour 
 {	
-	GameObject gui;		//!< to hold the gui
-	Buttons buttons;	//!< for the buttons
+	private GameObject gui;		//!< to hold the gui
+	private Buttons buttons;	//!< for the buttons
 	
 	/**
 	 * Use this for initialization

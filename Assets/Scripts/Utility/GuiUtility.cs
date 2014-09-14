@@ -2,8 +2,6 @@
 using System.Collections;
 
 // this calss is only used in game config
-// i didn't write this class but this class is poorly written since screen height and width are based on ipad2 dimensions only
-// using this for any major thing may result in incorrect display on any other ipad/iphone
 public static class GuiUtility
 {
     public static float ORIG_SCREEN_WIDTH = 1024f;

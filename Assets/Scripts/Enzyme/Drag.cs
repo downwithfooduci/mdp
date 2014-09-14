@@ -6,8 +6,8 @@ using System.Collections;
  */
 public class Drag : MonoBehaviour
 {		
-	Vector3 lastPosition;				//!< to hold the (x,y,z) coordinate of the last position
-	bool left;							//!< mark whether the guy should be facing left or right
+	private Vector3 lastPosition;				//!< to hold the (x,y,z) coordinate of the last position
+	private bool left;							//!< mark whether the guy should be facing left or right
 
 	/**
 	 * Initialization.

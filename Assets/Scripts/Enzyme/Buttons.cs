@@ -8,9 +8,9 @@ public class Buttons : MonoBehaviour
 {
 	//Invulnerability Related Code	
 	public GameObject objectGenerator;
-	ParticleGenerator generator;
+	private ParticleGenerator generator;
 
-	GameObject p;
+	private GameObject p;
 	public GameObject ColorPrefeb;
 	public bool EnzymesExist = false;	//!< used to tell whether we already have an enzyme spawned.
 										//!< can only have one enzyme active at once

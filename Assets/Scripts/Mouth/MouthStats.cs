@@ -29,7 +29,7 @@ public class MouthStats : MonoBehaviour
 
 	private int score;						//!< will hold the score calculated based off of stats
 
-	int prevHighScore;						//!< for high scores
+	private int prevHighScore;						//!< for high scores
 	
 	/**
 	 * Use this for initialization

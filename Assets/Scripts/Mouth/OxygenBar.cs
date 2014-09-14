@@ -12,11 +12,11 @@ public class OxygenBar : MonoBehaviour
 	public Texture oxygenBar;					//!< to hold the texture of the oxygen bar
 	public float percent;						//!< the current percentage the oxygen bar is filled (between 0 and 1)
 
-	openFlap flap;								//!< to hold a reference to the script on the flaps
-	EsophagusDebugConfig config;				//!< to hold a reference to the debug config in the mouth game
+	private openFlap flap;								//!< to hold a reference to the script on the flaps
+	private EsophagusDebugConfig config;				//!< to hold a reference to the debug config in the mouth game
 
-	float depletionRate = .05f;					//!< to hold the oxygen depletion rate
-	float gainRate = .05f;						//!< to hold the oxygen gain rate
+	private float depletionRate = .05f;					//!< to hold the oxygen depletion rate
+	private float gainRate = .05f;						//!< to hold the oxygen gain rate
 
 	/**
 	 * Use this for initialization

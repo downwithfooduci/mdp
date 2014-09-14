@@ -32,9 +32,6 @@ public class ZymePopupScript : MonoBehaviour
 		style.fontSize = (int)(18f / 597f * Screen.height);  // set font relative to screen 
 		gotIt.fontSize = (int)(20f / 597f * Screen.height);	 // set font relative to screen
 	}
-	
-	// Update is called once per frame
-	void Update () {}
 
 	// function to set the text to display in the zyme popup
 	public void setText(string text)
