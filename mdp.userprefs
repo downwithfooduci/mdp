@@ -1,31 +1,18 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Utility\DetectStraightSwipe.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Collisions\Collider.cs">
     <Files>
-      <File FileName="Assets\Scripts\Mouth\FoodStuffFinish.cs" Line="48" Column="46" />
-      <File FileName="Assets\Scripts\Mouth\LoadScriptMouth.cs" Line="60" Column="1" />
-      <File FileName="Assets\Scripts\Mouth\MouthScore.cs" Line="117" Column="1" />
-      <File FileName="Assets\Scripts\Mouth\SpawnFood.cs" Line="153" Column="1" />
-      <File FileName="Assets\Scripts\Mouth\EsophagusDebugConfigGUI.cs" Line="147" Column="2" />
-      <File FileName="Assets\Scripts\Mouth\EsophagusDebugConfig.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Mouth\MoveFood.cs" Line="75" Column="1" />
-      <File FileName="Assets\Scripts\Mouth\openFlap.cs" Line="212" Column="1" />
-      <File FileName="Assets\Scripts\Mouth\Breathing.cs" Line="75" Column="1" />
-      <File FileName="Assets\Scripts\Mouth\LoadMouth.cs" Line="52" Column="2" />
-      <File FileName="Assets\Scripts\Mouth\MouthLoadLevelCounter.cs" Line="109" Column="1" />
-      <File FileName="Assets\Scripts\Mouth\MouthStats.cs" Line="232" Column="2" />
-      <File FileName="Assets\Scripts\Mouth\UvulaEpiglottisLayer.cs" Line="37" Column="1" />
-      <File FileName="Assets\Scripts\Mouth\OxygenBar.cs" Line="86" Column="1" />
-      <File FileName="Assets\Scripts\Mouth\CoughCollision.cs" Line="44" Column="1" />
-      <File FileName="Assets\Scripts\Mouth\EsophagusGameOver.cs" Line="75" Column="3" />
-      <File FileName="Assets\Scripts\Mouth\EsophagusReturnButton.cs" Line="70" Column="2" />
-      <File FileName="Assets\Scripts\Mouth\TongueLayer.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Mouth\MouthOverlay.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Mouth\MouthGameManager.cs" Line="34" Column="1" />
-      <File FileName="Assets\Scripts\Mouth\AnimatedBackground.cs" Line="131" Column="2" />
-      <File FileName="Assets\Scripts\Storyboard\PageTurn.cs" Line="49" Column="1" />
-      <File FileName="Assets\Scripts\Storyboard\StoryboardHandler.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Utility\DetectStraightSwipe.cs" Line="141" Column="1" />
+      <File FileName="Assets\Scripts\SmallIntestine\IntestineGameManager.cs" Line="42" Column="2" />
+      <File FileName="Assets\Scripts\SmallIntestine\GrowAndDie.cs" Line="18" Column="18" />
+      <File FileName="Assets\Scripts\SmallIntestine\GameOver.cs" Line="25" Column="5" />
+      <File FileName="Assets\Scripts\SmallIntestine\SIStats.cs" Line="113" Column="2" />
+      <File FileName="Assets\Scripts\SmallIntestine\LoadSmallIntestine.cs" Line="51" Column="5" />
+      <File FileName="Assets\Scripts\SmallIntestine\SmallIntestineLoadLevelCounter.cs" Line="105" Column="2" />
+      <File FileName="Assets\Scripts\Pathing\FollowITweenPath.cs" Line="26" Column="8" />
+      <File FileName="Assets\Scripts\Entities\MDPEntity.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\SmallIntestine\Bullet.cs" Line="56" Column="2" />
+      <File FileName="Assets\Scripts\Collisions\Collider.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Entities\Formations\CircleFormation.cs" Line="69" Column="4" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

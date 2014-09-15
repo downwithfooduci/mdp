@@ -59,7 +59,6 @@ public class NutrientsTutorial : MonoBehaviour
 	{
 		if (showTutorial)
 		{
-			Instantiate(zyme);
 			zymeScript.setDraw(true);
 			zymeScript.setShowButton(true);
 			zymeScript.setText("Use nutrients to \npurchase enzyme towers!\n" +

@@ -1,9 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-// script that can display the fps
-// script was taken from online
-// minor edits done by UCI Down with Food team
+/**
+ * script that can display the fps
+ * script was taken from online
+ * minor edits done by UCI Down with Food team
+ */
 public class HUDFPS : MonoBehaviour
 {
 	
@@ -21,9 +23,9 @@ public class HUDFPS : MonoBehaviour
 	public  float updateInterval = 0.5F;
 	public bool FPSActive = false;
 	DebugConfig debugConfig;
-	private float accum = 0; // FPS accumulated over the interval
-	private int   frames = 0; // Frames drawn over the interval
-	private float timeleft; // Left time for current interval
+	private float accum = 0; //!< FPS accumulated over the interval
+	private int   frames = 0; //!< Frames drawn over the interval
+	private float timeleft; //!< Left time for current interval
 	
 	void Start ()
 	{

@@ -86,7 +86,6 @@ public class SpeedMultiplierTutorial : MonoBehaviour
 		{
 			if (showTutorial)
 			{
-				Instantiate(zyme);
 				zymeScript.setDraw(true);
 				zymeScript.setShowButton(true);
 				zymeScript.setText("The stopwatch can be \nused to speed up or slow \ndown the flow of food!");

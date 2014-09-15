@@ -45,10 +45,9 @@ public class FatsTutorial : MonoBehaviour
 	{
 		if (showTutorial)
 		{
-			Instantiate(zyme);
 			zymeScript.setDraw(true);
 			zymeScript.setShowButton(true);
-			zymeScript.setText("Fats require two \nenzymes to break down. \nTry placing a green and white tower!");
+			zymeScript.setText("Fats require two \nenzymes to break down. \nTry placing a green and \nwhite tower!");
 			Time.timeScale = .01f;
 		}
 	}

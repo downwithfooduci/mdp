@@ -1,18 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-// for the ending of the game
+/**
+ * placeholder for the ending of the game
+ */
 public class EndScreen : MonoBehaviour 
 {
-	public Texture background;	// background image
-	public GUIStyle mainMenu;	// main menu button
-	public GUIStyle restart;	// restart button
-
-	// Use this for initialization
-	void Start () {}
-	
-	// Update is called once per frame
-	void Update () {}
+	public Texture background;	//!< background image
+	public GUIStyle mainMenu;	//!< main menu button
+	public GUIStyle restart;	//!< restart button
 
 	void OnGUI()
 	{
