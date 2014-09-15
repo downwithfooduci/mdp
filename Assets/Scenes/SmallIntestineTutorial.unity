@@ -1146,7 +1146,7 @@ MonoBehaviour:
   SpawnIndicator: {fileID: 100000, guid: 26deff9078debb04c873abf6f2d334bd, type: 2}
   AvailableColors:
   - {r: 0, g: 1, b: 0, a: 1}
-  - {r: .996078432, g: .996078432, b: .996078432, a: 1}
+  - {r: 1, g: 1, b: 1, a: 1}
   - {r: 1, g: 0, b: 1, a: 1}
   - {r: 1, g: 1, b: 0, a: 1}
   placementSound: {fileID: 100000, guid: 49ec0950471884a4b86cbf637330b8d7, type: 2}
