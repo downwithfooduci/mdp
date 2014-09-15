@@ -1145,7 +1145,7 @@ MonoBehaviour:
   - {fileID: 100086, guid: 48bc2d302d71128408869bc15459398f, type: 2}
   SpawnIndicator: {fileID: 100000, guid: 26deff9078debb04c873abf6f2d334bd, type: 2}
   AvailableColors:
-  - {r: 0, g: .996078432, b: 0, a: 1}
+  - {r: 0, g: 1, b: 0, a: 1}
   - {r: .996078432, g: .996078432, b: .996078432, a: 1}
   - {r: 1, g: 0, b: 1, a: 1}
   - {r: 1, g: 1, b: 0, a: 1}
