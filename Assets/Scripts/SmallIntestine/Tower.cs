@@ -247,9 +247,6 @@ public class Tower : MonoBehaviour
         IList<Nutrient> nutrients = m_NutrientManager.GetNutrients(m_TargetColor);
         if (nutrients == null)	// if there are no nutrients of that color then there are no targets
         {
-
-			Debug.Log ("nutrients null for " + m_TargetColor);
-
             return null;		// return null to indicate there are no targets
         }
 
@@ -275,9 +272,6 @@ public class Tower : MonoBehaviour
             }
         }
 
-	
-						Debug.Log ("found closest for " + m_TargetColor);
-				
 		// after we are done iterating through the nutrients then return what we found was the closest one as the target
         return closestNutrient;
     }
