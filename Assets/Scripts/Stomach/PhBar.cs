@@ -1,29 +1,35 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-// script that controls drawing the phBar and level indicators for the stomach game
+/**
+ * script that controls drawing the phBar and level indicators for the stomach game
+ */
 public class PhBar : MonoBehaviour 
 {
-	public Texture phBarTexture;					// to hold the texture of the ph bar
-	public Texture desiredAcidLevelIndicator;		// to hold the texture of the arrows marking the ph level we should reach
-	public Texture currentAcidLevelIndicator;		// to hold the bar that should line up with the arrows
+	public Texture phBarTexture;					//!< to hold the texture of the ph bar
+	public Texture desiredAcidLevelIndicator;		//!< to hold the texture of the arrows marking the ph level we should reach
+	public Texture currentAcidLevelIndicator;		//!< to hold the bar that should line up with the arrows
 
-	private Rect phBarRect;							// to hold the draw location and size data for the ph Bar
-	private Rect desiredLevelRect;					// to hold the draw location and size data for the desired level arrows
-	private Rect currentLevelRect;					// to hold the draw location and size data for the current level bar4
-	private float currentLevelRectHeight;			// store a random starting height for the currentLevelRect
+	private Rect phBarRect;							//!< to hold the draw location and size data for the ph Bar
+	private Rect desiredLevelRect;					//!< to hold the draw location and size data for the desired level arrows
+	private Rect currentLevelRect;					//!< to hold the draw location and size data for the current level bar4
+	private float currentLevelRectHeight;			//!< store the indicator level for currentLevelRect
 
-	public float startingAcidSpeed;				// the speed the bar initially moves when acid is added
-	public float acidSpeedDecayTime;			// the time for the bar to slow to 0 after acid is added
+	public float startingAcidSpeed;					//!< the speed the bar initially moves when acid is added
+	public float acidSpeedDecayTime;				//!< the time for the bar to slow to 0 after acid is added
 	
-	public float startingBaseSpeed;				// the speed the bar initially moves when base is added
-	public float baseSpeedDecayTime;			// the time for the bar to slow to 0 after base is added
+	public float startingBaseSpeed;					//!< the speed the bar initially moves when base is added
+	public float baseSpeedDecayTime;				//!< the time for the bar to slow to 0 after base is added
 
-	private bool startAddAcid;						// flag to mark whether we are currently adding acid
-	private bool startAddBase;						// flag to mark whether we are currently adding base
-	private float elapsedTime;						// to count the time spent adding acid or base for velocity vector
+	private bool startAddAcid;						//!< flag to mark whether we are currently adding acid
+	private bool startAddBase;						//!< flag to mark whether we are currently adding base
+	private float elapsedTime;						//!< to count the time spent adding acid or base for velocity vector
 
-	// Use this for initialization
+	/**
+	 * Use this for initialization
+	 * Sets all dimenstions relative to screen size
+	 * Chooses a semi-random starting height for the indicator bar
+	 */
 	void Start () 
 	{
 		// create the rectangle for the phBar relative to the screen size
@@ -38,13 +44,16 @@ public class PhBar : MonoBehaviour
 		// right now just start it at a random height...
 		while (currentLevelRectHeight == 0 || (currentLevelRectHeight > 300 && currentLevelRectHeight < 351))
 		{
-			currentLevelRectHeight = Random.Range (56f, 658f);
+			currentLevelRectHeight = Random.Range (56f, 658f) / 768f * Screen.height;
 		}
-		currentLevelRect = new Rect (47f / 1024f * Screen.width, currentLevelRectHeight / 768f * Screen.height,
+		currentLevelRect = new Rect (47f / 1024f * Screen.width, currentLevelRectHeight,
 		                            90f / 1024f * Screen.width, 7f / 768f * Screen.height);
 	}
 	
-	// Update is called once per frame
+	/**
+	 * Update is called once per frame
+	 * Handles adding acid/base if the button has been pressed
+	 */
 	void Update () 
 	{
 		// first check if the time that the acid/base should be added is up
@@ -89,6 +98,9 @@ public class PhBar : MonoBehaviour
 		}
 	}
 
+	/**
+	 * Draw the acid level desired indicator and bar based on any changes
+	 */
 	void OnGUI()
 	{
 		// draw the ph bar
@@ -101,17 +113,20 @@ public class PhBar : MonoBehaviour
 		GUI.DrawTexture (currentLevelRect, currentAcidLevelIndicator);
 	}
 
+	/**
+	 * Handles moving the current level of acidity bar
+	 */
 	private void moveCurrentLevelRect(float speed)
 	{
-		//Mathf.Clamp(currentLevelRect.y + (speed * Time.deltaTime), 56f, 648f)
-		currentLevelRect = new Rect (currentLevelRect.x, 
-		                             Mathf.Clamp(currentLevelRect.y + (speed * Time.deltaTime), 
-		            					56f / 768f * Screen.height, 
-		            					658f / 768f * Screen.height), 
+		currentLevelRectHeight = Mathf.Clamp(currentLevelRect.y + (speed * Time.deltaTime), 56f / 768f * Screen.height, 
+		                                     658f / 768f * Screen.height);
+		currentLevelRect = new Rect (currentLevelRect.x, currentLevelRectHeight, 
 		                            currentLevelRect.width, currentLevelRect.height);
 	}
 
-	// function that can be called to simulate adding acid to the stomach and its effect on the ph bar
+	/**
+	 * function that can be called to simulate adding acid to the stomach and its effect on the ph bar
+	 */
 	public void addAcid()
 	{
 		startAddAcid = true;		// throw the flag to indicate we should start adding acid
@@ -119,11 +134,21 @@ public class PhBar : MonoBehaviour
 		elapsedTime = 0f;			// reset elapsed time
 	}
 
-	// function that can be called to simulate adding base to the stomach and its effect on the ph bar
+	/**
+	 * function that can be called to simulate adding base to the stomach and its effect on the ph bar
+	 */
 	public void addBase()
 	{
 		startAddBase = true;		// throw the flag to indicate that we should start adding base
 		startAddAcid = false;		// if we were adding acid, override the decision (no longer add acid)
 		elapsedTime = 0f;			// reset elapsed time
+	}
+
+	/**
+	 * Function that can be used to get the current level of the acidity level in the stomach
+	 */
+	public float getCurrentLevelRectHeight()
+	{
+		return currentLevelRectHeight;
 	}
 }
