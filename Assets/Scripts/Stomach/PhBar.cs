@@ -40,7 +40,7 @@ public class PhBar : MonoBehaviour
 		{
 			currentLevelRectHeight = Random.Range (56f, 658f);
 		}
-		currentLevelRect = new Rect (45f / 1024f * Screen.width, currentLevelRectHeight / 768f * Screen.height,
+		currentLevelRect = new Rect (47f / 1024f * Screen.width, currentLevelRectHeight / 768f * Screen.height,
 		                            90f / 1024f * Screen.width, 7f / 768f * Screen.height);
 	}
 	
