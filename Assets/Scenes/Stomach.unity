@@ -364,6 +364,7 @@ MonoBehaviour:
   zymeHappy: {fileID: 2800000, guid: 2a164da2de53b9b418467cc47f18c10e, type: 3}
   zymeConcerned: {fileID: 2800000, guid: bf9fe0f1f6e5c484eb2035298af23892, type: 3}
   zymeSlimed: {fileID: 2800000, guid: a42bdae24d7336d43bc5c5461acf6381, type: 3}
+  zymeFloatyRing: {fileID: 2800000, guid: c8d459d9908ebb845ae888f7d377cab4, type: 3}
 --- !u!114 &430288453
 MonoBehaviour:
   m_ObjectHideFlags: 0

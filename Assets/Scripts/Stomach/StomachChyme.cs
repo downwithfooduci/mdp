@@ -37,10 +37,10 @@ public class StomachChyme : MonoBehaviour
 	void OnGUI()
 	{
 		GUI.depth ++;
-		if (acidityLevel < 235)
+		if (acidityLevel < .270f * Screen.height)
 		{
 			GUI.DrawTexture(new Rect(0f, Screen.height - .2f * Screen.height, Screen.width, .2f * Screen.height), acidicChyme);
-		} else if (acidityLevel > 465)
+		} else if (acidityLevel > .662f * Screen.height)
 		{
 			GUI.DrawTexture(new Rect(0f, Screen.height - .2f * Screen.height, Screen.width, .2f * Screen.height), basicChyme);
 		} else
