@@ -32,12 +32,6 @@ public class StomachZyme : MonoBehaviour
 		drawFloatyRingRectangle = new Rect (282f / 1024f * Screen.width, 688f / 768f * Screen.height,
 		                                    170f / 1024f * Screen.width, 57f / 768f * Screen.height);
 	}
-	
-	// Update is called once per frame
-	void Update () 
-	{
-	
-	}
 
 	void OnGUI()
 	{

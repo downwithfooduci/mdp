@@ -53,6 +53,7 @@ public class PhBar : MonoBehaviour
 	/**
 	 * Update is called once per frame
 	 * Handles adding acid/base if the button has been pressed
+	 * Controls acid decay over time
 	 */
 	void Update () 
 	{
@@ -96,6 +97,9 @@ public class PhBar : MonoBehaviour
 			
 			return;
 		}
+
+		// if we aren't adding acid or base decay the bar somewhat
+		moveCurrentLevelRect(1000f * Time.deltaTime);
 	}
 
 	/**
