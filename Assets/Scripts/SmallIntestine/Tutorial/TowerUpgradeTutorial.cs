@@ -146,14 +146,14 @@ public class TowerUpgradeTutorial : MonoBehaviour
 		if(showZymeSpeed)
 		{
 			zymeScript.setDraw(true);
-			zymeScript.setText("Tap a tower to upgrade! \nSpeed makes a tower \nrelease enzymes faster!");
+			zymeScript.setText("Tap a Person to upgrade! \nSpeed makes a Person \nrelease enzymes faster!");
 			Time.timeScale = .01f;
 		}
 		
 		if(showZymePower)
 		{
 			zymeScript.setDraw(true);
-			zymeScript.setText("Tap a tower to upgrade! \nPower makes a tower \nrelease more enzymes at \na time!");
+			zymeScript.setText("Tap a Person to upgrade! \nPower makes a Person \nrelease more enzymes at \na time!");
 			Time.timeScale = .01f;
 		}
 	}

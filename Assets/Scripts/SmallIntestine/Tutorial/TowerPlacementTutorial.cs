@@ -50,7 +50,7 @@ public class TowerPlacementTutorial : MonoBehaviour
 		if (stopForZyme)
 		{
 			zymeScript.setDraw(true);
-			zymeScript.setText("Drag a Protein Tower to \nthe wall of the small \nintestine!");
+			zymeScript.setText("Drag a Protein Person to \nthe wall of the small \nintestine!");
 			Time.timeScale = .01f;
 		}
 
@@ -70,7 +70,7 @@ public class TowerPlacementTutorial : MonoBehaviour
 		if (stopForZyme && startSecondTimer && actualArrowTime > maxArrowTime)
 		{
 			zymeScript.setDraw(true);
-			zymeScript.setText("Place a second Protein \ntower!");
+			zymeScript.setText("Place a second Protein \nPerson!");
 			Time.timeScale = .01f;
 		}
 

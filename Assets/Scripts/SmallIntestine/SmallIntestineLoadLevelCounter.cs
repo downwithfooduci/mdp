@@ -26,7 +26,7 @@ public class SmallIntestineLoadLevelCounter : MonoBehaviour
 		} else
 		{
 			// if it was -1 then we are starting as normal, which means starting from level 1
-			level = 1;
+			level = 0;	// load the tutorial first
 		}
 
 		// look if there is more than once instance of the background chooser. if there is destroy this one
