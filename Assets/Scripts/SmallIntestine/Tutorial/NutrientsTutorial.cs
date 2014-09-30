@@ -61,7 +61,7 @@ public class NutrientsTutorial : MonoBehaviour
 		{
 			zymeScript.setDraw(true);
 			zymeScript.setShowButton(true);
-			zymeScript.setText("Use nutrients to \npurchase enzyme towers!\n" +
+			zymeScript.setText("Use nutrients to \npurchase Enzyme People!\n" +
 			                   "Tap the villi to absorb \nnutrients!");
 			Time.timeScale = .01f;
 
