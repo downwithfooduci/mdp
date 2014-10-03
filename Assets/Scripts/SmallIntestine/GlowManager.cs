@@ -70,13 +70,23 @@ public class GlowManager : MonoBehaviour
 			return;
 		}
 		
-		// if menu box is up don't light
+		// if menu box is up don't light but don't do this in tutorial so they can click when hand is up
 		if (Time.timeScale < .1f)
 		{
-			return;
+			// if we are in the tutorial under the correct conditions make a note for us to use
+			if ((Application.loadedLevelName.Equals("SmallIntestineTutorial") &&
+			      (PlayerPrefs.GetInt("SIStats_towersUpgraded") == 2) &&
+			      !(PlayerPrefs.GetInt("SISpeedTutorial") == 1)))
+			{
+				PlayerPrefs.SetInt("SIGlowTutorial", 1);
+				PlayerPrefs.Save();
+			} else
+			{
+				return;
+			}
 		}
-
-		// if tower menu or sell box is up don't light
+			    
+			    // if tower menu or sell box is up don't light
 		if (intestineGameManager.getSellBoxUp() == true || intestineGameManager.getTowerMenuUp() == true)
 		{
 			return;

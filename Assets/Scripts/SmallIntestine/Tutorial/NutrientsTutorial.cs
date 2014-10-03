@@ -40,7 +40,7 @@ public class NutrientsTutorial : MonoBehaviour
 			}
 		}
 
-		if (zymeScript.getButtonPressed() && showTutorial)
+		if ((PlayerPrefs.GetInt("SIGlowTutorial") == 1) && showTutorial)
 		{
 			showTutorial = false;
 			zymeScript.setDraw(false);
@@ -60,7 +60,6 @@ public class NutrientsTutorial : MonoBehaviour
 		if (showTutorial)
 		{
 			zymeScript.setDraw(true);
-			zymeScript.setShowButton(true);
 			zymeScript.setText("Use nutrients to \npurchase Enzyme People!\n" +
 			                   "Tap the villi to absorb \nnutrients!");
 			Time.timeScale = .01f;
