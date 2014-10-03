@@ -40,6 +40,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zyme: {fileID: 2800000, guid: 4c8c0abf50e3a4843ab4952530539393, type: 3}
+  zymeMirrored: {fileID: 2800000, guid: b92d901f8d198b5438808e6e59d1418b, type: 3}
   gotIt:
     m_Name: 
     m_Normal:

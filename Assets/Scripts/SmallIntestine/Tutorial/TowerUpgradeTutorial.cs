@@ -71,6 +71,7 @@ public class TowerUpgradeTutorial : MonoBehaviour
 			speedUpgraded = true;
 			showZymeSpeed = false;
 			zymeScript.setDraw(false);
+			zymeScript.setDrawZymeRight();
 
 			// turn off the light if it exists
 			if (spawnedLight != null)
@@ -133,6 +134,12 @@ public class TowerUpgradeTutorial : MonoBehaviour
 
 		// set the light location to be on the tower
 		Vector3 newLightLoc = new Vector3 (towerPositionX, towerPositionY, towerPositionZ);
+
+		// check if the zyme script will be covering the tower and if it is switch the sides
+		if (newLightLoc.x > 5)
+		{
+			zymeScript.setDrawZymeLeft ();
+		}
 
 		spawnedLight = (GameObject)Instantiate(spotLight);
 		spawnedLight.transform.position = newLightLoc;

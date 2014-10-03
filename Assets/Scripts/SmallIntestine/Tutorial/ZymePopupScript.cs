@@ -8,6 +8,7 @@ public class ZymePopupScript : MonoBehaviour
 {
 	// texture and value for drawing zyme properly
 	public Texture zyme;
+	public Texture zymeMirrored;
 	float ratio = 1.4250681198910081743869209809264f;
 
 	// for the button
@@ -20,6 +21,7 @@ public class ZymePopupScript : MonoBehaviour
 	private bool drawZyme;
 	private bool drawButton;
 	private bool buttonPressed;
+	private bool drawZymeLeft = false;
 
 	// for fonts
 	public GUIStyle style;
@@ -64,9 +66,25 @@ public class ZymePopupScript : MonoBehaviour
 		return temp;
 	}
 
+	/**
+	 * set to draw zyme on the right (defaults to this)
+	 */
+	public void setDrawZymeRight()
+	{
+		drawZymeLeft = false;
+	}
+
+	/**
+	 * set the side to draw zyme on to the left
+	 */
+	public void setDrawZymeLeft()
+	{
+		drawZymeLeft = true;
+	}
+
 	void OnGUI()
 	{
-		if (drawZyme)
+		if (drawZyme && !drawZymeLeft)
 		{
 			// this part draws the zyme popup box in the bottom right corner with 
 			// the current text that has been set in the "speaking box"
@@ -93,6 +111,19 @@ public class ZymePopupScript : MonoBehaviour
 					drawButton = false;		// set this to false so the user doesn't have to turn it off
 				}
 			}
+		} else if (drawZyme && drawZymeLeft)
+		{
+			// this part draws the zyme popup box in the bottom left corner with 
+			// the current text that has been set in the "speaking box"
+			GUI.DrawTexture(new Rect(0f, 
+			                         (Screen.height * 0.82421875f) - (.4f * Screen.height),
+			                         (.4f * Screen.height * ratio),
+			                         (.4f * Screen.height)), zymeMirrored);
+			GUI.Label(new Rect(.16f*Screen.width, .42f*Screen.height, .4f*Screen.width, .8f*Screen.height),
+			          currentZymeText,
+			          style);
+
+			// no got it button code because never used in this case
 		}
 	}
 }
