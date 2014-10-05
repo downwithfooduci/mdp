@@ -10808,9 +10808,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zyme: {fileID: 100000, guid: 532f02dcd37dc0c4a913e5b84575fae9, type: 2}
-  maxUpgradeTimeSpeed: 5
+  maxUpgradeTimeSpeed: 10
   maxUpgradeTimePower: 5
-  spotLight: {fileID: 100000, guid: ab67f90896ded2a48949301386774b71, type: 2}
+  arrow1: {fileID: 2800000, guid: 68376b34127a95d42a3b88d13feed28a, type: 3}
+  arrow2: {fileID: 2800000, guid: a2569c29db79cf84b8bfe4555538f1ac, type: 3}
 --- !u!4 &1989311879
 Transform:
   m_ObjectHideFlags: 0

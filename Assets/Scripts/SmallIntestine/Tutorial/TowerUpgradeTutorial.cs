@@ -20,10 +20,12 @@ public class TowerUpgradeTutorial : MonoBehaviour
 	private bool speedUpgraded;
 	private bool powerUpgraded;
 
-	// for spawning a spotlight
-	public GameObject spotLight;
-	private GameObject spawnedLight;
-	private bool lightOn;
+	// for spawning an arrow
+	public Texture arrow1;
+	public Texture arrow2;
+	private Rect drawArrowRect;
+	private bool drawArrow;
+	private bool drawArrowDown;
 
 	// for finding the first two towers
 	private GameObject[] towers;
@@ -50,17 +52,17 @@ public class TowerUpgradeTutorial : MonoBehaviour
 
 		// don't start counting the upgrade time until they have placed 2 towers
 		if(PlayerPrefs.GetInt("SIStats_towersPlaced") > 1 && !(PlayerPrefs.GetInt("SIStats_towersUpgraded") > 0) 
-		   && !lightOn)
+		   && !drawArrow)
 		{
 			elapsedTime += Time.deltaTime;
 		}
 
 		// if the time has passed spawn an indicator spotlight on the tower to upgrade
-		if (elapsedTime > maxUpgradeTimeSpeed && !lightOn) 
+		if (elapsedTime > maxUpgradeTimeSpeed && !drawArrow) 
 		{
 			//give nutrients to upgrade and tell to upgrade
 			intestineGameManager.nutrients += 50;
-			spawnLightOnTower();
+			spawnArrowOnTower();
 			showZymeSpeed = true;
 			elapsedTime = 0f;
 		}
@@ -72,13 +74,7 @@ public class TowerUpgradeTutorial : MonoBehaviour
 			showZymeSpeed = false;
 			zymeScript.setDraw(false);
 			zymeScript.setDrawZymeRight();
-
-			// turn off the light if it exists
-			if (spawnedLight != null)
-			{
-				Destroy (spawnedLight.gameObject);
-				lightOn = false;
-			}
+			drawArrow = false;
 		}
 
 		// update elapsed time for 2nd upgrade
@@ -89,11 +85,11 @@ public class TowerUpgradeTutorial : MonoBehaviour
 		}
 
 		// if the time has passed spawn an indicator spotlight on the tower to upgrade
-		if (elapsedTime > maxUpgradeTimePower && !lightOn && speedUpgraded) 
+		if (elapsedTime > maxUpgradeTimePower && !drawArrow && speedUpgraded) 
 		{
 			//give nutrients to upgrade and tell to upgrade
 			intestineGameManager.nutrients += 50;
-			spawnLightOnTower();
+			spawnArrowOnTower();
 			showZymePower = true;
 			elapsedTime = 0f;
 		}
@@ -105,16 +101,11 @@ public class TowerUpgradeTutorial : MonoBehaviour
 			powerUpgraded = true;
 			showZymePower = false;
 			zymeScript.setDraw(false);
-			
-			// destroy the light if it exists
-			if (spotLight != null)
-			{
-				Destroy (spawnedLight.gameObject);
-			}
+			drawArrow = false;
 		}
 	}
 
-	void spawnLightOnTower()
+	void spawnArrowOnTower()
 	{
 		//exit if the user is taking too long
 		if (currentTower == 2)
@@ -128,23 +119,28 @@ public class TowerUpgradeTutorial : MonoBehaviour
 			towers = GameObject.FindGameObjectsWithTag ("tower");
 		}
 
-		float towerPositionX = towers[currentTower].transform.position.x;
-		float towerPositionY = spotLight.transform.position.y;
-		float towerPositionZ = towers[currentTower].transform.position.z;
-
-		// set the light location to be on the tower
-		Vector3 newLightLoc = new Vector3 (towerPositionX, towerPositionY, towerPositionZ);
+		// check which arrow to draw and define region
+		if (towers[currentTower].transform.position.z <= 0)
+		{
+			drawArrowDown = true;
+			drawArrowRect = new Rect ((towers [currentTower].transform.position.x + 26)/52f * Screen.width - .5f *  75f/1024f * Screen.width, 
+			                          Screen.height - ((towers [currentTower].transform.position.z + 19)/38f * Screen.height + 1.75f * 150f/1024f * Screen.height), 
+			                          75f/1024f * Screen.width, 150f/1024f * Screen.height); 
+		} else
+		{
+			drawArrowDown = false;
+			drawArrowRect = new Rect ((towers [currentTower].transform.position.x + 26)/52f * Screen.width - .5f *  75f/1024f * Screen.width, 
+			                          Screen.height - ((towers [currentTower].transform.position.z + 19)/38f * Screen.height - .25f * 150f/1024f * Screen.height), 
+			                          75f/1024f * Screen.width, 150f/1024f * Screen.height); 
+		}
 
 		// check if the zyme script will be covering the tower and if it is switch the sides
-		if (newLightLoc.x > 5)
+		if (towers [currentTower].transform.position.x > 0)
 		{
 			zymeScript.setDrawZymeLeft ();
 		}
 
-		spawnedLight = (GameObject)Instantiate(spotLight);
-		spawnedLight.transform.position = newLightLoc;
-
-		lightOn = true;
+		drawArrow = true;
 		currentTower++;
 	}
 
@@ -162,6 +158,17 @@ public class TowerUpgradeTutorial : MonoBehaviour
 			zymeScript.setDraw(true);
 			zymeScript.setText("Tap a Person to upgrade! \nPower makes a Person \nrelease more enzymes at \na time!");
 			Time.timeScale = .01f;
+		}
+
+		if (drawArrow)
+		{
+			if (drawArrowDown)
+			{
+				GUI.DrawTexture(drawArrowRect, arrow1);
+			} else
+			{
+				GUI.DrawTexture(drawArrowRect, arrow2);
+			}
 		}
 	}
 }

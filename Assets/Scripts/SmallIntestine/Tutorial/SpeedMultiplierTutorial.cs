@@ -15,10 +15,6 @@ public class SpeedMultiplierTutorial : MonoBehaviour
 	private bool tutorialOver;
 	private bool tutorialReady;
 
-	public GameObject spotLight;
-	private GameObject spawnedLight;
-	private bool lightOn;
-
 	public float tutorialDelay;
 	private float elapsedTime;
 	
@@ -45,10 +41,6 @@ public class SpeedMultiplierTutorial : MonoBehaviour
 				if (elapsedTime > tutorialDelay)
 				{
 					showTutorial = true;
-					if (!lightOn)
-					{
-						spawnLightOnSpeed ();
-					}
 				}
 			}
 
@@ -62,22 +54,7 @@ public class SpeedMultiplierTutorial : MonoBehaviour
 				PlayerPrefs.Save();
 				Time.timeScale = 1;
 			}
-			
-			if (tutorialOver)
-			{
-				Destroy(spawnedLight.gameObject);
-			}
 		}
-	}
-
-	void spawnLightOnSpeed()
-	{
-		Vector3 newLightLoc = new Vector3 (-23f, 5f, -11.5f);
-		
-		spawnedLight = (GameObject)Instantiate(spotLight);
-		spawnedLight.transform.position = newLightLoc;
-		
-		lightOn = true;
 	}
 
 	void OnGUI()
@@ -94,4 +71,3 @@ public class SpeedMultiplierTutorial : MonoBehaviour
 		}
 	}
 }
-
