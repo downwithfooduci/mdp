@@ -10808,8 +10808,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zyme: {fileID: 100000, guid: 532f02dcd37dc0c4a913e5b84575fae9, type: 2}
-  zymePopupImageSpeed: {fileID: 2800000, guid: 6ec42e01b5e96b640832b45de07935b2, type: 3}
-  zymePopupImagePower: {fileID: 2800000, guid: 4e7b8cac7e2ebd7439990981f8552ec0, type: 3}
+  zymePopupImageSpeedNorm: {fileID: 2800000, guid: 390720ca174263d4f980b79bfdaa9967,
+    type: 3}
+  zymePopupImageSpeedMirrored: {fileID: 2800000, guid: 229e05df21888934cb20ad78ef5fab8b,
+    type: 3}
+  zymePopupImagePowerNorm: {fileID: 2800000, guid: a56480d018563b048b44994ece21a2b0,
+    type: 3}
+  zymePopupImagePowerMirrored: {fileID: 2800000, guid: 0c2f345b687da8240aa1da0c1120eb63,
+    type: 3}
   maxUpgradeTimeSpeed: 10
   maxUpgradeTimePower: 5
   arrow1light: {fileID: 2800000, guid: a2569c29db79cf84b8bfe4555538f1ac, type: 3}

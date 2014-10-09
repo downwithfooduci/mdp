@@ -10,8 +10,11 @@ public class TowerUpgradeTutorial : MonoBehaviour
 	public GameObject zyme;
 	private ZymePopupScript zymeScript;
 
-	public Texture zymePopupImageSpeed;
-	public Texture zymePopupImagePower;
+	public Texture zymePopupImageSpeedNorm;
+	public Texture zymePopupImageSpeedMirrored;
+	public Texture zymePopupImagePowerNorm;
+	public Texture zymePopupImagePowerMirrored;
+	private bool mirrorImage;
 
 	bool showZymeSpeed;
 	bool showZymePower;
@@ -142,6 +145,10 @@ public class TowerUpgradeTutorial : MonoBehaviour
 		if (towers [currentTower].transform.position.x > 0)
 		{
 			zymeScript.setDrawZymeLeft ();
+			mirrorImage = true;
+		} else
+		{
+			mirrorImage = false;
 		}
 
 		drawArrow = true;
@@ -153,14 +160,26 @@ public class TowerUpgradeTutorial : MonoBehaviour
 		if(showZymeSpeed)
 		{
 			zymeScript.setDraw(true);
-			zymeScript.setImage(zymePopupImageSpeed);
+			if (mirrorImage)
+			{
+				zymeScript.setImage(zymePopupImageSpeedMirrored);
+			} else
+			{
+				zymeScript.setImage(zymePopupImageSpeedNorm);
+			}
 			Time.timeScale = .01f;
 		}
 		
 		if(showZymePower)
 		{
 			zymeScript.setDraw(true);
-			zymeScript.setImage(zymePopupImagePower);
+			if(mirrorImage)
+			{
+				zymeScript.setImage(zymePopupImagePowerMirrored);
+			} else
+			{
+				zymeScript.setImage(zymePopupImagePowerNorm);
+			}
 			Time.timeScale = .01f;
 		}
 
