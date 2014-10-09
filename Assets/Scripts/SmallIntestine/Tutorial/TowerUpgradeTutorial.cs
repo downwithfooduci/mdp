@@ -10,6 +10,9 @@ public class TowerUpgradeTutorial : MonoBehaviour
 	public GameObject zyme;
 	private ZymePopupScript zymeScript;
 
+	public Texture zymePopupImageSpeed;
+	public Texture zymePopupImagePower;
+
 	bool showZymeSpeed;
 	bool showZymePower;
 
@@ -21,11 +24,12 @@ public class TowerUpgradeTutorial : MonoBehaviour
 	private bool powerUpgraded;
 
 	// for spawning an arrow
-	public Texture arrow1;
-	public Texture arrow2;
+	public Texture arrow1light;
+	public Texture arrow2light;
 	private Rect drawArrowRect;
 	private bool drawArrow;
 	private bool drawArrowDown;
+	private bool drawLightArrow;
 
 	// for finding the first two towers
 	private GameObject[] towers;
@@ -149,14 +153,14 @@ public class TowerUpgradeTutorial : MonoBehaviour
 		if(showZymeSpeed)
 		{
 			zymeScript.setDraw(true);
-			zymeScript.setText("Tap a Person to upgrade! \nSpeed makes a Person \nrelease enzymes faster!");
+			zymeScript.setImage(zymePopupImageSpeed);
 			Time.timeScale = .01f;
 		}
 		
 		if(showZymePower)
 		{
 			zymeScript.setDraw(true);
-			zymeScript.setText("Tap a Person to upgrade! \nPower makes a Person \nrelease more enzymes at \na time!");
+			zymeScript.setImage(zymePopupImagePower);
 			Time.timeScale = .01f;
 		}
 
@@ -164,10 +168,10 @@ public class TowerUpgradeTutorial : MonoBehaviour
 		{
 			if (drawArrowDown)
 			{
-				GUI.DrawTexture(drawArrowRect, arrow1);
+				GUI.DrawTexture(drawArrowRect, arrow2light);
 			} else
 			{
-				GUI.DrawTexture(drawArrowRect, arrow2);
+				GUI.DrawTexture(drawArrowRect, arrow1light);
 			}
 		}
 	}

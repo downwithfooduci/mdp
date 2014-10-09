@@ -10,6 +10,8 @@ public class NutrientsTutorial : MonoBehaviour
 	public GameObject zyme;
 	private ZymePopupScript zymeScript;
 
+	public Texture zymePopupImage;
+
 	public float tutorialDelay;
 	private float elapsedTime;
 
@@ -60,8 +62,7 @@ public class NutrientsTutorial : MonoBehaviour
 		if (showTutorial)
 		{
 			zymeScript.setDraw(true);
-			zymeScript.setText("Use nutrients to \npurchase Enzyme People!\n" +
-			                   "Tap the villi to absorb \nnutrients!");
+			zymeScript.setImage(zymePopupImage);
 			Time.timeScale = .01f;
 
 			// circle nutrients text

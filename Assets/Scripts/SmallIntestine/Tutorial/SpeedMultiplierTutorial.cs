@@ -10,6 +10,8 @@ public class SpeedMultiplierTutorial : MonoBehaviour
 	public GameObject zyme;
 	private ZymePopupScript zymeScript;
 
+	public Texture zymePopupImage;
+
 	private bool showTutorial;
 	private bool page1Shown;
 	private bool tutorialOver;
@@ -65,7 +67,7 @@ public class SpeedMultiplierTutorial : MonoBehaviour
 			{
 				zymeScript.setDraw(true);
 				zymeScript.setShowButton(true);
-				zymeScript.setText("The stopwatch can be \nused to speed up or slow \ndown the flow of food!");
+				zymeScript.setImage(zymePopupImage);
 				Time.timeScale = .01f;
 			}
 		}

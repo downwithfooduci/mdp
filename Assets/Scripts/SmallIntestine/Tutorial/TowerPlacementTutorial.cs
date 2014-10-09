@@ -12,6 +12,9 @@ public class TowerPlacementTutorial : MonoBehaviour
 	public GameObject zyme;
 	private ZymePopupScript zymeScript;
 
+	public Texture zymePopupImage1;
+	public Texture zymePopupImage2;
+
 	public float maxArrowTime = 5.0f;
 	private float actualArrowTime = 0f; // find how long the arrow has been up
 	private bool stopForZyme = false;
@@ -50,7 +53,7 @@ public class TowerPlacementTutorial : MonoBehaviour
 		if (stopForZyme)
 		{
 			zymeScript.setDraw(true);
-			zymeScript.setText("Drag a Protein Person to \nthe wall of the small \nintestine!");
+			zymeScript.setImage(zymePopupImage1);
 			Time.timeScale = .01f;
 		}
 
@@ -64,13 +67,13 @@ public class TowerPlacementTutorial : MonoBehaviour
 
 		if (PlayerPrefs.GetInt("SIStats_towersPlaced") == 1)
 		{
-			GUI.DrawTexture(new Rect(.3f*Screen.width, .62f*Screen.height, .25f*Screen.width, .35f*Screen.height), arrow);
+			GUI.DrawTexture(new Rect(.3f*Screen.width, .62f*Screen.height, .25f*Screen.width, .30f*Screen.height), arrow);
 		}
 
 		if (stopForZyme && startSecondTimer && actualArrowTime > maxArrowTime)
 		{
 			zymeScript.setDraw(true);
-			zymeScript.setText("Place a second Protein \nPerson!");
+			zymeScript.setImage(zymePopupImage2);
 			Time.timeScale = .01f;
 		}
 

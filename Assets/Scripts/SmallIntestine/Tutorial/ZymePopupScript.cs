@@ -8,14 +8,10 @@ public class ZymePopupScript : MonoBehaviour
 {
 	// texture and value for drawing zyme properly
 	public Texture zyme;
-	public Texture zymeMirrored;
 	float ratio = 1.4250681198910081743869209809264f;
 
 	// for the button
 	public GUIStyle gotIt;
-
-	// set the text for zyme
-	private string currentZymeText;
 
 	// booleans
 	private bool drawZyme;
@@ -30,15 +26,8 @@ public class ZymePopupScript : MonoBehaviour
 	void Start () 
 	{
 		// set the font size with code so it can be made relative to the screen. 
-		// this can't be done in the unity editor as far as I know
-		style.fontSize = (int)(18f / 597f * Screen.height);  // set font relative to screen 
+		// this can't be done in the unity editor as far as I know 
 		gotIt.fontSize = (int)(20f / 597f * Screen.height);	 // set font relative to screen
-	}
-
-	// function to set the text to display in the zyme popup
-	public void setText(string text)
-	{
-		currentZymeText = text;
 	}
 
 	// function to set the boolean on whether or not we should currently be drawing
@@ -46,6 +35,12 @@ public class ZymePopupScript : MonoBehaviour
 	public void setDraw(bool draw)
 	{
 		drawZyme = draw;
+	}
+
+	// function to set the image for zyme
+	public void setImage(Texture image)
+	{
+		zyme = image;
 	}
 
 	// function to set the boolean on whether or not we should currently be drawing
@@ -92,9 +87,6 @@ public class ZymePopupScript : MonoBehaviour
 			                         (Screen.height * 0.82421875f) - (.4f * Screen.height),
 			                         (.4f * Screen.height * ratio),
 			                         (.4f * Screen.height)), zyme);
-			GUI.Label(new Rect(.58f*Screen.width, .42f*Screen.height, .8f*Screen.width, .8f*Screen.height),
-			          currentZymeText,
-			          style);
 
 			if(drawButton)
 			{
@@ -118,10 +110,7 @@ public class ZymePopupScript : MonoBehaviour
 			GUI.DrawTexture(new Rect(0f, 
 			                         (Screen.height * 0.82421875f) - (.4f * Screen.height),
 			                         (.4f * Screen.height * ratio),
-			                         (.4f * Screen.height)), zymeMirrored);
-			GUI.Label(new Rect(.16f*Screen.width, .42f*Screen.height, .4f*Screen.width, .8f*Screen.height),
-			          currentZymeText,
-			          style);
+			                         (.4f * Screen.height)), zyme);
 
 			// no got it button code because never used in this case
 		}

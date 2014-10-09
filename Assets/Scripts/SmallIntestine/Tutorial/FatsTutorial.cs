@@ -10,6 +10,8 @@ public class FatsTutorial : MonoBehaviour
 	public GameObject zyme;
 	private ZymePopupScript zymeScript;
 
+	public Texture zymePopupImage;
+
 	private bool showTutorial;
 
 	public float maxTimeSinceStart;
@@ -47,7 +49,7 @@ public class FatsTutorial : MonoBehaviour
 		{
 			zymeScript.setDraw(true);
 			zymeScript.setShowButton(true);
-			zymeScript.setText("Fats require two \nenzymes to break down. \nTry placing a Green and \nWhite Person!");
+			zymeScript.setImage(zymePopupImage);
 			Time.timeScale = .01f;
 		}
 	}
