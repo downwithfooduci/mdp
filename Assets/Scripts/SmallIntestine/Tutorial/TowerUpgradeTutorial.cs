@@ -10,6 +10,8 @@ public class TowerUpgradeTutorial : MonoBehaviour
 	public GameObject zyme;
 	private ZymePopupScript zymeScript;
 
+	public Texture zymePopupImageUpgradeNorm;
+	public Texture zymePopupImageUpgradeMirrored;
 	public Texture zymePopupImageSpeedNorm;
 	public Texture zymePopupImageSpeedMirrored;
 	public Texture zymePopupImagePowerNorm;
@@ -78,9 +80,13 @@ public class TowerUpgradeTutorial : MonoBehaviour
 		if (PlayerPrefs.GetInt("SIStats_towersUpgraded") == 1 && !speedUpgraded)
 		{
 			speedUpgraded = true;
-			showZymeSpeed = false;
-			zymeScript.setDraw(false);
-			zymeScript.setDrawZymeRight();
+			if (mirrorImage)
+			{
+				zymeScript.setImage(zymePopupImageSpeedMirrored);
+			} else
+			{
+				zymeScript.setImage(zymePopupImageSpeedNorm);
+			}
 			drawArrow = false;
 		}
 
@@ -89,6 +95,12 @@ public class TowerUpgradeTutorial : MonoBehaviour
 		{
 			Time.timeScale = 1;
 			elapsedTime += Time.deltaTime;
+			if (elapsedTime > 3f)
+			{
+				showZymeSpeed = false;
+				zymeScript.setDraw(false);
+				zymeScript.setDrawZymeRight();
+			}
 		}
 
 		// if the time has passed spawn an indicator spotlight on the tower to upgrade
@@ -104,15 +116,26 @@ public class TowerUpgradeTutorial : MonoBehaviour
 		// destroy the light once the tower is upgraded and count to next upgrade
 		if (PlayerPrefs.GetInt("SIStats_towersUpgraded") == 2)
 		{
-			Time.timeScale = 1;
-			powerUpgraded = true;
-			showZymePower = false;
-			zymeScript.setDraw(false);
+			if (mirrorImage)
+			{
+				zymeScript.setImage(zymePopupImagePowerMirrored);
+			} else
+			{
+				zymeScript.setImage(zymePopupImagePowerNorm);
+			}
 			drawArrow = false;
+			Time.timeScale = 1;
+			elapsedTime += Time.deltaTime;
+			if (elapsedTime > 3f)
+			{
+				powerUpgraded = true;
+				showZymePower = false;
+				zymeScript.setDraw(false);
+			}
 		}
 	}
 
-	void spawnArrowOnTower()
+	private void spawnArrowOnTower()
 	{
 		//exit if the user is taking too long
 		if (currentTower == 2)
@@ -151,6 +174,14 @@ public class TowerUpgradeTutorial : MonoBehaviour
 			mirrorImage = false;
 		}
 
+		if (mirrorImage)
+		{
+			zymeScript.setImage(zymePopupImageUpgradeMirrored);
+		} else
+		{
+			zymeScript.setImage(zymePopupImageUpgradeNorm);
+		}
+
 		drawArrow = true;
 		currentTower++;
 	}
@@ -160,27 +191,19 @@ public class TowerUpgradeTutorial : MonoBehaviour
 		if(showZymeSpeed)
 		{
 			zymeScript.setDraw(true);
-			if (mirrorImage)
+			if (!(PlayerPrefs.GetInt("SIStats_towersUpgraded") == 1))
 			{
-				zymeScript.setImage(zymePopupImageSpeedMirrored);
-			} else
-			{
-				zymeScript.setImage(zymePopupImageSpeedNorm);
+				Time.timeScale = .01f;
 			}
-			Time.timeScale = .01f;
 		}
 		
 		if(showZymePower)
 		{
 			zymeScript.setDraw(true);
-			if(mirrorImage)
+			if (!(PlayerPrefs.GetInt("SIStats_towersUpgraded") == 2))
 			{
-				zymeScript.setImage(zymePopupImagePowerMirrored);
-			} else
-			{
-				zymeScript.setImage(zymePopupImagePowerNorm);
+				Time.timeScale = .01f;
 			}
-			Time.timeScale = .01f;
 		}
 
 		if (drawArrow)

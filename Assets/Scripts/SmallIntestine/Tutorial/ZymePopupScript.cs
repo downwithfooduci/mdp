@@ -19,9 +19,6 @@ public class ZymePopupScript : MonoBehaviour
 	private bool buttonPressed;
 	private bool drawZymeLeft = false;
 
-	// for fonts
-	public GUIStyle style;
-
 	// Use this for initialization
 	void Start () 
 	{
@@ -79,6 +76,7 @@ public class ZymePopupScript : MonoBehaviour
 
 	void OnGUI()
 	{
+		GUI.depth --;
 		if (drawZyme && !drawZymeLeft)
 		{
 			// this part draws the zyme popup box in the bottom right corner with 

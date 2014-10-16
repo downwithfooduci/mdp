@@ -23,6 +23,9 @@ public class NutrientsTutorial : MonoBehaviour
 	private bool showCircle;
 	public Texture finger;
 
+	private Rect handRectangle;
+	private bool chooseHandLocation;
+
 	// Use this for initialization
 	void Start () 
 	{
@@ -38,6 +41,10 @@ public class NutrientsTutorial : MonoBehaviour
 
 			if (elapsedTime > tutorialDelay)
 			{
+				if (!chooseHandLocation)
+				{
+					getHandLocation();
+				}
 				showTutorial = true;
 			}
 		}
@@ -57,6 +64,27 @@ public class NutrientsTutorial : MonoBehaviour
 		}
 	}
 
+	private void getHandLocation()
+	{
+		EffectParticle[] nutrients = FindObjectsOfType (typeof(EffectParticle)) as EffectParticle[];
+		EffectParticle target = null;
+
+		for (int i = 0; i < nutrients.Length; i++) 
+		{
+			if (nutrients[i].transform.position.z > 1.7)
+			{
+				target = nutrients[i];
+				chooseHandLocation = true;
+				break;
+			}
+		}
+		Debug.Log (target.transform.position.x + "," + target.transform.position.z);
+
+		handRectangle = new Rect ((target.transform.position.x + 26)/52f * Screen.width - .1f*Screen.width, 
+		                          Screen.height - ((target.transform.position.z + 19)/38f * Screen.height) - .12f * Screen.height, 
+		                         .25f * Screen.width, .415f * Screen.height);
+	}
+
 	void OnGUI()
 	{
 		if (showTutorial)
@@ -67,7 +95,7 @@ public class NutrientsTutorial : MonoBehaviour
 
 			// circle nutrients text
 			GUI.DrawTexture(new Rect(.32f*Screen.width, .8f*Screen.height, .2f*Screen.width, .1f*Screen.height), circle);
-			GUI.DrawTexture(new Rect(.2f*Screen.width, .2f*Screen.height, .25f*Screen.width, .415f*Screen.height), finger);
+			GUI.DrawTexture(handRectangle, finger);
 		}
 	}
 }

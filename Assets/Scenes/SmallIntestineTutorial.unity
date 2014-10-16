@@ -1360,7 +1360,7 @@ AudioSource:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 199109209}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_audioClip: {fileID: 8300000, guid: 2d2b86c606069cc4693a0261aae9bfa1, type: 3}
   m_PlayOnAwake: 1
@@ -10808,13 +10808,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zyme: {fileID: 100000, guid: 532f02dcd37dc0c4a913e5b84575fae9, type: 2}
-  zymePopupImageSpeedNorm: {fileID: 2800000, guid: 390720ca174263d4f980b79bfdaa9967,
+  zymePopupImageUpgradeNorm: {fileID: 2800000, guid: 0c682a8da342b6a45be48bb3a510cad3,
     type: 3}
-  zymePopupImageSpeedMirrored: {fileID: 2800000, guid: 229e05df21888934cb20ad78ef5fab8b,
+  zymePopupImageUpgradeMirrored: {fileID: 2800000, guid: f466e9999383b6e47b0af7108d728b85,
     type: 3}
-  zymePopupImagePowerNorm: {fileID: 2800000, guid: a56480d018563b048b44994ece21a2b0,
+  zymePopupImageSpeedNorm: {fileID: 2800000, guid: 2a68ed05c34969f4eb66c4a50ecc9a37,
     type: 3}
-  zymePopupImagePowerMirrored: {fileID: 2800000, guid: 0c2f345b687da8240aa1da0c1120eb63,
+  zymePopupImageSpeedMirrored: {fileID: 2800000, guid: 74ce7ed3df7b3aa4c97aee5090f4a5d1,
+    type: 3}
+  zymePopupImagePowerNorm: {fileID: 2800000, guid: 502fb299cc19e4c42aa3f9bc8cc2446c,
+    type: 3}
+  zymePopupImagePowerMirrored: {fileID: 2800000, guid: 72ce2c1581fe8974ca271537b7c82569,
     type: 3}
   maxUpgradeTimeSpeed: 10
   maxUpgradeTimePower: 5
@@ -10845,8 +10849,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   arrow: {fileID: 2800000, guid: 3988306e06c0b6645a6229bf18727020, type: 3}
   zyme: {fileID: 100000, guid: 532f02dcd37dc0c4a913e5b84575fae9, type: 2}
-  zymePopupImage1: {fileID: 2800000, guid: 6ec42e01b5e96b640832b45de07935b2, type: 3}
-  zymePopupImage2: {fileID: 2800000, guid: 4e7b8cac7e2ebd7439990981f8552ec0, type: 3}
+  zymePopupImage1: {fileID: 2800000, guid: 7bca13202aa7ad045bb666120442bbd1, type: 3}
+  zymePopupImage2: {fileID: 2800000, guid: e3346016c2ba1f048bc15f79984fded5, type: 3}
   maxArrowTime: 6
 --- !u!114 &1989311881
 MonoBehaviour:
@@ -10860,8 +10864,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zyme: {fileID: 100000, guid: 532f02dcd37dc0c4a913e5b84575fae9, type: 2}
-  zymePopupImage: {fileID: 0}
-  tutorialDelay: 3
+  zymePopupImage: {fileID: 2800000, guid: 10a223a5b5fb6234a8710caea1ff1894, type: 3}
+  tutorialDelay: 10
   circle: {fileID: 2800000, guid: be651d5cc54c4b941bb6c6ff19dce74f, type: 3}
   finger: {fileID: 2800000, guid: da8defddfb929ac47a85de692353bbd9, type: 3}
 --- !u!114 &1989311882
@@ -10890,7 +10894,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zyme: {fileID: 100000, guid: 532f02dcd37dc0c4a913e5b84575fae9, type: 2}
-  zymePopupImage: {fileID: 0}
+  zymePopupImage: {fileID: 2800000, guid: 2a5e48fc2553c2745910a746ec34cb9b, type: 3}
   tutorialDelay: 3
 --- !u!114 &1989311884
 MonoBehaviour:
