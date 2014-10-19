@@ -93,6 +93,7 @@ public class TowerSpawner : MonoBehaviour
 			// check that the mouse button is not currently pressed
 			if (Input.GetMouseButtonUp (0)) 
 			{
+				Time.timeScale = 1;
 				m_IsSpawnActive = false;				// set the spawn active flag to false
 
 				DestroyImmediate (m_Indicator.renderer.material);	// destroy the spawn indicator material

@@ -94,7 +94,7 @@ public class ZymePopupScript : MonoBehaviour
 				if (GUI.Button(new Rect(Screen.width - (.5112f * Screen.height), 
 				                        (Screen.height * 0.82421875f) - (.15f * Screen.height),
 				                        (.12f * Screen.width),
-				                        (.1f * Screen.height)), "Got it!", gotIt))
+				                        (.1f * Screen.height)), "GOT IT!", gotIt))
 				{
 					// change the values of some variables if the button is clicked.
 					buttonPressed = true;	// set this so the user can check if it was clicked

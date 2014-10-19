@@ -78,7 +78,6 @@ public class NutrientsTutorial : MonoBehaviour
 				break;
 			}
 		}
-		Debug.Log (target.transform.position.x + "," + target.transform.position.z);
 
 		handRectangle = new Rect ((target.transform.position.x + 26)/52f * Screen.width - .1f*Screen.width, 
 		                          Screen.height - ((target.transform.position.z + 19)/38f * Screen.height) - .12f * Screen.height, 

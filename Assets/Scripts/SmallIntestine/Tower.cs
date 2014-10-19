@@ -172,6 +172,14 @@ public class Tower : MonoBehaviour
     }
 
 	/**
+	 * Get the color of the tower
+	 */
+	public Color getColor()
+	{
+		return m_TargetColor;
+	}
+
+	/**
 	 * to set the active tower model
 	 */
 	public void SetActiveModel(string name)
