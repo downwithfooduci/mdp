@@ -10808,17 +10808,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zyme: {fileID: 100000, guid: 532f02dcd37dc0c4a913e5b84575fae9, type: 2}
-  zymePopupImageUpgradeNorm: {fileID: 2800000, guid: 0c682a8da342b6a45be48bb3a510cad3,
+  zymePopupImageUpgradeNorm: {fileID: 2800000, guid: 40bd4e0338d18e24d9449bbac8dc7f6f,
     type: 3}
-  zymePopupImageUpgradeMirrored: {fileID: 2800000, guid: f466e9999383b6e47b0af7108d728b85,
+  zymePopupImageUpgradeMirrored: {fileID: 2800000, guid: 987b916cc16e8da4390a8d02b3bd81cf,
     type: 3}
-  zymePopupImageSpeedNorm: {fileID: 2800000, guid: 2a68ed05c34969f4eb66c4a50ecc9a37,
+  zymePopupImageSpeedNorm: {fileID: 2800000, guid: 156bd42ccbd1f8c47aecb44439e97c78,
     type: 3}
-  zymePopupImageSpeedMirrored: {fileID: 2800000, guid: 74ce7ed3df7b3aa4c97aee5090f4a5d1,
+  zymePopupImageSpeedMirrored: {fileID: 2800000, guid: f2e569f4cc3fe8041abe80ed59ef793c,
     type: 3}
-  zymePopupImagePowerNorm: {fileID: 2800000, guid: 502fb299cc19e4c42aa3f9bc8cc2446c,
+  zymePopupImagePowerNorm: {fileID: 2800000, guid: 234e4db881b4e6f4e9e723df02cc6880,
     type: 3}
-  zymePopupImagePowerMirrored: {fileID: 2800000, guid: 72ce2c1581fe8974ca271537b7c82569,
+  zymePopupImagePowerMirrored: {fileID: 2800000, guid: 7a190d889033ed64db5db73b88993c6e,
     type: 3}
   maxUpgradeTimeSpeed: 10
   maxUpgradeTimePower: 5
