@@ -42,6 +42,9 @@ public class IntestineGameManager : MonoBehaviour
 	public GameObject createPlus;			//!< to hold a reference to the "createPlus" object
 	private GameObject instantiatedPlus;	//!< to hold a referenece to an instance of an instantiated createPlus object
 
+	public GameObject lostNutrientTutorial;
+	private GameObject instantiatedLostNutrientTutorial;
+
 	/**
 	 * called for initialization
 	 * gets all references and resets stats
@@ -184,6 +187,11 @@ public class IntestineGameManager : MonoBehaviour
     {
 		if (numNutrientsAlive > 0) 		// check if any nutrients were on the food blob
 		{
+			if (PlayerPrefs.GetInt("SIStats_foodLost") == 0 && Application.loadedLevelName == "SmallIntestineTutorial")
+			{
+				instantiatedLostNutrientTutorial = (GameObject)Instantiate(lostNutrientTutorial);
+			}
+
 			// track the food particles left at the end if any
 			PlayerPrefs.SetInt("SIStats_foodLost", PlayerPrefs.GetInt("SIStats_foodLost") + numNutrientsAlive);
 			PlayerPrefs.Save();

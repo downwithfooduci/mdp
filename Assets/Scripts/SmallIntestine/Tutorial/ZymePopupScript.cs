@@ -110,7 +110,21 @@ public class ZymePopupScript : MonoBehaviour
 			                         (.4f * Screen.height * ratio),
 			                         (.4f * Screen.height)), zyme);
 
-			// no got it button code because never used in this case
+			if(drawButton)
+			{
+				// this part draws the button that users click on to make the popup 
+				// disappear.
+				// the button is drawn below the "speaking box" on the zyme popup
+				if (GUI.Button(new Rect((.4f * Screen.height), 
+				                        (Screen.height * 0.82421875f) - (.15f * Screen.height),
+				                        (.12f * Screen.width),
+				                        (.1f * Screen.height)), "GOT IT!", gotIt))
+				{
+					// change the values of some variables if the button is clicked.
+					buttonPressed = true;	// set this so the user can check if it was clicked
+					drawButton = false;		// set this to false so the user doesn't have to turn it off
+				}
+			}
 		}
 	}
 }

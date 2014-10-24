@@ -3468,6 +3468,7 @@ MonoBehaviour:
   healthFace: {fileID: 829384698}
   healthBar: {fileID: 1367744431}
   createPlus: {fileID: 100000, guid: efddb0b82f67e485a89154e4ca5ef077, type: 2}
+  lostNutrientTutorial: {fileID: 100000, guid: e9a5f7dfeb4d6ad4ab120b43e2142747, type: 2}
 --- !u!114 &594913888
 MonoBehaviour:
   m_ObjectHideFlags: 0
