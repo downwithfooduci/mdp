@@ -22,4 +22,8 @@ public class CellButtons : MonoBehaviour
 	void Update () {
 	
 	}
+
+	public void initializeMenu()
+	{
+	}
 }

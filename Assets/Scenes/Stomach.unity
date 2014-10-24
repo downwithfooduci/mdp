@@ -769,6 +769,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 559039920}
   - 114: {fileID: 559039919}
+  - 114: {fileID: 559039921}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -787,7 +788,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 511a93cbba33f4741a8050a15b90d70d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stomachCellPrefab: {fileID: 100000, guid: 4bb935a3d8c72744cab1848a07acc40b, type: 2}
+  stomachEnzymePrefab: {fileID: 100000, guid: 4bb935a3d8c72744cab1848a07acc40b, type: 2}
 --- !u!4 &559039920
 Transform:
   m_ObjectHideFlags: 0
@@ -800,6 +801,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
+--- !u!114 &559039921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 559039918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5558cb44885293d4ba9fdc699810591d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cells:
+  - {fileID: 100000, guid: 51fc4ab6ccc438a41a3a008870b2f74d, type: 2}
+  - {fileID: 100000, guid: 6af8f30126acf7a4595a6455c8d3c237, type: 2}
+  - {fileID: 100000, guid: 2ef26f1a27b72b44aa75505fd886d2d4, type: 2}
+  - {fileID: 100000, guid: 396ac1029b3ec7e429a9caee6ea02318, type: 2}
+  - {fileID: 100000, guid: 5fa3591add7fd744a9cf4c2fd241e49d, type: 2}
+  - {fileID: 100000, guid: f2878846f8386d345afa8ef4ef0b39e9, type: 2}
+  faces: []
 --- !u!1 &1024309711
 GameObject:
   m_ObjectHideFlags: 0
