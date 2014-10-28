@@ -40,7 +40,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zyme: {fileID: 100000, guid: 532f02dcd37dc0c4a913e5b84575fae9, type: 2}
-  zymePopupImage: {fileID: 2800000, guid: 09c976165543b014ab37608033d20238, type: 3}
+  zymePopupImage: {fileID: 2800000, guid: 01f468cab5acf9e45be8c06527e3ee90, type: 3}
   circle: {fileID: 2800000, guid: be651d5cc54c4b941bb6c6ff19dce74f, type: 3}
 --- !u!1001 &100100000
 Prefab:

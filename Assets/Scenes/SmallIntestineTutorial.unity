@@ -10881,8 +10881,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zyme: {fileID: 100000, guid: 532f02dcd37dc0c4a913e5b84575fae9, type: 2}
-  zymePopupImageFats1: {fileID: 2800000, guid: f2c5903018af94d44a578d5f99b71451, type: 3}
-  zymePopupImageFats2: {fileID: 2800000, guid: da81cd39a77dbc44d8b8f092ae233386, type: 3}
+  zymePopupImageFats1: {fileID: 2800000, guid: 054732fae0daf784685ae26aa6ef91a2, type: 3}
+  zymePopupImageFats2: {fileID: 2800000, guid: a2739d557e59ccf459853ab6d89da2ee, type: 3}
   maxTimeSinceStart: 40
 --- !u!114 &1989311883
 MonoBehaviour:

@@ -115,7 +115,14 @@ public class IntestineGameManager : MonoBehaviour
 			SmallIntestineLoadLevelCounter  level = chooseBackground.GetComponent<SmallIntestineLoadLevelCounter>();
 	
 			level.nextLevel();		// increase the level count on the load level script
-			Application.LoadLevel("SmallIntestineStats");	// load the si stats screen
+
+			if (Application.loadedLevelName != "SmallIntestineTutorial")
+			{
+				Application.LoadLevel("SmallIntestineStats");	// load the si stats screen
+			} else
+			{
+				Application.LoadLevel("LoadLevelSmallIntestine");	// otherwise load the next level
+			}
 		}
 
 		// delay for setting sell to false to allow for race conditions due to order of execution issues

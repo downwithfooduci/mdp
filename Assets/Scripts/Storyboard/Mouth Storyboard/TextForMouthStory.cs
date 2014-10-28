@@ -9,6 +9,7 @@ public class TextForMouthStory : MonoBehaviour
 	StoryboardHandler mouthStoryboard;
 	private string[] text;
 	private float timer;
+	private bool resetTimerPage2, resetTimerPage3;
 
 	// Use this for initialization
 	void Start () 
@@ -44,21 +45,54 @@ public class TextForMouthStory : MonoBehaviour
 			                 .15f*Screen.height), text[0], statsStyle);
 			timer = 0;
 		} 
-		
+
 		if (mouthStoryboard.getCurrPage() == 2)
 		{
-			if (timer < 4)
+			if (!resetTimerPage2)
+			{
+				timer = 0;
+				resetTimerPage2 = true;
+			}
+
+			if (timer < 5)
 			{
 				GUI.Box(new Rect(.05f*Screen.width, (625f/768f)*Screen.height, .9f*Screen.width,
-			    	             .15f*Screen.height), text[1], statsStyle);
-			} else if (timer < 11)
+				                 .15f*Screen.height), text[1], statsStyle);
+			} else if (timer < 18)
 			{
 				GUI.Box(new Rect(.05f*Screen.width, (625f/768f)*Screen.height, .9f*Screen.width,
-				                 .15f*Screen.height), text[2], statsStyle);
+				                 .17f*Screen.height), text[2], statsStyle);
+			} else if (timer < 28)
+			{
+				GUI.Box(new Rect(.05f*Screen.width, (625f/768f)*Screen.height, .9f*Screen.width,
+				                  .15f*Screen.height), text[3], statsStyle);
 			} else
 			{
 				GUI.Box(new Rect(.05f*Screen.width, (625f/768f)*Screen.height, .9f*Screen.width,
-				                 .15f*Screen.height), text[3], statsStyle);
+				                 .15f*Screen.height), text[4], statsStyle);
+			}
+		}
+
+		if (mouthStoryboard.getCurrPage() == 3)
+		{
+			if (!resetTimerPage3)
+			{
+				timer = 0;
+				resetTimerPage3 = true;
+			}
+
+			if (timer < 4)
+			{
+				GUI.Box(new Rect(.05f*Screen.width, (625f/768f)*Screen.height, .9f*Screen.width,
+			    	             .15f*Screen.height), text[5], statsStyle);
+			} else if (timer < 11)
+			{
+				GUI.Box(new Rect(.05f*Screen.width, (625f/768f)*Screen.height, .9f*Screen.width,
+				                 .15f*Screen.height), text[6], statsStyle);
+			} else
+			{
+				GUI.Box(new Rect(.05f*Screen.width, (625f/768f)*Screen.height, .9f*Screen.width,
+				                 .15f*Screen.height), text[7], statsStyle);
 			}
 		}		
 	}
