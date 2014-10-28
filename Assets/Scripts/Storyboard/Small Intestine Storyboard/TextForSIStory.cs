@@ -116,8 +116,8 @@ public class TextForSIStory : MonoBehaviour
 	
 		if (SIStoryboard.getCurrPage() == 6)
 		{
-			GUI.Box(new Rect(.05f*Screen.width, (.05f)*Screen.height, .9f*Screen.width,
-			                 .15f*Screen.height), text[12], statsStyle);
+			GUI.Box(new Rect(.05f*Screen.width, (450f/768f)*Screen.height, .9f*Screen.width,
+			                 .2f*Screen.height), text[12], statsStyle);
 		}
 	}
 }

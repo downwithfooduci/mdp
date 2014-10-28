@@ -13,6 +13,8 @@ public class FatsTutorial : MonoBehaviour
 	// store images that will pop up for the tutorial parts
 	public Texture zymePopupImageFats1;
 	public Texture zymePopupImageFats2;
+	// arrow to assist with fats tutorial
+	public Texture arrow;
 
 	// bools to help with control flow
 	private bool showTutorialPart1;
@@ -138,6 +140,7 @@ public class FatsTutorial : MonoBehaviour
 		{
 			zymeScript.setDraw(true);
 			zymeScript.setImage(zymePopupImageFats2);
+			GUI.DrawTexture(new Rect(.3f*Screen.width, .62f*Screen.height, .45f*Screen.width, .3f*Screen.height), arrow);
 			Time.timeScale = .01f;
 		}
 	}

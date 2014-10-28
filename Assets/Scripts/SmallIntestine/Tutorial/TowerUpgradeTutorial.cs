@@ -153,13 +153,13 @@ public class TowerUpgradeTutorial : MonoBehaviour
 		if (towers[currentTower].transform.position.z <= 0)
 		{
 			drawArrowDown = true;
-			drawArrowRect = new Rect ((towers [currentTower].transform.position.x + 26)/52f * Screen.width - .5f *  75f/1024f * Screen.width, 
+			drawArrowRect = new Rect ((towers [currentTower].transform.position.x + 26)/52f * Screen.width - .55f *  75f/1024f * Screen.width, 
 			                          Screen.height - ((towers [currentTower].transform.position.z + 19)/38f * Screen.height + 1.75f * 150f/1024f * Screen.height), 
 			                          75f/1024f * Screen.width, 150f/1024f * Screen.height); 
 		} else
 		{
 			drawArrowDown = false;
-			drawArrowRect = new Rect ((towers [currentTower].transform.position.x + 26)/52f * Screen.width - .5f *  75f/1024f * Screen.width, 
+			drawArrowRect = new Rect ((towers [currentTower].transform.position.x + 26)/52f * Screen.width - .55f *  75f/1024f * Screen.width, 
 			                          Screen.height - ((towers [currentTower].transform.position.z + 19)/38f * Screen.height - .25f * 150f/1024f * Screen.height), 
 			                          75f/1024f * Screen.width, 150f/1024f * Screen.height); 
 		}
