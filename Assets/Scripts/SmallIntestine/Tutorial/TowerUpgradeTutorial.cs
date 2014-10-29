@@ -76,10 +76,9 @@ public class TowerUpgradeTutorial : MonoBehaviour
 			elapsedTime = 0f;
 		}
 
-		// destroy the light once the tower is upgraded and count to next upgrade
-		if (PlayerPrefs.GetInt("SIStats_towersUpgraded") == 1 && !speedUpgraded)
+		// set message to explain tower menu once it's activated
+		if (showZymeSpeed && intestineGameManager.getTowerMenuUp())
 		{
-			speedUpgraded = true;
 			if (mirrorImage)
 			{
 				zymeScript.setImage(zymePopupImageSpeedMirrored);
@@ -87,20 +86,22 @@ public class TowerUpgradeTutorial : MonoBehaviour
 			{
 				zymeScript.setImage(zymePopupImageSpeedNorm);
 			}
-			drawArrow = false;
 		}
 
-		// update elapsed time for 2nd upgrade
-		if (speedUpgraded && PlayerPrefs.GetInt("SIStats_towersUpgraded") == 1)
+		// destroy the light once the tower is upgraded and count to next upgrade
+		if (PlayerPrefs.GetInt("SIStats_towersUpgraded") == 1 && !speedUpgraded)
 		{
-			Time.timeScale = 1;
+			speedUpgraded = true;
+			drawArrow = false;
+			showZymeSpeed = false;
+			zymeScript.setDraw(false);
+			zymeScript.setDrawZymeRight();
+		}
+
+		// count time until next event
+		if (elapsedTime < maxUpgradeTimePower && speedUpgraded)
+		{
 			elapsedTime += Time.deltaTime;
-			if (elapsedTime > 3f)
-			{
-				showZymeSpeed = false;
-				zymeScript.setDraw(false);
-				zymeScript.setDrawZymeRight();
-			}
 		}
 
 		// if the time has passed spawn an indicator spotlight on the tower to upgrade
@@ -113,8 +114,8 @@ public class TowerUpgradeTutorial : MonoBehaviour
 			elapsedTime = 0f;
 		}
 
-		// destroy the light once the tower is upgraded and count to next upgrade
-		if (PlayerPrefs.GetInt("SIStats_towersUpgraded") == 2)
+		// set message to explain tower menu once it's activated
+		if (showZymePower && intestineGameManager.getTowerMenuUp())
 		{
 			if (mirrorImage)
 			{
@@ -123,15 +124,15 @@ public class TowerUpgradeTutorial : MonoBehaviour
 			{
 				zymeScript.setImage(zymePopupImagePowerNorm);
 			}
+		}
+
+		// destroy the light once the tower is upgraded and count to next upgrade
+		if (PlayerPrefs.GetInt("SIStats_towersUpgraded") == 2)
+		{
 			drawArrow = false;
-			Time.timeScale = 1;
-			elapsedTime += Time.deltaTime;
-			if (elapsedTime > 3f)
-			{
-				powerUpgraded = true;
-				showZymePower = false;
-				zymeScript.setDraw(false);
-			}
+			powerUpgraded = true;
+			showZymePower = false;
+			zymeScript.setDraw(false);
 		}
 	}
 

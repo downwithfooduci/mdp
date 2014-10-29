@@ -87,7 +87,7 @@ public class GlowManager : MonoBehaviour
 		}
 			    
 			    // if tower menu or sell box is up don't light
-		if (intestineGameManager.getSellBoxUp() == true || intestineGameManager.getTowerMenuUp() == true)
+		if (intestineGameManager.getSellBoxUp() || intestineGameManager.getTowerMenuUp())
 		{
 			return;
 		}
