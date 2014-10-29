@@ -31,7 +31,7 @@ public class DetectStraightSwipe : MonoBehaviour
 				xStart = touch.position.x;
 				yStart = touch.position.y;
 			}
-			if (touch.phase == TouchPhase.Moved) 			// when the finger moves update the end coordinates to see 
+			if (touch.phase == TouchPhase.Ended) 			// when the finger moves update the end coordinates to see 
 															// if they moved enough to count as a page turn
 			{
 				xEnd = touch.position.x;
