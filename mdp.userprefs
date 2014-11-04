@@ -1,15 +1,10 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\SmallIntestine\Tutorial\TowerUpgradeTutorial.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Stomach\CellManager.cs">
     <Files>
-      <File FileName="Assets\Scripts\SmallIntestine\SmallIntestineLoadLevelCounter.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\SmallIntestine\SIStats.cs" Line="233" Column="87" />
-      <File FileName="Assets\Scripts\SmallIntestine\IntestineGameManager.cs" Line="124" Column="87" />
-      <File FileName="Assets\Scripts\SmallIntestine\LoadSmallIntestine.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Storyboard\Small Intestine Storyboard\TextForSIStory.cs" Line="120" Column="23" />
-      <File FileName="Assets\Scripts\SmallIntestine\Tutorial\FatsTutorial.cs" Line="128" Column="26" />
-      <File FileName="Assets\Scripts\SmallIntestine\Tutorial\TowerPlacementTutorial.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\SmallIntestine\Tutorial\TowerUpgradeTutorial.cs" Line="161" Column="26" />
+      <File FileName="Assets\Scripts\Stomach\StomachCell.cs" Line="23" Column="2" />
+      <File FileName="Assets\Scripts\Stomach\CellManager.cs" Line="22" Column="32" />
+      <File FileName="Assets\Scripts\Stomach\PhBar.cs" Line="137" Column="36" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
