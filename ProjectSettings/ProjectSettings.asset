@@ -64,7 +64,7 @@ PlayerSettings:
     16:10: 0
     16:9: 0
     Others: 0
-  iPhoneBundleIdentifier: DigestiveSystemMDP
+  iPhoneBundleIdentifier: com.downwithfood.downwithfood
   metroEnableIndependentInputSource: 0
   metroEnableLowLatencyPresentationAPI: 0
   productGUID: cdd55d344270c2e489887fe03c56bd64
