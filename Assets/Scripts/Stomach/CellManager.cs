@@ -22,9 +22,12 @@ public class CellManager : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
+		cellScripts = new StomachCell[cells.Length];
+
 		// get the scripts on each of the cells
 		for (int i = 0; i < cells.Length; i++)
 		{
+			cells[i] = (GameObject)Instantiate(cells[i]);
 			cellScripts[i] = cells[i].GetComponent<StomachCell>();
 		}
 	}
@@ -37,4 +40,5 @@ public class CellManager : MonoBehaviour
 	void OnGUI()
 	{
 	}
+
 }

@@ -22,7 +22,7 @@ public class MainMenuDebug : MonoBehaviour
 		                        100, 50), "Debug"))
 		{
 		//disable/reenable debug
-			debugEnabled = !debugEnabled;
+	//		debugEnabled = !debugEnabled;
 		}
 
 		// if the debug menu button is clicked, it enables showing the below options:

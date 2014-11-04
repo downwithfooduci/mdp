@@ -336,9 +336,9 @@ MonoBehaviour:
     type: 3}
   currentAcidLevelIndicator: {fileID: 2800000, guid: d8c65b29a2a644c49a45f43bc6ada96f,
     type: 3}
-  startingAcidSpeed: -30
+  startingAcidSpeed: -1500
   acidSpeedDecayTime: 2
-  startingBaseSpeed: 30
+  startingBaseSpeed: 1500
   baseSpeedDecayTime: 2
 --- !u!4 &430288451
 Transform:
@@ -819,7 +819,6 @@ MonoBehaviour:
   - {fileID: 100000, guid: 396ac1029b3ec7e429a9caee6ea02318, type: 2}
   - {fileID: 100000, guid: 5fa3591add7fd744a9cf4c2fd241e49d, type: 2}
   - {fileID: 100000, guid: f2878846f8386d345afa8ef4ef0b39e9, type: 2}
-  faces: []
 --- !u!1 &1024309711
 GameObject:
   m_ObjectHideFlags: 0
