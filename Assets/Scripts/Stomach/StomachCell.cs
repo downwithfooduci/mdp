@@ -27,7 +27,7 @@ public class StomachCell : MonoBehaviour
 			case "01":
 			{
 				// upper left cell
-				drawRegion = new Rect(0f, 0f, .355f * Screen.width, .573f * Screen.height);
+				drawRegion = new Rect(0f, 0f, .356f * Screen.width, .551f * Screen.height);
 				break;
 			}
 			case "02":
