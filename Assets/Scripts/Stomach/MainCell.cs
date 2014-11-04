@@ -15,10 +15,10 @@ public class MainCell : MonoBehaviour
 	{
 		mainCellScript = gameObject.GetComponent<StomachCell> ();
 
-		menu = new CellButtons ();
-		menu.initializeMenu ();
+		//menu = new CellButtons ();
+		//menu.initializeMenu ();
 
-		cellFaceRegion = new Rect (.37f * Screen.width, .2f * Screen.height, .15f * Screen.width, .15f * Screen.height);
+		cellFaceRegion = new Rect (.40f * Screen.width, .10f * Screen.height, .25f * Screen.width, .25f * Screen.height);
 	}
 	
 	// Update is called once per frame
@@ -33,45 +33,45 @@ public class MainCell : MonoBehaviour
 
 		switch(mainCellScript.getCellState())
 		{
-		case "normal":
-		{
-			GUI.DrawTexture(cellFaceRegion, cellFaces[2]);
-			break;
-		}
-		case "slimed":
-		{
-			GUI.DrawTexture(cellFaceRegion, cellFaces[3]);
-			break;
-		}
-		case "burning":
-		{
-			GUI.DrawTexture(cellFaceRegion, cellFaces[1]);
-			break;
-		}
-		case "dead":
-		{
-			GUI.DrawTexture(cellFaceRegion, cellFaces[2]);
-			break;
-		}
-		case "questioning":
-		{
-			GUI.DrawTexture(cellFaceRegion, cellFaces[4]);
-			break;
-		}
-		case "blinking":
-		{
-			GUI.DrawTexture(cellFaceRegion, cellFaces[0]);
-			break;
-		}
-		case "sleeping":
-		{
-			GUI.DrawTexture(cellFaceRegion, cellFaces[5]);
-			break;
-		}
-		default:
-		{
-			break;
+			case "normal":
+			{
+				GUI.DrawTexture(cellFaceRegion, cellFaces[3]);
+				break;
+			}
+			case "slimed":
+			{
+				GUI.DrawTexture(cellFaceRegion, cellFaces[3]);
+				break;
+			}
+			case "burning":
+			{
+				GUI.DrawTexture(cellFaceRegion, cellFaces[1]);
+				break;
+			}
+			case "dead":
+			{
+				GUI.DrawTexture(cellFaceRegion, cellFaces[2]);
+				break;
+			}
+			case "questioning":
+			{
+				GUI.DrawTexture(cellFaceRegion, cellFaces[4]);
+				break;
+			}
+			case "blinking":
+			{
+				GUI.DrawTexture(cellFaceRegion, cellFaces[0]);
+				break;
+			}
+			case "sleeping":
+			{
+				GUI.DrawTexture(cellFaceRegion, cellFaces[5]);
+				break;
+			}
+			default:
+			{
+				break;
+			}
 		}
 	}
-}
 }

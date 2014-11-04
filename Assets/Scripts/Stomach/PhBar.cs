@@ -107,6 +107,8 @@ public class PhBar : MonoBehaviour
 	 */
 	void OnGUI()
 	{
+		GUI.depth = GUI.depth - 2;
+
 		// draw the ph bar
 		GUI.DrawTexture (phBarRect, phBarTexture);
 

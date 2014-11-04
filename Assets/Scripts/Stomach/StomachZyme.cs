@@ -35,6 +35,8 @@ public class StomachZyme : MonoBehaviour
 
 	void OnGUI()
 	{
+		GUI.depth = GUI.depth - 3;
+
 		// draw floaty ring
 		GUI.DrawTexture (drawFloatyRingRectangle, zymeFloatyRing);
 

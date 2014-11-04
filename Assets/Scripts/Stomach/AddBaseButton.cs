@@ -25,6 +25,8 @@ public class AddBaseButton : MonoBehaviour
 
 	void OnGUI()
 	{
+		GUI.depth = GUI.depth - 2;
+
 		// draw the base button
 		if (GUI.RepeatButton(baseButtonRect, "", baseButton))
 		{
