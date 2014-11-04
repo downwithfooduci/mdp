@@ -6,6 +6,8 @@ public class MainCell : MonoBehaviour
 	private StomachCell mainCellScript;		//!< main cell script to use for state changes
 
 	public Texture[] cellFaces;
+	private Rect cellFaceRegion;
+
 	private CellButtons menu;
 
 	// Use this for initialization
@@ -15,6 +17,8 @@ public class MainCell : MonoBehaviour
 
 		menu = new CellButtons ();
 		menu.initializeMenu ();
+
+		cellFaceRegion = new Rect (.37f * Screen.width, .2f * Screen.height, .15f * Screen.width, .15f * Screen.height);
 	}
 	
 	// Update is called once per frame
@@ -25,30 +29,43 @@ public class MainCell : MonoBehaviour
 
 	void OnGUI()
 	{
+		GUI.depth = GUI.depth - 10;
+
 		switch(mainCellScript.getCellState())
 		{
 		case "normal":
 		{
+			GUI.DrawTexture(cellFaceRegion, cellFaces[2]);
 			break;
 		}
 		case "slimed":
 		{
+			GUI.DrawTexture(cellFaceRegion, cellFaces[3]);
 			break;
 		}
 		case "burning":
 		{
+			GUI.DrawTexture(cellFaceRegion, cellFaces[1]);
 			break;
 		}
 		case "dead":
 		{
+			GUI.DrawTexture(cellFaceRegion, cellFaces[2]);
 			break;
 		}
 		case "questioning":
 		{
+			GUI.DrawTexture(cellFaceRegion, cellFaces[4]);
 			break;
 		}
 		case "blinking":
 		{
+			GUI.DrawTexture(cellFaceRegion, cellFaces[0]);
+			break;
+		}
+		case "sleeping":
+		{
+			GUI.DrawTexture(cellFaceRegion, cellFaces[5]);
 			break;
 		}
 		default:

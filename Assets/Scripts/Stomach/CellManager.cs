@@ -25,7 +25,7 @@ public class CellManager : MonoBehaviour
 		// get the scripts on each of the cells
 		for (int i = 0; i < cells.Length; i++)
 		{
-	//		cells[i] = (GameObject)(new StomachCell());
+			cells[i] = (GameObject)Instantiate (cells[i]);
 			cellScripts[i] = cells[i].GetComponent<StomachCell>();
 		}
 	}

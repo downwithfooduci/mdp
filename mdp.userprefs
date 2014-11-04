@@ -1,10 +1,11 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Stomach\CellManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Stomach\MainCell.cs">
     <Files>
-      <File FileName="Assets\Scripts\Stomach\StomachCell.cs" Line="23" Column="2" />
-      <File FileName="Assets\Scripts\Stomach\CellManager.cs" Line="22" Column="32" />
+      <File FileName="Assets\Scripts\Stomach\StomachCell.cs" Line="56" Column="2" />
+      <File FileName="Assets\Scripts\Stomach\CellManager.cs" Line="25" Column="42" />
       <File FileName="Assets\Scripts\Stomach\PhBar.cs" Line="137" Column="36" />
+      <File FileName="Assets\Scripts\Stomach\MainCell.cs" Line="67" Column="10" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
