@@ -15,8 +15,7 @@ public class MainCell : MonoBehaviour
 	{
 		mainCellScript = gameObject.GetComponent<StomachCell> ();
 
-		//menu = new CellButtons ();
-		//menu.initializeMenu ();
+		menu = gameObject.GetComponent<CellButtons>();
 
 		cellFaceRegion = new Rect (.40f * Screen.width, .10f * Screen.height, .25f * Screen.width, .25f * Screen.height);
 	}

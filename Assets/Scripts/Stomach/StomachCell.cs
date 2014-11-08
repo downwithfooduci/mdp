@@ -5,7 +5,7 @@ public class StomachCell : MonoBehaviour
 {
 	public Texture[] cellStateImages;
 
-	private string cellState = "burning";
+	private string cellState = "normal";
 	private string cellName;
 	private Rect drawRegion;
 
