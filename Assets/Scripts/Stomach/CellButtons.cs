@@ -16,17 +16,28 @@ public class CellButtons : MonoBehaviour
 	private bool wasMouseClicked;
 	private bool mouseDownLastFrame;
 	private bool isEnabled;
+	private Vector2 mouseClickLocation;
 
 	private Vector2 buttonSize;
 	private Vector2 button1SpawnLocation;
 	private Vector2 button2SpawnLocation;
 	private Vector2 button3SpawnLocation;
 
+	void Start()
+	{
+		buttonSize.x = Screen.width * (311f / 1024f);
+		buttonSize.y = Screen.height * (423f / 768f);
+	}
+
 	// Update is called once per frame
 	void Update () 
 	{
 		wasMouseClicked = Input.GetMouseButton (0);
-		//TODO: also get click location
+		if (wasMouseClicked && !isEnabled) 
+		{
+			mouseClickLocation.x = Input.mousePosition.x;
+			mouseClickLocation.y = Input.mousePosition.y;
+		}
 
 		// check if the mouse was down last frame, but is not currently pressed
 		if (mouseDownLastFrame && !wasMouseClicked)
@@ -45,25 +56,11 @@ public class CellButtons : MonoBehaviour
 	 */
 	private IEnumerator CheckMouseClick()
 	{	
-		Vector3 mousePos = MDPUtility.MouseToWorldPosition();	// get the mouse click position
-		mousePos.y = 5;											// change the y position to 5 for proper hit detection
-		RaycastHit hitInfo;										// storing raycast hits
-		
-		// check if we click on a tower by doing a raycast down to see if a tower was below it
-		if (Physics.Raycast(mousePos, Vector3.down, out hitInfo, mousePos.y)) 
+		Debug.Log (mouseClickLocation.x + "," + mouseClickLocation.y);
+
+		if (mouseClickLocation.x > (290f/800f)*Screen.width && mouseClickLocation.x < .7*Screen.width) 
 		{
-			// if we click on tower, toggle whether menu is showed
-			if (hitInfo.transform.position == transform.position)
-			{
-				isEnabled = !isEnabled;						// change the value in this class
-			}
-			else 		// if we didn't click directly on a tower disable a menu if it's up
-			{
-				if (isEnabled)
-				{
-					isEnabled = false;						// change the value in this class
-				}
-			}
+			isEnabled = true;
 		} else
 		{
 			// otherwise if we clicked in a random place cancel the menu
@@ -78,11 +75,30 @@ public class CellButtons : MonoBehaviour
 
 	void OnGUI()
 	{
+		GUI.depth = GUI.depth - 20;
+
 		if (!isEnabled)
 		{
 			return;
 		} else
 		{
+			showButton1(mouseClickLocation.x, mouseClickLocation.y);
+			showButton2(mouseClickLocation.x, mouseClickLocation.y);
+			showButton3(mouseClickLocation.x, mouseClickLocation.y);
 		}
+	}
+
+	private void showButton1(float mouseX, float mouseY)
+	{
+
+	}
+
+	private void showButton2(float mouseX, float mouseY)
+	{
+		GUI.Button (new Rect (mouseX, mouseY, buttonSize.x, buttonSize.y), "", mucousButton);
+	}
+
+	private void showButton3(float mouseX, float mouseY)
+	{
 	}
 }
