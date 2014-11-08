@@ -24,42 +24,42 @@ public class StomachCell : MonoBehaviour
 	{
 		switch(cellName)
 		{
-			case "01":
-			{
-				// upper left cell
-				drawRegion = new Rect(0f, 0f, .356f * Screen.width, .551f * Screen.height);
-				break;
-			}
-			case "02":
-			{
-				// upper middle cell
-				drawRegion = new Rect(.319f * Screen.width, 0f, .438f * Screen.width, .521f * Screen.height);
-				break;
-			}
-			case "03":
-			{
-				// upper right cell
-				drawRegion = new Rect(.676f * Screen.width, 0f, .324f * Screen.width, .573f * Screen.height);
-				break;
-			}
-			case "04":
-			{
-				// lower left cell
-				drawRegion = new Rect(0f, .573f * Screen.height, .249f * Screen.width, .557f * Screen.height);
-				break;
-			}
-			case "05":
-			{
-				// lower middle cell
-				drawRegion = new Rect(.205f * Screen.width, .445f * Screen.height, .435f * Screen.width, .557f * Screen.height);
-				break;
-			}
-			case "06":
-			{
-				// lower right cell
-				drawRegion = new Rect(.601f * Screen.width, .443f * Screen.height, .399f * Screen.width, .557f * Screen.height);
-				break;
-			}
+		case "01":
+		{
+			// upper left cell
+			drawRegion = new Rect(0f, 0f, .358f * Screen.width, .551f * Screen.height);
+			break;
+		}
+		case "02":
+		{
+			// upper middle cell
+			drawRegion = new Rect(.319f * Screen.width, 0f, .438f * Screen.width, .521f * Screen.height);
+			break;
+		}
+		case "03":
+		{
+			// upper right cell
+			drawRegion = new Rect(.686f * Screen.width, 0f, .324f * Screen.width, .560f * Screen.height);
+			break;
+		}
+		case "04":
+		{
+			// lower left cell
+			drawRegion = new Rect(0f, .450f * Screen.height, .235f * Screen.width, .557f * Screen.height);
+			break;
+		}
+		case "05":
+		{
+			// lower middle cell
+			drawRegion = new Rect(.205f * Screen.width, .445f * Screen.height, .435f * Screen.width, .557f * Screen.height);
+			break;
+		}
+		case "06":
+		{
+			// lower right cell
+			drawRegion = new Rect(.615f * Screen.width, .443f * Screen.height, .384f * Screen.width, .557f * Screen.height);
+			break;
+		}
 			default:
 			{
 				break;
