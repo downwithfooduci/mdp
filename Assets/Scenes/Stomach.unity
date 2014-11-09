@@ -336,9 +336,15 @@ MonoBehaviour:
     type: 3}
   currentAcidLevelIndicator: {fileID: 2800000, guid: d8c65b29a2a644c49a45f43bc6ada96f,
     type: 3}
+<<<<<<< HEAD
   startingAcidSpeed: -2000
   acidSpeedDecayTime: 2
   startingBaseSpeed: 2000
+=======
+  startingAcidSpeed: -1500
+  acidSpeedDecayTime: 2
+  startingBaseSpeed: 1500
+>>>>>>> 78eb4148da7da5035716a0efc14a8eeb808ee9d8
   baseSpeedDecayTime: 2
 --- !u!4 &430288451
 Transform:

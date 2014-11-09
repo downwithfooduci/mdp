@@ -52,6 +52,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_EditorHideFlags: 0
+<<<<<<< HEAD
   m_Script: {fileID: 11500000, guid: a325d0a83b13c094c87d23696b5728d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
@@ -60,6 +61,16 @@ MonoBehaviour:
   - {fileID: 2800000, guid: 633fe6b069b1e6f4daa4e1ac322281f3, type: 3}
   - {fileID: 2800000, guid: 8ca5d23287b593b4a870786dbcb8f330, type: 3}
   - {fileID: 2800000, guid: 5eaa360ab0b35514fba64c5c58f10991, type: 3}
+=======
+  m_Script: {fileID: 11500000, guid: dd57393121f9150418f5c5d934acaf3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cellFaces:
+  - {fileID: 2800000, guid: 5eaa360ab0b35514fba64c5c58f10991, type: 3}
+  - {fileID: 2800000, guid: 56b3cdb13d6516f448555b4aaaca7993, type: 3}
+  - {fileID: 2800000, guid: 633fe6b069b1e6f4daa4e1ac322281f3, type: 3}
+  - {fileID: 2800000, guid: 8ca5d23287b593b4a870786dbcb8f330, type: 3}
+>>>>>>> 78eb4148da7da5035716a0efc14a8eeb808ee9d8
   - {fileID: 2800000, guid: e4e19300970c73f4285c557f270db99d, type: 3}
   - {fileID: 2800000, guid: 17523ecc851856c4e9e3149df76bf056, type: 3}
 --- !u!1001 &100100000

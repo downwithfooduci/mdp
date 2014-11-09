@@ -22,56 +22,49 @@ public class StomachCell : MonoBehaviour
 
 	void setDrawRegion()
 	{
-		switch(cellName)
-		{
-			case "01":
-			{
-				// upper left cell
-				drawRegion = new Rect(0f, 0f, .358f * Screen.width, .551f * Screen.height);
-				break;
-			}
-			case "02":
-			{
-				// upper middle cell
-				drawRegion = new Rect(.319f * Screen.width, 0f, .438f * Screen.width, .521f * Screen.height);
-				break;
-			}
-			case "03":
-			{
-				// upper right cell
-				drawRegion = new Rect(.686f * Screen.width, 0f, .324f * Screen.width, .560f * Screen.height);
-				break;
-			}
-			case "04":
-			{
-				// lower left cell
-				drawRegion = new Rect(0f, .450f * Screen.height, .235f * Screen.width, .557f * Screen.height);
-				break;
-			}
-			case "05":
-			{
-				// lower middle cell
-				drawRegion = new Rect(.205f * Screen.width, .445f * Screen.height, .435f * Screen.width, .557f * Screen.height);
-				break;
-			}
-			case "06":
-			{
-				// lower right cell
-				drawRegion = new Rect(.615f * Screen.width, .443f * Screen.height, .384f * Screen.width, .557f * Screen.height);
-				break;
-			}
-			default:
-			{
-				break;
-			}
+				switch (cellName) {
+				case "01":
+						{
+								// upper left cell
+								drawRegion = new Rect (0f, 0f, .358f * Screen.width, .551f * Screen.height);
+								break;
+						}
+				case "02":
+						{
+								// upper middle cell
+								drawRegion = new Rect (.319f * Screen.width, 0f, .438f * Screen.width, .521f * Screen.height);
+								break;
+						}
+				case "03":
+						{
+								// upper right cell
+								drawRegion = new Rect (.686f * Screen.width, 0f, .324f * Screen.width, .560f * Screen.height);
+								break;
+						}
+				case "04":
+						{
+								// lower left cell
+								drawRegion = new Rect (0f, .450f * Screen.height, .235f * Screen.width, .557f * Screen.height);
+								break;
+						}
+				case "05":
+						{
+								// lower middle cell
+								drawRegion = new Rect (.205f * Screen.width, .445f * Screen.height, .435f * Screen.width, .557f * Screen.height);
+								break;
+						}
+				case "06":
+						{
+								// lower right cell
+								drawRegion = new Rect (.615f * Screen.width, .443f * Screen.height, .384f * Screen.width, .557f * Screen.height);
+								break;
+						}
+				default:
+						{
+								break;
+						}
+				}
 		}
-	}
-	
-	// Update is called once per frame
-	void Update () 
-	{
-	
-	}
 
 	/**
 	 * Allows outside classes to alter the cell state based on events
@@ -84,6 +77,7 @@ public class StomachCell : MonoBehaviour
 	/**
 	 * To return the currect state of the cell 
 	 */
+
 	public string getCellState()
 	{
 		return cellState;
