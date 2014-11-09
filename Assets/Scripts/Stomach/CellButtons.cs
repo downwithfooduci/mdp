@@ -25,52 +25,39 @@ public class CellButtons : MonoBehaviour
 
 	void Start()
 	{
-		buttonSize.x = Screen.width * (311f / 1024f);
-		buttonSize.y = Screen.height * (423f / 768f);
+		buttonSize.x = Screen.width * (186f / 1024f);
+		buttonSize.y = Screen.height * (253f / 768f);
 	}
 
 	// Update is called once per frame
 	void Update () 
 	{
 		wasMouseClicked = Input.GetMouseButton (0);
-		if (wasMouseClicked && !isEnabled) 
-		{
-			mouseClickLocation.x = Input.mousePosition.x;
-			mouseClickLocation.y = Input.mousePosition.y;
-		}
 
 		// check if the mouse was down last frame, but is not currently pressed
 		if (mouseDownLastFrame && !wasMouseClicked)
 		{
-			StartCoroutine(CheckMouseClick());		// need to use startcoroutine because the function is of type 
-													// ienumerator so we can delay the thread
-													// without this delay the menu DOES NOT function properly due 
-													// to the execution order of functions
+			mouseClickLocation.x = Input.mousePosition.x;
+			mouseClickLocation.y = Input.mousePosition.y;
+			checkMouseClick();		
 		}
 
 		mouseDownLastFrame = wasMouseClicked;
 	}
-
-	/**
-	 * asynchronous function that checks mouse clicks to see if it brings up the tower menu or closes a tower menu
-	 */
-	private IEnumerator CheckMouseClick()
+	
+	private void checkMouseClick()
 	{	
-		Debug.Log (mouseClickLocation.x + "," + mouseClickLocation.y);
-
-		if (mouseClickLocation.x > (290f/800f)*Screen.width && mouseClickLocation.x < .7*Screen.width) 
+		if ((mouseClickLocation.x > .3f*Screen.width && mouseClickLocation.x < .7f*Screen.width) &&
+		    (mouseClickLocation.y < Screen.height && mouseClickLocation.y > .5f*Screen.height)) 
 		{
 			isEnabled = true;
 		} else
 		{
-			// otherwise if we clicked in a random place cancel the menu
-			yield return new WaitForSeconds(.1f);		// wait for .1 seconds
 			if (isEnabled)
 			{
-				isEnabled = false;						//change the value in this class
+				isEnabled = !isEnabled;
 			}
 		}
-		yield return new WaitForSeconds(.0f);
 	}
 
 	void OnGUI()
@@ -82,15 +69,15 @@ public class CellButtons : MonoBehaviour
 			return;
 		} else
 		{
-			showButton1(mouseClickLocation.x, mouseClickLocation.y);
-			showButton2(mouseClickLocation.x, mouseClickLocation.y);
-			showButton3(mouseClickLocation.x, mouseClickLocation.y);
+			showButton1(mouseClickLocation.x, Screen.height - mouseClickLocation.y);
+			showButton2(mouseClickLocation.x, Screen.height - mouseClickLocation.y);
+			showButton3(mouseClickLocation.x, Screen.height - mouseClickLocation.y);
 		}
 	}
 
 	private void showButton1(float mouseX, float mouseY)
 	{
-
+		GUI.Button (new Rect (mouseX - buttonSize.x - .02f * Screen.width, mouseY, buttonSize.x, buttonSize.y), "", singButton);
 	}
 
 	private void showButton2(float mouseX, float mouseY)
@@ -100,5 +87,6 @@ public class CellButtons : MonoBehaviour
 
 	private void showButton3(float mouseX, float mouseY)
 	{
+		GUI.Button (new Rect (mouseX + buttonSize.x + .02f * Screen.width, mouseY, buttonSize.x, buttonSize.y), "", dieButton);
 	}
 }
