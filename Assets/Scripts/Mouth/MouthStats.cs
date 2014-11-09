@@ -221,8 +221,9 @@ public class MouthStats : MonoBehaviour
 			// make sure to not show the load screen after we're done
 			if (level.getLevel() > level.getMaxLevels())
 			{
-				Application.LoadLevel("SmallIntestineStoryboard");	// if the mouth game is done then we load the small
+			//	Application.LoadLevel("SmallIntestineStoryboard");	// if the mouth game is done then we load the small
 																	// intestine story
+				Application.LoadLevel("MainMenu");
 			} else
 			{
 				Application.LoadLevel("LoadLevelMouth");			// if there are more mouth levels than load the next one
