@@ -27,8 +27,12 @@ public class CellButtons : MonoBehaviour
 
 	private int menuSemaphore;
 
+	private CellManager cellManager;
+
 	void Start()
 	{
+		cellManager = FindObjectOfType (typeof(CellManager)) as CellManager;
+
 		buttonSize.x = Screen.width * (186f / 1024f);
 		buttonSize.y = Screen.height * (253f / 768f);
 	}
@@ -61,7 +65,14 @@ public class CellButtons : MonoBehaviour
 		    (mouseClickLocation.x > .3f*Screen.width && mouseClickLocation.x < .7f*Screen.width) &&
 		    (mouseClickLocation.y < Screen.height && mouseClickLocation.y > .5f*Screen.height)) 
 		{
-			isEnabled = true;
+			if (showBucket || showScythe)
+			{
+				showBucket = false;
+				showScythe = false;
+			} else
+			{
+				isEnabled = true;
+			}
 		} else
 		{
 			isEnabled = false;
@@ -69,10 +80,14 @@ public class CellButtons : MonoBehaviour
 		}
 	}
 
+	/**
+	 * Handles drawing of related gui components
+	 */
 	void OnGUI()
 	{
-		GUI.depth = GUI.depth - 20;
+		GUI.depth = GUI.depth - 20;	// for gui layering
 
+		// if we clicked on the "make mucous" button, show the mucous bucket
 		if (showBucket)
 		{
 			GUI.RepeatButton(new Rect (Input.mousePosition.x, Screen.height - Input.mousePosition.y, buttonSize.x, buttonSize.y),
@@ -80,6 +95,7 @@ public class CellButtons : MonoBehaviour
 			                 bucket);
 		}
 
+		// if we clicked on the "die" button, show the scythe
 		if (showScythe)
 		{
 			GUI.RepeatButton(new Rect (Input.mousePosition.x, Screen.height - Input.mousePosition.y, buttonSize.x, buttonSize.y),
@@ -87,17 +103,22 @@ public class CellButtons : MonoBehaviour
 			                 scythe);
 		}
 
-		if (!isEnabled)
+		// check if we should draw the menu
+		if (!isEnabled)	// we shouldn't
 		{
 			return;
-		} else
+		} else 			// we should
 		{
+			// get the 3 buttons
 			showButton1(mouseClickLocation.x, Screen.height - mouseClickLocation.y);
 			showButton2(mouseClickLocation.x, Screen.height - mouseClickLocation.y);
 			showButton3(mouseClickLocation.x, Screen.height - mouseClickLocation.y);
 		}
 	}
 
+	/**
+	 * Function to find location of and create the "sing" button
+	 */
 	private void showButton1(float mouseX, float mouseY)
 	{
 		if (GUI.Button (new Rect (mouseX - buttonSize.x - .02f * Screen.width, mouseY, buttonSize.x, buttonSize.y), "", singButton))
@@ -106,25 +127,44 @@ public class CellButtons : MonoBehaviour
 		}
 	}
 
+	/**
+	 * Function to find location of and create the "mucous" button
+	 */
 	private void showButton2(float mouseX, float mouseY)
 	{
 		if (GUI.Button (new Rect (mouseX, mouseY, buttonSize.x, buttonSize.y), "", mucousButton))
 		{
+			// for proper menu behavior
 			isEnabled = false;
 			menuSemaphore = 10;
+			// show the bucket icon
 			showScythe = false;
 			showBucket = true;
+
+			//slime main cell
+			if (cellManager.cellScripts[1].getCellState() != "dead")
+			{
+				cellManager.cellScripts[1].setCellState("slimed");
+			}
 		}
 	}
 
+	/**
+	 * Function to find location of and create the "die" button
+	 */
 	private void showButton3(float mouseX, float mouseY)
 	{
 		if (GUI.Button (new Rect (mouseX + buttonSize.x + .02f * Screen.width, mouseY, buttonSize.x, buttonSize.y), "", dieButton))
 		{
+			// for proper menu behavior
 			isEnabled = false;
 			menuSemaphore = 10;
+			// show the bucket icon
 			showBucket = false;
 			showScythe = true;
+
+			//kill main cell
+			cellManager.cellScripts[1].setCellState("dead");
 		}
 	}
 }

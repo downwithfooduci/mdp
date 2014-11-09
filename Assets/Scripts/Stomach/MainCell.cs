@@ -8,14 +8,10 @@ public class MainCell : MonoBehaviour
 	public Texture[] cellFaces;
 	private Rect cellFaceRegion;
 
-	private CellButtons menu;
-
 	// Use this for initialization
 	void Start () 
 	{
 		mainCellScript = gameObject.GetComponent<StomachCell> ();
-
-		menu = gameObject.GetComponent<CellButtons>();
 
 		cellFaceRegion = new Rect (.40f * Screen.width, .10f * Screen.height, .25f * Screen.width, .25f * Screen.height);
 	}

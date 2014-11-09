@@ -4,14 +4,8 @@ using System.Collections;
 public class CellManager : MonoBehaviour 
 {
 	public GameObject[] cells;
-	private StomachCell[] cellScripts;
+	public StomachCell[] cellScripts;
 
-	private GUIStyle invisibleCell1RegionButton;
-	private GUIStyle invisibleCell2RegionButton;
-	private GUIStyle invisibleCell3RegionButton;
-	private GUIStyle invisibleCell4RegionButton;
-	private GUIStyle invisibleCell5RegionButton;
-	private GUIStyle invisibleCell6RegionButton;
 	private Rect cell1Region;
 	private Rect cell2Region;
 	private Rect cell3Region;
