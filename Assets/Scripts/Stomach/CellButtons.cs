@@ -10,8 +10,10 @@ public class CellButtons : MonoBehaviour
 	public GUIStyle mucousButton;
 	public GUIStyle dieButton;
 	
-	public Texture bucket;
-	public Texture scythe;
+	public GUIStyle bucket;
+	public GUIStyle scythe;
+	private bool showBucket;
+	private bool showScythe;
 
 	private bool wasMouseClicked;
 	private bool mouseDownLastFrame;
@@ -22,6 +24,8 @@ public class CellButtons : MonoBehaviour
 	private Vector2 button1SpawnLocation;
 	private Vector2 button2SpawnLocation;
 	private Vector2 button3SpawnLocation;
+
+	private int menuSemaphore;
 
 	void Start()
 	{
@@ -39,30 +43,49 @@ public class CellButtons : MonoBehaviour
 		{
 			mouseClickLocation.x = Input.mousePosition.x;
 			mouseClickLocation.y = Input.mousePosition.y;
-			checkMouseClick();		
+			checkMouseClick();	
 		}
 
 		mouseDownLastFrame = wasMouseClicked;
+
+		if (menuSemaphore > 0)
+		{
+			menuSemaphore--;
+		}
 	}
 	
 	private void checkMouseClick()
 	{	
-		if ((mouseClickLocation.x > .3f*Screen.width && mouseClickLocation.x < .7f*Screen.width) &&
+		if (menuSemaphore <= 0 &&
+		    !isEnabled &&
+		    (mouseClickLocation.x > .3f*Screen.width && mouseClickLocation.x < .7f*Screen.width) &&
 		    (mouseClickLocation.y < Screen.height && mouseClickLocation.y > .5f*Screen.height)) 
 		{
 			isEnabled = true;
 		} else
 		{
-			if (isEnabled)
-			{
-				isEnabled = !isEnabled;
-			}
+			isEnabled = false;
+			menuSemaphore = 10;
 		}
 	}
 
 	void OnGUI()
 	{
 		GUI.depth = GUI.depth - 20;
+
+		if (showBucket)
+		{
+			GUI.RepeatButton(new Rect (Input.mousePosition.x, Screen.height - Input.mousePosition.y, buttonSize.x, buttonSize.y),
+			                 "",
+			                 bucket);
+		}
+
+		if (showScythe)
+		{
+			GUI.RepeatButton(new Rect (Input.mousePosition.x, Screen.height - Input.mousePosition.y, buttonSize.x, buttonSize.y),
+			                 "",
+			                 scythe);
+		}
 
 		if (!isEnabled)
 		{
@@ -77,16 +100,31 @@ public class CellButtons : MonoBehaviour
 
 	private void showButton1(float mouseX, float mouseY)
 	{
-		GUI.Button (new Rect (mouseX - buttonSize.x - .02f * Screen.width, mouseY, buttonSize.x, buttonSize.y), "", singButton);
+		if (GUI.Button (new Rect (mouseX - buttonSize.x - .02f * Screen.width, mouseY, buttonSize.x, buttonSize.y), "", singButton))
+		{
+
+		}
 	}
 
 	private void showButton2(float mouseX, float mouseY)
 	{
-		GUI.Button (new Rect (mouseX, mouseY, buttonSize.x, buttonSize.y), "", mucousButton);
+		if (GUI.Button (new Rect (mouseX, mouseY, buttonSize.x, buttonSize.y), "", mucousButton))
+		{
+			isEnabled = false;
+			menuSemaphore = 10;
+			showScythe = false;
+			showBucket = true;
+		}
 	}
 
 	private void showButton3(float mouseX, float mouseY)
 	{
-		GUI.Button (new Rect (mouseX + buttonSize.x + .02f * Screen.width, mouseY, buttonSize.x, buttonSize.y), "", dieButton);
+		if (GUI.Button (new Rect (mouseX + buttonSize.x + .02f * Screen.width, mouseY, buttonSize.x, buttonSize.y), "", dieButton))
+		{
+			isEnabled = false;
+			menuSemaphore = 10;
+			showBucket = false;
+			showScythe = true;
+		}
 	}
 }
