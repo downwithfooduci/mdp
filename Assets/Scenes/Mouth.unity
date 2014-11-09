@@ -743,11 +743,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   breathing:
-  - {fileID: 2800000, guid: f5755caf4b8f2fe4da4fd93762e7a222, type: 3}
-  - {fileID: 2800000, guid: 8bf0eb55c5afb194781bd02f9b6a404a, type: 3}
+  - {fileID: 2800000, guid: b51b9ee0780c29844aa438966e319614, type: 3}
+  - {fileID: 2800000, guid: 67beb0b589bc3d942bf52b2ab9d3c90a, type: 3}
   notBreathing:
-  - {fileID: 2800000, guid: 9083b666388e5ff4799857165baa0f1a, type: 3}
-  - {fileID: 2800000, guid: d4ab2e3ae9b0e4949811ac3f01930f91, type: 3}
+  - {fileID: 2800000, guid: 8c30312a411426a4db6da036e124aaaa, type: 3}
+  - {fileID: 2800000, guid: 7ba1670ab058e4348ad6769be8b1adfe, type: 3}
   animationDelay1: .699999988
   animationDelay2: 1.39999998
   flaps: {fileID: 118777431}
