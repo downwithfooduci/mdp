@@ -73,6 +73,14 @@ public class CellButtons : MonoBehaviour
 			{
 				isEnabled = true;
 			}
+		} else if (menuSemaphore <= 0 &&
+		           showBucket)
+		{
+			cellManager.checkForClicks(new Vector2(mouseClickLocation.x, Screen.height - mouseClickLocation.y), "slimed");
+		} else if (menuSemaphore <= 0 &&
+		           showScythe)
+		{
+			cellManager.checkForClicks(new Vector2(mouseClickLocation.x, Screen.height - mouseClickLocation.y), "dead");
 		} else
 		{
 			isEnabled = false;
