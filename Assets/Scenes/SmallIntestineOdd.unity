@@ -2556,7 +2556,7 @@ GUITexture:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 135469857}
   m_Enabled: 1
-  m_Texture: {fileID: 2800000, guid: f9419355e0b35b04b91431abc86fe27f, type: 3}
+  m_Texture: {fileID: 2800000, guid: 52fcf1d59a16b044dbde9a8b4be83ea9, type: 3}
   m_Color: {r: .5, g: .5, b: .5, a: .5}
   m_PixelInset:
     serializedVersion: 2
@@ -16292,7 +16292,7 @@ GUITexture:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 757314946}
   m_Enabled: 1
-  m_Texture: {fileID: 2800000, guid: b9031dc02d76b1045896e5e18348d0a9, type: 3}
+  m_Texture: {fileID: 2800000, guid: 5caa7648d4f4a7049a77a5cfc0a1152b, type: 3}
   m_Color: {r: .5, g: .5, b: .5, a: .5}
   m_PixelInset:
     serializedVersion: 2
@@ -16581,6 +16581,7 @@ MonoBehaviour:
   healthFace: {fileID: 455563809}
   healthBar: {fileID: 1188380643}
   createPlus: {fileID: 100000, guid: efddb0b82f67e485a89154e4ca5ef077, type: 2}
+  lostNutrientTutorial: {fileID: 0}
 --- !u!114 &758440267
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42962,7 +42963,7 @@ GUITexture:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1986694284}
   m_Enabled: 1
-  m_Texture: {fileID: 2800000, guid: 9559724d8182ba84580fd29d6ffcb64f, type: 3}
+  m_Texture: {fileID: 2800000, guid: 362cf142da1c77f4b8c14a165a832ac0, type: 3}
   m_Color: {r: .5, g: .5, b: .5, a: .5}
   m_PixelInset:
     serializedVersion: 2
