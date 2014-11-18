@@ -24,7 +24,8 @@ public class StomachFoodManager : MonoBehaviour
 		if (elapsedTime > timeBetweenFoodSpawns)
 		{
 			GameObject temp = (GameObject)Instantiate (stomachFoodBlob);
-			spawnedFoodBlobs.Add(stomachFoodBlob.GetComponent<StomachFoodBlob>());
+			temp.GetComponent<StomachFoodBlob>().parent = temp;
+			spawnedFoodBlobs.Add(temp.GetComponent<StomachFoodBlob>());
 			elapsedTime = 0f;
 		}
 	}

@@ -74,56 +74,6 @@ NavMeshSettings:
     widthInaccuracy: 16.666666
     heightInaccuracy: 10
   m_NavMesh: {fileID: 0}
---- !u!1 &59974834
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 100000, guid: efa5e97fbdc31584cb1b4034cb7e35a2, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 59974836}
-  - 114: {fileID: 59974835}
-  m_Layer: 0
-  m_Name: StomachFood
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &59974835
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11400000, guid: efa5e97fbdc31584cb1b4034cb7e35a2,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 59974834}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef0439e9e0c1f3047b43b39e179de2e1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  wholeFood:
-  - {fileID: 2800000, guid: c249d069657405d4980a1419bf33df60, type: 3}
-  - {fileID: 2800000, guid: 21e9ea03e12110e4185a8e2e5cc15837, type: 3}
-  - {fileID: 2800000, guid: 1d29a5a9542d8e44fb441798d35e8f6f, type: 3}
-  - {fileID: 2800000, guid: f9ca3e51072244447914cd984df5017d, type: 3}
-  digestedFood:
-  - {fileID: 2800000, guid: 30ac08f03bcb4a04fb763ee53ed09be4, type: 3}
-  - {fileID: 2800000, guid: 3ee4895a94ccc7443b9a4f759e40d718, type: 3}
-  - {fileID: 2800000, guid: d4baaea76dab6804c898553a3ac21e9c, type: 3}
-  - {fileID: 2800000, guid: 2fe46faaabf478c459ac0f00a28fad7a, type: 3}
---- !u!4 &59974836
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 400000, guid: efa5e97fbdc31584cb1b4034cb7e35a2, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 59974834}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15.7500229, y: -15.5159607, z: 3.76381493}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
 --- !u!1 &151102216
 GameObject:
   m_ObjectHideFlags: 0
@@ -998,7 +948,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3df561ab104fcf4cbbeb72cf6898380, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stomachFoodBlob: {fileID: 100000, guid: efa5e97fbdc31584cb1b4034cb7e35a2, type: 2}
+  stomachFoodBlob: {fileID: 100000, guid: a301c497742cf9c48a3d89ee4e14df37, type: 2}
   timeBetweenFoodSpawns: 6
 --- !u!1 &1024309711
 GameObject:

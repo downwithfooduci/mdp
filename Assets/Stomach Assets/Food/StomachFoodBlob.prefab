@@ -1,0 +1,130 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &100000
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 400000}
+  - 114: {fileID: 11400000}
+  - 60: {fileID: 6000000}
+  - 50: {fileID: 5000000}
+  m_Layer: 0
+  m_Name: StomachFoodBlob
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &400000
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!50 &5000000
+Rigidbody2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: .0500000007
+  m_GravityScale: 0
+  m_FixedAngle: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+--- !u!60 &6000000
+PolygonCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Poly:
+    m_Paths:
+    - - {x: .920000017, y: -.600000024}
+      - {x: 1.04999995, y: -.519999981}
+      - {x: 1.20000005, y: -.349999994}
+      - {x: 1.20000005, y: -.129999995}
+      - {x: 1.12, y: -.0599999987}
+      - {x: 1.05999994, y: .0599999987}
+      - {x: .959999979, y: .200000003}
+      - {x: .860000014, y: .289999992}
+      - {x: .620000005, y: .479999989}
+      - {x: .540000021, y: .519999981}
+      - {x: .400000006, y: .649999976}
+      - {x: .280000001, y: .660000026}
+      - {x: -.0199999996, y: .860000014}
+      - {x: -.209999993, y: .939999998}
+      - {x: -.270000011, y: .949999988}
+      - {x: -.610000014, y: .949999988}
+      - {x: -.790000021, y: .910000026}
+      - {x: -1.01999998, y: .819999993}
+      - {x: -1.11000001, y: .75}
+      - {x: -1.19000006, y: .620000005}
+      - {x: -1.19000006, y: .469999999}
+      - {x: -1.16999996, y: .400000006}
+      - {x: -1.05999994, y: .289999992}
+      - {x: -.959999979, y: .230000004}
+      - {x: -1.02999997, y: .170000002}
+      - {x: -1.05999994, y: .100000001}
+      - {x: -1.10000002, y: -.340000004}
+      - {x: -1.10000002, y: -.479999989}
+      - {x: -1, y: -.620000005}
+      - {x: -.870000005, y: -.670000017}
+      - {x: -.720000029, y: -.709999979}
+      - {x: -.460000008, y: -.819999993}
+      - {x: -.409999996, y: -.899999976}
+      - {x: -.340000004, y: -.939999998}
+      - {x: -.0700000003, y: -.939999998}
+      - {x: .150000006, y: -.839999974}
+      - {x: .540000021, y: -.670000017}
+      - {x: .709999979, y: -.670000017}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef0439e9e0c1f3047b43b39e179de2e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wholeFood:
+  - {fileID: 2800000, guid: c249d069657405d4980a1419bf33df60, type: 3}
+  - {fileID: 2800000, guid: 21e9ea03e12110e4185a8e2e5cc15837, type: 3}
+  - {fileID: 2800000, guid: 1d29a5a9542d8e44fb441798d35e8f6f, type: 3}
+  - {fileID: 2800000, guid: f9ca3e51072244447914cd984df5017d, type: 3}
+  digestedFood:
+  - {fileID: 2800000, guid: 30ac08f03bcb4a04fb763ee53ed09be4, type: 3}
+  - {fileID: 2800000, guid: 3ee4895a94ccc7443b9a4f759e40d718, type: 3}
+  - {fileID: 2800000, guid: d4baaea76dab6804c898553a3ac21e9c, type: 3}
+  - {fileID: 2800000, guid: 2fe46faaabf478c459ac0f00a28fad7a, type: 3}
+  parent: {fileID: 0}
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 100000}
+  m_IsPrefabParent: 1
+  m_IsExploded: 1
