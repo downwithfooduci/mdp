@@ -17,6 +17,7 @@ public class StomachEnzyme : MonoBehaviour
 
 	void OnGUI()
 	{
+		GUI.depth -= 35;
 		// draw the activated or deactivated texture at the set location
 		if (isActivated)
 		{

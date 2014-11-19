@@ -19,7 +19,7 @@ public class StomachFoodBlob : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
-				index = Random.Range (0, 4);
+		index = Random.Range (0, 4);
 		wholeRepresentation = wholeFood [index];
 		digestedRepresentation = digestedFood [index];
 
@@ -30,7 +30,6 @@ public class StomachFoodBlob : MonoBehaviour
 
 	void OnTriggerEnter2D(Collider2D collision)
 	{
-		Debug.Log ("stuff");
 		move = false;
 	}
 

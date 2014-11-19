@@ -887,6 +887,7 @@ GameObject:
   - 114: {fileID: 559039919}
   - 114: {fileID: 559039921}
   - 114: {fileID: 559039922}
+  - 114: {fileID: 559039923}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -950,6 +951,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stomachFoodBlob: {fileID: 100000, guid: a301c497742cf9c48a3d89ee4e14df37, type: 2}
   timeBetweenFoodSpawns: 6
+--- !u!114 &559039923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 559039918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e29980277d5b5dc49a13498680be7838, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1024309711
 GameObject:
   m_ObjectHideFlags: 0

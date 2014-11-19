@@ -1,21 +1,57 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-// script to handle managing general game function coordination for the stomach game
 public class StomachGameManager : MonoBehaviour 
 {
-	public GameObject stomachEnzymePrefab;
+	private CellManager cellManager;
+	private StomachFoodManager foodManager;
+	private EnzymeManager enzymeManager;
 
-	private GameObject enzyme;				// temp to hold one of the cells
+	private string currentGameState = "burningstate";
+	private float[] nextCellActionTimer;
+	private float[] elapsedTime;
+	public float timeToBurn;
 
 	// Use this for initialization
 	void Start () 
 	{
-		enzyme = (GameObject)Instantiate (stomachEnzymePrefab);
-		enzyme.GetComponent<StomachEnzyme> ().setActivated (false);
-		enzyme.GetComponent<StomachEnzyme> ().setDrawLocation (700f, 600f);
+		cellManager = FindObjectOfType(typeof(CellManager)) as CellManager;
+		foodManager = FindObjectOfType (typeof(StomachFoodManager)) as StomachFoodManager;
+		enzymeManager = FindObjectOfType (typeof(EnzymeManager)) as EnzymeManager;
+
+		Debug.Log (cellManager.cellScripts.Length);
+		nextCellActionTimer = new float[cellManager.cellScripts.Length];
+		elapsedTime = new float[cellManager.cellScripts.Length];
+		for (int i = 0; i < cellManager.cellScripts.Length; i++)
+		{
+			nextCellActionTimer[i] = Mathf.Infinity;
+			elapsedTime[i] = 0f;
+		}
 	}
 	
 	// Update is called once per frame
-	void Update () {}
+	void Update () 
+	{
+		for (int i = 0; i < nextCellActionTimer.Length; i++)
+		{
+			elapsedTime[i] += Time.deltaTime;
+			if (cellManager.cellScripts[i].getCellState() == "burning" && elapsedTime[i] >= timeToBurn)
+			{
+				cellManager.cellScripts[i].setCellState("dead");
+			}
+		}
+
+		if (currentGameState == "burningstate")
+		{
+			for (int i = 0; i < cellManager.cellScripts.Length; i++)
+			{
+				if (cellManager.cellScripts[i].getCellState() != "slimed" || 
+				    cellManager.cellScripts[i].getCellState() != "burning")
+				{
+					cellManager.cellScripts[i].setCellState("burning");
+					nextCellActionTimer[i] = 0f;	
+				}
+			}
+		}
+	}
 }
