@@ -19,7 +19,6 @@ public class StomachGameManager : MonoBehaviour
 		foodManager = FindObjectOfType (typeof(StomachFoodManager)) as StomachFoodManager;
 		enzymeManager = FindObjectOfType (typeof(EnzymeManager)) as EnzymeManager;
 
-		Debug.Log (cellManager.cellScripts.Length);
 		nextCellActionTimer = new float[cellManager.cellScripts.Length];
 		elapsedTime = new float[cellManager.cellScripts.Length];
 		for (int i = 0; i < cellManager.cellScripts.Length; i++)

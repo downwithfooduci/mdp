@@ -3,74 +3,38 @@ using System.Collections;
 
 public class StomachCell : MonoBehaviour 
 {
-	public Texture[] cellStateImages;
+	private SpriteRenderer sr;
 
-	private string cellState = "normal";
-	private string cellName;
-	private Rect drawRegion;
+	public Sprite[] cellStateImages;
 
-	// Use this for initialization
-	void Start () 
+	private string cellState = "burning";
+
+	void Start()
 	{
-		// find which cell this is on
-		cellName = transform.gameObject.name;
-		cellName = cellName.Substring (cellName.Length - 9, 2);
-
-		// set the correct draw region for this cell
-		setDrawRegion ();
+		sr = GetComponent<SpriteRenderer> ();
 	}
 
-	void setDrawRegion()
+	void Update()
 	{
-		switch(cellName)
+		if (cellState == "normal")
 		{
-		case "01":
+			sr.sprite = null;
+		}
+
+		if (cellState == "slimed")
 		{
-			// upper left cell
-			drawRegion = new Rect(0f, 0f, .358f * Screen.width, .551f * Screen.height);
-			break;
+			sr.sprite = cellStateImages[0];
 		}
-		case "02":
+
+		if (cellState == "burning")
 		{
-			// upper middle cell
-			drawRegion = new Rect(.319f * Screen.width, 0f, .438f * Screen.width, .521f * Screen.height);
-			break;
+			sr.sprite = cellStateImages[1];
 		}
-		case "03":
+
+		if (cellState == "dead")
 		{
-			// upper right cell
-			drawRegion = new Rect(.686f * Screen.width, 0f, .324f * Screen.width, .560f * Screen.height);
-			break;
+			sr.sprite = cellStateImages[2];
 		}
-		case "04":
-		{
-			// lower left cell
-			drawRegion = new Rect(0f, .450f * Screen.height, .235f * Screen.width, .557f * Screen.height);
-			break;
-		}
-		case "05":
-		{
-			// lower middle cell
-			drawRegion = new Rect(.205f * Screen.width, .445f * Screen.height, .435f * Screen.width, .557f * Screen.height);
-			break;
-		}
-		case "06":
-		{
-			// lower right cell
-			drawRegion = new Rect(.615f * Screen.width, .443f * Screen.height, .384f * Screen.width, .557f * Screen.height);
-			break;
-		}
-			default:
-			{
-				break;
-			}
-		}
-	}
-	
-	// Update is called once per frame
-	void Update () 
-	{
-	
 	}
 
 	/**
@@ -87,37 +51,5 @@ public class StomachCell : MonoBehaviour
 	public string getCellState()
 	{
 		return cellState;
-	}
-
-	void OnGUI()
-	{
-		GUI.depth = GUI.depth - 1;
-
-		switch(cellState)
-		{
-			case "normal":
-			{
-				break;
-			}
-			case "slimed":
-			{
-				GUI.DrawTexture(drawRegion, cellStateImages[1]);
-				break;
-			}
-			case "burning":
-			{
-				GUI.DrawTexture(drawRegion, cellStateImages[0]);
-				break;
-			}
-			case "dead":
-			{
-				GUI.DrawTexture(drawRegion, cellStateImages[2]);
-				break;
-			}
-			default:
-			{
-				break;
-			}
-		}
 	}
 }

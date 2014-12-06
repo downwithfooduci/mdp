@@ -9,12 +9,6 @@ public class StomachFoodManager : MonoBehaviour
 
 	public float timeBetweenFoodSpawns;
 	private float elapsedTime;
-
-	// Use this for initialization
-	void Start () 
-	{
-	
-	}
 	
 	// Update is called once per frame
 	void Update () 

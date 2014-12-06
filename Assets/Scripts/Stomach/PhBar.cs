@@ -6,7 +6,6 @@ using System.Collections;
  */
 public class PhBar : MonoBehaviour 
 {
-	public Texture phBarTexture;					//!< to hold the texture of the ph bar
 	public Texture desiredAcidLevelIndicator;		//!< to hold the texture of the arrows marking the ph level we should reach
 	public Texture currentAcidLevelIndicator;		//!< to hold the bar that should line up with the arrows
 
@@ -108,9 +107,6 @@ public class PhBar : MonoBehaviour
 	void OnGUI()
 	{
 		GUI.depth = GUI.depth - 2;
-
-		// draw the ph bar
-		GUI.DrawTexture (phBarRect, phBarTexture);
 
 		// draw the desired level indicator
 		GUI.DrawTexture (desiredLevelRect, desiredAcidLevelIndicator);

@@ -27,9 +27,9 @@ TagManager:
   User Layer 8: Background
   User Layer 9: Tower
   User Layer 10: Glow
-  User Layer 11: 
-  User Layer 12: 
-  User Layer 13: 
+  User Layer 11: Sprite Layer 0
+  User Layer 12: Sprite Layer 1
+  User Layer 13: Sprite Layer 2
   User Layer 14: 
   User Layer 15: 
   User Layer 16: 
@@ -52,4 +52,16 @@ TagManager:
   - name: Default
     userID: 0
     uniqueID: 0
+    locked: 0
+  - name: Sprite Layer 0
+    userID: 1
+    uniqueID: 3119636689
+    locked: 0
+  - name: Sprite Layer 1
+    userID: 2
+    uniqueID: 2417546247
+    locked: 0
+  - name: Sprite Layer 2
+    userID: 3
+    uniqueID: 3915420937
     locked: 0

@@ -8,6 +8,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400000}
+  - 212: {fileID: 21200000}
   - 114: {fileID: 11400000}
   m_Layer: 0
   m_Name: StomachCell05
@@ -40,9 +41,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cellStateImages:
-  - {fileID: 2800000, guid: e9b9d8e4e87f4784cb08429917b4fe14, type: 3}
-  - {fileID: 2800000, guid: 71da42aa5b28c2c4aa06243871f2b0bb, type: 3}
-  - {fileID: 2800000, guid: 747cd46bdd42cf04fa275545b3f38e17, type: 3}
+  - {fileID: 21300000, guid: 71da42aa5b28c2c4aa06243871f2b0bb, type: 3}
+  - {fileID: 21300000, guid: e9b9d8e4e87f4784cb08429917b4fe14, type: 3}
+  - {fileID: 21300000, guid: 747cd46bdd42cf04fa275545b3f38e17, type: 3}
+--- !u!212 &21200000
+SpriteRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_LightmapIndex: 255
+  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_LightProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

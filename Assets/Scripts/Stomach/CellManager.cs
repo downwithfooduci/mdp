@@ -17,13 +17,12 @@ public class CellManager : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
-		cellScripts = new StomachCell[cells.Length];
-		rectangles = new Rect[cells.Length];
+		cellScripts = new StomachCell[6];
+		rectangles = new Rect[6];
 
 		// get the scripts on each of the cells
-		for (int i = 0; i < cells.Length; i++)
+		for (int i = 0; i < 6; i++)
 		{
-			cells[i] = (GameObject)Instantiate (cells[i]);
 			cellScripts[i] = cells[i].GetComponent<StomachCell>();
 		}
 
@@ -56,14 +55,5 @@ public class CellManager : MonoBehaviour
 				cellScripts[i].setCellState(state);
 			}
 		}
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
-
-	void OnGUI()
-	{
 	}
 }
