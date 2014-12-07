@@ -7,7 +7,7 @@ public class StomachCell : MonoBehaviour
 
 	public Sprite[] cellStateImages;
 
-	private string cellState = "burning";
+	private string cellState = "normal";
 
 	void Start()
 	{

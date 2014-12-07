@@ -7,10 +7,10 @@ public class StomachGameManager : MonoBehaviour
 	private StomachFoodManager foodManager;
 	private EnzymeManager enzymeManager;
 
-	private string currentGameState = "burningstate";
+	private string currentGameState = "normalstate";
 	private float[] nextCellActionTimer;
 	private float[] elapsedTime;
-	public float timeToBurn;
+	public float actionTime;
 
 	// Use this for initialization
 	void Start () 
@@ -34,7 +34,7 @@ public class StomachGameManager : MonoBehaviour
 		for (int i = 0; i < nextCellActionTimer.Length; i++)
 		{
 			elapsedTime[i] += Time.deltaTime;
-			if (cellManager.cellScripts[i].getCellState() == "burning" && elapsedTime[i] >= timeToBurn)
+			if (cellManager.cellScripts[i].getCellState() == "burning" && elapsedTime[i] >= actionTime)
 			{
 				cellManager.cellScripts[i].setCellState("dead");
 			}
