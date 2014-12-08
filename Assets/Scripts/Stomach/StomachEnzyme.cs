@@ -9,9 +9,6 @@ public class StomachEnzyme : MonoBehaviour
 
 	private StomachGameManager gm;
 
-	private Rect cellRect;						// to hold the location of where to draw the cell
-	private bool isActivated;					// to mark whether a cell is activated
-
 	// Use this for initialization
 	void Start () 
 	{
@@ -22,24 +19,12 @@ public class StomachEnzyme : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-		if (isActivated)
+		if (gm.getCurrentAcidLevel() == "acidic")
 		{
 			sr.sprite = activatedTexture;
 		} else
 		{
 			sr.sprite = deactivatedTexture;
-		}
-	}
-
-	// function to set the marker of whether or not the cell is currently activated
-	public void setActivated(bool activated)
-	{
-		if (gm.getCurrentAcidLevel() == "acidic")
-		{
-			isActivated = true;
-		} else
-		{
-			isActivated = false;
 		}
 	}
 }
