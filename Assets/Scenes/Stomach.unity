@@ -404,6 +404,115 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1721976073}
   m_RootOrder: 1
+--- !u!1 &344106288
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 344106289}
+  - 212: {fileID: 344106290}
+  - 114: {fileID: 344106291}
+  - 60: {fileID: 344106292}
+  m_Layer: 0
+  m_Name: Stomach Enzyme
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &344106289
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 344106288}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.76641989, y: 1.54519844, z: -1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
+  m_Children: []
+  m_Father: {fileID: 430288451}
+  m_RootOrder: 8
+--- !u!212 &344106290
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 344106288}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_LightmapIndex: 255
+  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_LightProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_SortingLayerID: 3915420937
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!114 &344106291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 344106288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 813015aa45fb02844811878cd264c772, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activatedTexture: {fileID: 21300000, guid: 3d1b67c5a713f1443b7852f001013d34, type: 3}
+  deactivatedTexture: {fileID: 21300000, guid: 6cf26db79329f0646b41754d882a954d, type: 3}
+--- !u!60 &344106292
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 344106288}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Poly:
+    m_Paths:
+    - - {x: .88499999, y: -.254999995}
+      - {x: .985000014, y: -.144999996}
+      - {x: .985000014, y: .174999997}
+      - {x: .954999983, y: .234999999}
+      - {x: .675000012, y: .535000026}
+      - {x: .63499999, y: .725000024}
+      - {x: .61500001, y: .785000026}
+      - {x: .455000013, y: .795000017}
+      - {x: .284999996, y: .795000017}
+      - {x: .0850000009, y: .375}
+      - {x: -.00499999989, y: .174999997}
+      - {x: -.0949999988, y: .215000004}
+      - {x: -.194999993, y: .36500001}
+      - {x: -.36500001, y: .704999983}
+      - {x: -.524999976, y: .754999995}
+      - {x: -.665000021, y: .63499999}
+      - {x: -.785000026, y: .474999994}
+      - {x: -.795000017, y: .305000007}
+      - {x: -.935000002, y: .0649999976}
+      - {x: -.935000002, y: -.00499999989}
+      - {x: -.834999979, y: -.104999997}
+      - {x: -.785000026, y: -.38499999}
+      - {x: -.754999995, y: -.474999994}
+      - {x: -.694999993, y: -.644999981}
+      - {x: -.555000007, y: -.725000024}
+      - {x: -.444999993, y: -.714999974}
+      - {x: -.275000006, y: -.685000002}
+      - {x: -.0350000001, y: -.785000026}
+      - {x: .155000001, y: -.785000026}
+      - {x: .284999996, y: -.745000005}
+      - {x: .455000013, y: -.625}
+      - {x: .514999986, y: -.574999988}
+      - {x: .654999971, y: -.354999989}
 --- !u!1 &415553477
 GameObject:
   m_ObjectHideFlags: 0
@@ -637,6 +746,7 @@ Transform:
   - {fileID: 1901509871}
   - {fileID: 1496770115}
   - {fileID: 1911160432}
+  - {fileID: 344106289}
   m_Father: {fileID: 0}
   m_RootOrder: 1
 --- !u!114 &430288455
@@ -886,7 +996,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 559039920}
-  - 114: {fileID: 559039919}
   - 114: {fileID: 559039921}
   - 114: {fileID: 559039922}
   - 114: {fileID: 559039923}
@@ -897,18 +1006,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &559039919
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 559039918}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 511a93cbba33f4741a8050a15b90d70d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stomachEnzymePrefab: {fileID: 100000, guid: 4bb935a3d8c72744cab1848a07acc40b, type: 2}
 --- !u!4 &559039920
 Transform:
   m_ObjectHideFlags: 0

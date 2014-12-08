@@ -5,10 +5,8 @@ public class StomachGameManager : MonoBehaviour
 {
 	private CellManager cellManager;
 	private StomachFoodManager foodManager;
-	private EnzymeManager enzymeManager;
 
 	private string currentAcidLevel = "neutral";
-	private float[] nextCellActionTimer;
 	private float[] elapsedTime;
 	public float actionTime;
 
@@ -17,13 +15,10 @@ public class StomachGameManager : MonoBehaviour
 	{
 		cellManager = FindObjectOfType(typeof(CellManager)) as CellManager;
 		foodManager = FindObjectOfType (typeof(StomachFoodManager)) as StomachFoodManager;
-		enzymeManager = FindObjectOfType (typeof(EnzymeManager)) as EnzymeManager;
 
-		nextCellActionTimer = new float[cellManager.cellScripts.Length];
 		elapsedTime = new float[cellManager.cellScripts.Length];
 		for (int i = 0; i < cellManager.cellScripts.Length; i++)
 		{
-			nextCellActionTimer[i] = Mathf.Infinity;
 			elapsedTime[i] = 0f;
 		}
 	}
@@ -34,7 +29,7 @@ public class StomachGameManager : MonoBehaviour
 		/**
 		 * Always do this update
 		 */
-		for (int i = 0; i < nextCellActionTimer.Length; i++)
+		for (int i = 0; i < cellManager.cellScripts.Length; i++)
 		{
 			elapsedTime[i] += Time.deltaTime;
 		}
@@ -57,23 +52,33 @@ public class StomachGameManager : MonoBehaviour
 				if (cellManager.cellScripts[i].getCellState() == "burning" && elapsedTime[i] >= actionTime)
 				{
 					cellManager.cellScripts[i].setCellState("dead");
+					elapsedTime[i] = 0f;
+					continue;
 				}
 
-				
 				if (cellManager.cellScripts[i].getCellState() == "slimed")
 				{
+					if (elapsedTime[i] >= actionTime)
+					{
+						cellManager.cellScripts[i].setCellState("burning");
+						elapsedTime[i] = 0f;
+					}
 					continue;
 				}
 
 				if (cellManager.cellScripts[i].getCellState() != "burning")
 				{
 					cellManager.cellScripts[i].setCellState("burning");
-					nextCellActionTimer[i] = 0f;	
+					elapsedTime[i] = 0f;
+					continue;
 				}
 			}
 
 			if (getCurrentAcidLevel() == "basic")
 			{
+				cellManager.cellScripts[i].setCellState("normal");
+				elapsedTime[i] = 0f;
+				continue;
 			}
 		}
 	}

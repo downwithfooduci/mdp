@@ -40,6 +40,12 @@ public class CellButtons : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
+		if (Time.timeScale == 0)
+		{
+			isEnabled = false;
+			return;
+		}
+
 		wasMouseClicked = Input.GetMouseButton (0);
 
 		// check if the mouse was down last frame, but is not currently pressed
