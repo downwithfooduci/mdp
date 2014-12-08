@@ -25,7 +25,7 @@ public class AddAcidButton : MonoBehaviour
 
 	void OnGUI()
 	{
-		GUI.depth = GUI.depth - 2;
+		GUI.depth = GUI.depth - 5;
 
 		// draw the acid button
 		if (GUI.RepeatButton (acidButtonRect, "", acidButton))

@@ -23,4 +23,9 @@ public class StomachFoodManager : MonoBehaviour
 			elapsedTime = 0f;
 		}
 	}
+
+	public int getNumFoodBlobs()
+	{
+		return spawnedFoodBlobs.Count;
+	}
 }

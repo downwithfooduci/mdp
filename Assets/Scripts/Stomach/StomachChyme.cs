@@ -7,6 +7,7 @@ using System.Collections;
 public class StomachChyme : MonoBehaviour 
 {
 	private SpriteRenderer sr;
+	private StomachGameManager gm;
 
 	public Sprite neutralChyme;			//!< holds the texture for the chyme when stomach is "neutral"
 	public Sprite acidicChyme;				//!< holds the texture for the chyme when stomach is "acidic"
@@ -22,7 +23,7 @@ public class StomachChyme : MonoBehaviour
 	void Start () 
 	{
 		sr = GetComponent<SpriteRenderer> ();
-
+		gm = FindObjectOfType (typeof(StomachGameManager)) as StomachGameManager;
 		phBar = FindObjectOfType(typeof(PhBar)) as PhBar;
 	}
 	
@@ -37,12 +38,15 @@ public class StomachChyme : MonoBehaviour
 		if (acidityLevel < .270f * Screen.height)
 		{
 			sr.sprite = acidicChyme;
+			gm.setCurrentAcidLevel("acidic");
 		} else if (acidityLevel > .662f * Screen.height)
 		{
 			sr.sprite = basicChyme;
+			gm.setCurrentAcidLevel("basic");
 		} else
 		{
 			sr.sprite = neutralChyme;
+			gm.setCurrentAcidLevel("neutral");
 		}
 	}
 }

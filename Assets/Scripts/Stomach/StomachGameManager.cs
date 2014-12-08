@@ -7,7 +7,7 @@ public class StomachGameManager : MonoBehaviour
 	private StomachFoodManager foodManager;
 	private EnzymeManager enzymeManager;
 
-	private string currentGameState = "normalstate";
+	private string currentAcidLevel = "neutral";
 	private float[] nextCellActionTimer;
 	private float[] elapsedTime;
 	public float actionTime;
@@ -31,26 +31,60 @@ public class StomachGameManager : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
+		/**
+		 * Always do this update
+		 */
 		for (int i = 0; i < nextCellActionTimer.Length; i++)
 		{
 			elapsedTime[i] += Time.deltaTime;
-			if (cellManager.cellScripts[i].getCellState() == "burning" && elapsedTime[i] >= actionTime)
-			{
-				cellManager.cellScripts[i].setCellState("dead");
-			}
 		}
 
-		if (currentGameState == "burningstate")
+		/**
+		 * Adjust each cell based on cell state and acidic level
+		 */
+		for (int i = 0; i < cellManager.cellScripts.Length; i++)
 		{
-			for (int i = 0; i < cellManager.cellScripts.Length; i++)
+			if (getCurrentAcidLevel() == "neutral")
 			{
-				if (cellManager.cellScripts[i].getCellState() != "slimed" || 
-				    cellManager.cellScripts[i].getCellState() != "burning")
+				cellManager.cellScripts[i].setCellState("normal");
+				elapsedTime[i] = 0f;
+				continue;
+			}
+
+			if (getCurrentAcidLevel() == "acidic")
+			{
+				// if the cell has been burning for too long it dies
+				if (cellManager.cellScripts[i].getCellState() == "burning" && elapsedTime[i] >= actionTime)
+				{
+					cellManager.cellScripts[i].setCellState("dead");
+				}
+
+				
+				if (cellManager.cellScripts[i].getCellState() == "slimed")
+				{
+					continue;
+				}
+
+				if (cellManager.cellScripts[i].getCellState() != "burning")
 				{
 					cellManager.cellScripts[i].setCellState("burning");
 					nextCellActionTimer[i] = 0f;	
 				}
 			}
+
+			if (getCurrentAcidLevel() == "basic")
+			{
+			}
 		}
+	}
+
+	public void setCurrentAcidLevel(string currentAcidLevel)
+	{
+		this.currentAcidLevel = currentAcidLevel;
+	}
+
+	public string getCurrentAcidLevel()
+	{
+		return currentAcidLevel;
 	}
 }

@@ -43,7 +43,7 @@ public class PhBar : MonoBehaviour
 		// right now just start it at a random height...
 		while (currentLevelRectHeight == 0 || (currentLevelRectHeight > 300 && currentLevelRectHeight < 351))
 		{
-			currentLevelRectHeight = Random.Range (56f, 658f) / 768f * Screen.height;
+			currentLevelRectHeight = Random.Range (56f, 301f) / 768f * Screen.height;
 		}
 		currentLevelRect = new Rect (47f / 1024f * Screen.width, currentLevelRectHeight,
 		                            90f / 1024f * Screen.width, 7f / 768f * Screen.height);

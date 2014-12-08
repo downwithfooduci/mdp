@@ -15,6 +15,8 @@ public class MainMenuDebug : MonoBehaviour
 	 */
 	void OnGUI()
 	{
+		GUI.depth--;
+
 		// draw the debug button in the upper left corner
 		// TODO: this is the part that should be removed in release versions
 		// do this by commenting out drawing the button
