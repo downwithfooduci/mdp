@@ -41,6 +41,16 @@ public class StomachGameManager : MonoBehaviour
 		{
 			if (getCurrentAcidLevel() == "neutral")
 			{
+				if (cellManager.cellScripts[i].getCellState() == "dead")
+				{
+					if (elapsedTime[i] >= actionTime)
+					{
+						cellManager.cellScripts[i].setCellState("normal");
+						elapsedTime[i] = 0f;
+					}
+					continue;
+				}
+
 				cellManager.cellScripts[i].setCellState("normal");
 				elapsedTime[i] = 0f;
 				continue;
@@ -48,11 +58,24 @@ public class StomachGameManager : MonoBehaviour
 
 			if (getCurrentAcidLevel() == "acidic")
 			{
-				// if the cell has been burning for too long it dies
-				if (cellManager.cellScripts[i].getCellState() == "burning" && elapsedTime[i] >= actionTime)
+				if (cellManager.cellScripts[i].getCellState() == "dead")
 				{
-					cellManager.cellScripts[i].setCellState("dead");
-					elapsedTime[i] = 0f;
+					if (elapsedTime[i] >= actionTime)
+					{
+						cellManager.cellScripts[i].setCellState("burning");
+						elapsedTime[i] = 0f;
+					}
+					continue;
+				}
+
+				// if the cell has been burning for too long it dies
+				if (cellManager.cellScripts[i].getCellState() == "burning")
+				{
+					if (elapsedTime[i] >= actionTime)
+					{
+						cellManager.cellScripts[i].setCellState("dead");
+						elapsedTime[i] = 0f;
+					}
 					continue;
 				}
 
@@ -66,10 +89,13 @@ public class StomachGameManager : MonoBehaviour
 					continue;
 				}
 
-				if (cellManager.cellScripts[i].getCellState() != "burning")
+				if (cellManager.cellScripts[i].getCellState() == "normal")
 				{
-					cellManager.cellScripts[i].setCellState("burning");
-					elapsedTime[i] = 0f;
+					if (elapsedTime[i] >= actionTime)
+					{
+						cellManager.cellScripts[i].setCellState("burning");
+						elapsedTime[i] = 0f;
+					}
 					continue;
 				}
 			}
