@@ -9,7 +9,6 @@ public class PhBar : MonoBehaviour
 	public Texture desiredAcidLevelIndicator;		//!< to hold the texture of the arrows marking the ph level we should reach
 	public Texture currentAcidLevelIndicator;		//!< to hold the bar that should line up with the arrows
 
-	private Rect phBarRect;							//!< to hold the draw location and size data for the ph Bar
 	private Rect desiredLevelRect;					//!< to hold the draw location and size data for the desired level arrows
 	private Rect currentLevelRect;					//!< to hold the draw location and size data for the current level bar4
 	private float currentLevelRectHeight;			//!< store the indicator level for currentLevelRect
@@ -31,10 +30,6 @@ public class PhBar : MonoBehaviour
 	 */
 	void Start () 
 	{
-		// create the rectangle for the phBar relative to the screen size
-		phBarRect = new Rect (33f / 1024f * Screen.width, 44f / 768f * Screen.height, 
-		                      116f / 1024f * Screen.width, 632f / 768f * Screen.height);
-
 		// create the rectangle for the desired level indicator relative to the screen size
 		desiredLevelRect = new Rect (12f / 1024f * Screen.width, 301f / 768f * Screen.height,
 		                             158f / 1024f * Screen.width, 50f / 768f * Screen.height);
