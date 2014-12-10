@@ -3,12 +3,21 @@ using System.Collections;
 
 public class StomachGameManager : MonoBehaviour 
 {
+	// values that shouldn't normally be changed during game play
+	public float TIME_TO_BURN;
+	public float TIME_TO_DIE;
+	public float TIME_FOR_SLIME_FADE;
+	public float TIME_TO_REVIVE;
+	public int MAX_CELL_DEATHS;
+
+	private int cellDeaths;
+
 	private CellManager cellManager;
 	private StomachFoodManager foodManager;
 
 	private string currentAcidLevel = "neutral";
 	private float[] elapsedTime;
-	public float actionTime;
+	private float[] nextCellActionTime;
 
 	// Use this for initialization
 	void Start () 
@@ -17,8 +26,11 @@ public class StomachGameManager : MonoBehaviour
 		foodManager = FindObjectOfType (typeof(StomachFoodManager)) as StomachFoodManager;
 
 		elapsedTime = new float[cellManager.cellScripts.Length];
+		nextCellActionTime = new float[cellManager.cellScripts.Length];
+
 		for (int i = 0; i < cellManager.cellScripts.Length; i++)
 		{
+			nextCellActionTime[i] = Mathf.Infinity;
 			elapsedTime[i] = 0f;
 		}
 	}
@@ -39,19 +51,32 @@ public class StomachGameManager : MonoBehaviour
 		 */
 		for (int i = 0; i < cellManager.cellScripts.Length; i++)
 		{
-			if (getCurrentAcidLevel() == "neutral")
+			/**
+			 * Need to handle all possible cases if the acid level is neutral or basic
+			 */
+			if (getCurrentAcidLevel() == "neutral" ||
+			    getCurrentAcidLevel() == "basic")
 			{
 				if (cellManager.cellScripts[i].getCellState() == "dead")
 				{
-					if (elapsedTime[i] >= actionTime)
+					if (elapsedTime[i] >= nextCellActionTime[i])
 					{
 						cellManager.cellScripts[i].setCellState("normal");
+						nextCellActionTime[i] = TIME_TO_BURN;
 						elapsedTime[i] = 0f;
 					}
 					continue;
 				}
 
+				if (cellManager.cellScripts[i].getCellState() == "slimed")
+				{
+					nextCellActionTime[i] = TIME_FOR_SLIME_FADE;
+					elapsedTime[i] = 0f;
+					continue;
+				}
+
 				cellManager.cellScripts[i].setCellState("normal");
+				nextCellActionTime[i] = TIME_TO_BURN;
 				elapsedTime[i] = 0f;
 				continue;
 			}
@@ -60,9 +85,10 @@ public class StomachGameManager : MonoBehaviour
 			{
 				if (cellManager.cellScripts[i].getCellState() == "dead")
 				{
-					if (elapsedTime[i] >= actionTime)
+					if (elapsedTime[i] >= nextCellActionTime[i])
 					{
-						cellManager.cellScripts[i].setCellState("burning");
+						cellManager.cellScripts[i].setCellState("normal");
+						nextCellActionTime[i] = TIME_TO_BURN;
 						elapsedTime[i] = 0f;
 					}
 					continue;
@@ -71,9 +97,11 @@ public class StomachGameManager : MonoBehaviour
 				// if the cell has been burning for too long it dies
 				if (cellManager.cellScripts[i].getCellState() == "burning")
 				{
-					if (elapsedTime[i] >= actionTime)
+					if (elapsedTime[i] >= nextCellActionTime[i])
 					{
 						cellManager.cellScripts[i].setCellState("dead");
+						cellDeaths++;
+						nextCellActionTime[i] = TIME_TO_REVIVE;
 						elapsedTime[i] = 0f;
 					}
 					continue;
@@ -81,9 +109,10 @@ public class StomachGameManager : MonoBehaviour
 
 				if (cellManager.cellScripts[i].getCellState() == "slimed")
 				{
-					if (elapsedTime[i] >= actionTime)
+					if (elapsedTime[i] >= nextCellActionTime[i])
 					{
 						cellManager.cellScripts[i].setCellState("burning");
+						nextCellActionTime[i] = TIME_TO_DIE;
 						elapsedTime[i] = 0f;
 					}
 					continue;
@@ -91,20 +120,14 @@ public class StomachGameManager : MonoBehaviour
 
 				if (cellManager.cellScripts[i].getCellState() == "normal")
 				{
-					if (elapsedTime[i] >= actionTime)
+					if (elapsedTime[i] >= nextCellActionTime[i])
 					{
 						cellManager.cellScripts[i].setCellState("burning");
+						nextCellActionTime[i] = TIME_TO_DIE;
 						elapsedTime[i] = 0f;
 					}
 					continue;
 				}
-			}
-
-			if (getCurrentAcidLevel() == "basic")
-			{
-				cellManager.cellScripts[i].setCellState("normal");
-				elapsedTime[i] = 0f;
-				continue;
 			}
 		}
 	}

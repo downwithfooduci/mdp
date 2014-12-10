@@ -1061,7 +1061,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e29980277d5b5dc49a13498680be7838, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionTime: 6
+  TIME_TO_BURN: 5
+  TIME_TO_DIE: 6
+  TIME_FOR_SLIME_FADE: 6
+  TIME_TO_REVIVE: 10
+  MAX_CELL_DEATHS: 12
 --- !u!1 &595137068
 GameObject:
   m_ObjectHideFlags: 0
