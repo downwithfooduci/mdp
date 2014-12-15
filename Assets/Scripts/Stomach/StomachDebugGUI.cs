@@ -13,7 +13,6 @@ public class StomachDebugGUI : MonoBehaviour
 
 	public void enable()
 	{
-		Debug.Log ("click");
 		Time.timeScale = 0f;
 		ui.enabled = true;
 	}

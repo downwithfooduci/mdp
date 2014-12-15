@@ -1,15 +1,29 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class StomachReturnButton : MonoBehaviour {
+public class StomachReturnButton : MonoBehaviour 
+{
+	public Canvas ui;
 
-	// Use this for initialization
-	void Start () {
-	
+	void Start()
+	{
+		ui.enabled = false;
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+
+	public void setEnable()
+	{
+		Time.timeScale = 0f;
+		ui.enabled = true;
+	}
+
+	public void returnToMain()
+	{
+		Application.LoadLevel ("MainMenu");
+	}
+
+	public void cancel()
+	{
+		Time.timeScale = 1f;
+		ui.enabled = false;
 	}
 }
