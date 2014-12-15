@@ -8,12 +8,13 @@ public class StomachDebugGUI : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
-		ui = GetComponent<Canvas> ();
 		ui.enabled = false;
 	}
 
 	public void enable()
 	{
+		Debug.Log ("click");
+		Time.timeScale = 0f;
 		ui.enabled = true;
 	}
 }

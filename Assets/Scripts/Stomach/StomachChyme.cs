@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 /**
@@ -6,8 +7,8 @@ using System.Collections;
  */
 public class StomachChyme : MonoBehaviour 
 {
-	private SpriteRenderer sr;
 	private StomachGameManager gm;
+	private Image i;
 
 	public Sprite neutralChyme;			//!< holds the texture for the chyme when stomach is "neutral"
 	public Sprite acidicChyme;				//!< holds the texture for the chyme when stomach is "acidic"
@@ -22,7 +23,7 @@ public class StomachChyme : MonoBehaviour
 	 */
 	void Start () 
 	{
-		sr = GetComponent<SpriteRenderer> ();
+		i = GetComponent<Image> ();
 		gm = FindObjectOfType (typeof(StomachGameManager)) as StomachGameManager;
 		phBar = FindObjectOfType(typeof(PhBar)) as PhBar;
 	}
@@ -37,15 +38,15 @@ public class StomachChyme : MonoBehaviour
 
 		if (acidityLevel < .270f * Screen.height)
 		{
-			sr.sprite = acidicChyme;
+			i.sprite = acidicChyme;
 			gm.setCurrentAcidLevel("acidic");
 		} else if (acidityLevel > .662f * Screen.height)
 		{
-			sr.sprite = basicChyme;
+			i.sprite = basicChyme;
 			gm.setCurrentAcidLevel("basic");
 		} else
 		{
-			sr.sprite = neutralChyme;
+			i.sprite = neutralChyme;
 			gm.setCurrentAcidLevel("neutral");
 		}
 	}

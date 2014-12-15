@@ -101,13 +101,16 @@ public class PhBar : MonoBehaviour
 	 */
 	void OnGUI()
 	{
-		GUI.depth = GUI.depth - 2;
+		if (Time.timeScale != 0f)
+		{
+			GUI.depth = GUI.depth - 2;
 
-		// draw the desired level indicator
-		GUI.DrawTexture (desiredLevelRect, desiredAcidLevelIndicator);
+			// draw the desired level indicator
+			GUI.DrawTexture (desiredLevelRect, desiredAcidLevelIndicator);
 
-		// draw the current level indicator
-		GUI.DrawTexture (currentLevelRect, currentAcidLevelIndicator);
+			// draw the current level indicator
+			GUI.DrawTexture (currentLevelRect, currentAcidLevelIndicator);
+		}
 	}
 
 	/**

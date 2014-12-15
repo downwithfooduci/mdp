@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 /**
@@ -6,7 +7,7 @@ using System.Collections;
  */
 public class StomachZyme : MonoBehaviour 
 {
-	private SpriteRenderer sr;
+	private Image i;
 
 	public Sprite zymeHappy;					//!< holds the texture that will be drawn for happy zyme
 	public Sprite zymeConcerned;				//!< holds the texture that will be drawn for concerned zyme
@@ -18,31 +19,28 @@ public class StomachZyme : MonoBehaviour
 	
 	void Start () 
 	{
-		sr = GetComponent<SpriteRenderer> ();
-
-		// set the dimensions of the location to draw the zyme in the stomach game relative to screen size
-		sr.sprite = zymeHappy;
+		i = GetComponent<Image> ();
 	}
 
 	void Update()
 	{
 		if (drawHappyZyme)
 		{
-			sr.sprite = zymeHappy;
+			i.sprite = zymeHappy;
 			drawConcernedZyme = false;
 			drawSlimedZyme = false;
 		}
 
 		if (drawConcernedZyme)
 		{
-			sr.sprite = zymeConcerned;
+			i.sprite = zymeConcerned;
 			drawHappyZyme = false;
 			drawSlimedZyme = false;
 		}
 
 		if (drawSlimedZyme)
 		{
-			sr.sprite = zymeSlimed;
+			i.sprite = zymeSlimed;
 			drawHappyZyme = false;
 			drawConcernedZyme = false;
 		}
