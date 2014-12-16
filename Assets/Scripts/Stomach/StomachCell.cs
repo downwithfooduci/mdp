@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class StomachCell : MonoBehaviour 
 {
-	private SpriteRenderer sr;
+	private Image i;
 
 	public Sprite[] cellStateImages;
 
@@ -11,29 +12,29 @@ public class StomachCell : MonoBehaviour
 
 	void Start()
 	{
-		sr = GetComponent<SpriteRenderer> ();
+		i = GetComponent<Image> ();
 	}
 
 	void Update()
 	{
 		if (cellState == "normal")
 		{
-			sr.sprite = null;
+			i.sprite = cellStateImages[0];
 		}
 
 		if (cellState == "slimed")
 		{
-			sr.sprite = cellStateImages[0];
+			i.sprite = cellStateImages[1];
 		}
 
 		if (cellState == "burning")
 		{
-			sr.sprite = cellStateImages[1];
+			i.sprite = cellStateImages[2];
 		}
 
 		if (cellState == "dead")
 		{
-			sr.sprite = cellStateImages[2];
+			i.sprite = cellStateImages[3];
 		}
 	}
 
