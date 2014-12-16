@@ -53,7 +53,6 @@ public class CellButtons : MonoBehaviour
 		{
 			mouseClickLocation.x = Input.mousePosition.x;
 			mouseClickLocation.y = Input.mousePosition.y;
-			checkMouseClick();	
 		}
 
 		mouseDownLastFrame = wasMouseClicked;
@@ -64,12 +63,11 @@ public class CellButtons : MonoBehaviour
 		}
 	}
 	
-	private void checkMouseClick()
+	public void checkMouseClick(int cell)
 	{	
 		if (menuSemaphore <= 0 &&
 		    !isEnabled &&
-		    (mouseClickLocation.x > .3f*Screen.width && mouseClickLocation.x < .7f*Screen.width) &&
-		    (mouseClickLocation.y < Screen.height && mouseClickLocation.y > .5f*Screen.height)) 
+		    cell == 2) 
 		{
 			if (showBucket || showScythe)
 			{
@@ -82,11 +80,11 @@ public class CellButtons : MonoBehaviour
 		} else if (menuSemaphore <= 0 &&
 		           showBucket)
 		{
-		//	cellManager.checkForClicks(new Vector2(mouseClickLocation.x, Screen.height - mouseClickLocation.y), "slimed");
+			cellManager.cellScripts[cell - 1].setCellState("slimed");
 		} else if (menuSemaphore <= 0 &&
 		           showScythe)
 		{
-		//	cellManager.checkForClicks(new Vector2(mouseClickLocation.x, Screen.height - mouseClickLocation.y), "dead");
+			cellManager.cellScripts[cell - 1].setCellState("dead");
 		} else
 		{
 			isEnabled = false;

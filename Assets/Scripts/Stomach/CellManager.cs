@@ -5,6 +5,7 @@ public class CellManager : MonoBehaviour
 {
 	public GameObject[] cells;
 	public StomachCell[] cellScripts;
+	public CellButtons cellButtons;
 
 	// Use this for initialization
 	void Start () 
@@ -18,8 +19,8 @@ public class CellManager : MonoBehaviour
 		}
 	}
 
-	public void clickOnCell()
+	public void clickOnCell(int cellNum)
 	{
-		Debug.Log ("akfj");
+		cellButtons.checkMouseClick(cellNum);
 	}
 }

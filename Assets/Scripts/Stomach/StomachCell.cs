@@ -20,21 +20,25 @@ public class StomachCell : MonoBehaviour
 		if (cellState == "normal")
 		{
 			i.sprite = cellStateImages[0];
+			return;
 		}
 
 		if (cellState == "slimed")
 		{
 			i.sprite = cellStateImages[1];
+			return;
 		}
 
 		if (cellState == "burning")
 		{
 			i.sprite = cellStateImages[2];
+			return;
 		}
 
 		if (cellState == "dead")
 		{
 			i.sprite = cellStateImages[3];
+			return;
 		}
 	}
 

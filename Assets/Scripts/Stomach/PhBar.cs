@@ -94,7 +94,6 @@ public class PhBar : MonoBehaviour
 	 */
 	private void moveCurrentLevelRect(float speed)
 	{
-		Debug.Log ("" + speed * Time.deltaTime);
 		currentLevelHeight = currentLevelRect.anchoredPosition.y + (speed * Time.deltaTime);
 		currentLevelRect.anchoredPosition = new Vector2(currentLevelRect.anchoredPosition.x, currentLevelHeight);
 	}
