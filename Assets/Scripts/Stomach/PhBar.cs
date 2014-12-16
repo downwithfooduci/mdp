@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 /**
@@ -6,11 +7,9 @@ using System.Collections;
  */
 public class PhBar : MonoBehaviour 
 {
-	public Texture desiredAcidLevelIndicator;		//!< to hold the texture of the arrows marking the ph level we should reach
-	public Texture currentAcidLevelIndicator;		//!< to hold the bar that should line up with the arrows
+	public Image currentAcidLevelIndicator;		//!< to hold the bar that should line up with the arrows
 
-	private Rect desiredLevelRect;					//!< to hold the draw location and size data for the desired level arrows
-	private Rect currentLevelRect;					//!< to hold the draw location and size data for the current level bar4
+	private RectTransform currentLevelRect;					//!< to hold the draw location and size data for the current level bar4
 	private float currentLevelRectHeight;			//!< store the indicator level for currentLevelRect
 
 	public float startingAcidSpeed;					//!< the speed the bar initially moves when acid is added
@@ -30,18 +29,13 @@ public class PhBar : MonoBehaviour
 	 */
 	void Start () 
 	{
-		// create the rectangle for the desired level indicator relative to the screen size
-		desiredLevelRect = new Rect (12f / 1024f * Screen.width, 301f / 768f * Screen.height,
-		                             158f / 1024f * Screen.width, 50f / 768f * Screen.height);
-
 		// starting level of the current level indicator
 		// right now just start it at a random height...
 		while (currentLevelRectHeight == 0 || (currentLevelRectHeight > 300 && currentLevelRectHeight < 351))
 		{
 			currentLevelRectHeight = Random.Range (56f, 301f) / 768f * Screen.height;
 		}
-		currentLevelRect = new Rect (47f / 1024f * Screen.width, currentLevelRectHeight,
-		                            90f / 1024f * Screen.width, 7f / 768f * Screen.height);
+		currentLevelRect = currentAcidLevelIndicator.rectTransform;
 	}
 	
 	/**
@@ -94,23 +88,7 @@ public class PhBar : MonoBehaviour
 
 		// if we aren't adding acid or base decay the bar somewhat
 		moveCurrentLevelRect(100f * Time.deltaTime * (768f/Screen.height));
-	}
 
-	/**
-	 * Draw the acid level desired indicator and bar based on any changes
-	 */
-	void OnGUI()
-	{
-		if (Time.timeScale != 0f)
-		{
-			GUI.depth = GUI.depth - 2;
-
-			// draw the desired level indicator
-			GUI.DrawTexture (desiredLevelRect, desiredAcidLevelIndicator);
-
-			// draw the current level indicator
-			GUI.DrawTexture (currentLevelRect, currentAcidLevelIndicator);
-		}
 	}
 
 	/**
@@ -118,10 +96,8 @@ public class PhBar : MonoBehaviour
 	 */
 	private void moveCurrentLevelRect(float speed)
 	{
-		currentLevelRectHeight = Mathf.Clamp(currentLevelRect.y + (speed * Time.deltaTime), 56f / 768f * Screen.height, 
-		                                     658f / 768f * Screen.height);
-		currentLevelRect = new Rect (currentLevelRect.x, currentLevelRectHeight, 
-		                            currentLevelRect.width, currentLevelRect.height);
+		currentLevelRect.anchoredPosition = new Vector2(currentLevelRect.anchoredPosition.x, Mathf.Clamp(currentLevelRect.position.y + (speed * Time.deltaTime), 56f / 768f * Screen.height, 
+		                                          658f / 768f * Screen.height));
 	}
 
 	/**
