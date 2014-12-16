@@ -7,10 +7,8 @@ using System.Collections;
  */
 public class PhBar : MonoBehaviour 
 {
-	public Image currentAcidLevelIndicator;		//!< to hold the bar that should line up with the arrows
-
-	private RectTransform currentLevelRect;					//!< to hold the draw location and size data for the current level bar4
-	private float currentLevelRectHeight;			//!< store the indicator level for currentLevelRect
+	public RectTransform currentLevelRect;			//!< to hold the draw location and size data for the current level bar4
+	private float currentLevelHeight;				//!< store the indicator level for currentLevelRect
 
 	public float startingAcidSpeed;					//!< the speed the bar initially moves when acid is added
 	public float acidSpeedDecayTime;				//!< the time for the bar to slow to 0 after acid is added
@@ -31,11 +29,11 @@ public class PhBar : MonoBehaviour
 	{
 		// starting level of the current level indicator
 		// right now just start it at a random height...
-		while (currentLevelRectHeight == 0 || (currentLevelRectHeight > 300 && currentLevelRectHeight < 351))
+		while (currentLevelHeight == 0 || (currentLevelHeight > 120 && currentLevelHeight < 190))
 		{
-			currentLevelRectHeight = Random.Range (56f, 301f) / 768f * Screen.height;
+			currentLevelHeight = Random.Range (-90f, 292f);
 		}
-		currentLevelRect = currentAcidLevelIndicator.rectTransform;
+		currentLevelRect.anchoredPosition = new Vector2(currentLevelRect.anchoredPosition.x, currentLevelHeight);
 	}
 	
 	/**
@@ -81,13 +79,13 @@ public class PhBar : MonoBehaviour
 			// set the new destination the current base level indicator should be drawn at
 			// it should move at a decreasing speed so to do so we multiply the desired speed by the percentage of time
 			// that is left to move the indicator line
-			moveCurrentLevelRect(startingBaseSpeed * Time.deltaTime * ( 1 - (elapsedTime / baseSpeedDecayTime)));
+			moveCurrentLevelRect(-(startingBaseSpeed * Time.deltaTime * ( 1 - (elapsedTime / baseSpeedDecayTime))));
 			
 			return;
 		}
 
 		// if we aren't adding acid or base decay the bar somewhat
-		moveCurrentLevelRect(100f * Time.deltaTime * (768f/Screen.height));
+		moveCurrentLevelRect(-200f * Time.deltaTime);
 
 	}
 
@@ -96,8 +94,9 @@ public class PhBar : MonoBehaviour
 	 */
 	private void moveCurrentLevelRect(float speed)
 	{
-		currentLevelRect.anchoredPosition = new Vector2(currentLevelRect.anchoredPosition.x, Mathf.Clamp(currentLevelRect.position.y + (speed * Time.deltaTime), 56f / 768f * Screen.height, 
-		                                          658f / 768f * Screen.height));
+		Debug.Log ("" + speed * Time.deltaTime);
+		currentLevelHeight = currentLevelRect.anchoredPosition.y + (speed * Time.deltaTime);
+		currentLevelRect.anchoredPosition = new Vector2(currentLevelRect.anchoredPosition.x, currentLevelHeight);
 	}
 
 	/**
@@ -125,6 +124,6 @@ public class PhBar : MonoBehaviour
 	 */
 	public float getCurrentLevelRectHeight()
 	{
-		return currentLevelRectHeight;
+		return currentLevelHeight;
 	}
 }

@@ -7,6 +7,10 @@ using System.Collections;
  */
 public class StomachChyme : MonoBehaviour 
 {
+	public float ACIDIC;
+	public float BASIC;
+	public RectTransform acidHeight;
+
 	private StomachGameManager gm;
 	private Image i;
 
@@ -14,7 +18,6 @@ public class StomachChyme : MonoBehaviour
 	public Sprite acidicChyme;				//!< holds the texture for the chyme when stomach is "acidic"
 	public Sprite basicChyme;				//!< holds the texture for the chyme when stomach is "basic"
 
-	private PhBar phBar;					//!< holds a reference to the phbar script to monitor acidity level
 	private float acidityLevel;				//!< to hold the acidity level value
 
 	/**
@@ -25,7 +28,6 @@ public class StomachChyme : MonoBehaviour
 	{
 		i = GetComponent<Image> ();
 		gm = FindObjectOfType (typeof(StomachGameManager)) as StomachGameManager;
-		phBar = FindObjectOfType(typeof(PhBar)) as PhBar;
 	}
 	
 	/**
@@ -34,20 +36,20 @@ public class StomachChyme : MonoBehaviour
 	 */
 	void Update () 
 	{
-		acidityLevel = phBar.getCurrentLevelRectHeight();
+		acidityLevel = acidHeight.anchoredPosition.y;
 
-		if (acidityLevel < .270f * Screen.height)
+		if (acidityLevel > ACIDIC)
 		{
 			i.sprite = acidicChyme;
 			gm.setCurrentAcidLevel("acidic");
-		} else if (acidityLevel > .662f * Screen.height)
-		{
-			i.sprite = basicChyme;
-			gm.setCurrentAcidLevel("basic");
-		} else
+		} else if (acidityLevel < ACIDIC && acidityLevel > BASIC)
 		{
 			i.sprite = neutralChyme;
 			gm.setCurrentAcidLevel("neutral");
+		} else
+		{
+			i.sprite = basicChyme;
+			gm.setCurrentAcidLevel("basic");
 		}
 	}
 }
