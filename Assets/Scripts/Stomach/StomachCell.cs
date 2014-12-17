@@ -17,19 +17,20 @@ public class StomachCell : MonoBehaviour
 
 	void Update()
 	{
+		Debug.Log (cellState);
 		if (cellState == "normal")
 		{
 			i.sprite = cellStateImages[0];
 			return;
 		}
 
-		if (cellState == "slimed")
+		if (cellState == "burning")
 		{
 			i.sprite = cellStateImages[1];
 			return;
 		}
 
-		if (cellState == "burning")
+		if (cellState == "slimed")
 		{
 			i.sprite = cellStateImages[2];
 			return;
