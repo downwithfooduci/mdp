@@ -17,7 +17,6 @@ public class StomachCell : MonoBehaviour
 
 	void Update()
 	{
-		Debug.Log (cellState);
 		if (cellState == "normal")
 		{
 			i.sprite = cellStateImages[0];
