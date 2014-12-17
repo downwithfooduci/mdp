@@ -1,19 +1,15 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Stomach\CellManager.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Stomach\StomachGameManager.cs">
     <Files>
-      <File FileName="Assets\Scripts\Stomach\PhBar.cs" Line="85" Column="4" />
-      <File FileName="Assets\Scripts\Stomach\StomachGameManager.cs" Line="28" Column="32" />
-      <File FileName="Assets\Scripts\Stomach\StomachCell.cs" Line="24" Column="3" />
-      <File FileName="Assets\Scripts\Stomach\StomachChyme.cs" Line="28" Column="52" />
-      <File FileName="Assets\Scripts\Stomach\CellButtons.cs" Line="76" Column="24" />
-      <File FileName="Assets\Scripts\Stomach\StomachDebugGUI.cs" Line="15" Column="3" />
-      <File FileName="Assets\Scripts\Stomach\StomachZyme.cs" Line="37" Column="26" />
-      <File FileName="Assets\Scripts\Stomach\StomachReturnButton.cs" Line="29" Column="2" />
-      <File FileName="Assets\Scripts\Stomach\CellManager.cs" Line="23" Column="1" />
-      <File FileName="Assets\Scripts\Stomach\StomachFoodManager.cs" Line="21" Column="55" />
-      <File FileName="Assets\Scripts\Stomach\DisableMainGUIButtons.cs" Line="7" Column="33" />
-      <File FileName="Assets\Scripts\Stomach\StomachFoodBlob.cs" Line="5" Column="2" />
+      <File FileName="Assets\Scripts\Stomach\StomachChyme.cs" Line="36" Column="5" />
+      <File FileName="Assets\Scripts\Stomach\CellButtons.cs" Line="90" Column="22" />
+      <File FileName="Assets\Scripts\Stomach\StomachDebugGUI.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Stomach\StomachZyme.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Stomach\CellManager.cs" Line="27" Column="1" />
+      <File FileName="Assets\Scripts\Stomach\PhBar.cs" Line="15" Column="2" />
+      <File FileName="Assets\Scripts\Stomach\StomachGameManager.cs" Line="112" Column="27" />
+      <File FileName="Assets\Scripts\Stomach\StomachCell.cs" Line="41" Column="4" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
