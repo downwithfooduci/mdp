@@ -1596,8 +1596,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TIME_TO_BURN: 5
   TIME_TO_DIE: 6
-  TIME_FOR_SLIME_FADE: 6
-  TIME_TO_REVIVE: 10
+  TIME_FOR_SLIME_FADE: 10
+  TIME_TO_REVIVE: 3
   MAX_CELL_DEATHS: 12
 --- !u!1 &573502100
 GameObject:
