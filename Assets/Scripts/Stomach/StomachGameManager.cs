@@ -52,6 +52,26 @@ public class StomachGameManager : MonoBehaviour
 		for (int i = 0; i < cellManager.cellScripts.Length; i++)
 		{
 			/**
+			 * Update timer
+			 */
+			if (elapsedTime[i] < .1f*nextCellActionTime[i])
+			{
+				cellManager.cellScripts[i].setTimerImage(0);
+			} else if (elapsedTime[i] < .3f*nextCellActionTime[i])
+			{
+				cellManager.cellScripts[i].setTimerImage(1);
+			} else if (elapsedTime[i] < .5f*nextCellActionTime[i])
+			{
+				cellManager.cellScripts[i].setTimerImage(2);
+			}else if (elapsedTime[i] < .7f*nextCellActionTime[i])
+			{
+				cellManager.cellScripts[i].setTimerImage(3);
+			}else if (elapsedTime[i] < .9f*nextCellActionTime[i])
+			{
+				cellManager.cellScripts[i].setTimerImage(4);
+			}
+
+			/**
 			 * Need to handle all possible cases if the acid level is neutral or basic
 			 */
 			if (getCurrentAcidLevel() == "neutral" ||

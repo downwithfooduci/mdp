@@ -5,6 +5,8 @@ using System.Collections;
 public class StomachCell : MonoBehaviour 
 {
 	private Image i;
+	public Image timer;
+	public Sprite[] timers;
 
 	public Sprite[] cellStateImages;
 
@@ -40,6 +42,11 @@ public class StomachCell : MonoBehaviour
 			i.sprite = cellStateImages[3];
 			return;
 		}
+	}
+
+	public void setTimerImage(int index)
+	{
+		timer.sprite = timers [index];
 	}
 
 	/**
