@@ -90,12 +90,19 @@ public class StomachZyme : MonoBehaviour
 					break;
 				}
 			}
+
+			if (cellSlimed)
+			{
 			/**
 			 * Stomach is acidic but cell is not slimed
 			 */
-			if (cellSlimed)
-			{
 				stomachTextBoxes.setTextbox(8);
+			} else
+			{
+			/**
+			 * Stomach is acidic and some cells are slimed
+			 */
+				stomachTextBoxes.setTextbox(13);
 			}
 		}
 	}
