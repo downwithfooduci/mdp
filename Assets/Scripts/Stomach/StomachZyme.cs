@@ -16,10 +16,14 @@ public class StomachZyme : MonoBehaviour
 	private bool drawHappyZyme = true;			//!< flag to indicate we should draw happy zyme
 	private bool drawConcernedZyme = false;		//!< flag to indicate we should draw concerned zyme
 	private bool drawSlimedZyme = false;		//!< flag to indicate we should draw slimed zyme
+
+	public StomachTextBoxes stomachTextBoxes;
+	private StomachGameManager gm;
 	
 	void Start () 
 	{
 		i = GetComponent<Image> ();
+		gm = FindObjectOfType (typeof(StomachGameManager)) as StomachGameManager;
 	}
 
 	void Update()
@@ -65,5 +69,34 @@ public class StomachZyme : MonoBehaviour
 		drawHappyZyme = false;
 		drawConcernedZyme = false;
 		drawSlimedZyme = true;
+	}
+
+	public void clickOnZyme()
+	{
+		if (gm.getCurrentAcidLevel() == "neutral")
+		{
+			/**
+			 * Stomach is not acidic and cell is not slimed
+			 */
+			stomachTextBoxes.setTextbox (6);
+		} else if (gm.getCurrentAcidLevel() == "acidic")
+		{
+			bool cellSlimed = false;
+			for (int i = 0; i < gm.cellManager.cellScripts.Length; i++)
+			{
+				if (gm.cellManager.cellScripts[i].getCellState() == "slimed")
+				{
+					cellSlimed = true;
+					break;
+				}
+			}
+			/**
+			 * Stomach is acidic but cell is not slimed
+			 */
+			if (cellSlimed)
+			{
+				stomachTextBoxes.setTextbox(8);
+			}
+		}
 	}
 }

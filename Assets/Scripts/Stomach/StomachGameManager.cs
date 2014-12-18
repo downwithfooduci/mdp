@@ -12,7 +12,7 @@ public class StomachGameManager : MonoBehaviour
 
 	private int cellDeaths;
 
-	private CellManager cellManager;
+	public CellManager cellManager;
 	private StomachFoodManager foodManager;
 
 	private string currentAcidLevel = "neutral";
@@ -89,7 +89,6 @@ public class StomachGameManager : MonoBehaviour
 				nextCellActionTime[i] = TIME_TO_REVIVE;
 				elapsedTime[i] = 0f;
 			}
-
 
 			/**
 			 * Need to handle all possible cases if the acid level is neutral or basic
