@@ -625,7 +625,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9105ff12ecb0b8a4697f6ea74ed4ed94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouthOverlay: {fileID: 2800000, guid: c8219fe04f5cccd4c86ab5599bf45e50, type: 3}
+  mouthOverlay: {fileID: 2800000, guid: 2c867245c43d80b4bb55154582411063, type: 3}
   sideBar: {fileID: 2800000, guid: 3b21b9b780f84d8499e3133030066b5e, type: 3}
 --- !u!114 &204818111
 MonoBehaviour:
@@ -639,11 +639,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   epiglottis:
-  - {fileID: 2800000, guid: 4d50e731723e46745a06d7992c910c58, type: 3}
+  - {fileID: 2800000, guid: 77e5a0f300643e243bbf8b0e7742a541, type: 3}
   - {fileID: 2800000, guid: 41544d64676933c419bf5a8a2b344ef5, type: 3}
   uvula:
-  - {fileID: 2800000, guid: f08ee386da500674ba5b4d8959a5fe11, type: 3}
-  - {fileID: 2800000, guid: 1d870d254af38864ca433c18d8bda27c, type: 3}
+  - {fileID: 2800000, guid: e69742396a36c844a950afbb1969246e, type: 3}
+  - {fileID: 2800000, guid: a4cf6ec8dfa0e844da19bd2c6beabc26, type: 3}
 --- !u!114 &204818112
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -655,7 +655,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e0522a1b64190547a6197f13ebb0da1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tongue: {fileID: 2800000, guid: aa72c6d53756f514cab233673686f47c, type: 3}
+  tongue: {fileID: 2800000, guid: ce1ee21d24ed7344ba5983177e00e255, type: 3}
 --- !u!114 &204818113
 MonoBehaviour:
   m_ObjectHideFlags: 0
