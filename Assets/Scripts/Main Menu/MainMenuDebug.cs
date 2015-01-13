@@ -53,9 +53,9 @@ public class MainMenuDebug : MonoBehaviour
 			}
 
 			if (GUI.Button(new Rect(0, 200, 
-			                        100, 50), "StomachStoryboard"))
+			                        100, 50), "Stomach"))
 			{
-				Application.LoadLevel("Stomach");
+				Application.LoadLevel("StomachStoryboard");
 			}
 
 			if (GUI.Button(new Rect(0, 250,
