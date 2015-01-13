@@ -643,7 +643,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   epiglottis:
   - {fileID: 2800000, guid: 77e5a0f300643e243bbf8b0e7742a541, type: 3}
-  - {fileID: 2800000, guid: 41544d64676933c419bf5a8a2b344ef5, type: 3}
+  - {fileID: 2800000, guid: 873822fdb121aa64e8942aa5a8e6d51c, type: 3}
   uvula:
   - {fileID: 2800000, guid: e69742396a36c844a950afbb1969246e, type: 3}
   - {fileID: 2800000, guid: a4cf6ec8dfa0e844da19bd2c6beabc26, type: 3}
@@ -1119,6 +1119,10 @@ Prefab:
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11432568, guid: 5bf66e444940fff4a9fb914c33e60a8c, type: 2}
+      propertyPath: epiglottis.Array.data[1]
+      value: 
+      objectReference: {fileID: 2800000, guid: 873822fdb121aa64e8942aa5a8e6d51c, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5bf66e444940fff4a9fb914c33e60a8c, type: 2}
   m_RootGameObject: {fileID: 204818103}
