@@ -168,6 +168,13 @@ public class Tower : MonoBehaviour
         {
             Transform circle = child.FindChild("Circle");
             circle.renderer.materials[0].color = m_TargetColor;
+
+			//fix bazooka color
+			Transform sphere = child.FindChild("Sphere");
+			if (sphere != null)
+			{
+				sphere.renderer.materials[0].color = m_TargetColor;
+			}
         }
     }
 
