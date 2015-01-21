@@ -19446,7 +19446,7 @@ MonoBehaviour:
   AvailableColors:
   - {r: 0, g: 1, b: 0, a: 1}
   - {r: 1, g: 1, b: 1, a: 1}
-  - {r: 1, g: 0, b: 1, a: 1}
+  - {r: .921568632, g: 0, b: .545098066, a: 1}
   - {r: 1, g: .921568632, b: .0156862754, a: 1}
   placementSound: {fileID: 100000, guid: 49ec0950471884a4b86cbf637330b8d7, type: 2}
   IsMouseOverWall: 0

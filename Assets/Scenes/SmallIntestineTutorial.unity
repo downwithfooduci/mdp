@@ -1147,7 +1147,7 @@ MonoBehaviour:
   AvailableColors:
   - {r: 0, g: 1, b: 0, a: 1}
   - {r: 1, g: 1, b: 1, a: 1}
-  - {r: 1, g: 0, b: 1, a: 1}
+  - {r: .921568632, g: 0, b: .545098066, a: 1}
   - {r: 1, g: 1, b: 0, a: 1}
   placementSound: {fileID: 100000, guid: 49ec0950471884a4b86cbf637330b8d7, type: 2}
   IsMouseOverWall: 0
@@ -10882,7 +10882,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zyme: {fileID: 100000, guid: 532f02dcd37dc0c4a913e5b84575fae9, type: 2}
   zymePopupImageFats1: {fileID: 2800000, guid: 054732fae0daf784685ae26aa6ef91a2, type: 3}
-  zymePopupImageFats2: {fileID: 2800000, guid: a2739d557e59ccf459853ab6d89da2ee, type: 3}
+  zymePopupImageFats2: {fileID: 2800000, guid: 201438964e9a7fb458b0f2524cc3877a, type: 3}
   arrow: {fileID: 2800000, guid: 36135a40868811745b769ad4ad98feaf, type: 3}
   maxTimeSinceStart: 40
 --- !u!114 &1989311883

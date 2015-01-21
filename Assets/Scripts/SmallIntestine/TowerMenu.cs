@@ -20,6 +20,7 @@ public class TowerMenu : MonoBehaviour
 	public GUIStyle sellActive1;			//!< sell button for the base model
 	public GUIStyle sellActive2;			//!< sell button for level1 towers
 	public GUIStyle sellActive3;			//!< sell button for level2 towers
+	public GUIStyle sellInactive;			//!< inactive sell button for the tutorial
 
 	// for sell popup
 	private bool displaySellBox;		//!< mark whether we should draw sell box
@@ -413,7 +414,11 @@ public class TowerMenu : MonoBehaviour
 	 */
 	private void ShowSell(GUIStyle style)
 	{
-		if (GUI.Button(GetSellButtonRect(), "", style))
+		if (Application.loadedLevelName.Equals("SmallIntestineTutorial"))
+		{
+			GUI.Button(GetSellButtonRect(), "", sellInactive);
+			return;
+		} else if (GUI.Button(GetSellButtonRect(), "", style))
 		{
 			// if the sell button is clicked on	
 			IsEnabled = false;						// disable showing the menu

@@ -2859,7 +2859,7 @@ MonoBehaviour:
   AvailableColors:
   - {r: 0, g: 1, b: 0, a: 1}
   - {r: 1, g: 1, b: 1, a: 1}
-  - {r: 1, g: 0, b: 1, a: 1}
+  - {r: .921568632, g: 0, b: .545098066, a: 1}
   - {r: 1, g: .921568632, b: .0156862754, a: 1}
   placementSound: {fileID: 100000, guid: 49ec0950471884a4b86cbf637330b8d7, type: 2}
   IsMouseOverWall: 0
@@ -12675,11 +12675,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: e550430199bfa124493bfc800c2a65b0, type: 2}
       propertyPath: AvailableColors.Array.data[2].r
-      value: 1
+      value: .921568632
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: e550430199bfa124493bfc800c2a65b0, type: 2}
       propertyPath: AvailableColors.Array.data[2].b
-      value: 1
+      value: .545098066
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11400004, guid: e550430199bfa124493bfc800c2a65b0, type: 2}

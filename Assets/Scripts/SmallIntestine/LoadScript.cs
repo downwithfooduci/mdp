@@ -48,7 +48,7 @@ public class LoadScript
 				switch (waveInfo[6][k])
 				{
 				case 'R':
-					colors[k] = new Color(255f/255f, 0f, 255f/255f);	// pink color (can see better than red)
+					colors[k] = new Color(235f/255f, 0f, 139f/255f);	// pink color (can see better than red)
 					break;
 				case 'Y':
 					colors[k] = Color.yellow;
