@@ -94,7 +94,19 @@ public class PhBar : MonoBehaviour
 	 */
 	private void moveCurrentLevelRect(float speed)
 	{
-		currentLevelHeight = currentLevelRect.anchoredPosition.y + (speed * Time.deltaTime);
+		float prevHeight = currentLevelHeight;
+		currentLevelHeight = currentLevelRect.anchoredPosition.y + (speed * Time.deltaTime * .01f * Screen.height);
+		if (currentLevelHeight > (1.08f * Screen.height/2f) || currentLevelHeight < -(1f * Screen.height/2f))
+		{
+			if (currentLevelHeight > 0)
+			{
+				currentLevelHeight = 1.08f * Screen.height/2f;
+			} else
+			{
+				currentLevelHeight = -(1f * Screen.height/2f);
+			}
+
+		}
 		currentLevelRect.anchoredPosition = new Vector2(currentLevelRect.anchoredPosition.x, currentLevelHeight);
 	}
 
