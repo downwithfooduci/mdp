@@ -11,7 +11,7 @@ public class StomachDebug : MonoBehaviour
 	public UnityEngine.UI.InputField timeToBurnInput;
 	public UnityEngine.UI.InputField timeForSlimeDecayInput;
 	public UnityEngine.UI.InputField timeToReviveInput;
-	public UnityEngine.UI.InputField timeForBurnNoSlimeInput;
+	public UnityEngine.UI.InputField timeToBurnNoSlimeInput;
 	public UnityEngine.UI.InputField maxCellDeathsInput;
 	public UnityEngine.UI.InputField acidityThresholdInput;
 	public UnityEngine.UI.InputField basicThresholdInput;
@@ -25,28 +25,21 @@ public class StomachDebug : MonoBehaviour
 	 * parsed from the debugger
 	 */
 	private int maxFood;
-	private float timeToBurnFromNorm;
+	private float timeToBurn;
 	private float timeForSlimeDecay;
 	private float timeToRevive;
-	private float timeToBurnWithSlime;
+	private float timeToBurnNoSlime;
 	private int maxCellDeaths;
-	private int acidity;
-	private int basic;
-	private float acidGainSpeed;
-	private float baseGainSpeed;
+	private int acidityThreshold;
+	private int basicThreshold;
+	private float acidSpeed;
+	private float baseSpeed;
 	private float idleDecaySpeed;
 	private bool useDebugger;
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
-
+	/**
+	 * Function that describes what happens when the debug menu is submitted
+	 */
 	public void onSubmit()
 	{
 		useDebugger = useDebuggerToggle.isOn;
@@ -54,7 +47,16 @@ public class StomachDebug : MonoBehaviour
 		if (useDebugger)
 		{
 			maxFood = int.Parse(maxFoodInput.GetComponent<Text>().text);
-			timeToBurnFromNorm = float.Parse(timeForBurnNoSlimeInput.GetComponent<Text>().text);
+			timeToBurn = float.Parse(timeToBurnInput.GetComponent<Text>().text);
+			timeForSlimeDecay = float.Parse(timeForSlimeDecayInput.GetComponent<Text>().text);
+			timeToRevive = float.Parse(timeToReviveInput.GetComponent<Text>().text);
+			timeToBurnNoSlime = float.Parse(timeToBurnNoSlimeInput.GetComponent<Text>().text);
+			maxCellDeaths = int.Parse(maxCellDeathsInput.GetComponent<Text>().text);
+			acidityThreshold = int.Parse(acidityThresholdInput.GetComponent<Text>().text);
+			basicThreshold = int.Parse(basicThresholdInput.GetComponent<Text>().text);
+			acidSpeed = float.Parse(acidSpeedInput.GetComponent<Text>().text);
+			baseSpeed = float.Parse(baseSpeedInput.GetComponent<Text>().text);
+			idleDecaySpeed = float.Parse(idleDecaySpeedInput.GetComponent<Text>().text);
 		}
 	}
 }
