@@ -7,6 +7,8 @@ public class StomachGameOver : MonoBehaviour
 	public GUIStyle restart;		//!< to store the textures for the restart button
 	public GUIStyle mainMenu;		//!< to store the textures for the mainMenu button
 
+	public int maxFood;
+
 	private StomachFoodManager fm;
 	private bool gameOver;
 
@@ -19,7 +21,7 @@ public class StomachGameOver : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-		if (fm.getNumFoodBlobs() == 11)
+		if (fm.getNumFoodBlobs() == maxFood)
 		{
 			gameOver = true;
 			Time.timeScale = 0;

@@ -1813,7 +1813,7 @@ GameObject:
   - 114: {fileID: 388690625}
   - 114: {fileID: 388690624}
   m_Layer: 5
-  m_Name: TimeForBurnNoSlimeInput
+  m_Name: TimeToDieInput
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2143,6 +2143,7 @@ MonoBehaviour:
     m_FixedHeight: 0
     m_StretchWidth: 1
     m_StretchHeight: 0
+  maxFood: 10
 --- !u!114 &430288449
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2159,6 +2160,7 @@ MonoBehaviour:
   acidSpeedDecayTime: 2
   startingBaseSpeed: 5000
   baseSpeedDecayTime: 2
+  decaySpeed: 200
 --- !u!4 &430288451
 Transform:
   m_ObjectHideFlags: 0
@@ -2802,7 +2804,7 @@ MonoBehaviour:
   timeToBurnInput: {fileID: 789368286}
   timeForSlimeDecayInput: {fileID: 1872410786}
   timeToReviveInput: {fileID: 479755630}
-  timeToBurnNoSlimeInput: {fileID: 0}
+  timeToDieInput: {fileID: 388690624}
   maxCellDeathsInput: {fileID: 2103468839}
   acidityThresholdInput: {fileID: 374219114}
   basicThresholdInput: {fileID: 250408517}
@@ -2810,6 +2812,10 @@ MonoBehaviour:
   baseSpeedInput: {fileID: 1857653334}
   idleDecaySpeedInput: {fileID: 1966337175}
   useDebuggerToggle: {fileID: 174534352}
+  phbar: {fileID: 430288449}
+  stomachGameManager: {fileID: 559039923}
+  stomachChyme: {fileID: 1799892137}
+  stomachGameOver: {fileID: 430288448}
 --- !u!1 &718355788
 GameObject:
   m_ObjectHideFlags: 0
@@ -3245,7 +3251,7 @@ GameObject:
   - 222: {fileID: 896468701}
   - 114: {fileID: 896468700}
   m_Layer: 5
-  m_Name: TimeToBurnNoSlimeLabel
+  m_Name: TimeToDie
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

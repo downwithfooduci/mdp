@@ -20,6 +20,8 @@ public class PhBar : MonoBehaviour
 	private bool startAddBase;						//!< flag to mark whether we are currently adding base
 	private float elapsedTime;						//!< to count the time spent adding acid or base for velocity vector
 
+	public float decaySpeed;
+
 	/**
 	 * Use this for initialization
 	 * Sets all dimenstions relative to screen size
@@ -85,7 +87,7 @@ public class PhBar : MonoBehaviour
 		}
 
 		// if we aren't adding acid or base decay the bar somewhat
-		moveCurrentLevelRect(-200f * Time.deltaTime);
+		moveCurrentLevelRect(-1f * decaySpeed * Time.deltaTime);
 
 	}
 
