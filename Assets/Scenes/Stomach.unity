@@ -1767,10 +1767,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1631601099}
   m_RootOrder: 16
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 91, y: -106}
-  m_SizeDelta: {x: 90, y: -759}
+  m_AnchorMin: {x: .5, y: .5}
+  m_AnchorMax: {x: .5, y: .5}
+  m_AnchoredPosition: {x: -421, y: -106}
+  m_SizeDelta: {x: 90, y: 9}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &387544060
 MonoBehaviour:
@@ -2529,6 +2529,7 @@ GameObject:
   - 224: {fileID: 573502101}
   - 222: {fileID: 573502103}
   - 114: {fileID: 573502102}
+  - 223: {fileID: 573502104}
   m_Layer: 5
   m_Name: AcidLevelIndicator
   m_TagString: Untagged
@@ -2549,10 +2550,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1631601099}
   m_RootOrder: 17
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 90, y: 160}
-  m_SizeDelta: {x: 158, y: -718}
+  m_AnchorMin: {x: .5, y: .5}
+  m_AnchorMax: {x: .5, y: .5}
+  m_AnchoredPosition: {x: -422, y: 160}
+  m_SizeDelta: {x: 158, y: 50}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &573502102
 MonoBehaviour:
@@ -2583,6 +2584,23 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 573502100}
+--- !u!223 &573502104
+Canvas:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 573502100}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
 --- !u!1 &595137068
 GameObject:
   m_ObjectHideFlags: 0
@@ -2784,7 +2802,7 @@ MonoBehaviour:
   timeToBurnInput: {fileID: 789368286}
   timeForSlimeDecayInput: {fileID: 1872410786}
   timeToReviveInput: {fileID: 479755630}
-  timeForBurnNoSlimeInput: {fileID: 388690624}
+  timeToBurnNoSlimeInput: {fileID: 0}
   maxCellDeathsInput: {fileID: 2103468839}
   acidityThresholdInput: {fileID: 374219114}
   basicThresholdInput: {fileID: 250408517}
