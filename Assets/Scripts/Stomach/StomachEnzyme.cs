@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class StomachEnzyme : MonoBehaviour 
 {
-	private SpriteRenderer sr;
+	private Image i;
 	public Sprite activatedTexture;			// to hold the texture of an activated cell
 	public Sprite deactivatedTexture;			// to hold the texture of a deactivated cell
 
@@ -12,7 +13,7 @@ public class StomachEnzyme : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
-		sr = GetComponent<SpriteRenderer> ();
+		i = GetComponent<Image> ();
 		gm = FindObjectOfType (typeof(StomachGameManager)) as StomachGameManager;
 	}
 	
@@ -21,10 +22,10 @@ public class StomachEnzyme : MonoBehaviour
 	{
 		if (gm.getCurrentAcidLevel() == "acidic")
 		{
-			sr.sprite = activatedTexture;
+			i.sprite = activatedTexture;
 		} else
 		{
-			sr.sprite = deactivatedTexture;
+			i.sprite = deactivatedTexture;
 		}
 	}
 }

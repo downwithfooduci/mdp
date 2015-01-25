@@ -17,6 +17,10 @@ public class StomachZyme : MonoBehaviour
 	private bool drawConcernedZyme = false;		//!< flag to indicate we should draw concerned zyme
 	private bool drawSlimedZyme = false;		//!< flag to indicate we should draw slimed zyme
 
+	private float timeToHoldTextBox = 5.0f;
+	private float elapsedTime;
+	private bool refreshImageTimer = false;
+
 	public StomachTextBoxes stomachTextBoxes;
 	private StomachGameManager gm;
 	
@@ -28,6 +32,24 @@ public class StomachZyme : MonoBehaviour
 
 	void Update()
 	{
+		// check if we should refresh the image hold timer
+		if (refreshImageTimer)
+		{
+			elapsedTime = 0f;
+			refreshImageTimer = false;
+		}
+
+		// if the text box is up and has been up fro the max time, remove it
+		if (elapsedTime >= timeToHoldTextBox)
+		{
+			stomachTextBoxes.setTextbox (0);
+		}
+
+		// increment elapsed time
+		elapsedTime += Time.deltaTime;
+
+
+		// all below code just handles which zyme to draw
 		if (drawHappyZyme)
 		{
 			i.sprite = zymeHappy;
@@ -50,6 +72,10 @@ public class StomachZyme : MonoBehaviour
 		}
 	}
 
+	/**
+	 * Accessor function so we can change to happy zyme from other scripts
+	 * if necessary
+	 */
 	public void setDrawHappyZyme()
 	{
 		drawHappyZyme = true;
@@ -57,6 +83,10 @@ public class StomachZyme : MonoBehaviour
 		drawSlimedZyme = false;
 	}
 
+	/**
+	 * Accessor function so we can change to concerned zyme from other scripts
+	 * if necessary
+	 */
 	public void setDrawConcernedZyme()
 	{
 		drawHappyZyme = false;
@@ -64,6 +94,10 @@ public class StomachZyme : MonoBehaviour
 		drawSlimedZyme = false;
 	}
 
+	/**
+	 * Accessor function so we can change to slimed zyme from other scripts
+	 * if necessary
+	 */
 	public void setDrawSlimedZyme()
 	{
 		drawHappyZyme = false;
@@ -71,6 +105,10 @@ public class StomachZyme : MonoBehaviour
 		drawSlimedZyme = true;
 	}
 
+	/**
+	 * complex logic for which textbox to show for zyme's speech based
+	 * on game conditions...
+	 */
 	public void clickOnZyme()
 	{
 		if (gm.getCurrentAcidLevel() == "neutral")
@@ -79,6 +117,7 @@ public class StomachZyme : MonoBehaviour
 			 * Stomach is not acidic and cell is not slimed
 			 */
 			stomachTextBoxes.setTextbox (6);
+			refreshImageTimer = true;
 		} else if (gm.getCurrentAcidLevel() == "acidic")
 		{
 			bool cellSlimed = false;
@@ -97,12 +136,14 @@ public class StomachZyme : MonoBehaviour
 			 * Stomach is acidic but cell is not slimed
 			 */
 				stomachTextBoxes.setTextbox(8);
+				refreshImageTimer = true;
 			} else
 			{
 			/**
 			 * Stomach is acidic and some cells are slimed
 			 */
 				stomachTextBoxes.setTextbox(13);
+				refreshImageTimer = true;
 			}
 		}
 	}
