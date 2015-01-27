@@ -8,6 +8,8 @@ public class StomachEnzyme : MonoBehaviour
 	public Sprite activatedTexture;			// to hold the texture of an activated cell
 	public Sprite deactivatedTexture;			// to hold the texture of a deactivated cell
 
+	public StomachTextBoxes textboxes;
+
 	private StomachGameManager gm;
 
 	// Use this for initialization
@@ -26,6 +28,14 @@ public class StomachEnzyme : MonoBehaviour
 		} else
 		{
 			i.sprite = deactivatedTexture;
+		}
+	}
+
+	public void clickOnEnzyme()
+	{
+		if (gm.getCurrentAcidLevel() != "acidic")
+		{
+			textboxes.setTextbox(5);
 		}
 	}
 }

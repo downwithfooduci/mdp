@@ -22,6 +22,10 @@ public class PhBar : MonoBehaviour
 
 	public float decaySpeed;
 
+	public StomachTextBoxes textboxes;
+	private StomachGameManager gm;
+	private StomachFoodManager fm;
+
 	/**
 	 * Use this for initialization
 	 * Sets all dimenstions relative to screen size
@@ -29,12 +33,13 @@ public class PhBar : MonoBehaviour
 	 */
 	void Start () 
 	{
+		gm = FindObjectOfType (typeof(StomachGameManager)) as StomachGameManager;
+		fm = FindObjectOfType (typeof(StomachFoodManager)) as StomachFoodManager;
+
 		// starting level of the current level indicator
 		// right now just start it at a random height...
-		while (currentLevelHeight == 0 || (currentLevelHeight > 120 && currentLevelHeight < 190))
-		{
-			currentLevelHeight = Random.Range (-90f, 292f);
-		}
+		currentLevelHeight = Random.Range (40f, 90f);
+
 		currentLevelRect.anchoredPosition = new Vector2(currentLevelRect.anchoredPosition.x, currentLevelHeight);
 	}
 	
@@ -127,6 +132,11 @@ public class PhBar : MonoBehaviour
 	 */
 	public void addBase()
 	{
+		if (gm.getCurrentAcidLevel() != "acidic" && fm.getNumFoodBlobs() != 0)
+		{
+			textboxes.setTextbox(4);
+		}
+
 		startAddBase = true;		// throw the flag to indicate that we should start adding base
 		startAddAcid = false;		// if we were adding acid, override the decision (no longer add acid)
 		elapsedTime = 0f;			// reset elapsed time

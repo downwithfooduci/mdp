@@ -1,21 +1,11 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Stomach\StomachZyme.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Stomach\StomachGameManager.cs">
     <Files>
-      <File FileName="Assets\Scripts\Stomach\StomachFoodBlob.cs" Line="24" Column="35" />
-      <File FileName="Assets\Scripts\SmallIntestine\TowerSpawner.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Stomach\StomachReturnButton.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Stomach\CellManager.cs" Line="11" Column="16" />
-      <File FileName="Assets\Scripts\Stomach\StomachDebugGUI.cs" Line="27" Column="32" />
-      <File FileName="Assets\Scripts\Stomach\DisableMainGUI.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\SmallIntestine\Tower.cs" Line="162" Column="24" />
-      <File FileName="Assets\Scripts\Stomach\StomachFoodManager.cs" Line="27" Column="19" />
-      <File FileName="Assets\Scripts\Stomach\StomachGameManager.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Stomach\PhBar.cs" Line="63" Column="4" />
-      <File FileName="Assets\Scripts\Stomach\StomachDebug.cs" Line="104" Column="51" />
-      <File FileName="Assets\Scripts\Stomach\StomachChyme.cs" Line="27" Column="16" />
-      <File FileName="Assets\Scripts\Stomach\StomachGameOver.cs" Line="29" Column="3" />
-      <File FileName="Assets\Scripts\Stomach\StomachZyme.cs" Line="35" Column="36" />
+      <File FileName="Assets\Scripts\Stomach\StomachTextBoxes.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Stomach\StomachZyme.cs" Line="37" Column="4" />
+      <File FileName="Assets\Scripts\Stomach\PhBar.cs" Line="59" Column="26" />
+      <File FileName="Assets\Scripts\Stomach\StomachGameManager.cs" Line="201" Column="4" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -15,6 +15,8 @@ public class StomachFoodManager : MonoBehaviour
 	{
 		elapsedTime += Time.deltaTime;
 
+		// keeps track of food blobs
+		// when a food blob is digested it will need to be removed from the list of spawned blobs
 		if (elapsedTime > timeBetweenFoodSpawns)
 		{
 			GameObject temp = (GameObject)Instantiate (stomachFoodBlob);
@@ -27,5 +29,10 @@ public class StomachFoodManager : MonoBehaviour
 	public int getNumFoodBlobs()
 	{
 		return spawnedFoodBlobs.Count;
+	}
+
+	//TODO: implement
+	public void removeFoodBlob()
+	{
 	}
 }
