@@ -29,6 +29,11 @@ public class CellButtons : MonoBehaviour
 
 	private CellManager cellManager;
 
+	// record click data
+	private int slimeClicks;
+	private int singClicks;
+	private int dieClicks;
+
 	void Start()
 	{
 		cellManager = FindObjectOfType (typeof(CellManager)) as CellManager;
@@ -81,10 +86,12 @@ public class CellButtons : MonoBehaviour
 		           showBucket)
 		{
 			cellManager.cellScripts[cell - 1].setCellState("slimed");
+			slimeClicks++;
 		} else if (menuSemaphore <= 0 &&
 		           showScythe)
 		{
 			cellManager.cellScripts[cell - 1].setCellState("dead");
+			dieClicks++;
 		} else
 		{
 			isEnabled = false;

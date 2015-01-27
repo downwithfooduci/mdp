@@ -17,10 +17,6 @@ public class StomachZyme : MonoBehaviour
 	private bool drawConcernedZyme = false;		//!< flag to indicate we should draw concerned zyme
 	private bool drawSlimedZyme = false;		//!< flag to indicate we should draw slimed zyme
 
-	private float timeToHoldTextBox = 5.0f;
-	private float elapsedTime;
-	private bool refreshImageTimer = false;
-
 	public StomachTextBoxes stomachTextBoxes;
 	private StomachGameManager gm;
 	
@@ -32,23 +28,6 @@ public class StomachZyme : MonoBehaviour
 
 	void Update()
 	{
-		// check if we should refresh the image hold timer
-		if (refreshImageTimer)
-		{
-			elapsedTime = 0f;
-			refreshImageTimer = false;
-		}
-
-		// if the text box is up and has been up fro the max time, remove it
-		if (elapsedTime >= timeToHoldTextBox)
-		{
-			stomachTextBoxes.setTextbox (0);
-		}
-
-		// increment elapsed time
-		elapsedTime += Time.deltaTime;
-
-
 		// all below code just handles which zyme to draw
 		if (drawHappyZyme)
 		{
@@ -117,7 +96,7 @@ public class StomachZyme : MonoBehaviour
 			 * Stomach is not acidic and cell is not slimed
 			 */
 			stomachTextBoxes.setTextbox (6);
-			refreshImageTimer = true;
+
 		} else if (gm.getCurrentAcidLevel() == "acidic")
 		{
 			bool cellSlimed = false;
@@ -136,14 +115,14 @@ public class StomachZyme : MonoBehaviour
 			 * Stomach is acidic but cell is not slimed
 			 */
 				stomachTextBoxes.setTextbox(8);
-				refreshImageTimer = true;
+
 			} else
 			{
 			/**
 			 * Stomach is acidic and some cells are slimed
 			 */
 				stomachTextBoxes.setTextbox(13);
-				refreshImageTimer = true;
+
 			}
 		}
 	}
