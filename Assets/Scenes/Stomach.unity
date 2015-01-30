@@ -5127,6 +5127,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 8ca5d23287b593b4a870786dbcb8f330, type: 3}
   - {fileID: 21300000, guid: 5eaa360ab0b35514fba64c5c58f10991, type: 3}
   - {fileID: 21300000, guid: 17523ecc851856c4e9e3149df76bf056, type: 3}
+  textboxes: {fileID: 1785279646}
 --- !u!1 &1446561466
 GameObject:
   m_ObjectHideFlags: 0
@@ -7715,6 +7716,7 @@ MonoBehaviour:
     m_FixedHeight: 0
     m_StretchWidth: 1
     m_StretchHeight: 0
+  mainCell: {fileID: 1435062969}
 --- !u!1 &1914811862
 GameObject:
   m_ObjectHideFlags: 0

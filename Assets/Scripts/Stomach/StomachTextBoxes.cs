@@ -2,14 +2,17 @@
 using UnityEngine.UI;
 using System.Collections;
 
+/**
+ * Controls the behavior of the textbox display
+ */
 public class StomachTextBoxes : MonoBehaviour 
 {
-	public Image textbox;
-	public Sprite[] textboxes;
+	public Image textbox;							//!< reference to the image that displays the textbox
+	public Sprite[] textboxes;						//!< reference to a script with textbox specific functions
 
-	private float timeToHoldTextBox = 5.0f;
-	private float elapsedTime;
-	private bool refreshImageTimer = false;
+	private float timeToHoldTextBox = 5.0f;			//!< Time the textbox should stay up on the screen before fading
+	private float elapsedTime;						//!< count the time elapsed since an event
+	private bool refreshImageTimer = false;			//!< boolean to mark if we should rfresh the elapsed Time timer
 
 	void Update()
 	{
@@ -30,6 +33,10 @@ public class StomachTextBoxes : MonoBehaviour
 		elapsedTime += Time.deltaTime;
 	}
 
+	/**
+	 * Function to call to set a textbox to the right message and 
+	 * hold it up for 5 seconds
+	 */
 	public void setTextbox(int index)
 	{
 		refreshImageTimer = true;

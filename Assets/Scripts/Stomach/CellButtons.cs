@@ -28,6 +28,7 @@ public class CellButtons : MonoBehaviour
 	private int menuSemaphore;
 
 	private CellManager cellManager;
+	public MainCell mainCell;
 
 	// record click data
 	private int slimeClicks;
@@ -142,7 +143,8 @@ public class CellButtons : MonoBehaviour
 	{
 		if (GUI.Button (new Rect (mouseX - buttonSize.x - .02f * Screen.width, mouseY, buttonSize.x, buttonSize.y), "", singButton))
 		{
-
+			// display the zyme text box corresponding to clicking on sing
+			mainCell.singClicked();
 		}
 	}
 
@@ -153,6 +155,9 @@ public class CellButtons : MonoBehaviour
 	{
 		if (GUI.Button (new Rect (mouseX, mouseY, buttonSize.x, buttonSize.y), "", mucousButton))
 		{
+			// display the zyme text box corresponding to clicking on mucous
+			mainCell.mucousClicked();
+
 			// for proper menu behavior
 			isEnabled = false;
 			menuSemaphore = 10;
@@ -175,6 +180,9 @@ public class CellButtons : MonoBehaviour
 	{
 		if (GUI.Button (new Rect (mouseX + buttonSize.x + .02f * Screen.width, mouseY, buttonSize.x, buttonSize.y), "", dieButton))
 		{
+			// display the zyme text box corresponding to clicking on die
+			mainCell.dieClicked();
+
 			// for proper menu behavior
 			isEnabled = false;
 			menuSemaphore = 10;
