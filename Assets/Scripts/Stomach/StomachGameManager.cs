@@ -13,7 +13,6 @@ public class StomachGameManager : MonoBehaviour
 	private int cellDeaths;
 
 	public CellManager cellManager;
-	private StomachFoodManager foodManager;
 
 	private string currentAcidLevel = "neutral";
 	private float[] elapsedTime;
@@ -24,7 +23,6 @@ public class StomachGameManager : MonoBehaviour
 	void Start () 
 	{
 		cellManager = FindObjectOfType(typeof(CellManager)) as CellManager;
-		foodManager = FindObjectOfType (typeof(StomachFoodManager)) as StomachFoodManager;
 
 		elapsedTime = new float[cellManager.cellScripts.Length];
 		nextCellActionTime = new float[cellManager.cellScripts.Length];
