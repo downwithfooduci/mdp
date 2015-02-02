@@ -14,10 +14,13 @@ public class StomachTextBoxes : MonoBehaviour
 	private float elapsedTime;						//!< count the time elapsed since an event
 	private bool refreshImageTimer = false;			//!< boolean to mark if we should rfresh the elapsed Time timer
 
-	private float timeSinceGameStart;
-	private float timeToShowHint = 5f;
-	private bool hintShown;
+	private float timeSinceGameStart;				//!< to hold the time passed since the game started
+	private float timeToShowHint = 5f;				//!< the time that has passed when we display the first hint
+	private bool hintShown;							//!< flag to mark the hint has been shown
 
+	/**
+	 * Update is called once each frame
+	 */
 	void Update()
 	{
 		// increment elapsed time

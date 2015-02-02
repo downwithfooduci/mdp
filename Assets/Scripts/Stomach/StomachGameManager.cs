@@ -1,33 +1,42 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/**
+ * Most generic manager for the stomach game
+ */
 public class StomachGameManager : MonoBehaviour 
 {
 	// values that shouldn't normally be changed during game play
-	public float TIME_TO_BURN;
-	public float TIME_TO_DIE;
-	public float TIME_FOR_SLIME_FADE;
-	public float TIME_TO_REVIVE;
-	public int MAX_CELL_DEATHS;
+	public float TIME_TO_BURN;							//!< to hold the time for a cell to burn
+	public float TIME_TO_DIE;							//!< to hold the time for a cell to die
+	public float TIME_FOR_SLIME_FADE;					//!< to hold the time for the slime to burn off a cell in acid
+	public float TIME_TO_REVIVE;						//!< to hold the time for a cell to revive from a dead state
+	public int MAX_CELL_DEATHS;							//!< to count the amount of time that can pass before a cell dies
 
-	private int cellDeaths;
+	private int cellDeaths;								//!< actually count the cell deaths
 
-	public CellManager cellManager;
+	public CellManager cellManager;						//!< hold a reference to the cell manager
 
-	private string currentAcidLevel = "neutral";
-	private float[] elapsedTime;
-	private float[] nextCellActionTime;
-	private string[] lastCellState;
+	private string currentAcidLevel = "neutral";		//!< default acid level is neutral
 
-	// Use this for initialization
+	private float[] elapsedTime;						//!< array to hold the time elapsed since last event for each cell
+	private float[] nextCellActionTime;					//!< array to hold the time until the next cell state change
+	private string[] lastCellState;						//!< array to hold the last known state of each cell
+
+	/**
+	 * Use this for initialization
+	 */
 	void Start () 
 	{
+		// get references
 		cellManager = FindObjectOfType(typeof(CellManager)) as CellManager;
 
+		// initialize arrays
 		elapsedTime = new float[cellManager.cellScripts.Length];
 		nextCellActionTime = new float[cellManager.cellScripts.Length];
 		lastCellState = new string[cellManager.cellScripts.Length];
 
+		// populate arrays
 		for (int i = 0; i < cellManager.cellScripts.Length; i++)
 		{
 			nextCellActionTime[i] = Mathf.Infinity;
@@ -35,7 +44,9 @@ public class StomachGameManager : MonoBehaviour
 		}
 	}
 	
-	// Update is called once per frame
+	/**
+	 * Update is called once per frame
+	 */
 	void Update () 
 	{
 		/**
@@ -181,11 +192,17 @@ public class StomachGameManager : MonoBehaviour
 		}
 	}
 
+	/**
+	 * Function that can be called to set the current acid level
+	 */
 	public void setCurrentAcidLevel(string currentAcidLevel)
 	{
 		this.currentAcidLevel = currentAcidLevel;
 	}
 
+	/**
+	 * Function that can be called to get the current acid level
+	 */
 	public string getCurrentAcidLevel()
 	{
 		return currentAcidLevel;

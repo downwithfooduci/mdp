@@ -20,12 +20,12 @@ public class PhBar : MonoBehaviour
 	private bool startAddBase;						//!< flag to mark whether we are currently adding base
 	private float elapsedTime;						//!< to count the time spent adding acid or base for velocity vector
 
-	public float decaySpeed;
+	public float decaySpeed;						//!< speed at which acid decays on idling
 
 	// to help display the proper textboxes
-	public StomachTextBoxes textboxes;
-	private StomachGameManager gm;
-	private StomachFoodManager fm;
+	public StomachTextBoxes textboxes;				//!< reference to the textboxes script
+	private StomachGameManager gm;					//!< reference to the stomach game manager
+	private StomachFoodManager fm;					//!< reference to the stomach food manager
 
 	/**
 	 * Use this for initialization
@@ -34,6 +34,7 @@ public class PhBar : MonoBehaviour
 	 */
 	void Start () 
 	{
+		// get references
 		gm = FindObjectOfType (typeof(StomachGameManager)) as StomachGameManager;
 		fm = FindObjectOfType (typeof(StomachFoodManager)) as StomachFoodManager;
 
@@ -94,7 +95,6 @@ public class PhBar : MonoBehaviour
 
 		// if we aren't adding acid or base decay the bar somewhat
 		moveCurrentLevelRect(-1f * decaySpeed * Time.deltaTime);
-
 	}
 
 	/**
@@ -102,6 +102,7 @@ public class PhBar : MonoBehaviour
 	 */
 	private void moveCurrentLevelRect(float speed)
 	{
+		// *** I DON'T REALLY UNDERSTAND HOW THIS WORKS...THIS CODE IS BUGGY NEEDS FIXING
 		currentLevelHeight = currentLevelRect.anchoredPosition.y + (speed * Time.deltaTime * .01f * Screen.height);
 		if (currentLevelHeight > (1.08f * Screen.height/2f) || currentLevelHeight < -(1f * Screen.height/2f))
 		{
@@ -124,7 +125,7 @@ public class PhBar : MonoBehaviour
 	{
 		if (gm.getCurrentAcidLevel() == "acidic")
 		{
-			// first check if any cells are slimed
+			// check if any cells are slimed
 			bool cellSlimed = false;
 			for (int i = 0; i < gm.cellManager.cellScripts.Length; i++)
 			{
@@ -135,6 +136,8 @@ public class PhBar : MonoBehaviour
 				}
 			}
 
+			// if the stomach is acidic and at least one cell is slimed, show the corresponding
+			// textbox
 			if (cellSlimed)
 			{
 				textboxes.setTextbox(14);
@@ -151,8 +154,8 @@ public class PhBar : MonoBehaviour
 	 */
 	public void addBase()
 	{
+		// check if any cells are burning
 		bool cellBurning = false;
-		
 		for (int i = 0; i < gm.cellManager.cellScripts.Length; i++)
 		{
 			if (gm.cellManager.cellScripts[i].getCellState() == "burning")
@@ -162,6 +165,7 @@ public class PhBar : MonoBehaviour
 			}
 		}
 
+		// check if we are in any of the conditions where a textbox should be shown
 		if (gm.getCurrentAcidLevel() != "acidic" && fm.getNumFoodBlobs() != 0)
 		{
 			textboxes.setTextbox(4);

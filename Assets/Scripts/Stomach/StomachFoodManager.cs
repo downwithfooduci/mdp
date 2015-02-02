@@ -2,15 +2,22 @@
 using System.Collections;
 using System.Collections.Generic;
 
+/**
+ * Manager for stomach food
+ */
 public class StomachFoodManager : MonoBehaviour 
 {
-	public GameObject stomachFoodBlob;
+	public GameObject stomachFoodBlob;				//!< to hold the gameobject for stomach food blobs
+
+	// create a list to hold all the stomach food blobs currently in the game
 	private List<StomachFoodBlob> spawnedFoodBlobs = new List<StomachFoodBlob>();
 
-	public float timeBetweenFoodSpawns;
-	private float elapsedTime;
+	public float timeBetweenFoodSpawns;				//!< for the time between food spawns
+	private float elapsedTime;						//!< to count elapsed time to see if we should create a new food blob
 	
-	// Update is called once per frame
+	/**
+	 * Update is called once per frame
+	 */
 	void Update () 
 	{
 		elapsedTime += Time.deltaTime;
@@ -26,6 +33,9 @@ public class StomachFoodManager : MonoBehaviour
 		}
 	}
 
+	/**
+	 * Returns the number of food blobs current in the list
+	 */
 	public int getNumFoodBlobs()
 	{
 		return spawnedFoodBlobs.Count;

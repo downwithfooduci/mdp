@@ -2,23 +2,33 @@
 using UnityEngine.UI;
 using System.Collections;
 
+/**
+ * Script to handle behavior specific to the main cell (2)
+ */
 public class MainCell : MonoBehaviour 
 {
 	private StomachCell mainCellScript;		//!< main cell script to use for state changes
-	public Image face;
-	public Sprite[] cellFaces;
-	public StomachTextBoxes textboxes;
+	public StomachTextBoxes textboxes;		//!< reference to the stomach text boxes script
 
-	private bool wasSingClicked;
-	private float elapsedTime = 0f;
-	private float maxElapsedTime = 2f;
+	public Image face;						//!< reference to the image drawing the face on cell 2
+	public Sprite[] cellFaces;				//!< array holding all possible cell faces
+	
+	private bool wasSingClicked;			//!< flag to indicate if sing was pressed (for textbox behavior)
+	private float elapsedTime = 0f;			//!< to count time
+	private float maxElapsedTime = 2f;		//!< max amount of time allowed to pass before event change
 
-	// Use this for initialization
+	/**
+	 * Use this for initialization
+	 */
 	void Start () 
 	{
+		// get the reference to the main cell script
 		mainCellScript = gameObject.GetComponent<StomachCell> ();
 	}
 
+	/**
+	 * Update functions.Called every frame
+	 */
 	void Update()
 	{
 		/**
