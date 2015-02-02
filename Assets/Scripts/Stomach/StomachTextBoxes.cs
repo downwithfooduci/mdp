@@ -14,8 +14,16 @@ public class StomachTextBoxes : MonoBehaviour
 	private float elapsedTime;						//!< count the time elapsed since an event
 	private bool refreshImageTimer = false;			//!< boolean to mark if we should rfresh the elapsed Time timer
 
+	private float timeSinceGameStart;
+	private float timeToShowHint = 5f;
+	private bool hintShown;
+
 	void Update()
 	{
+		// increment elapsed time
+		elapsedTime += Time.deltaTime;
+		timeSinceGameStart += Time.deltaTime;
+
 		// check if we should refresh the image hold timer
 		if (refreshImageTimer)
 		{
@@ -27,10 +35,16 @@ public class StomachTextBoxes : MonoBehaviour
 		if (elapsedTime >= timeToHoldTextBox)
 		{
 			setTextbox (0);
+		} else
+		{
+			return;
 		}
-		
-		// increment elapsed time
-		elapsedTime += Time.deltaTime;
+
+		if (!hintShown && timeSinceGameStart > timeToShowHint)
+		{
+			setTextbox(7);
+			hintShown = true;
+		}
 	}
 
 	/**

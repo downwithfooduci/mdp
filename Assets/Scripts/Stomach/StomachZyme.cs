@@ -19,6 +19,10 @@ public class StomachZyme : MonoBehaviour
 
 	public StomachTextBoxes stomachTextBoxes;
 	private StomachGameManager gm;
+	public PhBar phbar;
+
+	private int timesCodeReachedTB11;			//!< needed for changing zyme image and textbox display for certain cases...
+	private int timesCodeReachedTB8;
 	
 	void Start () 
 	{
@@ -90,32 +94,56 @@ public class StomachZyme : MonoBehaviour
 	 */
 	public void clickOnZyme()
 	{
-		if (gm.getCurrentAcidLevel() == "neutral")
+		// first check if any cells are slimed
+		bool cellSlimed = false;
+		for (int i = 0; i < gm.cellManager.cellScripts.Length; i++)
+		{
+			if (gm.cellManager.cellScripts[i].getCellState() == "slimed")
+			{
+				cellSlimed = true;
+				break;
+			}
+		}
+
+		if (gm.getCurrentAcidLevel() == "neutral" && !cellSlimed)
 		{
 			/**
 			 * Stomach is not acidic and cell is not slimed
 			 */
 			stomachTextBoxes.setTextbox (6);
-
+		} else if ((gm.getCurrentAcidLevel() == "neutral" || gm.getCurrentAcidLevel() == "basic") 
+		           && cellSlimed)
+		{
+			timesCodeReachedTB11++;
+			/**
+			 * Stomach is slimed but the acidity has not been raised
+			 */
+			if (timesCodeReachedTB11 == 1)
+			{
+				stomachTextBoxes.setTextbox(11);
+			} else if (timesCodeReachedTB11 == 2)
+			{
+				setDrawSlimedZyme();
+			} else if (timesCodeReachedTB11 == 3)
+			{
+				stomachTextBoxes.setTextbox(12);
+			}
 		} else if (gm.getCurrentAcidLevel() == "acidic")
 		{
-			bool cellSlimed = false;
-			for (int i = 0; i < gm.cellManager.cellScripts.Length; i++)
-			{
-				if (gm.cellManager.cellScripts[i].getCellState() == "slimed")
-				{
-					cellSlimed = true;
-					break;
-				}
-			}
-
 			if (cellSlimed)
 			{
+				timesCodeReachedTB8++;
+
 			/**
 			 * Stomach is acidic but cell is not slimed
 			 */
-				stomachTextBoxes.setTextbox(8);
-
+				if (timesCodeReachedTB11 == 1)
+				{
+					stomachTextBoxes.setTextbox(8);
+				} else
+				{
+					stomachTextBoxes.setTextbox(9);
+				}
 			} else
 			{
 			/**

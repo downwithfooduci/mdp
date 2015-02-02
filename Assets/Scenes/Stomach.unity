@@ -6932,6 +6932,7 @@ MonoBehaviour:
   zymeConcerned: {fileID: 21300000, guid: bf9fe0f1f6e5c484eb2035298af23892, type: 3}
   zymeSlimed: {fileID: 21300000, guid: a42bdae24d7336d43bc5c5461acf6381, type: 3}
   stomachTextBoxes: {fileID: 1785279646}
+  phbar: {fileID: 430288449}
 --- !u!114 &1832728654
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -22,9 +22,14 @@ public class PhBar : MonoBehaviour
 
 	public float decaySpeed;
 
+	// to help display the proper textboxes
 	public StomachTextBoxes textboxes;
 	private StomachGameManager gm;
 	private StomachFoodManager fm;
+
+	// hold click data for acid/base barrels
+	private int acidClicks;
+	private int baseClicks;
 
 	/**
 	 * Use this for initialization
@@ -122,6 +127,27 @@ public class PhBar : MonoBehaviour
 	 */
 	public void addAcid()
 	{
+		acidClicks++;
+
+		if (gm.getCurrentAcidLevel() == "acidic")
+		{
+			// first check if any cells are slimed
+			bool cellSlimed = false;
+			for (int i = 0; i < gm.cellManager.cellScripts.Length; i++)
+			{
+				if (gm.cellManager.cellScripts[i].getCellState() == "slimed")
+				{
+					cellSlimed = true;
+					break;
+				}
+			}
+
+			if (cellSlimed)
+			{
+				textboxes.setTextbox(14);
+			}
+		}
+
 		startAddAcid = true;		// throw the flag to indicate we should start adding acid
 		startAddBase = false;		// if we were adding base, override the decision (no longer add base)
 		elapsedTime = 0f;			// reset elapsed time
@@ -132,10 +158,12 @@ public class PhBar : MonoBehaviour
 	 */
 	public void addBase()
 	{
+		baseClicks++;
+
 		if (gm.getCurrentAcidLevel() != "acidic" && fm.getNumFoodBlobs() != 0)
 		{
 			textboxes.setTextbox(4);
-		}
+		} 
 
 		startAddBase = true;		// throw the flag to indicate that we should start adding base
 		startAddAcid = false;		// if we were adding acid, override the decision (no longer add acid)
@@ -148,5 +176,21 @@ public class PhBar : MonoBehaviour
 	public float getCurrentLevelRectHeight()
 	{
 		return currentLevelHeight;
+	}
+
+	/**
+	 * Function to return the number of times the acid barrel has been clicked
+	 */
+	public int getAcidClicks()
+	{
+		return acidClicks;
+	}
+
+	/** 
+	 * Function to return the number of times the base barrel has been clicked
+	 */
+	public int getBaseClicks()
+	{
+		return baseClicks;
 	}
 }
