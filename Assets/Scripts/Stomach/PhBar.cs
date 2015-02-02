@@ -27,10 +27,6 @@ public class PhBar : MonoBehaviour
 	private StomachGameManager gm;
 	private StomachFoodManager fm;
 
-	// hold click data for acid/base barrels
-	private int acidClicks;
-	private int baseClicks;
-
 	/**
 	 * Use this for initialization
 	 * Sets all dimenstions relative to screen size
@@ -127,8 +123,6 @@ public class PhBar : MonoBehaviour
 	 */
 	public void addAcid()
 	{
-		acidClicks++;
-
 		if (gm.getCurrentAcidLevel() == "acidic")
 		{
 			// first check if any cells are slimed
@@ -158,12 +152,24 @@ public class PhBar : MonoBehaviour
 	 */
 	public void addBase()
 	{
-		baseClicks++;
+		bool cellBurning = false;
+		
+		for (int i = 0; i < gm.cellManager.cellScripts.Length; i++)
+		{
+			if (gm.cellManager.cellScripts[i].getCellState() == "burning")
+			{
+				cellBurning = true;
+				break;
+			}
+		}
 
 		if (gm.getCurrentAcidLevel() != "acidic" && fm.getNumFoodBlobs() != 0)
 		{
 			textboxes.setTextbox(4);
-		} 
+		} else if (gm.getCurrentAcidLevel() == "acidic" || cellBurning)
+		{
+			textboxes.setTextbox(10);
+		}
 
 		startAddBase = true;		// throw the flag to indicate that we should start adding base
 		startAddAcid = false;		// if we were adding acid, override the decision (no longer add acid)
@@ -176,21 +182,5 @@ public class PhBar : MonoBehaviour
 	public float getCurrentLevelRectHeight()
 	{
 		return currentLevelHeight;
-	}
-
-	/**
-	 * Function to return the number of times the acid barrel has been clicked
-	 */
-	public int getAcidClicks()
-	{
-		return acidClicks;
-	}
-
-	/** 
-	 * Function to return the number of times the base barrel has been clicked
-	 */
-	public int getBaseClicks()
-	{
-		return baseClicks;
 	}
 }

@@ -96,6 +96,7 @@ public class StomachZyme : MonoBehaviour
 	{
 		// first check if any cells are slimed
 		bool cellSlimed = false;
+
 		for (int i = 0; i < gm.cellManager.cellScripts.Length; i++)
 		{
 			if (gm.cellManager.cellScripts[i].getCellState() == "slimed")
@@ -105,12 +106,45 @@ public class StomachZyme : MonoBehaviour
 			}
 		}
 
+		// next check if any cells are burning
+		bool cellBurning = false;
+
+		for (int i = 0; i < gm.cellManager.cellScripts.Length; i++)
+		{
+			if (gm.cellManager.cellScripts[i].getCellState() == "burning")
+			{
+				cellBurning = true;
+				break;
+			}
+		}
+
+		// let burning messages take priority so show them first
+		if ((cellBurning || !cellSlimed) && gm.getCurrentAcidLevel() == "acidic")
+		{
+			timesCodeReachedTB8++;
+			
+			/**
+			 * Stomach is acidic but cell is not slimed
+			 */
+			if (timesCodeReachedTB8 == 1)
+			{
+				stomachTextBoxes.setTextbox(8);
+				return;
+			} else
+			{
+				stomachTextBoxes.setTextbox(9);
+				return;
+			}
+		}
+
+		// if nothing is burning then hire slimed/other cases
 		if (gm.getCurrentAcidLevel() == "neutral" && !cellSlimed)
 		{
 			/**
 			 * Stomach is not acidic and cell is not slimed
 			 */
 			stomachTextBoxes.setTextbox (6);
+			return;
 		} else if ((gm.getCurrentAcidLevel() == "neutral" || gm.getCurrentAcidLevel() == "basic") 
 		           && cellSlimed)
 		{
@@ -121,37 +155,23 @@ public class StomachZyme : MonoBehaviour
 			if (timesCodeReachedTB11 == 1)
 			{
 				stomachTextBoxes.setTextbox(11);
+				return;
 			} else if (timesCodeReachedTB11 == 2)
 			{
 				setDrawSlimedZyme();
+				return;
 			} else if (timesCodeReachedTB11 == 3)
 			{
 				stomachTextBoxes.setTextbox(12);
+				return;
 			}
 		} else if (gm.getCurrentAcidLevel() == "acidic")
 		{
-			if (cellSlimed)
-			{
-				timesCodeReachedTB8++;
-
-			/**
-			 * Stomach is acidic but cell is not slimed
-			 */
-				if (timesCodeReachedTB11 == 1)
-				{
-					stomachTextBoxes.setTextbox(8);
-				} else
-				{
-					stomachTextBoxes.setTextbox(9);
-				}
-			} else
-			{
 			/**
 			 * Stomach is acidic and some cells are slimed
 			 */
-				stomachTextBoxes.setTextbox(13);
-
-			}
+			stomachTextBoxes.setTextbox(13);
+			return;
 		}
 	}
 }

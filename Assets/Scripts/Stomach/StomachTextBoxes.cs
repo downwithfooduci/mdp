@@ -40,6 +40,7 @@ public class StomachTextBoxes : MonoBehaviour
 			return;
 		}
 
+		// for showing the initial hint in the game
 		if (!hintShown && timeSinceGameStart > timeToShowHint)
 		{
 			setTextbox(7);
