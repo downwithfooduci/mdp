@@ -106,6 +106,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: d4baaea76dab6804c898553a3ac21e9c, type: 3}
   - {fileID: 21300000, guid: 2fe46faaabf478c459ac0f00a28fad7a, type: 3}
   parent: {fileID: 0}
+  digestTime: 10
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -11,6 +11,8 @@ public class StomachFoodBlob : MonoBehaviour
 
 	public GameObject parent;					//!< the parent game object
 
+	public float digestTime;					//!< Let developer setup time to digest the food
+
 	private Sprite wholeRepresentation;			//!< to temporarily hold the whole food representation we are going to use
 	private Sprite digestedRepresentation;		//!< to temporarily hold the digested food representation we are going to use
 
@@ -18,9 +20,16 @@ public class StomachFoodBlob : MonoBehaviour
 
 	private int index;							//!< to keep track of the index. we will randomly assign a number to choose the color
 
+	private float timer;						//!< to counte while the enzyme is on
+	private StomachGameManager stomanager;
+
+
+
 	// Use this for initialization
 	void Start () 
 	{
+		stomanager = FindObjectOfType (typeof(StomachGameManager)) as StomachGameManager;
+
 		// choose a random number to choose a color and select the correct images
 		index = Random.Range (0, 4);
 		wholeRepresentation = wholeFood [index];
@@ -32,5 +41,25 @@ public class StomachFoodBlob : MonoBehaviour
 		                                         11f - (0f * 11f / Screen.height) - 5.5f, -2.0f);
 		GetComponent<SpriteRenderer>().sprite = wholeRepresentation;
 
+	}
+
+	void Update()
+	{
+		if(stomanager.getCurrentAcidLevel() == "acidic")
+		{
+			timer = timer + Time.deltaTime;
+		}
+		if(timer> digestTime + 2f)
+		{
+			Destroy (this.gameObject);
+			timer = 0;
+		}
+		else if(timer > digestTime)
+		{
+			Debug.Log("timerMax reached !");
+			GetComponent<SpriteRenderer>().sprite = digestedRepresentation;
+			
+		}
+		
 	}
 }
