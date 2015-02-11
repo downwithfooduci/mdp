@@ -13,8 +13,6 @@ public class Breathing : MonoBehaviour
 	// animation delay
 	public float animationDelay1 = .5f;		//!< time to show first animation frame
 	public float animationDelay2 = 1.0f;	//!< time to show second animation frame
-	public float animationDelay3 = 1.5f;	//!< time to show second animation frame
-	public float animationDelay4 = 2.0f;	//!< time to show second animation frame
 	private float timePassed = 0f;			//!< float to hold time passed to use to decide which frame to show
 
 	public GameObject flaps;				//!< to hold reference to the flaps
@@ -51,15 +49,7 @@ public class Breathing : MonoBehaviour
 			{
 				// draw the second frame if the tie is animationDelay2 or less but more than animationDelay1
 				GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), notBreathing[1]);
-			} else if (timePassed > animationDelay2 && timePassed < animationDelay3)
-			{
-				// draw the second frame if the tie is animationDelay2 or less but more than animationDelay1
-				GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), notBreathing[2]);
-			} else if (timePassed > animationDelay3 && timePassed < animationDelay4)
-			{
-				// draw the second frame if the tie is animationDelay2 or less but more than animationDelay1
-				GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), notBreathing[3]);
-			} else if (timePassed > animationDelay4)
+			} else if (timePassed > animationDelay2)
 			{
 				// if the time is greather than animationDelay2, start back counting from 0
 				timePassed = 0f;
@@ -74,15 +64,7 @@ public class Breathing : MonoBehaviour
 			{
 				// draw the second frame if the tie is animationDelay2 or less but more than animationDelay1
 				GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), breathing[1]);
-			} else if (timePassed > animationDelay2 && timePassed < animationDelay3)
-			{
-				// draw the second frame if the tie is animationDelay2 or less but more than animationDelay1
-				GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), breathing[2]);
-			} else if (timePassed > animationDelay3 && timePassed < animationDelay4)
-			{
-				// draw the second frame if the tie is animationDelay2 or less but more than animationDelay1
-				GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), breathing[3]);
-			} else if (timePassed > animationDelay4)
+			} else if (timePassed > animationDelay2)
 			{
 				// if the time is greather than animationDelay2, start back counting from 0
 				timePassed = 0f;

@@ -1,33 +1,24 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-/**
- * Handle game over conditions for the stomach game
- */
 public class StomachGameOver : MonoBehaviour 
 {
 	public Texture gameOverPopup;	//!< to store the texture for the gameOverPopup
 	public GUIStyle restart;		//!< to store the textures for the restart button
 	public GUIStyle mainMenu;		//!< to store the textures for the mainMenu button
 
-	public int maxFood;				//!< the max food allowed to pile up before a gameover
+	public int maxFood;
 
-	private StomachFoodManager fm;	//!< to hold a reference to the stomach food manager
+	private StomachFoodManager fm;
+	private bool gameOver;
 
-	private bool gameOver;			//!< flag to indicate if the game is over
-
-	/**
-	 * Use this for initialization
-	 */
+	// Use this for initialization
 	void Start () 
 	{
-		// get references
 		fm = FindObjectOfType (typeof(StomachFoodManager)) as StomachFoodManager;
 	}
 	
-	/**
-	 * Update is called once per frame
-	 */
+	// Update is called once per frame
 	void Update () 
 	{
 		if (fm.getNumFoodBlobs() == maxFood)
@@ -37,9 +28,6 @@ public class StomachGameOver : MonoBehaviour
 		}
 	}
 
-	/**
-	 * Game over popup is drawn with legacy gui
-	 */
 	void OnGUI()
 	{
 		if (gameOver)

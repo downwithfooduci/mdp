@@ -25,7 +25,6 @@ public class IntestineGameManager : MonoBehaviour
 	// remember if the tower menu/sell menu is up to manage glow effects
 	private bool isTowerMenuUp;				//!< a flag to indicate if a tower menu is currently up
 	private bool isSellBoxUp;				//!< a flag to remember if a tower sell box is up
-
 	// the following three variables help make the tower menu up check work properly
 	private bool setTowerMenuIsUpFalse;		//!< a flag to indicate that the "isTowerMenuUp" variable needs to be set to false
 	private float elapsedTime;				//!< a counter to keep track of elapsed time
@@ -44,6 +43,7 @@ public class IntestineGameManager : MonoBehaviour
 	private GameObject instantiatedPlus;	//!< to hold a referenece to an instance of an instantiated createPlus object
 
 	public GameObject lostNutrientTutorial;
+	private GameObject instantiatedLostNutrientTutorial;
 
 	/**
 	 * called for initialization
@@ -194,6 +194,11 @@ public class IntestineGameManager : MonoBehaviour
     {
 		if (numNutrientsAlive > 0) 		// check if any nutrients were on the food blob
 		{
+			if (PlayerPrefs.GetInt("SIStats_foodLost") == 0 && Application.loadedLevelName == "SmallIntestineTutorial")
+			{
+				instantiatedLostNutrientTutorial = (GameObject)Instantiate(lostNutrientTutorial);
+			}
+
 			// track the food particles left at the end if any
 			PlayerPrefs.SetInt("SIStats_foodLost", PlayerPrefs.GetInt("SIStats_foodLost") + numNutrientsAlive);
 			PlayerPrefs.Save();

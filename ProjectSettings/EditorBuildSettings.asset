@@ -59,3 +59,11 @@ EditorBuildSettings:
     path: Assets/Scenes/Stomach.unity
   - enabled: 1
     path: Assets/Scenes/StomachStoryboard.unity
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+  - enabled: 1
+    path: Assets/Scenes/DebugMenu.unity

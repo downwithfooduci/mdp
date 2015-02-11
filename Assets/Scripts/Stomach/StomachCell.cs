@@ -2,32 +2,21 @@
 using UnityEngine.UI;
 using System.Collections;
 
-/**
- * Generic script that handles stomach cell behavior, relevant to any cell
- */
 public class StomachCell : MonoBehaviour 
 {
-	private Image i;						//!< hold the reference to the image to change it
-	public Image timer;						//!< to hold the current timer image
+	private Image i;
+	public Image timer;
+	public Sprite[] timers;
 
-	public Sprite[] timers;					//!< array of timer images
-	public Sprite[] cellStateImages;		//!< array of cell state images
+	public Sprite[] cellStateImages;
 
-	private string cellState = "normal";	//!< default cell state is normal
+	private string cellState = "normal";
 
-	/**
-	 * For initialization
-	 */
 	void Start()
 	{
-		// get a reference to the image
 		i = GetComponent<Image> ();
 	}
 
-	/**
-	 * Update... called every frame.
-	 * Draws the correct cell image based on state
-	 */
 	void Update()
 	{
 		if (cellState == "normal")
@@ -55,9 +44,6 @@ public class StomachCell : MonoBehaviour
 		}
 	}
 
-	/**
-	 * set the correct cell timer image for the cell
-	 */
 	public void setTimerImage(int index)
 	{
 		timer.sprite = timers [index];

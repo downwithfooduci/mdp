@@ -168,7 +168,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 118777431}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.49000001, y: -2.95000005, z: 0}
+  m_LocalPosition: {x: 2.37188649, y: -2.95494366, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 962206048}
@@ -627,7 +627,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9105ff12ecb0b8a4697f6ea74ed4ed94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouthOverlay: {fileID: 2800000, guid: 9d7b1d65edba8c24384bd9d80c0c6f10, type: 3}
+  mouthOverlay: {fileID: 2800000, guid: 2c867245c43d80b4bb55154582411063, type: 3}
   sideBar: {fileID: 2800000, guid: 3b21b9b780f84d8499e3133030066b5e, type: 3}
 --- !u!114 &204818111
 MonoBehaviour:
@@ -642,11 +642,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   epiglottis:
-  - {fileID: 2800000, guid: 72c614281fd192d428a12575b5b22528, type: 3}
-  - {fileID: 2800000, guid: b29112f8d9ea0f94daab64b52b30d5e5, type: 3}
+  - {fileID: 2800000, guid: 77e5a0f300643e243bbf8b0e7742a541, type: 3}
+  - {fileID: 2800000, guid: 873822fdb121aa64e8942aa5a8e6d51c, type: 3}
   uvula:
-  - {fileID: 2800000, guid: faa3961f7a8a5994da40ca09ce8206ed, type: 3}
-  - {fileID: 2800000, guid: 9e697a09c77f7574498c6da179304de7, type: 3}
+  - {fileID: 2800000, guid: e69742396a36c844a950afbb1969246e, type: 3}
+  - {fileID: 2800000, guid: a4cf6ec8dfa0e844da19bd2c6beabc26, type: 3}
 --- !u!114 &204818112
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -659,7 +659,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e0522a1b64190547a6197f13ebb0da1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tongue: {fileID: 2800000, guid: a6972ff273a5f7b4d8c05c6aa7410f21, type: 3}
+  tongue: {fileID: 2800000, guid: ce1ee21d24ed7344ba5983177e00e255, type: 3}
 --- !u!114 &204818113
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -750,19 +750,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   breathing:
-  - {fileID: 2800000, guid: 2d9b70881bbad6c4a9056f54fa187bb4, type: 3}
-  - {fileID: 2800000, guid: 1bc7fe1624691564abbb296e50c82204, type: 3}
-  - {fileID: 2800000, guid: f1b37de020a13cd4bb78a96e7854309c, type: 3}
-  - {fileID: 2800000, guid: 67254bdc3bda531409a63aaed08a8e07, type: 3}
+  - {fileID: 2800000, guid: b51b9ee0780c29844aa438966e319614, type: 3}
+  - {fileID: 2800000, guid: 67beb0b589bc3d942bf52b2ab9d3c90a, type: 3}
   notBreathing:
-  - {fileID: 2800000, guid: df67104b299e71645bdb82fa6fda6f2c, type: 3}
-  - {fileID: 2800000, guid: d948816f8547e184b96fed618c5756e4, type: 3}
-  - {fileID: 2800000, guid: 07c54bf5e831a6642b119141dbfe0718, type: 3}
-  - {fileID: 2800000, guid: 63c4482dc5d9b7e42a4d2c80c263ca60, type: 3}
+  - {fileID: 2800000, guid: 8c30312a411426a4db6da036e124aaaa, type: 3}
+  - {fileID: 2800000, guid: 7ba1670ab058e4348ad6769be8b1adfe, type: 3}
   animationDelay1: .699999988
   animationDelay2: 1.39999998
-  animationDelay3: 2.0999999
-  animationDelay4: 2.79999995
   flaps: {fileID: 118777431}
 --- !u!1 &233666803
 GameObject:
@@ -1014,7 +1008,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 962206044}
   m_LocalRotation: {x: 0, y: 0, z: .50000006, w: -.866025388}
-  m_LocalPosition: {x: 1.80999994, y: 2.11999989, z: -1}
+  m_LocalPosition: {x: 1.27807164, y: 2.2601192, z: -.999973297}
   m_LocalScale: {x: .100000001, y: .75, z: 1}
   m_Children: []
   m_Father: {fileID: 118777432}
@@ -1085,14 +1079,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 11432562, guid: 5bf66e444940fff4a9fb914c33e60a8c, type: 2}
-      propertyPath: breathing.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 11432562, guid: 5bf66e444940fff4a9fb914c33e60a8c, type: 2}
-      propertyPath: notBreathing.Array.size
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 432576, guid: 5bf66e444940fff4a9fb914c33e60a8c, type: 2}
       propertyPath: m_LocalPosition.x
       value: -.372917026
@@ -1136,67 +1122,7 @@ Prefab:
     - target: {fileID: 11432568, guid: 5bf66e444940fff4a9fb914c33e60a8c, type: 2}
       propertyPath: epiglottis.Array.data[1]
       value: 
-      objectReference: {fileID: 2800000, guid: b29112f8d9ea0f94daab64b52b30d5e5, type: 3}
-    - target: {fileID: 11432568, guid: 5bf66e444940fff4a9fb914c33e60a8c, type: 2}
-      propertyPath: epiglottis.Array.data[0]
-      value: 
-      objectReference: {fileID: 2800000, guid: 72c614281fd192d428a12575b5b22528, type: 3}
-    - target: {fileID: 11432568, guid: 5bf66e444940fff4a9fb914c33e60a8c, type: 2}
-      propertyPath: uvula.Array.data[0]
-      value: 
-      objectReference: {fileID: 2800000, guid: faa3961f7a8a5994da40ca09ce8206ed, type: 3}
-    - target: {fileID: 11432568, guid: 5bf66e444940fff4a9fb914c33e60a8c, type: 2}
-      propertyPath: uvula.Array.data[1]
-      value: 
-      objectReference: {fileID: 2800000, guid: 9e697a09c77f7574498c6da179304de7, type: 3}
-    - target: {fileID: 11432566, guid: 5bf66e444940fff4a9fb914c33e60a8c, type: 2}
-      propertyPath: tongue
-      value: 
-      objectReference: {fileID: 2800000, guid: a6972ff273a5f7b4d8c05c6aa7410f21, type: 3}
-    - target: {fileID: 11432570, guid: 5bf66e444940fff4a9fb914c33e60a8c, type: 2}
-      propertyPath: mouthOverlay
-      value: 
-      objectReference: {fileID: 2800000, guid: 9d7b1d65edba8c24384bd9d80c0c6f10, type: 3}
-    - target: {fileID: 11432562, guid: 5bf66e444940fff4a9fb914c33e60a8c, type: 2}
-      propertyPath: breathing.Array.data[0]
-      value: 
-      objectReference: {fileID: 2800000, guid: 2d9b70881bbad6c4a9056f54fa187bb4, type: 3}
-    - target: {fileID: 11432562, guid: 5bf66e444940fff4a9fb914c33e60a8c, type: 2}
-      propertyPath: breathing.Array.data[1]
-      value: 
-      objectReference: {fileID: 2800000, guid: 1bc7fe1624691564abbb296e50c82204, type: 3}
-    - target: {fileID: 11432562, guid: 5bf66e444940fff4a9fb914c33e60a8c, type: 2}
-      propertyPath: notBreathing.Array.data[0]
-      value: 
-      objectReference: {fileID: 2800000, guid: df67104b299e71645bdb82fa6fda6f2c, type: 3}
-    - target: {fileID: 11432562, guid: 5bf66e444940fff4a9fb914c33e60a8c, type: 2}
-      propertyPath: notBreathing.Array.data[1]
-      value: 
-      objectReference: {fileID: 2800000, guid: d948816f8547e184b96fed618c5756e4, type: 3}
-    - target: {fileID: 11432562, guid: 5bf66e444940fff4a9fb914c33e60a8c, type: 2}
-      propertyPath: breathing.Array.data[2]
-      value: 
-      objectReference: {fileID: 2800000, guid: f1b37de020a13cd4bb78a96e7854309c, type: 3}
-    - target: {fileID: 11432562, guid: 5bf66e444940fff4a9fb914c33e60a8c, type: 2}
-      propertyPath: breathing.Array.data[3]
-      value: 
-      objectReference: {fileID: 2800000, guid: 67254bdc3bda531409a63aaed08a8e07, type: 3}
-    - target: {fileID: 11432562, guid: 5bf66e444940fff4a9fb914c33e60a8c, type: 2}
-      propertyPath: notBreathing.Array.data[2]
-      value: 
-      objectReference: {fileID: 2800000, guid: 07c54bf5e831a6642b119141dbfe0718, type: 3}
-    - target: {fileID: 11432562, guid: 5bf66e444940fff4a9fb914c33e60a8c, type: 2}
-      propertyPath: notBreathing.Array.data[3]
-      value: 
-      objectReference: {fileID: 2800000, guid: 63c4482dc5d9b7e42a4d2c80c263ca60, type: 3}
-    - target: {fileID: 11432562, guid: 5bf66e444940fff4a9fb914c33e60a8c, type: 2}
-      propertyPath: animationDelay3
-      value: 2.0999999
-      objectReference: {fileID: 0}
-    - target: {fileID: 11432562, guid: 5bf66e444940fff4a9fb914c33e60a8c, type: 2}
-      propertyPath: animationDelay4
-      value: 2.79999995
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2800000, guid: 873822fdb121aa64e8942aa5a8e6d51c, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5bf66e444940fff4a9fb914c33e60a8c, type: 2}
   m_RootGameObject: {fileID: 204818103}
@@ -1255,7 +1181,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1159582897}
   m_LocalRotation: {x: 0, y: 0, z: .50000006, w: -.866025388}
-  m_LocalPosition: {x: 2.6500001, y: 2.53999996, z: -1}
+  m_LocalPosition: {x: 2.11557603, y: 2.68175316, z: -.999973297}
   m_LocalScale: {x: .100000001, y: .75, z: 1}
   m_Children: []
   m_Father: {fileID: 118777432}
@@ -1320,15 +1246,15 @@ MonoBehaviour:
   pathName: Path
   pathColor: {r: 0, g: 1, b: 1, a: 1}
   nodes:
-  - {x: -8.50268555, y: 1.80078077, z: -.5}
-  - {x: -4.07505846, y: 1.801548, z: -.5}
-  - {x: -.909138978, y: 2.47144032, z: -.5}
-  - {x: .899067998, y: 2.64637971, z: -.5}
-  - {x: 1.96171594, y: 2.46404839, z: -.5}
-  - {x: 3.28265595, y: 2.05948114, z: -.5}
-  - {x: 4.39085436, y: .725962996, z: -.5}
-  - {x: 4.65590334, y: -2.7406199, z: -.5}
-  - {x: 4.74575424, y: -7.68104506, z: -.5}
+  - {x: -9.00268555, y: 2.08672118, z: -.5}
+  - {x: -5.74230337, y: 2.03324008, z: -.5}
+  - {x: -3.40913892, y: 2.34576511, z: -.5}
+  - {x: -1.39906776, y: 2.90479398, z: -.5}
+  - {x: .781447589, y: 2.84765911, z: -.5}
+  - {x: 2.78265572, y: 2.40605164, z: -.5}
+  - {x: 3.76999998, y: .810000002, z: -.5}
+  - {x: 4.03527737, y: -2.24061966, z: -.5}
+  - {x: 4.12489986, y: -7.18104506, z: -.5}
   nodeCount: 9
   initialized: 1
   initialName: New Path 1

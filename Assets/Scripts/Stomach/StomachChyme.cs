@@ -7,14 +7,14 @@ using System.Collections;
  */
 public class StomachChyme : MonoBehaviour 
 {
-	public float ACIDIC;					//!< to hold the number to define an acidic environment
-	public float BASIC;						//!< to hold the number to define a basic environment
-	public RectTransform acidHeight;		//!< reference to the rect transform drawing the acid level bar
+	public float ACIDIC;
+	public float BASIC;
+	public RectTransform acidHeight;
 
-	private StomachGameManager gm;			//!< hold a reference to the stomach game manager
-	private Image i;						//!< to hold a reference to the image
+	private StomachGameManager gm;
+	private Image i;
 
-	public Sprite neutralChyme;				//!< holds the texture for the chyme when stomach is "neutral"
+	public Sprite neutralChyme;			//!< holds the texture for the chyme when stomach is "neutral"
 	public Sprite acidicChyme;				//!< holds the texture for the chyme when stomach is "acidic"
 	public Sprite basicChyme;				//!< holds the texture for the chyme when stomach is "basic"
 
@@ -22,10 +22,10 @@ public class StomachChyme : MonoBehaviour
 
 	/**
 	 * Use this for initialization
+	 * Get a reference to the phbar
 	 */
 	void Start () 
 	{
-		// get references
 		i = GetComponent<Image> ();
 		gm = FindObjectOfType (typeof(StomachGameManager)) as StomachGameManager;
 	}
