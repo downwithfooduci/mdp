@@ -2,11 +2,6 @@
 using System.Collections;
 
 public class changeLevel : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
-	
-	}
 	
 	// Update is called once per frame
 	public void changeScene (string Level) {
