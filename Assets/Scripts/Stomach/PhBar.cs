@@ -110,7 +110,6 @@ public class PhBar : MonoBehaviour
 		                                                Mathf.Clamp(currentLevelHeight, 
             											(phBarLocation.rect.yMin + (300f/1024f * Screen.height)),
 		           										(phBarLocation.rect.yMax - (220f/1024f) * Screen.height)));
-
 	}
 
 	/**

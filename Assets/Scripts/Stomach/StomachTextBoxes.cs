@@ -13,6 +13,7 @@ public class StomachTextBoxes : MonoBehaviour
 
 	void Update()
 	{
+		Debug.Log (elapsedTime);
 		// check if we should refresh the image hold timer
 		if (refreshImageTimer)
 		{
