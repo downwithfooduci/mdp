@@ -6505,8 +6505,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af45fe9dc2e9948458b048dbb18770ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ACIDIC: 90
-  BASIC: -90
+  ACIDIC: 300
+  BASIC: -300
   acidHeight: {fileID: 387544059}
   neutralChyme: {fileID: 21300000, guid: c2d7bed8d3e586245a00de33be71c35b, type: 3}
   acidicChyme: {fileID: 21300000, guid: 2cf014dca1e42a148a5afebb104de0c0, type: 3}
