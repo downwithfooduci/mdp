@@ -8,6 +8,7 @@ using System.Collections;
 public class PhBar : MonoBehaviour 
 {
 	public RectTransform currentLevelRect;			//!< to hold the draw location and size data for the current level bar4
+	public RectTransform phBarLocation;
 	private float currentLevelHeight;				//!< store the indicator level for currentLevelRect
 
 	public float startingAcidSpeed;					//!< the speed the bar initially moves when acid is added
@@ -102,19 +103,14 @@ public class PhBar : MonoBehaviour
 	private void moveCurrentLevelRect(float speed)
 	{
 		float prevHeight = currentLevelHeight;
+		Debug.Log (currentLevelHeight);
 		currentLevelHeight = currentLevelRect.anchoredPosition.y + (speed * Time.deltaTime * .01f * Screen.height);
-		if (currentLevelHeight > (1.08f * Screen.height/2f) || currentLevelHeight < -(1f * Screen.height/2f))
-		{
-			if (currentLevelHeight > 0)
-			{
-				currentLevelHeight = 1.08f * Screen.height/2f;
-			} else
-			{
-				currentLevelHeight = -(1f * Screen.height/2f);
-			}
+	
+		currentLevelRect.anchoredPosition = new Vector2(currentLevelRect.anchoredPosition.x,  
+		                                                Mathf.Clamp(currentLevelHeight, 
+            											(phBarLocation.rect.yMin + (300f/1024f * Screen.height)),
+		           										(phBarLocation.rect.yMax - (220f/1024f) * Screen.height)));
 
-		}
-		currentLevelRect.anchoredPosition = new Vector2(currentLevelRect.anchoredPosition.x, currentLevelHeight);
 	}
 
 	/**

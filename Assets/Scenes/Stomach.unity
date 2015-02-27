@@ -2193,6 +2193,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentLevelRect: {fileID: 387544059}
+  phBarLocation: {fileID: 1135532276}
   startingAcidSpeed: 4000
   acidSpeedDecayTime: 2
   startingBaseSpeed: 4000
@@ -2415,10 +2416,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e29980277d5b5dc49a13498680be7838, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TIME_TO_BURN: 5
-  TIME_TO_DIE: 6
+  TIME_TO_BURN: 6
+  TIME_TO_DIE: 7
   TIME_FOR_SLIME_FADE: 10
-  TIME_TO_REVIVE: 3
+  TIME_TO_REVIVE: 4
   MAX_CELL_DEATHS: 12
   cellManager: {fileID: 0}
 --- !u!1 &563981234
