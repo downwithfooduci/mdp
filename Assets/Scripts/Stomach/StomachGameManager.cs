@@ -1,35 +1,42 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/**
+ * Most generic manager for the stomach game
+ */
 public class StomachGameManager : MonoBehaviour 
 {
 	// values that shouldn't normally be changed during game play
-	public float TIME_TO_BURN;
-	public float TIME_TO_DIE;
-	public float TIME_FOR_SLIME_FADE;
-	public float TIME_TO_REVIVE;
-	public int MAX_CELL_DEATHS;
-
-	private int cellDeaths;
-
-	public CellManager cellManager;
-	private StomachFoodManager foodManager;
-
-	private string currentAcidLevel = "neutral";
-	private float[] elapsedTime;
-	private float[] nextCellActionTime;
-	private string[] lastCellState;
-
-	// Use this for initialization
+	public float TIME_TO_BURN;							//!< to hold the time for a cell to burn
+	public float TIME_TO_DIE;							//!< to hold the time for a cell to die
+	public float TIME_FOR_SLIME_FADE;					//!< to hold the time for the slime to burn off a cell in acid
+	public float TIME_TO_REVIVE;						//!< to hold the time for a cell to revive from a dead state
+	public int MAX_CELL_DEATHS;							//!< to count the amount of time that can pass before a cell dies
+	
+	private int cellDeaths;								//!< actually count the cell deaths
+	
+	public CellManager cellManager;						//!< hold a reference to the cell manager
+	
+	private string currentAcidLevel = "neutral";		//!< default acid level is neutral
+	
+	private float[] elapsedTime;						//!< array to hold the time elapsed since last event for each cell
+	private float[] nextCellActionTime;					//!< array to hold the time until the next cell state change
+	private string[] lastCellState;						//!< array to hold the last known state of each cell
+	
+	/**
+	 * Use this for initialization
+	 */
 	void Start () 
 	{
+		// get references
 		cellManager = FindObjectOfType(typeof(CellManager)) as CellManager;
-		foodManager = FindObjectOfType (typeof(StomachFoodManager)) as StomachFoodManager;
-
+		
+		// initialize arrays
 		elapsedTime = new float[cellManager.cellScripts.Length];
 		nextCellActionTime = new float[cellManager.cellScripts.Length];
 		lastCellState = new string[cellManager.cellScripts.Length];
-
+		
+		// populate arrays
 		for (int i = 0; i < cellManager.cellScripts.Length; i++)
 		{
 			nextCellActionTime[i] = Mathf.Infinity;
@@ -37,7 +44,9 @@ public class StomachGameManager : MonoBehaviour
 		}
 	}
 	
-	// Update is called once per frame
+	/**
+	 * Update is called once per frame
+	 */
 	void Update () 
 	{
 		/**
@@ -47,7 +56,7 @@ public class StomachGameManager : MonoBehaviour
 		{
 			elapsedTime[i] += Time.deltaTime;
 		}
-
+		
 		/**
 		 * Adjust each cell based on cell state and acidic level
 		 */
@@ -72,7 +81,7 @@ public class StomachGameManager : MonoBehaviour
 			{
 				cellManager.cellScripts[i].setTimerImage(4);
 			}
-
+			
 			/**
 			 * Check for changes by other scripts
 			 */
@@ -82,14 +91,14 @@ public class StomachGameManager : MonoBehaviour
 				nextCellActionTime[i] = TIME_FOR_SLIME_FADE;
 				elapsedTime[i] = 0f;
 			}
-
+			
 			if (cellManager.cellScripts[i].getCellState() == "dead" && lastCellState[i] != "dead")
 			{
 				lastCellState[i] = "dead";
 				nextCellActionTime[i] = TIME_TO_REVIVE;
 				elapsedTime[i] = 0f;
 			}
-
+			
 			/**
 			 * Need to handle all possible cases if the acid level is neutral or basic
 			 */
@@ -108,7 +117,7 @@ public class StomachGameManager : MonoBehaviour
 					}
 					continue;
 				}
-
+				
 				if (cellManager.cellScripts[i].getCellState() == "slimed")
 				{
 					lastCellState[i] = "slimed";
@@ -116,14 +125,14 @@ public class StomachGameManager : MonoBehaviour
 					elapsedTime[i] = 0f;
 					continue;
 				}
-
+				
 				cellManager.cellScripts[i].setCellState("normal");
 				lastCellState[i] = "normal";
 				nextCellActionTime[i] = TIME_TO_BURN;
 				elapsedTime[i] = 0f;
 				continue;
 			}
-
+			
 			if (getCurrentAcidLevel() == "acidic")
 			{
 				if (cellManager.cellScripts[i].getCellState() == "dead")
@@ -138,7 +147,7 @@ public class StomachGameManager : MonoBehaviour
 					}
 					continue;
 				}
-
+				
 				// if the cell has been burning for too long it dies
 				if (cellManager.cellScripts[i].getCellState() == "burning")
 				{
@@ -153,7 +162,7 @@ public class StomachGameManager : MonoBehaviour
 					}
 					continue;
 				}
-
+				
 				if (cellManager.cellScripts[i].getCellState() == "slimed")
 				{
 					lastCellState[i] = "slimed";
@@ -166,7 +175,7 @@ public class StomachGameManager : MonoBehaviour
 					}
 					continue;
 				}
-
+				
 				if (cellManager.cellScripts[i].getCellState() == "normal")
 				{
 					lastCellState[i] = "normal";
@@ -182,12 +191,18 @@ public class StomachGameManager : MonoBehaviour
 			}
 		}
 	}
-
+	
+	/**
+	 * Function that can be called to set the current acid level
+	 */
 	public void setCurrentAcidLevel(string currentAcidLevel)
 	{
 		this.currentAcidLevel = currentAcidLevel;
 	}
-
+	
+	/**
+	 * Function that can be called to get the current acid level
+	 */
 	public string getCurrentAcidLevel()
 	{
 		return currentAcidLevel;
