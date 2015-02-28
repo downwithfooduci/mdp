@@ -8,6 +8,7 @@ using System.Collections;
 public class StomachReturnButton : MonoBehaviour 
 {
 	public Canvas ui;					//!< hold a reference to the return popup canvas
+	public Canvas popup;
 	public Canvas main;					//!< hold a reference to the main canvas
 	
 	/**
@@ -16,6 +17,7 @@ public class StomachReturnButton : MonoBehaviour
 	void Start()
 	{
 		ui.enabled = false;
+		popup.enabled = false;
 	}
 	
 	/**
@@ -25,6 +27,7 @@ public class StomachReturnButton : MonoBehaviour
 	{
 		Time.timeScale = 0f;
 		ui.enabled = true;
+		popup.enabled = true;
 		main.enabled = false;
 	}
 	
@@ -43,6 +46,7 @@ public class StomachReturnButton : MonoBehaviour
 	{
 		Time.timeScale = 1f;
 		ui.enabled = false;
+		popup.enabled = false;
 		main.enabled = true;
 	}
 }
