@@ -85,7 +85,8 @@ public class StomachGameManager : MonoBehaviour
 			/**
 			 * Check for changes by other scripts
 			 */
-			if (cellManager.cellScripts[i].getCellState() == "slimed" && lastCellState[i] == "burning")
+			if (cellManager.cellScripts[i].getCellState() == "slimed" && 
+			    (lastCellState[i] == "burning" || lastCellState[i] == "normal"))
 			{
 				lastCellState[i] = "slimed";
 				nextCellActionTime[i] = TIME_FOR_SLIME_FADE;
