@@ -99,6 +99,14 @@ public class StomachGameManager : MonoBehaviour
 				nextCellActionTime[i] = TIME_TO_REVIVE;
 				elapsedTime[i] = 0f;
 			}
+
+			if (cellManager.cellScripts[i].getCellRefresh() == true)
+			{
+				lastCellState[i] = "slimed";
+				nextCellActionTime[i] = TIME_FOR_SLIME_FADE;
+				elapsedTime[i] = 0f;
+				cellManager.cellScripts[i].setCellRefresh(false);
+			}
 			
 			/**
 			 * Need to handle all possible cases if the acid level is neutral or basic

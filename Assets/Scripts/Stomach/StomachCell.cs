@@ -14,7 +14,8 @@ public class StomachCell : MonoBehaviour
 	public Sprite[] cellStateImages;		//!< array of cell state images
 	
 	private string cellState = "normal";	//!< default cell state is normal
-	
+	private bool cellRefresh = false;
+
 	/**
 	 * For initialization
 	 */
@@ -77,5 +78,21 @@ public class StomachCell : MonoBehaviour
 	public string getCellState()
 	{
 		return cellState;
+	}
+
+	/**
+	 * Mark to refresh slime
+	 */
+	public void setCellRefresh(bool refresh)
+	{
+		cellRefresh = refresh;
+	}
+
+	/**
+	 * Return whether or not we need to refresh the cell
+	 */
+	public bool getCellRefresh()
+	{
+		return cellRefresh;
 	}
 }

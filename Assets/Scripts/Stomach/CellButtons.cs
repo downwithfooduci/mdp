@@ -95,7 +95,13 @@ public class CellButtons : MonoBehaviour
 		} else if (menuSemaphore <= 0 && showBucket)
 		{
 			// if we click on a cell with the bucket, the cell is now slimed
-			cellManager.cellScripts[cell - 1].setCellState("slimed");
+			if (cellManager.cellScripts[cell - 1].getCellState() == "slimed")
+			{
+				cellManager.cellScripts[cell - 1].setCellRefresh(true);
+			} else
+			{
+				cellManager.cellScripts[cell - 1].setCellState("slimed");
+			}
 		} else if (menuSemaphore <= 0 && showScythe)
 		{
 			// if we click on a cell with the scythe, the cell is now dead
@@ -173,7 +179,13 @@ public class CellButtons : MonoBehaviour
 			// show the bucket icon
 			showScythe = false;
 			showBucket = true;
-			
+
+			// check if refreshing
+			if (cellManager.cellScripts[1].getCellState() == "slimed")
+			{
+				cellManager.cellScripts[1].setCellRefresh(true);
+			}
+
 			//slime main cell
 			if (cellManager.cellScripts[1].getCellState() != "dead")
 			{
