@@ -35,7 +35,7 @@ public class CarbsButton : MonoBehaviour
 		buttonLeft = Screen.width * 0.0148f + 3*(buttonWidth + buttonSpacing);	// set the button left coordinate relative to screen size
 
 		// pass the calculated button location into the pixelinset, which is where it is drawn
-		guiTexture.pixelInset = new Rect(buttonLeft, buttonTop, buttonWidth, buttonHeight);
+		GetComponent<GUITexture>().pixelInset = new Rect(buttonLeft, buttonTop, buttonWidth, buttonHeight);
 
 		// find the reference to the towerSpawner
 		towerSpawner = GameObject.Find ("GUI").GetComponent<TowerSpawner> ();
@@ -56,17 +56,17 @@ public class CarbsButton : MonoBehaviour
 		if (towerSpawner.getGameManager().nutrients - towerSpawner.TOWER_BASE_COST < 0
 		    || Application.loadedLevelName == "SmallIntestineTutorial" && PlayerPrefs.GetInt("SIStats_towersUpgraded") < 2)
 		{
-			guiTexture.texture = inactiveTexture;	// when the button is inactive show the "inactive" texture
+			GetComponent<GUITexture>().texture = inactiveTexture;	// when the button is inactive show the "inactive" texture
 			return;
-		} else if (guiTexture.HitTest(Input.mousePosition) == true || 
-		           Input.touches.Length > 0 && guiTexture.HitTest(Input.touches[0].position) == true) // checks if we clicked on button
+		} else if (GetComponent<GUITexture>().HitTest(Input.mousePosition) == true || 
+		           Input.touches.Length > 0 && GetComponent<GUITexture>().HitTest(Input.touches[0].position) == true) // checks if we clicked on button
 		{	
 			// if the button is being pressed draw the pressed texture
 			foreach (Touch touch in Input.touches) 
 			{
 				if (touch.phase == TouchPhase.Began) 
 				{
-					guiTexture.texture = pressedTexture;
+					GetComponent<GUITexture>().texture = pressedTexture;
 					
 					// code to spawn towers
 					if (!towerSpawner.getIsSpawnActive())
@@ -79,7 +79,7 @@ public class CarbsButton : MonoBehaviour
 				}
 				if (touch.phase == TouchPhase.Ended) 
 				{
-					guiTexture.texture = activeTexture;	// when we aren't pressing a button then draw the "active" texture
+					GetComponent<GUITexture>().texture = activeTexture;	// when we aren't pressing a button then draw the "active" texture
 				}
 			}
 
@@ -87,7 +87,7 @@ public class CarbsButton : MonoBehaviour
 #if UNITY_EDITOR || UNITY_STANDALONE_OSX || UNITY_STANDALONE_WIN
 			if(Input.GetMouseButtonDown(0))
 			{
-				guiTexture.texture = pressedTexture;
+				GetComponent<GUITexture>().texture = pressedTexture;
 				
 				// code to spawn towers
 				if (!towerSpawner.getIsSpawnActive())
@@ -98,15 +98,15 @@ public class CarbsButton : MonoBehaviour
 				}
 			}else if (Input.GetMouseButtonUp(0)) 
 			{
-				guiTexture.texture = activeTexture;
+				GetComponent<GUITexture>().texture = activeTexture;
 			} else
 			{
-				guiTexture.texture = activeTexture;
+				GetComponent<GUITexture>().texture = activeTexture;
 			}
 #endif
 		} else
 		{
-			guiTexture.texture = activeTexture;
+			GetComponent<GUITexture>().texture = activeTexture;
 		}
 	}
 }

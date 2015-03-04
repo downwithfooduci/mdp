@@ -21,7 +21,7 @@ public class SphereBounce : MonoBehaviour
 
     public void Start()
     {
-        thisRigidbody = rigidbody;
+        thisRigidbody = GetComponent<Rigidbody>();
         thisMesh = GetComponent<MeshFilter>().mesh;
 
         startColor = new Color[thisMesh.vertexCount];
@@ -48,7 +48,7 @@ public class SphereBounce : MonoBehaviour
 
     public void OnCollisionEnter(Collision collision)
     {
-        Material material = collision.gameObject.renderer.sharedMaterial;
+        Material material = collision.gameObject.GetComponent<Renderer>().sharedMaterial;
         bool randomColor = true;
         if (material.HasProperty("_GlowColor")) {
             targetColor = material.GetColor("_GlowColor");

@@ -71,7 +71,7 @@ public class TowerSpawner : MonoBehaviour
 			if(m_IsSpawnActive)
 			{
 				m_IsSpawnActive = false;							// set that isspawnactive flag to false
-				DestroyImmediate (m_Indicator.renderer.material);	// destroy the indicator material
+				DestroyImmediate (m_Indicator.GetComponent<Renderer>().material);	// destroy the indicator material
 				Destroy (m_Indicator);								// destroy the indicator
 				Destroy (m_SpawnedTower);							// destroy the spawned tower
 				m_SpawnedTower = null;								// set the spawnedtower reference to null
@@ -96,7 +96,7 @@ public class TowerSpawner : MonoBehaviour
 				Time.timeScale = 1;
 				m_IsSpawnActive = false;				// set the spawn active flag to false
 
-				DestroyImmediate (m_Indicator.renderer.material);	// destroy the spawn indicator material
+				DestroyImmediate (m_Indicator.GetComponent<Renderer>().material);	// destroy the spawn indicator material
 				Destroy (m_Indicator);								// destroy the spawn indicator
 			
 				// check if the user has enough nutrients to spawn a tower
@@ -132,7 +132,7 @@ public class TowerSpawner : MonoBehaviour
 				m_Indicator.transform.position = MDPUtility.MouseToWorldPosition () + Vector3.up;
 				Color color = m_IsMouseOverWallLastFrame ? Color.green : Color.red;
 				color.a = 0.5f;
-				m_Indicator.renderer.material.color = color;
+				m_Indicator.GetComponent<Renderer>().material.color = color;
 			}
 		}
 		

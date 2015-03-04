@@ -39,10 +39,10 @@ public class AnimatedBackground : MonoBehaviour
 	 */
 	void Start () 
 	{
-		audio.clip = audioClips[currGroup];	// set the audio clip to the inital clip
+		GetComponent<AudioSource>().clip = audioClips[currGroup];	// set the audio clip to the inital clip
 		numInGroup = numSlides[currGroup];	// get the initial number in the current slide group
 		numInGroup--;						// decrement the counter
-		audio.Play();						// start playing the audio
+		GetComponent<AudioSource>().Play();						// start playing the audio
 	}
 	
 	/**
@@ -62,7 +62,7 @@ public class AnimatedBackground : MonoBehaviour
 				numInGroup--;				// decrement the counter
 				currPage++;					// increase the current page counter
 				slideTimeout = 1f;			// reset the slide timeout
-			} else if(!audio.isPlaying)		// if there are no more slides in the current group
+			} else if(!GetComponent<AudioSource>().isPlaying)		// if there are no more slides in the current group
 											// and the audio is done playing
 			{
 				currGroup++;				// move onto the next group; indicate by increasing group counter
@@ -73,8 +73,8 @@ public class AnimatedBackground : MonoBehaviour
 				}
 				else 						// otherwise, there are still more groups so
 				{
-					audio.clip = audioClips[currGroup];	// set the next audio clip
-					audio.Play();						// start playing  the next audio clip
+					GetComponent<AudioSource>().clip = audioClips[currGroup];	// set the next audio clip
+					GetComponent<AudioSource>().Play();						// start playing  the next audio clip
 					numInGroup = numSlides[currGroup];	// reset the counter of number of slides in the current group for this new group
 				}
 			}

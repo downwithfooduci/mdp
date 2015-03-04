@@ -167,13 +167,13 @@ public class Tower : MonoBehaviour
         foreach (Transform child in transform)
         {
             Transform circle = child.FindChild("Circle");
-            circle.renderer.materials[0].color = m_TargetColor;
+            circle.GetComponent<Renderer>().materials[0].color = m_TargetColor;
 
 			//fix bazooka color
 			Transform sphere = child.FindChild("Sphere");
 			if (sphere != null)
 			{
-				sphere.renderer.materials[0].color = m_TargetColor;
+				sphere.GetComponent<Renderer>().materials[0].color = m_TargetColor;
 			}
         }
     }
@@ -222,7 +222,7 @@ public class Tower : MonoBehaviour
         if (target)								// if a valid target was found
         {
 			// set the audio clip to the shooting sound which will be played after the bullet is shot
-			audio.clip = towerShootSound;
+			GetComponent<AudioSource>().clip = towerShootSound;
 
 			// track stats
 			PlayerPrefs.SetInt ("SIStats_enzymesFired", PlayerPrefs.GetInt("SIStats_enzymesFired") + 1);
@@ -233,11 +233,11 @@ public class Tower : MonoBehaviour
             transform.LookAt(target.transform);
 			transform.Rotate(new Vector3(90,0,0), 40, Space.World);
 			// play the shooting animation
-            transform.FindChild(m_ActiveModelName).animation.Play("Default Take", PlayMode.StopAll);
+            transform.FindChild(m_ActiveModelName).GetComponent<Animation>().Play("Default Take", PlayMode.StopAll);
 
 			// create the bullet that will seek out the target
             GameObject bulletObject = Instantiate(Projectile, transform.position, transform.rotation) as GameObject;
-            bulletObject.renderer.material.color = m_TargetColor;			// set the bullet color to the correct one
+            bulletObject.GetComponent<Renderer>().material.color = m_TargetColor;			// set the bullet color to the correct one
 
             Bullet bullet = bulletObject.GetComponent<Bullet>();			// get the script on the bullet
             bullet.Target = target.gameObject;								// set the target reference in the bullet script
@@ -245,7 +245,7 @@ public class Tower : MonoBehaviour
 
             target.IsTargetted = true;			// mark the current target as targetted so that it can't be shot more than once
 
-			audio.Play ();						// play the sound
+			GetComponent<AudioSource>().Play ();						// play the sound
 
             m_CanFire = false;					// reset the canFire flag to false until the next cooldown is up
         }
@@ -324,8 +324,8 @@ public class Tower : MonoBehaviour
 				m_GameManager.nutrients = m_GameManager.nutrients - TOWER_UPGRADE_LEVEL_1_COST;	// upgrade costs  nutrients (for test)
 
 				// play sounds
-				audio.clip = upgradeSound;
-				audio.Play();
+				GetComponent<AudioSource>().clip = upgradeSound;
+				GetComponent<AudioSource>().Play();
 
 				// track stats
 				PlayerPrefs.SetInt ("SIStats_towersUpgraded", PlayerPrefs.GetInt("SIStats_towersUpgraded") + 1);
@@ -342,8 +342,8 @@ public class Tower : MonoBehaviour
 				m_GameManager.nutrients = m_GameManager.nutrients - TOWER_UPGRADE_LEVEL_2_COST;		// upgrade costs  nutrients (for test)
 
 				// play sounds
-				audio.clip = upgradeSound;
-				audio.Play();
+				GetComponent<AudioSource>().clip = upgradeSound;
+				GetComponent<AudioSource>().Play();
 
 				// track stats
 				PlayerPrefs.SetInt ("SIStats_towersUpgraded", PlayerPrefs.GetInt("SIStats_towersUpgraded") + 1);
@@ -362,7 +362,7 @@ public class Tower : MonoBehaviour
 	 */
 	private void AdjustAnimationSpeed(float newCooldown)
 	{
-        foreach (AnimationState state in transform.FindChild(m_ActiveModelName).animation)
+        foreach (AnimationState state in transform.FindChild(m_ActiveModelName).GetComponent<Animation>())
         {
             state.speed = BaseCooldown / newCooldown;
         }
@@ -383,8 +383,8 @@ public class Tower : MonoBehaviour
 				m_GameManager.nutrients = m_GameManager.nutrients - TOWER_UPGRADE_LEVEL_1_COST;		// upgrade costs nutrients (for test
 
 				// play sounds
-				audio.clip = upgradeSound;
-				audio.Play();
+				GetComponent<AudioSource>().clip = upgradeSound;
+				GetComponent<AudioSource>().Play();
 
 				// track stats
 				PlayerPrefs.SetInt ("SIStats_towersUpgraded", PlayerPrefs.GetInt("SIStats_towersUpgraded") + 1);
@@ -400,8 +400,8 @@ public class Tower : MonoBehaviour
 				m_GameManager.nutrients = m_GameManager.nutrients - TOWER_UPGRADE_LEVEL_2_COST;		// upgrade costs  nutrients (for test
 
 				// play sounds
-				audio.clip = upgradeSound;
-				audio.Play();
+				GetComponent<AudioSource>().clip = upgradeSound;
+				GetComponent<AudioSource>().Play();
 
 				// track stats
 				PlayerPrefs.SetInt ("SIStats_towersUpgraded", PlayerPrefs.GetInt("SIStats_towersUpgraded") + 1);

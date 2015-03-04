@@ -12,7 +12,7 @@ public class Nutrient : MDPEntity
         set
         {
             m_BodyColor = value;
-            renderer.materials[0].color = value;
+            GetComponent<Renderer>().materials[0].color = value;
         }
     }
 

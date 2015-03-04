@@ -73,7 +73,7 @@ public class GlowSegment : MonoBehaviour
 				yield return glowMaterial;
 			}
 
-			instantiatedCube.renderer.material = glowMaterial;	// attach the material onto the cube
+			instantiatedCube.GetComponent<Renderer>().material = glowMaterial;	// attach the material onto the cube
 		} else 		// if the segment is already glowing and clicked on again, refresh the timer
 		{
 			elapsedTime = 0f;

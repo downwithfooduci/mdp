@@ -9,7 +9,7 @@ public class DestroySound : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-		if (!audio.isPlaying) 
+		if (!GetComponent<AudioSource>().isPlaying) 
 		{
 			Destroy(this.gameObject);
 		}

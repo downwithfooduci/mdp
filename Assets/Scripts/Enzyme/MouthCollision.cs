@@ -20,7 +20,7 @@ public class MouthCollision : MonoBehaviour
 				other.gameObject.transform.parent.gameObject.GetComponentsInChildren<MeshRenderer> () [0];
 
 			// check if the enzyme guy and the particle(s) are the same color
-			if (transform.parent.renderer.material.color == particleRenderer.material.color) 
+			if (transform.parent.GetComponent<Renderer>().material.color == particleRenderer.material.color) 
 			{
 				//split food particle
 				ParticleSplit split = other.gameObject.transform.parent.gameObject.GetComponent<ParticleSplit> ();

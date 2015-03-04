@@ -28,7 +28,7 @@ public class DrawHealthBar : MonoBehaviour
 	{
 		// update the pixel inset value for the health bar to set where it will draw
 		// height * percent will cause the bar to grow or shrink based on % of health remaining
-		guiTexture.pixelInset = new Rect(healthRect.xMin, healthRect.yMin, 
+		GetComponent<GUITexture>().pixelInset = new Rect(healthRect.xMin, healthRect.yMin, 
 		                                 healthRect.width, percent*healthRect.height);
 	}
 

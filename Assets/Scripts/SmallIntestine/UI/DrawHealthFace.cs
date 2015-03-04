@@ -20,7 +20,7 @@ public class DrawHealthFace : MonoBehaviour
 		faceRect = new Rect (Screen.width * .864f, Screen.height * 0.14f - Screen.height * 0.102864583f, 
 		                     Screen.width * 0.078125f, Screen.height * 0.102864583f);
 		// assign the dimensions to the pixel inset so that the image will actually be drawn in the desired region
-		guiTexture.pixelInset = faceRect;
+		GetComponent<GUITexture>().pixelInset = faceRect;
 	}
 	
 	/**
@@ -29,7 +29,7 @@ public class DrawHealthFace : MonoBehaviour
 	 */
 	void Update () 
 	{
-		guiTexture.texture = faces [index];		// update the current texture being displayed
+		GetComponent<GUITexture>().texture = faces [index];		// update the current texture being displayed
 	}
 
 	/**

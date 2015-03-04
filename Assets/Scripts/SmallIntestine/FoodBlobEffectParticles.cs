@@ -44,7 +44,7 @@ public class FoodBlobEffectParticles : MonoBehaviour
 		{
 			// instantiate the effect particle and assign its attributes
 			instantiatedEffectParticles[i] = (GameObject)Instantiate(effectParticle);
-			instantiatedEffectParticles[i].renderer.material.color = particleColor;
+			instantiatedEffectParticles[i].GetComponent<Renderer>().material.color = particleColor;
 			instantiatedEffectParticles[i].transform.parent = gameObject.transform;
 
 			// choose randomly if the particles go "up" or "down"

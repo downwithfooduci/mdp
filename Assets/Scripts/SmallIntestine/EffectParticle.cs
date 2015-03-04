@@ -100,7 +100,7 @@ public class EffectParticle : MonoBehaviour
 			{
 				finalMove = false;							// if it has travelled the specified distance, stop moving it
 				intestineGameManager.OnNutrientHit();		// add the score to the nutrients
-				renderer.enabled = false;					// make the particle invisible incase there is a delay on garbage collection
+				GetComponent<Renderer>().enabled = false;					// make the particle invisible incase there is a delay on garbage collection
 				Destroy(this.gameObject);					// destroy the particle
 			}
 		}

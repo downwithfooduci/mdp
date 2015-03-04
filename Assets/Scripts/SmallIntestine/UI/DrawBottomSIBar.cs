@@ -13,6 +13,6 @@ public class DrawBottomSIBar : MonoBehaviour
 	void Start () 
 	{
 		// set the pixel inset relative to screen size
-		guiTexture.pixelInset = new Rect(0, 0, Screen.width, Screen.height * 0.17578125f);
+		GetComponent<GUITexture>().pixelInset = new Rect(0, 0, Screen.width, Screen.height * 0.17578125f);
 	}
 }

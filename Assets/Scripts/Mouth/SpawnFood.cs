@@ -41,7 +41,7 @@ public class SpawnFood : MonoBehaviour
 		debugConfig = GameObject.Find("Debugger").GetComponent<EsophagusDebugConfig>();
 		if (debugConfig == null)	// if we are starting the game directly we need to add debugger
 		{
-			debugConfig = gameObject.AddComponent("EsophagusDebugConfig") as EsophagusDebugConfig;
+			debugConfig = gameObject.AddComponent<EsophagusDebugConfig>() as EsophagusDebugConfig;
 		}
 
 		// find the background chooser

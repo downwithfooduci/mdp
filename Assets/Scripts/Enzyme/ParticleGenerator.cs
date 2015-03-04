@@ -81,6 +81,6 @@ public class ParticleGenerator : MonoBehaviour
 		}
 
 		// give the particle an initial impulse
-		spawn.rigidbody.AddForce(new Vector3(x, y, 0), ForceMode.Impulse);
+		spawn.GetComponent<Rigidbody>().AddForce(new Vector3(x, y, 0), ForceMode.Impulse);
 	}
 }

@@ -42,7 +42,7 @@ public class Buttons : MonoBehaviour
 			if (!EnzymesExist) 
 			{
 				p = Instantiate (ColorPrefeb, transform.position, transform.rotation) as GameObject;
-				p.renderer.material.color = Color.red;
+				p.GetComponent<Renderer>().material.color = Color.red;
 				EnzymesExist = true;
 			}
 		}
@@ -53,7 +53,7 @@ public class Buttons : MonoBehaviour
 			if (!EnzymesExist) 
 			{
 				p = Instantiate (ColorPrefeb, transform.position, transform.rotation) as GameObject;
-				p.renderer.material.color = Color.green;
+				p.GetComponent<Renderer>().material.color = Color.green;
 				EnzymesExist = true;
 			}
 		}
@@ -64,7 +64,7 @@ public class Buttons : MonoBehaviour
 			if (!EnzymesExist) 
 			{
 				p = Instantiate (ColorPrefeb, transform.position, transform.rotation) as GameObject;
-				p.renderer.material.color = Color.blue;
+				p.GetComponent<Renderer>().material.color = Color.blue;
 				EnzymesExist = true;
 			}
 		}
@@ -75,7 +75,7 @@ public class Buttons : MonoBehaviour
 			if (!EnzymesExist) 
 			{
 				p = Instantiate (ColorPrefeb, transform.position, transform.rotation) as GameObject;
-				p.renderer.material.color = Color.yellow;
+				p.GetComponent<Renderer>().material.color = Color.yellow;
 				EnzymesExist = true;
 			}
 		}
@@ -86,7 +86,7 @@ public class Buttons : MonoBehaviour
 			if (!EnzymesExist) 
 			{
 				p = Instantiate (ColorPrefeb, transform.position, transform.rotation) as GameObject;
-				p.renderer.material.color = Color.white;
+				p.GetComponent<Renderer>().material.color = Color.white;
 				EnzymesExist = true;
 			}
 		}

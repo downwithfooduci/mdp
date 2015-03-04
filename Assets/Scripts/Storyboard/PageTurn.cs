@@ -40,7 +40,7 @@ public class PageTurn : MonoBehaviour
 		GUI.depth--;		// change the gui depth so the page corner draws on top of the background texture
 
 		// if the audio is done playing OR we can skip the page early, draw the page corner in the top right corner
-		if (!audio.isPlaying || canSkip)
+		if (!GetComponent<AudioSource>().isPlaying || canSkip)
 		{
 			GUI.DrawTexture(new Rect(Screen.width * .84f, 0, Screen.width * .16f, Screen.width * .16f), corner);
 		}

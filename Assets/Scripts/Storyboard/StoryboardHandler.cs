@@ -76,7 +76,7 @@ public class StoryboardHandler : MonoBehaviour
 	 */
 	void Update () 
 	{
-		if (!audio.isPlaying || canSkip)
+		if (!GetComponent<AudioSource>().isPlaying || canSkip)
 		{
 			if (swipeDetection.getSwipeLeft() || buttonClicked)		// attempt to detect a swipe to the right
 			{
@@ -94,7 +94,7 @@ public class StoryboardHandler : MonoBehaviour
 					hasPlayed = false;
 				}
 			}
-		} else if (audio.isPlaying)
+		} else if (GetComponent<AudioSource>().isPlaying)
 		{
 			swipeDetection.resetSwipe();							// if we can't change the page yet forget the swipe
 		}
@@ -103,7 +103,7 @@ public class StoryboardHandler : MonoBehaviour
 		{
 			if (!((currPage - 1) >= pages.Length))
 			{
-				audio.clip = sounds [currPage - 1];		// if we haven't played the sound yet load the new audio clip
+				GetComponent<AudioSource>().clip = sounds [currPage - 1];		// if we haven't played the sound yet load the new audio clip
 				playClip();								// play the clip
 				hasPlayed = true;						// mark that we have played the clip
 			}
@@ -135,7 +135,7 @@ public class StoryboardHandler : MonoBehaviour
 	 */
 	private void playClip()
 	{
-		audio.Play();
+		GetComponent<AudioSource>().Play();
 	}
 
 	/**
@@ -146,7 +146,7 @@ public class StoryboardHandler : MonoBehaviour
 		GUI.DrawTexture (new Rect(0, 0, Screen.width, Screen.height), pages[Mathf.Clamp(currPage - 1, 0, pages.Length - 1)]);
 
 		// create an invisible button by the page turn
-		if(!audio.isPlaying || canSkip)
+		if(!GetComponent<AudioSource>().isPlaying || canSkip)
 		{
 			GUI.color = new Color() { a = 0.0f };
 			if (GUI.Button(new Rect(Screen.width * .84f, 0, Screen.width * .16f, Screen.width * .16f),""))

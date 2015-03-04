@@ -193,9 +193,9 @@ public class openFlap : MonoBehaviour
 	 */
 	public void setCough()
 	{
-		if(!audio.isPlaying)		// start playing the couugh audio if it's not already playing
+		if(!GetComponent<AudioSource>().isPlaying)		// start playing the couugh audio if it's not already playing
 		{
-			audio.Play();
+			GetComponent<AudioSource>().Play();
 		}
 		coughTimer = .950f;			// set the cough timer to the length of the cough
 		cough = true;				// throw the flag to indicate a cough is happening

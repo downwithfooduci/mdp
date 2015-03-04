@@ -29,7 +29,7 @@ public class EnzymeCollision : MonoBehaviour
 
 			// if the enzyme collided into a particle of the incorrect color (not matching)
 			// the enzyme guy dies
-			if(renderer.material.color != particleRenderer.material.color)
+			if(GetComponent<Renderer>().material.color != particleRenderer.material.color)
 			{
 				Destroy(gameObject);
 			} else

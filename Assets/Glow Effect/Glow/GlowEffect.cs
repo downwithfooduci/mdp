@@ -12,7 +12,7 @@ public class GlowEffect : MonoBehaviour
     /**
      * Glow: The standard way of generating glow by using a separate camera and replacement shaders. This method looks the best but it takes the most resources.
      * Simple Glow: Similar to Standard Glow except it uses less draw calls and less memory. This effect does everything in one pass instead of multiple passes to generate a blur for the glow.
-     * Alpha Glow:  Recommended method for mobile devices. This method uses the object’s alpha channel in order to determine the amount of glow to apply. 
+     * Alpha Glow:  Recommended method for mobile devices. This method uses the objectï¿½s alpha channel in order to determine the amount of glow to apply. 
      *              This method looks comparable to standard glow however it uses the object's alpha channel. This method does not require a separate camera.
      * Simple Alpha Glow: Smilar to Alpha Glow except it further reduces the amount of draw calls and memory by generating the glow in one pass. This method looks the worst out of the four and should be used as the last resort.
      **/
@@ -108,7 +108,7 @@ public class GlowEffect : MonoBehaviour
 #endif
 
         if ((int)glowMode % 2 == 0) { // glow or simple glow
-            replaceRenderTexture = new RenderTexture((int)camera.pixelWidth, (int)camera.pixelHeight, 16, RenderTextureFormat.ARGB32);
+            replaceRenderTexture = new RenderTexture((int)GetComponent<Camera>().pixelWidth, (int)GetComponent<Camera>().pixelHeight, 16, RenderTextureFormat.ARGB32);
             replaceRenderTexture.wrapMode = TextureWrapMode.Clamp;
             replaceRenderTexture.useMipMap = false;
             replaceRenderTexture.filterMode = FilterMode.Bilinear;
@@ -116,7 +116,7 @@ public class GlowEffect : MonoBehaviour
 
             glowMaterial.SetTexture("_Glow", replaceRenderTexture);
 
-            shaderCamera = new GameObject("Glow Effect", typeof(Camera)).camera;
+            shaderCamera = new GameObject("Glow Effect", typeof(Camera)).GetComponent<Camera>();
             shaderCamera.gameObject.hideFlags = HideFlags.HideAndDontSave;
             shaderCullingMask = ~ignoreLayers;
         }
@@ -129,7 +129,7 @@ public class GlowEffect : MonoBehaviour
     public void OnDisable()
     {
         glowMaterial.mainTexture = null;
-        camera.targetTexture = null;
+        GetComponent<Camera>().targetTexture = null;
         DestroyObject(shaderCamera);
         disableShaderKeywords();
     }
@@ -137,7 +137,7 @@ public class GlowEffect : MonoBehaviour
     public void OnPreRender()
     {
         if ((int)glowMode % 2 == 0) {
-            shaderCamera.CopyFrom(camera);
+            shaderCamera.CopyFrom(GetComponent<Camera>());
             shaderCamera.backgroundColor = Color.clear;
             shaderCamera.clearFlags = CameraClearFlags.SolidColor;
             shaderCamera.renderingPath = RenderingPath.Forward;

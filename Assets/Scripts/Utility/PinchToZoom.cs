@@ -24,8 +24,8 @@ public class PinchToZoom : MonoBehaviour
 		// property to create the zooming effect.
 		// the initial fieldOfView setting should be chosen to show the level
 		// "fully zoomed out", and can vary with the level design.
-		selectedCamera.camera.orthographic = false;
-		selectedCamera.camera.fieldOfView = maxFOV;
+		selectedCamera.GetComponent<Camera>().orthographic = false;
+		selectedCamera.GetComponent<Camera>().fieldOfView = maxFOV;
 	}
 	
 	// Update is called once per frame
