@@ -91,7 +91,9 @@ public class IntestineGameManager : MonoBehaviour
 		// check if the game is over
 		// if it is just exit because we don't need to go through the rest of the stuff in update
         if (m_IsGameOver)
+		{
             return;
+		}
 
 		// next check if the user has any health yet because if they don't, the game is over
         if (health <= 0)

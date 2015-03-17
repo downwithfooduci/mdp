@@ -102,7 +102,6 @@ public class PhBar : MonoBehaviour
 	 */
 	private void moveCurrentLevelRect(float speed)
 	{
-		float prevHeight = currentLevelHeight;
 		currentLevelHeight = currentLevelRect.anchoredPosition.y + (speed * Time.deltaTime * .01f * Screen.height);
 	
 		currentLevelRect.anchoredPosition = new Vector2(currentLevelRect.anchoredPosition.x,  

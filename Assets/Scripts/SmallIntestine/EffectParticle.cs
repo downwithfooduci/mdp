@@ -22,7 +22,7 @@ public class EffectParticle : MonoBehaviour
 	private bool moveAndDie = false;					//!< variable to move the particle in the absorbtion phase
 	private bool finalMove = false;						//!< for the final move and absorbtion into the nutrients text
 
-	private float speed = Random.Range(.7f, 1f);		//!< speed multiplier
+	private float speed;								//!< speed multiplier
 
 	private float distance;								//!< to store the total distance between an effect particle's 
 														//!< starting location and where its desired location is
@@ -36,6 +36,7 @@ public class EffectParticle : MonoBehaviour
 	{
 		// get a reference to the intestine game manager currently being used
 		intestineGameManager = GameObject.Find ("Managers").GetComponent<IntestineGameManager>();
+		speed = Random.Range (.7f, 1f);
 	}
 	
 	/**
