@@ -1,9 +1,27 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class changeLevel : MonoBehaviour {
-	
+	public Text pageNumberButtonText;
+
+
 	// Update is called once per frame
+	void Update()
+	{
+		if (Application.loadedLevelName == "DebugMenu")
+		{
+			if (PlayerPrefs.GetInt("ShowPageNumbers") == 0)
+			{
+				pageNumberButtonText.text = "Show Page #";
+			} else
+			{
+				pageNumberButtonText.text = "Don't Show Page #";
+			}
+		}
+	}
+
+
 	public void changeScene (string Level) {
 		Application.LoadLevel (Level);
 	}
@@ -25,6 +43,18 @@ public class changeLevel : MonoBehaviour {
 		PlayerPrefs.SetInt ("PlayedMouthStory", n);
 		PlayerPrefs.SetInt ("PlayedMouthEndStory", n);
 		PlayerPrefs.SetInt ("PlayedSIStory", n);
+		PlayerPrefs.Save ();
+	}
+
+	public void showPageNumbers()
+	{
+		if (PlayerPrefs.GetInt("ShowPageNumbers") == 0)
+		{
+			PlayerPrefs.SetInt ("ShowPageNumbers", 1);
+		} else
+		{
+			PlayerPrefs.SetInt ("ShowPageNumbers", 0);
+		}
 		PlayerPrefs.Save ();
 	}
 

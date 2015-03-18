@@ -7,6 +7,7 @@ using System.Collections;
 public class StoryboardHandler : MonoBehaviour 
 {
 	public Texture[] pages;				//!< story the storyboard pages
+	public Texture[] numberedPages;		//!< same storybook pages, but numbered
 	public AudioClip[] sounds;			//!< store the storyboard narrations
 	private int currPage = 1;			//!< store the current page
 	private bool hasPlayed = false;		//!< remember whether the current sound has played
@@ -143,7 +144,13 @@ public class StoryboardHandler : MonoBehaviour
 	 */
 	void OnGUI()
 	{
-		GUI.DrawTexture (new Rect(0, 0, Screen.width, Screen.height), pages[Mathf.Clamp(currPage - 1, 0, pages.Length - 1)]);
+		if (PlayerPrefs.GetInt("ShowPageNumbers") == 0)
+		{
+			GUI.DrawTexture (new Rect(0, 0, Screen.width, Screen.height), pages[Mathf.Clamp(currPage - 1, 0, pages.Length - 1)]);
+		} else
+		{
+			GUI.DrawTexture (new Rect(0, 0, Screen.width, Screen.height), numberedPages[Mathf.Clamp(currPage - 1, 0, pages.Length - 1)]);
+		}
 
 		// create an invisible button by the page turn
 		if(!GetComponent<AudioSource>().isPlaying || canSkip)
