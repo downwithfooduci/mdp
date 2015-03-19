@@ -39,7 +39,7 @@ public class PhBar : MonoBehaviour
 
 		// starting level of the current level indicator
 		// right now just start it at a random height...
-		currentLevelHeight = Random.Range (40f, 90f);
+		currentLevelHeight = Random.Range (.4f*Screen.height, .6f*Screen.height);
 
 		currentLevelRect.anchoredPosition = new Vector2(currentLevelRect.anchoredPosition.x, currentLevelHeight);
 	}
@@ -73,7 +73,7 @@ public class PhBar : MonoBehaviour
 			// set the new destination the current acid level indicator should be drawn at
 			// it should move at a decreasing speed so to do so we multiply the desired speed by the percentage of time
 			// that is left to move the indicator line
-			moveCurrentLevelRect(startingAcidSpeed * Time.deltaTime * ( 1 - (elapsedTime / acidSpeedDecayTime)));
+			moveCurrentLevelRect(startingAcidSpeed * ( 1 - (elapsedTime / acidSpeedDecayTime)));
 
 			return;
 		}
@@ -87,13 +87,13 @@ public class PhBar : MonoBehaviour
 			// set the new destination the current base level indicator should be drawn at
 			// it should move at a decreasing speed so to do so we multiply the desired speed by the percentage of time
 			// that is left to move the indicator line
-			moveCurrentLevelRect(-(startingBaseSpeed * Time.deltaTime * ( 1 - (elapsedTime / baseSpeedDecayTime))));
+			moveCurrentLevelRect(-(startingBaseSpeed * ( 1 - (elapsedTime / baseSpeedDecayTime))));
 			
 			return;
 		}
 
 		// if we aren't adding acid or base decay the bar somewhat
-		moveCurrentLevelRect(-1f * decaySpeed * Time.deltaTime);
+		moveCurrentLevelRect(-1f * decaySpeed);
 
 	}
 
@@ -102,12 +102,11 @@ public class PhBar : MonoBehaviour
 	 */
 	private void moveCurrentLevelRect(float speed)
 	{
-		currentLevelHeight = currentLevelRect.anchoredPosition.y + (speed * Time.deltaTime * .01f * Screen.height);
-	
-		currentLevelRect.anchoredPosition = new Vector2(currentLevelRect.anchoredPosition.x,  
-		                                                Mathf.Clamp(currentLevelHeight, 
-            											(phBarLocation.rect.yMin + (300f/1024f * Screen.height)),
-		           										(phBarLocation.rect.yMax - (220f/1024f) * Screen.height)));
+		currentLevelHeight = currentLevelRect.anchoredPosition.y + (speed * Time.deltaTime * 1536f / Screen.height);
+		//Debug.Log (currentLevelHeight);
+		LeanTween.move(currentLevelRect, 
+		               new Vector3(currentLevelRect.anchoredPosition.x, currentLevelHeight, 0f),
+		                     .01f);
 	}
 
 	/**
