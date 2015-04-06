@@ -1,8 +1,10 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Stomach\PhBar.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Stomach\StomachFoodBlob.cs">
     <Files>
-      <File FileName="Assets\Scripts\Stomach\PhBar.cs" Line="110" Column="37" />
+      <File FileName="Assets\Scripts\Stomach\PhBar.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Stomach\StomachEnzyme.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Stomach\StomachFoodBlob.cs" Line="56" Column="4" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

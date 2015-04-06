@@ -37,12 +37,20 @@ public class changeLevel : MonoBehaviour {
 		PlayerPrefs.Save();
 		Application.LoadLevel("LoadLevelMouth");
 	}
+
+	public void changeLILevel (int l) 
+	{
+		PlayerPrefs.SetInt ("DesiredLILevel", l);
+		PlayerPrefs.Save ();
+		Application.LoadLevel ("LoadLevelLargeIntestine");
+	}
 	
 	public void skipStory(int n){
 		PlayerPrefs.SetInt ("PlayedIntroStory", n);
 		PlayerPrefs.SetInt ("PlayedMouthStory", n);
 		PlayerPrefs.SetInt ("PlayedMouthEndStory", n);
 		PlayerPrefs.SetInt ("PlayedSIStory", n);
+		PlayerPrefs.SetInt ("PlayedLIStory", n);
 		PlayerPrefs.Save ();
 	}
 

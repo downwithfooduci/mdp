@@ -16,8 +16,8 @@ PlayerSettings:
   cloudProjectId: 
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
-  defaultScreenWidth: 1024
-  defaultScreenHeight: 768
+  defaultScreenWidth: 2056
+  defaultScreenHeight: 1536
   defaultScreenWidthWeb: 1024
   defaultScreenHeightWeb: 768
   m_RenderingPath: 1
