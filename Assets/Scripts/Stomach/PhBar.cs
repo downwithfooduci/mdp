@@ -104,9 +104,7 @@ public class PhBar : MonoBehaviour
 	{
 		currentLevelHeight = currentLevelRect.anchoredPosition.y + (speed * Time.deltaTime * 1536f / Screen.height);
 		//Debug.Log (currentLevelHeight);
-		LeanTween.move(currentLevelRect, 
-		               new Vector3(currentLevelRect.anchoredPosition.x, currentLevelHeight, 0f),
-		                     .01f);
+		currentLevelRect.anchoredPosition = new Vector3 (currentLevelRect.anchoredPosition.x, currentLevelHeight, 0f);
 	}
 
 	/**

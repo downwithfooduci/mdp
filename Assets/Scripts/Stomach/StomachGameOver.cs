@@ -13,6 +13,7 @@ public class StomachGameOver : MonoBehaviour
 	public int maxFood;				//!< the max food allowed to pile up before a gameover
 	
 	private StomachFoodManager fm;	//!< to hold a reference to the stomach food manager
+	private StomachGameManager gm;	//!< hold a reference to the stomach game manager
 	
 	private bool gameOver;			//!< flag to indicate if the game is over
 	
@@ -23,6 +24,7 @@ public class StomachGameOver : MonoBehaviour
 	{
 		// get references
 		fm = FindObjectOfType (typeof(StomachFoodManager)) as StomachFoodManager;
+		gm = FindObjectOfType (typeof(StomachGameManager)) as StomachGameManager;
 	}
 	
 	/**
@@ -30,10 +32,22 @@ public class StomachGameOver : MonoBehaviour
 	 */
 	void Update () 
 	{
+		// lose condition: food stacked too high
 		if (fm.getNumFoodBlobs() == maxFood)
 		{
 			gameOver = true;
 			Time.timeScale = 0;
+		}
+
+		// lose condition: the same cell dies 3 times in a row
+		int[] deathCounts = gm.getCellDeathCounts ();
+		for (int i = 0; i < 6; i++)
+		{
+			if (deathCounts[i] == gm.MAX_CELL_DEATHS)
+			{
+				gameOver = true;
+				Time.timeScale = 0;
+			}
 		}
 	}
 	

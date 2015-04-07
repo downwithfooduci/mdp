@@ -2503,7 +2503,7 @@ MonoBehaviour:
   TIME_TO_DIE: 7
   TIME_FOR_SLIME_FADE: 10
   TIME_TO_REVIVE: 4
-  MAX_CELL_DEATHS: 12
+  MAX_CELL_DEATHS: 3
   cellManager: {fileID: 559039921}
 --- !u!1 &563981234
 GameObject:

@@ -13,8 +13,6 @@ public class StomachGameManager : MonoBehaviour
 	public float TIME_TO_REVIVE;						//!< to hold the time for a cell to revive from a dead state
 	public int MAX_CELL_DEATHS;							//!< to count the amount of time that can pass before a cell dies
 	
-	private int cellDeaths;								//!< actually count the cell deaths
-	
 	public CellManager cellManager;						//!< hold a reference to the cell manager
 	
 	private string currentAcidLevel = "neutral";		//!< default acid level is neutral
@@ -22,12 +20,17 @@ public class StomachGameManager : MonoBehaviour
 	private float[] elapsedTime;						//!< array to hold the time elapsed since last event for each cell
 	private float[] nextCellActionTime;					//!< array to hold the time until the next cell state change
 	private string[] lastCellState;						//!< array to hold the last known state of each cell
+
+	private int[] deathsForThisCellInARow;				//!< array to keep track of the number of deaths in a row each cell has had
 	
 	/**
 	 * Use this for initialization
 	 */
 	void Start () 
 	{
+		// make sure game is not paused
+		Time.timeScale = 1;
+
 		// get references
 		cellManager = FindObjectOfType(typeof(CellManager)) as CellManager;
 		
@@ -35,6 +38,8 @@ public class StomachGameManager : MonoBehaviour
 		elapsedTime = new float[cellManager.cellScripts.Length];
 		nextCellActionTime = new float[cellManager.cellScripts.Length];
 		lastCellState = new string[cellManager.cellScripts.Length];
+
+		deathsForThisCellInARow = new int[cellManager.cellScripts.Length];
 		
 		// populate arrays
 		for (int i = 0; i < cellManager.cellScripts.Length; i++)
@@ -91,6 +96,8 @@ public class StomachGameManager : MonoBehaviour
 				lastCellState[i] = "slimed";
 				nextCellActionTime[i] = TIME_FOR_SLIME_FADE;
 				elapsedTime[i] = 0f;
+
+				deathsForThisCellInARow[i] = 0;
 			}
 			
 			if (cellManager.cellScripts[i].getCellState() == "dead" && lastCellState[i] != "dead")
@@ -98,6 +105,8 @@ public class StomachGameManager : MonoBehaviour
 				lastCellState[i] = "dead";
 				nextCellActionTime[i] = TIME_TO_REVIVE;
 				elapsedTime[i] = 0f;
+
+				deathsForThisCellInARow[i]++;
 			}
 
 			if (cellManager.cellScripts[i].getCellRefresh() == true)
@@ -106,6 +115,8 @@ public class StomachGameManager : MonoBehaviour
 				nextCellActionTime[i] = TIME_FOR_SLIME_FADE;
 				elapsedTime[i] = 0f;
 				cellManager.cellScripts[i].setCellRefresh(false);
+
+				deathsForThisCellInARow[i] = 0;
 			}
 			
 			/**
@@ -114,13 +125,17 @@ public class StomachGameManager : MonoBehaviour
 			if (getCurrentAcidLevel() == "neutral" ||
 			    getCurrentAcidLevel() == "basic")
 			{
-				if (cellManager.cellScripts[i].getCellState() == "dead")
+				if (cellManager.cellScripts[i].getCellState() == "dead" && lastCellState[i] != "dead")
 				{
+					if (lastCellState[i] != "dead")
+					{
+						deathsForThisCellInARow[i]++;
+					}
 					lastCellState[i] = "dead";
+
 					if (elapsedTime[i] >= nextCellActionTime[i])
 					{
 						cellManager.cellScripts[i].setCellState("normal");
-						lastCellState[i] = "normal";
 						nextCellActionTime[i] = TIME_TO_BURN;
 						elapsedTime[i] = 0f;
 					}
@@ -129,14 +144,17 @@ public class StomachGameManager : MonoBehaviour
 				
 				if (cellManager.cellScripts[i].getCellState() == "slimed")
 				{
-					lastCellState[i] = "slimed";
+					if (lastCellState[i] != "slimed")
+					{
+						deathsForThisCellInARow[i] = 0;
+					}
 					nextCellActionTime[i] = TIME_FOR_SLIME_FADE;
 					elapsedTime[i] = 0f;
+
 					continue;
 				}
 				
 				cellManager.cellScripts[i].setCellState("normal");
-				lastCellState[i] = "normal";
 				nextCellActionTime[i] = TIME_TO_BURN;
 				elapsedTime[i] = 0f;
 				continue;
@@ -146,11 +164,15 @@ public class StomachGameManager : MonoBehaviour
 			{
 				if (cellManager.cellScripts[i].getCellState() == "dead")
 				{
+					if (lastCellState[i] != "dead")
+					{
+						deathsForThisCellInARow[i]++;
+					}
 					lastCellState[i] = "dead";
+
 					if (elapsedTime[i] >= nextCellActionTime[i])
 					{
 						cellManager.cellScripts[i].setCellState("normal");
-						lastCellState[i] = "normal";
 						nextCellActionTime[i] = TIME_TO_BURN;
 						elapsedTime[i] = 0f;
 					}
@@ -164,8 +186,6 @@ public class StomachGameManager : MonoBehaviour
 					if (elapsedTime[i] >= nextCellActionTime[i])
 					{
 						cellManager.cellScripts[i].setCellState("dead");
-						lastCellState[i] = "dead";
-						cellDeaths++;
 						nextCellActionTime[i] = TIME_TO_REVIVE;
 						elapsedTime[i] = 0f;
 					}
@@ -174,11 +194,15 @@ public class StomachGameManager : MonoBehaviour
 				
 				if (cellManager.cellScripts[i].getCellState() == "slimed")
 				{
+					if (lastCellState[i] != "slimed")
+					{
+						deathsForThisCellInARow[i] = 0;
+					}
 					lastCellState[i] = "slimed";
+
 					if (elapsedTime[i] >= nextCellActionTime[i])
 					{
 						cellManager.cellScripts[i].setCellState("burning");
-						lastCellState[i] = "burning";
 						nextCellActionTime[i] = TIME_TO_DIE;
 						elapsedTime[i] = 0f;
 					}
@@ -191,7 +215,6 @@ public class StomachGameManager : MonoBehaviour
 					if (elapsedTime[i] >= nextCellActionTime[i])
 					{
 						cellManager.cellScripts[i].setCellState("burning");
-						lastCellState[i] = "burning";
 						nextCellActionTime[i] = TIME_TO_DIE;
 						elapsedTime[i] = 0f;
 					}
@@ -215,5 +238,13 @@ public class StomachGameManager : MonoBehaviour
 	public string getCurrentAcidLevel()
 	{
 		return currentAcidLevel;
+	}
+
+	/**
+	 * Function to allow other classes to access the cell death count array
+	 */
+	public int[] getCellDeathCounts()
+	{
+		return deathsForThisCellInARow;
 	}
 }

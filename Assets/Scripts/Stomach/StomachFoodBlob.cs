@@ -56,7 +56,6 @@ public class StomachFoodBlob : MonoBehaviour
 		}
 		else if(timer > digestTime)
 		{
-			Debug.Log("timerMax reached !");
 			GetComponent<SpriteRenderer>().sprite = digestedRepresentation;
 			
 		}
