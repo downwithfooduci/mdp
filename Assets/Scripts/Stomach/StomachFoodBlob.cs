@@ -23,12 +23,15 @@ public class StomachFoodBlob : MonoBehaviour
 	private float timer;						//!< to counte while the enzyme is on
 	private StomachGameManager stomanager;
 	
+	private StomachFoodManager fm;
+	
 	
 	
 	// Use this for initialization
 	void Start () 
 	{
 		stomanager = FindObjectOfType (typeof(StomachGameManager)) as StomachGameManager;
+		fm = FindObjectOfType (typeof(StomachFoodManager)) as StomachFoodManager;
 		
 		// choose a random number to choose a color and select the correct images
 		index = Random.Range (0, 4);
@@ -53,6 +56,7 @@ public class StomachFoodBlob : MonoBehaviour
 		{
 			Destroy (this.gameObject);
 			timer = 0;
+			fm.FlagAdded();
 		}
 		else if(timer > digestTime)
 		{
