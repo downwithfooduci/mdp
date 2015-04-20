@@ -39,8 +39,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 813015aa45fb02844811878cd264c772, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activatedTexture: {fileID: 2800000, guid: 3d1b67c5a713f1443b7852f001013d34, type: 3}
-  deactivatedTexture: {fileID: 2800000, guid: 6cf26db79329f0646b41754d882a954d, type: 3}
+  activatedTexture: {fileID: 21300000, guid: 3d1b67c5a713f1443b7852f001013d34, type: 3}
+  deactivatedTexture: {fileID: 21300000, guid: 6cf26db79329f0646b41754d882a954d, type: 3}
+  textboxes: {fileID: 0}
+  speed: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -52,4 +54,3 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 100000}
   m_IsPrefabParent: 1
-  m_IsExploded: 1
