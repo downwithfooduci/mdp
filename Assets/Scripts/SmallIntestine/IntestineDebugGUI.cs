@@ -75,16 +75,16 @@ public class IntestineDebugGUI : MonoBehaviour
 			GUI.depth ++;
 		}
 
-		GUI.color = new Color() { a = 0.0f };	// this makes the button invisible by changing the alpha value
+	//	GUI.color = new Color() { a = 0.0f };	// this makes the button invisible by changing the alpha value
 
 		// to handle showing the button for accessing the debugger in the bottom right corner of the small intestine game
 		//Change width-100/+100 to enable/disable debugger
-		if(GUI.Button(new Rect(Screen.width - 100, Screen.height - 50, 100, 50), "Debug"))
-		{
-			showGUI = !showGUI;					// when the button is clicked show or unshow the gui
-			Time.timeScale = showGUI ? 0 : 1;	// pause the game when the gui is up, unpause it if it's not shown
-		}
-		GUI.color = new Color() { a = 1.0f };	// this makes sure the invisibility isn't applied to anything we don't want
+	//	if(GUI.Button(new Rect(Screen.width - 100, Screen.height - 50, 100, 50), "Debug"))
+	//	{
+	//		showGUI = !showGUI;					// when the button is clicked show or unshow the gui
+	//		Time.timeScale = showGUI ? 0 : 1;	// pause the game when the gui is up, unpause it if it's not shown
+	//	}
+	//	GUI.color = new Color() { a = 1.0f };	// this makes sure the invisibility isn't applied to anything we don't want
 
 		// check if we ARE showing the gui
 		if(showGUI)
