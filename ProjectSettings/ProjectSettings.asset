@@ -11,11 +11,12 @@ PlayerSettings:
   targetIOSGraphics: -1
   targetResolution: 0
   accelerometerFrequency: 60
-  companyName: DefaultCompany
-  productName: mdp
+  companyName: MDP
+  productName: DownWithFood
   cloudProjectId: 
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
+  m_ShowUnitySplashScreen: 0
   defaultScreenWidth: 1024
   defaultScreenHeight: 768
   defaultScreenWidthWeb: 960
@@ -101,16 +102,25 @@ PlayerSettings:
   uIStatusBarHidden: 1
   uIExitOnSuspend: 0
   uIStatusBarStyle: 0
-  iPhoneSplashScreen: {fileID: 0}
-  iPhoneHighResSplashScreen: {fileID: 0}
-  iPhoneTallHighResSplashScreen: {fileID: 0}
-  iPhone47inSplashScreen: {fileID: 0}
-  iPhone55inPortraitSplashScreen: {fileID: 0}
-  iPhone55inLandscapeSplashScreen: {fileID: 0}
-  iPadPortraitSplashScreen: {fileID: 0}
-  iPadHighResPortraitSplashScreen: {fileID: 0}
-  iPadLandscapeSplashScreen: {fileID: 0}
-  iPadHighResLandscapeSplashScreen: {fileID: 0}
+  iPhoneSplashScreen: {fileID: 2800000, guid: 856786ca492806f4b99e97be4c116c76, type: 3}
+  iPhoneHighResSplashScreen: {fileID: 2800000, guid: 856786ca492806f4b99e97be4c116c76,
+    type: 3}
+  iPhoneTallHighResSplashScreen: {fileID: 2800000, guid: 856786ca492806f4b99e97be4c116c76,
+    type: 3}
+  iPhone47inSplashScreen: {fileID: 2800000, guid: 856786ca492806f4b99e97be4c116c76,
+    type: 3}
+  iPhone55inPortraitSplashScreen: {fileID: 2800000, guid: 856786ca492806f4b99e97be4c116c76,
+    type: 3}
+  iPhone55inLandscapeSplashScreen: {fileID: 2800000, guid: 856786ca492806f4b99e97be4c116c76,
+    type: 3}
+  iPadPortraitSplashScreen: {fileID: 2800000, guid: 856786ca492806f4b99e97be4c116c76,
+    type: 3}
+  iPadHighResPortraitSplashScreen: {fileID: 2800000, guid: 856786ca492806f4b99e97be4c116c76,
+    type: 3}
+  iPadLandscapeSplashScreen: {fileID: 2800000, guid: 856786ca492806f4b99e97be4c116c76,
+    type: 3}
+  iPadHighResLandscapeSplashScreen: {fileID: 2800000, guid: 856786ca492806f4b99e97be4c116c76,
+    type: 3}
   iOSLaunchScreenType: 0
   iOSLaunchScreenPortrait: {fileID: 0}
   iOSLaunchScreenLandscape: {fileID: 0}
@@ -118,6 +128,7 @@ PlayerSettings:
     serializedVersion: 2
     rgba: 807418489
   iOSLaunchScreenFillPct: 1
+  iOSLaunchScreenSize: 100
   iOSLaunchScreenCustomXibPath: 
   AndroidTargetDevice: 0
   AndroidSplashScreenScale: 0
@@ -130,8 +141,13 @@ PlayerSettings:
   - width: 320
     height: 180
     banner: {fileID: 0}
+  androidGamepadSupportLevel: 0
   resolutionDialogBanner: {fileID: 0}
-  m_BuildTargetIcons: []
+  m_BuildTargetIcons:
+  - m_BuildTarget: 
+    m_Icons:
+    - m_Icon: {fileID: 2800000, guid: f7a3a164be2abad47b6c0b366d58e514, type: 3}
+      m_Size: 128
   m_BuildTargetBatching: []
   webPlayerTemplate: APPLICATION:Default
   m_TemplateCustomTags: {}
