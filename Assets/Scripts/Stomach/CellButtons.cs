@@ -81,7 +81,13 @@ public class CellButtons : MonoBehaviour
 	public void checkMouseClick(int cell)
 	{	
 		// check if it's ok to update the menu on a mouse click on the main cell (2)
-		if (menuSemaphore <= 0 && !isEnabled && cell == 2) 
+//		float x = mouseClickLocation.x;
+//		float y = mouseClickLocation.y;
+//		if (x <= 528.0 && x >= 83.0 && y >= 441.0 &&  y<= 794.0) 
+//		{
+//			isInCell2 = true;
+//		}
+		if (menuSemaphore <= 0 && !isEnabled && cell==2) 
 		{
 			// clicking on the main cell either cancels or brings up the menu, so handle correctly
 			if (showBucket || showScythe)
@@ -141,6 +147,7 @@ public class CellButtons : MonoBehaviour
 		// check if we should draw the menu
 		if (!isEnabled)	// we shouldn't
 		{
+//			isEnabled = false;
 			return;
 		} else 			// we should
 		{
@@ -148,6 +155,7 @@ public class CellButtons : MonoBehaviour
 			showButton1(mouseClickLocation.x, Screen.height - mouseClickLocation.y);
 			showButton2(mouseClickLocation.x, Screen.height - mouseClickLocation.y);
 			showButton3(mouseClickLocation.x, Screen.height - mouseClickLocation.y);
+//			isEnabled = true;
 		}
 	}
 	
