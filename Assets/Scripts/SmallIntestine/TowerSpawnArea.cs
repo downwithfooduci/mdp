@@ -24,8 +24,23 @@ public class TowerSpawnArea : MonoBehaviour
 	 */
     void OnMouseOver()
     {
-	    towerSpawner.IsMouseOverWall = true;	// set the value if the tower is currently hovering over a wall
-		towerSpawner.wall = gameObject;			// assign the wall in the tower spawner to the one you are hovering over
+		RaycastHit hit;
+		if (Physics.Raycast (transform.position, Vector3.up, out hit)) 
+		{
+			if (hit.transform.name == "BoyTower(Clone)" || 
+			    hit.transform.name == "GirlTower(Clone)")
+			{
+				return;
+			} else
+			{
+				towerSpawner.IsMouseOverWall = true;	// set the value if the tower is currently hovering over a wall
+				towerSpawner.wall = gameObject;			// assign the wall in the tower spawner to the one you are hovering over
+			}
+		} else
+		{
+		    towerSpawner.IsMouseOverWall = true;	// set the value if the tower is currently hovering over a wall
+			towerSpawner.wall = gameObject;			// assign the wall in the tower spawner to the one you are hovering over
+		}
     }
 
 	/**

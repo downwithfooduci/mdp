@@ -1,11 +1,10 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="../Desktop/RaycastMask.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Stomach\CellButtons.cs">
     <Files>
-      <File FileName="../Desktop/RaycastMask.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Stomach/CellButtons.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Stomach/CellManager.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Stomach/StomachEnzyme.cs" Line="72" Column="3" />
+      <File FileName="Assets\Scripts\Stomach\CellButtons.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Stomach\CellManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Stomach\StomachEnzyme.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
