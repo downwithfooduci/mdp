@@ -202,6 +202,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27da204994f304b43a997ac32e81551e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  swipeSize: 50
 --- !u!82 &118777434
 AudioSource:
   m_ObjectHideFlags: 0
@@ -369,7 +370,7 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2b3b53d905705f745ae855479e2fab0f, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &465299927
+--- !u!1 &465299927 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: 2b3b53d905705f745ae855479e2fab0f, type: 2}
   m_PrefabInternal: {fileID: 392085876}
