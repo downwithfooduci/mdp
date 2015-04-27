@@ -20,6 +20,7 @@ public class openFlap : MonoBehaviour
 	private bool swipe = false;					//!< flag to hold whether there was any type of swipe
 	private bool swipeUp = false;				//!< flag to hold whether there was an upward swipe direction
 	private bool swipeDown = false;				//!< flag to hold whether there was a downward swipe direction
+	public float swipeSize = 15.0f;
 
 	/**
 	 * Use this for initialization
@@ -88,7 +89,7 @@ public class openFlap : MonoBehaviour
 				}
 
 				// find the size of the swipe and check if it was larger than a certain size (in this case 10)
-				if (Mathf.Sqrt((xStart - xEnd)*(xStart - xEnd)+(yStart - yEnd)*(yStart - yEnd)) > 10) 
+				if (Mathf.Sqrt((xStart - xEnd)*(xStart - xEnd)+(yStart - yEnd)*(yStart - yEnd)) > swipeSize) 
 				{
 					swipe = true;						// if the swipe size was large enough, mark that a swipe happened
 					
@@ -130,7 +131,7 @@ public class openFlap : MonoBehaviour
 				yEnd = Input.mousePosition.y;
 			}
 
-			if (Mathf.Sqrt((xStart - xEnd)*(xStart - xEnd)+(yStart - yEnd)*(yStart - yEnd)) > 10) 
+			if (Mathf.Sqrt((xStart - xEnd)*(xStart - xEnd)+(yStart - yEnd)*(yStart - yEnd)) > swipeSize) 
 			{
 				swipe = true;
 			
