@@ -8,6 +8,7 @@ public class StomachFoodBlob : MonoBehaviour
 {
 	public Sprite[] wholeFood;					//!< to hold the whole food representation images of each color
 	public Sprite[] digestedFood;				//!< to hold the digested food representation images of each color
+	public Sprite blankFood;
 	
 	public GameObject parent;					//!< the parent game object
 	
@@ -52,17 +53,19 @@ public class StomachFoodBlob : MonoBehaviour
 		{
 			timer = timer + Time.deltaTime;
 		}
-		if(timer> digestTime + 2f)
+	}
+
+	public void digest()
+	{
+		if(timer > digestTime + 2f)
 		{
-			Destroy (this.gameObject);
 			timer = 0;
-			fm.FlagAdded();
+			fm.removeFood(this);
+			GetComponent<SpriteRenderer>().sprite = blankFood;
 		}
 		else if(timer > digestTime)
 		{
 			GetComponent<SpriteRenderer>().sprite = digestedRepresentation;
-			
 		}
-		
 	}
 }

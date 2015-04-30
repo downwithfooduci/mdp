@@ -14,8 +14,8 @@ public class StomachFoodManager : MonoBehaviour
 	
 	public float timeBetweenFoodSpawns;				//!< for the time between food spawns
 	private float elapsedTime;						//!< to count elapsed time to see if we should create a new food blob
-
-	private int foodflag;
+	
+	public int foodBlobsPerRound = 15;
 
 	/**
 	 * Update is called once per frame
@@ -26,7 +26,7 @@ public class StomachFoodManager : MonoBehaviour
 		
 		// keeps track of food blobs
 		// when a food blob is digested it will need to be removed from the list of spawned blobs
-		if (elapsedTime > timeBetweenFoodSpawns)
+		if (elapsedTime > timeBetweenFoodSpawns && spawnedFoodBlobs.Count <= foodBlobsPerRound)
 		{
 			GameObject temp = (GameObject)Instantiate (stomachFoodBlob);
 			temp.GetComponent<StomachFoodBlob>().parent = temp;
@@ -43,55 +43,40 @@ public class StomachFoodManager : MonoBehaviour
 		return spawnedFoodBlobs.Count;
 	}
 
-	public int getFoodFlag()
-	{
-		return foodflag;
-	}
-
 	/**
 	 * Returns if there is any food blobs or not
 	 */
 	public bool noFoodBlobs()
 	{
-		if (getNumFoodBlobs()<=foodflag) {
-			return true;
-		} 
-		else
-			return false;
+		return (spawnedFoodBlobs.Count == 0);
 	}
 
-	/*Add the foodflag every time a food blob is deleted*/
-	
-	public void FlagAdded()
+	public StomachFoodBlob getOldestFoodBlob()
 	{
-		foodflag++;
+		return spawnedFoodBlobs [0];
 	}
 
 	/*
-	 * Returns the location of the first food blob
+	 * Returns the location of the oldest food blob
 	 */
-	public Vector2 locFirstFoodBolb()
+	public Vector2 locOldestFoodBolb()
 	{
 		Vector2 p;
 		int i = 0;
-		if (noFoodBlobs()){
+		if (noFoodBlobs())
+		{
 			p = new Vector3(0f,0f);
-			Debug.Log("No FoodBlobs");
 		} 
-		else {
-			Debug.Log("Total Count:"+ getNumFoodBlobs());
-			Debug.Log("Current Count:"+ foodflag);
-			
-			p = spawnedFoodBlobs[foodflag].transform.position;
-			
+		else 
+		{
+			p = spawnedFoodBlobs[0].transform.position;
 		}
 		
 		return p;
 	}
 
-	
-	//TODO: implement
-	public void removeFoodBlob()
+	public void removeFood(StomachFoodBlob f)
 	{
+		spawnedFoodBlobs.Remove (f);
 	}
 }

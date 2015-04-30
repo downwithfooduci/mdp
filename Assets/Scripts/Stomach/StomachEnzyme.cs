@@ -17,6 +17,8 @@ public class StomachEnzyme : MonoBehaviour
 	
 	private StomachFoodManager fm;				//!< reference to the food manager
 	public float speed;							//!< reference to the speed the enzyme moves
+
+	private StomachFoodBlob currentlyDigesting;
 	
 	/**
 	 * Use this for initialization
@@ -38,23 +40,22 @@ public class StomachEnzyme : MonoBehaviour
 		if (gm.getCurrentAcidLevel() == "acidic")
 		{
 			i.sprite = activatedTexture;
-			if(fm.noFoodBlobs()){
-				
+
+			if(fm.noFoodBlobs())
+			{
 				float step = speed*Time.deltaTime;
 				Vector2 origin = Vector2.zero;
-				transform.position = Vector2.MoveTowards(transform.position, origin, step);
-				Debug.Log("No food detected");
-				Debug.Log("Total Count:"+fm.getNumFoodBlobs());
-				Debug.Log("Current Food Count:"+fm.getFoodFlag());
-				
+				transform.position = Vector2.MoveTowards(transform.position, origin, step);				
 			}
-			else{
+			else
+			{
 				float step = speed*Time.deltaTime;
-				Vector2 movement = fm.locFirstFoodBolb();
+				Vector2 movement = fm.locOldestFoodBolb();
+				currentlyDigesting = fm.getOldestFoodBlob();
+				currentlyDigesting.digest();
 				transform.position = Vector2.MoveTowards(transform.position, movement, step);
 				Debug.Log("Food detected");
 			}
-
 		} else
 		{
 			i.sprite = deactivatedTexture;
