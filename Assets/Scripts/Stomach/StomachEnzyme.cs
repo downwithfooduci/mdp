@@ -19,6 +19,9 @@ public class StomachEnzyme : MonoBehaviour
 	public float speed;							//!< reference to the speed the enzyme moves
 
 	private StomachFoodBlob currentlyDigesting;
+
+	private float digestDelay = 4.0f;
+	private float elapsedTime;
 	
 	/**
 	 * Use this for initialization
@@ -49,12 +52,15 @@ public class StomachEnzyme : MonoBehaviour
 			}
 			else
 			{
-				float step = speed*Time.deltaTime;
-				Vector2 movement = fm.locOldestFoodBolb();
-				currentlyDigesting = fm.getOldestFoodBlob();
-				currentlyDigesting.digest();
-				transform.position = Vector2.MoveTowards(transform.position, movement, step);
-				Debug.Log("Food detected");
+				elapsedTime += Time.deltaTime;
+				if (elapsedTime > digestDelay)
+				{
+					float step = speed*Time.deltaTime;
+					Vector2 movement = fm.locOldestFoodBolb();
+					currentlyDigesting = fm.getOldestFoodBlob();
+					currentlyDigesting.digest();
+					transform.position = Vector2.MoveTowards(transform.position, movement, step);
+				}
 			}
 		} else
 		{
@@ -74,5 +80,10 @@ public class StomachEnzyme : MonoBehaviour
 		{
 			textboxes.setTextbox(5);
 		}
+	}
+
+	public void setElapsedTime()
+	{
+		elapsedTime = 0f;
 	}
 }

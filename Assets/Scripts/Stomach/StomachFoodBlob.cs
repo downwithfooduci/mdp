@@ -25,15 +25,17 @@ public class StomachFoodBlob : MonoBehaviour
 	private StomachGameManager stomanager;
 	
 	private StomachFoodManager fm;
-	
-	
+
+	private StomachEnzyme sm;
+
 	
 	// Use this for initialization
 	void Start () 
 	{
 		stomanager = FindObjectOfType (typeof(StomachGameManager)) as StomachGameManager;
 		fm = FindObjectOfType (typeof(StomachFoodManager)) as StomachFoodManager;
-		
+		sm = FindObjectOfType (typeof(StomachEnzyme)) as StomachEnzyme;
+
 		// choose a random number to choose a color and select the correct images
 		index = Random.Range (0, 4);
 		wholeRepresentation = wholeFood [index];
@@ -62,6 +64,8 @@ public class StomachFoodBlob : MonoBehaviour
 			timer = 0;
 			fm.removeFood(this);
 			GetComponent<SpriteRenderer>().sprite = blankFood;
+			GetComponent<PolygonCollider2D>().enabled = false;
+			sm.setElapsedTime();
 		}
 		else if(timer > digestTime)
 		{
