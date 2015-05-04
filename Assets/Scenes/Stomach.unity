@@ -7124,6 +7124,7 @@ GameObject:
   - 222: {fileID: 1820443998}
   - 114: {fileID: 1820443997}
   - 114: {fileID: 1820443996}
+  - 95: {fileID: 1820443999}
   m_Layer: 5
   m_Name: BaseButton
   m_TagString: Untagged
@@ -7244,6 +7245,23 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1820443994}
+--- !u!95 &1820443999
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1820443994}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 047818a7e8fc82f4a99014f12556575e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1832728651
 GameObject:
   m_ObjectHideFlags: 0
@@ -8649,6 +8667,7 @@ GameObject:
   - 222: {fileID: 2060424451}
   - 114: {fileID: 2060424450}
   - 114: {fileID: 2060424449}
+  - 95: {fileID: 2060424452}
   m_Layer: 5
   m_Name: AcidButton
   m_TagString: Untagged
@@ -8769,6 +8788,23 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2060424447}
+--- !u!95 &2060424452
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2060424447}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 83692275077e1bb4a960ceb275368937, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &2067715090
 GameObject:
   m_ObjectHideFlags: 0
