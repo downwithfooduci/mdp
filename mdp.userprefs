@@ -1,11 +1,15 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Stomach\StomachFoodManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Mouth/MoveFood.cs">
     <Files>
-      <File FileName="Assets\Scripts\Stomach\StomachEnzyme.cs" Line="61" Column="34" />
-      <File FileName="Assets\Scripts\Stomach\StomachFoodBlob.cs" Line="64" Column="54" />
-      <File FileName="Assets\Scripts\Stomach\StomachFoodManager.cs" Line="56" Column="31" />
-      <File FileName="Assets\Scripts\Stomach\StomachGameOver.cs" Line="39" Column="23" />
+      <File FileName="../../Desktop/gamemachine/clients/unity/GameMachine/GameMachine/Chat/ChannelUi.cs" Line="1" Column="1" />
+      <File FileName="../../Desktop/gamemachine/clients/unity/GameMachine/Tutorial/TutorialSelect.cs" Line="1" Column="1" />
+      <File FileName="Assets/Editor/CustomAssetUtility.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/SmallIntestine/Tower.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/SmallIntestine/LoadSmallIntestine.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/SmallIntestine/SIStats.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Mouth/FoodStuffFinish.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Mouth/MoveFood.cs" Line="31" Column="3" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
