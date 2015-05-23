@@ -184,7 +184,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 118777431}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.78999996, y: -3.21000004, z: 0}
+  m_LocalPosition: {x: 2.78999996, y: -4.51499987, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 962206048}
@@ -454,7 +454,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 962206044}
   m_LocalRotation: {x: 0, y: 0, z: .50000006, w: -.866025388}
-  m_LocalPosition: {x: 1.27807164, y: 2.2601192, z: -.999973297}
+  m_LocalPosition: {x: 1.472, y: 2.37199998, z: -1}
   m_LocalScale: {x: .100000001, y: .75, z: 1}
   m_Children: []
   m_Father: {fileID: 118777432}
@@ -669,6 +669,14 @@ Prefab:
       propertyPath: animationDelay2
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11432576, guid: 5bf66e444940fff4a9fb914c33e60a8c, type: 2}
+      propertyPath: percent
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11432576, guid: 5bf66e444940fff4a9fb914c33e60a8c, type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5bf66e444940fff4a9fb914c33e60a8c, type: 2}
   m_IsPrefabParent: 0
@@ -718,7 +726,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1159582898
 Transform:
   m_ObjectHideFlags: 0
@@ -816,14 +824,14 @@ MonoBehaviour:
   pathColor: {r: 0, g: 1, b: 1, a: 1}
   nodes:
   - {x: -9.00268555, y: 1.38672101, z: -.5}
-  - {x: -5.59288931, y: 1.43324006, z: -.48046875}
-  - {x: -3.25764561, y: 1.80980253, z: -.5}
-  - {x: -1.39906776, y: 2.40479398, z: -.5}
-  - {x: .781447589, y: 2.52616882, z: -.5}
-  - {x: 3.25873184, y: 2.14677763, z: -.5}
-  - {x: 4.24427986, y: .860957205, z: -.5}
-  - {x: 4.48856068, y: -2.24061966, z: -.5}
-  - {x: 4.68494368, y: -7.18104506, z: -.5}
+  - {x: -5.59288931, y: 1.43324006, z: -.5}
+  - {x: -3.25764561, y: 1.79999995, z: -.5}
+  - {x: -1.39906776, y: 2.42000008, z: -.5}
+  - {x: .781447589, y: 2.53999996, z: -.5}
+  - {x: 3.25873184, y: 2.20000005, z: -.5}
+  - {x: 4.30000019, y: .860957205, z: -.5}
+  - {x: 4.68494415, y: -2.24061966, z: -.5}
+  - {x: 4.68494368, y: -8, z: -.5}
   nodeCount: 9
   initialized: 1
   initialName: New Path 1

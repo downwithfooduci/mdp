@@ -28,16 +28,19 @@ public class CoughCollision : MonoBehaviour
 	 */
 	void OnTriggerEnter(UnityEngine.Collider other)
 	{
-		if(other.gameObject.name.Contains ("foodstuff"))	// check to see if the flaps collided with something
-															// with the tag "foodstuff"
+		if (!flap.isCough())
 		{
-			// track stats
-			PlayerPrefs.SetInt("MouthStats_timesCoughed", PlayerPrefs.GetInt("MouthStats_timesCoughed") + 1);
-			PlayerPrefs.Save ();
+			if(other.gameObject.name.Contains ("foodstuff"))	// check to see if the flaps collided with something
+																// with the tag "foodstuff"
+			{
+				// track stats
+				PlayerPrefs.SetInt("MouthStats_timesCoughed", PlayerPrefs.GetInt("MouthStats_timesCoughed") + 1);
+				PlayerPrefs.Save ();
 
-			oxygen.percent -= .07f;			// on cough we decrease oxygen by a chunk amount as a penalty
+				oxygen.percent -= .07f;			// on cough we decrease oxygen by a chunk amount as a penalty
 
-			flap.setCough();				// set the cough indicate variable on the script
+				flap.setCough();				// set the cough indicate variable on the script
+			}
 		}
 	}
 }

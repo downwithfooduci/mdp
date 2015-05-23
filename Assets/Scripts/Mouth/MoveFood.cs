@@ -14,6 +14,7 @@ public class MoveFood : MonoBehaviour
 	public float coughSpeed;					//!< for the speed the food moves in reverse down the path (for cough)
 
 	private SmoothQuaternion quaternion;
+	public BoxCollider b;
 
 	EsophagusDebugConfig debugConfig;	//!< to hold a reference to the mouth debug config
 
@@ -30,6 +31,7 @@ public class MoveFood : MonoBehaviour
 		quaternion.Duration = .5f;
 
 		debugConfig = GameObject.Find("Debugger").GetComponent<EsophagusDebugConfig>();	// find the reference to the debugger
+		b = GameObject.Find ("flap1").GetComponent<BoxCollider> ();
 	}
 	
 	/**
@@ -48,6 +50,7 @@ public class MoveFood : MonoBehaviour
 		Quaternion q = transform.rotation;
 		if(flap.isCough())						// if a cough is currently occuring
 		{
+			b.enabled = false;
 			// reverse the path and set the "corrected" forward path position based on this reversed path
 			transform.position = Spline.MoveOnPath(iTweenPath.GetPathReversed("Path"), transform.position, ref reversePosition, ref q, coughSpeed,100,EasingType.Linear,false,false);
 			pathPosition = 1f - reversePosition;
@@ -64,6 +67,10 @@ public class MoveFood : MonoBehaviour
 		}
 		else 									// if a cough is not occuring
 		{
+			if(!flap.isEpiglotisOpen())
+			{
+				b.enabled = true;
+			}
 			// move the food down the normal path and set the "corrected" reverse path position based  on this 
 			transform.position = Spline.MoveOnPath(iTweenPath.GetPath("Path"), transform.position, ref pathPosition, ref q, foodSpeed,100,EasingType.Linear,false,false);
 			reversePosition = 1f - pathPosition;

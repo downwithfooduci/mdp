@@ -1,15 +1,15 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Mouth/MoveFood.cs">
     <Files>
-      <File FileName="../../Desktop/gamemachine/clients/unity/GameMachine/GameMachine/Chat/ChannelUi.cs" Line="1" Column="1" />
-      <File FileName="../../Desktop/gamemachine/clients/unity/GameMachine/Tutorial/TutorialSelect.cs" Line="1" Column="1" />
       <File FileName="Assets/Editor/CustomAssetUtility.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/SmallIntestine/Tower.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/SmallIntestine/LoadSmallIntestine.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/SmallIntestine/SIStats.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Mouth/FoodStuffFinish.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Mouth/MoveFood.cs" Line="31" Column="3" />
+      <File FileName="Assets/Scripts/Mouth/MoveFood.cs" Line="75" Column="1" />
+      <File FileName="Assets/Scripts/Mouth/openFlap.cs" Line="25" Column="5" />
+      <File FileName="Assets/Scripts/Mouth/CoughCollision.cs" Line="19" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

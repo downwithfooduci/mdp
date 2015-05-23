@@ -198,7 +198,7 @@ public class openFlap : MonoBehaviour
 		{
 			GetComponent<AudioSource>().Play();
 		}
-		coughTimer = .950f;			// set the cough timer to the length of the cough
+		coughTimer = 1.950f;			// set the cough timer to the length of the cough
 		cough = true;				// throw the flag to indicate a cough is happening
 	}
 
