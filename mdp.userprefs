@@ -1,15 +1,16 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Mouth/MoveFood.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\SmallIntestine\IntestineGameManager.cs">
     <Files>
-      <File FileName="Assets/Editor/CustomAssetUtility.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/SmallIntestine/Tower.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/SmallIntestine/LoadSmallIntestine.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/SmallIntestine/SIStats.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Mouth/FoodStuffFinish.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Mouth/MoveFood.cs" Line="75" Column="1" />
-      <File FileName="Assets/Scripts/Mouth/openFlap.cs" Line="25" Column="5" />
-      <File FileName="Assets/Scripts/Mouth/CoughCollision.cs" Line="19" Column="1" />
+      <File FileName="Assets\Scripts\Main Menu\changeLevel.cs" Line="11" Column="3" />
+      <File FileName="Assets\Scripts\Stomach\LoadStomach.cs" Line="45" Column="39" />
+      <File FileName="Assets\Scripts\Mouth\LoadMouth.cs" Line="45" Column="31" />
+      <File FileName="Assets\Scripts\Mouth\MouthLoadLevelCounter.cs" Line="33" Column="65" />
+      <File FileName="Assets\Scripts\Stomach\StomachLoadLevelCounter.cs" Line="30" Column="1" />
+      <File FileName="Assets\Scripts\Mouth\MouthStats.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Mouth\EsophagusGameOver.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Stomach\StomachGameManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\SmallIntestine\IntestineGameManager.cs" Line="125" Column="5" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

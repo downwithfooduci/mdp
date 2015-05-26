@@ -38,6 +38,12 @@ public class changeLevel : MonoBehaviour {
 		Application.LoadLevel("LoadLevelMouth");
 	}
 
+	public void changeStomachLevel(int l){
+		PlayerPrefs.SetInt("DesiredStomachLevel", l);
+		PlayerPrefs.Save();
+		Application.LoadLevel("LoadLevelStomach");
+	}
+
 	public void changeLILevel (int l) 
 	{
 		PlayerPrefs.SetInt ("DesiredLILevel", l);
@@ -49,6 +55,8 @@ public class changeLevel : MonoBehaviour {
 		PlayerPrefs.SetInt ("PlayedIntroStory", n);
 		PlayerPrefs.SetInt ("PlayedMouthStory", n);
 		PlayerPrefs.SetInt ("PlayedMouthEndStory", n);
+		PlayerPrefs.SetInt ("PlayedStomachStory", n);
+		PlayerPrefs.SetInt ("PlayedStomachEndStory", n);
 		PlayerPrefs.SetInt ("PlayedSIStory", n);
 		PlayerPrefs.SetInt ("PlayedLIStory", n);
 		PlayerPrefs.Save ();
@@ -73,6 +81,8 @@ public class changeLevel : MonoBehaviour {
 	public void ResetScores(){
 		PlayerPrefs.DeleteKey("Mouth1");
 		PlayerPrefs.DeleteKey("Mouth2");
+		PlayerPrefs.DeleteKey("Stomach1");
+		PlayerPrefs.DeleteKey("Stomach2");
 		PlayerPrefs.DeleteKey("SI1");
 		PlayerPrefs.DeleteKey("SI2");
 		PlayerPrefs.DeleteKey("SI3");
