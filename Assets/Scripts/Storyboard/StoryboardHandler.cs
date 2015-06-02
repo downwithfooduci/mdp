@@ -38,6 +38,12 @@ public class StoryboardHandler : MonoBehaviour
 		} else if (Application.loadedLevelName.Equals("MouthEndStoryboard"))
 		{
 			canSkip = (PlayerPrefs.GetInt ("PlayedMouthEndStory") == 1) ? true : false;
+		} else if (Application.loadedLevelName.Equals("StomachStoryboard"))
+		{
+			canSkip = (PlayerPrefs.GetInt ("PlayedStomachStory") == 1) ? true : false;
+		} else if (Application.loadedLevelName.Equals("StomachEndStoryboard"))
+		{
+			canSkip = (PlayerPrefs.GetInt ("PlayedStomachEndStory") == 1) ? true : false;
 		} else if (Application.loadedLevelName.Equals("SmallIntestineStoryboard"))
 		{
 			canSkip = (PlayerPrefs.GetInt ("PlayedSIStory") == 1) ? true : false;
@@ -60,6 +66,12 @@ public class StoryboardHandler : MonoBehaviour
 		{
 			loader = Application.LoadLevelAsync("LoadLevelMouth");
 		} else if (Application.loadedLevelName.Equals("MouthEndStoryboard"))
+		{
+			loader = Application.LoadLevelAsync("StomachStoryboard");
+		} else if (Application.loadedLevelName.Equals("StomachStoryboard"))
+		{
+			loader = Application.LoadLevelAsync("LoadLevelStomach");
+		} else if (Application.loadedLevelName.Equals("StomachEndStoryboard"))
 		{
 			loader = Application.LoadLevelAsync("SmallIntestineStoryboard");
 		} else if (Application.loadedLevelName.Equals("SmallIntestineStoryboard"))
@@ -121,6 +133,12 @@ public class StoryboardHandler : MonoBehaviour
 			} else if (Application.loadedLevelName.Equals("MouthEndStoryboard"))
 			{
 				PlayerPrefs.SetInt("PlayedMouthEndStory", 1);
+			} else if (Application.loadedLevelName.Equals("StomachStoryboard"))
+			{
+				PlayerPrefs.SetInt("PlayedStomachStory", 1);
+			} else if (Application.loadedLevelName.Equals("StomachEndStoryboard"))
+			{
+				PlayerPrefs.SetInt("PlayedStomachEndStory", 1);
 			} else if (Application.loadedLevelName.Equals("SmallIntestineStoryboard"))
 			{
 				PlayerPrefs.SetInt("PlayedSIStory", 1);

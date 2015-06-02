@@ -22,6 +22,13 @@ public class openFlap : MonoBehaviour
 	private bool swipeDown = false;				//!< flag to hold whether there was a downward swipe direction
 	public float swipeSize = 15.0f;
 
+	// pop up variables
+	private bool popup;							//!< flag to hold whether the pop up windows should show up
+	private float startTime;					//!< to keep track of the time the game start
+	private float ellasped;						//!< the ellasped after the game start
+	private int swipeCount;						//!< to keep track of how many times the swipe happened
+	public Texture swipePopUp;					//!< to hold the texture of the pop up for swipe
+
 	/**
 	 * Use this for initialization
 	 * Finds references to the flaps and orders them correctly
@@ -30,6 +37,9 @@ public class openFlap : MonoBehaviour
 	{
 		coughTimer = 0f;						// make sure the initial cough timer value is 0
 	
+		startTime = Time.time;
+		popup = false;
+		swipeCount = 0;
 		// find flaps and properly determine which one is the uvula (top flap) or epiglottis (bottom flap)
 		foreach(Transform child in transform)
 		{
@@ -51,6 +61,15 @@ public class openFlap : MonoBehaviour
 	 */
 	void Update () 
 	{
+		ellasped = Time.time - startTime;
+		if (ellasped >= 25 && swipeCount <= 2) 
+		{
+			popup = true;
+		}
+		else
+		{
+			popup = false;
+		}
 		// update the coughing variable accordingly to maintain proper collision detection
 		if (coughTimer > 0)					// if there is time left in the cough
 		{
@@ -165,6 +184,10 @@ public class openFlap : MonoBehaviour
 				yStart = 0.0f;
 				yEnd = 0.0f;
 				swipeUp = false;
+
+				// swipe counter +1
+				swipeCount += 1;
+
 			} else if (swipeDown)											// if the swipe was downwards
 			{
 				isOpen = true;												// open the flaps
@@ -177,9 +200,24 @@ public class openFlap : MonoBehaviour
 				yStart = 0.0f;
 				yEnd = 0.0f;
 				swipeDown = false;
+
+				// swipe counter +1
+				swipeCount += 1;
 			}
 		}
 	}
+
+	void OnGUI()
+	{
+		if(popup)
+		{
+			GUI.DrawTexture (new Rect(Screen.width * 0.7393359375f, 
+			                          Screen.height * 0.63515625f, 
+			                          Screen.width * 0.2093359375f, 
+			                          Screen.height * 0.300697917f),swipePopUp);
+		}
+	}
+
 
 	/**
 	 * function that can be called to return whether the flaps are currently open
