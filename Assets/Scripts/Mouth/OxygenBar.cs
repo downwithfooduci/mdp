@@ -61,6 +61,7 @@ public class OxygenBar : MonoBehaviour
 	 * Handles drawing of the oxygen bar properly
 	 */
 	void OnGUI()
+	
 	{
 		// set the x and y position of the oxygen bar relative to screen size
 		position.x = (2779f / 3072f) * Screen.width;

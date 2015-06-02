@@ -13,7 +13,7 @@ public class TongueLayer : MonoBehaviour
 	 */
 	void OnGUI()
 	{
-		GUI.depth++;				// change the GUI depth for proper layering of gui elements
+		GUI.depth= GUI.depth+5;				// change the GUI depth for proper layering of gui elements
 
 		// draw the texture the same size as the screen
 		GUI.DrawTexture(new Rect(0,0,Screen.width, Screen.height), tongue);

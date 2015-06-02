@@ -13,6 +13,7 @@ public class MouthOverlay : MonoBehaviour
 	 */
 	void OnGUI()
 	{
+		GUI.depth= GUI.depth + 2;
 		// draw the texture for the mouth overlay the size of the entire screen
 		GUI.DrawTexture(new Rect(0,0,Screen.width, Screen.height), mouthOverlay);
 

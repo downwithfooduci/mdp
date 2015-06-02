@@ -23,7 +23,7 @@ public class UvulaEpiglottisLayer : MonoBehaviour
 	 */
 	void OnGUI()
 	{
-		GUI.depth++;		// change the gui depth to draw at for proper layering of gui elements
+		GUI.depth=GUI.depth+5;		// change the gui depth to draw at for proper layering of gui elements
 	
 		// draw the proper epiglottis texture, the size of the screen, based on whether the flaps are open or closed
 		GUI.DrawTexture(new Rect(0,0,Screen.width, Screen.height),
