@@ -17,6 +17,8 @@ public class StomachFoodManager : MonoBehaviour
 	
 	public int foodBlobsPerRound = 15;
 
+	private StomachFoodBlob nextToDigest = null;
+
 	/**
 	 * Update is called once per frame
 	 */
@@ -75,8 +77,29 @@ public class StomachFoodManager : MonoBehaviour
 		return p;
 	}
 
+	public StomachFoodBlob getNextFoodBlobToDigest()
+	{
+		if (nextToDigest == null) {
+			float maxY = System.Single.MinValue;
+			StomachFoodBlob nextFood = null;
+			for (int i = 0; i < spawnedFoodBlobs.Count; i++) {
+				if (maxY < spawnedFoodBlobs [i].transform.position.y) {
+					maxY = spawnedFoodBlobs [i].transform.position.y;
+					nextFood = spawnedFoodBlobs [i];
+				}
+			}
+			nextToDigest = nextFood;
+		}
+
+		return nextToDigest;
+	}
+
 	public void removeFood(StomachFoodBlob f)
 	{
+		if (f == nextToDigest)
+			nextToDigest = null;
 		spawnedFoodBlobs.Remove (f);
+		f.transform.parent = null;
+		Object.Destroy (f);
 	}
 }

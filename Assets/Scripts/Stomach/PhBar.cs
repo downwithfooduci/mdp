@@ -27,6 +27,9 @@ public class PhBar : MonoBehaviour
 	private StomachGameManager gm;
 	private StomachFoodManager fm;
 
+	private const float TOP = 1390;
+	private const float BOTTOM = 150;
+
 	/**
 	 * Use this for initialization
 	 * Sets all dimenstions relative to screen size
@@ -38,8 +41,7 @@ public class PhBar : MonoBehaviour
 		fm = FindObjectOfType (typeof(StomachFoodManager)) as StomachFoodManager;
 
 		// starting level of the current level indicator
-		// right now just start it at a random height...
-		currentLevelHeight = Random.Range (.4f*Screen.height, .6f*Screen.height);
+		currentLevelHeight = 700;
 
 		currentLevelRect.anchoredPosition = new Vector2(currentLevelRect.anchoredPosition.x, currentLevelHeight);
 	}
@@ -103,6 +105,7 @@ public class PhBar : MonoBehaviour
 	private void moveCurrentLevelRect(float speed)
 	{
 		currentLevelHeight = currentLevelRect.anchoredPosition.y + (speed * Time.deltaTime * 1536f / Screen.height);
+		currentLevelHeight = Mathf.Min (Mathf.Max (currentLevelHeight, BOTTOM), TOP);
 		//Debug.Log (currentLevelHeight);
 		currentLevelRect.anchoredPosition = new Vector3 (currentLevelRect.anchoredPosition.x, currentLevelHeight, 0f);
 	}

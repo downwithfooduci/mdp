@@ -20,9 +20,10 @@ public class StomachEnzyme : MonoBehaviour
 
 	private StomachFoodBlob currentlyDigesting;
 
-	private float digestDelay = 4.0f;
+	private float digestDelay = 1.0f;
 	private float elapsedTime;
-	
+
+	private const float MIN_DIGESTION_DISTANCE = 1;
 	/**
 	 * Use this for initialization
 	 */
@@ -56,10 +57,16 @@ public class StomachEnzyme : MonoBehaviour
 				if (elapsedTime > digestDelay)
 				{
 					float step = speed*Time.deltaTime;
-					Vector2 movement = fm.locOldestFoodBolb();
-					currentlyDigesting = fm.getOldestFoodBlob();
-					currentlyDigesting.digest();
-					transform.position = Vector2.MoveTowards(transform.position, movement, step);
+					currentlyDigesting = fm.getNextFoodBlobToDigest();
+					Vector2 foodLocation = currentlyDigesting.transform.position;
+					Vector2 offset = currentlyDigesting.transform.rotation * new Vector3(0, -12, 0);
+					foodLocation = foodLocation + offset;
+
+					transform.position = Vector2.MoveTowards(transform.position, foodLocation, step);
+					transform.rotation = Quaternion.RotateTowards(transform.rotation, currentlyDigesting.transform.rotation, step*10);
+
+					if (!currentlyDigesting.IsDigesting && Vector2.Distance(transform.position, foodLocation) < MIN_DIGESTION_DISTANCE)
+						currentlyDigesting.IsDigesting = true;
 				}
 			}
 		} else
@@ -68,6 +75,7 @@ public class StomachEnzyme : MonoBehaviour
 			float step = speed*Time.deltaTime;
 			Vector2 origin = Vector2.zero;
 			transform.position = Vector2.MoveTowards(transform.position, origin, step);
+			transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(0, 0, 0), step*10);
 		}
 	}
 	
