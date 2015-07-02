@@ -25,7 +25,7 @@ public class openFlap : MonoBehaviour
 	// pop up variables
 	private bool popup;							//!< flag to hold whether the pop up windows should show up
 	private float startTime;					//!< to keep track of the time the game start
-	private float ellasped;						//!< the ellasped after the game start
+	private float elapsed;						//!< the elapsed after the game start
 	private int swipeCount;						//!< to keep track of how many times the swipe happened
 	public Texture swipePopUp;					//!< to hold the texture of the pop up for swipe
 
@@ -61,8 +61,8 @@ public class openFlap : MonoBehaviour
 	 */
 	void Update () 
 	{
-		ellasped = Time.time - startTime;
-		if (ellasped >= 25 && swipeCount <= 2) 
+		elapsed = Time.time - startTime;
+		if (elapsed >= 25 && swipeCount <= 2) 
 		{
 			popup = true;
 		}

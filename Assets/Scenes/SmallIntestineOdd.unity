@@ -11704,6 +11704,18 @@ GameObject:
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: f6a552df651ae0448be899c35e03b3d0, type: 2}
   m_PrefabInternal: {fileID: 947306390}
+--- !u!114 &556960375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 556960373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db770e2b2e5d34fe3be48183ad83a409, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tapPopUp: {fileID: 2800000, guid: 19e9d8ab511fe48b5ab10a612e0ca91f, type: 3}
 --- !u!114 &556960379
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23590,6 +23602,7 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: .0219999999
+  m_StereoMirrorMode: 0
 --- !u!4 &1059380798
 Transform:
   m_ObjectHideFlags: 0
