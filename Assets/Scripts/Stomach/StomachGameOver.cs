@@ -40,6 +40,8 @@ public class StomachGameOver : MonoBehaviour
 		}
 
 		// lose condition: the same cell dies 3 times in a row
+
+		/*
 		int[] deathCounts = gm.getCellDeathCounts ();
 		for (int i = 0; i < 6; i++)
 		{
@@ -49,6 +51,15 @@ public class StomachGameOver : MonoBehaviour
 				Time.timeScale = 0;
 			}
 		}
+		*/
+
+		//if all cells died, game over
+		if(gm.getDeadCellNum() == 6)
+		{
+			gameOver = true;
+			Time.timeScale = 0;
+		}
+
 	}
 	
 	/**

@@ -12,6 +12,8 @@ public class LoadScript
 	 */
 	public LoadScript() {}		
 
+	private Color Fats1Color = new Color(37f/255f, 97f/255f, 139f/255f, 1); 	//!< create a new color for the Fats1 Particles
+
 	/**
 	 * Handles parsing of raw wave data files
 	 */
@@ -54,7 +56,7 @@ public class LoadScript
 					colors[k] = Color.yellow;
 					break;
 				case 'G':
-					colors[k] = Color.green;
+					colors[k] = Fats1Color;
 					break;
 				}
 			}

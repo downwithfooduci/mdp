@@ -29,6 +29,9 @@ public class CellButtons : MonoBehaviour
 	
 	private CellManager cellManager;			//!< hold a reference to the cell manager script
 	public MainCell mainCell;					//!< hold a reference to the main cell script
+	private StomachGameManager gm;	//!< hold a reference to the stomach game manager
+
+
 	
 	/**
 	 * For initialization
@@ -37,6 +40,7 @@ public class CellButtons : MonoBehaviour
 	{
 		// find reference to the cell manager
 		cellManager = FindObjectOfType (typeof(CellManager)) as CellManager;
+		gm = FindObjectOfType (typeof(StomachGameManager)) as StomachGameManager;
 		
 		// calculate button size based on screen size
 		buttonSize.x = Screen.width * (186f / 1024f);
@@ -111,7 +115,12 @@ public class CellButtons : MonoBehaviour
 		} else if (menuSemaphore <= 0 && showScythe)
 		{
 			// if we click on a cell with the scythe, the cell is now dead
+			if(cellManager.cellScripts[cell-1].getCellState()!="dead")
+			{
+				gm.KillOneCell();
+			}
 			cellManager.cellScripts[cell - 1].setCellState("dead");
+
 		} else
 		{
 			// any other case make sure menu is disabled, and reset the menu block timer
@@ -220,6 +229,10 @@ public class CellButtons : MonoBehaviour
 			showScythe = true;
 			
 			//kill main cell
+			if(cellManager.cellScripts[1].getCellState()!="dead")
+			{
+				gm.KillOneCell();
+			}
 			cellManager.cellScripts[1].setCellState("dead");
 		}
 	}

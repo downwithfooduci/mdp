@@ -29,6 +29,8 @@ public class FatsTutorial : MonoBehaviour
 	// to hold a reference to the intestine game manager
 	private IntestineGameManager gameManager;
 
+	private Color Fats1Color = new Color(37f/255f, 97f/255f, 139f/255f, 1); 	//!< create a new color for the Fats1 Particles
+
 	// Use this for initialization
 	void Start () 
 	{
@@ -60,7 +62,7 @@ public class FatsTutorial : MonoBehaviour
 				{
 					gameManager.nutrients += 20;
 				}
-				checkForTowerOfColor(Color.green);
+				checkForTowerOfColor(Fats1Color);
 			} else
 			{
 				if (gameManager.nutrients < 20)
@@ -90,10 +92,10 @@ public class FatsTutorial : MonoBehaviour
 			if (towers[i].GetComponent<Tower>().enabled == true && 
 			    towers[i].GetComponent<Tower>().getColor() == color)
 			{
-				// if we find a green tower
-				if (color == Color.green)
+				// if we find a fat1 tower
+				if (color == Fats1Color)
 				{
-					// reset the variables for the green tower placement 
+					// reset the variables for the fat1 tower placement 
 					// and set the variables to indicate we are now
 					// looking for a white tower
 					zymeScript.setDraw(false);

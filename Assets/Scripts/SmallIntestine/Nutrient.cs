@@ -38,6 +38,10 @@ public class Nutrient : MDPEntity
 
 	private FollowITweenPath path;						//!< to hold a reference to the path that the nutrients are following
 
+	private Color Fats1Color = new Color(37f/255f, 97f/255f, 139f/255f, 1); 	//!< create a new color for the Fats1 Particles
+
+
+
 	/**
 	 * Use this for initialization
 	 * Find manager, set variables, set parent.
@@ -77,8 +81,8 @@ public class Nutrient : MDPEntity
 	{
 		Absorb();			// call the absorb function
 
-		// emit effect particles unless the nutrient was green
-		if (m_BodyColor != Color.green)
+		// emit effect particles unless the nutrient was fat1
+		if (m_BodyColor != Fats1Color)
 		{
 			foodBlobEffectParticles = (FoodBlobEffectParticles)Instantiate (effectParticleParent);		// create the particles
 			path = this.transform.parent.gameObject.GetComponent<FollowITweenPath> ();	// add particles to the path
@@ -89,12 +93,12 @@ public class Nutrient : MDPEntity
 			foodBlobEffectParticles.transform.rotation = gameObject.transform.parent.rotation;
 		}
 		
-        if (m_BodyColor == Color.green)		// if the color of the nutrient was green we need to turn it white
+        if (m_BodyColor == Fats1Color)		// if the color of the nutrient was fat1 we need to turn it white
         {
 			nutrientManager.ChangeColor(this, Color.white);					// changes the color
 			((Behaviour)gameObject.GetComponent("Halo")).enabled = true;	// adds a slight glow effect to the nutrient
         }
-        else 	// if the nutrient was not green we handle getting ready to destroy the nutrient
+        else 	// if the nutrient was not fat1 we handle getting ready to destroy the nutrient
         {
 			((Behaviour)gameObject.GetComponent("Halo")).enabled = false;	// make sure the halo is not enabled
 			isDead = true;													// set the flag to indicate the nutrient is dead

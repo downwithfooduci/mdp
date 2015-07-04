@@ -26,6 +26,7 @@ public class DebugConfig : MonoBehaviour
 	public int maxBlobs = 5;						//!< max blobs, the max nutrients that will spawn on a food blob, defaults to 5
 
 	public ArrayList colors = new ArrayList();			//!< create a new arraylist to store the colors
+	private Color Fats1Color = new Color(37f/255f, 97f/255f, 139f/255f, 1); 	//!< create a new color for the Fats1 Particles
 
 	/**
 	 * Use this for initialization
@@ -35,6 +36,6 @@ public class DebugConfig : MonoBehaviour
 		// add the possible starting nutrient colors to the arraylist
 		colors.Add(Color.red);
 		colors.Add(Color.yellow);
-		colors.Add(Color.green);
+		colors.Add(Fats1Color);
 	}
 }

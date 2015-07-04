@@ -20264,7 +20264,7 @@ MonoBehaviour:
   - {fileID: 100086, guid: cadb7ddc67476b548a5d72ba8ae41784, type: 2}
   SpawnIndicator: {fileID: 100000, guid: 26deff9078debb04c873abf6f2d334bd, type: 2}
   AvailableColors:
-  - {r: 0, g: 1, b: 0, a: 1}
+  - {r: .145098045, g: .380392164, b: .545098066, a: 1}
   - {r: 1, g: 1, b: 1, a: 1}
   - {r: .921568632, g: 0, b: .545098066, a: 1}
   - {r: 1, g: .921568632, b: .0156862754, a: 1}
@@ -23817,8 +23817,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 619e1d496152c894fb7dc7fc17e9d22f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activeTexture: {fileID: 2800000, guid: 2d5152ff433596f4faadfee144afda28, type: 3}
-  pressedTexture: {fileID: 2800000, guid: df34efca941204c48a93b6f59dcda6d5, type: 3}
+  activeTexture: {fileID: 2800000, guid: 1d21129d7780b0b408aa32549cb40306, type: 3}
+  pressedTexture: {fileID: 2800000, guid: b9885f8f94f8e9944b42eab097ed3145, type: 3}
   inactiveTexture: {fileID: 2800000, guid: 36d5e93f158145043beb37d1b209546c, type: 3}
 --- !u!1 &997035711
 GameObject:
@@ -27015,8 +27015,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 363b47c5b0bfc294abf3b3248b65a41b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activeTexture: {fileID: 2800000, guid: d261fa1ba23d2ab4f8724d88e4d1ca8d, type: 3}
-  pressedTexture: {fileID: 2800000, guid: c0d242d5b7927ae4691537e0f8ecd804, type: 3}
+  activeTexture: {fileID: 2800000, guid: 40fbf8c850a01e449bf473fcbd8aaccb, type: 3}
+  pressedTexture: {fileID: 2800000, guid: 324d682a491ac3e4c959ba052fd2672a, type: 3}
   inactiveTexture: {fileID: 2800000, guid: a92612e1ec2ffa441b3f68931a9dd896, type: 3}
 --- !u!1 &1194368033
 GameObject:
@@ -31494,7 +31494,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: .0219999999
-  m_StereoMirrorMode: 0
 --- !u!4 &1382575801
 Transform:
   m_ObjectHideFlags: 0
@@ -39477,7 +39476,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: .0219999999
-  m_StereoMirrorMode: 0
 --- !u!4 &1714954585
 Transform:
   m_ObjectHideFlags: 0

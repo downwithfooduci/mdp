@@ -69,7 +69,11 @@ public class StomachCell : MonoBehaviour
 	 */
 	public void setCellState(string newState)
 	{
-		cellState = newState;
+		if (getCellState() != "dead") {
+			cellState = newState;
+		}
+		else
+			cellState = "dead";
 	}
 	
 	/**

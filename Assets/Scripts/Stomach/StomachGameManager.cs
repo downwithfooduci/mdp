@@ -22,7 +22,9 @@ public class StomachGameManager : MonoBehaviour
 	private string[] lastCellState;						//!< array to hold the last known state of each cell
 
 	private int[] deathsForThisCellInARow;				//!< array to keep track of the number of deaths in a row each cell has had
-	
+
+	private int deadcellcounter;						//!<array to count if the cell is dead
+
 	/**
 	 * Use this for initialization
 	 */
@@ -30,6 +32,7 @@ public class StomachGameManager : MonoBehaviour
 	{
 		// make sure game is not paused
 		Time.timeScale = 1;
+		deadcellcounter = 0;
 
 		// get references
 		cellManager = FindObjectOfType(typeof(CellManager)) as CellManager;
@@ -40,6 +43,7 @@ public class StomachGameManager : MonoBehaviour
 		lastCellState = new string[cellManager.cellScripts.Length];
 
 		deathsForThisCellInARow = new int[cellManager.cellScripts.Length];
+
 		
 		// populate arrays
 		for (int i = 0; i < cellManager.cellScripts.Length; i++)
@@ -133,12 +137,14 @@ public class StomachGameManager : MonoBehaviour
 					}
 					lastCellState[i] = "dead";
 
+					/*
 					if (elapsedTime[i] >= nextCellActionTime[i])
 					{
 						cellManager.cellScripts[i].setCellState("normal");
 						nextCellActionTime[i] = TIME_TO_BURN;
 						elapsedTime[i] = 0f;
 					}
+					*/
 					continue;
 				}
 				
@@ -153,8 +159,12 @@ public class StomachGameManager : MonoBehaviour
 
 					continue;
 				}
-				
+
+
+				/*
 				cellManager.cellScripts[i].setCellState("normal");
+				*/
+
 				nextCellActionTime[i] = TIME_TO_BURN;
 				elapsedTime[i] = 0f;
 				continue;
@@ -170,12 +180,15 @@ public class StomachGameManager : MonoBehaviour
 					}
 					lastCellState[i] = "dead";
 
+					/*commend this so the cell will not refresh*/
+					/*
 					if (elapsedTime[i] >= nextCellActionTime[i])
 					{
 						cellManager.cellScripts[i].setCellState("normal");
 						nextCellActionTime[i] = TIME_TO_BURN;
 						elapsedTime[i] = 0f;
 					}
+					*/
 					continue;
 				}
 				
@@ -188,6 +201,7 @@ public class StomachGameManager : MonoBehaviour
 						cellManager.cellScripts[i].setCellState("dead");
 						nextCellActionTime[i] = TIME_TO_REVIVE;
 						elapsedTime[i] = 0f;
+						deadcellcounter++;
 					}
 					continue;
 				}
@@ -246,5 +260,23 @@ public class StomachGameManager : MonoBehaviour
 	public int[] getCellDeathCounts()
 	{
 		return deathsForThisCellInARow;
+	}
+
+	/**
+	 * Function to allow other classes to access the totall cell dead number
+	 * 
+	 */
+	public int getDeadCellNum()
+	{
+		return deadcellcounter;
+	}
+
+
+	/**
+	 * Function to allow other classes to kill one cell
+	 * 
+	 */
+	public void KillOneCell(){
+		deadcellcounter++;
 	}
 }
