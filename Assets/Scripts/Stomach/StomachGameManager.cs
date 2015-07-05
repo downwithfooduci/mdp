@@ -12,9 +12,11 @@ public class StomachGameManager : MonoBehaviour
 	public float TIME_FOR_SLIME_FADE;					//!< to hold the time for the slime to burn off a cell in acid
 	public float TIME_TO_REVIVE;						//!< to hold the time for a cell to revive from a dead state
 	public int MAX_CELL_DEATHS;							//!< to count the amount of time that can pass before a cell dies
-	
+
+	public int MAX_FOOD_DROPED;
+
 	public CellManager cellManager;						//!< hold a reference to the cell manager
-	
+
 	private string currentAcidLevel = "neutral";		//!< default acid level is neutral
 	
 	private float[] elapsedTime;						//!< array to hold the time elapsed since last event for each cell
@@ -25,6 +27,12 @@ public class StomachGameManager : MonoBehaviour
 
 	private int deadcellcounter;						//!<array to count if the cell is dead
 
+	
+	private int totalfoodcounter;						//!<array to count if the cell is dead
+	
+	private int disolvedfoodcounter;						//!<array to count if the cell is dead
+
+
 	/**
 	 * Use this for initialization
 	 */
@@ -33,6 +41,9 @@ public class StomachGameManager : MonoBehaviour
 		// make sure game is not paused
 		Time.timeScale = 1;
 		deadcellcounter = 0;
+
+		totalfoodcounter = 0;
+		disolvedfoodcounter = 0;
 
 		// get references
 		cellManager = FindObjectOfType(typeof(CellManager)) as CellManager;
@@ -236,6 +247,16 @@ public class StomachGameManager : MonoBehaviour
 				}
 			}
 		}
+
+		if (totalfoodcounter == MAX_FOOD_DROPED+1) {
+			Application.LoadLevel("StomachStats");
+		}
+
+		PlayerPrefs.SetInt ("StomachStats_totalfood", totalfoodcounter-1);
+		PlayerPrefs.SetInt ("StomachStats_timesCellDied", deadcellcounter);
+		PlayerPrefs.SetInt ("StomachStats_foodDisolved", disolvedfoodcounter);
+
+
 	}
 	
 	/**
@@ -278,5 +299,21 @@ public class StomachGameManager : MonoBehaviour
 	 */
 	public void KillOneCell(){
 		deadcellcounter++;
+	}
+
+	public int gettotalfood(){
+		return totalfoodcounter;
+	}
+
+	public int getfooddisolved(){
+		return disolvedfoodcounter;
+	}
+
+	public void addonefood(){
+		totalfoodcounter++;
+	}
+
+	public void disolvedonefood(){
+		disolvedfoodcounter++;
 	}
 }

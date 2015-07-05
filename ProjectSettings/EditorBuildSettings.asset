@@ -73,3 +73,5 @@ EditorBuildSettings:
     path: Assets/Scenes/LargeIntestine.unity
   - enabled: 1
     path: Assets/Scenes/LoadLevelLargeIntestine.unity
+  - enabled: 1
+    path: Assets/Scenes/StomachStats.unity

@@ -52,6 +52,8 @@ public class StomachFoodBlob : MonoBehaviour
 		fm = FindObjectOfType (typeof(StomachFoodManager)) as StomachFoodManager;
 		sm = FindObjectOfType (typeof(StomachEnzyme)) as StomachEnzyme;
 
+		stomanager.addonefood();
+
 		// choose a random number to choose a color and select the correct images
 		index = Random.Range (0, 4);
 		wholeRepresentation = wholeFood [index];

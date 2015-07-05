@@ -18,7 +18,7 @@ public class StomachStats : MonoBehaviour
 	
 	// variables to hold stats
 	// list desired stats for tracking here
-	private int longestStreak;				//!< will hold the value of longestStreak loaded from PlayerPrefs
+	private int totalfood;				//!< will hold the value of longestStreak loaded from PlayerPrefs
 	private int timesCellDied;				//!< will hold the value of timesCoughed loaded from PlayerPrefs
 	private int foodLost;					//!< will hold the value of foodLost loaded from PlayerPrefs
 	private int foodDisolved;				//!< will hold the value of foodSwallowed loaded from PlayerPrefs
@@ -49,7 +49,7 @@ public class StomachStats : MonoBehaviour
 	{
 		// populate the stats by pulling them from the saved data on disk with playerprefs and storing them in
 		// temporary variables
-		longestStreak = PlayerPrefs.GetInt("StomachStats_longestStreak");
+		totalfood = PlayerPrefs.GetInt("StomachStats_totalfood");
 		timesCellDied = PlayerPrefs.GetInt("StomachStats_timesCellDied");
 		foodLost = PlayerPrefs.GetInt("StomachStats_foodLost");
 		foodDisolved = PlayerPrefs.GetInt("StomachStats_foodDisolved");
@@ -187,10 +187,10 @@ public class StomachStats : MonoBehaviour
 		// create 2 labels to display the stats in text
 		GUI.Label(new Rect((600f/1024f)*Screen.width, (90f/768f)*Screen.height, (((961f-27f)-600f)/1024f)*Screen.width,
 		                   ((520f-90f)/768f)*Screen.height), 
-		          "Longest Streak:\n" +
-		          "Coughs:\n" +
+		          "Total Food droped:\n" +
+		          "Times Cells died:\n" +
 		          "Food Lost:\n" +
-		          "Food Swallowed:\n" +
+		          "FoodDisolved:\n" +
 		          "Highest Multiplier:\n" +
 		          "Score:\n" +
 		          "\n" +						//TODO: move this somewhere?
@@ -200,7 +200,7 @@ public class StomachStats : MonoBehaviour
 		// this second label is needed to line up everything since we aren't using a fixed size font
 		GUI.Label(new Rect((820f/1024f)*Screen.width, (90f/768f)*Screen.height, (((961f-27f)-600f)/1024f)*Screen.width,
 		                   ((520f-90f)/768f)*Screen.height), 
-		          "" + longestStreak + "\n" +
+		          "" + totalfood + "\n" +
 		          "" + timesCellDied + "\n" +
 		          "" + foodLost + "\n" +
 		          "" + foodDisolved + "\n" +
