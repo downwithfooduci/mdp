@@ -11,6 +11,7 @@ public class TapPopUp : MonoBehaviour
 	private bool clicked;						//!< flag to check whether the player has clicked
 	private Vector3 popUpPosition;				//!< to store the position of the pop up window should appear
 	private int oldCount;						//!< to store the number of particles from the last time
+	private Rect handRectangle;					//!< to store the Rect for the fingure position
 	public Texture tapPopUp;					//!< to hold the texture of the pop up for tap
 
 	void Start()
@@ -42,10 +43,11 @@ public class TapPopUp : MonoBehaviour
 			popup = true;
 
 			// Getting the position of the first particles in the array and convert into pixel position 
-			GameObject particle = particles[0];
-			Camera camera = GetComponent<Camera>();
-			popUpPosition = camera.WorldToScreenPoint(particle.transform.position);
-			Debug.Log ("x = "+popUpPosition.x+" y = "+popUpPosition.y+" z = "+popUpPosition.z);
+			GameObject target = particles[0];
+			handRectangle = new Rect ((target.transform.position.x + 26)/52f * Screen.width - .1f*Screen.width, 
+			                          Screen.height - ((target.transform.position.z + 19)/38f * Screen.height) - .12f * Screen.height, 
+			                          Screen.width * 0.2093359375f, 
+			                          Screen.height * 0.300697917f);
 		}
 		else
 		{
@@ -59,10 +61,7 @@ public class TapPopUp : MonoBehaviour
 	{
 		if(popup)
 		{
-			GUI.DrawTexture (new Rect(popUpPosition.x,
-			                          Screen.width - popUpPosition.y - 170,
-				                      Screen.width * 0.2093359375f, 
-				                      Screen.height * 0.300697917f),tapPopUp);
+			GUI.DrawTexture (handRectangle,tapPopUp);
 		}
 	}
 }
