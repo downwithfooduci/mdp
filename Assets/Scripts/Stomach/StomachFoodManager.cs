@@ -19,8 +19,16 @@ public class StomachFoodManager : MonoBehaviour
 
 	private StomachFoodBlob nextToDigest = null;
 
+	private StomachGameManager stomanager;
+
+
+	void Start(){
+		stomanager = FindObjectOfType (typeof(StomachGameManager)) as StomachGameManager;
+	}
+
 	/**
 	 * Update is called once per frame
+	 * 
 	 */
 	void Update () 
 	{
@@ -96,6 +104,7 @@ public class StomachFoodManager : MonoBehaviour
 
 	public void removeFood(StomachFoodBlob f)
 	{
+		stomanager.disolvedonefood();
 		if (f == nextToDigest)
 			nextToDigest = null;
 		spawnedFoodBlobs.Remove (f);
