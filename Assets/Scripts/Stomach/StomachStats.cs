@@ -23,7 +23,7 @@ public class StomachStats : MonoBehaviour
 	private int foodLost;					//!< will hold the value of foodLost loaded from PlayerPrefs
 	private int foodDisolved;				//!< will hold the value of foodSwallowed loaded from PlayerPrefs
 	private int highestMultiplier;			//!< will hold the value of highestMultiplier loaded from PlayerPrefs
-	
+	private int foodnotDisolved;
 	private int score;						//!< will hold the score calculated based off of stats
 	
 	private int prevHighScore;						//!< for high scores
@@ -55,6 +55,7 @@ public class StomachStats : MonoBehaviour
 		foodDisolved = PlayerPrefs.GetInt("StomachStats_foodDisolved");
 		highestMultiplier = PlayerPrefs.GetInt("StomachStats_highestMultiplier");
 		score = PlayerPrefs.GetInt("StomachStats_score");
+		foodnotDisolved = totalfood - foodDisolved;
 	}
 	
 	/**
@@ -187,28 +188,33 @@ public class StomachStats : MonoBehaviour
 		// create 2 labels to display the stats in text
 		GUI.Label(new Rect((600f/1024f)*Screen.width, (90f/768f)*Screen.height, (((961f-27f)-600f)/1024f)*Screen.width,
 		                   ((520f-90f)/768f)*Screen.height), 
-		          "Total Food droped:\n" +
-		          "Times Cells died:\n" +
-		          "Food Lost:\n" +
-		          "FoodDisolved:\n" +
-		          "Highest Multiplier:\n" +
-		          "Score:\n" +
+		          "Total food blobs:\n" +
+		          "Dead stomach wall cells:\n" +
+
+		          "Food blobs broken down:\n" +
+		          "Food blobs not broken down:\n",
+		          /*+
+
 		          "\n" +						//TODO: move this somewhere?
 		          "\n" +						//TODO: move this somehwere?
 		          " High Score:",				//TODO: move this somewhere?
+		          */
+
 		          statsStyle);
 		// this second label is needed to line up everything since we aren't using a fixed size font
-		GUI.Label(new Rect((820f/1024f)*Screen.width, (90f/768f)*Screen.height, (((961f-27f)-600f)/1024f)*Screen.width,
+		GUI.Label(new Rect((940f/1024f)*Screen.width, (90f/768f)*Screen.height, (((961f-27f)-600f)/1024f)*Screen.width,
 		                   ((520f-90f)/768f)*Screen.height), 
 		          "" + totalfood + "\n" +
 		          "" + timesCellDied + "\n" +
-		          "" + foodLost + "\n" +
+
 		          "" + foodDisolved + "\n" +
-		          "" + highestMultiplier + "x\n" +
-		          "" + score + "\n" +
+		          "" + foodnotDisolved + "\n",
+
+		          /*+
 		          "\n" +						//TODO: move this somewhere?
 		          "\n" + 						//TODO: move this somewhere?
 		          "" + prevHighScore,			//TODO: move this somewhere?
+		          */
 		          statsStyle);
 		
 		// draw the button for next level in the specified area of the screen
