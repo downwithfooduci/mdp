@@ -86,7 +86,7 @@ public class StomachGameManager : MonoBehaviour
 			 * Update timer
 			 */
 			if (cellManager.cellScripts[i].getCellState() == "dead"){
-				cellManager.cellScripts[i].setTimerImage(0);
+				cellManager.cellScripts[i].setTimerImage(5);
 			} else if (elapsedTime[i] < .1f*nextCellActionTime[i])
 			{
 				cellManager.cellScripts[i].setTimerImage(0);

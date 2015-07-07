@@ -61,11 +61,13 @@ public class StomachCell : MonoBehaviour
 	 */
 	public void setTimerImage(int index)
 	{
-		if (index != 5)
+		//if (index != 5)
 						timer.sprite = timers [index];
-				else
+
+		/*
+		else
 						timer.sprite = null;
-						
+		*/				
 	}
 	
 	/**

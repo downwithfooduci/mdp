@@ -272,6 +272,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   backgrounds:
   - {fileID: 2800000, guid: c52b4705ab788ad45b30093f1feb9a85, type: 3}
+  - {fileID: 2800000, guid: 38f38bb33f26af04d9d828c8cdaaac42, type: 3}
+  - {fileID: 2800000, guid: 69dfbf20c3a28a441a1a723f4484f2af, type: 3}
 --- !u!1 &1741682774
 GameObject:
   m_ObjectHideFlags: 0
@@ -311,4 +313,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5373c9ae3a2712d4a8ed76f96b9cbe79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MAX_LEVEL: 1
+  MAX_LEVEL: 2

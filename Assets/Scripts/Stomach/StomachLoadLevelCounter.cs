@@ -4,7 +4,7 @@ using System.Collections;
 public class StomachLoadLevelCounter : MonoBehaviour 
 {
 	private int level;			//!< variable to hold the level
-	public int MAX_LEVEL = 2; 	//!< for bounds checking
+	public int MAX_LEVEL; 	//!< for bounds checking
 	
 	/**
 	 * Use this for initialization.
