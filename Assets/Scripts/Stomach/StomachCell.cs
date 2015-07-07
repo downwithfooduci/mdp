@@ -63,6 +63,8 @@ public class StomachCell : MonoBehaviour
 	{
 		if (index != 5)
 						timer.sprite = timers [index];
+				else
+						timer.sprite = null;
 						
 	}
 	
