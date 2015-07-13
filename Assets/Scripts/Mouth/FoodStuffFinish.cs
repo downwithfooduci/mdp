@@ -40,7 +40,6 @@ public class FoodStuffFinish : MonoBehaviour
 	void OnEndPointCollision()
 	{
 		GameObject[] foodstuff = GameObject.FindGameObjectsWithTag("MouthFood"); // find all foodstuff on the game
-	
 		// check if there are any foodstuff left
 		if(foodstuff.Length == 1 && foodSpawner.end)	// if this is the last foodstuff, then we won
 		{
@@ -54,7 +53,6 @@ public class FoodStuffFinish : MonoBehaviour
 				level.nextLevel();						// increase the level counter to correctly load the next 
 														// level (if there is one)
 			}
-
 			Application.LoadLevel("MouthStats");		// load the stats screen for the completed level
 		}
 		else 	// otherwise if there are more food stuff just destroy the current one that hit the end point
