@@ -62,7 +62,7 @@ public class openFlap : MonoBehaviour
 	void Update () 
 	{
 		elapsed = Time.time - startTime;
-		if (elapsed >= 25 && swipeCount <= 2) 
+		if (elapsed >= 15 && swipeCount <= 2) 
 		{
 			popup = true;
 		}
