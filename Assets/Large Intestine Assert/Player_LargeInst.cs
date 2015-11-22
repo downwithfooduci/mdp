@@ -46,6 +46,7 @@ public class Player_LargeInst : MonoBehaviour {
 			
 			//rb.AddForce(Vector2.up * inputY* 50f);
 			rb.MovePosition (rb.position + speed);
+
 			
 			movement = new Vector2 (
 				0f,
@@ -64,11 +65,11 @@ public class Player_LargeInst : MonoBehaviour {
 
 		Debug.Log("Entered");
 
-		rb.MovePosition (rb.position + speed);
-		
+		//rb.MovePosition (rb.position + speed);
+		rb.velocity = new Vector2 (0, speed.y * 30f);
 		movement = new Vector2 (
 			0f,
-			speed.y * 10f);	
+			speed.y * 100f);	
 		
 		if(GameLoopFlag == 0){
 			GameLoopFlag = 1;
