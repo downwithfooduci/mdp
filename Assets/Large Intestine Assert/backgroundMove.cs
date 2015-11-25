@@ -14,9 +14,9 @@ public class backgroundMove : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		x = rb.position.x;
-		if (x > -30.8425)
+		if (x > (182.5f-30.8425f))
 			rb.velocity = new Vector2 (-3, 0);
 		else
-			rb.position = new Vector2 (30.8425f, 0);
+			rb.position = new Vector2 ((182.5f+30.8425f), 137f);
 	}
 }
