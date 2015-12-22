@@ -60,7 +60,7 @@ public class StomachDebug : MonoBehaviour
 	 */
 	public PhBar phbar;
 	public StomachGameManager stomachGameManager;
-	public StomachChyme stomachChyme;
+	public StomachChymeNew stomachChyme;
 	public StomachGameOver stomachGameOver;
 
 	/**
