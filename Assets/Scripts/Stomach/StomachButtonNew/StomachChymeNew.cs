@@ -4,6 +4,10 @@ using System.Collections;
 
 public class StomachChymeNew : MonoBehaviour {
 
+    public float ACIDIC;                    //!< to hold the number to define an acidic environment
+    public float BASIC;                     //!< to hold the number to define a basic environment
+
+
     private int x = 0;
     private int counter = 0;
     public int ImSpeed;
@@ -13,9 +17,7 @@ public class StomachChymeNew : MonoBehaviour {
     public Sprite[] NeutralChymeImage;
 
 
-    //
-    public float ACIDIC;                    //!< to hold the number to define an acidic environment
-    public float BASIC;                     //!< to hold the number to define a basic environment
+    
     public RectTransform acidHeight;        //!< reference to the rect transform drawing the acid level bar
 
     private StomachGameManager gm;          //!< hold a reference to the stomach game manager
@@ -28,7 +30,7 @@ public class StomachChymeNew : MonoBehaviour {
     private float acidityLevel;             //!< to hold the acidity level value
 
 
-    //
+    
 
     // Use this for initialization
     void Start ()
@@ -41,24 +43,24 @@ public class StomachChymeNew : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        acidityLevel = acidHeight.anchoredPosition.y;
+        //acidityLevel = acidHeight.anchoredPosition.y;
 
-        if (acidityLevel > ACIDIC)
+        if (gm.getCurrentAcidLevel()=="acidic")
         {
             i.sprite = AcidChymeImage[x];
-            gm.setCurrentAcidLevel("acidic");
+            //gm.setCurrentAcidLevel("acidic");
             counter++;
         }
-        else if (acidityLevel < ACIDIC && acidityLevel > BASIC)
+        else if (gm.getCurrentAcidLevel() == "neutral")
         {
             i.sprite = NeutralChymeImage[x];
-            gm.setCurrentAcidLevel("neutral");
+            //gm.setCurrentAcidLevel("neutral");
             counter++;
         }
         else 
         {
             i.sprite = BasicChymeImage[x];
-            gm.setCurrentAcidLevel("basic");
+            //gm.setCurrentAcidLevel("basic");
             counter++;
         }
 

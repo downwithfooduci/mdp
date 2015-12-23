@@ -2,14 +2,20 @@
 using UnityEngine.UI;
 using System.Collections;
 
-public class PipiImageControl : MonoBehaviour {
+public class BasicPipeControl : MonoBehaviour
+{
 
     private bool isClicked = false;
     private Image i;
     public Sprite[] ButtonStateImages;
 
+
+    private PhBar PhB;
+    private BasicFlowControl BFC;
+
     public void ButtonToggle()
     {
+        BFC.ButtonToggle();
         if (isClicked)
         {
             isClicked = false;
@@ -19,16 +25,28 @@ public class PipiImageControl : MonoBehaviour {
         {
             isClicked = true;
             //swap texture to ON
+
+            PhB.addBase();
         }
     }
 
-    // Use this for initialization
-    void Start () {
-        i = GetComponent<Image>();
+    public bool getClick()
+    {
+        return isClicked;
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Use this for initialization
+    void Start()
+    {
+        PhB = FindObjectOfType(typeof(PhBar)) as PhBar;
+        BFC = FindObjectOfType(typeof(BasicFlowControl)) as BasicFlowControl;
+        i = GetComponent<Image>();
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
         if (isClicked == false)
         {
             i.sprite = ButtonStateImages[0];

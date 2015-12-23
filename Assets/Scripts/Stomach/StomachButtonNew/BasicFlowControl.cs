@@ -2,7 +2,8 @@
 using UnityEngine.UI;
 using System.Collections;
 
-public class FlowImageControl : MonoBehaviour {
+public class BasicFlowControl : MonoBehaviour
+{
 
 
     private bool isClicked = false;
@@ -26,13 +27,15 @@ public class FlowImageControl : MonoBehaviour {
     }
 
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
         i = GetComponent<Image>();
 
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update()
+    {
         if (isClicked == false)
         {
             i.sprite = FlowStateImages[0];
@@ -49,8 +52,8 @@ public class FlowImageControl : MonoBehaviour {
             else
             {
                 i.sprite = FlowStateImages[2];
-                counter ++;
-                if (counter == ImSpeed*2)
+                counter++;
+                if (counter == ImSpeed * 2)
                     counter = 0;
                 return;
             }

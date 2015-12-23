@@ -27,8 +27,13 @@ public class PhBar : MonoBehaviour
 	private StomachGameManager gm;
 	private StomachFoodManager fm;
 
+    private AcidPipeControl APC;
+    private BasicPipeControl BPC;
+
 	private const float TOP = 1390;
 	private const float BOTTOM = 150;
+
+
 
 	/**
 	 * Use this for initialization
@@ -39,9 +44,12 @@ public class PhBar : MonoBehaviour
 	{
 		gm = FindObjectOfType (typeof(StomachGameManager)) as StomachGameManager;
 		fm = FindObjectOfType (typeof(StomachFoodManager)) as StomachFoodManager;
+        APC = FindObjectOfType(typeof(AcidPipeControl)) as AcidPipeControl;
+        BPC = FindObjectOfType(typeof(BasicPipeControl)) as BasicPipeControl;
 
-		// starting level of the current level indicator
-		currentLevelHeight = 700;
+
+        // starting level of the current level indicator
+        currentLevelHeight = 700;
 
 		currentLevelRect.anchoredPosition = new Vector2(currentLevelRect.anchoredPosition.x, currentLevelHeight);
 	}
@@ -115,9 +123,24 @@ public class PhBar : MonoBehaviour
 	 */
 	public void addAcid()
 	{
+        
 		startAddAcid = true;		// throw the flag to indicate we should start adding acid
 		startAddBase = false;		// if we were adding base, override the decision (no longer add base)
 		elapsedTime = 0f;			// reset elapsed time
+
+        if(BPC.getClick() == true)
+        {
+            BPC.ButtonToggle();
+        }
+        if(gm.getCurrentAcidLevel() == "basic")
+        {
+            gm.setCurrentAcidLevel("neutral");
+        }
+        else if(gm.getCurrentAcidLevel() == "neutral")
+        {
+            gm.setCurrentAcidLevel("acidic");
+        }
+        
 	}
 
 	/**
@@ -125,15 +148,37 @@ public class PhBar : MonoBehaviour
 	 */
 	public void addBase()
 	{
+        
 		if (gm.getCurrentAcidLevel() != "acidic" && fm.getNumFoodBlobs() != 0)
 		{
 			textboxes.setTextbox(4);
 		}
-
+         
 		startAddBase = true;		// throw the flag to indicate that we should start adding base
 		startAddAcid = false;		// if we were adding acid, override the decision (no longer add acid)
 		elapsedTime = 0f;			// reset elapsed time
-	}
+
+        if (APC.getClick() == true)
+        {
+            APC.ButtonToggle();
+        }
+
+
+
+        if (APC.getClick() == true)
+        {
+            APC.ButtonToggle();
+        }
+        if (gm.getCurrentAcidLevel() == "acidic")
+        {
+            gm.setCurrentAcidLevel("neutral");
+        }
+        else if (gm.getCurrentAcidLevel() == "neutral")
+        {
+            gm.setCurrentAcidLevel("basic");
+        }
+
+    }
 
 	/**
 	 * Function that can be used to get the current level of the acidity level in the stomach
