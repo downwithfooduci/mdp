@@ -32,6 +32,8 @@ public class CellButtons : MonoBehaviour
 	private StomachGameManager gm;	//!< hold a reference to the stomach game manager
 
 
+    private mouseDrag MD;
+
 	
 	/**
 	 * For initialization
@@ -41,6 +43,7 @@ public class CellButtons : MonoBehaviour
 		// find reference to the cell manager
 		cellManager = FindObjectOfType (typeof(CellManager)) as CellManager;
 		gm = FindObjectOfType (typeof(StomachGameManager)) as StomachGameManager;
+        MD = FindObjectOfType(typeof(mouseDrag)) as mouseDrag;
 		
 		// calculate button size based on screen size
 		buttonSize.x = Screen.width * (186f / 1024f);
@@ -91,6 +94,8 @@ public class CellButtons : MonoBehaviour
 //		{
 //			isInCell2 = true;
 //		}
+
+/*
 		if (menuSemaphore <= 0 && !isEnabled && cell==2) 
 		{
 			// clicking on the main cell either cancels or brings up the menu, so handle correctly
@@ -102,8 +107,13 @@ public class CellButtons : MonoBehaviour
 			{
 				isEnabled = true;
 			}
+ 
 		} else if (menuSemaphore <= 0 && showBucket)
 		{
+*/
+
+
+        if(MD.getDrag() == true) { 
 			// if we click on a cell with the bucket, the cell is now slimed
 			if (cellManager.cellScripts[cell - 1].getCellState() == "slimed")
 			{

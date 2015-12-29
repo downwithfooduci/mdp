@@ -60,7 +60,9 @@ public class StomachFoodBlob : MonoBehaviour
 		digestedRepresentation = digestedFood [index];
 		
 		// get the spawn location and assign the sprite image.
-		spawnLocation = Random.Range (.6f * Screen.width, .85f * Screen.width);
+
+        //used to be 0.6, 0.85
+		spawnLocation = Random.Range (.4f * Screen.width, .6f * Screen.width);
 		parent.transform.position = new Vector3 (((spawnLocation * 15f / Screen.width) - 7.5f)*10f, 
 		                                         (11f - (0f * 11f / Screen.height) - 5.5f)*10f, -2.0f);
 		GetComponent<SpriteRenderer>().sprite = wholeRepresentation;

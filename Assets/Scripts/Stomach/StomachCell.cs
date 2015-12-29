@@ -16,6 +16,9 @@ public class StomachCell : MonoBehaviour
 	private string cellState = "normal";	//!< default cell state is normal
 	private bool cellRefresh = false;
 
+    public int CellNum;
+    private mouseDrag MD;
+
 	/**
 	 * For initialization
 	 */
@@ -23,6 +26,8 @@ public class StomachCell : MonoBehaviour
 	{
 		// get a reference to the image
 		i = GetComponent<Image> ();
+
+        MD = FindObjectOfType(typeof(mouseDrag)) as mouseDrag;
 	}
 	
 	/**
@@ -105,4 +110,12 @@ public class StomachCell : MonoBehaviour
 	{
 		return cellRefresh;
 	}
+
+    void OnMouseOver()
+    {
+        MD.setCellNum(CellNum);
+        Debug.Log(CellNum);
+
+    }
+
 }
