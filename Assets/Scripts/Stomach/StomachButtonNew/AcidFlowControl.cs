@@ -12,6 +12,11 @@ public class AcidFlowControl : MonoBehaviour
     private int counter = 0;
     public int ImSpeed;
 
+	// Timer
+	private float startTime;
+	private float timeElapsed;
+	private float maxInterval = 5f;
+
     public void ButtonToggle()
     {
         if (isClicked)
@@ -23,6 +28,7 @@ public class AcidFlowControl : MonoBehaviour
         {
             isClicked = true;
             //swap texture to ON
+			startTime = Time.time;
         }
     }
 
@@ -43,7 +49,9 @@ public class AcidFlowControl : MonoBehaviour
         }
         if (isClicked == true)
         {
-            if (counter < ImSpeed)
+			timeElapsed = Time.time - startTime;
+			if (timeElapsed > maxInterval) isClicked = false;
+			if (counter < ImSpeed)
             {
                 i.sprite = FlowStateImages[1];
                 counter++;

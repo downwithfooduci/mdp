@@ -13,6 +13,11 @@ public class BasicPipeControl : MonoBehaviour
     private PhBar PhB;
     private BasicFlowControl BFC;
 
+	//timer
+	private float startTime;
+	private float timeElapsed;
+	private float maxInterval = 5f;
+
     public void ButtonToggle()
     {
         BFC.ButtonToggle();
@@ -27,6 +32,8 @@ public class BasicPipeControl : MonoBehaviour
             //swap texture to ON
 
             PhB.addBase();
+
+			startTime = Time.time;
         }
     }
 
@@ -54,7 +61,9 @@ public class BasicPipeControl : MonoBehaviour
         }
         if (isClicked == true)
         {
-            i.sprite = ButtonStateImages[1];
+			i.sprite = ButtonStateImages[1];
+			timeElapsed = Time.time - startTime;
+			if (timeElapsed > maxInterval) isClicked = false;
             return;
         }
 

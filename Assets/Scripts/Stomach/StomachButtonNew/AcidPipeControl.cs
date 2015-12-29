@@ -12,6 +12,11 @@ public class AcidPipeControl : MonoBehaviour
     private PhBar PhB;
     private AcidFlowControl AFC;
 
+	//timer
+	private float startTime;
+	private float timeElapsed;
+	private float maxInterval = 5f;
+
     public void ButtonToggle()
     {
         AFC.ButtonToggle();
@@ -25,6 +30,7 @@ public class AcidPipeControl : MonoBehaviour
             isClicked = true;
             //swap texture to ON
             PhB.addAcid();
+			startTime = Time.time;
         }
     }
 
@@ -53,6 +59,8 @@ public class AcidPipeControl : MonoBehaviour
         if (isClicked == true)
         {
             i.sprite = ButtonStateImages[1];
+			timeElapsed = Time.time - startTime;
+			if (timeElapsed > maxInterval) isClicked = false;
             return;
         }
 
