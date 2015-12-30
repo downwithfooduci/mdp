@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class mouseDrag : MonoBehaviour 
@@ -13,12 +14,15 @@ public class mouseDrag : MonoBehaviour
     private int CellNum;
     public float speed;
 
+    public Sprite[] BucketList;
+    private Image image;
+
 
     private CellButtons CB;
 
 
     void Start(){
-
+        image = GetComponent<Image>();
         CB = FindObjectOfType(typeof(CellButtons)) as CellButtons;
         Debug.Log ("start");
         originalP = transform.position;
@@ -32,6 +36,7 @@ public class mouseDrag : MonoBehaviour
 		screenPoint = Camera.main.WorldToScreenPoint(gameObject.transform.position);
 		offset = gameObject.transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z));
         isdrag = false;
+        image.sprite = BucketList[1];
         Debug.Log (offset);
 	}
 	
@@ -40,9 +45,11 @@ public class mouseDrag : MonoBehaviour
 		Vector3 cursorPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z);
 		Vector3 cursorPosition = Camera.main.ScreenToWorldPoint(cursorPoint) + offset;
 		transform.position = cursorPosition;
+
+        image.sprite = BucketList[1];
         //isdrag = true;
-		//Debug.Log (cursorPosition);
-	}
+        //Debug.Log (cursorPosition);
+    }
 	
     void OnMouseUp()
     {
@@ -54,6 +61,8 @@ public class mouseDrag : MonoBehaviour
 
         transform.position = originalP;
         CB.checkMouseClick(CellNum);
+
+        image.sprite = BucketList[0];
         //Debug.Log(cursorPosition);
     }
 
