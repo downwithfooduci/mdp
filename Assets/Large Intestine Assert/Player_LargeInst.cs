@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class Player_LargeInst : MonoBehaviour {
@@ -14,10 +15,14 @@ public class Player_LargeInst : MonoBehaviour {
 	public int PlayerWater;
 	private LargeIntestGameManager lgm;
 
+    public Sprite[] Playerlist;
+    private Image i;
+
 
 	// Use this for initialization
 	void Start () {
 		rb = GetComponent<Rigidbody2D>();
+        i = GetComponent<Image>();
 
 		GameLoopFlag = 0;
 
@@ -31,6 +36,10 @@ public class Player_LargeInst : MonoBehaviour {
 	void Update () {
 		rb.position.x.Equals (0f);
 		PlayerWater = lgm.getWaterValue ();
+        int n = PlayerWater*7/100;
+        if (n == 7) n = 6;
+        i.sprite = Playerlist[n];
+
 	}
 
 	void FixedUpdate()
