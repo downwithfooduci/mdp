@@ -18,11 +18,15 @@ public class Player_LargeInst : MonoBehaviour {
     public Sprite[] Playerlist;
     private Image i;
 
+    private float xfixed;
+
 
 	// Use this for initialization
 	void Start () {
 		rb = GetComponent<Rigidbody2D>();
         i = GetComponent<Image>();
+
+        xfixed = transform.position.x;
 
 		GameLoopFlag = 0;
 
@@ -34,7 +38,7 @@ public class Player_LargeInst : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		rb.position.x.Equals (0f);
+		rb.position.x.Equals (xfixed);
 		PlayerWater = lgm.getWaterValue ();
         int n = PlayerWater*7/100;
         if (n == 7) n = 6;

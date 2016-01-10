@@ -18,8 +18,8 @@ public class backgroundMove : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		x = rb.position.x;
-        offsetX = 718f;
-		Debug.Log (rb.position);
+        offsetX = 890f;
+		//Debug.Log (rb.position);
 		if (x > (-offsetX/5))
 			rb.velocity = new Vector2 (-30, 0);
 		else {
