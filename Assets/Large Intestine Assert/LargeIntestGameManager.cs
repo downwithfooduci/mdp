@@ -39,7 +39,7 @@ public class LargeIntestGameManager : MonoBehaviour {
             bacteriaTimer = 0;
             bacTouched = 0;
         }
-        pm.setPosition(WaterValue);
+        //pm.setPosition(WaterValue);
 	}
 
 	void SubPlayerWater(){
@@ -47,7 +47,11 @@ public class LargeIntestGameManager : MonoBehaviour {
 	}
 
 	public void subwater(int a){
-		WaterValue = WaterValue - a;
+        int temp;
+		temp = WaterValue - a;
+        if (temp > 0)
+            WaterValue = temp;
+        
 	}
 	
 	public void addwater(int a){

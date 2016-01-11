@@ -42,6 +42,7 @@ public class Player_LargeInst : MonoBehaviour {
 		PlayerWater = lgm.getWaterValue ();
         int n = PlayerWater*7/100;
         if (n == 7) n = 6;
+        Debug.Log(n);
         i.sprite = Playerlist[n];
 
 	}
