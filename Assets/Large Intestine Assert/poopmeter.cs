@@ -26,9 +26,9 @@ public class poopmeter : MonoBehaviour {
         //Debug.Log(water);
 
         float step = speed * Time.deltaTime;
-        float offset = -10f / 5;
+        float offset = -11f / 5;
         xnewP = xposition + (100-water) * (offset);
-        if (xnewP < -100) xnewP = -100;
+        //if (xnewP < -130) xnewP = -110;
         Vector2 newposition = new Vector2(xnewP, yposition);
         if (transform.position.x>-100)
             transform.position = Vector2.MoveTowards(transform.position, newposition, step);

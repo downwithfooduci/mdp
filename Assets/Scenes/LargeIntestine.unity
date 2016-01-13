@@ -2626,7 +2626,7 @@ RectTransform:
   m_RootOrder: 3
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1536, y: -637}
+  m_AnchoredPosition: {x: 1549, y: -637}
   m_SizeDelta: {x: 3785, y: 179}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &520502289
@@ -2648,7 +2648,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 35cb242caffe5dd449d07c1e33604159, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 659032dccd84dfa4d898f5dade2747d3, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2962,7 +2962,7 @@ Rigidbody2D:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 638487649}
   m_UseAutoMass: 1
-  m_Mass: 212.67044
+  m_Mass: 212.74283
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 20

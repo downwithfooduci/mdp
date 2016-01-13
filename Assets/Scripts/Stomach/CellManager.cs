@@ -16,10 +16,10 @@ public class CellManager : MonoBehaviour
 	void Start () 
 	{
 		// initialize the script array
-		cellScripts = new StomachCell[6];
+		cellScripts = new StomachCell[8];
 		
 		// get the scripts on each of the cells
-		for (int i = 0; i < 6; i++)
+		for (int i = 0; i < 8; i++)
 		{
 			cellScripts[i] = cells[i].GetComponent<StomachCell>();
 		}

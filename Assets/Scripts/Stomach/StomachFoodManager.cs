@@ -108,7 +108,7 @@ public class StomachFoodManager : MonoBehaviour
 		if (f == nextToDigest)
 			nextToDigest = null;
 		spawnedFoodBlobs.Remove (f);
-		f.transform.parent = null;
+        f.transform.SetParent(null);// = null;
 		Object.Destroy (f);
 	}
 }
