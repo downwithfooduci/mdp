@@ -33,7 +33,7 @@ public class poopmeter : MonoBehaviour {
         if (transform.position.x>-100)
             transform.position = Vector2.MoveTowards(transform.position, newposition, step);
         //Debug.Log(newposition);
-        Debug.Log(xposition);
+        //Debug.Log(xposition);
        
     }
 

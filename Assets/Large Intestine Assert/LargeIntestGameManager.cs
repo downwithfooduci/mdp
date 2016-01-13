@@ -5,7 +5,7 @@ public class LargeIntestGameManager : MonoBehaviour {
 
 	public GameObject PlayerPoo;
 
-	
+    private float timer;
 	public  int WaterValue;
 
     private float bacteriaTimer;
@@ -23,10 +23,13 @@ public class LargeIntestGameManager : MonoBehaviour {
 		WaterValue = 100;
         bacTouched = 0;
         bacteriaTimer = 0;
+        timer = 0;
 	}
 	
 	// Update is called once per frame
 	void Update () {
+        timer = timer + Time.deltaTime;
+        Debug.Log(timer);
         if(bacTouched == 1)
         {
             bacteriaTimer = bacteriaTimer + Time.deltaTime;
@@ -40,7 +43,14 @@ public class LargeIntestGameManager : MonoBehaviour {
             bacTouched = 0;
         }
         //pm.setPosition(WaterValue);
-	}
+
+        if (timer > 35f)
+        {
+
+            Application.LoadLevel("LargeIntestineEndStoryboard");
+        }
+
+    }
 
 	void SubPlayerWater(){
 

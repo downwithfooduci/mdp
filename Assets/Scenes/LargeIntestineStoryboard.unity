@@ -8,25 +8,25 @@ SceneSettings:
   m_PVSPortalsArray: []
   m_OcclusionBakeSettings:
     smallestOccluder: 5
-    smallestHole: .25
+    smallestHole: 0.25
     backfaceThreshold: 100
 --- !u!104 &2
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 6
   m_Fog: 0
-  m_FogColor: {r: .5, g: .5, b: .5, a: 1}
+  m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_FogMode: 3
-  m_FogDensity: .00999999978
+  m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: .211999997, g: .226999998, b: .259000003, a: 1}
-  m_AmbientEquatorColor: {r: .114, g: .125, b: .133000001, a: 1}
-  m_AmbientGroundColor: {r: .0469999984, g: .0430000015, b: .0350000001, a: 1}
+  m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
+  m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
+  m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
-  m_HaloStrength: .5
+  m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
   m_HaloTexture: {fileID: 0}
@@ -37,13 +37,10 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
---- !u!127 &3
-LevelGameManager:
-  m_ObjectHideFlags: 0
 --- !u!157 &4
 LightmapSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 5
+  serializedVersion: 6
   m_GIWorkflowMode: 0
   m_LightmapsMode: 1
   m_GISettings:
@@ -68,7 +65,8 @@ LightmapSettings:
     m_TextureCompression: 1
     m_FinalGather: 0
     m_FinalGatherRayCount: 1024
-  m_LightmapSnapshot: {fileID: 0}
+    m_ReflectionCompression: 2
+  m_LightingDataAsset: {fileID: 0}
   m_RuntimeCPUUsage: 25
 --- !u!196 &5
 NavMeshSettings:
@@ -76,15 +74,15 @@ NavMeshSettings:
   m_ObjectHideFlags: 0
   m_BuildSettings:
     serializedVersion: 2
-    agentRadius: .5
+    agentRadius: 0.5
     agentHeight: 2
     agentSlope: 45
-    agentClimb: .400000006
+    agentClimb: 0.4
     ledgeDropHeight: 0
     maxJumpAcrossDistance: 0
     accuratePlacement: 0
     minRegionArea: 2
-    cellSize: .166666672
+    cellSize: 0.16666667
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
 --- !u!1 &314677475
@@ -112,7 +110,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 6
   m_Type: 1
-  m_Color: {r: 1, g: .956862748, b: .839215696, a: 1}
+  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
@@ -121,8 +119,9 @@ Light:
     m_Type: 2
     m_Resolution: -1
     m_Strength: 1
-    m_Bias: .0500000007
-    m_NormalBias: .400000006
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
   m_Cookie: {fileID: 0}
   m_DrawHalo: 0
   m_Flare: {fileID: 0}
@@ -141,7 +140,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 314677475}
-  m_LocalRotation: {x: .408217937, y: -.234569728, z: .109381676, w: .875426054}
+  m_LocalRotation: {x: 0.40821794, y: -0.23456973, z: 0.109381676, w: 0.87542605}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -196,14 +195,14 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: .192156866, g: .301960796, b: .474509805, a: .0196078438}
+  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0.019607844}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
     y: 0
     width: 1
     height: 1
-  near clip plane: .300000012
+  near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
   orthographic: 0
@@ -215,10 +214,12 @@ Camera:
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
+  m_TargetEye: 3
   m_HDR: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
-  m_StereoSeparation: .0219999999
+  m_StereoSeparation: 0.022
+  m_StereoMirrorMode: 0
 --- !u!4 &361972016
 Transform:
   m_ObjectHideFlags: 0
@@ -243,6 +244,7 @@ GameObject:
   - 82: {fileID: 1462523193}
   - 114: {fileID: 1462523192}
   - 114: {fileID: 1462523191}
+  - 114: {fileID: 1462523196}
   m_Layer: 0
   m_Name: Background
   m_TagString: Untagged
@@ -288,6 +290,7 @@ AudioSource:
   m_Pitch: 1
   Loop: 0
   Mute: 0
+  Spatialize: 0
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
@@ -312,6 +315,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   panLevelCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -322,6 +326,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   spreadCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -332,6 +337,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -342,6 +348,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!114 &1462523194
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -353,9 +360,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abc2188885986e04ca5b5d9bba8fe7d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pages: []
-  numberedPages: []
-  sounds: []
+  pages:
+  - {fileID: 2800000, guid: 27030ca071d28e14f87854d076139dbe, type: 3}
+  - {fileID: 2800000, guid: e6ac0371cf3acf844a67fae5d5ed0062, type: 3}
+  - {fileID: 2800000, guid: bb5a6766a4970ab4a87d4788f6225900, type: 3}
+  - {fileID: 2800000, guid: f8a45a4ac20b8024ea59615ee39b4b0a, type: 3}
+  - {fileID: 2800000, guid: f8a45a4ac20b8024ea59615ee39b4b0a, type: 3}
+  - {fileID: 2800000, guid: e449830f68aa8f3419daa69b9019af82, type: 3}
+  - {fileID: 2800000, guid: 517fbcf85225169479daad8159e51e44, type: 3}
+  numberedPages:
+  - {fileID: 2800000, guid: 27030ca071d28e14f87854d076139dbe, type: 3}
+  - {fileID: 2800000, guid: e6ac0371cf3acf844a67fae5d5ed0062, type: 3}
+  - {fileID: 2800000, guid: bb5a6766a4970ab4a87d4788f6225900, type: 3}
+  - {fileID: 2800000, guid: f8a45a4ac20b8024ea59615ee39b4b0a, type: 3}
+  - {fileID: 2800000, guid: f8a45a4ac20b8024ea59615ee39b4b0a, type: 3}
+  - {fileID: 2800000, guid: e449830f68aa8f3419daa69b9019af82, type: 3}
+  - {fileID: 2800000, guid: 517fbcf85225169479daad8159e51e44, type: 3}
+  sounds:
+  - {fileID: 8300000, guid: e9f81e4c1e77b6e4989037a9ec655b07, type: 3}
+  - {fileID: 8300000, guid: 92138a055739c7442bf8e2b042c91fe6, type: 3}
+  - {fileID: 8300000, guid: ec0acd648a06d2f498a5262b76a9abfa, type: 3}
+  - {fileID: 8300000, guid: a8c89b1aab7f22946b90ac75094bbdd6, type: 3}
+  - {fileID: 8300000, guid: 943de3e01bc9e6940b62db58a157856c, type: 3}
+  - {fileID: 8300000, guid: 0218a3733061c1b4c8cdbdfe2072c491, type: 3}
+  - {fileID: 8300000, guid: e6ab3b36ce0a78246a5a7df82a71ec72, type: 3}
 --- !u!4 &1462523195
 Transform:
   m_ObjectHideFlags: 0
@@ -363,8 +391,19 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1462523190}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.81560183, y: 3.15365362, z: -2.32207108}
+  m_LocalPosition: {x: 2.8156018, y: 3.1536536, z: -2.322071}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!114 &1462523196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1462523190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc420ba383f710644ad9235de2aa7653, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

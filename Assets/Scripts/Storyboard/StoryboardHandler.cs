@@ -47,10 +47,21 @@ public class StoryboardHandler : MonoBehaviour
 		} else if (Application.loadedLevelName.Equals("SmallIntestineStoryboard"))
 		{
 			canSkip = (PlayerPrefs.GetInt ("PlayedSIStory") == 1) ? true : false;
-		}
-		 
-		// preload next scene
-		StartCoroutine(loadNextLevel());
+		} else if (Application.loadedLevelName.Equals("SmallIntestineEndStoryboard"))
+        {
+            canSkip = (PlayerPrefs.GetInt("PlayedSIEndStory") == 1) ? true : false;
+        } else if (Application.loadedLevelName.Equals("LargeIntestineStoryboard"))
+        {
+            canSkip = (PlayerPrefs.GetInt("PlayedLIStory") == 1) ? true : false;
+        } else if (Application.loadedLevelName.Equals("LargeIntestineEndStoryboard"))
+        {
+            canSkip = (PlayerPrefs.GetInt("PlayedLIEndStory") == 1) ? true : false;
+        }
+
+
+
+        // preload next scene
+        StartCoroutine(loadNextLevel());
 	}
 
 	/**
@@ -77,7 +88,19 @@ public class StoryboardHandler : MonoBehaviour
 		} else if (Application.loadedLevelName.Equals("SmallIntestineStoryboard"))
 		{
 			loader = Application.LoadLevelAsync("LoadLevelSmallIntestine");
-		}
+		} else if (Application.loadedLevelName.Equals("SmallIntestineEndStoryboard"))
+        {
+            loader = Application.LoadLevelAsync("LargeIntestineStoryboard");
+        } else if (Application.loadedLevelName.Equals("LargeIntestineStoryboard"))
+        {
+            loader = Application.LoadLevelAsync("LargeIntestine");
+        } else if (Application.loadedLevelName.Equals("LargeIntestineEndStoryboard"))
+        {
+            loader = Application.LoadLevelAsync("EndScreen");
+        }
+
+
+
 
 		loader.allowSceneActivation = false;	// set this to mean we don't want the scene to load until we say
 		yield return loader;
@@ -142,9 +165,18 @@ public class StoryboardHandler : MonoBehaviour
 			} else if (Application.loadedLevelName.Equals("SmallIntestineStoryboard"))
 			{
 				PlayerPrefs.SetInt("PlayedSIStory", 1);
-			}
-			
-			PlayerPrefs.Save();
+            } else if (Application.loadedLevelName.Equals("SmallIntestineEndStoryboard"))
+            {
+                PlayerPrefs.SetInt("PlayedSIEndStory", 1);
+            } else if (Application.loadedLevelName.Equals("LargeIntestineStoryboard"))
+            {
+                PlayerPrefs.SetInt("PlayedLIStory", 1);
+            } else if (Application.loadedLevelName.Equals("LargeIntestineEndStoryboard"))
+            {
+                PlayerPrefs.SetInt("PlayedLIEndStory", 1);
+            }
+
+            PlayerPrefs.Save();
 			loader.allowSceneActivation = true;				// load the next level
 		}
 	}

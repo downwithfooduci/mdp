@@ -1,8 +1,7 @@
-NARRATOR: Just an ordinary day at the Restaurant. Mr. Patron just ordered some food.
-ANTIZYME: Oh-ho! What do we have here? (evil cackle)
-PATRON: This looks delicious!
+NARRATOR: Just an ordinary day at the Restaurant. Mr. Patron just ordered some food.					      ANTIZYME: Oh-ho! What do we have here? (evil cackle)
+PATRON: This looks delicious!;
 ANTIZYME: Heheheh! (cackles)
-PATRON: (coughs) Oh my!
+PATRON: (coughs) Oh my!;
 CHEF: Goodness me! What is wrong?
 PATRON: This food... I don't know...
 CHEF: I hope you aren't insulting my food?

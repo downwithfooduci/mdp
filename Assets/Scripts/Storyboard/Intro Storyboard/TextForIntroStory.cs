@@ -16,8 +16,8 @@ public class TextForIntroStory : MonoBehaviour
 	{
 		introStoryboard = this.gameObject.GetComponent<StoryboardHandler> ();
 
-		TextAsset introText = Resources.Load ("IntroText") as TextAsset;
-		text = introText.text.Split("\n"[0]);	
+		TextAsset introText = Resources.Load ("1.13.2016NewText/IntroStoryText") as TextAsset;
+		text = introText.text.Split(";"[0]);	
 
 		timer = 0;
 	}
@@ -32,29 +32,30 @@ public class TextForIntroStory : MonoBehaviour
 	{
 		GUI.depth--;
 
-		GUIStyle statsStyle = GUI.skin.box;
+		GUIStyle statsStyle = new GUIStyle(); //GUI.skin.box;
 		statsStyle.font = (Font)Resources.Load ("Fonts/JandaManateeSolid");
-		statsStyle.normal.textColor = Color.yellow;
-		statsStyle.fontSize = (int)(20f / 597f * Screen.height);
+		statsStyle.normal.textColor = Color.black;
+		statsStyle.fontSize = (int)(16f / 597f * Screen.height);
 		statsStyle.wordWrap = true;
-		statsStyle.alignment = TextAnchor.MiddleCenter;
+		statsStyle.alignment = TextAnchor.UpperLeft;
 
 		if (introStoryboard.getCurrPage() == 1)
 		{
-			GUI.Box(new Rect(.05f*Screen.width, (625f/768f)*Screen.height, .9f*Screen.width,
-			                   .15f*Screen.height), text[0], statsStyle);
+			GUI.Box(new Rect(0.001f*Screen.width, (665f/768f)*Screen.height, 1.0f*Screen.width,
+			                   .2f*Screen.height), text[0], statsStyle);
 			timer = 0;
 		} 
 
 		if (introStoryboard.getCurrPage() == 2)
 		{
-			GUI.Box(new Rect(.05f*Screen.width, (625f/768f)*Screen.height, .9f*Screen.width,
-			                 .15f*Screen.height), text[1], statsStyle);
-			timer = 0;
-		}
+            GUI.Box(new Rect(0.001f * Screen.width, (665f / 768f) * Screen.height, 1.0f * Screen.width,
+                               .2f * Screen.height), text[1], statsStyle);
+            timer = 0;
+        }
 
 		if (introStoryboard.getCurrPage() == 3)
 		{
+            /*
 			if (timer < 2.8)
 			{
 				GUI.Box(new Rect(.05f*Screen.width, (625f/768f)*Screen.height, .9f*Screen.width,
@@ -64,8 +65,13 @@ public class TextForIntroStory : MonoBehaviour
 				GUI.Box(new Rect(.05f*Screen.width, (625f/768f)*Screen.height, .9f*Screen.width,
 				                 .15f*Screen.height), text[3], statsStyle);
 			}
-		}
+            */
+            GUI.Box(new Rect(0.001f * Screen.width, (660f / 768f) * Screen.height, 1.0f * Screen.width,
+                               .2f * Screen.height), text[2], statsStyle);
+            timer = 0;
+        }
 
+        /*
 		if (introStoryboard.getCurrPage() == 4)
 		{
 			if (!resetTimerPage4)
@@ -168,6 +174,7 @@ public class TextForIntroStory : MonoBehaviour
 			GUI.Box(new Rect(.05f*Screen.width, (625f/768f)*Screen.height, .9f*Screen.width,
 			                 .15f*Screen.height), text[18], statsStyle);
 		}
+        */
 
 	}
 }

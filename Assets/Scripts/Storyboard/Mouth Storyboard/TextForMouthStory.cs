@@ -16,8 +16,8 @@ public class TextForMouthStory : MonoBehaviour
 	{
 		mouthStoryboard = this.gameObject.GetComponent<StoryboardHandler> ();
 		
-		TextAsset mouthText = Resources.Load ("MouthText") as TextAsset;
-		text = mouthText.text.Split("\n"[0]);	
+		TextAsset mouthText = Resources.Load ("1.13.2016NewText/MouthStory") as TextAsset;
+		text = mouthText.text.Split(";"[0]);	
 		
 		timer = 0;
 	}
@@ -31,15 +31,41 @@ public class TextForMouthStory : MonoBehaviour
 	void OnGUI()
 	{
 		GUI.depth--;
-		
-		GUIStyle statsStyle = GUI.skin.box;
-		statsStyle.font = (Font)Resources.Load ("Fonts/JandaManateeSolid");
-		statsStyle.normal.textColor = Color.yellow;
-		statsStyle.fontSize = (int)(20f / 597f * Screen.height);
-		statsStyle.wordWrap = true;
-		statsStyle.alignment = TextAnchor.MiddleCenter;
-		
-		if (mouthStoryboard.getCurrPage() == 1)
+
+        GUIStyle statsStyle = new GUIStyle(); //GUI.skin.box;
+        statsStyle.font = (Font)Resources.Load("Fonts/JandaManateeSolid");
+        statsStyle.normal.textColor = Color.black;
+        statsStyle.fontSize = (int)(16f / 597f * Screen.height);
+        statsStyle.wordWrap = true;
+        statsStyle.alignment = TextAnchor.UpperLeft;
+
+        if (mouthStoryboard.getCurrPage() == 1)
+        {
+            GUI.Box(new Rect(0.001f * Screen.width, (665f / 768f) * Screen.height, 1.0f * Screen.width,
+                               .2f * Screen.height), text[0], statsStyle);
+            timer = 0;
+        }
+        if (mouthStoryboard.getCurrPage() == 2)
+        {
+            GUI.Box(new Rect(0.001f * Screen.width, (665f / 768f) * Screen.height, 1.0f * Screen.width,
+                               .2f * Screen.height), text[1], statsStyle);
+            timer = 0;
+        }
+        if (mouthStoryboard.getCurrPage() == 3)
+        {
+            GUI.Box(new Rect(0.001f * Screen.width, (665f / 768f) * Screen.height, 1.0f * Screen.width,
+                               .2f * Screen.height), text[2], statsStyle);
+            timer = 0;
+        }
+        if (mouthStoryboard.getCurrPage() == 4)
+        {
+            GUI.Box(new Rect(0.001f * Screen.width, (665f / 768f) * Screen.height, 1.0f * Screen.width,
+                               .2f * Screen.height), text[3], statsStyle);
+            timer = 0;
+        }
+
+        /*
+        if (mouthStoryboard.getCurrPage() == 1)
 		{
 			GUI.Box(new Rect(.05f*Screen.width, (625f/768f)*Screen.height, .9f*Screen.width,
 			                 .15f*Screen.height), text[0], statsStyle);
@@ -94,6 +120,8 @@ public class TextForMouthStory : MonoBehaviour
 				GUI.Box(new Rect(.05f*Screen.width, (625f/768f)*Screen.height, .9f*Screen.width,
 				                 .15f*Screen.height), text[7], statsStyle);
 			}
-		}		
-	}
+		}	
+        
+        */
+    }
 }

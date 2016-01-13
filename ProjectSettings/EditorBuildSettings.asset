@@ -71,9 +71,13 @@ EditorBuildSettings:
     path: Assets/Scenes/LargeIntestineStoryboard.unity
   - enabled: 1
     path: Assets/Scenes/LargeIntestine.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LoadLevelLargeIntestine.unity
   - enabled: 1
     path: Assets/Scenes/StomachStats.unity
   - enabled: 1
     path: Assets/Scenes/LoadLevelStomach.unity
+  - enabled: 1
+    path: Assets/Scenes/SmallIntestineEndStoryboard.unity
+  - enabled: 1
+    path: Assets/Scenes/LargeIntestineEndStoryboard.unity
