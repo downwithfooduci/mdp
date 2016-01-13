@@ -251,7 +251,11 @@ public class StomachGameManager : MonoBehaviour
 		}
 
 		if (totalfoodcounter == MAX_FOOD_DROPED+1) {
-			Application.LoadLevel("StomachStats");
+            GameObject chooseBackground = GameObject.Find("StomachChooseBackground");
+            StomachLoadLevelCounter level = chooseBackground.GetComponent<StomachLoadLevelCounter>();
+
+            level.nextLevel();
+            Application.LoadLevel("StomachStats");
 		}
 
 		PlayerPrefs.SetInt ("StomachStats_totalfood", totalfoodcounter-1);

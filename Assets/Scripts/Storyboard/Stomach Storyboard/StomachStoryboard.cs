@@ -18,7 +18,7 @@ public class StomachStoryboard : MonoBehaviour
 	void Update () {
 		if (swipeDetection.getSwipeLeft())		// attempt to detect a swipe to the right
 		{
-			Application.LoadLevel ("LoadStomachLevel");
+			Application.LoadLevel ("LoadLevelStomach");
 		}
 	}
 }

@@ -15,6 +15,7 @@ TagManager:
   - tower
   - foodBlobParentTutorial
   - glow
+  - stomachBackgroundChooser
   layers:
   - Default
   - TransparentFX
