@@ -361,7 +361,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pages:
-  - {fileID: 2800000, guid: 27030ca071d28e14f87854d076139dbe, type: 3}
+  - {fileID: 2800000, guid: 740b6e48f4a05e44791b61081c88d8af, type: 3}
+  - {fileID: 2800000, guid: 0b73ba52ac842654280a75c2c302dba0, type: 3}
   - {fileID: 2800000, guid: e6ac0371cf3acf844a67fae5d5ed0062, type: 3}
   - {fileID: 2800000, guid: bb5a6766a4970ab4a87d4788f6225900, type: 3}
   - {fileID: 2800000, guid: f8a45a4ac20b8024ea59615ee39b4b0a, type: 3}
@@ -369,7 +370,8 @@ MonoBehaviour:
   - {fileID: 2800000, guid: e449830f68aa8f3419daa69b9019af82, type: 3}
   - {fileID: 2800000, guid: 517fbcf85225169479daad8159e51e44, type: 3}
   numberedPages:
-  - {fileID: 2800000, guid: 27030ca071d28e14f87854d076139dbe, type: 3}
+  - {fileID: 2800000, guid: 740b6e48f4a05e44791b61081c88d8af, type: 3}
+  - {fileID: 2800000, guid: 0b73ba52ac842654280a75c2c302dba0, type: 3}
   - {fileID: 2800000, guid: e6ac0371cf3acf844a67fae5d5ed0062, type: 3}
   - {fileID: 2800000, guid: bb5a6766a4970ab4a87d4788f6225900, type: 3}
   - {fileID: 2800000, guid: f8a45a4ac20b8024ea59615ee39b4b0a, type: 3}
@@ -377,7 +379,8 @@ MonoBehaviour:
   - {fileID: 2800000, guid: e449830f68aa8f3419daa69b9019af82, type: 3}
   - {fileID: 2800000, guid: 517fbcf85225169479daad8159e51e44, type: 3}
   sounds:
-  - {fileID: 8300000, guid: e9f81e4c1e77b6e4989037a9ec655b07, type: 3}
+  - {fileID: 8300000, guid: 4be0fa689ff87d04d9edbba1a3b74100, type: 3}
+  - {fileID: 8300000, guid: 60c65f78f61f3604d9d19d0839528cee, type: 3}
   - {fileID: 8300000, guid: 92138a055739c7442bf8e2b042c91fe6, type: 3}
   - {fileID: 8300000, guid: ec0acd648a06d2f498a5262b76a9abfa, type: 3}
   - {fileID: 8300000, guid: a8c89b1aab7f22946b90ac75094bbdd6, type: 3}
@@ -402,7 +405,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1462523190}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fc420ba383f710644ad9235de2aa7653, type: 3}
   m_Name: 
