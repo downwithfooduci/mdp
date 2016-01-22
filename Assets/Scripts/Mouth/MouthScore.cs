@@ -111,6 +111,6 @@ public class MouthScore : MonoBehaviour
 		scoreStyle.normal.textColor = new Color (206f / 255f, 39f / 255f, 115f / 255f);	// set the font color
 
 		// draw the actual label containing the score in the specified location
-		GUI.Label(new Rect(Screen.width * .89f,Screen.height * .93f, Screen.width * .1f, Screen.height * .07f), "" + score);
+		GUI.Label(new Rect(Screen.width * .89f,Screen.height * .86f, Screen.width * .1f, Screen.height * .07f), "" + score);
 	}
 }

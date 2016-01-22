@@ -81,3 +81,5 @@ EditorBuildSettings:
     path: Assets/Scenes/SmallIntestineEndStoryboard.unity
   - enabled: 1
     path: Assets/Scenes/LargeIntestineEndStoryboard.unity
+  - enabled: 1
+    path: Assets/Scenes/StomachEndStoryboard.unity
