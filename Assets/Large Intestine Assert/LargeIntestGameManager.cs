@@ -14,12 +14,14 @@ public class LargeIntestGameManager : MonoBehaviour {
     public float CloseTimer;          //Time to Close suctions
 
     private poopmeter pm;
+    private LI_WaterScript WS;
 
 
 
     // Use this for initialization
     void Start () {
         pm = FindObjectOfType(typeof(poopmeter))as poopmeter;
+        WS = FindObjectOfType(typeof(LI_WaterScript)) as LI_WaterScript;
 		WaterValue = 100;
         bacTouched = 0;
         bacteriaTimer = 0;
@@ -61,6 +63,7 @@ public class LargeIntestGameManager : MonoBehaviour {
 		temp = WaterValue - a;
         if (temp > 0)
             WaterValue = temp;
+        WS.subStart();
         
 	}
 	

@@ -16951,6 +16951,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SpawnType: {fileID: 100000, guid: 9cfaf7020d06c6341bb8e35be76edcec, type: 2}
   SpawnPoint: {x: -22.22156, y: 0, z: 20}
+  ColorAllowed: 2
   SpawnInterval: 3.5
   end: 0
 --- !u!114 &758440265

@@ -27,15 +27,16 @@ public class DebugConfig : MonoBehaviour
 
 	public ArrayList colors = new ArrayList();			//!< create a new arraylist to store the colors
 	private Color Fats1Color = new Color(37f/255f, 97f/255f, 139f/255f, 1); 	//!< create a new color for the Fats1 Particles
-
-	/**
+    private Color ProColor = new Color(235f / 255f, 0f, 139f / 255f);
+    /**
 	 * Use this for initialization
 	 */
-	void Start () 
+    void Start () 
 	{
 		// add the possible starting nutrient colors to the arraylist
-		colors.Add(Color.red);
+		colors.Add(ProColor);
 		colors.Add(Color.yellow);
 		colors.Add(Fats1Color);
+        Debug.Log(colors[0]);
 	}
 }

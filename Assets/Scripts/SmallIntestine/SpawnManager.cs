@@ -7,8 +7,11 @@ using System.Collections;
 public class SpawnManager : MonoBehaviour 
 {
 	public GameObject SpawnType;				//!< to hold a reference to the thing that will be spawning (foodblobparent)
-	public Vector3 SpawnPoint;					//!< a vector to hold the initial spawn location
-    
+	public Vector3 SpawnPoint;                  //!< a vector to hold the initial spawn location
+
+    public int ColorAllowed;
+
+
 	private DebugConfig debugConfig;			//!< to hold a reference to the debug config script (for values from debugger)
 	private LoadScript loadScript;				//!< to hold a reference to the script loader (for values from script)
 	private SIWave[] waves;						//!< an array to hold parsed wave data
@@ -141,10 +144,21 @@ public class SpawnManager : MonoBehaviour
 					waveTime = debugConfig.waveTimer;
 					SpawnInterval = debugConfig.NutrientSpawnInterval;
 					speed = debugConfig.NutrientSpeed;
-					availableColors = new Color[debugConfig.colors.Count];
-					for(int i = 0; i < debugConfig.colors.Count; i++)
-						availableColors[i] = (Color)debugConfig.colors[i];
-					minNutrients = debugConfig.minBlobs;
+                    if (level.getLevel() != 1)
+                    {
+                        availableColors = new Color[debugConfig.colors.Count];
+                        for (int i = 0; i < debugConfig.colors.Count; i++)
+                            availableColors[i] = (Color)debugConfig.colors[i];
+                    }
+                    else
+                    {
+                        availableColors = new Color[ColorAllowed];
+                        for (int i = 0; i < ColorAllowed; i++)
+                            availableColors[i] = (Color)debugConfig.colors[i];
+
+                    }
+                    
+                        minNutrients = debugConfig.minBlobs;
 					maxNutrients = debugConfig.maxBlobs;
 
 					m_TimeSinceLastSpawn = 0;		// reset the timesincelastspawn timer
@@ -164,8 +178,17 @@ public class SpawnManager : MonoBehaviour
 						waveTime = waves[currentWave].runTime;
 						SpawnInterval = waves[currentWave].nutrientSpawnInterval;
 						speed = waves[currentWave].nutrientSpeed;
-						availableColors = waves[currentWave].colors;
-						minNutrients = waves[currentWave].minBlobs;
+                        if (level.getLevel() != 1)
+                            availableColors = waves[currentWave].colors;
+                        else
+                        {
+                            availableColors = new Color[ColorAllowed];
+                            for (int i = 0; i < ColorAllowed; i++)
+                                availableColors[i] = (Color)debugConfig.colors[i];
+
+                        }
+
+                        minNutrients = waves[currentWave].minBlobs;
 						maxNutrients = waves[currentWave].maxBlobs;
 
 						m_TimeSinceLastSpawn = 0;	// reset the timesincelastspawn timer
