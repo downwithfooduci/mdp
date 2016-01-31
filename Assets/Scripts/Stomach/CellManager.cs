@@ -32,4 +32,8 @@ public class CellManager : MonoBehaviour
 	{
 		cellButtons.checkMouseClick(cellNum);
 	}
+    public int getCellNumber()
+    {
+        return cellScripts.Length;
+    }
 }
