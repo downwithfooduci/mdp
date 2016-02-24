@@ -17,6 +17,13 @@ public class AcidPipeControl : MonoBehaviour
 	private float timeElapsed;
 	private float maxInterval = 5f;
 
+	// popup variables
+	private bool popup;
+	private float initialTime;
+	private float elapsed;
+	private int clickCount;
+	public Texture tapPopUp;
+
     public void ButtonToggle()
     {
         AFC.ButtonToggle();
@@ -45,24 +52,46 @@ public class AcidPipeControl : MonoBehaviour
         AFC = FindObjectOfType(typeof(AcidFlowControl)) as AcidFlowControl;
         PhB = FindObjectOfType(typeof(PhBar)) as PhBar;
         i = GetComponent<Image>();
-
+		popup = false;
+		initialTime = Time.time;
+		clickCount = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (isClicked == false)
+
+		elapsed = Time.time - initialTime;
+		if (elapsed > 5 && clickCount == 0) {
+			popup = true;
+		} else {
+			popup = false;
+		}
+
+		if (isClicked == false)
         {
             i.sprite = ButtonStateImages[0];
             return;
         }
         if (isClicked == true)
         {
-            i.sprite = ButtonStateImages[1];
+			clickCount++;
+			i.sprite = ButtonStateImages[1];
 			timeElapsed = Time.time - startTime;
 			if (timeElapsed > maxInterval) isClicked = false;
             return;
         }
-
+		
     }
+
+	void OnGUI()
+	{
+		if(popup)
+		{
+			GUI.DrawTexture (new Rect(Screen.width * 0.09f, 
+				Screen.height * 0.30515625f, 
+				Screen.width * 0.2093359375f, 
+				Screen.height * 0.300697917f),tapPopUp);
+		}
+	}
 }
