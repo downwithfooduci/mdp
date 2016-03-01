@@ -19,7 +19,7 @@ public class LoadScript
 	 */
 	public SIWave[] loadIntestineLevel(int level)
 	{
-		TextAsset lev = Resources.Load ("SILevel" + level) as TextAsset;  // for ipad we need to load resources instead of using a file
+		TextAsset lev = Resources.Load ("NewSILevel/newSILevel" + level) as TextAsset;  // for ipad we need to load resources instead of using a file
 
 		StringReader reader = new StringReader (lev.text);
 
