@@ -31,7 +31,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 132576}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.372917026, y: 2.73161125, z: 2.14243031}
+  m_LocalPosition: {x: -0.37291703, y: 2.7316113, z: 2.1424303}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -43,13 +43,15 @@ AudioSource:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 132576}
   m_Enabled: 1
-  serializedVersion: 3
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 959a2208e25298b428040864d84a6adf, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: .49000001
+  m_Volume: 0.49
   m_Pitch: 1
   Loop: 1
   Mute: 0
+  Spatialize: 0
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
@@ -74,16 +76,18 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   panLevelCustomCurve:
     serializedVersion: 2
     m_Curve:
     - time: 0
-      value: 1
+      value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   spreadCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -94,6 +98,18 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!114 &11432562
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -106,13 +122,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   breathing:
-  - {fileID: 2800000, guid: b51b9ee0780c29844aa438966e319614, type: 3}
-  - {fileID: 2800000, guid: 67beb0b589bc3d942bf52b2ab9d3c90a, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
   notBreathing:
-  - {fileID: 2800000, guid: 8c30312a411426a4db6da036e124aaaa, type: 3}
-  - {fileID: 2800000, guid: 7ba1670ab058e4348ad6769be8b1adfe, type: 3}
-  animationDelay1: .699999988
-  animationDelay2: 1.39999998
+  - {fileID: 0}
+  - {fileID: 0}
+  animationDelay1: 0.7
+  animationDelay2: 1.4
+  animationDelay3: 1.5
+  animationDelay4: 2
   flaps: {fileID: 0}
 --- !u!114 &11432564
 MonoBehaviour:
@@ -155,11 +173,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   epiglottis:
-  - {fileID: 2800000, guid: 77e5a0f300643e243bbf8b0e7742a541, type: 3}
-  - {fileID: 2800000, guid: 41544d64676933c419bf5a8a2b344ef5, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
   uvula:
-  - {fileID: 2800000, guid: e69742396a36c844a950afbb1969246e, type: 3}
-  - {fileID: 2800000, guid: a4cf6ec8dfa0e844da19bd2c6beabc26, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &11432570
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -171,7 +189,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9105ff12ecb0b8a4697f6ea74ed4ed94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouthOverlay: {fileID: 2800000, guid: 2c867245c43d80b4bb55154582411063, type: 3}
+  mouthOverlay: {fileID: 0}
   sideBar: {fileID: 2800000, guid: 3b21b9b780f84d8499e3133030066b5e, type: 3}
 --- !u!114 &11432572
 MonoBehaviour:
@@ -309,7 +327,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 132576}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6706ddb8e133c12469a6813e2f070ec5, type: 3}
   m_Name: 
@@ -511,9 +529,16 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: mouthOverlay
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 132576}
   m_IsPrefabParent: 1
-  m_IsExploded: 1

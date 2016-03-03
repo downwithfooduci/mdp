@@ -244,20 +244,23 @@ public class testStomachStoryboardHandler : MonoBehaviour {
             {
                 if (moveImageRect.y > -Screen.height)
                 {
-                    moveImageRect.y -= 20f * Time.deltaTime;
+                    moveImageRect.y -= (Screen.height/20) * Time.deltaTime;
                     Debug.Log(moveImageRect.y);
                 }
                 GUI.DrawTexture(moveImageRect, pages[Mathf.Clamp(currPage - 1, 0, pages.Length - 1)]);
             }
             else
-                GUI.DrawTexture(new Rect(0, 0, Screen.width/2, Screen.height*2), pages[Mathf.Clamp(currPage - 1, 0, pages.Length - 1)]);
+                GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), pages[Mathf.Clamp(currPage - 1, 0, pages.Length - 1)]);
+
+
         }
         else
         {
             if (currPage == movePageNum)
             {
-                if (moveImageRect.y > -Screen.height) {
-                    moveImageRect.y -= 20f * Time.deltaTime;
+                if (moveImageRect.y > -Screen.height)
+                {
+                    moveImageRect.y -= (Screen.height / 20) * Time.deltaTime;
                     Debug.Log(moveImageRect.y);
                 }
                 GUI.DrawTexture(moveImageRect, pages[Mathf.Clamp(currPage - 1, 0, pages.Length - 1)]);
