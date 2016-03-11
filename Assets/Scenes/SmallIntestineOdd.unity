@@ -16905,6 +16905,7 @@ GameObject:
   - 114: {fileID: 758440266}
   - 114: {fileID: 758440265}
   - 114: {fileID: 758440267}
+  - 114: {fileID: 758440268}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -17058,6 +17059,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fb7e0c0ae52e9648887fc9ce60caa40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &758440268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 758440261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db770e2b2e5d34fe3be48183ad83a409, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tapPopUp: {fileID: 2800000, guid: 46c55e16029f849c09f98cd975f19d30, type: 3}
 --- !u!1 &761542605
 GameObject:
   m_ObjectHideFlags: 0

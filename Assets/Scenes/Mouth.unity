@@ -203,7 +203,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   swipeSize: 50
-  swipePopUp: {fileID: 2800000, guid: b4cd4f3338b4048118730122a90fe8f2, type: 3}
+  swipePopUp: {fileID: 2800000, guid: 2d91d140417504f4dbfdebbf8171b48c, type: 3}
 --- !u!82 &118777434
 AudioSource:
   m_ObjectHideFlags: 0
@@ -255,7 +255,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   spreadCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -277,7 +277,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
 --- !u!1 &233666803
 GameObject:
   m_ObjectHideFlags: 0
