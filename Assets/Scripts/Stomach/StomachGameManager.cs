@@ -15,11 +15,15 @@ public class StomachGameManager : MonoBehaviour
 
 	public int MAX_FOOD_DROPED;
 
-	public CellManager cellManager;						//!< hold a reference to the cell manager
+	public CellManager cellManager;                     //!< hold a reference to the cell manager
 
-	private string currentAcidLevel = "neutral";		//!< default acid level is neutral
-	
-	private float[] elapsedTime;						//!< array to hold the time elapsed since last event for each cell
+    //private string currentAcidLevel = "neutral";		//!< default acid level is neutral
+
+    private string currentAcidLevel;        //!< default acid level is neutral
+
+
+
+    private float[] elapsedTime;						//!< array to hold the time elapsed since last event for each cell
 	private float[] nextCellActionTime;					//!< array to hold the time until the next cell state change
 	private string[] lastCellState;						//!< array to hold the last known state of each cell
 
@@ -38,12 +42,19 @@ public class StomachGameManager : MonoBehaviour
 	 */
 	void Start () 
 	{
-		// make sure game is not paused
-		Time.timeScale = 1;
+
+        currentAcidLevel = "neutral";
+
+
+        // make sure game is not paused
+        Time.timeScale = 1;
 		deadcellcounter = 0;
 
 		totalfoodcounter = 0;
 		disolvedfoodcounter = 0;
+
+
+
 
 		// get references
 		cellManager = FindObjectOfType(typeof(CellManager)) as CellManager;
@@ -62,6 +73,10 @@ public class StomachGameManager : MonoBehaviour
 			nextCellActionTime[i] = Mathf.Infinity;
 			elapsedTime[i] = 0f;
 		}
+
+
+
+
 	}
 	
 	/**

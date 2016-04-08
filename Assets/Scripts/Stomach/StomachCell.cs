@@ -19,6 +19,11 @@ public class StomachCell : MonoBehaviour
     public int CellNum;
     private mouseDrag MD;
 
+    private StomachGameManager gm;
+    private float burnToDeathTime;
+
+    private float burnTimer;
+
 	/**
 	 * For initialization
 	 */
@@ -28,7 +33,11 @@ public class StomachCell : MonoBehaviour
 		i = GetComponent<Image> ();
 
         MD = FindObjectOfType(typeof(mouseDrag)) as mouseDrag;
-	}
+        gm = FindObjectOfType(typeof(StomachGameManager)) as StomachGameManager;
+        burnToDeathTime = gm.TIME_TO_DIE;
+
+        burnTimer = 0;
+    }
 	
 	/**
 	 * Update... called every frame.
@@ -44,7 +53,23 @@ public class StomachCell : MonoBehaviour
 		
 		if (cellState == "burning")
 		{
-			i.sprite = cellStateImages[1];
+            burnTimer = burnTimer + Time.deltaTime;
+            if(burnTimer > burnToDeathTime * 3 / 4)
+            {
+                i.sprite = cellStateImages[6];
+            }
+            else if(burnTimer > burnToDeathTime * 2 / 4)
+            {
+                i.sprite = cellStateImages[5];
+            }
+            else if (burnTimer > burnToDeathTime / 4)
+            {
+                i.sprite = cellStateImages[4];
+            }
+            else
+            {
+                i.sprite = cellStateImages[1];
+            }
 			return;
 		}
 		

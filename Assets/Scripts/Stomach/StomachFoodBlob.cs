@@ -9,6 +9,10 @@ public class StomachFoodBlob : MonoBehaviour
 	public Sprite[] wholeFood;					//!< to hold the whole food representation images of each color
 	public Sprite[] digestedFood;				//!< to hold the digested food representation images of each color
 	public Sprite blankFood;
+
+
+    public Sprite[] newDigestedTest1;
+
 	
 	public GameObject parent;					//!< the parent game object
 	
@@ -92,17 +96,29 @@ public class StomachFoodBlob : MonoBehaviour
 			GetComponent<PolygonCollider2D> ().enabled = false;
 			sm.setElapsedTime ();
 			IsDigesting = false;
-		} else if (timer > digestTime + 1f && timer < digestTime + 1.75f) {
+		}
+        else if (timer > digestTime + 0.5f && timer <= digestTime + 0.75f)
+        {
+            GetComponent<SpriteRenderer>().sprite = newDigestedTest1[0];
+        }
+        else if (timer > digestTime + 0.75f && timer <= digestTime + 1.25f)
+        {
+            GetComponent<SpriteRenderer>().sprite = newDigestedTest1[1];
+        }
+        else if (timer > digestTime + 1.25f && timer < digestTime + 2f) {
 			Color col = GetComponent<SpriteRenderer>().color;
 			col.a = 0.25f + (digestTime + 1.75f - timer);
 			GetComponent<SpriteRenderer>().color = col;
 		}
-		else if(timer > digestTime)
+		else if(timer > digestTime && timer <= digestTime + 0.5f)
 		{
 			GetComponent<SpriteRenderer>().sprite = digestedRepresentation;
 		}
+        
 
-		if (timer > digestTime) {
+
+
+        if (timer > digestTime) {
 			digested = true;
 		}
 	}

@@ -15,7 +15,7 @@ public class StomachFoodManager : MonoBehaviour
 	public float timeBetweenFoodSpawns;				//!< for the time between food spawns
 	private float elapsedTime;						//!< to count elapsed time to see if we should create a new food blob
 	
-	public int foodBlobsPerRound = 15;
+	public int foodBlobsPerRound;
 
 	private StomachFoodBlob nextToDigest = null;
 

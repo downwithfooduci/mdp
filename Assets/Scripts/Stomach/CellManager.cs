@@ -6,8 +6,11 @@ using System.Collections;
  */
 public class CellManager : MonoBehaviour 
 {
-	public GameObject[] cells;				//!< for references to all the cell game objects
-	public StomachCell[] cellScripts;		//!< for references to all the stomach cell scripts
+	public GameObject[] cells;              //!< for references to all the cell game objects
+
+    /*Everytime you change the size of cells, remember to change the size of cellScripts*/
+
+    public StomachCell[] cellScripts;		//!< for references to all the stomach cell scripts
 	public CellButtons cellButtons;			//!< for a reference to the cell buttons script
 
 	public Texture tapFigure;				//!< image of tap fingure 
@@ -21,10 +24,10 @@ public class CellManager : MonoBehaviour
 	void Start () 
 	{
 		// initialize the script array
-		cellScripts = new StomachCell[8];
+		cellScripts = new StomachCell[6];
 		
 		// get the scripts on each of the cells
-		for (int i = 0; i < 8; i++)
+		for (int i = 0; i < 6; i++)
 		{
 			cellScripts[i] = cells[i].GetComponent<StomachCell>();
 		}
@@ -37,7 +40,7 @@ public class CellManager : MonoBehaviour
 	void Update()
 	{
 		//handle popup when the stomach wall is burning
-		for(int i = 0; i < 8; i++)
+		for(int i = 0; i < 6; i++)
 		{
 			StomachCell cell = cellScripts [i];
 			if ((cell.getCellState () == "burning") && (cellNumber == -1)) {
