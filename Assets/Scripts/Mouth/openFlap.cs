@@ -261,13 +261,13 @@ public class openFlap : MonoBehaviour
 	{
 		int count = new int   ();
 		//timeStamp = Time.time;
-		Debug.Log (Time.time - timeStamp);
+//		Debug.Log (Time.time - timeStamp);
 		while (count < 4) 
 		{
 			if (count == 0) 
 			{
 //				Debug.Log ("count = 0");
-				Debug.Log (Time.time - timeStamp);
+//				Debug.Log (Time.time - timeStamp);
 				if (Time.time - timeStamp > 0.4f) {
 					swipePopUp = swipeDown2Texture;
 					timeStamp = Time.time;
@@ -276,8 +276,8 @@ public class openFlap : MonoBehaviour
 			}
 			if (count == 1) 
 			{
-				Debug.Log ("count = 1");
-				Debug.Log (Time.time - timeStamp);
+//				Debug.Log ("count = 1");
+//				Debug.Log (Time.time - timeStamp);
 				if (Time.time - timeStamp > 0.4f) 
 				{
 					swipePopUp = swipeDown1Texture;
@@ -287,8 +287,8 @@ public class openFlap : MonoBehaviour
 			}
 			if (count == 2) 
 			{
-				Debug.Log ("count = 2");
-				Debug.Log (Time.time - timeStamp);
+//				Debug.Log ("count = 2");
+//				Debug.Log (Time.time - timeStamp);
 				if (Time.time - timeStamp > 0.4f) 
 				{
 					swipePopUp = swipeUp2Texture;
@@ -298,8 +298,8 @@ public class openFlap : MonoBehaviour
 			}
 			if (count == 3) 
 			{
-				Debug.Log ("count = 3");
-				Debug.Log (Time.time - timeStamp);
+//				Debug.Log ("count = 3");
+//				Debug.Log (Time.time - timeStamp);
 				if (Time.time - timeStamp > 0.4f) 
 				{
 					swipePopUp = swipeUp1Texture;
