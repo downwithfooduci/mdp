@@ -204,6 +204,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   swipeSize: 50
   swipePopUp: {fileID: 2800000, guid: 2d91d140417504f4dbfdebbf8171b48c, type: 3}
+  swipeUpTexture: {fileID: 2800000, guid: a0e979b7fbfc64561890d3d3a05f1aaa, type: 3}
+  swipeDownTexture: {fileID: 2800000, guid: 2d91d140417504f4dbfdebbf8171b48c, type: 3}
+  sizeOfGUI: 200
 --- !u!82 &118777434
 AudioSource:
   m_ObjectHideFlags: 0
