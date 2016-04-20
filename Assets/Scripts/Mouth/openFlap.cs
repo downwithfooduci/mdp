@@ -28,9 +28,7 @@ public class openFlap : MonoBehaviour
 	private float elapsed;						//!< the elapsed after the game start
 	private int swipeCount;						//!< to keep track of how many times the swipe happened
 	private Texture swipePopUp;					//!< to hold the texture of the pop up for swipe
-	public Texture swipeUp1Texture;
 	public Texture swipeUp2Texture;
-	public Texture swipeDown1Texture;
 	public Texture swipeDown2Texture;
 	private float timeStamp;
 
@@ -68,8 +66,10 @@ public class openFlap : MonoBehaviour
 	 */
 	void Update () 
 	{
+		GameObject[] foods = GameObject.FindGameObjectsWithTag ("MouthFood");
+		Debug.Log (foods.Length);
 		elapsed = Time.time - startTime;
-		if (elapsed >= 15 && swipeCount <= 2) 
+		if (elapsed >= 15 && swipeCount <= 2 && foods.Length>=2) 
 		{
 			popup = true;
 		}
@@ -218,7 +218,6 @@ public class openFlap : MonoBehaviour
 	{
 		if(popup)
 		{
-			//timeStamp = Time.time;
 			StartCoroutine("FingerAnimation");
 			GUI.DrawTexture (new Rect(Screen.width * 0.7493359375f, 
 				Screen.height * 0.53515625f, 
@@ -262,13 +261,13 @@ public class openFlap : MonoBehaviour
 		int count = new int   ();
 		//timeStamp = Time.time;
 //		Debug.Log (Time.time - timeStamp);
-		while (count < 4) 
+		while (count < 2) 
 		{
 			if (count == 0) 
 			{
 //				Debug.Log ("count = 0");
 //				Debug.Log (Time.time - timeStamp);
-				if (Time.time - timeStamp > 0.4f) {
+				if (Time.time - timeStamp > 0.8f) {
 					swipePopUp = swipeDown2Texture;
 					timeStamp = Time.time;
 					count = 1;
@@ -276,35 +275,13 @@ public class openFlap : MonoBehaviour
 			}
 			if (count == 1) 
 			{
-//				Debug.Log ("count = 1");
-//				Debug.Log (Time.time - timeStamp);
-				if (Time.time - timeStamp > 0.4f) 
-				{
-					swipePopUp = swipeDown1Texture;
-					timeStamp = Time.time;
-					count = 2;
-				}
-			}
-			if (count == 2) 
-			{
 //				Debug.Log ("count = 2");
 //				Debug.Log (Time.time - timeStamp);
-				if (Time.time - timeStamp > 0.4f) 
+				if (Time.time - timeStamp > 0.8f) 
 				{
 					swipePopUp = swipeUp2Texture;
 					timeStamp = Time.time;
-					count = 3;
-				}
-			}
-			if (count == 3) 
-			{
-//				Debug.Log ("count = 3");
-//				Debug.Log (Time.time - timeStamp);
-				if (Time.time - timeStamp > 0.4f) 
-				{
-					swipePopUp = swipeUp1Texture;
-					timeStamp = Time.time;
-					count = 4;
+					count = 2;
 				}
 			}
 			yield return null;
