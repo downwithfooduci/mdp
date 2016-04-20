@@ -1583,24 +1583,7 @@ MonoBehaviour:
   m_Script: {fileID: -1862395651, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 4
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 559039921}
-          m_MethodName: clickOnCell
-          m_Mode: 3
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 4
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 0
-      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
-        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Delegates: []
   delegates:
   - eventID: 4
     callback:
@@ -3681,7 +3664,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stomachFoodBlob: {fileID: 100000, guid: a301c497742cf9c48a3d89ee4e14df37, type: 2}
   timeBetweenFoodSpawns: 10
-  foodBlobsPerRound: 10
+  foodBlobsPerRound: 3
 --- !u!114 &559039923
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3698,8 +3681,9 @@ MonoBehaviour:
   TIME_FOR_SLIME_FADE: 10
   TIME_TO_REVIVE: 4
   MAX_CELL_DEATHS: 3
-  MAX_FOOD_DROPED: 10
+  MAX_FOOD_DROPED: 5
   cellManager: {fileID: 559039921}
+  endTimer: 10
 --- !u!1 &563981234
 GameObject:
   m_ObjectHideFlags: 0
@@ -8596,7 +8580,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1785279643
 RectTransform:
   m_ObjectHideFlags: 0

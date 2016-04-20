@@ -36,8 +36,10 @@ public class StomachFoodManager : MonoBehaviour
 		
 		// keeps track of food blobs
 		// when a food blob is digested it will need to be removed from the list of spawned blobs
-		if (elapsedTime > timeBetweenFoodSpawns && spawnedFoodBlobs.Count <= foodBlobsPerRound)
+
+		if (elapsedTime > timeBetweenFoodSpawns && spawnedFoodBlobs.Count <= foodBlobsPerRound && stomanager.gettotalfood() <= stomanager.MAX_FOOD_DROPED)
 		{
+			Debug.Log ("Food Number:"+stomanager.gettotalfood());
 			GameObject temp = (GameObject)Instantiate (stomachFoodBlob);
 			temp.GetComponent<StomachFoodBlob>().parent = temp;
 			spawnedFoodBlobs.Add(temp.GetComponent<StomachFoodBlob>());

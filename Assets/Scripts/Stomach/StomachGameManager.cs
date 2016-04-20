@@ -36,6 +36,9 @@ public class StomachGameManager : MonoBehaviour
 	
 	private int disolvedfoodcounter;						//!<array to count if the cell is dead
 
+	public float endTimer;								//!<timer to count down after the Last food Drop
+
+	private StomachFoodManager sFM;
 
 	/**
 	 * Use this for initialization
@@ -58,6 +61,7 @@ public class StomachGameManager : MonoBehaviour
 
 		// get references
 		cellManager = FindObjectOfType(typeof(CellManager)) as CellManager;
+		sFM = FindObjectOfType (typeof(StomachFoodManager)) as StomachFoodManager;
 		
 		// initialize arrays
 		elapsedTime = new float[cellManager.cellScripts.Length];
@@ -265,13 +269,17 @@ public class StomachGameManager : MonoBehaviour
 			}
 		}
 
-		if (totalfoodcounter == MAX_FOOD_DROPED+1) {
-            GameObject chooseBackground = GameObject.Find("StomachChooseBackground");
-            StomachLoadLevelCounter level = chooseBackground.GetComponent<StomachLoadLevelCounter>();
+		if (totalfoodcounter == MAX_FOOD_DROPED && sFM.noFoodBlobs()) {
+			endTimer = endTimer - Time.deltaTime;
+			if(endTimer <= 0f){
+				GameObject chooseBackground = GameObject.Find ("StomachChooseBackground");
+				StomachLoadLevelCounter level = chooseBackground.GetComponent<StomachLoadLevelCounter> ();
 
-            level.nextLevel();
-            Application.LoadLevel("StomachStats");
+				level.nextLevel ();
+				Application.LoadLevel ("StomachStats");
+			}
 		}
+
 
 		PlayerPrefs.SetInt ("StomachStats_totalfood", totalfoodcounter-1);
 		PlayerPrefs.SetInt ("StomachStats_timesCellDied", deadcellcounter);

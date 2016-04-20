@@ -128,11 +128,14 @@ public class SpawnFood : MonoBehaviour
 				{
 					currentWave++;						// increase the counter for the current wave we are on
 
+					/*
 					if(currentWave == waves.Length)		// check if the script is done, if it is throw the flag
 					{
 						end = true;
-					} else 								// otherwise get the values for the next wave from the script
+					} 
+					else 								// otherwise get the values for the next wave from the script
 					{
+					*/
 						// get variable values from the script
 						waveDelay = waves[currentWave].startDelay;
 						waveTime = waves[currentWave].runTime;
@@ -140,7 +143,7 @@ public class SpawnFood : MonoBehaviour
 						speed = waves[currentWave].foodSpeed;
 
 						m_TimeSinceLastSpawn = 0;		// reset the timeSinceLastSpawn counter
-					}
+					//}
 				}
 			}
 		}

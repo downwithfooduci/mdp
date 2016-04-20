@@ -53,7 +53,11 @@ public class StomachCell : MonoBehaviour
 		
 		if (cellState == "burning")
 		{
-            burnTimer = burnTimer + Time.deltaTime;
+			
+			if (gm.getCurrentAcidLevel () == "acidic") {
+				burnTimer = burnTimer + Time.deltaTime;
+				Debug.Log ("burning");
+			}
             if(burnTimer > burnToDeathTime * 3 / 4)
             {
                 i.sprite = cellStateImages[6];
@@ -139,7 +143,7 @@ public class StomachCell : MonoBehaviour
     void OnMouseOver()
     {
         MD.setCellNum(CellNum);
-        Debug.Log(CellNum);
+        //Debug.Log(CellNum);
 
     }
 
