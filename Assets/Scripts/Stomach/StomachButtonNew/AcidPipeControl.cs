@@ -62,7 +62,7 @@ public class AcidPipeControl : MonoBehaviour
     {
 
 		elapsed = Time.time - initialTime;
-		if (elapsed > 5 && clickCount == 0) {
+		if (elapsed > 16 && clickCount == 0) {
 			popup = true;
 		} else {
 			popup = false;
