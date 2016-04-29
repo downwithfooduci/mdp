@@ -269,7 +269,7 @@ public class StomachGameManager : MonoBehaviour
 			}
 		}
 
-		if (totalfoodcounter == MAX_FOOD_DROPED && sFM.noFoodBlobs()) {
+		if (totalfoodcounter >= MAX_FOOD_DROPED && sFM.noFoodBlobs()) {
 			endTimer = endTimer - Time.deltaTime;
 			if(endTimer <= 0f){
 				GameObject chooseBackground = GameObject.Find ("StomachChooseBackground");
