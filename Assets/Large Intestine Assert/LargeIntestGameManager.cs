@@ -46,7 +46,7 @@ public class LargeIntestGameManager : MonoBehaviour {
         }
         //pm.setPosition(WaterValue);
 
-        if (timer > 35f)
+        if (timer > 59f)
         {
 
             Application.LoadLevel("LargeIntestineEndStoryboard");
