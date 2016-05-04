@@ -2923,7 +2923,7 @@ Rigidbody2D:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 638487649}
   m_UseAutoMass: 1
-  m_Mass: 212.41689
+  m_Mass: 212.10735
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 20
@@ -5522,13 +5522,11 @@ MonoBehaviour:
   rb: {fileID: 0}
   PlayerWater: 0
   Playerlist:
-  - {fileID: 21300000, guid: 314728a74694d5e448d433432c24d6d3, type: 3}
-  - {fileID: 21300000, guid: 207ddd5fadd988d4583bba40314d6292, type: 3}
-  - {fileID: 21300000, guid: f36fd757f627a3546b05b9d489b2a588, type: 3}
-  - {fileID: 21300000, guid: bb2ca811acbe2b449a7876c68072c214, type: 3}
-  - {fileID: 21300000, guid: 75c0235791f672840bc3f0d0fb875061, type: 3}
-  - {fileID: 21300000, guid: 3e4753375547dab4090a42ad2dca268e, type: 3}
-  - {fileID: 21300000, guid: 9580fc5c61e9bd443a791900df4c9f91, type: 3}
+  - {fileID: 21300000, guid: 5f76efa300f4123499b188c17f18c163, type: 3}
+  - {fileID: 21300000, guid: 0578025f84c59ff4eb0cb0a6f7f4c6f9, type: 3}
+  - {fileID: 21300000, guid: c39cd3c3d6fb42c4b9052b4cc8858993, type: 3}
+  - {fileID: 21300000, guid: e86d0076c5d9c1643af97c2b2446fd0a, type: 3}
+  - {fileID: 21300000, guid: a70d2882d83395641a139e8731fdabce, type: 3}
 --- !u!1 &1318035412 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 130840, guid: 44a033b3b32eb3c48bedfde521526749, type: 2}

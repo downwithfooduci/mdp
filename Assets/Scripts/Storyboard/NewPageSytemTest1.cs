@@ -12,7 +12,7 @@ public class NewPageSytemTest1 : MonoBehaviour {
 	public Texture[] CharacterImage;
 
 	private List<Pages> PageList = new List<Pages>();
-
+	private HashSet<int> charSet = new HashSet<int>();
 
 
 
@@ -37,9 +37,23 @@ public class NewPageSytemTest1 : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		for(int i = 0; i<PageImage.Length; i++){
-			PageList.Add (new Pages (PageImage [i]));
+		for (int i = 0; i < CharacterPage.Length; i++) {
+			charSet.Add (CharacterPage [i]);
 		}
+
+		int tempCharCounter = 0;
+		for(int i = 0; i<PageImage.Length; i++){
+			PageList.Add (new Pages (PageImage [i],i));
+			if (charSet.Contains (i)) {
+				Texture[] tempCharTexture = new Texture[2];
+				tempCharTexture [0] = CharacterImage [tempCharCounter];
+				tempCharTexture [1] = CharacterImage [tempCharCounter+1];
+
+				PageList [i].setCharacter (tempCharTexture, XCharacterPosition [tempCharCounter], YCharacterPosition [tempCharCounter]);
+			}
+				
+		}
+
 
 
 		/**************************************************************/
@@ -115,7 +129,16 @@ public class NewPageSytemTest1 : MonoBehaviour {
 	{
 		if (PlayerPrefs.GetInt("ShowPageNumbers") == 0)
 		{
-//			GUI.DrawTexture (new Rect(0, 0, Screen.width, Screen.height), PageList,  pages[Mathf.Clamp(currPage - 1, 0, pages.Length - 1)]);
+			int tempPageNum = Mathf.Clamp (currPage - 1, 0, PageImage.Length - 1);
+			GUI.DrawTexture (new Rect(0, 0, Screen.width, Screen.height), PageList[tempPageNum].getTexture());
+			if (charSet.Contains (tempPageNum)) {
+				float x = PageList [tempPageNum].PageCharacter.posx;
+				float y = PageList [tempPageNum].PageCharacter.posy;
+				float width = PageList [tempPageNum].PageCharacter.width;
+				float height = PageList [tempPageNum].PageCharacter.height;
+
+				GUI.DrawTexture (new Rect (x, y, width, height), PageList [tempPageNum].PageCharacter.charTexture[0]);
+			}
 		} 
 		/*
 		else
@@ -142,17 +165,41 @@ public class NewPageSytemTest1 : MonoBehaviour {
 
 public class Pages : NewPageSytemTest1
 {
+	public int num;
 	public Texture PageTexture;
-	public Texture[] CharacterTexture;
-	public Pages(Texture pageimage){
+	//public Texture[] CharacterTexture;
+	public extraCharacters PageCharacter;
+	public Pages(Texture pageimage, int n){
 		PageTexture = pageimage;
+		num = n;
 	}
 	public void setPage(Texture pageText){
 		this.PageTexture = pageText;
 
 	}
-	public void setCharacter(Texture[] charText){
-		CharacterTexture = charText;
+	public void setCharacter(Texture[] charText, float x, float y){
+		//CharacterTexture = charText;
+		PageCharacter = new extraCharacters(charText, x, y);
+	}
+	public Texture getTexture(){
+		return PageTexture;
+	}
+
+}
+
+public class extraCharacters : NewPageSytemTest1
+{
+	public Texture[] charTexture;
+	public float posx;
+	public float posy;
+	public float width;
+	public float height;
+	public extraCharacters(Texture[] charImage, float x, float y){
+		charTexture = charImage;
+		posx = x;
+		posy = y;
+		width = charImage[0].width;
+		height = charImage [0].height;
 	}
 
 

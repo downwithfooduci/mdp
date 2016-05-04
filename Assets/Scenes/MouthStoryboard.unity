@@ -344,7 +344,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1666591885}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 19975b43accce4164ba3719ae5615185, type: 3}
   m_Name: 
@@ -366,4 +366,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  sounds: []
+  sounds:
+  - {fileID: 8300000, guid: 519b41901fe53894fb5e8aa01e32c68a, type: 3}
+  - {fileID: 8300000, guid: cd147dffccf83e74f8e449f30209e588, type: 3}
+  - {fileID: 8300000, guid: 4d9bfdfa1ba49884db81e58fa65cde9b, type: 3}
+  - {fileID: 8300000, guid: cef3bf70d9337444d840335a895fe740, type: 3}

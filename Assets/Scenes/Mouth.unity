@@ -203,9 +203,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   swipeSize: 50
-  swipeUp1Texture: {fileID: 2800000, guid: a0e979b7fbfc64561890d3d3a05f1aaa, type: 3}
   swipeUp2Texture: {fileID: 2800000, guid: fe483e2bf46434b1c94b5659ab6e99ca, type: 3}
-  swipeDown1Texture: {fileID: 2800000, guid: 2d91d140417504f4dbfdebbf8171b48c, type: 3}
   swipeDown2Texture: {fileID: 2800000, guid: 5c135e14822b841e39fcda9c6a4c8e3e, type: 3}
 --- !u!82 &118777434
 AudioSource:
@@ -930,6 +928,10 @@ Prefab:
       propertyPath: breathing.Array.size
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 11432576, guid: 5bf66e444940fff4a9fb914c33e60a8c, type: 2}
+      propertyPath: oxygenBar.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 11432568, guid: 5bf66e444940fff4a9fb914c33e60a8c, type: 2}
       propertyPath: epiglottis.Array.size
       value: 2
@@ -1090,6 +1092,14 @@ Prefab:
       propertyPath: BypassListenerEffects
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11432576, guid: 5bf66e444940fff4a9fb914c33e60a8c, type: 2}
+      propertyPath: oxygenBar.Array.data[0]
+      value: 
+      objectReference: {fileID: 2800000, guid: 69855d3194854cd4eaae2cefa153c7ad, type: 3}
+    - target: {fileID: 11432576, guid: 5bf66e444940fff4a9fb914c33e60a8c, type: 2}
+      propertyPath: oxygenBar.Array.data[1]
+      value: 
+      objectReference: {fileID: 2800000, guid: 4f7c842c0ef9a4dd38ffd397a784f322, type: 3}
     m_RemovedComponents:
     - {fileID: 11432574, guid: 5bf66e444940fff4a9fb914c33e60a8c, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 5bf66e444940fff4a9fb914c33e60a8c, type: 2}

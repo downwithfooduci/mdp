@@ -9,7 +9,7 @@ public class OxygenBar : MonoBehaviour
 	private Vector2 position;					//!< variable to hold the position of the oxygenBar
 	private Vector2 originalSize;				//!< variable to hold the size of the oxygenBar
 
-	public Texture oxygenBar;					//!< to hold the texture of the oxygen bar
+	public Texture[] oxygenBar;					//!< to hold the texture of the oxygen bar
 	public float percent;						//!< the current percentage the oxygen bar is filled (between 0 and 1)
 
 	private openFlap flap;								//!< to hold a reference to the script on the flaps
@@ -73,7 +73,12 @@ public class OxygenBar : MonoBehaviour
 																	// the bar based on oxygen level
 
 		// draw the oxygen bar at the specified position at the specified size
-		GUI.DrawTexture(new Rect(position.x, position.y, originalSize.x, originalSize.y), oxygenBar);
+		if (percent >= 0.5f) {
+			GUI.DrawTexture (new Rect (position.x, position.y, originalSize.x, originalSize.y), oxygenBar[0]);
+		}
+		else {
+			GUI.DrawTexture (new Rect (position.x, position.y, originalSize.x, originalSize.y), oxygenBar[1]);
+		}
 	}
 
 	/**

@@ -40,8 +40,8 @@ public class Player_LargeInst : MonoBehaviour {
 	void Update () {
 		rb.position.x.Equals (xfixed);
 		PlayerWater = lgm.getWaterValue ();
-        int n = PlayerWater*7/100;
-        if (n == 7) n = 6;
+        int n = PlayerWater*4/100;
+        //if (n == 7) n = 6;
         //Debug.Log(n);
         i.sprite = Playerlist[n];
 
