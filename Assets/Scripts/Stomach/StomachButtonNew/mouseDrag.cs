@@ -7,7 +7,7 @@ public class mouseDrag : MonoBehaviour
 	
 	private Vector3 screenPoint;
 	private Vector3 offset;
-    private Vector3 originalP;
+	private Vector2 originalP = new Vector3(-44.46617f,-32.44564f);
 
 
     private bool isdrag = false;
@@ -25,7 +25,8 @@ public class mouseDrag : MonoBehaviour
         image = GetComponent<Image>();
         CB = FindObjectOfType(typeof(CellButtons)) as CellButtons;
         Debug.Log ("start");
-        originalP = transform.position;
+        //originalP = transform.position;
+		Debug.Log (originalP.x + " " +originalP.y);
 
         offset = new Vector2(50,50);
 	}

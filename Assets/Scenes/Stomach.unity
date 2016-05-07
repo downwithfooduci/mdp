@@ -3683,7 +3683,7 @@ MonoBehaviour:
   MAX_CELL_DEATHS: 3
   MAX_FOOD_DROPED: 5
   cellManager: {fileID: 559039921}
-  endTimer: 2
+  endTimer: 3
 --- !u!1 &563981234
 GameObject:
   m_ObjectHideFlags: 0
