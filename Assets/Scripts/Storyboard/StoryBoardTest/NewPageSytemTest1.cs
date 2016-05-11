@@ -11,6 +11,11 @@ public class NewPageSytemTest1 : MonoBehaviour {
 	public float[] YCharacterPosition;
 	public Texture[] CharacterImage;
 
+
+	public GameObject StoryBoardCharacter;
+	private bool charAdded;
+	private int charTracker;
+
 	private List<Pages> PageList = new List<Pages>();
 	private HashSet<int> charSet = new HashSet<int>();
 
@@ -35,10 +40,18 @@ public class NewPageSytemTest1 : MonoBehaviour {
 
 
 
+
+
 	// Use this for initialization
 	void Start () {
+
+		charAdded = false;
+		charTracker = 0;
+
+
 		for (int i = 0; i < CharacterPage.Length; i++) {
 			charSet.Add (CharacterPage [i]);
+			Debug.Log ("Page " + CharacterPage[i] + " added");
 		}
 
 		int tempCharCounter = 0;
@@ -46,6 +59,7 @@ public class NewPageSytemTest1 : MonoBehaviour {
 			PageList.Add (new Pages (PageImage [i],i));
 			if (charSet.Contains (i)) {
 				Texture[] tempCharTexture = new Texture[2];
+
 				tempCharTexture [0] = CharacterImage [tempCharCounter];
 				tempCharTexture [1] = CharacterImage [tempCharCounter+1];
 
@@ -74,7 +88,23 @@ public class NewPageSytemTest1 : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		Debug.Log("Number of Texture:" + PageList.Count);
+		//Debug.Log("Number of Texture:" + PageList.Count);
+
+
+		/*
+
+		int tempPageNum = Mathf.Clamp (currPage - 1, 0, PageImage.Length - 1);
+		if (charSet.Contains (tempPageNum) && charAdded == false) {
+			Vector2 tempPosition = new Vector2 (PageList [tempPageNum].PageCharacter.posx, PageList [tempPageNum].PageCharacter.posy);
+			GameObject tempCharacter = (GameObject)Instantiate (StoryBoardCharacter, tempPosition, Quaternion.identity);
+			//tempCharacter.GetComponent<GeneralStoryBoardCharacter> (PageList [tempPageNum].PageCharacter.charSprite);
+			tempCharacter.GetComponent<GeneralStoryBoardCharacter>().setImage (PageList [tempPageNum].PageCharacter.charSprite);
+			charAdded = true;
+		}
+		*/
+
+
+
 
 		/**************************************************************/
 
@@ -86,6 +116,7 @@ public class NewPageSytemTest1 : MonoBehaviour {
 				swipeDetection.resetSwipe();						// reset the variables to prevent multiple page turns
 				currPage++;											// increment the page since we are going forward
 				hasPlayed = false;
+				charAdded = false;
 			} else if (swipeDetection.getSwipeRight() == true)			// attempt to detect a swipe to the left
 			{
 				swipeDetection.resetSwipe();						// reset the varaibel to prevent multiple page turns
@@ -94,6 +125,7 @@ public class NewPageSytemTest1 : MonoBehaviour {
 				{
 					currPage--;
 					hasPlayed = false;
+					charAdded = false;
 				}
 			}
 		} else if (GetComponent<AudioSource>().isPlaying)
@@ -110,11 +142,7 @@ public class NewPageSytemTest1 : MonoBehaviour {
 				hasPlayed = true;						// mark that we have played the clip
 			}
 		}
-
-
-
-
-
+			
 		/**************************************************************/
 	
 	}
@@ -131,14 +159,38 @@ public class NewPageSytemTest1 : MonoBehaviour {
 		{
 			int tempPageNum = Mathf.Clamp (currPage - 1, 0, PageImage.Length - 1);
 			GUI.DrawTexture (new Rect(0, 0, Screen.width, Screen.height), PageList[tempPageNum].getTexture());
+
 			if (charSet.Contains (tempPageNum)) {
+				
 				float x = PageList [tempPageNum].PageCharacter.posx;
 				float y = PageList [tempPageNum].PageCharacter.posy;
 				float width = PageList [tempPageNum].PageCharacter.width;
 				float height = PageList [tempPageNum].PageCharacter.height;
 
-				GUI.DrawTexture (new Rect (x, y, width, height), PageList [tempPageNum].PageCharacter.charTexture[0]);
+
+				//GUI.DrawTexture (new Rect (x, y, Screen.width/5, Screen.height/5), PageList [tempPageNum].PageCharacter.charSprite[0].texture);
+
+				GUI.Label (new Rect (0,0,10,10),"black");
+
+				GUIContent tempContent = new GUIContent();
+				if(charTracker == 0) tempContent.image = PageList [tempPageNum].PageCharacter.charTexture[0];
+				else if(charTracker == 1) tempContent.image = PageList [tempPageNum].PageCharacter.charTexture[1];
+
+
+				if (GUI.Button (new Rect (x*Screen.width, y*Screen.height, width/5, height/5), tempContent)) {
+					Debug.Log ("Current Page:" + tempPageNum);
+
+					Debug.Log("button works");
+					//tempContent.image = PageList [tempPageNum].PageCharacter.charTexture[1];
+					//GUI.Button (new Rect (x, y, Screen.width / 5, Screen.height / 5), tempContent);
+					if(charTracker == 0) charTracker =1;
+					else if(charTracker == 1) charTracker =0;
+
+				}
+
+
 			}
+
 		} 
 		/*
 		else
@@ -163,11 +215,11 @@ public class NewPageSytemTest1 : MonoBehaviour {
 
 }
 
-public class Pages : NewPageSytemTest1
+public class Pages //: NewPageSytemTest1
 {
 	public int num;
 	public Texture PageTexture;
-	//public Texture[] CharacterTexture;
+	public Texture[] CharacterTexture;
 	public extraCharacters PageCharacter;
 	public Pages(Texture pageimage, int n){
 		PageTexture = pageimage;
@@ -178,6 +230,7 @@ public class Pages : NewPageSytemTest1
 
 	}
 	public void setCharacter(Texture[] charText, float x, float y){
+		
 		//CharacterTexture = charText;
 		PageCharacter = new extraCharacters(charText, x, y);
 	}
@@ -187,7 +240,7 @@ public class Pages : NewPageSytemTest1
 
 }
 
-public class extraCharacters : NewPageSytemTest1
+public class extraCharacters //: NewPageSytemTest1
 {
 	public Texture[] charTexture;
 	public float posx;

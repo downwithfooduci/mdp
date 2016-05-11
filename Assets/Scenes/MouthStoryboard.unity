@@ -41,7 +41,7 @@ RenderSettings:
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 6
-  m_GIWorkflowMode: 1
+  m_GIWorkflowMode: 0
   m_LightmapsMode: 1
   m_GISettings:
     serializedVersion: 2
@@ -198,7 +198,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1666591885}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: abc2188885986e04ca5b5d9bba8fe7d1, type: 3}
   m_Name: 
@@ -344,7 +344,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1666591885}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 19975b43accce4164ba3719ae5615185, type: 3}
   m_Name: 
@@ -354,18 +354,19 @@ MonoBehaviour:
   - {fileID: 2800000, guid: 7aea6d84feeda504d846468dd79b445e, type: 3}
   - {fileID: 2800000, guid: c0d290f70661d0a4ea06d40716213833, type: 3}
   - {fileID: 2800000, guid: c41d4b015584ac7428458f96170319d9, type: 3}
-  CharacterPage: 0100000003000000
+  CharacterPage: 0000000003000000
   XCharacterPosition:
-  - 10
-  - 10
+  - 0.7
+  - 0
   YCharacterPosition:
-  - 10
-  - 30
+  - 0.4
+  - 0
   CharacterImage:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 2800000, guid: 73cdbf32dfe05421cb9b316fd1c0357f, type: 3}
+  - {fileID: 2800000, guid: d017cdf7a67a04895baa399ea9cb1659, type: 3}
+  - {fileID: 2800000, guid: 5c135e14822b841e39fcda9c6a4c8e3e, type: 3}
+  - {fileID: 2800000, guid: fe483e2bf46434b1c94b5659ab6e99ca, type: 3}
+  StoryBoardCharacter: {fileID: 165074, guid: 6ca8e05003b474ab8843f4cedcdc2c91, type: 2}
   sounds:
   - {fileID: 8300000, guid: 519b41901fe53894fb5e8aa01e32c68a, type: 3}
   - {fileID: 8300000, guid: cd147dffccf83e74f8e449f30209e588, type: 3}
