@@ -24,6 +24,15 @@ public class StomachEnzyme : MonoBehaviour
 	private float elapsedTime;
 
 	private const float MIN_DIGESTION_DISTANCE = 1;
+
+	public float attackTime;
+	private float attackTimer;
+	private bool enzymeAttacking;
+
+	private Vector2 zymePosition;
+	private Quaternion zymeRotation;
+
+
 	/**
 	 * Use this for initialization
 	 */
@@ -33,6 +42,10 @@ public class StomachEnzyme : MonoBehaviour
 		i = GetComponent<Image> ();
 		gm = FindObjectOfType (typeof(StomachGameManager)) as StomachGameManager;
 		fm = FindObjectOfType (typeof(StomachFoodManager)) as StomachFoodManager;
+		attackTimer = 0f;
+		enzymeAttacking = false;
+		zymePosition = new Vector2 (-(1024-200)*0.0651f,-(768-100)*0.0651f);
+		zymeRotation = Quaternion.Euler(0, 0, 135f);
 	}
 	
 	/**
@@ -47,9 +60,20 @@ public class StomachEnzyme : MonoBehaviour
 
 			if(fm.noFoodBlobs())
 			{
-				float step = speed*Time.deltaTime;
+				float step = speed * Time.deltaTime;
 				Vector2 origin = Vector2.zero;
-				transform.position = Vector2.MoveTowards(transform.position, origin, step);				
+				if (enzymeAttacking == false) {
+					transform.position = Vector2.MoveTowards (transform.position, origin, step);
+				} else {
+					transform.position = Vector2.MoveTowards (transform.position, zymePosition, step/2);
+					transform.rotation = Quaternion.RotateTowards(transform.rotation, zymeRotation, step*10);
+				}
+				attackTimer = attackTimer + Time.deltaTime;
+				if (attackTimer >= attackTime) {
+					enzymeAttacking = true;
+				}
+
+
 			}
 			else
 			{
@@ -68,6 +92,10 @@ public class StomachEnzyme : MonoBehaviour
 					if (!currentlyDigesting.IsDigesting && Vector2.Distance(transform.position, foodLocation) < MIN_DIGESTION_DISTANCE)
 						currentlyDigesting.IsDigesting = true;
 				}
+
+				attackTimer = 0;
+				enzymeAttacking = false;
+
 			}
 		} else
 		{
@@ -76,6 +104,10 @@ public class StomachEnzyme : MonoBehaviour
 			Vector2 origin = Vector2.zero;
 			transform.position = Vector2.MoveTowards(transform.position, origin, step);
 			transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(0, 0, 0), step*10);
+
+
+			attackTimer = 0;
+			enzymeAttacking = false;
 		}
 	}
 	
@@ -93,5 +125,8 @@ public class StomachEnzyme : MonoBehaviour
 	public void setElapsedTime()
 	{
 		elapsedTime = 0f;
+	}
+	public bool isAttacking(){
+		return enzymeAttacking;
 	}
 }
