@@ -3664,7 +3664,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stomachFoodBlob: {fileID: 100000, guid: a301c497742cf9c48a3d89ee4e14df37, type: 2}
-  timeBetweenFoodSpawns: 10
+  timeBetweenFoodSpawns: 20
   foodBlobsPerRound: 3
 --- !u!114 &559039923
 MonoBehaviour:

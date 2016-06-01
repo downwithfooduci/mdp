@@ -32,6 +32,7 @@ public class StomachEnzyme : MonoBehaviour
 	private Vector2 zymePosition;
 	private Quaternion zymeRotation;
 
+	private bool zymeEaten;
 
 	/**
 	 * Use this for initialization
@@ -46,6 +47,7 @@ public class StomachEnzyme : MonoBehaviour
 		enzymeAttacking = false;
 		zymePosition = new Vector2 (-(1024-200)*0.0651f,-(768-100)*0.0651f);
 		zymeRotation = Quaternion.Euler(0, 0, 135f);
+		zymeEaten = false;
 	}
 	
 	/**
@@ -109,6 +111,17 @@ public class StomachEnzyme : MonoBehaviour
 			attackTimer = 0;
 			enzymeAttacking = false;
 		}
+
+		float offSetX = 20f;
+		float offSetY = 40f;
+
+		if ((transform.position.x - zymePosition.x) < offSetX && (transform.position.y - zymePosition.y) < offSetY) {
+			Debug.Log ("Zyme eaten! Game Over!");
+			zymeEaten = true;
+
+		}
+		
+
 	}
 	
 	/**
@@ -128,5 +141,9 @@ public class StomachEnzyme : MonoBehaviour
 	}
 	public bool isAttacking(){
 		return enzymeAttacking;
+	}
+
+	public bool hasEaten(){
+		return zymeEaten;
 	}
 }

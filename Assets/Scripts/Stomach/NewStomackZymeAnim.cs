@@ -59,21 +59,20 @@ public class NewStomackZymeAnim : MonoBehaviour {
 			if(timer>0){
 
 				subtimer = subtimer + Time.deltaTime;
-				if (subtimer > frameTime * 4) {
+				float tempOffSet = frameTime * 8;
+				if (subtimer > frameTime * 6 + tempOffSet) {
 					i.sprite = zymeSurprise [0];
 					timer = 0;
-				} else if (subtimer > frameTime * 3)
+				} else if (subtimer > frameTime * 5 + tempOffSet)
 					i.sprite = zymeRelief [3];
-				else if (subtimer > frameTime * 2)
+				else if (subtimer > frameTime * 4 + tempOffSet)
 					i.sprite = zymeRelief [2];
-				else if (subtimer > frameTime * 1)
+				else if (subtimer > frameTime * 3 + tempOffSet)
 					i.sprite = zymeRelief [1];
-				else if (subtimer > frameTime * 0)
+				else if (subtimer > frameTime * 0 + tempOffSet)
 					i.sprite = zymeRelief [0];		
 			}
 		}
-
-
 
 
 	}

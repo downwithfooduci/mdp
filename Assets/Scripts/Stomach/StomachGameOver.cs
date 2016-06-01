@@ -15,6 +15,8 @@ public class StomachGameOver : MonoBehaviour
 	private StomachFoodManager fm;	//!< to hold a reference to the stomach food manager
 	private StomachGameManager gm;	//!< hold a reference to the stomach game manager
     private CellManager cm;
+
+	private StomachEnzyme stEz;
 	
 	private bool gameOver;			//!< flag to indicate if the game is over
 	
@@ -27,6 +29,7 @@ public class StomachGameOver : MonoBehaviour
 		fm = FindObjectOfType (typeof(StomachFoodManager)) as StomachFoodManager;
 		gm = FindObjectOfType (typeof(StomachGameManager)) as StomachGameManager;
         cm = FindObjectOfType(typeof(CellManager)) as CellManager;
+		stEz = FindObjectOfType (typeof(StomachEnzyme)) as StomachEnzyme;
 	}
 	
 	/**
@@ -58,6 +61,11 @@ public class StomachGameOver : MonoBehaviour
 		//if all cells died, game over
 		if(gm.getDeadCellNum() == cm.getCellNumber())
 		{
+			gameOver = true;
+			Time.timeScale = 0;
+		}
+
+		if (stEz.hasEaten ()) {
 			gameOver = true;
 			Time.timeScale = 0;
 		}
