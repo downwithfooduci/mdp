@@ -60,9 +60,8 @@ public class AcidPipeControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
 		elapsed = Time.time - initialTime;
-		if (elapsed > 16 && clickCount == 0) {
+		if (elapsed > 45 && clickCount == 0) {
 			popup = true;
 		} else {
 			popup = false;

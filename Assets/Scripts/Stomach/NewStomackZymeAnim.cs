@@ -9,7 +9,7 @@ public class NewStomackZymeAnim : MonoBehaviour {
 	private Image i;
 
 	public Sprite[] zymeFlail;					//!< holds the texture that will be drawn for happy zyme
-	public Sprite[] zymeRelief;				//!< holds the texture that will be drawn for concerned zyme
+	public Sprite[] zymeRelief;					//!< holds the texture that will be drawn for concerned zyme
 	public Sprite[] zymeSurprise;	
 
 
@@ -17,6 +17,9 @@ public class NewStomackZymeAnim : MonoBehaviour {
 	private float timer;
 	private float subtimer;
 	public float frameTime;
+
+	public Texture tapPopUp;
+	private bool popup;
 
 
 	// Use this for initialization
@@ -26,6 +29,7 @@ public class NewStomackZymeAnim : MonoBehaviour {
 
 		timer = 0;
 		subtimer = 0;
+		popup = false;
 	
 	}
 	
@@ -34,27 +38,35 @@ public class NewStomackZymeAnim : MonoBehaviour {
 		if (stEz.isAttacking ()) {
 			timer = timer + Time.deltaTime;
 			if (timer < frameTime * 4) {
+				popup = false;
 				subtimer = subtimer + Time.deltaTime;
-				if (subtimer > frameTime * 3)
+				if (subtimer > frameTime * 3) {
 					i.sprite = zymeSurprise [3];
-				else if (subtimer > frameTime * 2)
+				} else if (subtimer > frameTime * 2) {
 					i.sprite = zymeSurprise [2];
-				else if (subtimer > frameTime * 1)
+				} else if (subtimer > frameTime * 1) {
 					i.sprite = zymeSurprise [1];
-				else if (subtimer > frameTime * 0)
+				} else if (subtimer > frameTime * 0) {
 					i.sprite = zymeSurprise [0];
+				}
+
 				
 			} else {
 				subtimer = subtimer + Time.deltaTime;
 				if (subtimer > frameTime * 1) {
 					i.sprite = zymeFlail [1];
-					if(subtimer>frameTime*2) subtimer = 0;
-				} else if (subtimer < frameTime * 1)
+					if (subtimer > frameTime * 2) {
+						subtimer = 0;
+						popup = true;
+					}
+				} else if (subtimer < frameTime * 1) {
 					i.sprite = zymeFlail [0];
+				}
 
 			}
 		} 
 		else {
+			popup = false;
 			
 			if(timer>0){
 
@@ -76,4 +88,16 @@ public class NewStomackZymeAnim : MonoBehaviour {
 
 
 	}
+
+	void OnGUI()
+	{
+		if(popup)
+		{
+			GUI.DrawTexture (new Rect(Screen.width * 0.79f, 
+				Screen.height * 0.30515625f, 
+				Screen.width * 0.2093359375f, 
+				Screen.height * 0.300697917f),tapPopUp);
+		}
+	}
+
 }
