@@ -46,6 +46,11 @@ public class BackGroundTurner : MonoBehaviour {
 	private int charTracker;
 
 
+
+
+	public int[] animatedZyme;
+
+
 	// Use this for initialization
 	void Start () {
 
@@ -87,7 +92,58 @@ public class BackGroundTurner : MonoBehaviour {
 
 
 	}
-	
+
+
+
+	/**
+	 * Starts preloading the next level to avoid delays
+	 */
+	IEnumerator loadNextLevel() 
+	{
+		// starts preloading hte next level in the sequence accordingly
+		if (Application.loadedLevelName.Equals ("Test_IntroStoryBoard")) {
+			loader = Application.LoadLevelAsync("Test_nowEntering");
+		}
+		else if (Application.loadedLevelName.Equals("IntroStoryboard"))
+		{
+			loader = Application.LoadLevelAsync("MouthStoryboard");		
+		} else if (Application.loadedLevelName.Equals("MouthStoryboard"))
+		{
+			loader = Application.LoadLevelAsync("LoadLevelMouth");
+		} else if (Application.loadedLevelName.Equals("MouthEndStoryboard"))
+		{
+			loader = Application.LoadLevelAsync("StomachStoryboard");
+		} else if (Application.loadedLevelName.Equals("StomachStoryboard"))
+		{
+			loader = Application.LoadLevelAsync("LoadLevelStomach");
+		} else if (Application.loadedLevelName.Equals("StomachEndStoryboard"))
+		{
+			loader = Application.LoadLevelAsync("SmallIntestineStoryboard");
+		} else if (Application.loadedLevelName.Equals("SmallIntestineStoryboard"))
+		{
+			loader = Application.LoadLevelAsync("LoadLevelSmallIntestine");
+		} else if (Application.loadedLevelName.Equals("SmallIntestineEndStoryboard"))
+		{
+			loader = Application.LoadLevelAsync("LargeIntestineStoryboard");
+		} else if (Application.loadedLevelName.Equals("LargeIntestineStoryboard"))
+		{
+			loader = Application.LoadLevelAsync("LargeIntestine");
+		} else if (Application.loadedLevelName.Equals("LargeIntestineEndStoryboard"))
+		{
+			loader = Application.LoadLevelAsync("EndScreen");
+		}
+
+
+
+
+		loader.allowSceneActivation = false;	// set this to mean we don't want the scene to load until we say
+		yield return loader;
+	}
+
+
+
+
+
 	// Update is called once per frame
 	void Update () {
 
@@ -135,6 +191,53 @@ public class BackGroundTurner : MonoBehaviour {
 				hasPlayed = true;						// mark that we have played the clip
 			}
 		}
+
+
+
+
+		if ((currPage - 1) == BackGroundImages.Length)					// perform bounds checking to see if we should load the next scene
+		{
+
+			if (Application.loadedLevelName.Equals ("Test_IntroStoryBoard")) {
+				PlayerPrefs.SetInt("PlayedTestIntroStory", 1);
+				Application.LoadLevel ("Test_nowEntering");
+			}
+			else if (Application.loadedLevelName.Equals("IntroStoryboard"))
+			{
+				PlayerPrefs.SetInt("PlayedIntroStory", 1);		// if we're ready set that we've heard this story segment
+			} else if (Application.loadedLevelName.Equals("MouthStoryboard"))
+			{
+				PlayerPrefs.SetInt("PlayedMouthStory", 1);
+			} else if (Application.loadedLevelName.Equals("MouthEndStoryboard"))
+			{
+				PlayerPrefs.SetInt("PlayedMouthEndStory", 1);
+			} else if (Application.loadedLevelName.Equals("StomachStoryboard"))
+			{
+				PlayerPrefs.SetInt("PlayedStomachStory", 1);
+			} else if (Application.loadedLevelName.Equals("StomachEndStoryboard"))
+			{
+				PlayerPrefs.SetInt("PlayedStomachEndStory", 1);
+			} else if (Application.loadedLevelName.Equals("SmallIntestineStoryboard"))
+			{
+				PlayerPrefs.SetInt("PlayedSIStory", 1);
+			} else if (Application.loadedLevelName.Equals("SmallIntestineEndStoryboard"))
+			{
+				PlayerPrefs.SetInt("PlayedSIEndStory", 1);
+			} else if (Application.loadedLevelName.Equals("LargeIntestineStoryboard"))
+			{
+				PlayerPrefs.SetInt("PlayedLIStory", 1);
+			} else if (Application.loadedLevelName.Equals("LargeIntestineEndStoryboard"))
+			{
+				PlayerPrefs.SetInt("PlayedLIEndStory", 1);
+			}
+
+			PlayerPrefs.Save();
+			//loader.allowSceneActivation = true;				// load the next level
+
+			Application.LoadLevel ("Test_nowEntering");
+
+		}
+
 
 		/**************************************************************/
 

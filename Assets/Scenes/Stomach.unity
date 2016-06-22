@@ -2309,6 +2309,7 @@ MonoBehaviour:
   textboxes: {fileID: 1785279646}
   speed: 20
   attackTime: 1
+  attackSpeed: 20
 --- !u!60 &344106292
 PolygonCollider2D:
   m_ObjectHideFlags: 0

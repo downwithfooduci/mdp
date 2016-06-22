@@ -30,6 +30,7 @@ public class StoryCharacter : MonoBehaviour {
 			CharacterImages = bgt.CharacterImage;
 		}
 
+
 	
 	}
 	
@@ -38,11 +39,12 @@ public class StoryCharacter : MonoBehaviour {
 		if(charOn){
 			//transform.position = bgt
 			image.sprite = bgt.PageList [bgt.currentPage ()].PageCharacter.charSprite[charTracker];
+
 			/*
-			transform.position = new Vector3 (
-				bgt.PageList [bgt.currentPage ()].PageCharacter.posx,
-				bgt.PageList [bgt.currentPage ()].PageCharacter.posy,0f);
-				*/
+			transform.position = new Vector2 (
+				Screen.width * bgt.PageList [bgt.currentPage ()].PageCharacter.posx,
+				Screen.height * bgt.PageList [bgt.currentPage ()].PageCharacter.posy);//,0f);
+			*/
 
 		} else {
 			image.sprite = TransImage;

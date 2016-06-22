@@ -26,6 +26,8 @@ public class StomachEnzyme : MonoBehaviour
 	private const float MIN_DIGESTION_DISTANCE = 1;
 
 	public float attackTime;
+	public float attackSpeed;
+
 	private float attackTimer;
 	private bool enzymeAttacking;
 
@@ -102,7 +104,7 @@ public class StomachEnzyme : MonoBehaviour
 		} else
 		{
 			i.sprite = deactivatedTexture;
-			float step = speed*Time.deltaTime;
+			float step = attackSpeed*Time.deltaTime;
 			Vector2 origin = Vector2.zero;
 			transform.position = Vector2.MoveTowards(transform.position, origin, step);
 			transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(0, 0, 0), step*10);
