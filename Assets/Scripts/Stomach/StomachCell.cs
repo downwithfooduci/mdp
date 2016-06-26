@@ -56,7 +56,7 @@ public class StomachCell : MonoBehaviour
 			
 			if (gm.getCurrentAcidLevel () == "acidic") {
 				burnTimer = burnTimer + Time.deltaTime;
-				Debug.Log ("burning");
+				//Debug.Log ("burning");
 			}
             if(burnTimer > burnToDeathTime * 3 / 4)
             {

@@ -16,14 +16,20 @@ public class StomachFoodManager : MonoBehaviour
 	private float elapsedTime;						//!< to count elapsed time to see if we should create a new food blob
 	
 	public int foodBlobsPerRound;
+	public int slowFoodNum;
 
 	private StomachFoodBlob nextToDigest = null;
 
 	private StomachGameManager stomanager;
+	private float actualTimeBetFood;
+	private float[] timeMap;
+	private int currentFood;
 
 
 	void Start(){
 		stomanager = FindObjectOfType (typeof(StomachGameManager)) as StomachGameManager;
+		timeMap = new float[8]{2f, 2f, 30f, 2f, 2f, 2f, 40f, 2f};
+		currentFood = 0;
 	}
 
 	/**
@@ -36,14 +42,28 @@ public class StomachFoodManager : MonoBehaviour
 		
 		// keeps track of food blobs
 		// when a food blob is digested it will need to be removed from the list of spawned blobs
+		/*
+		if(getNumFoodBlobs()<slowFoodNum) {
+			actualTimeBetFood = 2f*timeBetweenFoodSpawns;
+		}
+		else {
+			actualTimeBetFood = timeBetweenFoodSpawns;
+		}
+		*/
 
-		if (elapsedTime > timeBetweenFoodSpawns && spawnedFoodBlobs.Count <= foodBlobsPerRound && stomanager.gettotalfood() <= stomanager.MAX_FOOD_DROPED)
+		//if (elapsedTime > actualTimeBetFood && spawnedFoodBlobs.Count <= foodBlobsPerRound && stomanager.gettotalfood() <= stomanager.MAX_FOOD_DROPED)
+		if(stomanager.gettotalfood() < timeMap.Length)
 		{
-			Debug.Log ("Food Number:"+stomanager.gettotalfood());
-			GameObject temp = (GameObject)Instantiate (stomachFoodBlob);
-			temp.GetComponent<StomachFoodBlob>().parent = temp;
-			spawnedFoodBlobs.Add(temp.GetComponent<StomachFoodBlob>());
-			elapsedTime = 0f;
+			if (elapsedTime > timeMap [currentFood]) {
+				Debug.Log ("Food Number:" + stomanager.gettotalfood ());
+				Debug.Log ("actualTimeBetFood: " + elapsedTime);
+				Debug.Log ("Current Food Num: " + getNumFoodBlobs ());
+				GameObject temp = (GameObject)Instantiate (stomachFoodBlob);
+				temp.GetComponent<StomachFoodBlob> ().parent = temp;
+				spawnedFoodBlobs.Add (temp.GetComponent<StomachFoodBlob> ());
+				elapsedTime = 0f;
+				currentFood++;
+			}
 		}
 	}
 	

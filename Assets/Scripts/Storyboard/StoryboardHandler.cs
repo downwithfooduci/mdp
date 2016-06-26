@@ -78,19 +78,22 @@ public class StoryboardHandler : MonoBehaviour
 			loader = Application.LoadLevelAsync("LoadLevelMouth");
 		} else if (Application.loadedLevelName.Equals("MouthEndStoryboard"))
 		{
-			loader = Application.LoadLevelAsync("StomachStoryboard");
+			//loader = Application.LoadLevelAsync("StomachStoryboard");
+			loader = Application.LoadLevelAsync("Test_nowEntering");
 		} else if (Application.loadedLevelName.Equals("StomachStoryboard"))
 		{
 			loader = Application.LoadLevelAsync("LoadLevelStomach");
 		} else if (Application.loadedLevelName.Equals("StomachEndStoryboard"))
 		{
-			loader = Application.LoadLevelAsync("SmallIntestineStoryboard");
+			//loader = Application.LoadLevelAsync("SmallIntestineStoryboard");
+			loader = Application.LoadLevelAsync("Test_nowEntering");
 		} else if (Application.loadedLevelName.Equals("SmallIntestineStoryboard"))
 		{
 			loader = Application.LoadLevelAsync("LoadLevelSmallIntestine");
 		} else if (Application.loadedLevelName.Equals("SmallIntestineEndStoryboard"))
         {
-            loader = Application.LoadLevelAsync("LargeIntestineStoryboard");
+            //loader = Application.LoadLevelAsync("LargeIntestineStoryboard");
+			loader = Application.LoadLevelAsync("Test_nowEntering");
         } else if (Application.loadedLevelName.Equals("LargeIntestineStoryboard"))
         {
             loader = Application.LoadLevelAsync("LargeIntestine");
@@ -156,18 +159,21 @@ public class StoryboardHandler : MonoBehaviour
 			} else if (Application.loadedLevelName.Equals("MouthEndStoryboard"))
 			{
 				PlayerPrefs.SetInt("PlayedMouthEndStory", 1);
+				PlayerPrefs.SetInt ("CurrentStoryLevel", 1);
 			} else if (Application.loadedLevelName.Equals("StomachStoryboard"))
 			{
 				PlayerPrefs.SetInt("PlayedStomachStory", 1);
 			} else if (Application.loadedLevelName.Equals("StomachEndStoryboard"))
 			{
 				PlayerPrefs.SetInt("PlayedStomachEndStory", 1);
+				PlayerPrefs.SetInt ("CurrentStoryLevel", 2);
 			} else if (Application.loadedLevelName.Equals("SmallIntestineStoryboard"))
 			{
 				PlayerPrefs.SetInt("PlayedSIStory", 1);
             } else if (Application.loadedLevelName.Equals("SmallIntestineEndStoryboard"))
             {
                 PlayerPrefs.SetInt("PlayedSIEndStory", 1);
+				PlayerPrefs.SetInt ("CurrentStoryLevel", 3);
             } else if (Application.loadedLevelName.Equals("LargeIntestineStoryboard"))
             {
                 PlayerPrefs.SetInt("PlayedLIStory", 1);
