@@ -39,8 +39,8 @@ public class TransPageBackground : MonoBehaviour {
 		timer = 0;
 		counter = 0;
 
-		currentLevel = 3;
-		//currentLevel = PlayerPrefs.GetInt ("CurrentStoryLevel");
+		//currentLevel = 3;
+		currentLevel = PlayerPrefs.GetInt ("CurrentStoryLevel");
 
 		/*
 		if (PlayerPrefs.GetInt ("CurrentStoryLevel") == 3)

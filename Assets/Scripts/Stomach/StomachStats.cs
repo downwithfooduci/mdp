@@ -224,7 +224,7 @@ public class StomachStats : MonoBehaviour
 			// make sure to not show the load screen after we're done
 			if (level.getLevel() > level.getMaxLevels())
 			{
-				Application.LoadLevel("SmallIntestineStoryboard");	// if the mouth game is done then we load the small
+				Application.LoadLevel("StomachEndStoryboard");	// if the mouth game is done then we load the small
 				// intestine story
 			} else
 			{
