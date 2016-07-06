@@ -77,7 +77,7 @@ public class Player_LargeInst : MonoBehaviour {
 	public void MoveUp(){
 		//rb.AddForce(Vector2.up * inputY* 50f);
 
-		Debug.Log("Entered");
+		//Debug.Log("Entered");
 
 		//rb.MovePosition (rb.position + speed);
 		rb.velocity = new Vector2 (0, speed.y * 30f);

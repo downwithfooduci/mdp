@@ -42,5 +42,6 @@ public class LI_WaterScript : MonoBehaviour {
     {
         imagestatment = 0;
         counter = 0;
+		//Debug.Log ("Animation Started");
     }
 }

@@ -31,9 +31,10 @@ public class LagreInstSub : MonoBehaviour {
 	
 
 	void OnTriggerEnter2D(Collider2D other){
-		//Debug.Log("Entered");
         if (suctionstatus == 0)
-        {
+		{
+			Debug.Log ("Item Entered.");
+			Debug.Log ("Item Name:" + other.gameObject.name);
             lgm.subwater(WaterSubValue);
         }
 

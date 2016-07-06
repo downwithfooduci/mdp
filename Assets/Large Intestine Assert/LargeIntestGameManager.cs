@@ -31,7 +31,7 @@ public class LargeIntestGameManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         timer = timer + Time.deltaTime;
-        Debug.Log(timer);
+        //Debug.Log(timer);
         if(bacTouched == 1)
         {
             bacteriaTimer = bacteriaTimer + Time.deltaTime;
@@ -59,11 +59,15 @@ public class LargeIntestGameManager : MonoBehaviour {
 	}
 
 	public void subwater(int a){
+		
         int temp;
 		temp = WaterValue - a;
         if (temp > 0)
             WaterValue = temp;
+		//Debug.Log ("Water Substracted");
+		
         WS.subStart();
+
         
 	}
 	
