@@ -67,7 +67,6 @@ public class openFlap : MonoBehaviour
 	void Update () 
 	{
 		GameObject[] foods = GameObject.FindGameObjectsWithTag ("MouthFood");
-		Debug.Log (foods.Length);
 		elapsed = Time.time - startTime;
 		if (elapsed >= 15 && swipeCount <= 2 && foods.Length>=2) 
 		{

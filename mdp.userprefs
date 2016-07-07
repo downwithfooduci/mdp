@@ -1,11 +1,9 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Test_StoryBoard/CharacterAnimation.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Mouth/MouthOverlay.cs">
     <Files>
-      <File FileName="Assets/Scripts/Test_StoryBoard/BackGroundTurner.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Test_StoryBoard/StoryCharacter.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Test_StoryBoard/CharacterAnimation.cs" Line="18" Column="1" />
-      <File FileName="Assets/Storyboard Assets/NowEntering/foodbreakdown/SIBreakdown/TransPageSI.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Mouth/MouthOverlay.cs" Line="79" Column="79" />
+      <File FileName="Assets/Scripts/Mouth/TongueLayer.cs" Line="9" Column="54" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

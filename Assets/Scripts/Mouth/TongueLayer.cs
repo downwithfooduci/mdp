@@ -6,7 +6,7 @@ using System.Collections;
  */
 public class TongueLayer : MonoBehaviour 
 {
-	public Texture tongue;			//!< to hold the tongue texture
+	public Texture tongue, tongueClosed, jaw, jawClosed;			//!< to hold the tongue texture
 
 	/**
 	 * Handles drawing of the tongue inthe mouth game

@@ -157,7 +157,7 @@ Transform:
   m_LocalRotation: {x: -0.000000030908623, y: 0.7071068, z: -0.7071068, w: -0.000000030908623}
   m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1.55, y: 1, z: 1.175}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: -180, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 8
@@ -947,15 +947,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 432576, guid: 5bf66e444940fff4a9fb914c33e60a8c, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -.372917026
+      value: -0.37291703
       objectReference: {fileID: 0}
     - target: {fileID: 432576, guid: 5bf66e444940fff4a9fb914c33e60a8c, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 2.73161125
+      value: 2.7316113
       objectReference: {fileID: 0}
     - target: {fileID: 432576, guid: 5bf66e444940fff4a9fb914c33e60a8c, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 2.14243031
+      value: 2.1424303
       objectReference: {fileID: 0}
     - target: {fileID: 432576, guid: 5bf66e444940fff4a9fb914c33e60a8c, type: 2}
       propertyPath: m_LocalRotation.x
@@ -1048,7 +1048,7 @@ Prefab:
     - target: {fileID: 11432570, guid: 5bf66e444940fff4a9fb914c33e60a8c, type: 2}
       propertyPath: mouthOverlay
       value: 
-      objectReference: {fileID: 2800000, guid: b17d219e5b2b1914fa78808fdfb09195, type: 3}
+      objectReference: {fileID: 2800000, guid: ace40afa515cd48299c51a2c24d11953, type: 3}
     - target: {fileID: 11432568, guid: 5bf66e444940fff4a9fb914c33e60a8c, type: 2}
       propertyPath: epiglottis.Array.data[0]
       value: 
@@ -1067,7 +1067,7 @@ Prefab:
       objectReference: {fileID: 2800000, guid: d7687b5d87756db419491560775f84f9, type: 3}
     - target: {fileID: 11432562, guid: 5bf66e444940fff4a9fb914c33e60a8c, type: 2}
       propertyPath: animationDelay1
-      value: .5
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 11432562, guid: 5bf66e444940fff4a9fb914c33e60a8c, type: 2}
       propertyPath: animationDelay2
@@ -1112,6 +1112,30 @@ Prefab:
     - target: {fileID: 11432576, guid: 5bf66e444940fff4a9fb914c33e60a8c, type: 2}
       propertyPath: YAYPopupTexture
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 11432570, guid: 5bf66e444940fff4a9fb914c33e60a8c, type: 2}
+      propertyPath: mouthOverlayClosed
+      value: 
+      objectReference: {fileID: 2800000, guid: ec0bd8225a0a44afdbaf2d56fdec6119, type: 3}
+    - target: {fileID: 11432570, guid: 5bf66e444940fff4a9fb914c33e60a8c, type: 2}
+      propertyPath: jaw
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 11432570, guid: 5bf66e444940fff4a9fb914c33e60a8c, type: 2}
+      propertyPath: tongue
+      value: 
+      objectReference: {fileID: 2800000, guid: 2f2dae4799666441487b56a41d221c1f, type: 3}
+    - target: {fileID: 11432570, guid: 5bf66e444940fff4a9fb914c33e60a8c, type: 2}
+      propertyPath: tongueClosed
+      value: 
+      objectReference: {fileID: 2800000, guid: f9787112c0edf4184856a360a6de6518, type: 3}
+    - target: {fileID: 11432570, guid: 5bf66e444940fff4a9fb914c33e60a8c, type: 2}
+      propertyPath: jawClosed
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 11432566, guid: 5bf66e444940fff4a9fb914c33e60a8c, type: 2}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11432574, guid: 5bf66e444940fff4a9fb914c33e60a8c, type: 2}
