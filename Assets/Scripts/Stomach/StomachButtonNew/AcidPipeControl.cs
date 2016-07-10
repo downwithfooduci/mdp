@@ -24,6 +24,10 @@ public class AcidPipeControl : MonoBehaviour
 	private int clickCount;
 	public Texture tapPopUp;
 
+
+
+
+
     public void ButtonToggle()
     {
         AFC.ButtonToggle();
@@ -55,6 +59,9 @@ public class AcidPipeControl : MonoBehaviour
 		popup = false;
 		initialTime = Time.time;
 		clickCount = 0;
+	
+
+
     }
 
     // Update is called once per frame

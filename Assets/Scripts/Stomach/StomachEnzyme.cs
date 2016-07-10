@@ -37,6 +37,12 @@ public class StomachEnzyme : MonoBehaviour
 
 	private bool zymeEaten;
 
+
+	public AudioClip enzymeAudio;
+	AudioSource audio;
+	private bool enzymeAudioBoolean;
+
+
 	/**
 	 * Use this for initialization
 	 */
@@ -51,6 +57,11 @@ public class StomachEnzyme : MonoBehaviour
 		zymePosition = new Vector2 (-(1024-200)*0.0651f,-(768-100)*0.0651f);
 		zymeRotation = Quaternion.Euler(0, 0, 135f);
 		zymeEaten = false;
+
+
+		audio = GetComponent<AudioSource>();
+		enzymeAudioBoolean = false;
+
 	}
 	
 	/**
@@ -65,6 +76,8 @@ public class StomachEnzyme : MonoBehaviour
 
 			if(fm.noFoodBlobs())
 			{
+				enzymeAudioBoolean = false;
+
 				float step = speed * Time.deltaTime;
 				Vector2 origin = Vector2.zero;
 				if (enzymeAttacking == false) {
@@ -94,8 +107,15 @@ public class StomachEnzyme : MonoBehaviour
 					transform.position = Vector2.MoveTowards(transform.position, foodLocation, step);
 					transform.rotation = Quaternion.RotateTowards(transform.rotation, currentlyDigesting.transform.rotation, step*10);
 
-					if (!currentlyDigesting.IsDigesting && Vector2.Distance(transform.position, foodLocation) < MIN_DIGESTION_DISTANCE)
+					if (!currentlyDigesting.IsDigesting && Vector2.Distance (transform.position, foodLocation) < MIN_DIGESTION_DISTANCE) {
 						currentlyDigesting.IsDigesting = true;
+						if (!enzymeAudioBoolean) {
+							audio.PlayOneShot (enzymeAudio, 1.0f);
+							enzymeAudioBoolean = true;
+						}
+					} else {
+						enzymeAudioBoolean = false;
+					}
 				}
 
 				attackTimer = 0;
@@ -104,7 +124,10 @@ public class StomachEnzyme : MonoBehaviour
 			}
 		} else
 		{
+			
 			i.sprite = deactivatedTexture;
+			enzymeAudioBoolean = false;
+
 			float step = reverseSpeed*Time.deltaTime;
 			Vector2 origin = Vector2.zero;
 			transform.position = Vector2.MoveTowards(transform.position, origin, step);
@@ -137,6 +160,8 @@ public class StomachEnzyme : MonoBehaviour
 			textboxes.setTextbox(5);
 		}
 	}
+
+
 
 	public void setElapsedTime()
 	{

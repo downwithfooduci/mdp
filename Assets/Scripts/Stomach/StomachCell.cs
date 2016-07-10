@@ -24,6 +24,13 @@ public class StomachCell : MonoBehaviour
 
     private float burnTimer;
 
+
+	public AudioClip[] cellAudios;
+	AudioSource audio;
+	private bool[] cellAudioBoolean;
+
+
+
 	/**
 	 * For initialization
 	 */
@@ -37,6 +44,13 @@ public class StomachCell : MonoBehaviour
         burnToDeathTime = gm.TIME_TO_DIE;
 
         burnTimer = 0;
+
+
+		audio = GetComponent<AudioSource>();
+		cellAudioBoolean = new bool[2];
+		cellAudioBoolean[0] = false;
+		cellAudioBoolean[1] = false;
+
     }
 	
 	/**
@@ -45,6 +59,13 @@ public class StomachCell : MonoBehaviour
 	 */
 	void Update()
 	{
+		if (!cellAudioBoolean[1] && cellState == "burning") {
+			audio.PlayOneShot (cellAudios[1], 1.0f);
+			//GetComponent<AudioSource>().Play();
+			Debug.Log ("audio played");
+			cellAudioBoolean[1] = true;
+		}
+
 		if (cellState == "normal")
 		{
 			i.sprite = cellStateImages[0];
@@ -111,6 +132,14 @@ public class StomachCell : MonoBehaviour
 	{
 		if (getCellState() != "dead") {
 			cellState = newState;
+			if (!cellAudioBoolean [0] && newState == "slimed") {
+				audio.PlayOneShot (cellAudios [0], 1f);
+				Debug.Log ("audio played");
+				cellAudioBoolean [0] = true;
+				cellAudioBoolean [1] = false;
+			} else {
+				cellAudioBoolean [0] = false;
+			}
 		}
 		else
 			cellState = "dead";

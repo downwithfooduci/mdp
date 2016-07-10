@@ -17,6 +17,13 @@ public class BasicFlowControl : MonoBehaviour
 	private float timeElapsed;
 	private float maxInterval = 5f;
 
+
+
+	public AudioClip pipeAudio;
+	AudioSource audio;
+	private bool pipeAudioBoolean;
+
+
     public void ButtonToggle()
     {
         if (isClicked)
@@ -36,15 +43,29 @@ public class BasicFlowControl : MonoBehaviour
     void Start()
     {
         i = GetComponent<Image>();
+		audio = GetComponent<AudioSource>();
+		pipeAudioBoolean = false;
 
     }
 
     // Update is called once per frame
     void Update()
     {
+
+		if (!pipeAudioBoolean && isClicked) {
+			audio.PlayOneShot (pipeAudio, 1.0f);
+			//GetComponent<AudioSource>().Play();
+			Debug.Log ("audio played");
+			pipeAudioBoolean = true;
+		}
+
+
         if (isClicked == false)
         {
             i.sprite = FlowStateImages[0];
+
+
+			pipeAudioBoolean = false;
             return;
         }
         if (isClicked == true)
