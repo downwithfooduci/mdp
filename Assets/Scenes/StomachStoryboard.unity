@@ -202,7 +202,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -230,19 +230,16 @@ MonoBehaviour:
   - {fileID: 2800000, guid: 8d5902754d661254b9274ae653282c5a, type: 3}
   - {fileID: 2800000, guid: 7aa5a81a659548947a0756cf08c4d23d, type: 3}
   - {fileID: 2800000, guid: 578664c46b40162478517835237d59f8, type: 3}
-  - {fileID: 2800000, guid: d9d4091ea6f777f4da706bbde96b6d9a, type: 3}
   numberedPages:
   - {fileID: 2800000, guid: 2077bec64bbec344b94003823d3e5cc9, type: 3}
   - {fileID: 2800000, guid: 8d5902754d661254b9274ae653282c5a, type: 3}
   - {fileID: 2800000, guid: 7aa5a81a659548947a0756cf08c4d23d, type: 3}
   - {fileID: 2800000, guid: 578664c46b40162478517835237d59f8, type: 3}
-  - {fileID: 2800000, guid: d9d4091ea6f777f4da706bbde96b6d9a, type: 3}
   sounds:
   - {fileID: 8300000, guid: ec0acd648a06d2f498a5262b76a9abfa, type: 3}
   - {fileID: 8300000, guid: 2008d9c583b2d9948b3e70764316ccb6, type: 3}
   - {fileID: 8300000, guid: d7f2b281e9a190c4f808f02c219d8e5f, type: 3}
   - {fileID: 8300000, guid: ac9deea43b41398429a5f1573f39c856, type: 3}
-  - {fileID: 8300000, guid: ec0acd648a06d2f498a5262b76a9abfa, type: 3}
 --- !u!4 &728792029
 Transform:
   m_ObjectHideFlags: 0
@@ -252,6 +249,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2.8156018, y: 3.1536536, z: -2.322071}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
@@ -356,6 +354,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
@@ -390,6 +389,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
@@ -483,6 +483,7 @@ Canvas:
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -591,6 +592,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0

@@ -169,7 +169,7 @@ public class StomachCell : MonoBehaviour
 		return cellRefresh;
 	}
 
-    void OnMouseOver()
+    void OnMouseEnter()
     {
         MD.setCellNum(CellNum);
         //Debug.Log(CellNum);

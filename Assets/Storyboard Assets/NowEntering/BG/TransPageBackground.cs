@@ -16,6 +16,8 @@ public class TransPageBackground : MonoBehaviour {
 	private TransPageStomach tps;
 	private TransPageLI tpli;
 	//private TransPageMouth tpm;
+	private TransQuesMark tqm;
+
 
 	private int currentFrame;
 	private float timer;
@@ -35,12 +37,14 @@ public class TransPageBackground : MonoBehaviour {
 		tpsi = FindObjectOfType (typeof(TransPageSI)) as TransPageSI;
 		tps = FindObjectOfType (typeof(TransPageStomach)) as TransPageStomach;
 		tpli = FindObjectOfType (typeof(TransPageLI)) as TransPageLI;
+		tqm = FindObjectOfType (typeof(TransQuesMark)) as TransQuesMark;
 
 		timer = 0;
 		counter = 0;
 
 		//currentLevel = 3;
 		currentLevel = PlayerPrefs.GetInt ("CurrentStoryLevel");
+		tqm.setStart (currentLevel);
 
 		/*
 		if (PlayerPrefs.GetInt ("CurrentStoryLevel") == 3)
@@ -83,18 +87,22 @@ public class TransPageBackground : MonoBehaviour {
 		if (secLastPlayed) {
 			timer = timer + Time.deltaTime;
 
+
 			if (currentFrame < (currentLevel-1)*2+2) {
 				i.sprite = BGs [currentFrame];
+
 				if (timer >= frameTime) {
 					timer = 0;
 					currentFrame++;
 
 					counter++;
+					tqm.setFrame (1);
 
 				}
 			} else {
 				currentFrame = (currentLevel-1)*2;
 				counter++;
+				tqm.setFrame (0);
 			}
 
 		}
