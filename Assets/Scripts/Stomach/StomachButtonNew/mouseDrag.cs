@@ -7,7 +7,7 @@ public class mouseDrag : MonoBehaviour
 	
 	private Vector3 screenPoint;
 	private Vector3 offset;
-	private Vector2 originalP = new Vector3(-44.46617f,-32.44564f);
+	private Vector3 originalP = new Vector3(-44.46617f,-32.44564f, 90f);
 
 
     private bool isdrag = false;
@@ -21,12 +21,15 @@ public class mouseDrag : MonoBehaviour
     private CellButtons CB;
 
 
+	//public Camera mainCamera;
+
+
     void Start(){
         image = GetComponent<Image>();
         CB = FindObjectOfType(typeof(CellButtons)) as CellButtons;
         Debug.Log ("start");
         //originalP = transform.position;
-		Debug.Log (originalP.x + " " +originalP.y);
+		Debug.Log (originalP.x + " " +originalP.y + " " + originalP.z);
 
         offset = new Vector2(50,50);
 	}
@@ -77,7 +80,33 @@ public class mouseDrag : MonoBehaviour
         }
         */
 
+
+	/*
+	void update(){
+		RaycastHit hitRay;
+		Ray vRay = mainCamera.ScreenPointToRay(Input.mousePosition);
+
+		//Debug.DrawRay (mainCamera.transform.position, vRay);
+		if(Physics.Raycast(vRay, out hitRay)){
+			Debug.Log("Ray hits" + hitRay.collider.name);
+		}
+
+
+	}
+	*/
+
+	/*
+	void update(){
+		if (true) {
+			if (Input.GetMouseButtonDown (0)) {
+				Debug.Log ("Mouse position: " + Input.mousePosition.x + " " + Input.mousePosition.y);
+			}
+		}
+	}
+	*/
+
 	//Check the hit information
+	/*
 	void Update () {
 		if (Input.GetMouseButtonDown (0)) {
 			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -91,6 +120,7 @@ public class mouseDrag : MonoBehaviour
 			}
 		}
 	}
+	*/
 
 
 

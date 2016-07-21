@@ -32,7 +32,9 @@ public class CellButtons : MonoBehaviour
 	private StomachGameManager gm;	//!< hold a reference to the stomach game manager
 
 
-    private mouseDrag MD;
+//    private mouseDrag MD;
+	private mouseDragChild MDC;
+
 
 	
 	/**
@@ -43,7 +45,9 @@ public class CellButtons : MonoBehaviour
 		// find reference to the cell manager
 		cellManager = FindObjectOfType (typeof(CellManager)) as CellManager;
 		gm = FindObjectOfType (typeof(StomachGameManager)) as StomachGameManager;
-        MD = FindObjectOfType(typeof(mouseDrag)) as mouseDrag;
+        //MD = FindObjectOfType(typeof(mouseDrag)) as mouseDrag;
+
+		MDC = FindObjectOfType(typeof(mouseDragChild)) as mouseDragChild;
 		
 		// calculate button size based on screen size
 		buttonSize.x = Screen.width * (186f / 1024f);
@@ -113,7 +117,7 @@ public class CellButtons : MonoBehaviour
 */
 
 
-        if(MD.getDrag() == true) { 
+        if(MDC.getDrag() == true) { 
 			// if we click on a cell with the bucket, the cell is now slimed
 			if (cellManager.cellScripts[cell - 1].getCellState() == "slimed")
 			{

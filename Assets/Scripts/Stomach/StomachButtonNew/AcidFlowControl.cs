@@ -69,7 +69,7 @@ public class AcidFlowControl : MonoBehaviour
         }
         if (isClicked == true)
         {
-			Debug.Log ("pipeAudioBoolean:" + pipeAudioBoolean);
+			//Debug.Log ("pipeAudioBoolean:" + pipeAudioBoolean);
 			timeElapsed = Time.time - startTime;
 			if (timeElapsed > maxInterval) isClicked = false;
 			if (counter < ImSpeed)

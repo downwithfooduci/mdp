@@ -68,7 +68,7 @@ public class StomachFoodBlob : MonoBehaviour
         //used to be 0.6, 0.85
 		spawnLocation = Random.Range (.4f * Screen.width, .6f * Screen.width);
 		parent.transform.position = new Vector3 (((spawnLocation * 15f / Screen.width) - 7.5f)*10f, 
-		                                         (11f - (0f * 11f / Screen.height) - 5.5f)*10f, -2.0f);
+		                                         (11f - (0f * 11f / Screen.height) - 5.5f)*10f, 90f);	//old z = -2.0f
 		GetComponent<SpriteRenderer>().sprite = wholeRepresentation;
 		
 	}

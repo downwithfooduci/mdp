@@ -32,7 +32,7 @@ public class StomachEnzyme : MonoBehaviour
 	private float attackTimer;
 	private bool enzymeAttacking;
 
-	private Vector2 zymePosition;
+	private Vector3 zymePosition;
 	private Quaternion zymeRotation;
 
 	private bool zymeEaten;
@@ -54,7 +54,7 @@ public class StomachEnzyme : MonoBehaviour
 		fm = FindObjectOfType (typeof(StomachFoodManager)) as StomachFoodManager;
 		attackTimer = 0f;
 		enzymeAttacking = false;
-		zymePosition = new Vector2 (-(1024-200)*0.0651f,-(768-100)*0.0651f);
+		zymePosition = new Vector3 (-(1024-200)*0.0651f,-(768-100)*0.0651f, 90f);
 		zymeRotation = Quaternion.Euler(0, 0, 135f);
 		zymeEaten = false;
 
@@ -79,11 +79,11 @@ public class StomachEnzyme : MonoBehaviour
 				enzymeAudioBoolean = false;
 
 				float step = speed * Time.deltaTime;
-				Vector2 origin = Vector2.zero;
+				Vector3 origin = new Vector3 (0f, 0f, 90f);//Vector2.zero;
 				if (enzymeAttacking == false) {
-					transform.position = Vector2.MoveTowards (transform.position, origin, step);
+					transform.position = Vector3.MoveTowards (transform.position, origin, step);
 				} else {
-					transform.position = Vector2.MoveTowards (transform.position, zymePosition, step * attackSpeedRatio);				//Attacking
+					transform.position = Vector3.MoveTowards (transform.position, zymePosition, step * attackSpeedRatio);				//Attacking
 					transform.rotation = Quaternion.RotateTowards(transform.rotation, zymeRotation, step*10);
 				}
 				attackTimer = attackTimer + Time.deltaTime;
@@ -100,14 +100,14 @@ public class StomachEnzyme : MonoBehaviour
 				{
 					float step = speed*Time.deltaTime;
 					currentlyDigesting = fm.getNextFoodBlobToDigest();
-					Vector2 foodLocation = currentlyDigesting.transform.position;
-					Vector2 offset = currentlyDigesting.transform.rotation * new Vector3(0, -12, 0);
+					Vector3 foodLocation = currentlyDigesting.transform.position;
+					Vector3 offset = currentlyDigesting.transform.rotation * new Vector3(0, -12, 0);
 					foodLocation = foodLocation + offset;
 
-					transform.position = Vector2.MoveTowards(transform.position, foodLocation, step);
+					transform.position = Vector3.MoveTowards(transform.position, foodLocation, step);
 					transform.rotation = Quaternion.RotateTowards(transform.rotation, currentlyDigesting.transform.rotation, step*10);
 
-					if (!currentlyDigesting.IsDigesting && Vector2.Distance (transform.position, foodLocation) < MIN_DIGESTION_DISTANCE) {
+					if (!currentlyDigesting.IsDigesting && Vector3.Distance (transform.position, foodLocation) < MIN_DIGESTION_DISTANCE) {
 						currentlyDigesting.IsDigesting = true;
 						if (!enzymeAudioBoolean) {
 							audio.PlayOneShot (enzymeAudio, 1.0f);
@@ -129,8 +129,8 @@ public class StomachEnzyme : MonoBehaviour
 			enzymeAudioBoolean = false;
 
 			float step = reverseSpeed*Time.deltaTime;
-			Vector2 origin = Vector2.zero;
-			transform.position = Vector2.MoveTowards(transform.position, origin, step);
+			Vector3 origin = new Vector3 (0f, 0f, 90f);//Vector2.zero;
+			transform.position = Vector3.MoveTowards(transform.position, origin, step);
 			transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(0, 0, 0), step*10);
 
 

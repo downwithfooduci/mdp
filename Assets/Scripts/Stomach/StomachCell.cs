@@ -17,7 +17,9 @@ public class StomachCell : MonoBehaviour
 	private bool cellRefresh = false;
 
     public int CellNum;
-    private mouseDrag MD;
+//    private mouseDrag MD;
+	private mouseDragChild MDC;
+
 
     private StomachGameManager gm;
     private float burnToDeathTime;
@@ -39,7 +41,8 @@ public class StomachCell : MonoBehaviour
 		// get a reference to the image
 		i = GetComponent<Image> ();
 
-        MD = FindObjectOfType(typeof(mouseDrag)) as mouseDrag;
+//        MD = FindObjectOfType(typeof(mouseDrag)) as mouseDrag;
+		MDC = FindObjectOfType(typeof(mouseDragChild)) as mouseDragChild;
         gm = FindObjectOfType(typeof(StomachGameManager)) as StomachGameManager;
         burnToDeathTime = gm.TIME_TO_DIE;
 
@@ -169,11 +172,25 @@ public class StomachCell : MonoBehaviour
 		return cellRefresh;
 	}
 
+	/*
     void OnMouseEnter()
     {
-        MD.setCellNum(CellNum);
-        //Debug.Log(CellNum);
+        //MD.setCellNum(CellNum);
+        Debug.Log("mouse enter:"+CellNum);
 
     }
+    */
+
+	void OnTriggerEnter2D(Collider2D other){
+		
+		if (other.name == "Bucket") {
+			MDC.setCellNum (CellNum);
+			Debug.Log (other.name + "enter:" + CellNum);
+		}
+
+
+		//Debug.Log (other.name + "enter:" + CellNum);
+
+	}
 
 }

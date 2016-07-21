@@ -55,9 +55,13 @@ public class StomachFoodManager : MonoBehaviour
 		if(stomanager.gettotalfood() < timeMap.Length)
 		{
 			if (elapsedTime > timeMap [currentFood]) {
+				//for food phase Debug
+				/*
 				Debug.Log ("Food Number:" + stomanager.gettotalfood ());
 				Debug.Log ("actualTimeBetFood: " + elapsedTime);
 				Debug.Log ("Current Food Num: " + getNumFoodBlobs ());
+				*/
+
 				GameObject temp = (GameObject)Instantiate (stomachFoodBlob);
 				temp.GetComponent<StomachFoodBlob> ().parent = temp;
 				spawnedFoodBlobs.Add (temp.GetComponent<StomachFoodBlob> ());
