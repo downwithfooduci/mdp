@@ -92,12 +92,14 @@ public class StomachGameManager : MonoBehaviour
 	 */
 	void Update () 
 	{
+		Debug.Log("Time:"+elapsedTime[0]);
 		/**
 		 * Always do this update
 		 */
 		for (int i = 0; i < cellManager.cellScripts.Length; i++)
 		{
-			elapsedTime[i] += Time.deltaTime;
+			if(getCurrentAcidLevel() == "acidic")
+				elapsedTime[i] += Time.deltaTime;
 		}
 		
 		/**
@@ -202,7 +204,7 @@ public class StomachGameManager : MonoBehaviour
 				*/
 
 				nextCellActionTime[i] = TIME_TO_BURN;
-				elapsedTime[i] = 0f;
+				//elapsedTime[i] = 0f;
 				continue;
 			}
 			
@@ -270,6 +272,8 @@ public class StomachGameManager : MonoBehaviour
 					}
 					continue;
 				}
+			
+
 			}
 		}
 

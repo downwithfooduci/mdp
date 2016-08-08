@@ -162,6 +162,7 @@ public class StomachCell : MonoBehaviour
 	public void setCellRefresh(bool refresh)
 	{
 		cellRefresh = refresh;
+		Debug.Log ("cellrefresh setup:" + refresh);
 	}
 
 	/**

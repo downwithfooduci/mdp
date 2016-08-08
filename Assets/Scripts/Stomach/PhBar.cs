@@ -61,6 +61,7 @@ public class PhBar : MonoBehaviour
 	 */
 	void Update () 
 	{
+		
 		// first check if the time that the acid/base should be added is up
 		if (elapsedTime > acidSpeedDecayTime && startAddAcid)			// check if we're adding acid and time is up
 		{																// if it is...
@@ -127,6 +128,7 @@ public class PhBar : MonoBehaviour
 		startAddAcid = true;		// throw the flag to indicate we should start adding acid
 		startAddBase = false;		// if we were adding base, override the decision (no longer add base)
 		elapsedTime = 0f;			// reset elapsed time
+
 
         if(BPC.getClick() == true)
         {
