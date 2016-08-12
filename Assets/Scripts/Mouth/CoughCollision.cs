@@ -30,7 +30,7 @@ public class CoughCollision : MonoBehaviour
 	{
 		if (!flap.isCough())
 		{
-			if(other.gameObject.name.Contains ("foodstuff"))	// check to see if the flaps collided with something
+			if(other.gameObject.name.Contains ("MouthFoodContainer"))	// check to see if the flaps collided with something
 																// with the tag "foodstuff"
 			{
 				// track stats

@@ -6,7 +6,7 @@ using System.Collections;
  */
 public class MouthOverlay : MonoBehaviour 
 {
-	public Texture mouthOverlay, mouthOverlayClosed, sideBar, tongue, tongueClosed, jaw, jawClosed;	//!< hold the textures for the mouth overlay and the side bar
+	public Texture mouthOverlay, mouthOverlayClosed, sideBar, tongue, tongueClosed; //jaw, jawClosed;	//!< hold the textures for the mouth overlay and the side bar
 	private ArrayList passedFoodStuff;
 	private int stateCode;
 	private float timeStamp;
@@ -44,14 +44,14 @@ public class MouthOverlay : MonoBehaviour
 		GUI.depth= GUI.depth + 2;
 		// draw the texture for the mouth overlay the size of the entire screen
 		if (stateCode == 0) {
-			GUI.DrawTexture (new Rect (0, 0, Screen.width, Screen.height), jaw);
+			//GUI.DrawTexture (new Rect (0, 0, Screen.width, Screen.height), jaw);
 			GUI.DrawTexture (new Rect (0, 0, Screen.width, Screen.height), tongue);
 			GUI.DrawTexture (new Rect (0, 0, Screen.width, Screen.height), mouthOverlay);
 		}
 
 		else if (stateCode == 1) 
 		{
-			GUI.DrawTexture (new Rect (0, 0, Screen.width, Screen.height), jawClosed);
+			//GUI.DrawTexture (new Rect (0, 0, Screen.width, Screen.height), jawClosed);
 			GUI.DrawTexture (new Rect (0, 0, Screen.width, Screen.height), tongueClosed);
 			GUI.DrawTexture(new Rect(0,0,Screen.width, Screen.height), mouthOverlayClosed);
 			if (Time.time - timeStamp >= 0.3f) 
@@ -63,7 +63,7 @@ public class MouthOverlay : MonoBehaviour
 
 		else if (stateCode == 2) 
 		{
-			GUI.DrawTexture (new Rect (0, 0, Screen.width, Screen.height), jaw);
+			//GUI.DrawTexture (new Rect (0, 0, Screen.width, Screen.height), jaw);
 			GUI.DrawTexture (new Rect (0, 0, Screen.width, Screen.height), tongue);
 			GUI.DrawTexture(new Rect(0,0,Screen.width, Screen.height), mouthOverlay);
 			if (Time.time - timeStamp >= 0.3f) 
@@ -75,7 +75,7 @@ public class MouthOverlay : MonoBehaviour
 
 		else if (stateCode == 3) 
 		{
-			GUI.DrawTexture (new Rect (0, 0, Screen.width, Screen.height), jawClosed);
+			//GUI.DrawTexture (new Rect (0, 0, Screen.width, Screen.height), jawClosed);
 			GUI.DrawTexture (new Rect (0, 0, Screen.width, Screen.height), tongueClosed);
 			GUI.DrawTexture(new Rect(0,0,Screen.width, Screen.height), mouthOverlayClosed);
 			if (Time.time - timeStamp >= 0.3f) 
