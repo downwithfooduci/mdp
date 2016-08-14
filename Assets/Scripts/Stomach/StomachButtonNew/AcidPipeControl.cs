@@ -25,7 +25,7 @@ public class AcidPipeControl : MonoBehaviour
 	public Texture tapPopUp;
 
 
-
+	private StomachGameManager sgm;
 
 
     public void ButtonToggle()
@@ -55,6 +55,7 @@ public class AcidPipeControl : MonoBehaviour
     {
         AFC = FindObjectOfType(typeof(AcidFlowControl)) as AcidFlowControl;
         PhB = FindObjectOfType(typeof(PhBar)) as PhBar;
+		sgm = FindObjectOfType (typeof(StomachGameManager)) as StomachGameManager;
         i = GetComponent<Image>();
 		popup = false;
 		initialTime = Time.time;
@@ -67,8 +68,9 @@ public class AcidPipeControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+		Debug.Log (sgm.gettotalfood ());
 		elapsed = Time.time - initialTime;
-		if (elapsed > 8 && clickCount == 0) {
+		if (elapsed > 8 && sgm.getCurrentAcidLevel() != "acidic" && clickCount == 0) {
 			popup = true;
 		} else {
 			popup = false;
@@ -81,7 +83,7 @@ public class AcidPipeControl : MonoBehaviour
         }
         if (isClicked == true)
         {
-			clickCount++;
+			if(sgm.gettotalfood()>0 && sgm.getCurrentAcidLevel() == "acidic")	clickCount++;
 			i.sprite = ButtonStateImages[1];
 			timeElapsed = Time.time - startTime;
 			if (timeElapsed > maxInterval) isClicked = false;
