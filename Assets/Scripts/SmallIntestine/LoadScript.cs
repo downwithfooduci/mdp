@@ -17,10 +17,15 @@ public class LoadScript
 	/**
 	 * Handles parsing of raw wave data files
 	 */
-	public SIWave[] loadIntestineLevel(int level)
+	public SIWave[] loadIntestineLevel(int level, bool tutorial, int tutLevel)
 	{
-		TextAsset lev = Resources.Load ("NewSILevel/newSILevel" + level) as TextAsset;  // for ipad we need to load resources instead of using a file
-
+		TextAsset lev;
+		if(!tutorial){
+			lev= Resources.Load ("NewSILevel/newSILevel" + level) as TextAsset;  // for ipad we need to load resources instead of using a file
+		}
+		else{ 
+			lev = Resources.Load ("NewSILevel/newSILevelTutorial" + tutLevel) as TextAsset;  // for ipad we need to load resources instead of using a file
+		}
 		StringReader reader = new StringReader (lev.text);
 
 		string[] lines = lev.text.Split("\n"[0]);	// split just to count number of lines to create waves array

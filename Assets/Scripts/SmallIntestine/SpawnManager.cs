@@ -81,7 +81,10 @@ public class SpawnManager : MonoBehaviour
 			// start loading in the script 
 			loadScript = new LoadScript();								// create a new script loader
 
-			waves = loadScript.loadIntestineLevel(level.getLevel());	// get the waves for the correct script
+			//if (!level.getTutorial ()) {									//if not tutorial
+				
+			waves = loadScript.loadIntestineLevel (level.getLevel (), level.isTutorial(), level.getTutorialNum());	// get the waves for the correct script
+			
 			currentWave = 0;											// set the current wave index to 0
 
 			waveDelay = waves[0].startDelay;							// get the start delay from the first parsed wave

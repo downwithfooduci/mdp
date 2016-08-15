@@ -227,10 +227,16 @@ public class SIStats : MonoBehaviour
 			// make sure we don't show the load screen after it's over
 			if (level.getLevel() > level.getMaxLevels())			// check if we've played all the levels
 			{
-				Application.LoadLevel("LargeIntestineStoryBoard");					// if we have load the end screen
+				//Application.LoadLevel("LargeIntestineStoryBoard");					// if we have load the end screen
+				Application.LoadLevel("SmallIntestineEndStoryboard");	
 			} else
 			{
-				Application.LoadLevel("LoadLevelSmallIntestine");	// otherwise load the next level
+				if(level.isTutorial()){
+					Application.LoadLevel ("SmallIntestineTutorial");
+				}
+				else{
+					Application.LoadLevel("LoadLevelSmallIntestine");	// otherwise load the next level
+				}
 			} 
 		}
 	}

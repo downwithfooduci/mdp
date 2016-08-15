@@ -44,6 +44,8 @@ public class LoadSmallIntestine : MonoBehaviour
 		if (timePassed < 0) 				// check if the maximum time has passed 
 		{
 			// if it has load the correct si level
+
+
 			if (level.getLevel() == 0)
 			{
 				Application.LoadLevel("SmallIntestineTutorial");
@@ -54,6 +56,17 @@ public class LoadSmallIntestine : MonoBehaviour
 			{
 				Application.LoadLevel("SmallIntestineOdd");
 			}
+
+			/*
+			if (level.getLevel () == 0) {
+				Application.LoadLevel ("SmallIntestineTutorial");
+			} else if (level.getLevel () == 1) {
+				Application.LoadLevel("SmallIntestineOdd");
+			} else if (level.getLevel () == 4) {
+				Application.LoadLevel("SmallIntestineOdd");
+			}
+			*/
+
 		}
 	}
 }

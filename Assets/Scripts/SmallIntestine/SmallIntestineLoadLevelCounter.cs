@@ -8,6 +8,8 @@ public class SmallIntestineLoadLevelCounter : MonoBehaviour
 {
 	private int level;			//!< to hold the current level
 	private int MAX_LEVEL = 6;  //!< for bounds checking
+	private bool tutorialPlay;	//if play tutorial
+	private int tutorialNum;	//to hold the tutorial level
 
 	/**
 	 * Use this for initialization
@@ -15,6 +17,7 @@ public class SmallIntestineLoadLevelCounter : MonoBehaviour
 	 */
 	void Start () 
 	{
+		
 		// check what level we are loading
 		level = PlayerPrefs.GetInt ("DesiredSILevel");
 
@@ -27,6 +30,7 @@ public class SmallIntestineLoadLevelCounter : MonoBehaviour
 		{
 			// if it was -1 then we are starting as normal, which means starting from level 1
 			level = 0;	// load the tutorial first
+			tutorialNum = 0;
 		}
 
 		// look if there is more than once instance of the background chooser. if there is destroy this one
@@ -77,7 +81,16 @@ public class SmallIntestineLoadLevelCounter : MonoBehaviour
 	 */
 	public void nextLevel()
 	{
-		level++;			// when this function is called it sill just increase the level variable by 1
+		if(!tutorialPlay){
+			level++;			// when this function is called it will just increase the level variable by 1
+		}
+		if (tutorialPlay == false && level == 3 || level == 4) {		//check if is level 3 or 4, before where tutorial is added.
+			tutorialPlay = true;
+			tutorialNum++; 
+		}
+		else {
+			tutorialPlay = false;
+		}
 	}
 
 	/**
@@ -103,5 +116,13 @@ public class SmallIntestineLoadLevelCounter : MonoBehaviour
 	public int getMaxLevels()
 	{
 		return MAX_LEVEL;
+	}
+
+	public bool isTutorial(){
+		return tutorialPlay;
+	}
+
+	public int getTutorialNum(){
+		return tutorialNum;
 	}
 }
