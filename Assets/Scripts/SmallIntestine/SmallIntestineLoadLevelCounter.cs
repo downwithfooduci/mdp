@@ -84,7 +84,7 @@ public class SmallIntestineLoadLevelCounter : MonoBehaviour
 		if(!tutorialPlay){
 			level++;			// when this function is called it will just increase the level variable by 1
 		}
-		if (tutorialPlay == false && level == 3 || level == 4) {		//check if is level 3 or 4, before where tutorial is added.
+		if (tutorialPlay == false &&( level == 3 || level == 4)) {		//check if is level 3 or 4, before where tutorial is added.
 			tutorialPlay = true;
 			tutorialNum++; 
 		}
