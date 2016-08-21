@@ -54,7 +54,7 @@ public class TowerUpgradeTutorial : MonoBehaviour
 	void Update () 
 	{
 		// if we are done just exit this function
-		if (powerUpgraded)
+		if (powerUpgraded || PlayerPrefs.GetInt("SIUpdateTutorial") == 0)
 		{
 			return;
 		}

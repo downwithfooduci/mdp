@@ -75,7 +75,7 @@ public class GlowManager : MonoBehaviour
 		{
 			// if we are in the tutorial under the correct conditions make a note for us to use
 			if ((Application.loadedLevelName.Equals("SmallIntestineTutorial") &&
-			      (PlayerPrefs.GetInt("SIStats_towersUpgraded") == 2) &&
+				(PlayerPrefs.GetInt("SIStats_towersPlaced") == 2) &&//(PlayerPrefs.GetInt("SIStats_towersUpgraded") == 2) &&
 			      !(PlayerPrefs.GetInt("SISpeedTutorial") == 1)))
 			{
 				PlayerPrefs.SetInt("SIGlowTutorial", 1);

@@ -29,6 +29,10 @@ public class TowerPlacementTutorial : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
+		if (PlayerPrefs.GetInt ("SITowerPlaceTutorial") == 0) {
+			return;
+		}
+
 		actualArrowTime += Time.deltaTime;
 
 		if ((actualArrowTime > maxArrowTime && PlayerPrefs.GetInt("SIStats_towersPlaced") == 0) ||
@@ -45,42 +49,38 @@ public class TowerPlacementTutorial : MonoBehaviour
 
 	void OnGUI()
 	{
-		if (PlayerPrefs.GetInt("SIStats_towersPlaced") == 0)
-		{
-			GUI.DrawTexture(new Rect(.25f*Screen.width, .1f*Screen.height, .3f*Screen.width, .85f*Screen.height), arrow);
-		}
+		if (PlayerPrefs.GetInt ("SITowerPlaceTutorial") == 1) {
+			if (PlayerPrefs.GetInt ("SIStats_towersPlaced") == 0) {
+				GUI.DrawTexture (new Rect (.25f * Screen.width, .1f * Screen.height, .3f * Screen.width, .85f * Screen.height), arrow);
+			}
 
-		if (stopForZyme)
-		{
-			zymeScript.setDraw(true);
-			zymeScript.setImage(zymePopupImage1);
-			Time.timeScale = .01f;
-		}
+			if (stopForZyme) {
+				zymeScript.setDraw (true);
+				zymeScript.setImage (zymePopupImage1);
+				Time.timeScale = .01f;
+			}
 
-		if (stopForZyme && !startSecondTimer && PlayerPrefs.GetInt("SIStats_towersPlaced") == 1)
-		{
-			stopForZyme = false;
-			actualArrowTime = 0f;
-			startSecondTimer = true;
-			zymeScript.setDraw(false);
-		}
+			if (stopForZyme && !startSecondTimer && PlayerPrefs.GetInt ("SIStats_towersPlaced") == 1) {
+				stopForZyme = false;
+				actualArrowTime = 0f;
+				startSecondTimer = true;
+				zymeScript.setDraw (false);
+			}
 
-		if (PlayerPrefs.GetInt("SIStats_towersPlaced") == 1)
-		{
-			GUI.DrawTexture(new Rect(.3f*Screen.width, .62f*Screen.height, .25f*Screen.width, .30f*Screen.height), arrow);
-		}
+			if (PlayerPrefs.GetInt ("SIStats_towersPlaced") == 1) {
+				GUI.DrawTexture (new Rect (.3f * Screen.width, .62f * Screen.height, .25f * Screen.width, .30f * Screen.height), arrow);
+			}
 
-		if (stopForZyme && startSecondTimer && actualArrowTime > maxArrowTime)
-		{
-			zymeScript.setDraw(true);
-			zymeScript.setImage(zymePopupImage2);
-			Time.timeScale = .01f;
-		}
+			if (stopForZyme && startSecondTimer && actualArrowTime > maxArrowTime) {
+				zymeScript.setDraw (true);
+				zymeScript.setImage (zymePopupImage2);
+				Time.timeScale = .01f;
+			}
 
-		if (stopForZyme && PlayerPrefs.GetInt("SIStats_towersPlaced") == 2)
-		{
-			stopForZyme = false;
-			zymeScript.setDraw(false);
+			if (stopForZyme && PlayerPrefs.GetInt ("SIStats_towersPlaced") == 2) {
+				stopForZyme = false;
+				zymeScript.setDraw (false);
+			}
 		}
 	}
 }

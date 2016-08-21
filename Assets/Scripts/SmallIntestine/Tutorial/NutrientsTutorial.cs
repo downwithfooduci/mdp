@@ -35,7 +35,11 @@ public class NutrientsTutorial : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-		if (!tutorialOver && PlayerPrefs.GetInt("SIStats_towersUpgraded") > 1)
+		if (PlayerPrefs.GetInt ("SINutrientsTutorial") == 0) {
+			return;
+		}
+
+		if (!tutorialOver && PlayerPrefs.GetInt("SIStats_towersPlaced") > 1)
 		{ 
 			elapsedTime += Time.deltaTime;
 

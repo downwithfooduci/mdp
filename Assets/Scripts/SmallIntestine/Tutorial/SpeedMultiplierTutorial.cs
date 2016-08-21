@@ -52,7 +52,7 @@ public class SpeedMultiplierTutorial : MonoBehaviour
 				zymeScript.setDraw(false);
 				tutorialOver = true;
 				PlayerPrefs.SetInt("SISpeedTutorial", 0);
-				PlayerPrefs.SetInt("SIFatsTutorial", 1);
+				//PlayerPrefs.SetInt("SIFatsTutorial", 1);
 				PlayerPrefs.Save();
 				Time.timeScale = 1;
 			}
