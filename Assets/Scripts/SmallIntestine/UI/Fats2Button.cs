@@ -53,7 +53,7 @@ public class Fats2Button : MonoBehaviour
 		// however if we are in the tutorial we have to make sure two protein towers are placed before we allow
 		// any fats2 towers to be placed
 		if (towerSpawner.getGameManager().nutrients - towerSpawner.TOWER_BASE_COST < 0
-		    || Application.loadedLevelName == "SmallIntestineTutorial" && PlayerPrefs.GetInt("SIStats_towersUpgraded") < 2)
+			|| Application.loadedLevelName == "SmallIntestineTutorial" && PlayerPrefs.GetInt("SIFatsTutorial") == 0)//PlayerPrefs.GetInt("SIStats_towersUpgraded") < 2)
 		{
 			GetComponent<GUITexture>().texture = inactiveTexture;	// when the button is inactive show the "inactive" texture
 			return;

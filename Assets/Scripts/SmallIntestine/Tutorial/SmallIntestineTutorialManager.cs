@@ -23,7 +23,7 @@ public class SmallIntestineTutorialManager : MonoBehaviour
 			PlayerPrefs.SetInt ("SIGlowTutorial", 0);
 			PlayerPrefs.SetInt ("SIUpdateTutorial", 0);
 			PlayerPrefs.SetInt ("SINutrientsTutorial", 1);
-			PlayerPrefs.SetInt ("SISpeedTutorial", 0);
+			PlayerPrefs.SetInt ("SISpeedTutorial", 1);
 			PlayerPrefs.SetInt ("SIFatsTutorial", 0);
 		}
 

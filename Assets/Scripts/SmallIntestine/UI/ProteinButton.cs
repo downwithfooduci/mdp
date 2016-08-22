@@ -53,8 +53,9 @@ public class ProteinButton : MonoBehaviour
 		// however if we are in the tutorial we have to make sure two protein towers are placed before we allow
 		// any other towers to be placed.
 		if (towerSpawner.getGameManager().nutrients - towerSpawner.TOWER_BASE_COST < 0 || 
-		    Application.loadedLevelName == "SmallIntestineTutorial" && PlayerPrefs.GetInt("SIStats_towersPlaced") == 2 &&
-		    PlayerPrefs.GetInt("SIStats_towersUpgraded") < 2)
+		    Application.loadedLevelName == "SmallIntestineTutorial" && 
+			(PlayerPrefs.GetInt("SITowerPlaceTutorial") == 0 ||(PlayerPrefs.GetInt("SIStats_towersPlaced") == 2 && //PlayerPrefs.GetInt("SIStats_towersUpgraded") < 2)))
+				PlayerPrefs.GetInt("SIGlowTutorial") == 1 )))
 		{
 			GetComponent<GUITexture>().texture = inactiveTexture;	// when the button is inactive show the "inactive" texture
 			return;
