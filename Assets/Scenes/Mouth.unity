@@ -205,8 +205,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   swipeSize: 50
-  swipeUp2Texture: {fileID: 2800000, guid: fe483e2bf46434b1c94b5659ab6e99ca, type: 3}
-  swipeDown2Texture: {fileID: 2800000, guid: 5c135e14822b841e39fcda9c6a4c8e3e, type: 3}
+  fingerSwipeUp2Texture: {fileID: 2800000, guid: fe483e2bf46434b1c94b5659ab6e99ca,
+    type: 3}
+  fingerSwipeDown2Texture: {fileID: 2800000, guid: 5c135e14822b841e39fcda9c6a4c8e3e,
+    type: 3}
+  fingerPointTexture: {fileID: 2800000, guid: 31536c15f04324c9693bc00db623bedb, type: 3}
+  fingerSwipeDown1Texture: {fileID: 2800000, guid: 2d91d140417504f4dbfdebbf8171b48c,
+    type: 3}
+  fingerSwipeUp1AltTexture: {fileID: 2800000, guid: 896a53cdbae024d95b7c2d465140a8ee,
+    type: 3}
+  swipeUp1Texture: {fileID: 2800000, guid: a0e979b7fbfc64561890d3d3a05f1aaa, type: 3}
 --- !u!82 &118777434
 AudioSource:
   m_ObjectHideFlags: 0
@@ -339,7 +347,7 @@ Transform:
   m_LocalRotation: {x: 0.40821794, y: -0.23456973, z: 0.10938166, w: 0.8754261}
   m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
@@ -1401,56 +1409,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
---- !u!1001 &1620429294
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 426992, guid: f4f14e023f5bd43f7be9d5e3d9d35dd1, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -5.96
-      objectReference: {fileID: 0}
-    - target: {fileID: 426992, guid: f4f14e023f5bd43f7be9d5e3d9d35dd1, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -3.37
-      objectReference: {fileID: 0}
-    - target: {fileID: 426992, guid: f4f14e023f5bd43f7be9d5e3d9d35dd1, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -0.16
-      objectReference: {fileID: 0}
-    - target: {fileID: 426992, guid: f4f14e023f5bd43f7be9d5e3d9d35dd1, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 426992, guid: f4f14e023f5bd43f7be9d5e3d9d35dd1, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: -0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 426992, guid: f4f14e023f5bd43f7be9d5e3d9d35dd1, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 426992, guid: f4f14e023f5bd43f7be9d5e3d9d35dd1, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071067
-      objectReference: {fileID: 0}
-    - target: {fileID: 426992, guid: f4f14e023f5bd43f7be9d5e3d9d35dd1, type: 2}
-      propertyPath: m_RootOrder
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 13622186, guid: f4f14e023f5bd43f7be9d5e3d9d35dd1, type: 2}
-      propertyPath: m_Height
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 13622186, guid: f4f14e023f5bd43f7be9d5e3d9d35dd1, type: 2}
-      propertyPath: m_Radius
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: f4f14e023f5bd43f7be9d5e3d9d35dd1, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1001 &1768501364
 Prefab:
   m_ObjectHideFlags: 0
