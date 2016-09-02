@@ -11848,7 +11848,7 @@ MonoBehaviour:
   zymePopupImage: {fileID: 2800000, guid: 10a223a5b5fb6234a8710caea1ff1894, type: 3}
   tutorialDelay: 10
   circle: {fileID: 2800000, guid: be651d5cc54c4b941bb6c6ff19dce74f, type: 3}
-  finger: {fileID: 2800000, guid: da8defddfb929ac47a85de692353bbd9, type: 3}
+  finger: {fileID: 2800000, guid: 46c55e16029f849c09f98cd975f19d30, type: 3}
 --- !u!114 &1989311882
 MonoBehaviour:
   m_ObjectHideFlags: 0
