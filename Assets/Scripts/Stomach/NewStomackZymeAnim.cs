@@ -18,9 +18,10 @@ public class NewStomackZymeAnim : MonoBehaviour {
 	private float subtimer;
 	public float frameTime;
 
+	// popup variables for basic button
 	public Texture tapPopUp;
 	private bool popup;
-
+	private bool popped;
 
 	// Use this for initialization
 	void Start () {
@@ -30,6 +31,7 @@ public class NewStomackZymeAnim : MonoBehaviour {
 		timer = 0;
 		subtimer = 0;
 		popup = false;
+		popped = false;
 	
 	}
 	
@@ -67,7 +69,6 @@ public class NewStomackZymeAnim : MonoBehaviour {
 		} 
 		else {
 			popup = false;
-			
 			if(timer>0){
 
 				subtimer = subtimer + Time.deltaTime;
@@ -81,8 +82,10 @@ public class NewStomackZymeAnim : MonoBehaviour {
 					i.sprite = zymeRelief [2];
 				else if (subtimer > frameTime * 3 + tempOffSet)
 					i.sprite = zymeRelief [1];
-				else if (subtimer > frameTime * 0 + tempOffSet)
-					i.sprite = zymeRelief [0];		
+				else if (subtimer > frameTime * 0 + tempOffSet) {
+					i.sprite = zymeRelief [0];	
+					popped = true;
+				}
 			}
 		}
 
@@ -91,7 +94,7 @@ public class NewStomackZymeAnim : MonoBehaviour {
 
 	void OnGUI()
 	{
-		if(popup)
+		if(popup && !popped)
 		{
 			GUI.DrawTexture (new Rect(Screen.width * 0.79f, 
 				Screen.height * 0.30515625f, 

@@ -3996,7 +3996,6 @@ MonoBehaviour:
   MAX_CELL_DEATHS: 3
   MAX_FOOD_DROPED: 8
   cellManager: {fileID: 559039921}
-  tapPopUp: {fileID: 2800000, guid: 46c55e16029f849c09f98cd975f19d30, type: 3}
   endTimer: 4
 --- !u!1 &563981234
 GameObject:

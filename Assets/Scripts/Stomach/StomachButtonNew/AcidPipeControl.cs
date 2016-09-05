@@ -17,7 +17,7 @@ public class AcidPipeControl : MonoBehaviour
 	private float timeElapsed;
 	private float maxInterval = 5f;
 
-	// popup variables
+	// popup variables for finger on acid button
 	private bool popup;
 	private float initialTime;
 	private float elapsed;

@@ -230,21 +230,18 @@ public class openFlap : MonoBehaviour
 
 	void OnGUI()
 	{
-		if(swipePopupStatus == 1)
-		{
-			StartCoroutine("SwipeDownAnimation");
-			GUI.DrawTexture (new Rect(Screen.width * 0.7493359375f, 
+		if (swipePopupStatus == 1) {
+			StartCoroutine ("SwipeDownAnimation");
+			GUI.DrawTexture (new Rect (Screen.width * 0.7493359375f, 
 				Screen.height * 0.53515625f, 
 				Screen.width * 0.2093359375f, 
-				Screen.height * 0.300697917f),swipeDownPopUp);
-		}
-		else if (swipePopupStatus == 2) 
-		{
-			StartCoroutine("SwipeUpAnimation");
-			GUI.DrawTexture (new Rect(Screen.width * 0.7493359375f, 
+				Screen.height * 0.300697917f), swipeDownPopUp);
+		} else if (swipePopupStatus == 2) {
+			StartCoroutine ("SwipeUpAnimation");
+			GUI.DrawTexture (new Rect (Screen.width * 0.7493359375f, 
 				Screen.height * 0.53515625f, 
 				Screen.width * 0.2093359375f, 
-				Screen.height * 0.300697917f),swipeUpPopUp);
+				Screen.height * 0.300697917f), swipeUpPopUp);
 		}
 	}
 

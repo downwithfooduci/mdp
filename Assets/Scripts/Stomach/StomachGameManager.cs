@@ -17,9 +17,6 @@ public class StomachGameManager : MonoBehaviour
 
 	public CellManager cellManager;                     //!< hold a reference to the cell manager
 
-	public Texture tapPopUp;
-	private bool popup;
-
 
     //private string currentAcidLevel = "neutral";		//!< default acid level is neutral
 
@@ -278,11 +275,8 @@ public class StomachGameManager : MonoBehaviour
 		}
 
 		if (totalfoodcounter >= MAX_FOOD_DROPED && sFM.noFoodBlobs()) {
-			if (getCurrentAcidLevel () == "neutral")
-				popup = true;
 
-			if(getCurrentAcidLevel()=="basic"){
-				popup = false;
+			if(getCurrentAcidLevel() == "basic" | getCurrentAcidLevel() == "neutral"){
 				endTimer = endTimer - Time.deltaTime;
 				if(endTimer <= 0f){
 					GameObject chooseBackground = GameObject.Find ("StomachChooseBackground");
@@ -300,19 +294,6 @@ public class StomachGameManager : MonoBehaviour
 		PlayerPrefs.SetInt ("StomachStats_foodDisolved", disolvedfoodcounter);
 
 
-	}
-
-
-
-	void OnGUI()
-	{
-		if(popup)
-		{
-			GUI.DrawTexture (new Rect(Screen.width * 0.79f, 
-				Screen.height * 0.30515625f, 
-				Screen.width * 0.2093359375f, 
-				Screen.height * 0.300697917f),tapPopUp);
-		}
 	}
 
 

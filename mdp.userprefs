@@ -1,10 +1,8 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/SmallIntestine/Tutorial/SmallIntestineTutorialManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Mouth/openFlap.cs">
     <Files>
-      <File FileName="Assets/Resources/NewSILevel/newSILevel1.txt" Line="5" Column="1" />
-      <File FileName="Assets/Resources/NewSILevel/newSILevel0.txt" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/SmallIntestine/Tutorial/SmallIntestineTutorialManager.cs" Line="17" Column="1" />
+      <File FileName="Assets/Scripts/Mouth/openFlap.cs" Line="386" Column="2" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

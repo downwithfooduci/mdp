@@ -14,7 +14,7 @@ public class CellManager : MonoBehaviour
 	public CellButtons cellButtons;			//!< for a reference to the cell buttons script
 
 	public Texture tapFigure;				//!< image of tap fingure 
-	private bool popUp;						//!< boolean value to check if the pop up should appear
+	private bool bucketPopUp;						//!< boolean value to check if the pop up should appear
 	private int cellNumber;					//!< cell number of first burned cell, -1 if no one burns
 
 
@@ -33,7 +33,7 @@ public class CellManager : MonoBehaviour
 		}
 
 		//initialize the values for pop up
-		popUp = false;
+		bucketPopUp = false;
 		cellNumber = -1;
 	}
 
@@ -44,25 +44,24 @@ public class CellManager : MonoBehaviour
 		{
 			StomachCell cell = cellScripts [i];
 			if ((cell.getCellState () == "burning") && (cellNumber == -1)) {
-				popUp = true;
+				bucketPopUp = true;
 				cellNumber = i; 
 			}
 			if (cell.getCellState () == "slimed")
-				popUp = false;
+				bucketPopUp = false;
 		}
 	}
 
 	// display the tap popup
 	void OnGUI()
 	{
-		if(popUp)
+		if(bucketPopUp)
 		{
 			GUI.DrawTexture (new Rect(Screen.width * 0.125f, 
 				Screen.height * 0.715f, 
 				Screen.width * 0.2093359375f, 
 				Screen.height * 0.300697917f),tapFigure);
 		}
-		//Debug.Log (cellNumber);
 	}
 	
 	/**
