@@ -3962,7 +3962,15 @@ MonoBehaviour:
   - {fileID: 944397858}
   cellScripts: []
   cellButtons: {fileID: 1901509872}
-  tapFigure: {fileID: 2800000, guid: 46c55e16029f849c09f98cd975f19d30, type: 3}
+  tapFigure:
+  - {fileID: 2800000, guid: 132096291768f48fba8fa0d71d4d6fbf, type: 3}
+  - {fileID: 2800000, guid: a269ecfeb02f5442088a3d16d2e128df, type: 3}
+  - {fileID: 2800000, guid: b8f270dea601a4e159baf58256e0bec9, type: 3}
+  - {fileID: 2800000, guid: 2673bdea249684bd88c474ebe965ec5a, type: 3}
+  - {fileID: 2800000, guid: 49fce4a1803e24f9692160fd4a71ac4a, type: 3}
+  - {fileID: 2800000, guid: 7f7de3239813b4871a53f8a83569b4bc, type: 3}
+  - {fileID: 2800000, guid: 0ebb6f82386d145528c1e00248d5f8e3, type: 3}
+  flameTime: 0.25
 --- !u!114 &559039922
 MonoBehaviour:
   m_ObjectHideFlags: 0
