@@ -9,6 +9,8 @@ public class openFlap : MonoBehaviour
 	private GameObject bottomFlap, topFlap;		//!< to hold references to the top and bottom flaps
 	private bool isOpen;						//!< flag to signify whether the flaps are "open" or "closed"
 
+	private GameObject[] foods;
+
 	private bool cough = false;					//!< flag to signify whether a cough action is currently occuring
 	private float coughTimer;					//!< a timer for how long the food should move in a reversed direction during a cough
 
@@ -45,6 +47,7 @@ public class openFlap : MonoBehaviour
 	{
 		coughTimer = 0f;						// make sure the initial cough timer value is 0
 	
+		foods = GameObject.FindGameObjectsWithTag ("MouthFood");
 		startTime = Time.time;
 		timeStamp = Time.time;
 		swipePopupStatus = 0;
@@ -72,7 +75,7 @@ public class openFlap : MonoBehaviour
 	 */
 	void Update () 
 	{
-		GameObject[] foods = GameObject.FindGameObjectsWithTag ("MouthFood");
+		foods = GameObject.FindGameObjectsWithTag ("MouthFood");
 		elapsed = Time.time - startTime;
 		if (elapsed >= 15 && swipeCount <= 0 && foods.Length>=2) 
 		{
@@ -273,6 +276,19 @@ public class openFlap : MonoBehaviour
 	public bool isCough()
 	{
 		return cough;
+	}
+
+	/**
+	 * function that can be called to return the number of foods that has generated
+	 */
+	public int getFoodLength()
+	{
+		return foods.Length;
+	}
+
+	public int getSwipeCounts()
+	{
+		return swipeCount;
 	}
 
 	IEnumerator SwipeDownAnimation()
