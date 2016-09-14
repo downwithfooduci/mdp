@@ -45,7 +45,7 @@ public class FingerPopup : MonoBehaviour
 			swipingUp.SetActive (false);
 			Time.timeScale = 0;
 		}
-		else if (flap.isEpiglotisOpen() && swipeCount <= 1 && elapsed >= 3) 
+		else if (flap.isEpiglotisOpen() && swipeCount <= 1 && elapsed >= 5) 
 		{
 			if (swipePopupStatus == 1) 
 			{

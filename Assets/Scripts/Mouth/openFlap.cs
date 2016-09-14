@@ -24,20 +24,8 @@ public class openFlap : MonoBehaviour
 	private bool swipeDown = false;				//!< flag to hold whether there was a downward swipe direction
 	public float swipeSize = 15.0f;
 
-	// pop up variables
-	private int swipePopupStatus;				//!< flag to hold whether the pop up windows should show up
-	private float startTime;					//!< to keep track of the time the game start
-	private float elapsed;						//!< the elapsed after the game start
 	private int swipeCount;						//!< to keep track of how many times the swipe happened
-	private Texture swipeDownPopUp;				//!< to hold the texture of the pop up for swipe down
-	private Texture swipeUpPopUp;				//!< to hold the texture of the pop up for swipe down
-	public Texture fingerSwipeUp2Texture;
-	public Texture fingerSwipeDown2Texture;
-	public Texture fingerPointTexture;
-	public Texture fingerSwipeDown1Texture;
-	public Texture fingerSwipeUp1AltTexture;
-	public Texture swipeUp1Texture;
-	private float timeStamp;
+
 
 	/**
 	 * Use this for initialization
@@ -48,12 +36,7 @@ public class openFlap : MonoBehaviour
 		coughTimer = 0f;						// make sure the initial cough timer value is 0
 	
 		foods = GameObject.FindGameObjectsWithTag ("MouthFood");
-		startTime = Time.time;
-		timeStamp = Time.time;
-		swipePopupStatus = 0;
 		swipeCount = 0;
-		swipeDownPopUp = null;
-		swipeUpPopUp = null;
 		// find flaps and properly determine which one is the uvula (top flap) or epiglottis (bottom flap)
 		foreach(Transform child in transform)
 		{
@@ -76,24 +59,6 @@ public class openFlap : MonoBehaviour
 	void Update () 
 	{
 		foods = GameObject.FindGameObjectsWithTag ("MouthFood");
-		elapsed = Time.time - startTime;
-		if (elapsed >= 15 && swipeCount <= 0 && foods.Length>=2) 
-		{
-			swipePopupStatus = 1;
-		}
-		else if (isOpen && swipeCount <= 1 && elapsed >= 3) 
-		{
-			if (swipePopupStatus == 1) 
-			{
-				startTime = Time.time;
-				swipePopupStatus = 0;
-			}
-			else swipePopupStatus = 2;
-		} 
-		else 
-		{
-			swipePopupStatus = 0;
-		}
 		// update the coughing variable accordingly to maintain proper collision detection
 		if (coughTimer > 0)					// if there is time left in the cough
 		{
@@ -231,23 +196,6 @@ public class openFlap : MonoBehaviour
 		}
 	}
 
-	void OnGUI()
-	{
-		if (swipePopupStatus == 1) {
-			StartCoroutine ("SwipeDownAnimation");
-			GUI.DrawTexture (new Rect (Screen.width * 0.7493359375f, 
-				Screen.height * 0.53515625f, 
-				Screen.width * 0.2093359375f, 
-				Screen.height * 0.300697917f), swipeDownPopUp);
-		} else if (swipePopupStatus == 2) {
-			StartCoroutine ("SwipeUpAnimation");
-			GUI.DrawTexture (new Rect (Screen.width * 0.7493359375f, 
-				Screen.height * 0.53515625f, 
-				Screen.width * 0.2093359375f, 
-				Screen.height * 0.300697917f), swipeUpPopUp);
-		}
-	}
-
 
 	/**
 	 * function that can be called to return whether the flaps are currently open
@@ -290,113 +238,4 @@ public class openFlap : MonoBehaviour
 	{
 		return swipeCount;
 	}
-
-	IEnumerator SwipeDownAnimation()
-	{
-		int count = new int   ();
-		//timeStamp = Time.time;
-//		Debug.Log (Time.time - timeStamp);
-		while (count < 4) 
-		{
-			if (count == 0) 
-			{
-//				Debug.Log ("count = 0");
-//				Debug.Log (Time.time - timeStamp);
-				if (Time.time - timeStamp > 0.8f) {
-					swipeDownPopUp = fingerPointTexture;
-					timeStamp = Time.time;
-					count = 1;
-				} 
-			}
-			if (count == 1) 
-			{
-//				Debug.Log ("count = 2");
-//				Debug.Log (Time.time - timeStamp);
-				if (Time.time - timeStamp > 0.2f) 
-				{
-					swipeDownPopUp = fingerSwipeDown2Texture;
-					timeStamp = Time.time;
-					count = 2;
-				}
-			}
-			if (count == 2) 
-			{
-				//				Debug.Log ("count = 0");
-				//				Debug.Log (Time.time - timeStamp);
-				if (Time.time - timeStamp > 0.4f) {
-					swipeDownPopUp = fingerSwipeUp1AltTexture;
-					timeStamp = Time.time;
-					count = 3;
-				} 
-			}
-			if (count == 3) 
-			{
-				//				Debug.Log ("count = 2");
-				//				Debug.Log (Time.time - timeStamp);
-				if (Time.time - timeStamp > 0.4f) 
-				{
-					swipeDownPopUp = null;
-					timeStamp = Time.time;
-					count = 4;
-				}
-			}
-			yield return null;
-		}
-		StopCoroutine("SwipeDownAnimation");
-	}
-
-	IEnumerator SwipeUpAnimation()
-	{
-		int count = new int   ();
-		//timeStamp = Time.time;
-		//		Debug.Log (Time.time - timeStamp);
-		while (count < 4) 
-		{
-			if (count == 0) 
-			{
-				//				Debug.Log ("count = 0");
-				//				Debug.Log (Time.time - timeStamp);
-				if (Time.time - timeStamp > 0.8f) {
-					swipeUpPopUp = fingerSwipeUp1AltTexture;
-					timeStamp = Time.time;
-					count = 1;
-				} 
-			}
-			if (count == 1) 
-			{
-				//				Debug.Log ("count = 2");
-				//				Debug.Log (Time.time - timeStamp);
-				if (Time.time - timeStamp > 0.2f) 
-				{
-					swipeUpPopUp = fingerSwipeUp2Texture;
-					timeStamp = Time.time;
-					count = 2;
-				}
-			}
-			if (count == 2) 
-			{
-				//				Debug.Log ("count = 0");
-				//				Debug.Log (Time.time - timeStamp);
-				if (Time.time - timeStamp > 0.4f) {
-					swipeUpPopUp = fingerPointTexture;
-					timeStamp = Time.time;
-					count = 3;
-				} 
-			}
-			if (count == 3) 
-			{
-				//				Debug.Log ("count = 2");
-				//				Debug.Log (Time.time - timeStamp);
-				if (Time.time - timeStamp > 0.4f) 
-				{
-					swipeUpPopUp = null;
-					timeStamp = Time.time;
-					count = 4;
-				}
-			}
-			yield return null;
-		}
-		StopCoroutine("SwipwUpAnimation");
-	}
-
 }
