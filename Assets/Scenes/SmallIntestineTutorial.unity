@@ -11878,7 +11878,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zyme: {fileID: 100000, guid: 532f02dcd37dc0c4a913e5b84575fae9, type: 2}
   zymePopupImage: {fileID: 2800000, guid: 1afeed366128b334b8f75744af7acc20, type: 3}
-  tutorialDelay: 20
+  tutorialDelay: 30
 --- !u!114 &1989311884
 MonoBehaviour:
   m_ObjectHideFlags: 0
