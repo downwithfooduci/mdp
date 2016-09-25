@@ -46,10 +46,14 @@ public class BadgeDataIO : MonoBehaviour {
 
 			badgeData data = new badgeData (badgeNums);
 			*/
+
+			Debug.Log ("File unfound. ");
+
 			Save ();
 		}
 
 			
+
 		dataStream = File.Open (Application.persistentDataPath + "/badgeData.dat", FileMode.Open);
 
 		Debug.Log ("File " + Application.persistentDataPath + "/badgeData.dat" + " loaded");
@@ -65,13 +69,21 @@ public class BadgeDataIO : MonoBehaviour {
 	void Save(){
 
 		BinaryFormatter bf = new BinaryFormatter ();
-		dataStream = File.Create (Application.persistentDataPath + "/badgeData.dat");
+		if (!File.Exists (Application.persistentDataPath + "/badgeData.dat")) {
+			dataStream = File.Create (Application.persistentDataPath + "/badgeData.dat");
+		} else {
+			dataStream = File.Open (Application.persistentDataPath + "/badgeData.dat", FileMode.Open);
+		}
 
 		Debug.Log ("File " + Application.persistentDataPath + "/badgeData.dat" + " created");
 
 
 		badgeData data = new badgeData ();
-		data.badgeList = localBadgeList; //data.setList (localBadgeList);
+		//data.badgeList = localBadgeList; 
+		//data.setList (localBadgeList);
+		for (int i = 0; i < badgeNums; i++) {
+			data.badgeList [i] = localBadgeList [i];
+		}
 
 
 
@@ -105,7 +117,7 @@ public class BadgeDataIO : MonoBehaviour {
 
 	[Serializable]
 	class badgeData{
-		public bool[] badgeList;
+		public bool[] badgeList = new bool[13];
 
 		/*
 		public badgeData(){
