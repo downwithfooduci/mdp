@@ -62,6 +62,9 @@ TagManager:
   - name: Sprite Layer 2
     uniqueID: 3915420937
     locked: 0
+  - name: Plane
+    uniqueID: 1599821873
+    locked: 0
   - name: UI
     uniqueID: 4293156009
     locked: 0

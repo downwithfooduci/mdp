@@ -94,12 +94,12 @@ public class OxygenBar : MonoBehaviour
 
 	{
 		// set the x and y position of the oxygen bar relative to screen size
-		position.x = (2779f / 3072f) * Screen.width;
-		position.y = (395f / 2304f) * Screen.height + (1f-percent) * (673f / 2304f) * Screen.height;
+		position.x = (2834f / 3072f) * Screen.width;
+		position.y = (392f / 2304f) * Screen.height + (1f-percent) * (673f / 2304f) * Screen.height;
 
 		// set the size of the oxygen bar relative to screen size
-		originalSize.x = (190f / 3072f) * Screen.width;
-		originalSize.y = (673f / 2304f) * Screen.height * percent; // *percent will grow or shrink the vertical size of 
+		originalSize.x = (196f / 3072f) * Screen.width;
+		originalSize.y = (702f / 2304f) * Screen.height * percent; // *percent will grow or shrink the vertical size of 
 		// the bar based on oxygen level
 
 		// draw the oxygen bar at the specified position at the specified size
