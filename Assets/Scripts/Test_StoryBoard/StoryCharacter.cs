@@ -16,6 +16,10 @@ public class StoryCharacter : MonoBehaviour {
 
 	private int charTracker;
 
+	public int pageNum;
+	public bool clickable;
+	public bool animated;
+
 
 	// Use this for initialization
 	void Start () {
@@ -26,9 +30,19 @@ public class StoryCharacter : MonoBehaviour {
 
 		charTracker = 0;
 
+
 		if (bgt.CharacterPage.Length != 0) {
 			CharacterImages = bgt.CharacterImage;
 		}
+
+
+		if (pageNum < bgt.totalPages ()) {						//if we can find the page, add images;
+
+
+		} else {
+
+		}
+
 
 
 	
@@ -36,6 +50,12 @@ public class StoryCharacter : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		
+		if (bgt.currentPage() == pageNum)
+			setcharOn ();
+		else
+			setcharOff ();
+		
 		if(charOn){
 			//transform.position = bgt
 			image.sprite = bgt.PageList [bgt.currentPage ()].PageCharacter.charSprite[charTracker];
@@ -68,12 +88,14 @@ public class StoryCharacter : MonoBehaviour {
 	}
 
 	void OnMouseUp(){
-		Debug.Log ("on mouse up");
-		if (charTracker == 0)
-			charTracker = 1;
-		else
-			charTracker = 0;
+		if (clickable) {
+			Debug.Log ("on mouse up");
+			if (charTracker == 0)
+				charTracker = 1;
+			else
+				charTracker = 0;
 
+		}
 	}
 
 

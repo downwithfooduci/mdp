@@ -70,6 +70,7 @@ public class BackGroundTurner : MonoBehaviour {
 		int tempCharCounter = 0;
 		for (int i = 0; i < BackGroundImages.Length; i++) {
 			PageList.Add (new Pages_Sprites (BackGroundImages [i], i));
+
 			if (charSet.Contains (i)) {
 				Sprite[] tempCharSprite = new Sprite[2];
 
@@ -79,6 +80,7 @@ public class BackGroundTurner : MonoBehaviour {
 				PageList [i].setCharacter (tempCharSprite, XCharacterPosition [tempCharCounter], YCharacterPosition [tempCharCounter]);
 				tempCharCounter++;
 			}
+
 		}
 
 
@@ -245,12 +247,14 @@ public class BackGroundTurner : MonoBehaviour {
 		int tempPageNum = Mathf.Clamp (currPage - 1, 0, BackGroundImages.Length - 1);
 		image.sprite = BackGroundImages [tempPageNum];
 
+
 		if (charSet.Contains (tempPageNum)) {
 			//Debug.Log ("Current Page: " + tempPageNum);
 			storyChar.setcharOn ();
 		} else {
 			storyChar.setcharOff ();
 		}
+
 		
 
 
@@ -266,6 +270,10 @@ public class BackGroundTurner : MonoBehaviour {
 
 	public int currentPage(){
 		return Mathf.Clamp (currPage - 1, 0, BackGroundImages.Length - 1);
+	}
+
+	public int totalPages(){
+		return BackGroundImages.Length;
 	}
 	/*
 	public Vector2 charPosition(){
