@@ -39,7 +39,7 @@ public class FingerPopup : MonoBehaviour
 		int foodCounts = flap.getFoodLength();
 		if (elapsed >= 15 && swipeCount <= 0 &&  foodCounts >= 2) 
 		{
-			Debug.Log ("popupstatus is 1");
+//			Debug.Log ("popupstatus is 1");
 			swipePopupStatus = 1;
 			swipingDown.SetActive(true);
 			swipingUp.SetActive (false);
@@ -51,7 +51,7 @@ public class FingerPopup : MonoBehaviour
 			{
 				startTime = Time.time;
 				swipePopupStatus = 0;
-				Debug.Log ("popupstatus is 0");
+//				Debug.Log ("popupstatus is 0");
 				swipingDown.SetActive (false);
 				swipingUp.SetActive (false);
 				Time.timeScale = 1;
@@ -59,7 +59,7 @@ public class FingerPopup : MonoBehaviour
 			else 
 			{
 				swipePopupStatus = 2;
-				Debug.Log ("popupstatus is 2");
+//				Debug.Log ("popupstatus is 2");
 				swipingDown.SetActive (false);
 				swipingUp.SetActive (true);
 				Time.timeScale = 0;
@@ -68,7 +68,7 @@ public class FingerPopup : MonoBehaviour
 		else 
 		{
 			swipePopupStatus = 0;
-			Debug.Log ("popupstatus is 0");
+//			Debug.Log ("popupstatus is 0");
 			swipingDown.SetActive (false);
 			swipingUp.SetActive (false);
 			Time.timeScale = 1;

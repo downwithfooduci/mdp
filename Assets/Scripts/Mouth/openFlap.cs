@@ -34,7 +34,7 @@ public class openFlap : MonoBehaviour
 	void Start () 
 	{
 		coughTimer = 0f;						// make sure the initial cough timer value is 0
-	
+		Debug.Log ("Screen width = " + Screen.width + " Screen height = " + Screen.height);
 		foods = GameObject.FindGameObjectsWithTag ("MouthFood");
 		swipeCount = 0;
 		// find flaps and properly determine which one is the uvula (top flap) or epiglottis (bottom flap)
@@ -77,7 +77,7 @@ public class openFlap : MonoBehaviour
 			// if it was assign the x and y start positions
 			if (touch.phase == TouchPhase.Began) 
 			{
-				if ((touch.position.x >= .3f*Screen.width && touch.position.x <= Screen.width) && 
+				if ((touch.position.x >= .7f*Screen.width && touch.position.x <= Screen.width) && 
 				    (touch.position.y <= .8f*Screen.height && touch.position.y >= 0))
 				{
 					xStart = touch.position.x;
@@ -89,7 +89,7 @@ public class openFlap : MonoBehaviour
 			// if it was then assign the x and y end positions
 			if (touch.phase == TouchPhase.Ended)
 			{
-				if ((touch.position.x >= .3f*Screen.width && touch.position.x <= Screen.width) && 
+				if ((touch.position.x >= .7f*Screen.width && touch.position.x <= Screen.width) && 
 				    (touch.position.y <= .8f*Screen.height && touch.position.y >= 0))
 				{
 					xEnd = touch.position.x;
@@ -122,7 +122,8 @@ public class openFlap : MonoBehaviour
 		// this does the same thing as the ipad version except that you can use the mouse to replace the touch
 		if(Input.GetMouseButtonDown(0))
 		{
-			if ((Input.mousePosition.x >= .3f*Screen.width && Input.mousePosition.x <= Screen.width) && 
+//			Debug.Log ("Touch Began: x = " + Input.mousePosition.x + " y = " + Input.mousePosition.y);
+			if ((Input.mousePosition.x >= .7f*Screen.width && Input.mousePosition.x <= Screen.width) && 
 			    (Input.mousePosition.y <= .8f*Screen.height && Input.mousePosition.y >= 0))
 			{
 				xStart = Input.mousePosition.x;
@@ -132,7 +133,8 @@ public class openFlap : MonoBehaviour
 
 		if(Input.GetMouseButtonUp(0))
 		{
-			if ((Input.mousePosition.x >= .3f*Screen.width && Input.mousePosition.x <= Screen.width) && 
+//			Debug.Log ("Touch End: x = " + Input.mousePosition.x + " y = " + Input.mousePosition.y);
+			if ((Input.mousePosition.x >= .7f*Screen.width && Input.mousePosition.x <= Screen.width) && 
 			    (Input.mousePosition.y <= .8f*Screen.height && Input.mousePosition.y >= 0))
 			{
 				xEnd = Input.mousePosition.x;
