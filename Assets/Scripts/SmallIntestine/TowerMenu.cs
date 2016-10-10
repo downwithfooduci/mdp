@@ -42,6 +42,13 @@ public class TowerMenu : MonoBehaviour
 	
 	private bool m_MouseDownLastFrame = false;	//!< helper for detecting clicks/taps
 
+
+
+	private bool m_OneClick = false;
+	private float doubleClickTime;
+	private float clickTimer;
+	private bool m_doubleClick = false;
+
 	/**
 	 * Use this for initialization
 	 * Gets the tower the menu is on and initializes values for drawing it when brought up
@@ -59,6 +66,10 @@ public class TowerMenu : MonoBehaviour
 
 		// find the reference to the tower script attached to the same tower this script is attached to
         m_Tower = gameObject.GetComponent<Tower>();
+
+
+		doubleClickTime = 0.5f;
+		clickTimer = 0f;
 	}
 
 	/**
@@ -71,6 +82,18 @@ public class TowerMenu : MonoBehaviour
         m_ScreenPosition = MDPUtility.WorldToScreenPosition(transform.position);
 		m_ScreenPosition.y -= Screen.height * (105f / 768f);
 	}
+
+
+	void Update(){
+		if (m_OneClick) {
+			if (Time.time - clickTimer > doubleClickTime) {
+				m_OneClick = false;
+			}
+
+		}
+
+	}
+
 
 	/**
 	 * a function that is called after update
@@ -184,8 +207,18 @@ public class TowerMenu : MonoBehaviour
 			// if we click on tower, toggle whether menu is showed
 			if (hitInfo.transform.position == transform.position)
 			{
-				IsEnabled = !IsEnabled;						// change the value in this class
-				m_GameManager.setTowerMenuUp(IsEnabled);	// also set the flag in the game manager
+				if (!m_OneClick) {
+					m_OneClick = true;
+					clickTimer = Time.time;
+				} else {
+					m_OneClick = false;
+					//double click is true;
+					Debug.Log ("Double Clicked");
+				
+					IsEnabled = !IsEnabled;						// change the value in this class
+					m_GameManager.setTowerMenuUp (IsEnabled);	// also set the flag in the game manager
+
+				}
 			}
 			else 		// if we didn't click directly on a tower disable a menu if it's up
 			{
