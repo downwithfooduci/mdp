@@ -20,6 +20,14 @@ public class StoryCharacter : MonoBehaviour {
 	public bool clickable;
 	public bool animated;
 
+	public int animNums;
+	public float flameTime;
+	private float counter;
+	private int currentAnim;
+	private int currentFlame;
+	private int flamePerAnim;
+	private bool animPlay;
+
 
 	// Use this for initialization
 	void Start () {
@@ -29,18 +37,27 @@ public class StoryCharacter : MonoBehaviour {
 
 
 		charTracker = 0;
+		currentAnim = 0;
+		currentFlame = 0;
+		animPlay = false;
 
-
+		/*
 		if (bgt.CharacterPage.Length != 0) {
 			CharacterImages = bgt.CharacterImage;
 		}
+		*/
 
 
-		if (pageNum < bgt.totalPages ()) {						//if we can find the page, add images;
+		if (pageNum <= bgt.totalPages ()) {						//if we can find the page, add images;
 
 
 		} else {
 
+		}
+
+	
+		if (animated) {
+			flamePerAnim = CharacterImages.Length / animNums;
 		}
 
 
@@ -58,16 +75,38 @@ public class StoryCharacter : MonoBehaviour {
 		
 		if(charOn){
 			//transform.position = bgt
-			image.sprite = bgt.PageList [bgt.currentPage ()].PageCharacter.charSprite[charTracker];
+			//image.sprite = bgt.PageList [bgt.currentPage ()].PageCharacter.charSprite[charTracker];
+			if (!animated) {
+				image.sprite = CharacterImages [charTracker % CharacterImages.Length];
+			} else {
+				image.sprite = CharacterImages [((charTracker==0?0:((charTracker-1)%animNums)) * flamePerAnim + currentFlame)%CharacterImages.Length];
+				if (animPlay) {
+					//clickable = false;
+					counter = counter + Time.deltaTime;
+					if (clickable && counter >= flameTime) {
+						if (currentFlame < flamePerAnim)
+							currentFlame++;
+						else {
+							animPlay = false;
 
-			/*
-			transform.position = new Vector2 (
-				Screen.width * bgt.PageList [bgt.currentPage ()].PageCharacter.posx,
-				Screen.height * bgt.PageList [bgt.currentPage ()].PageCharacter.posy);//,0f);
-			*/
+						}
+						counter = 0f;
+					} else if (counter >= flameTime) {
+						currentFlame++;
+						counter = 0f;
+					}
+				} else {
+					//clickable = true;
+				}
+
+
+
+			}
+
 
 		} else {
 			image.sprite = TransImage;
+			counter = 0f;
 		}
 	
 	}
@@ -90,11 +129,19 @@ public class StoryCharacter : MonoBehaviour {
 	void OnMouseUp(){
 		if (clickable) {
 			Debug.Log ("on mouse up");
+			charTracker ++;
+			Debug.Log ("Current status: " + charTracker);
+			/*
 			if (charTracker == 0)
 				charTracker = 1;
 			else
 				charTracker = 0;
+				*/
 
+			if (animated) {
+				currentFlame = 0;
+				animPlay = true;
+			}
 		}
 	}
 

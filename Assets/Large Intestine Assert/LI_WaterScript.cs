@@ -12,6 +12,7 @@ public class LI_WaterScript : MonoBehaviour {
     private float counter;
 
     private int imagestatment;
+	public float flameTime;
 
     // Use this for initialization
     void Start () {
@@ -23,10 +24,10 @@ public class LI_WaterScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         i.sprite = Waterlist[imagestatment];
-        if (imagestatment <2)
+        if (imagestatment <3)
         {
             counter = counter + Time.deltaTime;
-            if (counter > 0.2)
+			if (counter > flameTime)
             {
                 imagestatment++;
                 
