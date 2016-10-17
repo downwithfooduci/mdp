@@ -247,14 +247,14 @@ public class BackGroundTurner : MonoBehaviour {
 		int tempPageNum = Mathf.Clamp (currPage - 1, 0, BackGroundImages.Length - 1);
 		image.sprite = BackGroundImages [tempPageNum];
 
-
+		/*
 		if (charSet.Contains (tempPageNum)) {
 			//Debug.Log ("Current Page: " + tempPageNum);
 			storyChar.setcharOn ();
 		} else {
 			storyChar.setcharOff ();
 		}
-
+		*/
 		
 
 
