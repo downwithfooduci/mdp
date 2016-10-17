@@ -13,7 +13,7 @@ SceneSettings:
 --- !u!104 &2
 RenderSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 6
+  serializedVersion: 7
   m_Fog: 0
   m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_FogMode: 3
@@ -37,12 +37,12 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
+  m_IndirectSpecularColor: {r: 0.4469245, g: 0.49678475, b: 0.5750831, a: 1}
 --- !u!157 &4
 LightmapSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 6
+  serializedVersion: 7
   m_GIWorkflowMode: 0
-  m_LightmapsMode: 1
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -53,17 +53,22 @@ LightmapSettings:
     m_EnableBakedLightmaps: 1
     m_EnableRealtimeLightmaps: 1
   m_LightmapEditorSettings:
-    serializedVersion: 3
+    serializedVersion: 4
     m_Resolution: 2
     m_BakeResolution: 40
     m_TextureWidth: 1024
     m_TextureHeight: 1024
+    m_AO: 0
     m_AOMaxDistance: 1
-    m_Padding: 2
     m_CompAOExponent: 0
+    m_CompAOExponentDirect: 0
+    m_Padding: 2
     m_LightmapParameters: {fileID: 0}
+    m_LightmapsBakeMode: 1
     m_TextureCompression: 1
+    m_DirectLightInLightProbes: 1
     m_FinalGather: 0
+    m_FinalGatherFiltering: 1
     m_FinalGatherRayCount: 1024
     m_ReflectionCompression: 2
   m_LightingDataAsset: {fileID: 0}
@@ -108,7 +113,7 @@ Light:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 314677475}
   m_Enabled: 1
-  serializedVersion: 6
+  serializedVersion: 7
   m_Type: 1
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
   m_Intensity: 1
@@ -118,6 +123,7 @@ Light:
   m_Shadows:
     m_Type: 2
     m_Resolution: -1
+    m_CustomResolution: -1
     m_Strength: 1
     m_Bias: 0.05
     m_NormalBias: 0.4
@@ -130,10 +136,10 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_Lightmapping: 4
+  m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
-  m_AreaSize: {x: 1, y: 1}
 --- !u!4 &314677477
 Transform:
   m_ObjectHideFlags: 0
@@ -371,7 +377,7 @@ MonoBehaviour:
   - {fileID: 2800000, guid: 092fd4d282a2b73468eb1d5330cb0ca7, type: 3}
   - {fileID: 2800000, guid: 6babb20067a8a5945a44c16eaf4e65f6, type: 3}
   - {fileID: 2800000, guid: e449830f68aa8f3419daa69b9019af82, type: 3}
-  - {fileID: 2800000, guid: 517fbcf85225169479daad8159e51e44, type: 3}
+  - {fileID: 2800000, guid: 7d609bdb16d4a464f8e8c9673e120599, type: 3}
   numberedPages:
   - {fileID: 2800000, guid: 740b6e48f4a05e44791b61081c88d8af, type: 3}
   - {fileID: 2800000, guid: 0b73ba52ac842654280a75c2c302dba0, type: 3}
@@ -381,7 +387,7 @@ MonoBehaviour:
   - {fileID: 2800000, guid: 092fd4d282a2b73468eb1d5330cb0ca7, type: 3}
   - {fileID: 2800000, guid: 6babb20067a8a5945a44c16eaf4e65f6, type: 3}
   - {fileID: 2800000, guid: e449830f68aa8f3419daa69b9019af82, type: 3}
-  - {fileID: 2800000, guid: 517fbcf85225169479daad8159e51e44, type: 3}
+  - {fileID: 2800000, guid: 7d609bdb16d4a464f8e8c9673e120599, type: 3}
   sounds:
   - {fileID: 8300000, guid: 4be0fa689ff87d04d9edbba1a3b74100, type: 3}
   - {fileID: 8300000, guid: 60c65f78f61f3604d9d19d0839528cee, type: 3}

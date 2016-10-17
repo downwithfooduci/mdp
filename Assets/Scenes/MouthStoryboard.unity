@@ -13,7 +13,7 @@ SceneSettings:
 --- !u!104 &2
 RenderSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 6
+  serializedVersion: 7
   m_Fog: 0
   m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_FogMode: 3
@@ -37,12 +37,12 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!157 &4
 LightmapSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 6
+  serializedVersion: 7
   m_GIWorkflowMode: 0
-  m_LightmapsMode: 1
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -53,17 +53,22 @@ LightmapSettings:
     m_EnableBakedLightmaps: 1
     m_EnableRealtimeLightmaps: 0
   m_LightmapEditorSettings:
-    serializedVersion: 3
+    serializedVersion: 4
     m_Resolution: 1
     m_BakeResolution: 50
     m_TextureWidth: 1024
     m_TextureHeight: 1024
+    m_AO: 0
     m_AOMaxDistance: 1
-    m_Padding: 2
     m_CompAOExponent: 0
+    m_CompAOExponentDirect: 0
+    m_Padding: 2
     m_LightmapParameters: {fileID: 0}
+    m_LightmapsBakeMode: 1
     m_TextureCompression: 0
+    m_DirectLightInLightProbes: 1
     m_FinalGather: 0
+    m_FinalGatherFiltering: 1
     m_FinalGatherRayCount: 1024
     m_ReflectionCompression: 2
   m_LightingDataAsset: {fileID: 0}
@@ -168,6 +173,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
@@ -207,12 +213,12 @@ MonoBehaviour:
   - {fileID: 2800000, guid: d9dcdf182b60326418c0b87c2e7246ae, type: 3}
   - {fileID: 2800000, guid: 7aea6d84feeda504d846468dd79b445e, type: 3}
   - {fileID: 2800000, guid: c0d290f70661d0a4ea06d40716213833, type: 3}
-  - {fileID: 2800000, guid: c41d4b015584ac7428458f96170319d9, type: 3}
+  - {fileID: 2800000, guid: 40a425018452d4e42a1828576bdc27b2, type: 3}
   numberedPages:
   - {fileID: 2800000, guid: d9dcdf182b60326418c0b87c2e7246ae, type: 3}
   - {fileID: 2800000, guid: 7aea6d84feeda504d846468dd79b445e, type: 3}
   - {fileID: 2800000, guid: c0d290f70661d0a4ea06d40716213833, type: 3}
-  - {fileID: 2800000, guid: c41d4b015584ac7428458f96170319d9, type: 3}
+  - {fileID: 2800000, guid: 40a425018452d4e42a1828576bdc27b2, type: 3}
   sounds:
   - {fileID: 8300000, guid: 519b41901fe53894fb5e8aa01e32c68a, type: 3}
   - {fileID: 8300000, guid: cd147dffccf83e74f8e449f30209e588, type: 3}
@@ -227,6 +233,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2.8156018, y: 3.1536536, z: -2.322071}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0

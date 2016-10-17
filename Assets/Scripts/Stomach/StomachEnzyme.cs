@@ -142,8 +142,10 @@ public class StomachEnzyme : MonoBehaviour
 		float offSetY = 40f;
 
 		if ((transform.position.x - zymePosition.x) < offSetX && (transform.position.y - zymePosition.y) < offSetY) {
-			Debug.Log ("Zyme eaten! Game Over!");
-			zymeEaten = true;
+			if(fm.noFoodBlobs()){
+				Debug.Log ("Zyme eaten! Game Over!");
+				zymeEaten = true;
+			}
 
 		}
 		

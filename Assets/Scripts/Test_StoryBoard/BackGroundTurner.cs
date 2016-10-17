@@ -36,12 +36,12 @@ public class BackGroundTurner : MonoBehaviour {
 
 
 
-	public List<Pages_Sprites> PageList = new List<Pages_Sprites>();
+	//public List<Pages_Sprites> PageList = new List<Pages_Sprites>();
 	private HashSet<int> charSet = new HashSet<int>();
 
 
 
-	private StoryCharacter storyChar;
+	//private StoryCharacter storyChar;
 	private bool charAdded;
 	private int charTracker;
 
@@ -55,7 +55,7 @@ public class BackGroundTurner : MonoBehaviour {
 	void Start () {
 
 		image = GetComponent<Image>();
-		storyChar = FindObjectOfType (typeof(StoryCharacter)) as StoryCharacter;
+		//storyChar = FindObjectOfType (typeof(StoryCharacter)) as StoryCharacter;
 
 		charAdded = false;
 		charTracker = 0;
@@ -68,6 +68,8 @@ public class BackGroundTurner : MonoBehaviour {
 		}
 
 		int tempCharCounter = 0;
+
+		/*
 		for (int i = 0; i < BackGroundImages.Length; i++) {
 			PageList.Add (new Pages_Sprites (BackGroundImages [i], i));
 
@@ -82,13 +84,48 @@ public class BackGroundTurner : MonoBehaviour {
 			}
 
 		}
-
+		*/
 
 
 
 		/**************************************************************/
+
 		swipeDetection = gameObject.GetComponent<DetectStraightSwipe> ();
 
+		// find out if we can skip without listening
+		if (Application.loadedLevelName.Equals("IntroStoryboard"))
+		{
+			canSkip = (PlayerPrefs.GetInt ("PlayedIntroStory") == 1) ? true : false;
+		} else if (Application.loadedLevelName.Equals("MouthStoryboard"))
+		{
+			canSkip = (PlayerPrefs.GetInt ("PlayedMouthStory") == 1) ? true : false;
+		} else if (Application.loadedLevelName.Equals("MouthEndStoryboard"))
+		{
+			canSkip = (PlayerPrefs.GetInt ("PlayedMouthEndStory") == 1) ? true : false;
+		} else if (Application.loadedLevelName.Equals("StomachStoryboard"))
+		{
+			canSkip = (PlayerPrefs.GetInt ("PlayedStomachStory") == 1) ? true : false;
+		} else if (Application.loadedLevelName.Equals("StomachEndStoryboard"))
+		{
+			canSkip = (PlayerPrefs.GetInt ("PlayedStomachEndStory") == 1) ? true : false;
+		} else if (Application.loadedLevelName.Equals("SmallIntestineStoryboard"))
+		{
+			canSkip = (PlayerPrefs.GetInt ("PlayedSIStory") == 1) ? true : false;
+		} else if (Application.loadedLevelName.Equals("SmallIntestineEndStoryboard"))
+		{
+			canSkip = (PlayerPrefs.GetInt("PlayedSIEndStory") == 1) ? true : false;
+		} else if (Application.loadedLevelName.Equals("LargeIntestineStoryboard"))
+		{
+			canSkip = (PlayerPrefs.GetInt("PlayedLIStory") == 1) ? true : false;
+		} else if (Application.loadedLevelName.Equals("LargeIntestineEndStoryboard"))
+		{
+			canSkip = (PlayerPrefs.GetInt("PlayedLIEndStory") == 1) ? true : false;
+		}
+
+
+
+		// preload next scene
+		StartCoroutine(loadNextLevel());
 
 		/**************************************************************/
 
@@ -103,30 +140,37 @@ public class BackGroundTurner : MonoBehaviour {
 	IEnumerator loadNextLevel() 
 	{
 		// starts preloading hte next level in the sequence accordingly
-		if (Application.loadedLevelName.Equals ("Test_IntroStoryBoard")) {
+		if (Application.loadedLevelName.Equals ("Test_IntroStoryboard")) {
+			
+			/*
+			 * 
 			loader = Application.LoadLevelAsync("Test_nowEntering");
 		}
 		else if (Application.loadedLevelName.Equals("IntroStoryboard"))
 		{
+			*/
 			loader = Application.LoadLevelAsync("MouthStoryboard");		
 		} else if (Application.loadedLevelName.Equals("MouthStoryboard"))
 		{
 			loader = Application.LoadLevelAsync("LoadLevelMouth");
 		} else if (Application.loadedLevelName.Equals("MouthEndStoryboard"))
 		{
-			loader = Application.LoadLevelAsync("StomachStoryboard");
+			//loader = Application.LoadLevelAsync("StomachStoryboard");
+			loader = Application.LoadLevelAsync("Test_nowEntering");
 		} else if (Application.loadedLevelName.Equals("StomachStoryboard"))
 		{
 			loader = Application.LoadLevelAsync("LoadLevelStomach");
 		} else if (Application.loadedLevelName.Equals("StomachEndStoryboard"))
 		{
-			loader = Application.LoadLevelAsync("SmallIntestineStoryboard");
+			//loader = Application.LoadLevelAsync("SmallIntestineStoryboard");
+			loader = Application.LoadLevelAsync("Test_nowEntering");
 		} else if (Application.loadedLevelName.Equals("SmallIntestineStoryboard"))
 		{
 			loader = Application.LoadLevelAsync("LoadLevelSmallIntestine");
 		} else if (Application.loadedLevelName.Equals("SmallIntestineEndStoryboard"))
 		{
-			loader = Application.LoadLevelAsync("LargeIntestineStoryboard");
+			//loader = Application.LoadLevelAsync("LargeIntestineStoryboard");
+			loader = Application.LoadLevelAsync("Test_nowEntering");
 		} else if (Application.loadedLevelName.Equals("LargeIntestineStoryboard"))
 		{
 			loader = Application.LoadLevelAsync("LargeIntestine");
@@ -134,7 +178,6 @@ public class BackGroundTurner : MonoBehaviour {
 		{
 			loader = Application.LoadLevelAsync("EndScreen");
 		}
-
 
 
 
@@ -186,7 +229,7 @@ public class BackGroundTurner : MonoBehaviour {
 
 		if (!hasPlayed)								// only play the clip once per page
 		{
-			if (!((currPage - 1) >= PageList.Count))
+			if (!((currPage - 1) >= BackGroundImages.Length))
 			{
 				GetComponent<AudioSource>().clip = sounds [currPage - 1];		// if we haven't played the sound yet load the new audio clip
 				playClip();								// play the clip
@@ -202,29 +245,28 @@ public class BackGroundTurner : MonoBehaviour {
 
 			if (Application.loadedLevelName.Equals ("Test_IntroStoryBoard")) {
 				PlayerPrefs.SetInt("PlayedTestIntroStory", 1);
-				Application.LoadLevel ("Test_nowEntering");
-			}
-			else if (Application.loadedLevelName.Equals("IntroStoryboard"))
-			{
-				PlayerPrefs.SetInt("PlayedIntroStory", 1);		// if we're ready set that we've heard this story segment
+				//PlayerPrefs.SetInt("PlayedIntroStory", 1);		// if we're ready set that we've heard this story segment
 			} else if (Application.loadedLevelName.Equals("MouthStoryboard"))
 			{
 				PlayerPrefs.SetInt("PlayedMouthStory", 1);
 			} else if (Application.loadedLevelName.Equals("MouthEndStoryboard"))
 			{
 				PlayerPrefs.SetInt("PlayedMouthEndStory", 1);
+				PlayerPrefs.SetInt ("CurrentStoryLevel", 1);
 			} else if (Application.loadedLevelName.Equals("StomachStoryboard"))
 			{
 				PlayerPrefs.SetInt("PlayedStomachStory", 1);
 			} else if (Application.loadedLevelName.Equals("StomachEndStoryboard"))
 			{
 				PlayerPrefs.SetInt("PlayedStomachEndStory", 1);
+				PlayerPrefs.SetInt ("CurrentStoryLevel", 2);
 			} else if (Application.loadedLevelName.Equals("SmallIntestineStoryboard"))
 			{
 				PlayerPrefs.SetInt("PlayedSIStory", 1);
 			} else if (Application.loadedLevelName.Equals("SmallIntestineEndStoryboard"))
 			{
 				PlayerPrefs.SetInt("PlayedSIEndStory", 1);
+				PlayerPrefs.SetInt ("CurrentStoryLevel", 3);
 			} else if (Application.loadedLevelName.Equals("LargeIntestineStoryboard"))
 			{
 				PlayerPrefs.SetInt("PlayedLIStory", 1);
@@ -234,9 +276,9 @@ public class BackGroundTurner : MonoBehaviour {
 			}
 
 			PlayerPrefs.Save();
-			//loader.allowSceneActivation = true;				// load the next level
+			loader.allowSceneActivation = true;				// load the next level
 
-			Application.LoadLevel ("Test_nowEntering");
+			//Application.LoadLevel ("Test_nowEntering");
 
 		}
 
@@ -248,6 +290,7 @@ public class BackGroundTurner : MonoBehaviour {
 		image.sprite = BackGroundImages [tempPageNum];
 
 		/*
+		 * 
 		if (charSet.Contains (tempPageNum)) {
 			//Debug.Log ("Current Page: " + tempPageNum);
 			storyChar.setcharOn ();

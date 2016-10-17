@@ -13,7 +13,7 @@ SceneSettings:
 --- !u!104 &2
 RenderSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 6
+  serializedVersion: 7
   m_Fog: 0
   m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_FogMode: 3
@@ -37,12 +37,12 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!157 &4
 LightmapSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 6
+  serializedVersion: 7
   m_GIWorkflowMode: 1
-  m_LightmapsMode: 1
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -53,17 +53,22 @@ LightmapSettings:
     m_EnableBakedLightmaps: 1
     m_EnableRealtimeLightmaps: 0
   m_LightmapEditorSettings:
-    serializedVersion: 3
+    serializedVersion: 4
     m_Resolution: 1
     m_BakeResolution: 50
     m_TextureWidth: 1024
     m_TextureHeight: 1024
+    m_AO: 0
     m_AOMaxDistance: 1
-    m_Padding: 2
     m_CompAOExponent: 0
+    m_CompAOExponentDirect: 0
+    m_Padding: 2
     m_LightmapParameters: {fileID: 0}
+    m_LightmapsBakeMode: 1
     m_TextureCompression: 0
+    m_DirectLightInLightProbes: 1
     m_FinalGather: 0
+    m_FinalGatherFiltering: 1
     m_FinalGatherRayCount: 1024
     m_ReflectionCompression: 2
   m_LightingDataAsset: {fileID: 0}
@@ -229,12 +234,12 @@ MonoBehaviour:
   - {fileID: 2800000, guid: 2077bec64bbec344b94003823d3e5cc9, type: 3}
   - {fileID: 2800000, guid: 8d5902754d661254b9274ae653282c5a, type: 3}
   - {fileID: 2800000, guid: 7aa5a81a659548947a0756cf08c4d23d, type: 3}
-  - {fileID: 2800000, guid: 578664c46b40162478517835237d59f8, type: 3}
+  - {fileID: 2800000, guid: 3b0dde3e95f184478a8db292781c8fbe, type: 3}
   numberedPages:
   - {fileID: 2800000, guid: 2077bec64bbec344b94003823d3e5cc9, type: 3}
   - {fileID: 2800000, guid: 8d5902754d661254b9274ae653282c5a, type: 3}
   - {fileID: 2800000, guid: 7aa5a81a659548947a0756cf08c4d23d, type: 3}
-  - {fileID: 2800000, guid: 578664c46b40162478517835237d59f8, type: 3}
+  - {fileID: 2800000, guid: 3b0dde3e95f184478a8db292781c8fbe, type: 3}
   sounds:
   - {fileID: 8300000, guid: ec0acd648a06d2f498a5262b76a9abfa, type: 3}
   - {fileID: 8300000, guid: 2008d9c583b2d9948b3e70764316ccb6, type: 3}
@@ -268,12 +273,12 @@ MonoBehaviour:
   - {fileID: 2800000, guid: cf42621c517da2a49a6c5044f53d7f5b, type: 3}
   - {fileID: 2800000, guid: 69987dedcfda8e54e94c8e253dd7056e, type: 3}
   - {fileID: 2800000, guid: 7aa5a81a659548947a0756cf08c4d23d, type: 3}
-  - {fileID: 2800000, guid: 578664c46b40162478517835237d59f8, type: 3}
+  - {fileID: 2800000, guid: 3b0dde3e95f184478a8db292781c8fbe, type: 3}
   numberedPages:
   - {fileID: 2800000, guid: cf42621c517da2a49a6c5044f53d7f5b, type: 3}
   - {fileID: 2800000, guid: 69987dedcfda8e54e94c8e253dd7056e, type: 3}
   - {fileID: 2800000, guid: 7aa5a81a659548947a0756cf08c4d23d, type: 3}
-  - {fileID: 2800000, guid: 578664c46b40162478517835237d59f8, type: 3}
+  - {fileID: 2800000, guid: 3b0dde3e95f184478a8db292781c8fbe, type: 3}
   sounds:
   - {fileID: 8300000, guid: ec0acd648a06d2f498a5262b76a9abfa, type: 3}
   - {fileID: 8300000, guid: 2008d9c583b2d9948b3e70764316ccb6, type: 3}

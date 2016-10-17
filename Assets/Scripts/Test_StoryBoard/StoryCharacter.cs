@@ -9,6 +9,7 @@ public class StoryCharacter : MonoBehaviour {
 
 	public Sprite[] CharacterImages;
 	public Sprite TransImage;
+	public Sprite FirstImage;
 	private Image image;
 	private BackGroundTurner bgt;
 	private bool charOn = false;
@@ -20,13 +21,14 @@ public class StoryCharacter : MonoBehaviour {
 	public bool clickable;
 	public bool animated;
 
+
 	public int animNums;
 	public float flameTime;
 	private float counter;
 	private int currentAnim;
 	private int currentFlame;
 	private int flamePerAnim;
-	private bool animPlay;
+	private bool animPlaying;
 
 
 	// Use this for initialization
@@ -39,7 +41,7 @@ public class StoryCharacter : MonoBehaviour {
 		charTracker = 0;
 		currentAnim = 0;
 		currentFlame = 0;
-		animPlay = false;
+		animPlaying = false;
 
 		/*
 		if (bgt.CharacterPage.Length != 0) {
@@ -78,16 +80,21 @@ public class StoryCharacter : MonoBehaviour {
 			//image.sprite = bgt.PageList [bgt.currentPage ()].PageCharacter.charSprite[charTracker];
 			if (!animated) {
 				image.sprite = CharacterImages [charTracker % CharacterImages.Length];
-			} else {
-				image.sprite = CharacterImages [((charTracker==0?0:((charTracker-1)%animNums)) * flamePerAnim + currentFlame)%CharacterImages.Length];
-				if (animPlay) {
+			} else if (clickable) {
+				if (charTracker == 0) {
+					image.sprite = FirstImage;
+				}
+				else {
+					image.sprite = CharacterImages [((charTracker == 0 ? 0 : ((charTracker - 1) % animNums)) * flamePerAnim + currentFlame) % CharacterImages.Length];
+				}
+				if (animPlaying) {
 					//clickable = false;
 					counter = counter + Time.deltaTime;
-					if (clickable && counter >= flameTime) {
+					if (counter >= flameTime) {
 						if (currentFlame < flamePerAnim)
 							currentFlame++;
 						else {
-							animPlay = false;
+							animPlaying = false;
 
 						}
 						counter = 0f;
@@ -95,12 +102,17 @@ public class StoryCharacter : MonoBehaviour {
 						currentFlame++;
 						counter = 0f;
 					}
-				} else {
-					//clickable = true;
 				}
-
-
-
+			} else {
+				image.sprite = CharacterImages [currentFlame];
+				counter = counter + Time.deltaTime;
+				if (counter >= flameTime) {
+					currentFlame++;
+					counter = 0;
+					if (currentFlame == CharacterImages.Length) {
+						currentFlame = 0;
+					}
+				}
 			}
 
 
@@ -127,7 +139,7 @@ public class StoryCharacter : MonoBehaviour {
 	}
 
 	void OnMouseUp(){
-		if (clickable) {
+		if (clickable && !animPlaying) {
 			Debug.Log ("on mouse up");
 			charTracker ++;
 			Debug.Log ("Current status: " + charTracker);
@@ -140,7 +152,7 @@ public class StoryCharacter : MonoBehaviour {
 
 			if (animated) {
 				currentFlame = 0;
-				animPlay = true;
+				animPlaying = true;
 			}
 		}
 	}
