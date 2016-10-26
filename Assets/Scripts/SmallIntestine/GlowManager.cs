@@ -51,6 +51,10 @@ public class GlowManager : MonoBehaviour
 	{
 		Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);	// create a ray at the current location
 		RaycastHit hit;													// to store if there is something the ray hits
+		GameObject closestSegment = FindClosestSegment(ray);
+		Debug.Log (Input.mousePosition.x + ", " + Input.mousePosition.y);
+
+		Debug.Log ("segment found: " + closestSegment.transform.position.x + ", "+ closestSegment.transform.position.z);
 		
 		// ignore if the bottom menu is clicked on
 		if (ray.origin.z < -11.6)
@@ -75,10 +79,17 @@ public class GlowManager : MonoBehaviour
 		{
 			// if we are in the tutorial under the correct conditions make a note for us to use
 			if ((Application.loadedLevelName.Equals("SmallIntestineTutorial") &&
-				(PlayerPrefs.GetInt("SIStats_towersPlaced") == 2))) //&&(PlayerPrefs.GetInt("SIStats_towersUpgraded") == 2) &&!(PlayerPrefs.GetInt("SISpeedTutorial") == 1)))
+				(PlayerPrefs.GetInt("SIStats_towersPlaced") == 2)) ) //&&(PlayerPrefs.GetInt("SIStats_towersUpgraded") == 2) &&!(PlayerPrefs.GetInt("SISpeedTutorial") == 1)))
 			{
-				PlayerPrefs.SetInt("SIGlowTutorial", 1);
-				PlayerPrefs.Save();
+				
+				if (findNutrients(closestSegment.transform.position, closestSegment.transform.localScale.x)) {
+					PlayerPrefs.SetInt ("SIGlowTutorial", 1);
+					PlayerPrefs.Save ();
+				} else {
+					Debug.Log ("No nutrients found");
+					return;
+
+				}
 			} else
 			{
 				return;
@@ -100,7 +111,7 @@ public class GlowManager : MonoBehaviour
 			}
 		}
 		
-		GameObject closestSegment = FindClosestSegment(ray);					// find the closest segment to the ray that was cast
+		//GameObject closestSegment = FindClosestSegment(ray);					// find the closest segment to the ray that was cast
 		glowScript = closestSegment.GetComponent<GlowSegment> ();	// get the script from the closest segment
 
 		// make the segment glow
@@ -116,7 +127,7 @@ public class GlowManager : MonoBehaviour
 		} else
 		{
 			// if the level is the tutorial pass in these values to the absorbtion function 
-			absorbNutrients (closestSegment.transform.position, closestSegment.transform.localScale.x);
+			absorbNutrients (closestSegment.transform.position, closestSegment.transform.localScale.x);	
 		}
 	}
 
@@ -226,6 +237,27 @@ public class GlowManager : MonoBehaviour
 					StartCoroutine(effectParticle.killParticle(center));	
 				}
 			}
+		}
+	}
+
+	private bool findNutrients(Vector3 center, float radius){
+		// set a minimum radius to make sure it's large enough to absorb some nutrients
+		if (radius < 3.5f)
+		{
+			radius = 3.5f;
+		}
+		//move the center to the same height as the particles we want to check for collisions with
+		center = new Vector3 (center.x, .5f, center.z);
+
+		// gather all collisions.  use radius * .75 because the collider seems larger than the value you assign it
+		// this value was chosen by trial and error
+		UnityEngine.Collider[] nutrientHits = Physics.OverlapSphere (center, radius*.75f, 1 << LayerMask.NameToLayer("Ignore Raycast"));
+		if (nutrientHits.Length < 2) {
+			return false;
+		}
+		else {
+			Debug.Log ("Length: "+ nutrientHits.Length);
+			return true;
 		}
 	}
 }
