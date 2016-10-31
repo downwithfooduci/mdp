@@ -113,7 +113,8 @@ public class TransPageBackground : MonoBehaviour {
 			if(currentLevel == 1)
 				Application.LoadLevel("StomachStoryboard");
 			else if(currentLevel == 2)
-				Application.LoadLevel("SmallIntestineStoryboard");
+				//Application.LoadLevel("SmallIntestineStoryboard");
+				Application.LoadLevel("Test_SIStoryBoard");
 			else if(currentLevel == 3)
 				Application.LoadLevel("LargeIntestineStoryboard");
 		}

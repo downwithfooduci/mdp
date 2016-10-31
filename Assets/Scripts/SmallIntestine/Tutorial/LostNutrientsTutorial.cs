@@ -49,7 +49,8 @@ public class LostNutrientsTutorial : MonoBehaviour
 			zymeScript.setShowButton (true);
 			Time.timeScale = .01f;
 
-			GUI.DrawTexture(new Rect(.84f * Screen.width, .82f * Screen.height, .16f*Screen.width, .17f * Screen.height), circle);
+			GUI.DrawTexture(new Rect(0.84f * Screen.width, .82f * Screen.height, .16f*Screen.width, .17f * Screen.height), circle);
+
 		}
 	}
 }

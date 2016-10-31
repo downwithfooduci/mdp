@@ -87,3 +87,5 @@ EditorBuildSettings:
     path: Assets/Scenes/Test_IntroStoryboard.unity
   - enabled: 1
     path: Assets/Scenes/Test_nowEntering.unity
+  - enabled: 1
+    path: Assets/Scenes/Test_SIStoryBoard.unity

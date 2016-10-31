@@ -164,8 +164,9 @@ GameObject:
   - 222: {fileID: 675516953}
   - 114: {fileID: 675516952}
   - 61: {fileID: 675516950}
+  - 114: {fileID: 675516951}
   m_Layer: 5
-  m_Name: StoryCharacter
+  m_Name: movableBG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -202,7 +203,26 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Size: {x: 297, y: 161}
+  m_Size: {x: 4096, y: 1536}
+--- !u!114 &675516951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 675516948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dae5a3917e61849a684a3d9d1633b172, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  transPage: {fileID: 21300000, guid: 4cbfa6c25e62f8a4bbf3577376f04feb, type: 3}
+  BG: {fileID: 21300000, guid: 69ed2ac447a504d1cb24378ee93fb99a, type: 3}
+  pageNum: 0
+  dragable: 1
+  movingSpeed: 20
+  directionX: 1
+  directionY: 0
+  constantScale: 0.07517
 --- !u!114 &675516952
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -393,8 +413,8 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 830935773}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1330.2151}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 691684711}
@@ -516,7 +536,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: ec0acd648a06d2f498a5262b76a9abfa, type: 3}
   - {fileID: 8300000, guid: f0c9e3a35a2946f47857a8b7805aeb51, type: 3}
   - {fileID: 8300000, guid: b47e88dc29d27e844ba4bd5db1b455eb, type: 3}
-  - {fileID: 8300000, guid: 8c90d9fdbb2e16e4f9d28bd7b466a1f5, type: 3}
+  - {fileID: 8300000, guid: c57ea097ba2c96747a28a51f98c4ed97, type: 3}
   - {fileID: 8300000, guid: 7426d99979bcbe84dbd759b2df80d23f, type: 3}
   - {fileID: 8300000, guid: f6d474d368a5005419e54a4cf92218d2, type: 3}
   - {fileID: 8300000, guid: 460163836ec32e040a0a03612c92f126, type: 3}
@@ -528,13 +548,13 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 177fbeaecd7934d488eaad0cd13d888f, type: 3}
   BackGroundImages:
   - {fileID: 21300000, guid: 69ed2ac447a504d1cb24378ee93fb99a, type: 3}
+  - {fileID: 21300000, guid: 20b598e070f5f4034955c19d95985072, type: 3}
   - {fileID: 21300000, guid: 1550d9a2fbfa040a6a3eea48ffbd6eb4, type: 3}
   - {fileID: 21300000, guid: 541535dc66a9c4fc1ae93e4a3a5dc322, type: 3}
   - {fileID: 21300000, guid: bd34c7e37c2054ff0a906b6163e8eb5b, type: 3}
   - {fileID: 21300000, guid: 4011f6b1436c94f10887447b2ed45e52, type: 3}
   - {fileID: 21300000, guid: 5235daca55d0b4ad98c1ee1dd78599f8, type: 3}
   - {fileID: 21300000, guid: cae21202c783840ba9ef3282d8a45b26, type: 3}
-  - {fileID: 21300000, guid: 63fb3c8fdb9db4b799f770eb642708f5, type: 3}
   - {fileID: 21300000, guid: 63fb3c8fdb9db4b799f770eb642708f5, type: 3}
   - {fileID: 21300000, guid: a5367d96e7d924c6e89ae7a215ee879c, type: 3}
   - {fileID: 21300000, guid: c984bc500444f4f4f91c242a9411b16f, type: 3}
@@ -1150,7 +1170,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Size: {x: 309, y: 408}
+  m_Size: {x: 2048, y: 1536}
 --- !u!114 &1296342843
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1169,7 +1189,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: c07e14ce60fc14cdcb4a31c52c2765a3, type: 3}
   TransImage: {fileID: 21300000, guid: 4cbfa6c25e62f8a4bbf3577376f04feb, type: 3}
   FirstImage: {fileID: 0}
-  pageNum: 3
+  pageNum: 4
   clickable: 0
   animated: 1
   animNums: 4

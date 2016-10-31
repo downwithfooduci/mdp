@@ -45,6 +45,10 @@ public class BackGroundTurner : MonoBehaviour {
 	private bool charAdded;
 	private int charTracker;
 
+	//private Long Movable Pages;
+	private bool[] longPages;
+	private bool longPageDone;
+
 
 
 
@@ -68,6 +72,14 @@ public class BackGroundTurner : MonoBehaviour {
 		}
 
 		int tempCharCounter = 0;
+
+		longPages = new bool[BackGroundImages.Length];
+		longPageDone = true;
+		/*
+		for (int i = 0; i < longPages.Length; i++) {
+			longPages [i] = true;
+		};
+		*/
 
 		/*
 		for (int i = 0; i < BackGroundImages.Length; i++) {
@@ -164,8 +176,11 @@ public class BackGroundTurner : MonoBehaviour {
 		{
 			//loader = Application.LoadLevelAsync("SmallIntestineStoryboard");
 			loader = Application.LoadLevelAsync("Test_nowEntering");
-		} else if (Application.loadedLevelName.Equals("SmallIntestineStoryboard"))
+		} /*
+			else if (Application.loadedLevelName.Equals("SmallIntestineStoryboard"))
 		{
+			*/
+		else if (Application.loadedLevelName.Equals("Test_SIStoryBoard")){
 			loader = Application.LoadLevelAsync("LoadLevelSmallIntestine");
 		} else if (Application.loadedLevelName.Equals("SmallIntestineEndStoryboard"))
 		{
@@ -199,7 +214,7 @@ public class BackGroundTurner : MonoBehaviour {
 
 		/**************************************************************/
 
-		if (!GetComponent<AudioSource>().isPlaying || canSkip)
+		if ((!GetComponent<AudioSource>().isPlaying && longPageDone)|| canSkip) //((!GetComponent<AudioSource>().isPlaying && !longPages[currPage])|| canSkip) //
 		{
 			if (swipeDetection.getSwipeLeft() || buttonClicked)		// attempt to detect a swipe to the right
 			{
@@ -222,7 +237,7 @@ public class BackGroundTurner : MonoBehaviour {
 
 				}
 			}
-		} else if (GetComponent<AudioSource>().isPlaying)
+		} else if(GetComponent<AudioSource>().isPlaying || !longPageDone)  //(GetComponent<AudioSource>().isPlaying || longPages[currPage])//
 		{
 			swipeDetection.resetSwipe();							// if we can't change the page yet forget the swipe
 		}
@@ -327,6 +342,22 @@ public class BackGroundTurner : MonoBehaviour {
 			return new Vector2(0,0);
 	}
 	*/
+
+	public void setLongPageFinish(int n){
+		//longPages [n] = false;
+		longPageDone = true;
+		Debug.Log ("LongPage Finished: " + n);
+
+	}
+	public void setLongPageStart(int n){
+		//longPages [n] = true;
+		longPageDone = false;
+		Debug.Log ("LongPage Setuped: " + n);
+
+	}
+	public bool getLongPageDon(){
+		return longPageDone;
+	}
 
 }
 
