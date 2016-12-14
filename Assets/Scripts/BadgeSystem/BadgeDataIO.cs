@@ -3,6 +3,7 @@ using System.Collections;
 using System.IO;
 using System;
 using System.Runtime.Serialization.Formatters.Binary;
+using System.Collections.Generic;
 
 
 public class BadgeDataIO : MonoBehaviour {
@@ -10,12 +11,31 @@ public class BadgeDataIO : MonoBehaviour {
 	public int badgeNums;
 	private FileStream dataStream;
 	private bool[] localBadgeList;
+	private GameObject panelCanvas;
+	//private GameObject panelList;
+	public GameObject panelList;
+	public List<GameObject> badgeList;
 
 
 	// Use this for initialization
 	void Start () {
 		badgeNums = 13;
 		localBadgeList = new bool[13];
+		panelCanvas = GameObject.Find ("Canvas");
+
+		//panelList = GameObject.Find ("PanelList");
+		Debug.Log ("panelList Length: " + panelList.transform.childCount);
+
+		Debug.Log ("First Child: " + panelList.transform.GetChild(0).name);
+
+//		foreach (Transform child in panelList) {
+			
+		
+//		}
+
+
+
+
 
 
 		//Save ();
@@ -102,6 +122,12 @@ public class BadgeDataIO : MonoBehaviour {
 		localBadgeList [num] = localBadgeList[num] == false ? true : false;
 
 		Save ();
+
+	}
+
+	public void popBadgeToTop(GameObject badge){
+
+		badge.transform.SetSiblingIndex (0);
 
 	}
 

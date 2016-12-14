@@ -1,15 +1,10 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Stomach/NewStomackZymeAnim.cs">
+  <MonoDevelop.Ide.Workbench>
     <Files>
-      <File FileName="Assets/Scripts/Test_StoryBoard/StoryCharacter.cs" Line="111" Column="18" />
-      <File FileName="Assets/Scripts/Storyboard/StoryboardHandler.cs" Line="21" Column="2" />
-      <File FileName="Assets/Scripts/Test_StoryBoard/BackGroundTurner.cs" Line="210" Column="14" />
-      <File FileName="Assets/Scripts/Main Menu/changeLevel.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Stomach/StomachGameManager.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Stomach/NewStomackZymeAnim.cs" Line="34" Column="9" />
-      <File FileName="Assets/Scripts/Stomach/StomachEnzyme.cs" Line="145" Column="7" />
-      <File FileName="Assets/Scripts/Stomach/StomachFoodManager.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Test_StoryBoard/StoryDragBG.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Mouth/EsophagusGameOver.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/General/MainMenuButton.cs" Line="11" Column="17" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
