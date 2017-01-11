@@ -546,6 +546,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: fbd3a0396f6e7e049b6d1005c3102182, type: 3}
   - {fileID: 8300000, guid: 6775d7a6b8c192947a008d8d4a326a27, type: 3}
   - {fileID: 8300000, guid: 177fbeaecd7934d488eaad0cd13d888f, type: 3}
+  - {fileID: 8300000, guid: 177fbeaecd7934d488eaad0cd13d888f, type: 3}
   BackGroundImages:
   - {fileID: 21300000, guid: 69ed2ac447a504d1cb24378ee93fb99a, type: 3}
   - {fileID: 21300000, guid: 20b598e070f5f4034955c19d95985072, type: 3}
@@ -559,6 +560,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: a5367d96e7d924c6e89ae7a215ee879c, type: 3}
   - {fileID: 21300000, guid: c984bc500444f4f4f91c242a9411b16f, type: 3}
   - {fileID: 21300000, guid: 8249216d89ed14cdc8016e070e9efd20, type: 3}
+  - {fileID: 21300000, guid: 9a50f13f35bd64a61a71c812cdbd3650, type: 3}
   - {fileID: 21300000, guid: 1a800ad57376b4ab893f2dccdd2ab758, type: 3}
   CharacterPage: 02000000
   XCharacterPosition:
