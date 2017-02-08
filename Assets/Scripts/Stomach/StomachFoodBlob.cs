@@ -9,6 +9,7 @@ public class StomachFoodBlob : MonoBehaviour
 	public Sprite[] wholeFood;					//!< to hold the whole food representation images of each color
 	public Sprite[] digestedFood;				//!< to hold the digested food representation images of each color
 	public Sprite blankFood;
+	public AudioClip breakSound;
 
 
     public Sprite[] newDigestedTest1;
@@ -48,7 +49,10 @@ public class StomachFoodBlob : MonoBehaviour
 		}
 	}
 
-	
+	private bool startSound;
+
+
+
 	// Use this for initialization
 	void Start () 
 	{
@@ -70,7 +74,8 @@ public class StomachFoodBlob : MonoBehaviour
 		parent.transform.position = new Vector3 (((spawnLocation * 15f / Screen.width) - 7.5f)*10f, 
 		                                         (11f - (0f * 11f / Screen.height) - 5.5f)*10f, 90f);	//old z = -2.0f
 		GetComponent<SpriteRenderer>().sprite = wholeRepresentation;
-		
+		GetComponent<AudioSource> ().clip = breakSound;
+		startSound = false;
 	}
 	
 	void Update()
@@ -78,6 +83,10 @@ public class StomachFoodBlob : MonoBehaviour
 		if (IsDigesting) {
 			if (stomanager.getCurrentAcidLevel () == "acidic") {
 				digest ();
+				if (startSound) {
+					playSound ();
+					startSound = false;
+				}
 			} else {
 				IsDigesting = false;
 			}
@@ -98,17 +107,21 @@ public class StomachFoodBlob : MonoBehaviour
 			IsDigesting = false;
 		}
         else if (timer > digestTime + 0.5f && timer <= digestTime + 0.75f)
-        {
+		{
             GetComponent<SpriteRenderer>().sprite = newDigestedTest1[0];
+			startSound = true;
         }
         else if (timer > digestTime + 0.75f && timer <= digestTime + 1.25f)
         {
-            GetComponent<SpriteRenderer>().sprite = newDigestedTest1[1];
+			GetComponent<SpriteRenderer>().sprite = newDigestedTest1[1];
+
         }
         else if (timer > digestTime + 1.25f && timer < digestTime + 2f) {
 			Color col = GetComponent<SpriteRenderer>().color;
 			col.a = 0.25f + (digestTime + 1.75f - timer);
 			GetComponent<SpriteRenderer>().color = col;
+
+
 		}
 		else if(timer > digestTime && timer <= digestTime + 0.5f)
 		{
@@ -121,5 +134,13 @@ public class StomachFoodBlob : MonoBehaviour
         if (timer > digestTime) {
 			digested = true;
 		}
+	}
+
+	private void playSound(){
+		GetComponent<AudioSource> ().Play ();
+		Debug.Log ("Sound Played");
+	}
+
+	private void playOneShoot(){
 	}
 }

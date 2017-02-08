@@ -89,7 +89,7 @@ public class StomachGameManager : MonoBehaviour
 	 */
 	void Update () 
 	{
-		Debug.Log("Time:"+elapsedTime[0]);
+		//Debug.Log("Time:"+elapsedTime[0]);
 		/**
 		 * Always do this update
 		 */

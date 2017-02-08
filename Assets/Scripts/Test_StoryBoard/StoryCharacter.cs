@@ -20,6 +20,9 @@ public class StoryCharacter : MonoBehaviour {
 	public int pageNum;
 	public bool clickable;
 	public bool animated;
+	public bool hasSound;
+	public bool soundLoop;
+	public AudioClip sounds;
 
 
 	public int animNums;
@@ -29,6 +32,7 @@ public class StoryCharacter : MonoBehaviour {
 	private int currentFlame;
 	private int flamePerAnim;
 	private bool animPlaying;
+	private bool soundPlayed;
 
 
 	// Use this for initialization
@@ -62,7 +66,9 @@ public class StoryCharacter : MonoBehaviour {
 			flamePerAnim = CharacterImages.Length / animNums;
 		}
 
-
+		if (hasSound) {
+			soundPlayed = false;
+		}
 
 	
 	}
@@ -114,7 +120,23 @@ public class StoryCharacter : MonoBehaviour {
 					}
 				}
 			}
+			if (!soundPlayed) {
+				if (soundLoop) {
 
+					GetComponent<AudioSource> ().clip = sounds;
+					playclip ();
+					GetComponent<AudioSource> ().loop = true;
+					soundPlayed = true;
+
+
+
+				} else if (!soundLoop) {
+				
+					GetComponent<AudioSource> ().clip = sounds;
+					playclip ();
+					soundPlayed = true;
+				}
+			}
 
 		} else {
 			image.sprite = TransImage;
@@ -129,6 +151,7 @@ public class StoryCharacter : MonoBehaviour {
 
 	public void setcharOff(){
 		charOn = false;
+		//soundPlayed = false;
 	}
 
 
@@ -155,6 +178,11 @@ public class StoryCharacter : MonoBehaviour {
 				animPlaying = true;
 			}
 		}
+	}
+
+	private void playclip(){
+		GetComponent<AudioSource>().Play();
+		Debug.Log ("Sound Played");
 	}
 
 

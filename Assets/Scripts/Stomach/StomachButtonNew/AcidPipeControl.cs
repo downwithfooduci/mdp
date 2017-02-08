@@ -68,7 +68,7 @@ public class AcidPipeControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		Debug.Log (sgm.gettotalfood ());
+		//Debug.Log (sgm.gettotalfood ());
 		elapsed = Time.time - initialTime;
 		if (elapsed > 8 && sgm.getCurrentAcidLevel() != "acidic" && clickCount == 0) {
 			popup = true;
