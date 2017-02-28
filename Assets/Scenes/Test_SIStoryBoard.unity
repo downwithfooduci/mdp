@@ -1446,7 +1446,7 @@ MonoBehaviour:
   clickable: 0
   animated: 1
   hasSound: 1
-  soundLoop: 1
+  soundLoop: 0
   sounds: {fileID: 8300000, guid: 72ae7c65ae99f426586914f25ade51dc, type: 3}
   animNums: 4
   flameTime: 0.0375

@@ -35,6 +35,8 @@ public class StomachFoodBlob : MonoBehaviour
 
 	private bool digested = false;
 
+
+
 	private bool isDigesting;
 	public bool IsDigesting
 	{
@@ -49,7 +51,8 @@ public class StomachFoodBlob : MonoBehaviour
 		}
 	}
 
-	private bool startSound;
+	private int soundCounter;
+	private int currentState;
 
 
 
@@ -75,7 +78,9 @@ public class StomachFoodBlob : MonoBehaviour
 		                                         (11f - (0f * 11f / Screen.height) - 5.5f)*10f, 90f);	//old z = -2.0f
 		GetComponent<SpriteRenderer>().sprite = wholeRepresentation;
 		GetComponent<AudioSource> ().clip = breakSound;
-		startSound = false;
+
+		soundCounter = 0;
+		currentState = 0;
 	}
 	
 	void Update()
@@ -83,10 +88,13 @@ public class StomachFoodBlob : MonoBehaviour
 		if (IsDigesting) {
 			if (stomanager.getCurrentAcidLevel () == "acidic") {
 				digest ();
-				if (startSound) {
+				Debug.Log ("digest finished" + Time.time);
+
+				if (currentState > soundCounter) {
 					playSound ();
-					startSound = false;
+					soundCounter++;
 				}
+
 			} else {
 				IsDigesting = false;
 			}
@@ -109,11 +117,12 @@ public class StomachFoodBlob : MonoBehaviour
         else if (timer > digestTime + 0.5f && timer <= digestTime + 0.75f)
 		{
             GetComponent<SpriteRenderer>().sprite = newDigestedTest1[0];
-			startSound = true;
+			currentState = 2;
         }
         else if (timer > digestTime + 0.75f && timer <= digestTime + 1.25f)
         {
 			GetComponent<SpriteRenderer>().sprite = newDigestedTest1[1];
+			currentState = 3;
 
         }
         else if (timer > digestTime + 1.25f && timer < digestTime + 2f) {
@@ -126,6 +135,7 @@ public class StomachFoodBlob : MonoBehaviour
 		else if(timer > digestTime && timer <= digestTime + 0.5f)
 		{
 			GetComponent<SpriteRenderer>().sprite = digestedRepresentation;
+			currentState = 1;
 		}
         
 
@@ -138,7 +148,7 @@ public class StomachFoodBlob : MonoBehaviour
 
 	private void playSound(){
 		GetComponent<AudioSource> ().Play ();
-		Debug.Log ("Sound Played");
+		//Debug.Log ("Sound Played");
 	}
 
 	private void playOneShoot(){
