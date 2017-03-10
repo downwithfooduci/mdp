@@ -8,11 +8,13 @@ public class objectSoundPlayer : MonoBehaviour {
 	public bool hasSound;
 	public bool soundLoop;
 	public AudioClip sounds;
+	public bool clickable;
 
 
 	private bool soundPlayed;
 	private bool charOn = false;
 	private BackGroundTurner bgt;
+
 
 
 	// Use this for initialization
@@ -22,6 +24,8 @@ public class objectSoundPlayer : MonoBehaviour {
 
 		if (hasSound) {
 			soundPlayed = false;
+
+			GetComponent<AudioSource> ().clip = sounds;
 		}
 
 
@@ -35,8 +39,7 @@ public class objectSoundPlayer : MonoBehaviour {
 		else
 			setcharOff ();
 
-		if (charOn && !soundPlayed) {
-			GetComponent<AudioSource> ().clip = sounds;
+		if (!clickable && charOn && !soundPlayed) {
 			if (soundLoop) {
 				playclip ();
 				GetComponent<AudioSource> ().loop = true;
@@ -65,4 +68,23 @@ public class objectSoundPlayer : MonoBehaviour {
 		Debug.Log ("Sound Played");
 	}
 
+	void OnMouseDown(){
+		Debug.Log("on mouse down");
+		Debug.Log ("Current Page:" + bgt.currentPage ());
+
+	}
+
+	void OnMouseUp(){
+		if (clickable) {
+			Debug.Log ("on mouse up");
+
+			Debug.Log ("Current status: Audio Play");
+
+
+			if (charOn) {
+				playclip ();
+				soundPlayed = true;
+			}
+		}
+	}
 }

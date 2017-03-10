@@ -23,6 +23,7 @@ public class StoryCharacter : MonoBehaviour {
 	public bool hasSound;
 	public bool soundLoop;
 	public AudioClip sounds;
+	public bool pageTurner;
 
 
 	public int animNums;
@@ -76,10 +77,14 @@ public class StoryCharacter : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		
-		if (bgt.currentPage() == pageNum)
+		if (bgt.currentPage () == pageNum) {
 			setcharOn ();
-		else
+			GetComponent<BoxCollider2D> ().enabled = true;
+		}
+		else {
 			setcharOff ();
+			GetComponent<BoxCollider2D> ().enabled = false;
+		}
 		
 		if(charOn){
 			//transform.position = bgt
@@ -120,21 +125,23 @@ public class StoryCharacter : MonoBehaviour {
 					}
 				}
 			}
-			if (!soundPlayed) {
-				if (soundLoop) {
+			if (hasSound) {
+				if (!soundPlayed) {
+					if (soundLoop) {
 
-					GetComponent<AudioSource> ().clip = sounds;
-					playclip ();
-					GetComponent<AudioSource> ().loop = true;
-					soundPlayed = true;
+						GetComponent<AudioSource> ().clip = sounds;
+						playclip ();
+						GetComponent<AudioSource> ().loop = true;
+						soundPlayed = true;
 
 
 
-				} else if (!soundLoop) {
+					} else if (!soundLoop) {
 				
-					GetComponent<AudioSource> ().clip = sounds;
-					playclip ();
-					soundPlayed = true;
+						GetComponent<AudioSource> ().clip = sounds;
+						playclip ();
+						soundPlayed = true;
+					}
 				}
 			}
 
@@ -177,6 +184,9 @@ public class StoryCharacter : MonoBehaviour {
 				currentFlame = 0;
 				animPlaying = true;
 			}
+		}
+		if (pageTurner && charOn) {
+			bgt.gotoNextPage ();
 		}
 	}
 

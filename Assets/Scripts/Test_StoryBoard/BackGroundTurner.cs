@@ -358,6 +358,10 @@ public class BackGroundTurner : MonoBehaviour {
 	public bool getLongPageDon(){
 		return longPageDone;
 	}
+	public void gotoNextPage(){
+		currPage++;
+		hasPlayed = false;
+	}
 
 }
 
