@@ -16,6 +16,8 @@ public class LargeIntestGameManager : MonoBehaviour {
     private poopmeter pm;
     private LI_WaterScript WS;
 
+	public AudioClip ouch;
+
 
 
     // Use this for initialization
@@ -78,6 +80,8 @@ public class LargeIntestGameManager : MonoBehaviour {
 	public void fillwater(){
 		WaterValue = 100;
         bacTouched = 1;
+		GetComponent<AudioSource> ().clip = ouch;
+		playclip ();
     }
 
 	public int getWaterValue(){
@@ -88,6 +92,11 @@ public class LargeIntestGameManager : MonoBehaviour {
     {
         return bacTouched;
     }
+
+	private void playclip(){
+		GetComponent<AudioSource>().Play();
+		Debug.Log ("Sound Played");
+	}
 
 
 

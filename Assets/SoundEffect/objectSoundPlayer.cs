@@ -69,13 +69,15 @@ public class objectSoundPlayer : MonoBehaviour {
 	}
 
 	void OnMouseDown(){
-		Debug.Log("on mouse down");
-		Debug.Log ("Current Page:" + bgt.currentPage ());
+		if (charOn) {
+			Debug.Log ("on mouse down");
+			Debug.Log ("Current Page:" + bgt.currentPage ());
+		}
 
 	}
 
 	void OnMouseUp(){
-		if (clickable) {
+		if (clickable && charOn) {
 			Debug.Log ("on mouse up");
 
 			Debug.Log ("Current status: Audio Play");

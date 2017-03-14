@@ -34,6 +34,7 @@ public class StoryCharacter : MonoBehaviour {
 	private int flamePerAnim;
 	private bool animPlaying;
 	private bool soundPlayed;
+	private bool turnPage;
 
 
 	// Use this for initialization
@@ -47,6 +48,7 @@ public class StoryCharacter : MonoBehaviour {
 		currentAnim = 0;
 		currentFlame = 0;
 		animPlaying = false;
+		turnPage = false;
 
 		/*
 		if (bgt.CharacterPage.Length != 0) {
@@ -137,10 +139,11 @@ public class StoryCharacter : MonoBehaviour {
 
 
 					} else if (!soundLoop) {
-				
+				/*
 						GetComponent<AudioSource> ().clip = sounds;
 						playclip ();
 						soundPlayed = true;
+						*/
 					}
 				}
 			}
@@ -148,6 +151,12 @@ public class StoryCharacter : MonoBehaviour {
 		} else {
 			image.sprite = TransImage;
 			counter = 0f;
+		}
+
+
+		if (turnPage && !GetComponent<AudioSource>().isPlaying) {
+			bgt.gotoNextPage ();
+			turnPage = false;
 		}
 	
 	}
@@ -186,13 +195,13 @@ public class StoryCharacter : MonoBehaviour {
 			}
 		}
 		if (pageTurner && charOn) {
-			bgt.gotoNextPage ();
+			turnPage = true;
 		}
 	}
 
 	private void playclip(){
 		GetComponent<AudioSource>().Play();
-		Debug.Log ("Sound Played");
+		//Debug.Log ("Sound Played");
 	}
 
 

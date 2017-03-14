@@ -161,8 +161,12 @@ public class BackGroundTurner : MonoBehaviour {
 		else if (Application.loadedLevelName.Equals("IntroStoryboard"))
 		{
 			*/
-			loader = Application.LoadLevelAsync("MouthStoryboard");		
+			//loader = Application.LoadLevelAsync("MouthStoryboard");	
+			loader = Application.LoadLevelAsync("Test_MouthStoryBoard");
 		} else if (Application.loadedLevelName.Equals("MouthStoryboard"))
+		{
+			loader = Application.LoadLevelAsync("LoadLevelMouth");
+		} else if (Application.loadedLevelName.Equals("Test_MouthStoryBoard"))
 		{
 			loader = Application.LoadLevelAsync("LoadLevelMouth");
 		} else if (Application.loadedLevelName.Equals("MouthEndStoryboard"))
@@ -264,6 +268,9 @@ public class BackGroundTurner : MonoBehaviour {
 			} else if (Application.loadedLevelName.Equals("MouthStoryboard"))
 			{
 				PlayerPrefs.SetInt("PlayedMouthStory", 1);
+			} else if (Application.loadedLevelName.Equals("Test_MouthStoryBoard"))
+			{
+				PlayerPrefs.SetInt("PlayedTestMouthStory", 1);
 			} else if (Application.loadedLevelName.Equals("MouthEndStoryboard"))
 			{
 				PlayerPrefs.SetInt("PlayedMouthEndStory", 1);
