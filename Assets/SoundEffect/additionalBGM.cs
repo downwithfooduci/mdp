@@ -38,7 +38,7 @@ public class additionalBGM : MonoBehaviour {
 			counter = 0;
 		}
 
-		if (charOn && !soundPlayed && counter >= startTime) {
+		if (charOn && !soundPlayed && counter >= startTime + 0.936f) {			//the offset of page turning sound
 			if (soundLoop) {
 				playclip ();
 				audio.loop = true;
@@ -49,7 +49,7 @@ public class additionalBGM : MonoBehaviour {
 				soundPlayed = true;
 			}
 
-		} else if (endTime != 0.0 && counter > endTime){
+		} else if (endTime != 0.0 && counter > endTime + 0.936f){				//the offset of page turning sound
 			audio.Stop ();
 		}
 		

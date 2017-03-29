@@ -7,6 +7,7 @@ public class BackGroundTurner : MonoBehaviour {
 
 	/***************************************************************/
 	public AudioClip[] sounds;			//!< store the storyboard narrations
+	public AudioClip pageTurnSound;
 	private int currPage = 1;			//!< store the current page
 	private bool hasPlayed = false;		//!< remember whether the current sound has played
 	private bool buttonClicked = false;	//!< holds if the user clicked in the page corner instead of swiping
@@ -48,6 +49,7 @@ public class BackGroundTurner : MonoBehaviour {
 	//private Long Movable Pages;
 	private bool[] longPages;
 	private bool longPageDone;
+	private bool pageTurned;
 
 
 
@@ -63,6 +65,7 @@ public class BackGroundTurner : MonoBehaviour {
 
 		charAdded = false;
 		charTracker = 0;
+		pageTurned = false;
 
 
 
@@ -224,8 +227,9 @@ public class BackGroundTurner : MonoBehaviour {
 			{
 				buttonClicked = false;
 				swipeDetection.resetSwipe();						// reset the variables to prevent multiple page turns
-				currPage++;											// increment the page since we are going forward
-				hasPlayed = false;
+				//currPage++;											// increment the page since we are going forward
+				//hasPlayed = false;
+				gotoNextPage();
 				charAdded = false;
 				
 			} else if (swipeDetection.getSwipeRight() == true)			// attempt to detect a swipe to the left
@@ -234,8 +238,7 @@ public class BackGroundTurner : MonoBehaviour {
 
 				if (currPage - 1 > 0)								// perform bounds checking to make sure we don't go back too far
 				{
-					currPage--;
-					hasPlayed = false;
+					gotoPrevPage();
 					charAdded = false;
 
 
@@ -245,9 +248,11 @@ public class BackGroundTurner : MonoBehaviour {
 		{
 			swipeDetection.resetSwipe();							// if we can't change the page yet forget the swipe
 		}
+			
 
-		if (!hasPlayed)								// only play the clip once per page
+		if (!GetComponent<AudioSource>().isPlaying &&!hasPlayed)								// only play the clip once per page
 		{
+			pageTurned = false;
 			if (!((currPage - 1) >= BackGroundImages.Length))
 			{
 				GetComponent<AudioSource>().clip = sounds [currPage - 1];		// if we haven't played the sound yet load the new audio clip
@@ -366,8 +371,24 @@ public class BackGroundTurner : MonoBehaviour {
 		return longPageDone;
 	}
 	public void gotoNextPage(){
-		currPage++;
+		GetComponent<AudioSource> ().clip = pageTurnSound;
+
+		Debug.Log (GetComponent<AudioSource> ().clip.name);
+		playClip ();
+		Debug.Log ("Goto next Page");
 		hasPlayed = false;
+		currPage++;
+		//pageTurned = true;
+	}
+	public void gotoPrevPage(){
+		GetComponent<AudioSource> ().clip = pageTurnSound;
+
+		Debug.Log (GetComponent<AudioSource> ().clip.name);
+		playClip ();
+		Debug.Log ("Goto next Page");
+		hasPlayed = false;
+		currPage--;
+		//pageTurned = true;
 	}
 
 }

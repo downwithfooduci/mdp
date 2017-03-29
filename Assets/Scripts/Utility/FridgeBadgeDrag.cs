@@ -15,6 +15,7 @@ public class FridgeBadgeDrag : MonoBehaviour{
 
 	public Sprite[] BucketList;
 	private Image image;
+	private Rigidbody2D	rb2D;
 
 
 	//private CellButtons CB;
@@ -25,6 +26,7 @@ public class FridgeBadgeDrag : MonoBehaviour{
 
 	void Start(){
 		image = GetComponent<Image>();
+		rb2D = GetComponent<Rigidbody2D> ();
 	//	CB = FindObjectOfType(typeof(CellButtons)) as CellButtons;
 		Debug.Log ("start");
 		//originalP = transform.position;
@@ -40,6 +42,7 @@ public class FridgeBadgeDrag : MonoBehaviour{
 		offset = gameObject.transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z));
 		isdrag = false;
 		image.sprite = BucketList[1];
+		rb2D.mass = 0.2f;
 		Debug.Log (offset);
 	}
 
@@ -47,7 +50,10 @@ public class FridgeBadgeDrag : MonoBehaviour{
 		//Debug.Log ("on mouse drag");
 		Vector3 cursorPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z);
 		Vector3 cursorPosition = Camera.main.ScreenToWorldPoint(cursorPoint) + offset;
-		transform.position = cursorPosition;
+
+		//transform.position = cursorPosition;
+		//rb2D.position = cursorPosition;
+		rb2D.MovePosition(cursorPosition);
 
 		image.sprite = BucketList[1];
 		//isdrag = true;
@@ -61,6 +67,7 @@ public class FridgeBadgeDrag : MonoBehaviour{
 		//Vector3 cursorPosition = Camera.main.ScreenToWorldPoint(cursorPoint) + offset;
 
 		isdrag = true;
+		rb2D.mass = 1f;
 
 	//	transform.position = originalP;
 

@@ -91,3 +91,5 @@ EditorBuildSettings:
     path: Assets/Scenes/Test_SIStoryBoard.unity
   - enabled: 1
     path: Assets/Scenes/Test_MouthStoryBoard.unity
+  - enabled: 1
+    path: Assets/Scenes/BadgeFridge.unity
