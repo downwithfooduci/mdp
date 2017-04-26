@@ -9198,6 +9198,8 @@ MonoBehaviour:
   WaterValue: 0
   CloseTimer: 5
   ouch: {fileID: 8300000, guid: b990359959a8746f98a1be31617b255c, type: 3}
+  endGameScript: {fileID: 1998246199932288, guid: 9d248963885b2452bb9b94e688ab62df,
+    type: 2}
 --- !u!4 &2094880293
 Transform:
   m_ObjectHideFlags: 0

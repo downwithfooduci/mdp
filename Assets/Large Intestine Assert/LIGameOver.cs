@@ -1,82 +1,60 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
-/**
- * Handle game over conditions for the stomach game
- */
-public class StomachGameOver : MonoBehaviour 
-{
+public class LIGameOver : MonoBehaviour {
+
 	public Texture[] gameOverPopup;	//!< to store the texture for the gameOverPopup
 	public GUIStyle restart;		//!< to store the textures for the restart button
 	public GUIStyle mainMenu;		//!< to store the textures for the mainMenu button
-	
-	public int maxFood;				//!< the max food allowed to pile up before a gameover
-	
-	private StomachFoodManager fm;	//!< to hold a reference to the stomach food manager
-	private StomachGameManager gm;	//!< hold a reference to the stomach game manager
-    private CellManager cm;
 
-	private StomachEnzyme stEz;
-	
+
+
+	private poopmeter pm;
+	private LI_WaterScript WS;
+	private LargeIntestGameManager ligm;
+
 	private bool gameOver;			//!< flag to indicate if the game is over
 	private int gameOverStatus;
-	
+
 	/**
 	 * Use this for initialization
 	 */
 	void Start () 
 	{
 		// get references
-		fm = FindObjectOfType (typeof(StomachFoodManager)) as StomachFoodManager;
-		gm = FindObjectOfType (typeof(StomachGameManager)) as StomachGameManager;
-        cm = FindObjectOfType(typeof(CellManager)) as CellManager;
-		stEz = FindObjectOfType (typeof(StomachEnzyme)) as StomachEnzyme;
+		pm = FindObjectOfType(typeof(poopmeter))as poopmeter;
+		WS = FindObjectOfType(typeof(LI_WaterScript)) as LI_WaterScript;
+		ligm = FindObjectOfType (typeof(LargeIntestGameManager)) as LargeIntestGameManager;
 		gameOverStatus = 0;
 	}
-	
+
 	/**
 	 * Update is called once per frame
 	 */
 	void Update () 
 	{
-		// lose condition: food stacked too high
-		if (fm.getNumFoodBlobs() == maxFood)
+		if (ligm.getWaterValue() >= 50 && ligm.getWaterValue()<75)
 		{
-			gameOver = true;
-			gameOverStatus = 1;
-			Time.timeScale = 0;
+			gameOver = false;
+			Application.LoadLevel("LargeIntestineEndStoryboard");
 		}
-
-		// lose condition: the same cell dies 3 times in a row
-
-		/*
-		int[] deathCounts = gm.getCellDeathCounts ();
-		for (int i = 0; i < 6; i++)
-		{
-			if (deathCounts[i] == gm.MAX_CELL_DEATHS)
-			{
-				gameOver = true;
-				Time.timeScale = 0;
-			}
-		}
-		*/
-
-		//if all cells died, game over
-		if(gm.getDeadCellNum() == cm.getCellNumber())
+			
+		if(ligm.getWaterValue() < 50)
 		{
 			gameOver = true;
 			gameOverStatus = 0;
 			Time.timeScale = 0;
 		}
 
-		if (stEz.hasEaten ()) {
+		if (ligm.getWaterValue() >= 75) {
 			gameOver = true;
-			gameOverStatus = 2;
+			gameOverStatus = 1;
 			Time.timeScale = 0;
 		}
 
 	}
-	
+
 	/**
 	 * Game over popup is drawn with legacy gui
 	 */
@@ -94,7 +72,7 @@ public class StomachGameOver : MonoBehaviour
 				Screen.height * 0.18359375f, 
 				Screen.width * 0.4609375f, 
 				Screen.height * 0.6328125f), gameOverPopup[gameOverStatus]);
-			
+
 			// draw restart button
 			if (GUI.Button (new Rect (Screen.width * 0.3251953125f, 
 				Screen.height * 0.66666666666f,
@@ -103,9 +81,9 @@ public class StomachGameOver : MonoBehaviour
 			{
 				// if restart is pressed
 				Time.timeScale = 1;													// unpause the game
-				Application.LoadLevel("Stomach");
+				Application.LoadLevel("LargeIntestine");
 			}
-			
+
 			// draw main menu button
 			if (GUI.Button (new Rect (Screen.width * 0.5166015625f, 
 				Screen.height * 0.66666666666f,

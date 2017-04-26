@@ -40,6 +40,8 @@ public class MoveFood : MonoBehaviour
 	 */
 	void Update () 
 	{
+		//Debug.Log ("Food Time scale:" + Time.timeScale + ", x:" + transform.position.x + ", y:" + transform.position.y);
+
 		// check if we are using the debugger for values, and if we are the food speed is taken from the debugger
 		// rather than from the script
 		if(debugConfig != null && debugConfig.debugActive)

@@ -17,6 +17,9 @@ public class LargeIntestGameManager : MonoBehaviour {
     private LI_WaterScript WS;
 
 	public AudioClip ouch;
+	public GameObject endGameScript;
+
+	private int bacteriaCount;
 
 
 
@@ -28,6 +31,10 @@ public class LargeIntestGameManager : MonoBehaviour {
         bacTouched = 0;
         bacteriaTimer = 0;
         timer = 0;
+		Time.timeScale = 1;
+		Debug.Log ("TIme scale: " + Time.timeScale);
+		bacteriaCount = 0;
+
 	}
 	
 	// Update is called once per frame
@@ -37,8 +44,8 @@ public class LargeIntestGameManager : MonoBehaviour {
         if(bacTouched == 1)
         {
             bacteriaTimer = bacteriaTimer + Time.deltaTime;
-            Debug.Log("Touched, time=");
-            Debug.Log(bacteriaTimer);
+            //Debug.Log("Touched, time=");
+            //Debug.Log(bacteriaTimer);
 
         }
         if(bacteriaTimer > CloseTimer)
@@ -49,9 +56,9 @@ public class LargeIntestGameManager : MonoBehaviour {
         //pm.setPosition(WaterValue);
 
         if (timer > 59f)
-        {
-
-            Application.LoadLevel("LargeIntestineEndStoryboard");
+        { 
+			timer = 0;
+			Instantiate(endGameScript);	
         }
 
     }
@@ -80,6 +87,7 @@ public class LargeIntestGameManager : MonoBehaviour {
 	public void fillwater(){
 		WaterValue = 100;
         bacTouched = 1;
+		bacteriaCount++;
 		GetComponent<AudioSource> ().clip = ouch;
 		playclip ();
     }

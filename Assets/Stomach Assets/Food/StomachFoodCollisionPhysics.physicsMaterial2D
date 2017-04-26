@@ -6,5 +6,5 @@ PhysicsMaterial2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: StomachFoodCollisionPhysics
-  friction: .800000012
+  friction: 12.17
   bounciness: 0

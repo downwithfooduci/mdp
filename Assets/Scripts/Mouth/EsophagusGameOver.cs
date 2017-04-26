@@ -33,7 +33,10 @@ public class EsophagusGameOver : MonoBehaviour
 		{
 			isGameOver = true;		// if the oxygen bar has run out throw the game over flag
 			Time.timeScale = 0;		// pause the game to stop movement of food
+			Debug.Log("2.Time scale: "+Time.timeScale);
 		}
+		Debug.Log("1.Time scale: "+Time.timeScale);
+
 	}
 
 	/**
@@ -41,19 +44,31 @@ public class EsophagusGameOver : MonoBehaviour
 	 */
 	void OnGUI()
 	{
+
+
+		float scale = 234f / 489f;
+		float buttonWidth = Screen.width * 0.1591796875f;
+
+		
 		if (isGameOver)		// determine if we should draw the game over popup box
 		{
 			// this draws the popup box in the middle of the screen
-			GUI.DrawTexture(new Rect(Screen.width * 0.3193359375f, 
-			                         Screen.height * 0.28515625f, 
-			                         Screen.width * 0.3603515625f, 
-			                         Screen.height * 0.248697917f), gameOverPopup);
-			
+
+
+			GUI.DrawTexture(new Rect(Screen.width * 0.26953125f, 
+				Screen.height * 0.18359375f, 
+				Screen.width * 0.4609375f, 
+				Screen.height * 0.6328125f), gameOverPopup);
+
+
+
+
+
 			// draw restart button in proper condition
-			if (GUI.Button(new Rect(Screen.width * 0.41015625f, 
-			                        Screen.height * 0.41927083f,
-			                        Screen.width * 0.0654296875f,
-			                        Screen.height * 0.06640625f), "", restart))
+			if (GUI.Button (new Rect (Screen.width * 0.3251953125f, 
+				Screen.height * 0.66666666666f,
+				buttonWidth,
+				buttonWidth * scale), "", restart))
 			{
 				// if the restart button is pressed
 				Time.timeScale = 1;					// unpause the game
@@ -61,15 +76,19 @@ public class EsophagusGameOver : MonoBehaviour
 			}
 			
 			// draw the main menu button
-			if (GUI.Button(new Rect(Screen.width * 0.53125f, 
-			                        Screen.height * 0.41927083f,
-			                        Screen.width * 0.0654296875f,
-			                        Screen.height * 0.06640625f), "", mainMenu))
+			if (GUI.Button (new Rect (Screen.width * 0.5166015625f, 
+				Screen.height * 0.66666666666f,
+				buttonWidth,
+				buttonWidth * scale), "", mainMenu))
 			{
 				// if the main menu button is pressed
 				Time.timeScale = 1;					// unpause the game
 				Application.LoadLevel("MainMenu");	// load up the main menu
 			}
 		}
+	}
+
+	public bool getGameOver(){
+		return isGameOver;
 	}
 }	

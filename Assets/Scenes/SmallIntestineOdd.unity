@@ -18037,7 +18037,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MAX_HEALTH: 20
-  GameOverScript: {fileID: 100000, guid: b0beb0239087d0c45a4696a46f33da65, type: 2}
+  GameOverScript: {fileID: 1392274677511348, guid: 10b0becf5f85e4fef973c61993be44a1,
+    type: 2}
   FontStyle:
     m_Name: 
     m_Normal:

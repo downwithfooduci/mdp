@@ -16,12 +16,14 @@ public class FingerPopup : MonoBehaviour
 	private float elapsed;						//!< the elapsed after the game start
 	private int swipeCount;						//!< to keep track of how many times the swipe happened
 	private float timeStamp;
+	private EsophagusGameOver ego;
 
 	// Use this for initialization
 	void Start ()
 	{
 		flaps = GameObject.Find ("Flaps");									// find the reference to the flaps
 		flap = flaps.GetComponent<openFlap>();											// find the script on the flaps
+		ego = FindObjectOfType(typeof(EsophagusGameOver)) as EsophagusGameOver;
 
 		startTime = Time.time;
 		timeStamp = Time.time;
@@ -54,7 +56,8 @@ public class FingerPopup : MonoBehaviour
 //				Debug.Log ("popupstatus is 0");
 				swipingDown.SetActive (false);
 				swipingUp.SetActive (false);
-				Time.timeScale = 1;
+				if(!ego.getGameOver()) 
+					Time.timeScale = 1;
 			} 
 			else 
 			{
@@ -71,7 +74,8 @@ public class FingerPopup : MonoBehaviour
 //			Debug.Log ("popupstatus is 0");
 			swipingDown.SetActive (false);
 			swipingUp.SetActive (false);
-			Time.timeScale = 1;
+			if(!ego.getGameOver()) 
+				Time.timeScale = 1;
 		}
 	}
 }

@@ -96,7 +96,7 @@ public class IntestineGameManager : MonoBehaviour
 		}
 
 		// next check if the user has any health yet because if they don't, the game is over
-        if (health <= 0)
+        if (health <= 19)
         {
             Instantiate(GameOverScript);	// if there is no health start the game over script
             m_IsGameOver = true;			// set the flag in this script to indicate the game is over

@@ -25,6 +25,7 @@ public class openFlap : MonoBehaviour
 	public float swipeSize = 15.0f;
 
 	private int swipeCount;						//!< to keep track of how many times the swipe happened
+	private int coughCount;
 
 
 	/**
@@ -37,6 +38,7 @@ public class openFlap : MonoBehaviour
 		Debug.Log ("Screen width = " + Screen.width + " Screen height = " + Screen.height);
 		foods = GameObject.FindGameObjectsWithTag ("MouthFood");
 		swipeCount = 0;
+		coughCount = 0;
 		// find flaps and properly determine which one is the uvula (top flap) or epiglottis (bottom flap)
 		foreach(Transform child in transform)
 		{
@@ -218,6 +220,7 @@ public class openFlap : MonoBehaviour
 		}
 		coughTimer = 1.950f;			// set the cough timer to the length of the cough
 		cough = true;				// throw the flag to indicate a cough is happening
+		coughCount++;
 	}
 
 	/**
@@ -239,5 +242,8 @@ public class openFlap : MonoBehaviour
 	public int getSwipeCounts()
 	{
 		return swipeCount;
+	}
+	public int getCoughCounts(){
+		return coughCount;
 	}
 }
