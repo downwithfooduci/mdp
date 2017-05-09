@@ -45,6 +45,8 @@ public class IntestineGameManager : MonoBehaviour
 	public GameObject lostNutrientTutorial;
 	private GameObject instantiatedLostNutrientTutorial;
 
+	public BadgePopupSystem SIbps;
+
 	/**
 	 * called for initialization
 	 * gets all references and resets stats
@@ -60,6 +62,8 @@ public class IntestineGameManager : MonoBehaviour
 		drawHealthFace = healthFace.GetComponent<DrawHealthFace> ();	// get the script on the healthFace object
 
 		drawHealthBar = healthBar.GetComponent<DrawHealthBar> ();	// get the script on the healthBar object
+
+		SIbps = FindObjectOfType (typeof(BadgePopupSystem)) as BadgePopupSystem;
 
 		// draw the initial nutrients text
 		nutrientsText.updateText (nutrients);
@@ -96,7 +100,7 @@ public class IntestineGameManager : MonoBehaviour
 		}
 
 		// next check if the user has any health yet because if they don't, the game is over
-        if (health <= 19)
+        if (health <= 0)
         {
             Instantiate(GameOverScript);	// if there is no health start the game over script
             m_IsGameOver = true;			// set the flag in this script to indicate the game is over
@@ -121,6 +125,7 @@ public class IntestineGameManager : MonoBehaviour
 			if (Application.loadedLevelName != "SmallIntestineTutorial")
 			{
 				Application.LoadLevel("SmallIntestineStats");	// load the si stats screen
+				//SIbps.end();
 			} else
 			{
 				Application.LoadLevel("LoadLevelSmallIntestine");	// otherwise load the next level

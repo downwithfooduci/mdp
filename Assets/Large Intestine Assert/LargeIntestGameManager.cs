@@ -34,6 +34,7 @@ public class LargeIntestGameManager : MonoBehaviour {
 		Time.timeScale = 1;
 		Debug.Log ("TIme scale: " + Time.timeScale);
 		bacteriaCount = 0;
+		PlayerPrefs.SetInt ("LargeIntestineBacteriaTouched", bacteriaCount);
 
 	}
 	
@@ -88,6 +89,7 @@ public class LargeIntestGameManager : MonoBehaviour {
 		WaterValue = 100;
         bacTouched = 1;
 		bacteriaCount++;
+		PlayerPrefs.SetInt ("LargeIntestineBacteriaTouched", bacteriaCount);
 		GetComponent<AudioSource> ().clip = ouch;
 		playclip ();
     }

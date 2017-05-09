@@ -13,6 +13,7 @@ public class LIGameOver : MonoBehaviour {
 	private poopmeter pm;
 	private LI_WaterScript WS;
 	private LargeIntestGameManager ligm;
+	private BadgePopupSystem LIbps;
 
 	private bool gameOver;			//!< flag to indicate if the game is over
 	private int gameOverStatus;
@@ -26,6 +27,7 @@ public class LIGameOver : MonoBehaviour {
 		pm = FindObjectOfType(typeof(poopmeter))as poopmeter;
 		WS = FindObjectOfType(typeof(LI_WaterScript)) as LI_WaterScript;
 		ligm = FindObjectOfType (typeof(LargeIntestGameManager)) as LargeIntestGameManager;
+		LIbps = FindObjectOfType (typeof(BadgePopupSystem)) as BadgePopupSystem;
 		gameOverStatus = 0;
 	}
 
@@ -37,7 +39,8 @@ public class LIGameOver : MonoBehaviour {
 		if (ligm.getWaterValue() >= 50 && ligm.getWaterValue()<75)
 		{
 			gameOver = false;
-			Application.LoadLevel("LargeIntestineEndStoryboard");
+			//Application.LoadLevel("LargeIntestineEndStoryboard");
+			LIbps.end();
 		}
 			
 		if(ligm.getWaterValue() < 50)

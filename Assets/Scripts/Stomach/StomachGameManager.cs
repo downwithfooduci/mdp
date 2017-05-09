@@ -39,6 +39,8 @@ public class StomachGameManager : MonoBehaviour
 
 	public float endTimer;								//!<timer to count down after the Last food Drop
 
+	public BadgePopupSystem endGameScript;
+
 	private StomachFoodManager sFM;
 
 	/**
@@ -63,6 +65,7 @@ public class StomachGameManager : MonoBehaviour
 		// get references
 		cellManager = FindObjectOfType(typeof(CellManager)) as CellManager;
 		sFM = FindObjectOfType (typeof(StomachFoodManager)) as StomachFoodManager;
+		endGameScript = FindObjectOfType (typeof(BadgePopupSystem)) as BadgePopupSystem;
 		
 		// initialize arrays
 		elapsedTime = new float[cellManager.cellScripts.Length];
@@ -283,7 +286,8 @@ public class StomachGameManager : MonoBehaviour
 					StomachLoadLevelCounter level = chooseBackground.GetComponent<StomachLoadLevelCounter> ();
 						
 					level.nextLevel ();
-					Application.LoadLevel ("StomachStats");
+					//Application.LoadLevel ("StomachStats");
+					endGameScript.end();
 				}
 			}
 		}
