@@ -35,7 +35,7 @@ public class EsophagusGameOver : MonoBehaviour
 			Time.timeScale = 0;		// pause the game to stop movement of food
 			Debug.Log("2.Time scale: "+Time.timeScale);
 		}
-		Debug.Log("1.Time scale: "+Time.timeScale);
+		//Debug.Log("1.Time scale: "+Time.timeScale);
 
 	}
 
@@ -90,5 +90,8 @@ public class EsophagusGameOver : MonoBehaviour
 
 	public bool getGameOver(){
 		return isGameOver;
+	}
+	public void setGameOver(){
+		isGameOver = true;
 	}
 }	

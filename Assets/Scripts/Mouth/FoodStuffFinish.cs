@@ -9,6 +9,7 @@ public class FoodStuffFinish : MonoBehaviour
 	private SpawnFood foodSpawner;	//!< to hold a reference to the foodSpawner
 	private MouthScore score;		//!< to hold a reference to the mouthScore to modify score
 	private MouthLoadLevelCounter  level; //!< to hold a reference to the load level counter for switching levels
+	public GameObject endGameScript;
 
 	/**
 	 * Use this for initialization
@@ -53,7 +54,8 @@ public class FoodStuffFinish : MonoBehaviour
 				level.nextLevel();						// increase the level counter to correctly load the next 
 														// level (if there is one)
 			}
-			Application.LoadLevel("MouthStats");		// load the stats screen for the completed level
+			//Application.LoadLevel("MouthStats");		// load the stats screen for the completed level
+			Instantiate(endGameScript);
 		}
 		else 	// otherwise if there are more food stuff just destroy the current one that hit the end point
 		{

@@ -14,10 +14,20 @@ public class SkipGameButton : MonoBehaviour
 	public float x, y;
 
 	private bool confirmUp;			//!< flag to determine whether the confirm box is up
+	private FingerPopup fp;
+	private string scence;
+
+
+
+	void Start(){
+		fp = FindObjectOfType (typeof(FingerPopup)) as FingerPopup;
+		scence = Application.loadedLevelName;
+	}
 
 	/**
 	 * Draws the return button and handles drawing the Quit game pop up if necessary
 	 */
+
 	void OnGUI()
 	{
 		// this just handles the menu button in the corner
@@ -29,6 +39,7 @@ public class SkipGameButton : MonoBehaviour
 				Screen.width * .09f,
 				Screen.height * .06f), "", mainMenuStyle))
 			{
+				if(scence == "Mouth")fp.setPaused ();
 				Time.timeScale = 0;		// pause the game
 				confirmUp = true;		// throw flag
 			}
@@ -77,6 +88,7 @@ public class SkipGameButton : MonoBehaviour
 			{
 				// if the "keep going" button was pressed
 				Time.timeScale = 1;					// unpause the game
+				if(scence == "Mouth")fp.setPaused();
 				confirmUp = false;					// unflag the confirm up variable
 			}
 		}

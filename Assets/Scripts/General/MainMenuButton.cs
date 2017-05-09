@@ -11,6 +11,15 @@ public class MainMenuButton : MonoBehaviour
 	public GUIStyle confirmRight;		//!< button for no
 
 	private bool confirmUp;			//!< flag to determine whether the confirm box is up
+	private FingerPopup fp;
+	private string scence;
+
+
+
+	void Start(){
+		fp = FindObjectOfType (typeof(FingerPopup)) as FingerPopup;
+		scence = Application.loadedLevelName;
+	}
 
 	/**
 	 * Draws the return button and handles drawing the Quit game pop up if necessary
@@ -26,6 +35,7 @@ public class MainMenuButton : MonoBehaviour
 				Screen.width * .09f,
 				Screen.height * .06f), "", mainMenuStyle))
 			{
+				if(scence == "Mouth")fp.setPaused ();
 				Time.timeScale = 0;		// pause the game
 				confirmUp = true;		// throw flag
 			}
@@ -60,6 +70,7 @@ public class MainMenuButton : MonoBehaviour
 				Screen.height * 0.06640625f), "", confirmRight))
 			{
 				// if the no button was pressed
+				if(scence == "Mouth")fp.setPaused ();
 				Time.timeScale = 1;					// unpause the game
 				confirmUp = false;					// unflag the confirm up variable
 			}
