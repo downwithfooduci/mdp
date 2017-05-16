@@ -166,11 +166,11 @@ public class Tower : MonoBehaviour
 		// assign the color properly to the tower and all the possible upgrade towers from the parent
         foreach (Transform child in transform)
         {
-            Transform circle = child.FindChild("Circle");
+            Transform circle = child.Find("Circle");
             circle.GetComponent<Renderer>().materials[0].color = m_TargetColor;
 
 			//fix bazooka color
-			Transform sphere = child.FindChild("Sphere");
+			Transform sphere = child.Find("Sphere");
 			if (sphere != null)
 			{
 				sphere.GetComponent<Renderer>().materials[0].color = m_TargetColor;
@@ -207,7 +207,7 @@ public class Tower : MonoBehaviour
 
 		// now we set it so only the proper model will render
 		m_ActiveModelName = name;								// set the model name to that passed in
-        m_ActiveModel = transform.FindChild(m_ActiveModelName);	// find this specific model in the tower group
+        m_ActiveModel = transform.Find(m_ActiveModelName);	// find this specific model in the tower group
 		m_ActiveModel.gameObject.SetActive(true);				// set this model to be the one visible on the screen
 	}
 
@@ -233,7 +233,7 @@ public class Tower : MonoBehaviour
             transform.LookAt(target.transform);
 			transform.Rotate(new Vector3(90,0,0), 40, Space.World);
 			// play the shooting animation
-            transform.FindChild(m_ActiveModelName).GetComponent<Animation>().Play("Default Take", PlayMode.StopAll);
+            transform.Find(m_ActiveModelName).GetComponent<Animation>().Play("Default Take", PlayMode.StopAll);
 
 			// create the bullet that will seek out the target
             GameObject bulletObject = Instantiate(Projectile, transform.position, transform.rotation) as GameObject;
@@ -362,7 +362,7 @@ public class Tower : MonoBehaviour
 	 */
 	private void AdjustAnimationSpeed(float newCooldown)
 	{
-        foreach (AnimationState state in transform.FindChild(m_ActiveModelName).GetComponent<Animation>())
+        foreach (AnimationState state in transform.Find(m_ActiveModelName).GetComponent<Animation>())
         {
             state.speed = BaseCooldown / newCooldown;
         }
