@@ -1,19 +1,17 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Large Intestine Assert/LIGameOver.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/BadgeSystem/BadgeDataIO.cs">
     <Files>
-      <File FileName="Assets/Scripts/BadgeSystem/BadgeDataIO.cs" Line="1" Column="1" />
-      <File FileName="Assets/General Assets/BadgeArt/popupSystems/BadgePopupSystem.cs" Line="174" Column="36" />
+      <File FileName="Assets/Scripts/Test_StoryBoard/BackGroundTurner.cs" Line="118" Column="27" />
+      <File FileName="Assets/Scripts/Test_StoryBoard/StoryCharacter.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Mouth/FoodStuffFinish.cs" Line="1" Column="1" />
       <File FileName="Assets/General Assets/BadgeArt/popupSystems/MouthBadgePopup.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Mouth/MouthGameManager.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Utility/FridgeBadgeDrag.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/SmallIntestine/ReturnButtonSIOdd.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/SmallIntestine/IntestineGameManager.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/SmallIntestine/SpawnManager.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/SmallIntestine/TapPopUp.cs" Line="1" Column="1" />
+      <File FileName="Assets/General Assets/BadgeArt/popupSystems/BadgePopupSystem.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/SmallIntestine/LoadSmallIntestine.cs" Line="1" Column="1" />
       <File FileName="Assets/Large Intestine Assert/LargeIntestGameManager.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Mouth/MouthScore.cs" Line="1" Column="1" />
-      <File FileName="Assets/Large Intestine Assert/LIGameOver.cs" Line="43" Column="16" />
+      <File FileName="Assets/Scripts/General/SkipGameButton.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Stomach/StomachGameOver.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/BadgeSystem/BadgeDataIO.cs" Line="62" Column="51" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

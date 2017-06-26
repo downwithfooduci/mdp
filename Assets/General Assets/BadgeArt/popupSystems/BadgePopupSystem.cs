@@ -17,12 +17,14 @@ public class BadgePopupSystem : MonoBehaviour {
 
 
 
+
 	private GUIStyle statsStyle;
 	private GUIStyle statsStyle2;
 	private int trigerNum;
 	private string[] badgeText;
 	private string scence;
 	private string loadLevel;
+	private string[] sentence;
 
 
 
@@ -46,6 +48,7 @@ public class BadgePopupSystem : MonoBehaviour {
 		scence = Application.loadedLevelName;
 
 		badgeText = new string[3];
+		sentence = new string[3];
 
 		if (scence == "Stomach") {
 			badgeText [0] = "  Cells\n" +
@@ -56,6 +59,10 @@ public class BadgePopupSystem : MonoBehaviour {
 
 			loadLevel = "StomachStats";
 
+			sentence[0] = "You turned the stomach enzyme on!";
+			sentence[1] = "You burnt less than 3 cells!";
+			sentence[2] = "You didn’t burn a hole in the stomach wall! ";
+
 		}
 		else if (scence == "SmallIntestineOdd" || scence == "SmallIntestineEven"){
 			badgeText [0] = " Level One\n" + 
@@ -65,14 +72,24 @@ public class BadgePopupSystem : MonoBehaviour {
 			badgeText [2] = " Level Three\n" + 
 							" Passed!";
 			loadLevel = "SmallIntestineStats";
+
+			sentence[0] = "You completed the first part of the small intestine! ";
+			sentence[1] = "You completed the second part of the small intestine! ";
+			sentence[2] = "You completed the third part of the small intestine!";
+
 		}
 		else if (scence == "LargeIntestine"){
-			badgeText [0] = "   Bacterials\n" + 
+			badgeText [0] = "   Bacterias\n" + 
 							">3 touched";
-			badgeText [1] = "   Bacterials\n" + 
+			badgeText [1] = "   Bacterias\n" + 
 							"<3 touched";
-			badgeText [2] = "No bacterial touched";
+			badgeText [2] = "No bacteria touched";
 			loadLevel = "LargeIntestineEndStoryboard";
+
+			sentence[0] = "You absorbed water from the food to make good poop! ";
+			sentence[1] = "You hit less than 3 bacteria!";
+			sentence[2] = "You didn’t hit any bacteria! ";
+
 		}
 
 
@@ -111,35 +128,53 @@ public class BadgePopupSystem : MonoBehaviour {
 
 			GUI.DrawTexture(new Rect((546f/1024f)*Screen.width, (233f/768f)*Screen.height, (31f/1024f)*Screen.width,
 				(31f/768f)*Screen.height), filledStar[0]);
+			
 			GUI.Label(new Rect((592f/1024f)*Screen.width, (230f/768f)*Screen.height, ((80f)/1024f)*Screen.width,
 				((41f)/768f)*Screen.height), 
 				badgeText [0],
 				statsStyle);
+			GUI.Label (new Rect ((592f / 1024f) * Screen.width, (309f / 768f) * Screen.height, ((80f) / 1024f) * Screen.width,
+				((41f) / 768f) * Screen.height), 
+				badgeText [1],
+				statsStyle);
+			GUI.Label (new Rect ((592f / 1024f) * Screen.width, (391f / 768f) * Screen.height, ((80f) / 1024f) * Screen.width,
+				((103f) / 768f) * Screen.height), 
+				badgeText [2],
+				statsStyle);
+			
+
+
+			if (trigerNum >= 3) {
+				GUI.Label(new Rect(((276f + 65f)/1024f)*Screen.width, ((141f + 322f)/768f)*Screen.height, ((340f)/1024f)*Screen.width,
+					((29f)/768f)*Screen.height), 
+					sentence[0], 										//"You helped the chef swalllow!" ,
+					statsStyle2);
+				
+			}
 
 			if (trigerNum < 3) {
 				GUI.DrawTexture (new Rect ((546f / 1024f) * Screen.width, (312f / 768f) * Screen.height, (31f / 1024f) * Screen.width,
 					(31f / 768f) * Screen.height), filledStar [1]);
-				GUI.Label (new Rect ((592f / 1024f) * Screen.width, (309f / 768f) * Screen.height, ((80f) / 1024f) * Screen.width,
-					((41f) / 768f) * Screen.height), 
-					badgeText [1],
-					statsStyle);
+				GUI.Label(new Rect(((276f + 65f)/1024f)*Screen.width, ((141f + 322f)/768f)*Screen.height, ((340f)/1024f)*Screen.width,
+					((29f)/768f)*Screen.height), 
+					sentence[1], 										//"You helped the chef swalllow!" ,
+					statsStyle2);
+				
 			}
 
 
 			if (trigerNum == 0) {
 				GUI.DrawTexture (new Rect ((546f / 1024f) * Screen.width, (391f / 768f) * Screen.height, (31f / 1024f) * Screen.width,
 					(31f / 768f) * Screen.height), filledStar [2]);
-				GUI.Label (new Rect ((592f / 1024f) * Screen.width, (391f / 768f) * Screen.height, ((80f) / 1024f) * Screen.width,
-					((103f) / 768f) * Screen.height), 
-					badgeText [2],
-					statsStyle);
+				GUI.Label(new Rect(((276f + 65f)/1024f)*Screen.width, ((141f + 322f)/768f)*Screen.height, ((340f)/1024f)*Screen.width,
+					((29f)/768f)*Screen.height), 
+					sentence[2], 										//"You helped the chef swalllow!" ,
+					statsStyle2);
+				
 			}
 
 
-			GUI.Label(new Rect(((276f + 65f)/1024f)*Screen.width, ((141f + 322f)/768f)*Screen.height, ((340f)/1024f)*Screen.width,
-				((29f)/768f)*Screen.height), 
-				PassText, 										//"You helped the chef swalllow!" ,
-				statsStyle2);
+
 
 
 			// draw restart button in proper condition

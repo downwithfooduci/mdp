@@ -30,10 +30,12 @@ public class BackGroundTurner : MonoBehaviour {
 	public Sprite[] BackGroundImages;
 	private Image image;
 
+	/*
 	public int[] CharacterPage;
 	public float[] XCharacterPosition;
 	public float[] YCharacterPosition;
 	public Sprite[] CharacterImage;
+*/
 
 
 
@@ -69,10 +71,13 @@ public class BackGroundTurner : MonoBehaviour {
 
 
 
+		/*
 		for (int i = 0; i < CharacterPage.Length; i++) {
 			charSet.Add (CharacterPage [i]);
 			Debug.Log ("Page " + CharacterPage[i] + " added");
 		}
+		*/
+
 
 		int tempCharCounter = 0;
 

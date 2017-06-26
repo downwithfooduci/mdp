@@ -86,6 +86,7 @@ public class StoryCharacter : MonoBehaviour {
 		else {
 			setcharOff ();
 			GetComponent<BoxCollider2D> ().enabled = false;
+			if(hasSound) GetComponent<AudioSource> ().Stop();
 		}
 		
 		if(charOn){

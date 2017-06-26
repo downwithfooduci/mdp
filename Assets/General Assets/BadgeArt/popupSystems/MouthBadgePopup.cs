@@ -18,6 +18,7 @@ public class MouthBadgePopup : MonoBehaviour {
 	private GUIStyle statsStyle;
 	private GUIStyle statsStyle2;
 	private int timesCoughed;
+	private string[] sentence;
 
 
 
@@ -40,7 +41,9 @@ public class MouthBadgePopup : MonoBehaviour {
 		statsStyle2.fontSize = (int)(22f / 768f * Screen.height);				// set the font relative size
 
 		timesCoughed = PlayerPrefs.GetInt("MouthStats_timesCoughed");
-		
+		sentence = new string[3]{	"You helped the chef swallow!\n",
+									"You helped the chef swallow almost without choking!\n",
+									"You helped the chef swallow without choking!\n"};
 	}
 	
 	// Update is called once per frame
@@ -71,39 +74,58 @@ public class MouthBadgePopup : MonoBehaviour {
 
 
 
-			GUI.DrawTexture(new Rect((546f/1024f)*Screen.width, (233f/768f)*Screen.height, (31f/1024f)*Screen.width,
-				(31f/768f)*Screen.height), filledStar[0]);
+
+			
 			GUI.Label(new Rect((592f/1024f)*Screen.width, (230f/768f)*Screen.height, ((80f)/1024f)*Screen.width,
 				((41f)/768f)*Screen.height), 
 				"  Choke:\n" +
 				"> 3 times\n" ,
 				statsStyle);
 
+			GUI.Label (new Rect ((592f / 1024f) * Screen.width, (309f / 768f) * Screen.height, ((80f) / 1024f) * Screen.width,
+				((41f) / 768f) * Screen.height), 
+				"  Choke:\n" +
+				"< 3 times\n",
+				statsStyle);
+			GUI.Label (new Rect ((592f / 1024f) * Screen.width, (391f / 768f) * Screen.height, ((80f) / 1024f) * Screen.width,
+				((103f) / 768f) * Screen.height), 
+				"No Choking:\n",
+				statsStyle);
+
+
+			GUI.DrawTexture(new Rect((546f/1024f)*Screen.width, (233f/768f)*Screen.height, (31f/1024f)*Screen.width,
+				(31f/768f)*Screen.height), filledStar[0]);
+
+			if (timesCoughed >= 3) {
+				GUI.Label(new Rect(((276f + 65f)/1024f)*Screen.width, ((141f + 322f)/768f)*Screen.height, ((340f)/1024f)*Screen.width,
+					((29f)/768f)*Screen.height), 
+					sentence[0],
+					statsStyle2);
+				
+			}
+
 			if (timesCoughed < 3) {
 				GUI.DrawTexture (new Rect ((546f / 1024f) * Screen.width, (312f / 768f) * Screen.height, (31f / 1024f) * Screen.width,
 					(31f / 768f) * Screen.height), filledStar [1]);
-				GUI.Label (new Rect ((592f / 1024f) * Screen.width, (309f / 768f) * Screen.height, ((80f) / 1024f) * Screen.width,
-					((41f) / 768f) * Screen.height), 
-					"  Choke:\n" +
-					"< 3 times\n",
-					statsStyle);
+				GUI.Label(new Rect(((276f + 65f)/1024f)*Screen.width, ((141f + 322f)/768f)*Screen.height, ((340f)/1024f)*Screen.width,
+					((29f)/768f)*Screen.height), 
+					sentence[1],
+					statsStyle2);
 			}
 
 
 			if (timesCoughed == 0) {
 				GUI.DrawTexture (new Rect ((546f / 1024f) * Screen.width, (391f / 768f) * Screen.height, (31f / 1024f) * Screen.width,
 					(31f / 768f) * Screen.height), filledStar [2]);
-				GUI.Label (new Rect ((592f / 1024f) * Screen.width, (391f / 768f) * Screen.height, ((80f) / 1024f) * Screen.width,
-					((103f) / 768f) * Screen.height), 
-					"No Choking:\n",
-					statsStyle);
+				GUI.Label(new Rect(((276f + 65f)/1024f)*Screen.width, ((141f + 322f)/768f)*Screen.height, ((340f)/1024f)*Screen.width,
+					((29f)/768f)*Screen.height), 
+					sentence[2],
+					statsStyle2);
+
 			}
 
 
-			GUI.Label(new Rect(((276f + 65f)/1024f)*Screen.width, ((141f + 322f)/768f)*Screen.height, ((340f)/1024f)*Screen.width,
-				((29f)/768f)*Screen.height), 
-				"You helped the chef swalllow!" ,
-				statsStyle2);
+
 
 
 			// draw restart button in proper condition
