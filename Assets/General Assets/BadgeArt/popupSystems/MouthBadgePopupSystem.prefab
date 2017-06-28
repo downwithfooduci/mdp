@@ -51,7 +51,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ec44cd270add4a33905f0f7f49c3013, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isPopup: 0
+  isPopup: 1
   mouthBadgePopup: {fileID: 2800000, guid: dc330f13fc13749f5ad7855d6c0ef835, type: 3}
   filledStar:
   - {fileID: 2800000, guid: 298709578448642bf8a137d6b381ec94, type: 3}

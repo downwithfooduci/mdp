@@ -11,6 +11,7 @@ public class StoryDragBG : MonoBehaviour {
 	public float movingSpeed;
 	public bool directionX;
 	public bool directionY;
+	public bool directionYUp;
 	public float constantScale;
 
 
@@ -23,6 +24,7 @@ public class StoryDragBG : MonoBehaviour {
 
 	private float startY, startX;
 	private bool pageSet;
+	private float tempx, tempy;
 
 
 
@@ -45,16 +47,22 @@ public class StoryDragBG : MonoBehaviour {
 		}
 		if (bgt.currentPage () == pageNum) {
 			image.sprite = BG;
-			float tempx = directionX ? (transform.position.x - Time.deltaTime * (Screen.width/movingSpeed)) : originalP.x;
-			float tempy = directionY ? (transform.position.y - Time.deltaTime * movingSpeed) : originalP.y;
+			tempx = directionX ? (transform.position.x - Time.deltaTime * (Screen.width/movingSpeed)) : originalP.x;
+			tempy = directionY ? (transform.position.y - Time.deltaTime * movingSpeed) : originalP.y;
+			tempy = directionYUp ? (transform.position.y + Time.deltaTime * movingSpeed) : originalP.y;
 
-			if(tempx< -2048f * constantScale) {
+			if(directionX && tempx< -2048f * constantScale) {
 				tempx = -2048f * constantScale;
 				bgt.setLongPageFinish (pageNum);
 			}
 
-			if(tempy< -1536f * constantScale) {
+			if(directionY && tempy< -1536f * constantScale) {
 				tempy = -1536f * constantScale;
+				bgt.setLongPageFinish (pageNum);
+			}
+
+			if(directionYUp && tempy> 1536f * constantScale) {
+				tempy = 1536f * constantScale;
 				bgt.setLongPageFinish (pageNum);
 			}
 
@@ -82,7 +90,7 @@ public class StoryDragBG : MonoBehaviour {
 	}
 
 	void OnMouseDrag(){
-		//Debug.Log ("on mouse drag");
+		Debug.Log ("on mouse drag");
 		//Vector3 cursorPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z);
 		float inputX = Input.mousePosition.x;
 		float inputY = Input.mousePosition.y;
@@ -96,11 +104,29 @@ public class StoryDragBG : MonoBehaviour {
 			}
 		}
 
+		if (directionY) {
+			//inputX = (inputX <= startX) ? inputX : startX;
+			if (inputY <= startY) {
+				inputY = inputY;
+			} else {
+				inputY = startY;
+			}
+		}
+
+		if (directionYUp) {
+			//inputX = (inputX <= startX) ? inputX : startX;
+			if (inputY >= startY) {
+				inputY = inputY;
+			} else {
+				inputY = startY;
+			}
+		}
+
 		Vector3 cursorPoint = new Vector3(inputX, inputY, screenPoint.z);
 
 		Vector3 cursorPosition = Camera.main.ScreenToWorldPoint(cursorPoint) + offset;
 		float newX = directionX ? cursorPosition.x : originalP.x;
-		float newY = directionY ? cursorPosition.y : originalP.y;
+		float newY = (directionY||directionYUp) ? cursorPosition.y : originalP.y;
 
 		//newX = (newX > -2048f * constantScale) ? newX : -2048f * constantScale;
 		/*
