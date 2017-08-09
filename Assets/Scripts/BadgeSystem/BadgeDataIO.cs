@@ -16,6 +16,9 @@ public class BadgeDataIO : MonoBehaviour {
 	public GameObject panelList;
 	public List<GameObject> badgeList;
 
+	private long dataLength; 
+	private string tempStream;
+
 
 	// Use this for initialization
 	void Start () {
@@ -27,6 +30,8 @@ public class BadgeDataIO : MonoBehaviour {
 		Debug.Log ("panelList Length: " + panelList.transform.childCount);
 
 		Debug.Log ("First Child: " + panelList.transform.GetChild(0).name);
+
+		dataLength = 0;
 
 //		foreach (Transform child in panelList) {
 			
@@ -75,15 +80,36 @@ public class BadgeDataIO : MonoBehaviour {
 			
 
 		dataStream = File.Open (Application.persistentDataPath + "/badgeData.dat", FileMode.Open);
+		dataLength = dataStream.Length;
 
-		Debug.Log ("File " + Application.persistentDataPath + "/badgeData.dat" + " loaded");
+		if (dataLength == 0) {
+			Debug.Log ("File is empty. ");
+			badgeData data = new badgeData ();
+			//data.badgeList = localBadgeList; 
+			//data.setList (localBadgeList);
+			for (int i = 0; i < badgeNums; i++) {
+				data.badgeList [i] = localBadgeList [i];
+			}
 
-		BinaryFormatter bf = new BinaryFormatter ();
-		badgeData data = (badgeData)bf.Deserialize( dataStream);
+			Debug.Log ("badge Length " + data.badgeList.Length + "before save");
 
-		dataStream.Close();
-		localBadgeList = data.badgeList;//localBadgeList = data.returnList ();
+			BinaryFormatter bf = new BinaryFormatter ();
+			bf.Serialize (dataStream, data);
+			dataStream.Close ();
+		}
+		else{
 
+			tempStream = Application.persistentDataPath + "/badgeData.dat";
+			Debug.Log ("File " + Application.persistentDataPath + "/badgeData.dat" + " loaded");
+			Debug.Log ("File " + Application.persistentDataPath + "/badgeData.dat" + "  length:" + dataLength);
+
+			BinaryFormatter bf = new BinaryFormatter ();
+			badgeData data = (badgeData)bf.Deserialize( dataStream);
+
+			dataStream.Close();
+			localBadgeList = data.badgeList;//localBadgeList = data.returnList ();
+			
+		}
 	}
 
 	void Save(){
@@ -94,6 +120,9 @@ public class BadgeDataIO : MonoBehaviour {
 		} else {
 			dataStream = File.Open (Application.persistentDataPath + "/badgeData.dat", FileMode.Open);
 		}
+
+		dataLength = dataStream.Length;
+		tempStream = Application.persistentDataPath + "/badgeData.dat";
 
 		Debug.Log ("File " + Application.persistentDataPath + "/badgeData.dat" + " created");
 
@@ -161,6 +190,14 @@ public class BadgeDataIO : MonoBehaviour {
 		}
 		*/
 
+	}
+
+	void OnGUI(){
+		GUI.Label(new Rect((10f/1024f)*Screen.width, (10f/768f)*Screen.height, (700f/1024f)*Screen.width,
+			(100f/768f)*Screen.height), "Length of the data file: " + dataLength);
+		GUI.Label(new Rect((10f/1024f)*Screen.width, (300f/768f)*Screen.height, (700f/1024f)*Screen.width,
+			(600f/768f)*Screen.height), "Length of the data file: " + tempStream);
+		
 	}
 
 
