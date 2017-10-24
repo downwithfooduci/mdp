@@ -110,6 +110,8 @@ public class OxygenBar : MonoBehaviour
 			GUI.DrawTexture (new Rect (position.x, position.y, originalSize.x, originalSize.y), oxygenBar[1]);
 		}
 
+		//Hide for now
+		/*
 		if (AhahaPopup == true)
 			GUI.DrawTexture (new Rect(Screen.width * 0.7493359375f, 
 				Screen.height * 0.73515625f, 
@@ -121,6 +123,7 @@ public class OxygenBar : MonoBehaviour
 				Screen.height * 0.73515625f, 
 				Screen.width * 0.2093359375f, 
 				Screen.height * 0.300697917f), YAYPopupTexture);
+				*/
 	}
 
 	/**

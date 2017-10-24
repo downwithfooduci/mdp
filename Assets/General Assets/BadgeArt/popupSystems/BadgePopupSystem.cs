@@ -57,7 +57,10 @@ public class BadgePopupSystem : MonoBehaviour {
 							"< 3 died\n" ;
 			badgeText [2] = "No cells died!" ;
 
-			loadLevel = "StomachStats";
+			//loadLevel = "StomachStats";
+			loadLevel = "BadgeFridge";
+			PlayerPrefs.SetString("lastLoadedGame", "Stomach");
+
 
 			sentence[0] = "You turned the stomach enzyme on!";
 			sentence[1] = "You burnt less than 3 cells!";
@@ -71,7 +74,10 @@ public class BadgePopupSystem : MonoBehaviour {
 							" Passed!";
 			badgeText [2] = " Level Three\n" + 
 							" Passed!";
-			loadLevel = "SmallIntestineStats";
+			//loadLevel = "SmallIntestineStats";
+			loadLevel = "BadgeFridge";
+			PlayerPrefs.SetString("lastLoadedGame", "SI");
+
 
 			sentence[0] = "You completed the first part of the small intestine! ";
 			sentence[1] = "You completed the second part of the small intestine! ";
@@ -84,7 +90,10 @@ public class BadgePopupSystem : MonoBehaviour {
 			badgeText [1] = "   Bacterias\n" + 
 							"<3 touched";
 			badgeText [2] = "No bacteria touched";
-			loadLevel = "LargeIntestineEndStoryboard";
+			//loadLevel = "LargeIntestineEndStoryboard";
+			loadLevel = "BadgeFridge";
+			PlayerPrefs.SetString("lastLoadedGame", "LI");
+
 
 			sentence[0] = "You absorbed water from the food to make good poop! ";
 			sentence[1] = "You hit less than 3 bacteria!";
@@ -204,7 +213,7 @@ public class BadgePopupSystem : MonoBehaviour {
 				buttonWidth,
 				buttonWidth * scale), "", continueGame))
 			{
-				// if the main menu button is pressed
+				// if the go next button is pressed
 				Time.timeScale = 1;					// unpause the game
 				Application.LoadLevel(loadLevel);	// load up the main menu
 			}

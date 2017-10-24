@@ -1314,6 +1314,7 @@ MonoBehaviour:
   movingSpeed: 20
   directionX: 0
   directionY: 1
+  directionYUp: 0
   constantScale: 0.07517
 --- !u!61 &1300686766
 BoxCollider2D:

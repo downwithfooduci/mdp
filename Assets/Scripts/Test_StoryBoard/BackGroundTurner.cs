@@ -142,7 +142,8 @@ public class BackGroundTurner : MonoBehaviour {
 			canSkip = (PlayerPrefs.GetInt("PlayedLIEndStory") == 1) ? true : false;
 		}
 
-
+		//Just for testing
+		//canSkip = false;
 
 		// preload next scene
 		StartCoroutine(loadNextLevel());
@@ -226,8 +227,9 @@ public class BackGroundTurner : MonoBehaviour {
 
 		/**************************************************************/
 
-		if ((!GetComponent<AudioSource>().isPlaying && longPageDone)|| canSkip) //((!GetComponent<AudioSource>().isPlaying && !longPages[currPage])|| canSkip) //
+		if ((!GetComponent<AudioSource>().isPlaying && hasPlayed && longPageDone)|| (canSkip && longPageDone)) //((!GetComponent<AudioSource>().isPlaying && !longPages[currPage])|| canSkip) //
 		{
+			Debug.Log ("Page can turn now: " + GetComponent<AudioSource>().isPlaying + longPageDone + hasPlayed);
 			if (swipeDetection.getSwipeLeft() || buttonClicked)		// attempt to detect a swipe to the right
 			{
 				buttonClicked = false;
@@ -362,14 +364,18 @@ public class BackGroundTurner : MonoBehaviour {
 
 	public void setLongPageFinish(int n){
 		//longPages [n] = false;
-		longPageDone = true;
-		Debug.Log ("LongPage Finished: " + n);
+		if (!longPageDone) {
+			longPageDone = true;
+			Debug.Log ("LongPage Finished: " + n);
+		}
 
 	}
 	public void setLongPageStart(int n){
 		//longPages [n] = true;
-		longPageDone = false;
-		Debug.Log ("LongPage Setuped: " + n);
+		if (n == currentPage ()) {
+			longPageDone = false;
+			Debug.Log ("LongPage Setuped: " + n);
+		}
 
 	}
 	public bool getLongPageDon(){
@@ -394,6 +400,9 @@ public class BackGroundTurner : MonoBehaviour {
 		hasPlayed = false;
 		currPage--;
 		//pageTurned = true;
+	}
+	public bool showPageTurner(){
+		return (!GetComponent<AudioSource> ().isPlaying && hasPlayed && longPageDone) || (canSkip && longPageDone);
 	}
 
 }

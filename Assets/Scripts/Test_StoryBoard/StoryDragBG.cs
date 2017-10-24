@@ -28,6 +28,7 @@ public class StoryDragBG : MonoBehaviour {
 
 
 
+
 	// Use this for initialization
 	void Start () {
 		image = GetComponent<Image> ();
@@ -40,16 +41,23 @@ public class StoryDragBG : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (!pageSet) {
-
-			bgt.setLongPageStart (pageNum);
-			pageSet = true;
-		}
 		if (bgt.currentPage () == pageNum) {
+			if (!pageSet) {
+
+				bgt.setLongPageStart (pageNum);
+				pageSet = true;
+			}
 			image.sprite = BG;
 			tempx = directionX ? (transform.position.x - Time.deltaTime * (Screen.width/movingSpeed)) : originalP.x;
-			tempy = directionY ? (transform.position.y - Time.deltaTime * movingSpeed) : originalP.y;
-			tempy = directionYUp ? (transform.position.y + Time.deltaTime * movingSpeed) : originalP.y;
+			if (directionY || directionYUp) {
+				tempy = directionY ? (transform.position.y - Time.deltaTime * movingSpeed) :  (transform.position.y + Time.deltaTime * movingSpeed);
+				/*
+				tempy = directionY ? (transform.position.y - Time.deltaTime * movingSpeed) : originalP.y;
+				tempy = directionYUp ? (transform.position.y + Time.deltaTime * movingSpeed) : originalP.y;
+				*/
+			} else {
+				tempy = originalP.y;
+			}
 
 			if(directionX && tempx< -2048f * constantScale) {
 				tempx = -2048f * constantScale;
@@ -79,76 +87,82 @@ public class StoryDragBG : MonoBehaviour {
 	}
 
 	void OnMouseDown(){
-		Debug.Log("on mouse down");
-		screenPoint = Camera.main.WorldToScreenPoint(gameObject.transform.position);
-		offset = gameObject.transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z));
-		//isdrag = false;
-		//image.sprite = BucketList[1];
-		startX = Input.mousePosition.x;
-		startY = Input.mousePosition.y;
-		Debug.Log (offset);
+		if (pageSet) {
+			Debug.Log ("on mouse down");
+			screenPoint = Camera.main.WorldToScreenPoint (gameObject.transform.position);
+			offset = gameObject.transform.position - Camera.main.ScreenToWorldPoint (new Vector3 (Input.mousePosition.x, Input.mousePosition.y, screenPoint.z));
+			//isdrag = false;
+			//image.sprite = BucketList[1];
+			startX = Input.mousePosition.x;
+			startY = Input.mousePosition.y;
+			Debug.Log (offset);
+		}
 	}
 
 	void OnMouseDrag(){
-		Debug.Log ("on mouse drag");
-		//Vector3 cursorPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z);
-		float inputX = Input.mousePosition.x;
-		float inputY = Input.mousePosition.y;
+		if (pageSet) {
+			Debug.Log ("on mouse drag");
+			//Vector3 cursorPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z);
+			float inputX = Input.mousePosition.x;
+			float inputY = Input.mousePosition.y;
 
-		if (directionX) {
-			//inputX = (inputX <= startX) ? inputX : startX;
-			if (inputX <= startX) {
-				inputX = inputX;
-			} else {
-				inputX = startX;
+			if (directionX) {
+				//inputX = (inputX <= startX) ? inputX : startX;
+				if (inputX <= startX) {
+					inputX = inputX;
+				} else {
+					inputX = startX;
+				}
 			}
-		}
 
-		if (directionY) {
-			//inputX = (inputX <= startX) ? inputX : startX;
-			if (inputY <= startY) {
-				inputY = inputY;
-			} else {
-				inputY = startY;
+			if (directionY) {
+				//inputX = (inputX <= startX) ? inputX : startX;
+				if (inputY <= startY) {
+					inputY = inputY;
+				} else {
+					inputY = startY;
+				}
 			}
-		}
 
-		if (directionYUp) {
-			//inputX = (inputX <= startX) ? inputX : startX;
-			if (inputY >= startY) {
-				inputY = inputY;
-			} else {
-				inputY = startY;
+			if (directionYUp) {
+				//inputX = (inputX <= startX) ? inputX : startX;
+				if (inputY >= startY) {
+					inputY = inputY;
+				} else {
+					inputY = startY;
+				}
 			}
-		}
 
-		Vector3 cursorPoint = new Vector3(inputX, inputY, screenPoint.z);
+			Vector3 cursorPoint = new Vector3 (inputX, inputY, screenPoint.z);
 
-		Vector3 cursorPosition = Camera.main.ScreenToWorldPoint(cursorPoint) + offset;
-		float newX = directionX ? cursorPosition.x : originalP.x;
-		float newY = (directionY||directionYUp) ? cursorPosition.y : originalP.y;
+			Vector3 cursorPosition = Camera.main.ScreenToWorldPoint (cursorPoint) + offset;
+			float newX = directionX ? cursorPosition.x : originalP.x;
+			float newY = (directionY || directionYUp) ? cursorPosition.y : originalP.y;
 
-		//newX = (newX > -2048f * constantScale) ? newX : -2048f * constantScale;
-		/*
+			//newX = (newX > -2048f * constantScale) ? newX : -2048f * constantScale;
+			/*
 		if (newX < -2048f * constantScale) {
 			newX = -2048f * constantScale;
 			bgt.setLongPageFinish (pageNum);
 		}
 		*/
 
-		//newY = (newY > -1536f * constantScale) ? newY : -1536f * constantScale;
+			//newY = (newY > -1536f * constantScale) ? newY : -1536f * constantScale;
 
 
-		transform.position = new Vector3 (newX, newY, originalP.z);
+			transform.position = new Vector3 (newX, newY, originalP.z);
 
 
-		//image.sprite = BucketList[1];
-		//isdrag = true;
-		//Debug.Log (cursorPosition);
+			//image.sprite = BucketList[1];
+			//isdrag = true;
+			//Debug.Log (cursorPosition);
 
-		startX = inputX;
+			startX = inputX;
 
-		//Debug.Log(transform.position);
+			//Debug.Log(transform.position);
+		}
+
+
 
 	}
 
