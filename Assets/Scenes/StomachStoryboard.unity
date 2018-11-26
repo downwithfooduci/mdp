@@ -976,7 +976,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &604321275
 RectTransform:
   m_ObjectHideFlags: 0
@@ -992,8 +992,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -331, y: 85}
-  m_SizeDelta: {x: 118, y: 140}
+  m_AnchoredPosition: {x: 122.5, y: -71}
+  m_SizeDelta: {x: 345, y: 339}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &604321276
 MonoBehaviour:
@@ -1007,15 +1007,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CharacterImages:
-  - {fileID: 21300000, guid: 8cd2fc55d64fc4f73a2b5dcbe1fc8cae, type: 3}
-  - {fileID: 21300000, guid: 001da79524b2b47c68349336873dfe9b, type: 3}
-  - {fileID: 21300000, guid: c8ab5ce69cbae4e39addc91ec1376602, type: 3}
-  - {fileID: 21300000, guid: 001da79524b2b47c68349336873dfe9b, type: 3}
+  - {fileID: 21300000, guid: e8164a5cbcf01434aac67373120398b3, type: 3}
   TransImage: {fileID: 21300000, guid: 4cbfa6c25e62f8a4bbf3577376f04feb, type: 3}
   FirstImage: {fileID: 0}
-  pageNum: 0
+  pageNum: 1
   clickable: 0
-  animated: 1
+  animated: 0
   hasSound: 0
   soundLoop: 0
   sounds: {fileID: 0}
@@ -1066,7 +1063,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 8cd2fc55d64fc4f73a2b5dcbe1fc8cae, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e8164a5cbcf01434aac67373120398b3, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
