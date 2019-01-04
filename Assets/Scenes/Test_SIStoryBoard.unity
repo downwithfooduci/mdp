@@ -565,7 +565,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   transPage: {fileID: 21300000, guid: 4cbfa6c25e62f8a4bbf3577376f04feb, type: 3}
-  BG: {fileID: 21300000, guid: 69ed2ac447a504d1cb24378ee93fb99a, type: 3}
+  BG: {fileID: 21300000, guid: b461ab55576fc4d33a0b7d1109e9db13, type: 3}
   pageNum: 0
   dragable: 1
   movingSpeed: 20
@@ -592,7 +592,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 69ed2ac447a504d1cb24378ee93fb99a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b461ab55576fc4d33a0b7d1109e9db13, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1196,20 +1196,20 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 9b25d2c6128ee458780e1c7095e6f938, type: 3}
   pageTurnSound: {fileID: 8300000, guid: 760fdd439d4194a9db3c90560a4bbfb6, type: 3}
   BackGroundImages:
-  - {fileID: 21300000, guid: 69ed2ac447a504d1cb24378ee93fb99a, type: 3}
-  - {fileID: 21300000, guid: 20b598e070f5f4034955c19d95985072, type: 3}
-  - {fileID: 21300000, guid: 1550d9a2fbfa040a6a3eea48ffbd6eb4, type: 3}
-  - {fileID: 21300000, guid: 541535dc66a9c4fc1ae93e4a3a5dc322, type: 3}
+  - {fileID: 21300000, guid: b461ab55576fc4d33a0b7d1109e9db13, type: 3}
+  - {fileID: 21300000, guid: c42e7054750454868bda86e50695c37a, type: 3}
+  - {fileID: 21300000, guid: 239a4422b24884fbdbd499f12e7b5a05, type: 3}
+  - {fileID: 21300000, guid: 05b96073a5a084aba8297ad443e933e6, type: 3}
   - {fileID: 21300000, guid: bd34c7e37c2054ff0a906b6163e8eb5b, type: 3}
   - {fileID: 21300000, guid: 4011f6b1436c94f10887447b2ed45e52, type: 3}
-  - {fileID: 21300000, guid: 5235daca55d0b4ad98c1ee1dd78599f8, type: 3}
-  - {fileID: 21300000, guid: cae21202c783840ba9ef3282d8a45b26, type: 3}
+  - {fileID: 21300000, guid: 1f7a35704c463473cb26a8922fa91e4c, type: 3}
+  - {fileID: 21300000, guid: 085f89125153149aa9d3fcc90a5fff71, type: 3}
   - {fileID: 21300000, guid: 63fb3c8fdb9db4b799f770eb642708f5, type: 3}
   - {fileID: 21300000, guid: a5367d96e7d924c6e89ae7a215ee879c, type: 3}
-  - {fileID: 21300000, guid: c984bc500444f4f4f91c242a9411b16f, type: 3}
+  - {fileID: 21300000, guid: 199dec0c73d74489094af558f3fbca89, type: 3}
   - {fileID: 21300000, guid: 8249216d89ed14cdc8016e070e9efd20, type: 3}
-  - {fileID: 21300000, guid: 9a50f13f35bd64a61a71c812cdbd3650, type: 3}
-  - {fileID: 21300000, guid: 1a800ad57376b4ab893f2dccdd2ab758, type: 3}
+  - {fileID: 21300000, guid: dc682ffc25e2c4c4185abc11e1765c94, type: 3}
+  - {fileID: 21300000, guid: 71c7c4412c54749cb9bc7e0b1ef2c483, type: 3}
   animatedZyme: 00000000
 --- !u!114 &830935779
 MonoBehaviour:

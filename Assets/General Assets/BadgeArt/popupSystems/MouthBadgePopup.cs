@@ -160,7 +160,7 @@ public class MouthBadgePopup : MonoBehaviour {
 				Time.timeScale = 1;					// unpause the game
 				//Application.LoadLevel("BadgeFridge");	// load up the main menu
 				PlayerPrefs.SetString("lastLoadedGame", "Mouth");
-				Application.LoadLevel("BadgeFridge");
+				Application.LoadLevel("MouthEndStoryboard");
 			}
 		}
 	}

@@ -58,7 +58,8 @@ public class BadgePopupSystem : MonoBehaviour {
 			badgeText [2] = "No cells died!" ;
 
 			//loadLevel = "StomachStats";
-			loadLevel = "BadgeFridge";
+			//loadLevel = "BadgeFridge";
+			loadLevel = "StomachEndStoryboard";
 			PlayerPrefs.SetString("lastLoadedGame", "Stomach");
 
 
@@ -75,7 +76,8 @@ public class BadgePopupSystem : MonoBehaviour {
 			badgeText [2] = " Level Three\n" + 
 							" Passed!";
 			//loadLevel = "SmallIntestineStats";
-			loadLevel = "BadgeFridge";
+			//loadLevel = "BadgeFridge";
+			loadLevel = "SmallIntestineEndStoryboard";
 			PlayerPrefs.SetString("lastLoadedGame", "SI");
 
 
@@ -91,7 +93,8 @@ public class BadgePopupSystem : MonoBehaviour {
 							"<3 touched";
 			badgeText [2] = "No bacteria touched";
 			//loadLevel = "LargeIntestineEndStoryboard";
-			loadLevel = "BadgeFridge";
+			//loadLevel = "BadgeFridge";
+			loadLevel = "LargeIntestineEndStoryboard";
 			PlayerPrefs.SetString("lastLoadedGame", "LI");
 
 
