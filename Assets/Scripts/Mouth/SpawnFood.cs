@@ -36,6 +36,7 @@ public class SpawnFood : MonoBehaviour
 	void Start () 
 	{
 		level = null;		// set the MouthLoadLevelCounter to null to begin with
+		end = false;
 
 		// find the reference to the mouth debugger
 		debugConfig = GameObject.Find("Debugger").GetComponent<EsophagusDebugConfig>();

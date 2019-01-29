@@ -95,11 +95,11 @@ public class MouthScore : MonoBehaviour
 		// note that no texture if drawn for the default 1x multiplier
 		if(foodChain >= SixteenMultCount)
 		{
-			GUI.DrawTexture(new Rect(Screen.width * .91f, Screen.height * .85f, Screen.height * .08f,
+			GUI.DrawTexture(new Rect(Screen.width * .91f, Screen.height * .75f, Screen.height * .08f,
 			                         Screen.height * .08f), SixteenMulTexture);
 		} else if(foodChain >= FourMultCount)
 		{
-			GUI.DrawTexture(new Rect(Screen.width * .91f, Screen.height * .85f, Screen.height * .08f,
+			GUI.DrawTexture(new Rect(Screen.width * .91f, Screen.height * .75f, Screen.height * .08f,
 			                         Screen.height * .08f), FourMultTexture);
 		}
 

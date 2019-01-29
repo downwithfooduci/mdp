@@ -124,8 +124,8 @@ public class IntestineGameManager : MonoBehaviour
 
 			if (Application.loadedLevelName != "SmallIntestineTutorial")
 			{
-				Application.LoadLevel("SmallIntestineStats");	// load the si stats screen
-				//SIbps.end();
+				//Application.LoadLevel("SmallIntestineStats");	// load the si stats screen
+				SIbps.end();
 			} else
 			{
 				Application.LoadLevel("LoadLevelSmallIntestine");	// otherwise load the next level

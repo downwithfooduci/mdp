@@ -15,6 +15,7 @@ public class EndScreen : MonoBehaviour
 		// draw the background texture to fill the entire screen.
 		GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), background);
 
+		/*
 		// draw the main menu button
 		if(GUI.Button(new Rect(Screen.width * .25f, .45f * Screen.height, Screen.width * .2f, Screen.height * .1f),
 		                "", mainMenu))
@@ -31,5 +32,6 @@ public class EndScreen : MonoBehaviour
 			// this will need to be changed as the game changes
 			Application.LoadLevel("LoadLevelSmallIntestine");
 		}
+		*/
 	}
 }

@@ -68,12 +68,12 @@ public class SkipGameButton : MonoBehaviour
 					GameObject chooseBackground = GameObject.Find("ChooseBackground");	// find the background chooser
 					SmallIntestineLoadLevelCounter  SIlevel = chooseBackground.GetComponent<SmallIntestineLoadLevelCounter>();
 					SIlevel.nextLevel();
-					if (SIlevel.getLevel () <= SIlevel.getMaxLevels ()) {
-						Application.LoadLevel ("LoadLevelSmallIntestine");
-					}
-					else {
+					//if (SIlevel.getLevel () <= SIlevel.getMaxLevels ()) {
+					//	Application.LoadLevel ("LoadLevelSmallIntestine");
+					//}
+					//else {
 						Application.LoadLevel ("SmallIntestineEndStoryboard");
-					}
+					//}
 				}
 				else{
 					Application.LoadLevel(level);	// return to the main menu

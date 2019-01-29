@@ -148,7 +148,7 @@ public class MouthBadgePopup : MonoBehaviour {
 			{
 				// if the main menu button is pressed
 				Time.timeScale = 1;					// unpause the game
-				Application.LoadLevel("MainMenu");	// load up the main menu
+				Application.LoadLevel("LevelSelection");	// load up the main menu
 			}
 
 			if (GUI.Button (new Rect (Screen.width * 0.5830078125f, 

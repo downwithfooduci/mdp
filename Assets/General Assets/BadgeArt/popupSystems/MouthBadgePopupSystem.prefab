@@ -194,7 +194,7 @@ MonoBehaviour:
   continueGame:
     m_Name: 
     m_Normal:
-      m_Background: {fileID: 2800000, guid: 5aed141fc2fff5140a3922466a0b2234, type: 3}
+      m_Background: {fileID: 2800000, guid: 6068af6ae217e4339aaae39375e22c10, type: 3}
       m_ScaledBackgrounds: []
       m_TextColor: {r: 0, g: 0, b: 0, a: 1}
     m_Hover:
@@ -202,7 +202,7 @@ MonoBehaviour:
       m_ScaledBackgrounds: []
       m_TextColor: {r: 0, g: 0, b: 0, a: 1}
     m_Active:
-      m_Background: {fileID: 2800000, guid: 97705f1c414fbb046aed53e92432f10b, type: 3}
+      m_Background: {fileID: 2800000, guid: dca97d910b70a4825bbafc26140439c3, type: 3}
       m_ScaledBackgrounds: []
       m_TextColor: {r: 0, g: 0, b: 0, a: 1}
     m_Focused:
