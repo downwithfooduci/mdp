@@ -64,7 +64,7 @@ public class TransPageBackground : MonoBehaviour {
 
 		currentFrame = (currentLevel-1)*2;
 		i.sprite = BGs [currentFrame];
-
+		Time.timeScale = 1;
 
 
 		Debug.Log ("currentlevel: " + currentLevel);
@@ -74,7 +74,7 @@ public class TransPageBackground : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		secLastPlayed = tps.getPlayed ();
+		//secLastPlayed = tps.getPlayed ();
 
 		if(currentLevel == 1)
 			secLastPlayed = tpm.getPlayed ();

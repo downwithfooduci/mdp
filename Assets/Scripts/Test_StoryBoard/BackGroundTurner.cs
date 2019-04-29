@@ -293,7 +293,8 @@ public class BackGroundTurner : MonoBehaviour {
 			} else if (Application.loadedLevelName.Equals("StomachEndStoryboard"))
 			{
 				PlayerPrefs.SetInt("PlayedStomachEndStory", 1);
-				PlayerPrefs.SetInt ("CurrentStoryLevel", 2);
+				PlayerPrefs.SetInt ("CurrentStoryLevel", 2);				
+				Debug.Log ("PlayedStomachEndStory:" + PlayerPrefs.GetInt ("PlayedStomachEndStory") + ", CurrentStoryLevel: " + PlayerPrefs.GetInt ("CurrentStoryLevel"));
 			} else if (Application.loadedLevelName.Equals("SmallIntestineStoryboard"))
 			{
 				PlayerPrefs.SetInt("PlayedSIStory", 1);

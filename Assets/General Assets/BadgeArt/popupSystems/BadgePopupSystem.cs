@@ -65,7 +65,7 @@ public class BadgePopupSystem : MonoBehaviour {
 
 			sentence[0] = "You turned the stomach enzyme on!";
 			sentence[1] = "You burnt less than 3 cells!";
-			sentence[2] = "You didn’t burn a hole in the stomach wall! ";
+			sentence[2] = "You didn’t burn a hole in \nthe stomach wall! ";
 
 		}
 		else if (scence == "SmallIntestineOdd" || scence == "SmallIntestineEven"){
@@ -81,9 +81,9 @@ public class BadgePopupSystem : MonoBehaviour {
 			PlayerPrefs.SetString("lastLoadedGame", "SI");
 
 
-			sentence[0] = "You completed the first part of the small intestine! ";
-			sentence[1] = "You completed the second part of the small intestine! ";
-			sentence[2] = "You completed the third part of the small intestine!";
+			sentence[0] = "You completed the first part \nof the small intestine! ";
+			sentence[1] = "You completed the second part \nof the small intestine! ";
+			sentence[2] = "You completed the third part \nof the small intestine!";
 
 		}
 		else if (scence == "LargeIntestine"){
@@ -98,7 +98,7 @@ public class BadgePopupSystem : MonoBehaviour {
 			PlayerPrefs.SetString("lastLoadedGame", "LI");
 
 
-			sentence[0] = "You absorbed water from the food to make good poop! ";
+			sentence[0] = "You absorbed water from \nthe food to make good poop! ";
 			sentence[1] = "You hit less than 3 bacteria!";
 			sentence[2] = "You didn’t hit any bacteria! ";
 
@@ -140,6 +140,15 @@ public class BadgePopupSystem : MonoBehaviour {
 
 			GUI.DrawTexture(new Rect((546f/1024f)*Screen.width, (233f/768f)*Screen.height, (31f/1024f)*Screen.width,
 				(31f/768f)*Screen.height), filledStar[0]);
+			if (trigerNum < 3) {
+				GUI.DrawTexture (new Rect ((546f / 1024f) * Screen.width, (312f / 768f) * Screen.height, (31f / 1024f) * Screen.width,
+					(31f / 768f) * Screen.height), filledStar [1]);
+			}
+			if (trigerNum == 0) {
+				GUI.DrawTexture (new Rect ((546f / 1024f) * Screen.width, (391f / 768f) * Screen.height, (31f / 1024f) * Screen.width,
+					(31f / 768f) * Screen.height), filledStar [2]);
+			}
+			
 			
 			GUI.Label(new Rect((592f/1024f)*Screen.width, (230f/768f)*Screen.height, ((80f)/1024f)*Screen.width,
 				((41f)/768f)*Screen.height), 
@@ -156,33 +165,24 @@ public class BadgePopupSystem : MonoBehaviour {
 			
 
 
-			if (trigerNum >= 3) {
-				GUI.Label(new Rect(((276f + 65f)/1024f)*Screen.width, ((141f + 322f)/768f)*Screen.height, ((340f)/1024f)*Screen.width,
-					((29f)/768f)*Screen.height), 
-					sentence[0], 										//"You helped the chef swalllow!" ,
-					statsStyle2);
-				
-			}
 
-			if (trigerNum < 3) {
-				GUI.DrawTexture (new Rect ((546f / 1024f) * Screen.width, (312f / 768f) * Screen.height, (31f / 1024f) * Screen.width,
-					(31f / 768f) * Screen.height), filledStar [1]);
-				GUI.Label(new Rect(((276f + 65f)/1024f)*Screen.width, ((141f + 322f)/768f)*Screen.height, ((340f)/1024f)*Screen.width,
-					((29f)/768f)*Screen.height), 
-					sentence[1], 										//"You helped the chef swalllow!" ,
-					statsStyle2);
-				
-			}
 
 
 			if (trigerNum == 0) {
-				GUI.DrawTexture (new Rect ((546f / 1024f) * Screen.width, (391f / 768f) * Screen.height, (31f / 1024f) * Screen.width,
-					(31f / 768f) * Screen.height), filledStar [2]);
-				GUI.Label(new Rect(((276f + 65f)/1024f)*Screen.width, ((141f + 322f)/768f)*Screen.height, ((340f)/1024f)*Screen.width,
+				GUI.Label(new Rect(((276f + 65f)/1024f)*Screen.width, ((141f + 315f)/768f)*Screen.height, ((340f)/1024f)*Screen.width,
 					((29f)/768f)*Screen.height), 
 					sentence[2], 										//"You helped the chef swalllow!" ,
 					statsStyle2);
-				
+			} else if (trigerNum < 3) {
+				GUI.Label(new Rect(((276f + 65f)/1024f)*Screen.width, ((141f + 315f)/768f)*Screen.height, ((340f)/1024f)*Screen.width,
+					((29f)/768f)*Screen.height), 
+					sentence[1], 										//"You helped the chef swalllow!" ,
+					statsStyle2);
+			} else if (trigerNum >= 3) {
+				GUI.Label(new Rect(((276f + 65f)/1024f)*Screen.width, ((141f + 315f)/768f)*Screen.height, ((340f)/1024f)*Screen.width,
+					((29f)/768f)*Screen.height), 
+					sentence[0], 										//"You helped the chef swalllow!" ,
+					statsStyle2);
 			}
 
 

@@ -20,8 +20,10 @@ public class TransPageEnteringManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		Debug.Log("Timer:" + timer + ", currentFrame: " + currentFrame);
 		i.sprite = Entering [currentFrame];
 		timer = timer + Time.deltaTime;
+		Debug.Log("Timer:" + timer + ", currentFrame: " + currentFrame + ", Delta Time:" + Time.deltaTime);
 
 		if (timer >= frameTime) {
 			timer = 0;

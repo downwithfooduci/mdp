@@ -38,12 +38,14 @@ public class SpawnFood : MonoBehaviour
 		level = null;		// set the MouthLoadLevelCounter to null to begin with
 		end = false;
 
+		/*
 		// find the reference to the mouth debugger
 		debugConfig = GameObject.Find("Debugger").GetComponent<EsophagusDebugConfig>();
 		if (debugConfig == null)	// if we are starting the game directly we need to add debugger
 		{
 			debugConfig = gameObject.AddComponent<EsophagusDebugConfig>() as EsophagusDebugConfig;
 		}
+		*/
 
 		// find the background chooser
 		GameObject chooseBackground = GameObject.Find ("MouthChooseBackground");
@@ -62,11 +64,11 @@ public class SpawnFood : MonoBehaviour
 		GameObject flaps = GameObject.Find("Flaps");		// find the reference to the flaps
 		flap = flaps.GetComponent<openFlap>();				// get the openFlap script from the flaps
 
-		if (level != null)	// guard for if level was null since this will still execute before the reloading from level 1
-		{
+		//if (level != null)	// guard for if level was null since this will still execute before the reloading from level 1
+		//{
 			// finally load the script
 			loadScript = new LoadScriptMouth();							// create a new script loader
-			waves = loadScript.loadMouthLevel(level.getLevel());	// load the proper script to the level and store data
+			waves = loadScript.loadMouthLevel(1);	// load the proper script to the level and store data
 
 			// begin parsing the data
 			currentWave = 0;								// reset the current wave counter to 0
@@ -75,7 +77,9 @@ public class SpawnFood : MonoBehaviour
 			SpawnInterval = waves[0].foodSpawnInterval;		// get the spawnInterval for the current wave
 			speed = waves[0].foodSpeed;						// get the foodSpped for the current wave
 			m_TimeSinceLastSpawn = 0f;						// reset the time since last spawn to 0
-		}
+		//}
+
+		Time.timeScale = 1;
 	}
 	
 	/**
@@ -95,10 +99,12 @@ public class SpawnFood : MonoBehaviour
 		
 			if(waveTime > 0)				// if there is still more time in the current wave continue processing it
 			{
+				/*
 				if(debugConfig.debugActive)	// if we are using debugger values, get the spawn interval from the debugger
 				{
 					SpawnInterval = debugConfig.foodSpawnInterval;
 				}
+				*/
 				m_TimeSinceLastSpawn += Time.deltaTime;	// increase the timer counting the time since the last spawn
 				
 				if (m_TimeSinceLastSpawn >= SpawnInterval)	// if the time since the last spawn exceeds the spawn interval
@@ -115,6 +121,7 @@ public class SpawnFood : MonoBehaviour
 			}
 			else 							// otherwise, if the time for the current wave is over, move to the next one
 			{
+				/*
 				if(debugConfig.debugActive)	// check if we are using values from the debugger, and if we are get the values
 				{
 					// get the values from the debugger
@@ -125,8 +132,10 @@ public class SpawnFood : MonoBehaviour
 
 					m_TimeSinceLastSpawn = 0;	// reset the timeSinceLastSpawn counter
 				}
+
 				else 						// otherwise we are getting the values from the script
 				{
+				*/
 					currentWave++;						// increase the counter for the current wave we are on
 
 
@@ -146,7 +155,7 @@ public class SpawnFood : MonoBehaviour
 						m_TimeSinceLastSpawn = 0;		// reset the timeSinceLastSpawn counter
 					}
 				}
-			}
+			//}
 		}
 		else
 		{

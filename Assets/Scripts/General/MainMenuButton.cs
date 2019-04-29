@@ -60,7 +60,7 @@ public class MainMenuButton : MonoBehaviour
 			{
 				// if the yes button was pressed
 				Time.timeScale = 1;					// unpause the game
-				Application.LoadLevel("MainMenu");	// return to the main menu
+				Application.LoadLevel("LevelSelection");	// return to the main menu
 			}
 
 			// draw no button

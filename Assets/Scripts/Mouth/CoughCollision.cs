@@ -14,6 +14,7 @@ public class CoughCollision : MonoBehaviour
 	 */ 
 	void Start () 
 	{
+		PlayerPrefs.SetInt("MouthStats_timesCoughed", 0);
 		// find the oxygen bar
 		oxygen = GameObject.Find("MouthGUI").GetComponent<OxygenBar>();
 

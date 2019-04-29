@@ -15,15 +15,19 @@ public class EndScreen : MonoBehaviour
 		// draw the background texture to fill the entire screen.
 		GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), background);
 
-		/*
+
 		// draw the main menu button
-		if(GUI.Button(new Rect(Screen.width * .25f, .45f * Screen.height, Screen.width * .2f, Screen.height * .1f),
+		if(GUI.Button(new Rect(Screen.width * .89f, 
+			Screen.height * 0.01822916f,
+			Screen.width * .09f,
+			Screen.height * .06f),
 		                "", mainMenu))
 		{
 			// when yoou click on main menu then return to the main menu
-			Application.LoadLevel("MainMenu");
+			Application.LoadLevel("LevelSelection");
 		}
 
+		/*
 		// draw the restart button
 		if(GUI.Button(new Rect(Screen.width * .55f, .45f * Screen.height, Screen.width * .2f, Screen.height * .1f),
 		           "", restart))
@@ -33,5 +37,6 @@ public class EndScreen : MonoBehaviour
 			Application.LoadLevel("LoadLevelSmallIntestine");
 		}
 		*/
+
 	}
 }
