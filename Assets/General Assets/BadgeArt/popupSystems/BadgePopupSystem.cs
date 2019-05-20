@@ -26,11 +26,12 @@ public class BadgePopupSystem : MonoBehaviour {
 	private string loadLevel;
 	private string[] sentence;
 
+    private SmallIntestineLoadLevelCounter SIlevel;
 
 
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
 		isPopup = false;
 		//Time.timeScale = 0;		// pause the game
 
@@ -80,8 +81,10 @@ public class BadgePopupSystem : MonoBehaviour {
 			loadLevel = "SmallIntestineEndStoryboard";
 			PlayerPrefs.SetString("lastLoadedGame", "SI");
 
+            GameObject counter = GameObject.Find("ChooseBackground");
+            SIlevel = counter.GetComponent<SmallIntestineLoadLevelCounter>();
 
-			sentence[0] = "You completed the first part \nof the small intestine! ";
+            sentence[0] = "You completed the first part \nof the small intestine! ";
 			sentence[1] = "You completed the second part \nof the small intestine! ";
 			sentence[2] = "You completed the third part \nof the small intestine!";
 
@@ -112,7 +115,7 @@ public class BadgePopupSystem : MonoBehaviour {
 
 
 		trigerNum = PlayerPrefs.GetInt(badgeTriger);
-		Debug.Log (badgeTriger + ": " + trigerNum);
+		//Debug.Log (badgeTriger + ": " + trigerNum);
 
 	}
 
@@ -196,8 +199,10 @@ public class BadgePopupSystem : MonoBehaviour {
 				buttonWidth * scale), "", restart))
 			{
 				// if the restart button is pressed
-				Time.timeScale = 1;					// unpause the game
-				Application.LoadLevel(scence);		// reload the mouth game from the current level
+				Time.timeScale = 1;                 // unpause the game
+                                                    // restart from the correct level
+
+                Application.LoadLevel(scence);		// reload the mouth game from the current level
 			}
 
 			// draw the main menu button
@@ -211,15 +216,38 @@ public class BadgePopupSystem : MonoBehaviour {
 				Application.LoadLevel("LevelSelection");	// load up the main menu
 			}
 
-			if (GUI.Button (new Rect (Screen.width * 0.5830078125f, 
-				Screen.height * 0.67578125f,
-				buttonWidth,
-				buttonWidth * scale), "", continueGame))
-			{
-				// if the go next button is pressed
-				Time.timeScale = 1;					// unpause the game
-				Application.LoadLevel(loadLevel);	// load up the main menu
-			}
+            if (GUI.Button(new Rect(Screen.width * 0.5830078125f,
+                Screen.height * 0.67578125f,
+                buttonWidth,
+                buttonWidth * scale), "", continueGame))
+            {
+                // if the go next button is pressed
+                Time.timeScale = 1;                 // unpause the game
+                if (scence == "SmallIntestineOdd" || scence == "SmallIntestineEven") {
+                    Debug.Log("[Test] Current Level:" + SIlevel.getLevel());
+                    SIlevel.nextLevel();
+                    Debug.Log("[Test] Next Level:" + SIlevel.getLevel());
+
+                    if (SIlevel.getLevel() > SIlevel.getMaxLevels())            // check if we've played all the levels
+                    {
+                        //Application.LoadLevel("LargeIntestineStoryBoard");                    // if we have load the end screen
+                        loadLevel = "SmallIntestineEndStoryboard";
+                    }
+                    else
+                    {
+                        if (SIlevel.isTutorial())
+                        {
+                            loadLevel = "SmallIntestineTutorial";
+                        }
+                        else
+                        {
+                            loadLevel = "LoadLevelSmallIntestine";   // otherwise load the next level
+                        }
+                    }
+                }
+                Application.LoadLevel(loadLevel);   // load up the main menu
+
+            }
 		}
 	}
 

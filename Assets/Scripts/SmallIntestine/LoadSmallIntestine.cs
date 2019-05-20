@@ -17,9 +17,11 @@ public class LoadSmallIntestine : MonoBehaviour
 	 */
 	void Start()
 	{
-		timePassed = timer;								// set the time passed to the timer value, we will decrement the
-														// value of time passed until it reaches 0
-	}
+		timePassed = timer;                             // set the time passed to the timer value, we will decrement the
+                                                        // value of time passed until it reaches 0
+
+        Time.timeScale = 1;
+    }
 
 	/**
 	 * Chooses and draws the correct loading screen image
@@ -39,8 +41,8 @@ public class LoadSmallIntestine : MonoBehaviour
 	 */
 	void Update()
 	{
-		timePassed -= Time.deltaTime;		// decrement the time passed variable by how much time since the last update call
-	
+		timePassed -= Time.deltaTime;       // decrement the time passed variable by how much time since the last update call
+
 		if (timePassed < 0) 				// check if the maximum time has passed 
 		{
 			// if it has load the correct si level

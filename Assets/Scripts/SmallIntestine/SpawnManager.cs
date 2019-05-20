@@ -42,8 +42,9 @@ public class SpawnManager : MonoBehaviour
 	void Start () 
 	{
 		level = null;				// initially set the reference to null
+        Time.timeScale = 1;
 
-		GameObject counter = GameObject.Find ("ChooseBackground");	// try to find an instance of the background chooser
+        GameObject counter = GameObject.Find ("ChooseBackground");	// try to find an instance of the background chooser
 	
 		if (counter != null)					// if the counter is not null we can continue as normal with initialization
 		{
@@ -79,10 +80,11 @@ public class SpawnManager : MonoBehaviour
 		if (counter != null)	// guard check to prevent this code from executing before the game is reloaded
 		{
 			// start loading in the script 
-			loadScript = new LoadScript();								// create a new script loader
+			loadScript = new LoadScript();                              // create a new script loader
 
-			//if (!level.getTutorial ()) {									//if not tutorial
-				
+            //if (!level.getTutorial ()) {									//if not tutorial
+
+            Debug.Log("[Test][SILoadLevel] level:" + level.getLevel() + ", isTutorial:" + level.isTutorial() + ", tutorialNum:" + level.getTutorialNum());
 			waves = loadScript.loadIntestineLevel (level.getLevel (), level.isTutorial(), level.getTutorialNum());	// get the waves for the correct script
 			
 			currentWave = 0;											// set the current wave index to 0

@@ -52,9 +52,9 @@ public class GlowManager : MonoBehaviour
 		Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);	// create a ray at the current location
 		RaycastHit hit;													// to store if there is something the ray hits
 		GameObject closestSegment = FindClosestSegment(ray);
-		Debug.Log (Input.mousePosition.x + ", " + Input.mousePosition.y);
+		//Debug.Log (Input.mousePosition.x + ", " + Input.mousePosition.y);
 
-		Debug.Log ("segment found: " + closestSegment.transform.position.x + ", "+ closestSegment.transform.position.z);
+		//Debug.Log ("segment found: " + closestSegment.transform.position.x + ", "+ closestSegment.transform.position.z);
 		
 		// ignore if the bottom menu is clicked on
 		if (ray.origin.z < -11.6)

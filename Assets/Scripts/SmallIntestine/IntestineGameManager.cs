@@ -114,13 +114,17 @@ public class IntestineGameManager : MonoBehaviour
 		   (Application.loadedLevelName == "SmallIntestineTutorial" && 
 		 	GameObject.FindWithTag("foodBlobParentTutorial") == null && spawnScript.end))
 		{
+
+                     
 			// if the game was over because we won, we need to go to the next level
 			// find the background chooser
 			GameObject chooseBackground = GameObject.Find("ChooseBackground");
 			// get the load level script from the background chooser
 			SmallIntestineLoadLevelCounter  level = chooseBackground.GetComponent<SmallIntestineLoadLevelCounter>();
 	
-			level.nextLevel();		// increase the level count on the load level script
+			//level.nextLevel();		// increase the level count on the load level script
+
+
 
 			if (Application.loadedLevelName != "SmallIntestineTutorial")
 			{
@@ -128,7 +132,8 @@ public class IntestineGameManager : MonoBehaviour
 				SIbps.end();
 			} else
 			{
-				Application.LoadLevel("LoadLevelSmallIntestine");	// otherwise load the next level
+                level.nextLevel();
+                Application.LoadLevel("LoadLevelSmallIntestine");	// otherwise load the next level
 			}
 		}
 

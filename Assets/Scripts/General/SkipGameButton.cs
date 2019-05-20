@@ -64,16 +64,17 @@ public class SkipGameButton : MonoBehaviour
 			{
 				// if the "skip game" button was pressed
 				Time.timeScale = 1;					// unpause the game
-				if (level == "SmallIntestineLevel1") {
-					GameObject chooseBackground = GameObject.Find("ChooseBackground");	// find the background chooser
+				if (scence == "SmallIntestineOdd" || scence == "SmallIntestineEven") {
+
+                    GameObject chooseBackground = GameObject.Find("ChooseBackground");	// find the background chooser
 					SmallIntestineLoadLevelCounter  SIlevel = chooseBackground.GetComponent<SmallIntestineLoadLevelCounter>();
 					SIlevel.nextLevel();
-					//if (SIlevel.getLevel () <= SIlevel.getMaxLevels ()) {
-					//	Application.LoadLevel ("LoadLevelSmallIntestine");
-					//}
-					//else {
+					if (SIlevel.getLevel () <= SIlevel.getMaxLevels ()) {
+						Application.LoadLevel ("LoadLevelSmallIntestine");
+					}
+					else {
 						Application.LoadLevel ("SmallIntestineEndStoryboard");
-					//}
+					}
 				}
 				else{
 					Application.LoadLevel(level);	// return to the main menu

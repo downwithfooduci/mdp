@@ -63,7 +63,7 @@ public class ReturnButtonSIOdd : MonoBehaviour
 				}
 
 				// load the main menu
-				Application.LoadLevel("MainMenu");
+				Application.LoadLevel("LevelSelection");
 			}
 
 			// draw no button

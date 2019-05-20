@@ -81,6 +81,7 @@ public class SmallIntestineLoadLevelCounter : MonoBehaviour
 	 */
 	public void nextLevel()
 	{
+        Debug.Log("[Test] current level:" + level);
 		if(!tutorialPlay){
 			level++;			// when this function is called it will just increase the level variable by 1
 		}
