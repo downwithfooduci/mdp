@@ -19,7 +19,8 @@ public class LoadStomach : MonoBehaviour
 	void Start () 
 	{
 		timePassed = timer;					// assign the timer value to timepassed (we will count time down rather than
-		// counting it up)
+                                            // counting it up)
+        Time.timeScale = 1;
 	}
 	
 	/**

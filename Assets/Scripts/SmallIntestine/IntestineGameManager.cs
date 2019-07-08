@@ -83,6 +83,7 @@ public class IntestineGameManager : MonoBehaviour
 		PlayerPrefs.DeleteKey("SIStats_towersSold");
 		PlayerPrefs.DeleteKey("SIStats_towersUpgraded");
 		PlayerPrefs.DeleteKey("SIStats_enzymesFired");
+        PlayerPrefs.DeleteKey("SIStats_finalFoodScore");
 		PlayerPrefs.Save();		// need to call this to save the changes
 	}
 
@@ -128,8 +129,9 @@ public class IntestineGameManager : MonoBehaviour
 
 			if (Application.loadedLevelName != "SmallIntestineTutorial")
 			{
-				//Application.LoadLevel("SmallIntestineStats");	// load the si stats screen
-				SIbps.end();
+                //Application.LoadLevel("SmallIntestineStats");	// load the si stats screen
+                PlayerPrefs.SetInt("SIStats_finalFoodScore", (MAX_HEALTH - health)/2);
+                SIbps.end();
 			} else
 			{
                 level.nextLevel();

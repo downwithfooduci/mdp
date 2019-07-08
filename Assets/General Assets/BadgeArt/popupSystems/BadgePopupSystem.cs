@@ -19,8 +19,8 @@ public class BadgePopupSystem : MonoBehaviour {
 
 
 	private GUIStyle statsStyle;
-	private GUIStyle statsStyle2;
-	private int trigerNum;
+	public GUIStyle statsStyle2;
+	public int trigerNum;
 	private string[] badgeText;
 	private string scence;
 	private string loadLevel;
@@ -43,9 +43,10 @@ public class BadgePopupSystem : MonoBehaviour {
 		statsStyle2 = new GUIStyle ();									// create a new style
 		statsStyle2.font = (Font)Resources.Load ("Fonts/JandaManateeSolid");		// set the font
 		statsStyle2.normal.textColor = Color.white;								// set the font color
-		statsStyle2.fontSize = (int)(22f / 768f * Screen.height);				// set the font relative size
+		statsStyle2.fontSize = (int)(18f / 768f * Screen.height);				// set the font relative size
+        statsStyle2.richText = true;
 
-		trigerNum = PlayerPrefs.GetInt(badgeTriger);
+        trigerNum = PlayerPrefs.GetInt(badgeTriger);
 		scence = Application.loadedLevelName;
 
 		badgeText = new string[3];
@@ -64,18 +65,26 @@ public class BadgePopupSystem : MonoBehaviour {
 			PlayerPrefs.SetString("lastLoadedGame", "Stomach");
 
 
-			sentence[0] = "You turned the stomach enzyme on!";
-			sentence[1] = "You burnt less than 3 cells!";
-			sentence[2] = "You didn’t burn a hole in \nthe stomach wall! ";
+			sentence[0] =   "You helped the chef digest her food and earned \n" +
+				            "a <color=#E0A402>BRONZE</color> badge! Protect her stomach wall from acid \n" +
+				            "so that it gets fewer holes to earn the silver badge.";
+			sentence[1] =   "You helped the chef digest her food and earned \n" +
+				            "a <color=#CCCCCC>SILVER</color> badge! Protect her stomach wall from \n" +
+				            "acid so that it gets fewer holes to earn the gold";
+			sentence[2] =   "You helped the chef digest her food and earned \n" +
+				            "a <color=#FEE853>GOLD</color> badge! Great job protecting her stomach \n" +
+				            "wall from acid so that it had no holes!";
 
 		}
 		else if (scence == "SmallIntestineOdd" || scence == "SmallIntestineEven"){
-			badgeText [0] = " Level One\n" + 
-							" Passed!";
-			badgeText [1] = " Level Two\n" + 
-							" Passed!";
-			badgeText [2] = " Level Three\n" + 
-							" Passed!";
+            statsStyle2.fontSize = (int)(17f / 768f * Screen.height);
+
+            badgeText [0] = " A lot of food\n" + 
+							" lost!";
+			badgeText [1] = " Some food\n" + 
+							" lost!";
+			badgeText [2] = " No food\n" + 
+							" lost!";
 			//loadLevel = "SmallIntestineStats";
 			//loadLevel = "BadgeFridge";
 			loadLevel = "SmallIntestineEndStoryboard";
@@ -84,9 +93,15 @@ public class BadgePopupSystem : MonoBehaviour {
             GameObject counter = GameObject.Find("ChooseBackground");
             SIlevel = counter.GetComponent<SmallIntestineLoadLevelCounter>();
 
-            sentence[0] = "You completed the first part \nof the small intestine! ";
-			sentence[1] = "You completed the second part \nof the small intestine! ";
-			sentence[2] = "You completed the third part \nof the small intestine!";
+            sentence[0] =   "You helped the chef absorb nutrients from her food in \n" +
+                            "the small intestine and earned a <color=#E0A402>BRONZE</color> badge! Get more \n" +
+            	            "nutrients before they escape to earn the silver badge.";
+			sentence[1] =   "You helped the chef absorb nutrients from her food in \n" +
+                            "the small intestine and earned a <color=#CCCCCC>SILVER</color> badge! Get more \n" +
+				            "nutrients before they escape to earn the silver badge.";
+			sentence[2] =   "You helped the chef absorb nutrients from her food in \n" +
+                            "the small intestine and earned a <color=#FEE853>GOLD</color> badge! Great job \n" +
+				            "getting all those nutrients!\n";
 
 		}
 		else if (scence == "LargeIntestine"){
@@ -101,9 +116,15 @@ public class BadgePopupSystem : MonoBehaviour {
 			PlayerPrefs.SetString("lastLoadedGame", "LI");
 
 
-			sentence[0] = "You absorbed water from \nthe food to make good poop! ";
-			sentence[1] = "You hit less than 3 bacteria!";
-			sentence[2] = "You didn’t hit any bacteria! ";
+			sentence[0] =   "You helped the chef absorb water from her food \n" +
+                            "to make good poop and earned a <color=#E0A402>BRONZE</color> badge! \n" +
+				            "Avoid the bacteria to earn the silver badge.";
+			sentence[1] =   "You helped the chef absorb water from her food \n" +
+                            "to make good poop and earned a <color=#CCCCCC>SILVER</color> badge! \n" +
+				            "Avoid the bacteria to earn the gold badge.";
+			sentence[2] =   "You helped the chef absorb water from her food \n" +
+                            "to make good poop and earned a <color=#FEE853>GOLD</color> badge! Great \n" +
+				            "job avoiding all those bacteria!";
 
 		}
 
@@ -172,17 +193,17 @@ public class BadgePopupSystem : MonoBehaviour {
 
 
 			if (trigerNum == 0) {
-				GUI.Label(new Rect(((276f + 65f)/1024f)*Screen.width, ((141f + 315f)/768f)*Screen.height, ((340f)/1024f)*Screen.width,
+				GUI.Label(new Rect(((276f + 20f)/1024f)*Screen.width, ((141f + 300f)/768f)*Screen.height, ((340f)/1024f)*Screen.width,
 					((29f)/768f)*Screen.height), 
 					sentence[2], 										//"You helped the chef swalllow!" ,
 					statsStyle2);
 			} else if (trigerNum < 3) {
-				GUI.Label(new Rect(((276f + 65f)/1024f)*Screen.width, ((141f + 315f)/768f)*Screen.height, ((340f)/1024f)*Screen.width,
+				GUI.Label(new Rect(((276f + 20f)/1024f)*Screen.width, ((141f + 300f) /768f)*Screen.height, ((340f)/1024f)*Screen.width,
 					((29f)/768f)*Screen.height), 
 					sentence[1], 										//"You helped the chef swalllow!" ,
 					statsStyle2);
 			} else if (trigerNum >= 3) {
-				GUI.Label(new Rect(((276f + 65f)/1024f)*Screen.width, ((141f + 315f)/768f)*Screen.height, ((340f)/1024f)*Screen.width,
+				GUI.Label(new Rect(((276f + 20f)/1024f)*Screen.width, ((141f + 300f) /768f)*Screen.height, ((340f)/1024f)*Screen.width,
 					((29f)/768f)*Screen.height), 
 					sentence[0], 										//"You helped the chef swalllow!" ,
 					statsStyle2);

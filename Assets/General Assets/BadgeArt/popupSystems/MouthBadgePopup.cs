@@ -17,7 +17,7 @@ public class MouthBadgePopup : MonoBehaviour {
 
 	private GUIStyle statsStyle;
 	private GUIStyle statsStyle2;
-	private int timesCoughed;
+	public int timesCoughed;
 	private string[] sentence;
 
 
@@ -38,14 +38,19 @@ public class MouthBadgePopup : MonoBehaviour {
 		statsStyle2 = new GUIStyle ();									// create a new style
 		statsStyle2.font = (Font)Resources.Load ("Fonts/JandaManateeSolid");		// set the font
 		statsStyle2.normal.textColor = Color.white;								// set the font color
-		statsStyle2.fontSize = (int)(22f / 768f * Screen.height);				// set the font relative size
+		statsStyle2.fontSize = (int)(18f / 768f * Screen.height);				// set the font relative size
 
 		timesCoughed = PlayerPrefs.GetInt("MouthStats_timesCoughed");
 
 		Debug.Log ("timesCoughed: " + timesCoughed);
-		sentence = new string[3]{	"You helped the chef swallow!\n",
-									"You helped the chef swallow \nalmost without choking!\n",
-									"You helped the chef swallow \nwithout choking!\n"};
+		sentence = new string[3]{   "You helped the chef swallow her food and earned \n" +
+                                    "a <color=#E0A402>BRONZE</color> badge! Help her cough less to get a silver \n" +
+			                        "or gold badge!",
+                                    "You helped the chef swallow her food and earned \n" +
+                                    "<color=#CCCCCC>SILVER</color> badge! Help her not cough at all to earn \n" +
+                                    "the gold badge!",
+                                    "You helped the chef swallow her food and earned \n" +
+                                    "a <color=#FEE853>GOLD</color> badge! Great job helping her not cough at all!"};
 	}
 	
 	// Update is called once per frame
@@ -107,18 +112,18 @@ public class MouthBadgePopup : MonoBehaviour {
 			}
 
 			if (timesCoughed >= 3) {
-				GUI.Label(new Rect(((276f + 65f)/1024f)*Screen.width, ((141f + 315f)/768f)*Screen.height, ((340f)/1024f)*Screen.width,
+				GUI.Label(new Rect(((276f + 20f)/1024f)*Screen.width, ((141f + 300f)/768f)*Screen.height, ((340f)/1024f)*Screen.width,
 					((29f)/768f)*Screen.height), 
 					sentence[0],
 					statsStyle2);
 				
 			} else if (timesCoughed < 3 && timesCoughed > 0) {
-				GUI.Label(new Rect(((276f + 65f)/1024f)*Screen.width, ((141f + 315f)/768f)*Screen.height, ((340f)/1024f)*Screen.width,
+				GUI.Label(new Rect(((276f + 20f)/1024f)*Screen.width, ((141f + 300f)/768f)*Screen.height, ((340f)/1024f)*Screen.width,
 					((29f)/768f)*Screen.height), 
 					sentence[1],
 					statsStyle2);
 			} else if (timesCoughed == 0) {
-				GUI.Label(new Rect(((276f + 65f)/1024f)*Screen.width, ((141f + 315f)/768f)*Screen.height, ((340f)/1024f)*Screen.width,
+				GUI.Label(new Rect(((276f + 20f)/1024f)*Screen.width, ((141f + 300f)/768f)*Screen.height, ((340f)/1024f)*Screen.width,
 					((29f)/768f)*Screen.height), 
 					sentence[2],
 					statsStyle2);

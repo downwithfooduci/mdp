@@ -32,7 +32,7 @@ public class LoadSmallIntestine : MonoBehaviour
 		level = counter.GetComponent<SmallIntestineLoadLevelCounter> ();	// to get a reference to the script on the background chooser
 
 		// draw the loading screen texture across the entire screen
-		GUI.DrawTexture (new Rect(0, 0, Screen.width, Screen.height), backgrounds [Mathf.Clamp(level.getLevel(), 0, level.getMaxLevels())]);
+		GUI.DrawTexture (new Rect(0, 0, Screen.width, Screen.height), backgrounds [level.isTutorial() ? 0 : Mathf.Clamp(level.getLevel(), 0, level.getMaxLevels())]);
 	}
 
 	/**
@@ -48,7 +48,7 @@ public class LoadSmallIntestine : MonoBehaviour
 			// if it has load the correct si level
 
 
-			if (level.getLevel() == 0)
+			if (level.getLevel() == 0 || level.isTutorial())
 			{
 				Application.LoadLevel("SmallIntestineTutorial");
 			} else if (level.getLevel() % 2 == 0)
