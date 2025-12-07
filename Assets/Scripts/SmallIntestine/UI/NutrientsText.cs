@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 /**
@@ -20,9 +21,11 @@ public class NutrientsText : MonoBehaviour
 	void Start () 
 	{
 		// set the font size relative to the screen size
-		GetComponent<GUIText>().fontSize = (int)(Screen.width * .02f) + 1;	
+		GetComponent<Text>().fontSize = (int)(Screen.width * .02f) + 1;	
 		// set the pixel offset relative to the screen size
-		GetComponent<GUIText>().pixelOffset = new Vector2 (.487f * Screen.height, .128f * Screen.width);
+		//GetComponent<Text>().pixelOffset = new Vector2 (.487f * Screen.height, .128f * Screen.width);
+		RectTransform rt = GetComponent<Text>().GetComponent<RectTransform>();
+		rt.anchoredPosition = new Vector2 (.487f * Screen.height, .128f * Screen.width);
 	}
 	
 	/**
@@ -33,19 +36,19 @@ public class NutrientsText : MonoBehaviour
 	{
 		if (setColorGreen)		// check if we gained nutrients and should change the text color green. 
 		{
-			GetComponent<GUIText>().color = Color.Lerp(nutrientGainColor, originalColor, Time.deltaTime);	// fade the color from this color to the original color
-		} else if (!setColorGreen && GetComponent<GUIText>().color.Equals(nutrientGainColor))					// otherwise we didn't gain nutrients and should change the text color white
+			GetComponent<Text>().color = Color.Lerp(nutrientGainColor, originalColor, Time.deltaTime);	// fade the color from this color to the original color
+		} else if (!setColorGreen && GetComponent<Text>().color.Equals(nutrientGainColor))					// otherwise we didn't gain nutrients and should change the text color white
 		{
-			GetComponent<GUIText>().color = Color.Lerp(originalColor, nutrientGainColor, Time.deltaTime);	// fade the color from green to white
+			GetComponent<Text>().color = Color.Lerp(originalColor, nutrientGainColor, Time.deltaTime);	// fade the color from green to white
 		}
 
 		// check if the color was green so we can mark to change it back to white
-		if (GetComponent<GUIText>().color.Equals(Color.green))
+		if (GetComponent<Text>().color.Equals(Color.green))
 		{
 			setColorGreen = false;
 		}
 
-		GetComponent<GUIText>().text = "NUTRIENTS: " + nutrients;	// what we want printed to the screen
+		GetComponent<Text>().text = "NUTRIENTS: " + nutrients;	// what we want printed to the screen
 	}
 
 	/**

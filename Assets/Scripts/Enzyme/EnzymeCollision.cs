@@ -37,7 +37,7 @@ public class EnzymeCollision : MonoBehaviour
 				// otherwise split or move the particle
 				Vector3 direction = collision.transform.position - transform.position;
 				direction.Normalize();
-				collision.rigidbody.velocity = direction * 10;
+				collision.rigidbody.linearVelocity = direction * 10;
 			}
 		}
 	}

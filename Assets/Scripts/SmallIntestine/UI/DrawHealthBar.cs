@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 /**
@@ -28,9 +29,11 @@ public class DrawHealthBar : MonoBehaviour
 	{
 		// update the pixel inset value for the health bar to set where it will draw
 		// height * percent will cause the bar to grow or shrink based on % of health remaining
-		GetComponent<GUITexture>().pixelInset = new Rect(healthRect.xMin, healthRect.yMin, 
-		                                 healthRect.width, percent*healthRect.height);
-	}
+		//GetComponent<RawImage>().pixelInset = new Rect(healthRect.xMin, healthRect.yMin, 
+		//                                healthRect.width, percent*healthRect.height);
+		RectTransform rt = GetComponent<RawImage>().GetComponent<RectTransform>();
+		rt.anchoredPosition = new Vector2(healthRect.xMin, healthRect.yMin);
+		rt.sizeDelta = new Vector2(healthRect.width, percent*healthRect.height);}
 
 	/**
 	 * function that can be used to change the variable holding the percentage of health remaining

@@ -23,7 +23,7 @@ public class LIGameMapMove : MonoBehaviour {
         offsetX = 718f;
         //Debug.Log(rb.position);
 
-            rb.velocity = new Vector2(-30, 0);
+            rb.linearVelocity = new Vector2(-30, 0);
 
     }
 }

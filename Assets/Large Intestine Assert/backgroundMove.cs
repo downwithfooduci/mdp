@@ -21,7 +21,7 @@ public class backgroundMove : MonoBehaviour {
         offsetX = 890f;
 		//Debug.Log (rb.position);
 		if (x > (-offsetX/5))
-			rb.velocity = new Vector2 (-30, 0);
+			rb.linearVelocity = new Vector2 (-30, 0);
 		else {
 			rb.position = new Vector2(rb.position.x+offsetX/5*2,rb.position.y);
 			//Debug.Log (rb.position);

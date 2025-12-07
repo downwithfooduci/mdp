@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 /**
@@ -33,7 +34,10 @@ public class Fats1Button : MonoBehaviour
 		buttonTop =  (Screen.height * 0.11f) - buttonHeight;	// set the top coordinate of the button relative to screen size
 
 		// pass the calculated button location into the pixelinset, which is where it is drawn
-		GetComponent<GUITexture>().pixelInset = new Rect(buttonLeft, buttonTop, buttonWidth, buttonHeight);
+		// GetComponent<RawImage>().pixelInset = new Rect(buttonLeft, buttonTop, buttonWidth, buttonHeight);
+		RectTransform rt = GetComponent<RawImage>().GetComponent<RectTransform>();
+		rt.anchoredPosition = new Vector2(buttonLeft, buttonTop);
+		rt.sizeDelta = new Vector2(buttonWidth, buttonHeight);
 
 		// find the reference to the towerSpawner
 		towerSpawner = GameObject.Find ("GUI").GetComponent<TowerSpawner> ();
@@ -53,16 +57,16 @@ public class Fats1Button : MonoBehaviour
 		if (towerSpawner.getGameManager().nutrients - towerSpawner.TOWER_BASE_COST < 0
 			|| Application.loadedLevelName == "SmallIntestineTutorial" && PlayerPrefs.GetInt("SIFatsTutorial") == 0) //PlayerPrefs.GetInt("SIStats_towersUpgraded") < 2)
 		{
-			GetComponent<GUITexture>().texture = inactiveTexture;				// when the button is inactive show the "inactive" texture
+			GetComponent<RawImage>().texture = inactiveTexture;				// when the button is inactive show the "inactive" texture
 			return;
-		} else if (GetComponent<GUITexture>().HitTest(Input.mousePosition) == true || 
-		           Input.touches.Length > 0 && GetComponent<GUITexture>().HitTest(Input.touches[0].position) == true)	// checks if we clicked on button
+		} else if (GetComponent<RawImage>().HitTest(Input.mousePosition) == true || 
+		           Input.touches.Length > 0 && GetComponent<RawImage>().HitTest(Input.touches[0].position) == true)	// checks if we clicked on button
 		{	
 			foreach (Touch touch in Input.touches) 
 			{
 				if (touch.phase == TouchPhase.Began) 
 				{
-					GetComponent<GUITexture>().texture = pressedTexture;		// if the button is being pressed draw the pressed texture
+					GetComponent<RawImage>().texture = pressedTexture;		// if the button is being pressed draw the pressed texture
 
 					// code to spawn towers
 					if (!towerSpawner.getIsSpawnActive())
@@ -76,7 +80,7 @@ public class Fats1Button : MonoBehaviour
 				if (touch.phase == TouchPhase.Ended) 
 				{
 					// when we aren't pressing a button then draw the "active" texture
-					GetComponent<GUITexture>().texture = activeTexture;
+					GetComponent<RawImage>().texture = activeTexture;
 				}
 			}
 
@@ -84,7 +88,7 @@ public class Fats1Button : MonoBehaviour
 #if UNITY_EDITOR || UNITY_STANDALONE_OSX || UNITY_STANDALONE_WIN
 			if(Input.GetMouseButtonDown(0))
 			{
-				GetComponent<GUITexture>().texture = pressedTexture;
+				GetComponent<RawImage>().texture = pressedTexture;
 				
 				// code to spawn towers
 				if (!towerSpawner.getIsSpawnActive())
@@ -95,15 +99,15 @@ public class Fats1Button : MonoBehaviour
 				}
 			}else if (Input.GetMouseButtonUp(0)) 
 			{
-				GetComponent<GUITexture>().texture = activeTexture;
+				GetComponent<RawImage>().texture = activeTexture;
 			} else
 			{
-				GetComponent<GUITexture>().texture = activeTexture;
+				GetComponent<RawImage>().texture = activeTexture;
 			}
 #endif
 		} else
 		{
-			GetComponent<GUITexture>().texture = activeTexture;
+			GetComponent<RawImage>().texture = activeTexture;
 		}
 	}
 }

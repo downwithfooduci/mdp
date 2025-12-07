@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 /**
@@ -13,6 +14,9 @@ public class DrawBottomSIBar : MonoBehaviour
 	void Start () 
 	{
 		// set the pixel inset relative to screen size
-		GetComponent<GUITexture>().pixelInset = new Rect(0, 0, Screen.width, Screen.height * 0.17578125f);
-	}
+		//GetComponent<Image>().pixelInset = new Rect(0, 0, Screen.width, Screen.height * 0.17578125f);
+		RectTransform rt = GetComponent<RawImage>().GetComponent<RectTransform>();
+		rt.anchoredPosition = new Vector2(0, 0);
+		rt.sizeDelta = new Vector2(Screen.width, Screen.height * 0.17578125f);
+	} 
 }

@@ -14,33 +14,33 @@ public class moveParticle : MonoBehaviour
 	void Update () 
 	{
 		// if the speed is too slow we give it a new speed
-		if(GetComponent<Rigidbody>().velocity.magnitude < .5)
+		if(GetComponent<Rigidbody>().linearVelocity.magnitude < .5)
 		{
-			GetComponent<Rigidbody>().velocity = new Vector3(Random.Range(-1, 2),Random.Range(-1,2),0);
+			GetComponent<Rigidbody>().linearVelocity = new Vector3(Random.Range(-1, 2),Random.Range(-1,2),0);
 		}
 
 		// collisions on the "walls" (left, right), make them bounce off of them
 		if(transform.position.x < -13.3)
 		{
 			transform.position += new Vector3(2, 0, 0);
-			GetComponent<Rigidbody>().velocity = new Vector3(30, 0, 0);
+			GetComponent<Rigidbody>().linearVelocity = new Vector3(30, 0, 0);
 		}
 		else if(transform.position.x > 13.3)
 		{
 			transform.position -= new Vector3(2, 0, 0);
-			GetComponent<Rigidbody>().velocity = new Vector3(-30, 0, 0);
+			GetComponent<Rigidbody>().linearVelocity = new Vector3(-30, 0, 0);
 		}
 
 		// collisions on the "walls" (top, bottom), make them bounce off of them
 		if(transform.position.y > 10)
 		{
 			transform.position += new Vector3(0, -2, 0);
-			GetComponent<Rigidbody>().velocity = new Vector3(0, -30, 0);
+			GetComponent<Rigidbody>().linearVelocity = new Vector3(0, -30, 0);
 		}
 		else if(transform.position.y < -10)
 		{
 			transform.position += new Vector3(0, 2, 0);
-			GetComponent<Rigidbody>().velocity = new Vector3(0, 30, 0);
+			GetComponent<Rigidbody>().linearVelocity = new Vector3(0, 30, 0);
 		}
 	}
 
@@ -51,9 +51,9 @@ public class moveParticle : MonoBehaviour
 	void OnCollisionExit(Collision collision)
 	{
 		// increase the speed if it's too slow
-		if(GetComponent<Rigidbody>().velocity.magnitude < 5)
+		if(GetComponent<Rigidbody>().linearVelocity.magnitude < 5)
 		{
-			GetComponent<Rigidbody>().velocity = 1.1f * GetComponent<Rigidbody>().velocity;
+			GetComponent<Rigidbody>().linearVelocity = 1.1f * GetComponent<Rigidbody>().linearVelocity;
 		}
 	}
 }

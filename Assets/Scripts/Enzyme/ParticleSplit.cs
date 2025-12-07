@@ -40,7 +40,7 @@ public class ParticleSplit : MonoBehaviour
 
 				// assign proper color, zero the velocity, and give each split child an impulse force to start moving
 				created.GetComponent<Renderer>().material.color = child.gameObject.GetComponent<Renderer>().material.color;
-				created.GetComponent<Rigidbody>().velocity = Vector3.zero;
+				created.GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
 				created.GetComponent<Rigidbody>().AddForce(created.transform.right * (10 * child.position.x), ForceMode.Impulse);
 			}
 		}

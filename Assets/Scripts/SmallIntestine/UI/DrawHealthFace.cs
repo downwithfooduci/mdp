@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 /**
@@ -20,7 +21,10 @@ public class DrawHealthFace : MonoBehaviour
 		faceRect = new Rect (Screen.width * .864f, Screen.height * 0.14f - Screen.height * 0.102864583f, 
 		                     Screen.width * 0.078125f, Screen.height * 0.102864583f);
 		// assign the dimensions to the pixel inset so that the image will actually be drawn in the desired region
-		GetComponent<GUITexture>().pixelInset = faceRect;
+		//GetComponent<RawImage>().pixelInset = faceRect;
+		RectTransform rt = GetComponent<RawImage>().GetComponent<RectTransform>();
+		rt.anchoredPosition = new Vector2(faceRect.xMin, faceRect.yMin);
+		rt.sizeDelta = new Vector2(faceRect.width, faceRect.height);
 	}
 	
 	/**
@@ -29,7 +33,7 @@ public class DrawHealthFace : MonoBehaviour
 	 */
 	void Update () 
 	{
-		GetComponent<GUITexture>().texture = faces [index];		// update the current texture being displayed
+		GetComponent<RawImage>().texture = faces [index];		// update the current texture being displayed
 	}
 
 	/**

@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 /**
@@ -49,15 +50,15 @@ public class HUDFPS : MonoBehaviour
 				float fps = accum / frames;
 				// display the fps
 				string format = System.String.Format ("{0:F2} FPS", fps);
-				GetComponent<GUIText>().text = format;
+				GetComponent<Text>().text = format;
 			
 				// color display text based on FR "quality"
 				if (fps < 30)
-					GetComponent<GUIText>().material.color = Color.yellow;
+					GetComponent<Text>().material.color = Color.yellow;
 				else if (fps < 10)
-					GetComponent<GUIText>().material.color = Color.red;
+					GetComponent<Text>().material.color = Color.red;
 				else
-					GetComponent<GUIText>().material.color = Color.green;
+					GetComponent<Text>().material.color = Color.green;
 
 				timeleft = updateInterval;
 				accum = 0.0F;
@@ -67,7 +68,7 @@ public class HUDFPS : MonoBehaviour
 		{
 			// just leave the string blank when we don't want to display the fps
 			string format = System.String.Format ("");
-			GetComponent<GUIText>().text = format;
+			GetComponent<Text>().text = format;
 		}
 	}
 }
