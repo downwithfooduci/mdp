@@ -36,9 +36,9 @@ public class DrawHealthBar : MonoBehaviour
 		rt.anchoredPosition = new Vector2(healthRect.xMin, healthRect.yMin);
 		rt.sizeDelta = new Vector2(healthRect.width, percent*healthRect.height);
 		*/
-		RectTransform rt = GetComponent<RectTransform>();
-		rt.anchoredPosition = new Vector2(healthRect.xMin, healthRect.yMin);
-		rt.sizeDelta = new Vector2(healthRect.width, percent*healthRect.height);
+
+		var rt  = GetComponent<RectTransform>();
+		rt.SetBottomLeftRect(new Rect(new Vector2(healthRect.xMin, healthRect.yMin), new Vector2(healthRect.width, percent*healthRect.height)));
 	}
 
 	/**

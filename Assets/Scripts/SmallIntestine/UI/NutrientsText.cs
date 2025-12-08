@@ -20,12 +20,29 @@ public class NutrientsText : MonoBehaviour
 	 */
 	void Start () 
 	{
+		/*
 		// set the font size relative to the screen size
 		GetComponent<Text>().fontSize = (int)(Screen.width * .02f) + 1;	
 		// set the pixel offset relative to the screen size
 		//GetComponent<Text>().pixelOffset = new Vector2 (.487f * Screen.height, .128f * Screen.width);
 		RectTransform rt = GetComponent<Text>().GetComponent<RectTransform>();
-		rt.anchoredPosition = new Vector2 (.487f * Screen.height, .128f * Screen.width);
+		*/
+
+		var txt = GetComponent<Text>();
+        var rt  = txt.rectTransform;
+
+        // 1) font size scaling – this part is fine
+        txt.fontSize = (int)(Screen.width * 0.02f) + 1;
+        // 2) lock anchors & pivot so coords are in pixels from bottom-left
+        rt.anchorMin = rt.anchorMax = new Vector2(0f, 0f); // bottom-left
+        rt.pivot     = new Vector2(0f, 0f);                // pivot bottom-left
+
+        // 3) use the same formula you used for pixelOffset
+        float x = 0.487f * Screen.height;  // (yes, keep your existing formula)
+        float y = 0.128f * Screen.width;
+
+        rt.anchoredPosition = new Vector2(x, y);
+
 	}
 	
 	/**

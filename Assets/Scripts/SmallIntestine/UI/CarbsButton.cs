@@ -36,10 +36,8 @@ public class CarbsButton : MonoBehaviour
 		buttonLeft = Screen.width * 0.0148f + 3*(buttonWidth + buttonSpacing);	// set the button left coordinate relative to screen size
 
 		// pass the calculated button location into the pixelinset, which is where it is drawn
-		//GetComponent<RawImage>().pixelInset = new Rect(buttonLeft, buttonTop, buttonWidth, buttonHeight);
-		RectTransform rt = GetComponent<RawImage>().GetComponent<RectTransform>();
-		rt.anchoredPosition = new Vector2(buttonLeft, buttonTop);
-		rt.sizeDelta = new Vector2(buttonWidth, buttonHeight);
+		var rt  = GetComponent<RectTransform>();
+		rt.SetBottomLeftRect(new Rect(new Vector2(buttonLeft, buttonTop), new Vector2(buttonWidth, buttonHeight)));
 
 		// find the reference to the towerSpawner
 		towerSpawner = GameObject.Find ("GUI").GetComponent<TowerSpawner> ();
