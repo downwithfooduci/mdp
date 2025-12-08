@@ -56,6 +56,8 @@ public class Fats2Button : MonoBehaviour
 		// if there are enough nutrients we draw the normal texture
 		// however if we are in the tutorial we have to make sure two protein towers are placed before we allow
 		// any fats2 towers to be placed
+		Debug.Log("Nutrients: " + towerSpawner.getGameManager().nutrients);
+		Debug.Log("Tower Cost: " + towerSpawner.TOWER_BASE_COST);
 		if (towerSpawner.getGameManager().nutrients - towerSpawner.TOWER_BASE_COST < 0
 			|| Application.loadedLevelName == "SmallIntestineTutorial" && PlayerPrefs.GetInt("SIFatsTutorial") == 0)//PlayerPrefs.GetInt("SIStats_towersUpgraded") < 2)
 		{

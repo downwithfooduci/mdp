@@ -31,9 +31,15 @@ public class DrawHealthBar : MonoBehaviour
 		// height * percent will cause the bar to grow or shrink based on % of health remaining
 		//GetComponent<RawImage>().pixelInset = new Rect(healthRect.xMin, healthRect.yMin, 
 		//                                healthRect.width, percent*healthRect.height);
+		/*
 		RectTransform rt = GetComponent<RawImage>().GetComponent<RectTransform>();
 		rt.anchoredPosition = new Vector2(healthRect.xMin, healthRect.yMin);
-		rt.sizeDelta = new Vector2(healthRect.width, percent*healthRect.height);}
+		rt.sizeDelta = new Vector2(healthRect.width, percent*healthRect.height);
+		*/
+		RectTransform rt = GetComponent<RectTransform>();
+		rt.anchoredPosition = new Vector2(healthRect.xMin, healthRect.yMin);
+		rt.sizeDelta = new Vector2(healthRect.width, percent*healthRect.height);
+	}
 
 	/**
 	 * function that can be used to change the variable holding the percentage of health remaining

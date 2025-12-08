@@ -179,6 +179,8 @@ public class TowerSpawner : MonoBehaviour
 	 */
 	public IntestineGameManager getGameManager()
 	{
+		Debug.Log("Returning Game Manager from Tower Spawner");
+		Debug.Log("Game Manager Nutrients: " + m_GameManager.nutrients);
 		return m_GameManager;
 	}
 }
