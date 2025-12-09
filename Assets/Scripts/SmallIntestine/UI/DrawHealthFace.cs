@@ -22,9 +22,9 @@ public class DrawHealthFace : MonoBehaviour
 		                     Screen.width * 0.078125f, Screen.height * 0.102864583f);
 		// assign the dimensions to the pixel inset so that the image will actually be drawn in the desired region
 		//GetComponent<RawImage>().pixelInset = faceRect;
-		RectTransform rt = GetComponent<RawImage>().GetComponent<RectTransform>();
-		rt.anchoredPosition = new Vector2(faceRect.xMin, faceRect.yMin);
-		rt.sizeDelta = new Vector2(faceRect.width, faceRect.height);
+
+		var rt  = GetComponent<RectTransform>();
+		rt.SetBottomLeftRect(new Rect(new Vector2(faceRect.xMin, faceRect.yMin), new Vector2(faceRect.width, faceRect.height)));
 	}
 	
 	/**
