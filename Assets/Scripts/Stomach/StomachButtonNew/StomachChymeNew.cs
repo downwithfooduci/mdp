@@ -9,8 +9,9 @@ public class StomachChymeNew : MonoBehaviour {
 
 
     private int x = 0;
-    private int counter = 0;
-    public int ImSpeed;
+    private float timer = 0f;                 // accumulates Time.deltaTime
+    public float secondsPerFrame = 0.1f;      // seconds between sprite frames (use inspector to tune)
+    public int ImSpeed; // kept for compatibility but no longer used for timing
 
     public Sprite[] AcidChymeImage;
     public Sprite[] BasicChymeImage;
@@ -41,39 +42,37 @@ public class StomachChymeNew : MonoBehaviour {
     }
 	
 	// Update is called once per frame
-	void Update () {
+    void Update () {
 
-        //acidityLevel = acidHeight.anchoredPosition.y;
+        // choose current sprite array based on acid level
+        if (gm == null || i == null)
+            return;
 
-        if (gm.getCurrentAcidLevel()=="acidic")
+        Sprite[] currentArray = BasicChymeImage;
+        string level = gm.getCurrentAcidLevel();
+        if (level == "acidic")
         {
-            i.sprite = AcidChymeImage[x];
-            //gm.setCurrentAcidLevel("acidic");
-            counter++;
+            currentArray = AcidChymeImage;
         }
-        else if (gm.getCurrentAcidLevel() == "neutral")
+        else if (level == "neutral")
         {
-            i.sprite = NeutralChymeImage[x];
-            //gm.setCurrentAcidLevel("neutral");
-            counter++;
-        }
-        else 
-        {
-            i.sprite = BasicChymeImage[x];
-            //gm.setCurrentAcidLevel("basic");
-            counter++;
+            currentArray = NeutralChymeImage;
         }
 
-        if (counter > ImSpeed)
+        int len = (currentArray != null) ? currentArray.Length : 0;
+        if (len > 0)
         {
-            counter = 0;
-            x++;
-            if (x > 9)
+            // set current sprite (clamped by array length)
+            i.sprite = currentArray[x % len];
+
+            // advance timer using deltaTime so animation speed is platform-independent
+            timer += Time.deltaTime;
+            if (timer >= secondsPerFrame)
             {
-                x = 0;
+                timer -= secondsPerFrame;
+                x = (x + 1) % len;
             }
         }
-
 
     }
 }
